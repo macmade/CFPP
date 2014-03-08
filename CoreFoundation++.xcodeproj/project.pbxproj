@@ -1,0 +1,1010 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		056C881618C8B891006260B3 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F218C8B22E006260B3 /* CFPP-Type.cpp */; };
+		056C881718C8BCFC006260B3 /* CFPP-Array.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DD18C8B22E006260B3 /* CFPP-Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C881818C8BCFC006260B3 /* CFPP-Boolean.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DE18C8B22E006260B3 /* CFPP-Boolean.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C881918C8BCFC006260B3 /* CFPP-Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DF18C8B22E006260B3 /* CFPP-Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C881A18C8BCFC006260B3 /* CFPP-Date.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E018C8B22E006260B3 /* CFPP-Date.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C881B18C8BCFC006260B3 /* CFPP-Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E118C8B22E006260B3 /* CFPP-Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C881C18C8BCFC006260B3 /* CFPP-Number.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E318C8B22E006260B3 /* CFPP-Number.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C881D18C8BCFC006260B3 /* CFPP-Pair.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E218C8B22E006260B3 /* CFPP-Pair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C881E18C8BCFC006260B3 /* CFPP-String.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E418C8B22E006260B3 /* CFPP-String.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C881F18C8BCFC006260B3 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E518C8B22E006260B3 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C882018C8BCFC006260B3 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E618C8B22E006260B3 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C882118C8BCFC006260B3 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E718C8B22E006260B3 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C884118C8C232006260B3 /* libCF++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libCF++.a */; };
+		056C884218C8C26A006260B3 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */; };
+		056C884518C8C471006260B3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C884418C8C471006260B3 /* main.cpp */; };
+		056C885018C8C58D006260B3 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */; };
+		056C885118C8C58D006260B3 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F218C8B22E006260B3 /* CFPP-Type.cpp */; };
+		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
+		056C888B18C8C7E8006260B3 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */; };
+		056C888C18C8C7E8006260B3 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F218C8B22E006260B3 /* CFPP-Type.cpp */; };
+		056C888F18C8C862006260B3 /* CFPP-Array.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DD18C8B22E006260B3 /* CFPP-Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889018C8C862006260B3 /* CFPP-Boolean.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DE18C8B22E006260B3 /* CFPP-Boolean.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889118C8C862006260B3 /* CFPP-Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DF18C8B22E006260B3 /* CFPP-Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889218C8C862006260B3 /* CFPP-Date.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E018C8B22E006260B3 /* CFPP-Date.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889318C8C862006260B3 /* CFPP-Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E118C8B22E006260B3 /* CFPP-Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889418C8C862006260B3 /* CFPP-Number.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E318C8B22E006260B3 /* CFPP-Number.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889518C8C862006260B3 /* CFPP-Pair.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E218C8B22E006260B3 /* CFPP-Pair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889618C8C862006260B3 /* CFPP-String.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E418C8B22E006260B3 /* CFPP-String.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889718C8C862006260B3 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E518C8B22E006260B3 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889818C8C862006260B3 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E618C8B22E006260B3 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889918C8C862006260B3 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E718C8B22E006260B3 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889A18C8C863006260B3 /* CFPP-Array.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DD18C8B22E006260B3 /* CFPP-Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889B18C8C863006260B3 /* CFPP-Boolean.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DE18C8B22E006260B3 /* CFPP-Boolean.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889C18C8C863006260B3 /* CFPP-Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DF18C8B22E006260B3 /* CFPP-Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889D18C8C863006260B3 /* CFPP-Date.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E018C8B22E006260B3 /* CFPP-Date.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889E18C8C863006260B3 /* CFPP-Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E118C8B22E006260B3 /* CFPP-Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C889F18C8C863006260B3 /* CFPP-Number.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E318C8B22E006260B3 /* CFPP-Number.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C88A018C8C863006260B3 /* CFPP-Pair.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E218C8B22E006260B3 /* CFPP-Pair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C88A118C8C863006260B3 /* CFPP-String.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E418C8B22E006260B3 /* CFPP-String.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C88A218C8C863006260B3 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E518C8B22E006260B3 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C88A318C8C863006260B3 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E618C8B22E006260B3 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C88A418C8C863006260B3 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E718C8B22E006260B3 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
+		056C88CF18C8C921006260B3 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */; };
+		056C88D018C8C921006260B3 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F218C8B22E006260B3 /* CFPP-Type.cpp */; };
+		056C88D418C8CB9A006260B3 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F118C8B22E006260B3 /* CFPP-String.cpp */; };
+		056C88D518C8CB9B006260B3 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F118C8B22E006260B3 /* CFPP-String.cpp */; };
+		056C88D618C8CB9B006260B3 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F118C8B22E006260B3 /* CFPP-String.cpp */; };
+		056C88D718C8CB9C006260B3 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F118C8B22E006260B3 /* CFPP-String.cpp */; };
+		056C88D818C8CE32006260B3 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F018C8B22E006260B3 /* CFPP-Number.cpp */; };
+		056C88D918C8CE33006260B3 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F018C8B22E006260B3 /* CFPP-Number.cpp */; };
+		056C88DA18C8CE33006260B3 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F018C8B22E006260B3 /* CFPP-Number.cpp */; };
+		056C88DB18C8CE34006260B3 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F018C8B22E006260B3 /* CFPP-Number.cpp */; };
+		056C88DE18C8D56C006260B3 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */; };
+		056C88DF18C8D56D006260B3 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */; };
+		056C88E018C8D56D006260B3 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */; };
+		056C88E118C8D56E006260B3 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */; };
+		056C88E218C8D649006260B3 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */; };
+		056C88E318C8D649006260B3 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */; };
+		056C88E418C8D64A006260B3 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */; };
+		056C88E518C8D64A006260B3 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */; };
+		056C88E618C8D850006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
+		056C88E718C8DBFF006260B3 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */; };
+		056C88E818C8DBFF006260B3 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */; };
+		056C88E918C8DC00006260B3 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */; };
+		056C88EA18C8DC00006260B3 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */; };
+		056C88EB18C8DCED006260B3 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */; };
+		056C88EC18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */; };
+		056C88ED18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */; };
+		056C88EE18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */; };
+		056C88EF18C8DF82006260B3 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */; };
+		056C88F018C8DF82006260B3 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F318C8B22E006260B3 /* CFPP-URL.cpp */; };
+		056C88F118C8DF83006260B3 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */; };
+		056C88F218C8DF83006260B3 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F318C8B22E006260B3 /* CFPP-URL.cpp */; };
+		056C88F318C8DF83006260B3 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */; };
+		056C88F418C8DF83006260B3 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F318C8B22E006260B3 /* CFPP-URL.cpp */; };
+		056C88F518C8DF84006260B3 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */; };
+		056C88F618C8DF84006260B3 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F318C8B22E006260B3 /* CFPP-URL.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		056C883F18C8C22E006260B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 056C881118C8B85F006260B3;
+			remoteInfo = "CF++";
+		};
+		056C884E18C8C577006260B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 056C884918C8C547006260B3;
+			remoteInfo = "CF++ Mac Synamic Library";
+		};
+		056C888D18C8C7F0006260B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 056C885E18C8C76B006260B3;
+			remoteInfo = "CF++";
+		};
+		056C88D118C8C93C006260B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 056C88A918C8C8AC006260B3;
+			remoteInfo = "CF++ iOS Static Library";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		056C87CC18C8B0F8006260B3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		056C88A818C8C8AC006260B3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		056C87CE18C8B0F8006260B3 /* Testing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Testing; sourceTree = BUILT_PRODUCTS_DIR; };
+		056C87DD18C8B22E006260B3 /* CFPP-Array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Array.h"; sourceTree = "<group>"; };
+		056C87DE18C8B22E006260B3 /* CFPP-Boolean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Boolean.h"; sourceTree = "<group>"; };
+		056C87DF18C8B22E006260B3 /* CFPP-Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Data.h"; sourceTree = "<group>"; };
+		056C87E018C8B22E006260B3 /* CFPP-Date.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Date.h"; sourceTree = "<group>"; };
+		056C87E118C8B22E006260B3 /* CFPP-Dictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Dictionary.h"; sourceTree = "<group>"; };
+		056C87E218C8B22E006260B3 /* CFPP-Pair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Pair.h"; sourceTree = "<group>"; };
+		056C87E318C8B22E006260B3 /* CFPP-Number.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Number.h"; sourceTree = "<group>"; };
+		056C87E418C8B22E006260B3 /* CFPP-String.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-String.h"; sourceTree = "<group>"; };
+		056C87E518C8B22E006260B3 /* CFPP-Type.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Type.h"; sourceTree = "<group>"; };
+		056C87E618C8B22E006260B3 /* CFPP-URL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-URL.h"; sourceTree = "<group>"; };
+		056C87E718C8B22E006260B3 /* CF++.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CF++.h"; sourceTree = "<group>"; };
+		056C87E818C8B22E006260B3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Array.cpp"; sourceTree = "<group>"; };
+		056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Boolean.cpp"; sourceTree = "<group>"; };
+		056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Data.cpp"; sourceTree = "<group>"; };
+		056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Date.cpp"; sourceTree = "<group>"; };
+		056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Dictionary.cpp"; sourceTree = "<group>"; };
+		056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Pair.cpp"; sourceTree = "<group>"; };
+		056C87F018C8B22E006260B3 /* CFPP-Number.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Number.cpp"; sourceTree = "<group>"; };
+		056C87F118C8B22E006260B3 /* CFPP-String.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-String.cpp"; sourceTree = "<group>"; };
+		056C87F218C8B22E006260B3 /* CFPP-Type.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Type.cpp"; sourceTree = "<group>"; };
+		056C87F318C8B22E006260B3 /* CFPP-URL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-URL.cpp"; sourceTree = "<group>"; };
+		056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		056C881218C8B85F006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		056C884418C8C471006260B3 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		056C884A18C8C547006260B3 /* libCF++.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libCF++.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		056C885718C8C67C006260B3 /* Clang-Warnings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Clang-Warnings.h"; sourceTree = "<group>"; };
+		056C885F18C8C76B006260B3 /* CF++.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "CF++.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		056C888918C8C7CC006260B3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		056C88AA18C8C8AC006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		056C87CB18C8B0F8006260B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C88E618C8D850006260B3 /* CoreFoundation.framework in Frameworks */,
+				056C884118C8C232006260B3 /* libCF++.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		056C880F18C8B85F006260B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		056C884718C8C547006260B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		056C885B18C8C76B006260B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		056C88A718C8C8AC006260B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		056C87C518C8B0F8006260B3 = {
+			isa = PBXGroup;
+			children = (
+				056C87DA18C8B22E006260B3 /* CF++ */,
+				056C884318C8C471006260B3 /* CF++ Testing */,
+				056C880D18C8B50E006260B3 /* Frameworks */,
+				056C87CF18C8B0F8006260B3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		056C87CF18C8B0F8006260B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				056C87CE18C8B0F8006260B3 /* Testing */,
+				056C881218C8B85F006260B3 /* libCF++.a */,
+				056C884A18C8C547006260B3 /* libCF++.dylib */,
+				056C885F18C8C76B006260B3 /* CF++.framework */,
+				056C88AA18C8C8AC006260B3 /* libCF++.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		056C87DA18C8B22E006260B3 /* CF++ */ = {
+			isa = PBXGroup;
+			children = (
+				056C87DB18C8B22E006260B3 /* include */,
+				056C87E918C8B22E006260B3 /* source */,
+				056C888918C8C7CC006260B3 /* Info.plist */,
+				056C87E818C8B22E006260B3 /* PrefixHeader.pch */,
+				056C885718C8C67C006260B3 /* Clang-Warnings.h */,
+			);
+			path = "CF++";
+			sourceTree = "<group>";
+		};
+		056C87DB18C8B22E006260B3 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				056C87DC18C8B22E006260B3 /* CF++ */,
+				056C87E718C8B22E006260B3 /* CF++.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		056C87DC18C8B22E006260B3 /* CF++ */ = {
+			isa = PBXGroup;
+			children = (
+				056C87DD18C8B22E006260B3 /* CFPP-Array.h */,
+				056C87DE18C8B22E006260B3 /* CFPP-Boolean.h */,
+				056C87DF18C8B22E006260B3 /* CFPP-Data.h */,
+				056C87E018C8B22E006260B3 /* CFPP-Date.h */,
+				056C87E118C8B22E006260B3 /* CFPP-Dictionary.h */,
+				056C87E318C8B22E006260B3 /* CFPP-Number.h */,
+				056C87E218C8B22E006260B3 /* CFPP-Pair.h */,
+				056C87E418C8B22E006260B3 /* CFPP-String.h */,
+				056C87E518C8B22E006260B3 /* CFPP-Type.h */,
+				056C87E618C8B22E006260B3 /* CFPP-URL.h */,
+			);
+			path = "CF++";
+			sourceTree = "<group>";
+		};
+		056C87E918C8B22E006260B3 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */,
+				056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */,
+				056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */,
+				056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */,
+				056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */,
+				056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */,
+				056C87F018C8B22E006260B3 /* CFPP-Number.cpp */,
+				056C87F118C8B22E006260B3 /* CFPP-String.cpp */,
+				056C87F218C8B22E006260B3 /* CFPP-Type.cpp */,
+				056C87F318C8B22E006260B3 /* CFPP-URL.cpp */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		056C880D18C8B50E006260B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		056C884318C8C471006260B3 /* CF++ Testing */ = {
+			isa = PBXGroup;
+			children = (
+				056C884418C8C471006260B3 /* main.cpp */,
+			);
+			path = "CF++ Testing";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		056C881018C8B85F006260B3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C881D18C8BCFC006260B3 /* CFPP-Pair.h in Headers */,
+				056C881718C8BCFC006260B3 /* CFPP-Array.h in Headers */,
+				056C881918C8BCFC006260B3 /* CFPP-Data.h in Headers */,
+				056C881F18C8BCFC006260B3 /* CFPP-Type.h in Headers */,
+				056C881A18C8BCFC006260B3 /* CFPP-Date.h in Headers */,
+				056C881C18C8BCFC006260B3 /* CFPP-Number.h in Headers */,
+				056C881E18C8BCFC006260B3 /* CFPP-String.h in Headers */,
+				056C882118C8BCFC006260B3 /* CF++.h in Headers */,
+				056C881818C8BCFC006260B3 /* CFPP-Boolean.h in Headers */,
+				056C882018C8BCFC006260B3 /* CFPP-URL.h in Headers */,
+				056C881B18C8BCFC006260B3 /* CFPP-Dictionary.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		056C884818C8C547006260B3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C889718C8C862006260B3 /* CFPP-Type.h in Headers */,
+				056C889818C8C862006260B3 /* CFPP-URL.h in Headers */,
+				056C889618C8C862006260B3 /* CFPP-String.h in Headers */,
+				056C889318C8C862006260B3 /* CFPP-Dictionary.h in Headers */,
+				056C889118C8C862006260B3 /* CFPP-Data.h in Headers */,
+				056C889218C8C862006260B3 /* CFPP-Date.h in Headers */,
+				056C889018C8C862006260B3 /* CFPP-Boolean.h in Headers */,
+				056C889918C8C862006260B3 /* CF++.h in Headers */,
+				056C889518C8C862006260B3 /* CFPP-Pair.h in Headers */,
+				056C889418C8C862006260B3 /* CFPP-Number.h in Headers */,
+				056C888F18C8C862006260B3 /* CFPP-Array.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		056C885C18C8C76B006260B3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C88A218C8C863006260B3 /* CFPP-Type.h in Headers */,
+				056C88A318C8C863006260B3 /* CFPP-URL.h in Headers */,
+				056C88A118C8C863006260B3 /* CFPP-String.h in Headers */,
+				056C889E18C8C863006260B3 /* CFPP-Dictionary.h in Headers */,
+				056C889C18C8C863006260B3 /* CFPP-Data.h in Headers */,
+				056C889D18C8C863006260B3 /* CFPP-Date.h in Headers */,
+				056C889B18C8C863006260B3 /* CFPP-Boolean.h in Headers */,
+				056C88A418C8C863006260B3 /* CF++.h in Headers */,
+				056C88A018C8C863006260B3 /* CFPP-Pair.h in Headers */,
+				056C889F18C8C863006260B3 /* CFPP-Number.h in Headers */,
+				056C889A18C8C863006260B3 /* CFPP-Array.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		056C87CD18C8B0F8006260B3 /* CF++ Testing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 056C87D718C8B0F8006260B3 /* Build configuration list for PBXNativeTarget "CF++ Testing" */;
+			buildPhases = (
+				056C87CA18C8B0F8006260B3 /* Sources */,
+				056C87CB18C8B0F8006260B3 /* Frameworks */,
+				056C87CC18C8B0F8006260B3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				056C884018C8C22E006260B3 /* PBXTargetDependency */,
+				056C884F18C8C577006260B3 /* PBXTargetDependency */,
+				056C888E18C8C7F0006260B3 /* PBXTargetDependency */,
+				056C88D218C8C93C006260B3 /* PBXTargetDependency */,
+			);
+			name = "CF++ Testing";
+			productName = Testing;
+			productReference = 056C87CE18C8B0F8006260B3 /* Testing */;
+			productType = "com.apple.product-type.tool";
+		};
+		056C881118C8B85F006260B3 /* CF++ Mac Static Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 056C881318C8B85F006260B3 /* Build configuration list for PBXNativeTarget "CF++ Mac Static Library" */;
+			buildPhases = (
+				056C880E18C8B85F006260B3 /* Sources */,
+				056C880F18C8B85F006260B3 /* Frameworks */,
+				056C881018C8B85F006260B3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CF++ Mac Static Library";
+			productName = "CF++";
+			productReference = 056C881218C8B85F006260B3 /* libCF++.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		056C884918C8C547006260B3 /* CF++ Mac Dynamic Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 056C884B18C8C547006260B3 /* Build configuration list for PBXNativeTarget "CF++ Mac Dynamic Library" */;
+			buildPhases = (
+				056C884618C8C547006260B3 /* Sources */,
+				056C884718C8C547006260B3 /* Frameworks */,
+				056C884818C8C547006260B3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CF++ Mac Dynamic Library";
+			productName = "CF++";
+			productReference = 056C884A18C8C547006260B3 /* libCF++.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		056C885E18C8C76B006260B3 /* CF++ Mac Framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 056C888318C8C76C006260B3 /* Build configuration list for PBXNativeTarget "CF++ Mac Framework" */;
+			buildPhases = (
+				056C885A18C8C76B006260B3 /* Sources */,
+				056C885B18C8C76B006260B3 /* Frameworks */,
+				056C885C18C8C76B006260B3 /* Headers */,
+				056C885D18C8C76B006260B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CF++ Mac Framework";
+			productName = "CF++";
+			productReference = 056C885F18C8C76B006260B3 /* CF++.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		056C88A918C8C8AC006260B3 /* CF++ iOS Static Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 056C88C918C8C8AD006260B3 /* Build configuration list for PBXNativeTarget "CF++ iOS Static Library" */;
+			buildPhases = (
+				056C88A618C8C8AC006260B3 /* Sources */,
+				056C88A718C8C8AC006260B3 /* Frameworks */,
+				056C88A818C8C8AC006260B3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CF++ iOS Static Library";
+			productName = "CF++";
+			productReference = 056C88AA18C8C8AC006260B3 /* libCF++.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		056C87C618C8B0F8006260B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "XS-Labs";
+			};
+			buildConfigurationList = 056C87C918C8B0F8006260B3 /* Build configuration list for PBXProject "CoreFoundation++" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 056C87C518C8B0F8006260B3;
+			productRefGroup = 056C87CF18C8B0F8006260B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				056C87CD18C8B0F8006260B3 /* CF++ Testing */,
+				056C881118C8B85F006260B3 /* CF++ Mac Static Library */,
+				056C884918C8C547006260B3 /* CF++ Mac Dynamic Library */,
+				056C885E18C8C76B006260B3 /* CF++ Mac Framework */,
+				056C88A918C8C8AC006260B3 /* CF++ iOS Static Library */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		056C885D18C8C76B006260B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		056C87CA18C8B0F8006260B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C884518C8C471006260B3 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		056C880E18C8B85F006260B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C88F518C8DF84006260B3 /* CFPP-Data.cpp in Sources */,
+				056C88EB18C8DCED006260B3 /* CFPP-Pair.cpp in Sources */,
+				056C88F618C8DF84006260B3 /* CFPP-URL.cpp in Sources */,
+				056C881618C8B891006260B3 /* CFPP-Type.cpp in Sources */,
+				056C884218C8C26A006260B3 /* CFPP-Boolean.cpp in Sources */,
+				056C88E118C8D56E006260B3 /* CFPP-Date.cpp in Sources */,
+				056C88D418C8CB9A006260B3 /* CFPP-String.cpp in Sources */,
+				056C88EA18C8DC00006260B3 /* CFPP-Dictionary.cpp in Sources */,
+				056C88E218C8D649006260B3 /* CFPP-Array.cpp in Sources */,
+				056C88D818C8CE32006260B3 /* CFPP-Number.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		056C884618C8C547006260B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C88F318C8DF83006260B3 /* CFPP-Data.cpp in Sources */,
+				056C88EC18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */,
+				056C88F418C8DF83006260B3 /* CFPP-URL.cpp in Sources */,
+				056C885118C8C58D006260B3 /* CFPP-Type.cpp in Sources */,
+				056C885018C8C58D006260B3 /* CFPP-Boolean.cpp in Sources */,
+				056C88E018C8D56D006260B3 /* CFPP-Date.cpp in Sources */,
+				056C88D518C8CB9B006260B3 /* CFPP-String.cpp in Sources */,
+				056C88E918C8DC00006260B3 /* CFPP-Dictionary.cpp in Sources */,
+				056C88E318C8D649006260B3 /* CFPP-Array.cpp in Sources */,
+				056C88D918C8CE33006260B3 /* CFPP-Number.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		056C885A18C8C76B006260B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C88F118C8DF83006260B3 /* CFPP-Data.cpp in Sources */,
+				056C88ED18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */,
+				056C88F218C8DF83006260B3 /* CFPP-URL.cpp in Sources */,
+				056C888C18C8C7E8006260B3 /* CFPP-Type.cpp in Sources */,
+				056C888B18C8C7E8006260B3 /* CFPP-Boolean.cpp in Sources */,
+				056C88DF18C8D56D006260B3 /* CFPP-Date.cpp in Sources */,
+				056C88D618C8CB9B006260B3 /* CFPP-String.cpp in Sources */,
+				056C88E818C8DBFF006260B3 /* CFPP-Dictionary.cpp in Sources */,
+				056C88E418C8D64A006260B3 /* CFPP-Array.cpp in Sources */,
+				056C88DA18C8CE33006260B3 /* CFPP-Number.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		056C88A618C8C8AC006260B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C88EF18C8DF82006260B3 /* CFPP-Data.cpp in Sources */,
+				056C88EE18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */,
+				056C88F018C8DF82006260B3 /* CFPP-URL.cpp in Sources */,
+				056C88D018C8C921006260B3 /* CFPP-Type.cpp in Sources */,
+				056C88CF18C8C921006260B3 /* CFPP-Boolean.cpp in Sources */,
+				056C88DE18C8D56C006260B3 /* CFPP-Date.cpp in Sources */,
+				056C88D718C8CB9C006260B3 /* CFPP-String.cpp in Sources */,
+				056C88E718C8DBFF006260B3 /* CFPP-Dictionary.cpp in Sources */,
+				056C88E518C8D64A006260B3 /* CFPP-Array.cpp in Sources */,
+				056C88DB18C8CE34006260B3 /* CFPP-Number.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		056C884018C8C22E006260B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 056C881118C8B85F006260B3 /* CF++ Mac Static Library */;
+			targetProxy = 056C883F18C8C22E006260B3 /* PBXContainerItemProxy */;
+		};
+		056C884F18C8C577006260B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 056C884918C8C547006260B3 /* CF++ Mac Dynamic Library */;
+			targetProxy = 056C884E18C8C577006260B3 /* PBXContainerItemProxy */;
+		};
+		056C888E18C8C7F0006260B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 056C885E18C8C76B006260B3 /* CF++ Mac Framework */;
+			targetProxy = 056C888D18C8C7F0006260B3 /* PBXContainerItemProxy */;
+		};
+		056C88D218C8C93C006260B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 056C88A918C8C8AC006260B3 /* CF++ iOS Static Library */;
+			targetProxy = 056C88D118C8C93C006260B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		056C87D518C8B0F8006260B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
+				CLANG_ANALYZER_GCD = YES;
+				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
+				CLANG_ANALYZER_OBJC_ATSYNC = YES;
+				CLANG_ANALYZER_OBJC_COLLECTIONS = YES;
+				CLANG_ANALYZER_OBJC_INCOMP_METHOD_TYPES = YES;
+				CLANG_ANALYZER_OBJC_NSCFERROR = YES;
+				CLANG_ANALYZER_OBJC_RETAIN_COUNT = YES;
+				CLANG_ANALYZER_OBJC_SELF_INIT = YES;
+				CLANG_ANALYZER_OBJC_UNUSED_IVARS = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_MKSTEMP = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = YES;
+				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++98";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_STATIC_ANALYZER_MODE = deep;
+				CLANG_STATIC_ANALYZER_MODE_ON_ANALYZE_ACTION = deep;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_PEDANTIC = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		056C87D618C8B0F8006260B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
+				CLANG_ANALYZER_GCD = YES;
+				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
+				CLANG_ANALYZER_OBJC_ATSYNC = YES;
+				CLANG_ANALYZER_OBJC_COLLECTIONS = YES;
+				CLANG_ANALYZER_OBJC_INCOMP_METHOD_TYPES = YES;
+				CLANG_ANALYZER_OBJC_NSCFERROR = YES;
+				CLANG_ANALYZER_OBJC_RETAIN_COUNT = YES;
+				CLANG_ANALYZER_OBJC_SELF_INIT = YES;
+				CLANG_ANALYZER_OBJC_UNUSED_IVARS = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_MKSTEMP = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = YES;
+				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++98";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_STATIC_ANALYZER_MODE = deep;
+				CLANG_STATIC_ANALYZER_MODE_ON_ANALYZE_ACTION = deep;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_PEDANTIC = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		056C87D818C8B0F8006260B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Testing;
+			};
+			name = Debug;
+		};
+		056C87D918C8B0F8006260B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Testing;
+			};
+			name = Release;
+		};
+		056C881418C8B85F006260B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"CF++/include",
+				);
+				PRODUCT_NAME = "CF++";
+			};
+			name = Debug;
+		};
+		056C881518C8B85F006260B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"CF++/include",
+				);
+				PRODUCT_NAME = "CF++";
+			};
+			name = Release;
+		};
+		056C884C18C8C547006260B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"CF++/include",
+				);
+				PRODUCT_NAME = "CF++";
+			};
+			name = Debug;
+		};
+		056C884D18C8C547006260B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"CF++/include",
+				);
+				PRODUCT_NAME = "CF++";
+			};
+			name = Release;
+		};
+		056C888418C8C76C006260B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"CF++/include",
+				);
+				INFOPLIST_FILE = "CF++/Info.plist";
+				PRODUCT_NAME = "CF++";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		056C888518C8C76C006260B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"CF++/include",
+				);
+				INFOPLIST_FILE = "CF++/Info.plist";
+				PRODUCT_NAME = "CF++";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		056C88CA18C8C8AD006260B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/CF__.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"CF++/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "CF++";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		056C88CB18C8C8AD006260B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/CF__.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"CF++/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "CF++";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		056C87C918C8B0F8006260B3 /* Build configuration list for PBXProject "CoreFoundation++" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				056C87D518C8B0F8006260B3 /* Debug */,
+				056C87D618C8B0F8006260B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		056C87D718C8B0F8006260B3 /* Build configuration list for PBXNativeTarget "CF++ Testing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				056C87D818C8B0F8006260B3 /* Debug */,
+				056C87D918C8B0F8006260B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		056C881318C8B85F006260B3 /* Build configuration list for PBXNativeTarget "CF++ Mac Static Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				056C881418C8B85F006260B3 /* Debug */,
+				056C881518C8B85F006260B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		056C884B18C8C547006260B3 /* Build configuration list for PBXNativeTarget "CF++ Mac Dynamic Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				056C884C18C8C547006260B3 /* Debug */,
+				056C884D18C8C547006260B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		056C888318C8C76C006260B3 /* Build configuration list for PBXNativeTarget "CF++ Mac Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				056C888418C8C76C006260B3 /* Debug */,
+				056C888518C8C76C006260B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		056C88C918C8C8AD006260B3 /* Build configuration list for PBXNativeTarget "CF++ iOS Static Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				056C88CA18C8C8AD006260B3 /* Debug */,
+				056C88CB18C8C8AD006260B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 056C87C618C8B0F8006260B3 /* Project object */;
+}
