@@ -7,84 +7,84 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		056C881618C8B891006260B3 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F218C8B22E006260B3 /* CFPP-Type.cpp */; };
-		056C881718C8BCFC006260B3 /* CFPP-Array.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DD18C8B22E006260B3 /* CFPP-Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C881818C8BCFC006260B3 /* CFPP-Boolean.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DE18C8B22E006260B3 /* CFPP-Boolean.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C881918C8BCFC006260B3 /* CFPP-Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DF18C8B22E006260B3 /* CFPP-Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C881A18C8BCFC006260B3 /* CFPP-Date.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E018C8B22E006260B3 /* CFPP-Date.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C881B18C8BCFC006260B3 /* CFPP-Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E118C8B22E006260B3 /* CFPP-Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C881C18C8BCFC006260B3 /* CFPP-Number.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E318C8B22E006260B3 /* CFPP-Number.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C881D18C8BCFC006260B3 /* CFPP-Pair.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E218C8B22E006260B3 /* CFPP-Pair.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C881E18C8BCFC006260B3 /* CFPP-String.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E418C8B22E006260B3 /* CFPP-String.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C881F18C8BCFC006260B3 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E518C8B22E006260B3 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C882018C8BCFC006260B3 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E618C8B22E006260B3 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C882118C8BCFC006260B3 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E718C8B22E006260B3 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C884118C8C232006260B3 /* libCF++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libCF++.a */; };
-		056C884218C8C26A006260B3 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */; };
-		056C884518C8C471006260B3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C884418C8C471006260B3 /* main.cpp */; };
-		056C885018C8C58D006260B3 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */; };
-		056C885118C8C58D006260B3 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F218C8B22E006260B3 /* CFPP-Type.cpp */; };
 		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
-		056C888B18C8C7E8006260B3 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */; };
-		056C888C18C8C7E8006260B3 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F218C8B22E006260B3 /* CFPP-Type.cpp */; };
-		056C888F18C8C862006260B3 /* CFPP-Array.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DD18C8B22E006260B3 /* CFPP-Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889018C8C862006260B3 /* CFPP-Boolean.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DE18C8B22E006260B3 /* CFPP-Boolean.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889118C8C862006260B3 /* CFPP-Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DF18C8B22E006260B3 /* CFPP-Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889218C8C862006260B3 /* CFPP-Date.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E018C8B22E006260B3 /* CFPP-Date.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889318C8C862006260B3 /* CFPP-Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E118C8B22E006260B3 /* CFPP-Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889418C8C862006260B3 /* CFPP-Number.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E318C8B22E006260B3 /* CFPP-Number.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889518C8C862006260B3 /* CFPP-Pair.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E218C8B22E006260B3 /* CFPP-Pair.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889618C8C862006260B3 /* CFPP-String.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E418C8B22E006260B3 /* CFPP-String.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889718C8C862006260B3 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E518C8B22E006260B3 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889818C8C862006260B3 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E618C8B22E006260B3 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889918C8C862006260B3 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E718C8B22E006260B3 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889A18C8C863006260B3 /* CFPP-Array.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DD18C8B22E006260B3 /* CFPP-Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889B18C8C863006260B3 /* CFPP-Boolean.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DE18C8B22E006260B3 /* CFPP-Boolean.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889C18C8C863006260B3 /* CFPP-Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87DF18C8B22E006260B3 /* CFPP-Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889D18C8C863006260B3 /* CFPP-Date.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E018C8B22E006260B3 /* CFPP-Date.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889E18C8C863006260B3 /* CFPP-Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E118C8B22E006260B3 /* CFPP-Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C889F18C8C863006260B3 /* CFPP-Number.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E318C8B22E006260B3 /* CFPP-Number.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C88A018C8C863006260B3 /* CFPP-Pair.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E218C8B22E006260B3 /* CFPP-Pair.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C88A118C8C863006260B3 /* CFPP-String.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E418C8B22E006260B3 /* CFPP-String.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C88A218C8C863006260B3 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E518C8B22E006260B3 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C88A318C8C863006260B3 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E618C8B22E006260B3 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C88A418C8C863006260B3 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C87E718C8B22E006260B3 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
-		056C88CF18C8C921006260B3 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */; };
-		056C88D018C8C921006260B3 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F218C8B22E006260B3 /* CFPP-Type.cpp */; };
-		056C88D418C8CB9A006260B3 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F118C8B22E006260B3 /* CFPP-String.cpp */; };
-		056C88D518C8CB9B006260B3 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F118C8B22E006260B3 /* CFPP-String.cpp */; };
-		056C88D618C8CB9B006260B3 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F118C8B22E006260B3 /* CFPP-String.cpp */; };
-		056C88D718C8CB9C006260B3 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F118C8B22E006260B3 /* CFPP-String.cpp */; };
-		056C88D818C8CE32006260B3 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F018C8B22E006260B3 /* CFPP-Number.cpp */; };
-		056C88D918C8CE33006260B3 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F018C8B22E006260B3 /* CFPP-Number.cpp */; };
-		056C88DA18C8CE33006260B3 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F018C8B22E006260B3 /* CFPP-Number.cpp */; };
-		056C88DB18C8CE34006260B3 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F018C8B22E006260B3 /* CFPP-Number.cpp */; };
-		056C88DE18C8D56C006260B3 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */; };
-		056C88DF18C8D56D006260B3 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */; };
-		056C88E018C8D56D006260B3 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */; };
-		056C88E118C8D56E006260B3 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */; };
-		056C88E218C8D649006260B3 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */; };
-		056C88E318C8D649006260B3 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */; };
-		056C88E418C8D64A006260B3 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */; };
-		056C88E518C8D64A006260B3 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */; };
 		056C88E618C8D850006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
-		056C88E718C8DBFF006260B3 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */; };
-		056C88E818C8DBFF006260B3 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */; };
-		056C88E918C8DC00006260B3 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */; };
-		056C88EA18C8DC00006260B3 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */; };
-		056C88EB18C8DCED006260B3 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */; };
-		056C88EC18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */; };
-		056C88ED18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */; };
-		056C88EE18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */; };
-		056C88EF18C8DF82006260B3 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */; };
-		056C88F018C8DF82006260B3 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F318C8B22E006260B3 /* CFPP-URL.cpp */; };
-		056C88F118C8DF83006260B3 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */; };
-		056C88F218C8DF83006260B3 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F318C8B22E006260B3 /* CFPP-URL.cpp */; };
-		056C88F318C8DF83006260B3 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */; };
-		056C88F418C8DF83006260B3 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F318C8B22E006260B3 /* CFPP-URL.cpp */; };
-		056C88F518C8DF84006260B3 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */; };
-		056C88F618C8DF84006260B3 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C87F318C8B22E006260B3 /* CFPP-URL.cpp */; };
+		05BDE02718CDB2480028F339 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02618CDB2450028F339 /* main.cpp */; };
+		05BDE02818CDB2540028F339 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01B18CDB2450028F339 /* CFPP-Array.cpp */; };
+		05BDE02918CDB2540028F339 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01C18CDB2450028F339 /* CFPP-Boolean.cpp */; };
+		05BDE02A18CDB2540028F339 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01D18CDB2450028F339 /* CFPP-Data.cpp */; };
+		05BDE02B18CDB2540028F339 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01E18CDB2450028F339 /* CFPP-Date.cpp */; };
+		05BDE02C18CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01F18CDB2450028F339 /* CFPP-Dictionary.cpp */; };
+		05BDE02D18CDB2540028F339 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02018CDB2450028F339 /* CFPP-Number.cpp */; };
+		05BDE02E18CDB2540028F339 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02118CDB2450028F339 /* CFPP-Pair.cpp */; };
+		05BDE02F18CDB2540028F339 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02218CDB2450028F339 /* CFPP-String.cpp */; };
+		05BDE03018CDB2540028F339 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02318CDB2450028F339 /* CFPP-Type.cpp */; };
+		05BDE03118CDB2540028F339 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02418CDB2450028F339 /* CFPP-URL.cpp */; };
+		05BDE03218CDB2540028F339 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01B18CDB2450028F339 /* CFPP-Array.cpp */; };
+		05BDE03318CDB2540028F339 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01C18CDB2450028F339 /* CFPP-Boolean.cpp */; };
+		05BDE03418CDB2540028F339 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01D18CDB2450028F339 /* CFPP-Data.cpp */; };
+		05BDE03518CDB2540028F339 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01E18CDB2450028F339 /* CFPP-Date.cpp */; };
+		05BDE03618CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01F18CDB2450028F339 /* CFPP-Dictionary.cpp */; };
+		05BDE03718CDB2540028F339 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02018CDB2450028F339 /* CFPP-Number.cpp */; };
+		05BDE03818CDB2540028F339 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02118CDB2450028F339 /* CFPP-Pair.cpp */; };
+		05BDE03918CDB2540028F339 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02218CDB2450028F339 /* CFPP-String.cpp */; };
+		05BDE03A18CDB2540028F339 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02318CDB2450028F339 /* CFPP-Type.cpp */; };
+		05BDE03B18CDB2540028F339 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02418CDB2450028F339 /* CFPP-URL.cpp */; };
+		05BDE03C18CDB2540028F339 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01B18CDB2450028F339 /* CFPP-Array.cpp */; };
+		05BDE03D18CDB2540028F339 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01C18CDB2450028F339 /* CFPP-Boolean.cpp */; };
+		05BDE03E18CDB2540028F339 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01D18CDB2450028F339 /* CFPP-Data.cpp */; };
+		05BDE03F18CDB2540028F339 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01E18CDB2450028F339 /* CFPP-Date.cpp */; };
+		05BDE04018CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01F18CDB2450028F339 /* CFPP-Dictionary.cpp */; };
+		05BDE04118CDB2540028F339 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02018CDB2450028F339 /* CFPP-Number.cpp */; };
+		05BDE04218CDB2540028F339 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02118CDB2450028F339 /* CFPP-Pair.cpp */; };
+		05BDE04318CDB2540028F339 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02218CDB2450028F339 /* CFPP-String.cpp */; };
+		05BDE04418CDB2540028F339 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02318CDB2450028F339 /* CFPP-Type.cpp */; };
+		05BDE04518CDB2540028F339 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02418CDB2450028F339 /* CFPP-URL.cpp */; };
+		05BDE04618CDB2550028F339 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01B18CDB2450028F339 /* CFPP-Array.cpp */; };
+		05BDE04718CDB2550028F339 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01C18CDB2450028F339 /* CFPP-Boolean.cpp */; };
+		05BDE04818CDB2550028F339 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01D18CDB2450028F339 /* CFPP-Data.cpp */; };
+		05BDE04918CDB2550028F339 /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01E18CDB2450028F339 /* CFPP-Date.cpp */; };
+		05BDE04A18CDB2550028F339 /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01F18CDB2450028F339 /* CFPP-Dictionary.cpp */; };
+		05BDE04B18CDB2550028F339 /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02018CDB2450028F339 /* CFPP-Number.cpp */; };
+		05BDE04C18CDB2550028F339 /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02118CDB2450028F339 /* CFPP-Pair.cpp */; };
+		05BDE04D18CDB2550028F339 /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02218CDB2450028F339 /* CFPP-String.cpp */; };
+		05BDE04E18CDB2550028F339 /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02318CDB2450028F339 /* CFPP-Type.cpp */; };
+		05BDE04F18CDB2550028F339 /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE02418CDB2450028F339 /* CFPP-URL.cpp */; };
+		05BDE05018CDB25E0028F339 /* CFPP-Array.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE00D18CDB2450028F339 /* CFPP-Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05118CDB25E0028F339 /* CFPP-Boolean.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE00E18CDB2450028F339 /* CFPP-Boolean.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05218CDB25E0028F339 /* CFPP-Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE00F18CDB2450028F339 /* CFPP-Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05318CDB25E0028F339 /* CFPP-Date.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01018CDB2450028F339 /* CFPP-Date.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05418CDB25E0028F339 /* CFPP-Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01118CDB2450028F339 /* CFPP-Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05518CDB25E0028F339 /* CFPP-Number.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01218CDB2450028F339 /* CFPP-Number.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05618CDB25E0028F339 /* CFPP-Pair.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01318CDB2450028F339 /* CFPP-Pair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05718CDB25E0028F339 /* CFPP-String.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01418CDB2450028F339 /* CFPP-String.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05818CDB25E0028F339 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01518CDB2450028F339 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05918CDB25E0028F339 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01618CDB2450028F339 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05A18CDB25E0028F339 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01718CDB2450028F339 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05B18CDB25F0028F339 /* CFPP-Array.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE00D18CDB2450028F339 /* CFPP-Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05C18CDB25F0028F339 /* CFPP-Boolean.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE00E18CDB2450028F339 /* CFPP-Boolean.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05D18CDB25F0028F339 /* CFPP-Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE00F18CDB2450028F339 /* CFPP-Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05E18CDB25F0028F339 /* CFPP-Date.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01018CDB2450028F339 /* CFPP-Date.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE05F18CDB25F0028F339 /* CFPP-Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01118CDB2450028F339 /* CFPP-Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06018CDB25F0028F339 /* CFPP-Number.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01218CDB2450028F339 /* CFPP-Number.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06118CDB25F0028F339 /* CFPP-Pair.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01318CDB2450028F339 /* CFPP-Pair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06218CDB25F0028F339 /* CFPP-String.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01418CDB2450028F339 /* CFPP-String.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06318CDB25F0028F339 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01518CDB2450028F339 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06418CDB25F0028F339 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01618CDB2450028F339 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06518CDB25F0028F339 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01718CDB2450028F339 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06618CDB2600028F339 /* CFPP-Array.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE00D18CDB2450028F339 /* CFPP-Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06718CDB2600028F339 /* CFPP-Boolean.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE00E18CDB2450028F339 /* CFPP-Boolean.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06818CDB2600028F339 /* CFPP-Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE00F18CDB2450028F339 /* CFPP-Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06918CDB2600028F339 /* CFPP-Date.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01018CDB2450028F339 /* CFPP-Date.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06A18CDB2600028F339 /* CFPP-Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01118CDB2450028F339 /* CFPP-Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06B18CDB2600028F339 /* CFPP-Number.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01218CDB2450028F339 /* CFPP-Number.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06C18CDB2600028F339 /* CFPP-Pair.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01318CDB2450028F339 /* CFPP-Pair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06D18CDB2600028F339 /* CFPP-String.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01418CDB2450028F339 /* CFPP-String.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06E18CDB2600028F339 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01518CDB2450028F339 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE06F18CDB2600028F339 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01618CDB2450028F339 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BDE07018CDB2600028F339 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01718CDB2450028F339 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,36 +141,36 @@
 
 /* Begin PBXFileReference section */
 		056C87CE18C8B0F8006260B3 /* Testing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Testing; sourceTree = BUILT_PRODUCTS_DIR; };
-		056C87DD18C8B22E006260B3 /* CFPP-Array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Array.h"; sourceTree = "<group>"; };
-		056C87DE18C8B22E006260B3 /* CFPP-Boolean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Boolean.h"; sourceTree = "<group>"; };
-		056C87DF18C8B22E006260B3 /* CFPP-Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Data.h"; sourceTree = "<group>"; };
-		056C87E018C8B22E006260B3 /* CFPP-Date.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Date.h"; sourceTree = "<group>"; };
-		056C87E118C8B22E006260B3 /* CFPP-Dictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Dictionary.h"; sourceTree = "<group>"; };
-		056C87E218C8B22E006260B3 /* CFPP-Pair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Pair.h"; sourceTree = "<group>"; };
-		056C87E318C8B22E006260B3 /* CFPP-Number.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Number.h"; sourceTree = "<group>"; };
-		056C87E418C8B22E006260B3 /* CFPP-String.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-String.h"; sourceTree = "<group>"; };
-		056C87E518C8B22E006260B3 /* CFPP-Type.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Type.h"; sourceTree = "<group>"; };
-		056C87E618C8B22E006260B3 /* CFPP-URL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-URL.h"; sourceTree = "<group>"; };
-		056C87E718C8B22E006260B3 /* CF++.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CF++.h"; sourceTree = "<group>"; };
-		056C87E818C8B22E006260B3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Array.cpp"; sourceTree = "<group>"; };
-		056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Boolean.cpp"; sourceTree = "<group>"; };
-		056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Data.cpp"; sourceTree = "<group>"; };
-		056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Date.cpp"; sourceTree = "<group>"; };
-		056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Dictionary.cpp"; sourceTree = "<group>"; };
-		056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Pair.cpp"; sourceTree = "<group>"; };
-		056C87F018C8B22E006260B3 /* CFPP-Number.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Number.cpp"; sourceTree = "<group>"; };
-		056C87F118C8B22E006260B3 /* CFPP-String.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-String.cpp"; sourceTree = "<group>"; };
-		056C87F218C8B22E006260B3 /* CFPP-Type.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Type.cpp"; sourceTree = "<group>"; };
-		056C87F318C8B22E006260B3 /* CFPP-URL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-URL.cpp"; sourceTree = "<group>"; };
 		056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		056C881218C8B85F006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		056C884418C8C471006260B3 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		056C884A18C8C547006260B3 /* libCF++.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libCF++.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
-		056C885718C8C67C006260B3 /* Clang-Warnings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Clang-Warnings.h"; sourceTree = "<group>"; };
 		056C885F18C8C76B006260B3 /* CF++.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "CF++.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		056C888918C8C7CC006260B3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		056C88AA18C8C8AC006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05BDE00A18CDB2450028F339 /* Clang-Warnings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Clang-Warnings.h"; sourceTree = "<group>"; };
+		05BDE00D18CDB2450028F339 /* CFPP-Array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Array.h"; sourceTree = "<group>"; };
+		05BDE00E18CDB2450028F339 /* CFPP-Boolean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Boolean.h"; sourceTree = "<group>"; };
+		05BDE00F18CDB2450028F339 /* CFPP-Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Data.h"; sourceTree = "<group>"; };
+		05BDE01018CDB2450028F339 /* CFPP-Date.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Date.h"; sourceTree = "<group>"; };
+		05BDE01118CDB2450028F339 /* CFPP-Dictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Dictionary.h"; sourceTree = "<group>"; };
+		05BDE01218CDB2450028F339 /* CFPP-Number.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Number.h"; sourceTree = "<group>"; };
+		05BDE01318CDB2450028F339 /* CFPP-Pair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Pair.h"; sourceTree = "<group>"; };
+		05BDE01418CDB2450028F339 /* CFPP-String.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-String.h"; sourceTree = "<group>"; };
+		05BDE01518CDB2450028F339 /* CFPP-Type.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Type.h"; sourceTree = "<group>"; };
+		05BDE01618CDB2450028F339 /* CFPP-URL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-URL.h"; sourceTree = "<group>"; };
+		05BDE01718CDB2450028F339 /* CF++.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CF++.h"; sourceTree = "<group>"; };
+		05BDE01818CDB2450028F339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05BDE01918CDB2450028F339 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		05BDE01B18CDB2450028F339 /* CFPP-Array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Array.cpp"; sourceTree = "<group>"; };
+		05BDE01C18CDB2450028F339 /* CFPP-Boolean.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Boolean.cpp"; sourceTree = "<group>"; };
+		05BDE01D18CDB2450028F339 /* CFPP-Data.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Data.cpp"; sourceTree = "<group>"; };
+		05BDE01E18CDB2450028F339 /* CFPP-Date.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Date.cpp"; sourceTree = "<group>"; };
+		05BDE01F18CDB2450028F339 /* CFPP-Dictionary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Dictionary.cpp"; sourceTree = "<group>"; };
+		05BDE02018CDB2450028F339 /* CFPP-Number.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Number.cpp"; sourceTree = "<group>"; };
+		05BDE02118CDB2450028F339 /* CFPP-Pair.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Pair.cpp"; sourceTree = "<group>"; };
+		05BDE02218CDB2450028F339 /* CFPP-String.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-String.cpp"; sourceTree = "<group>"; };
+		05BDE02318CDB2450028F339 /* CFPP-Type.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Type.cpp"; sourceTree = "<group>"; };
+		05BDE02418CDB2450028F339 /* CFPP-URL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-URL.cpp"; sourceTree = "<group>"; };
+		05BDE02618CDB2450028F339 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,8 +219,8 @@
 		056C87C518C8B0F8006260B3 = {
 			isa = PBXGroup;
 			children = (
-				056C87DA18C8B22E006260B3 /* CF++ */,
-				056C884318C8C471006260B3 /* CF++ Testing */,
+				05BDE00918CDB2450028F339 /* CF++ */,
+				05BDE02518CDB2450028F339 /* CF++ Testing */,
 				056C880D18C8B50E006260B3 /* Frameworks */,
 				056C87CF18C8B0F8006260B3 /* Products */,
 			);
@@ -238,61 +238,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		056C87DA18C8B22E006260B3 /* CF++ */ = {
-			isa = PBXGroup;
-			children = (
-				056C87DB18C8B22E006260B3 /* include */,
-				056C87E918C8B22E006260B3 /* source */,
-				056C888918C8C7CC006260B3 /* Info.plist */,
-				056C87E818C8B22E006260B3 /* PrefixHeader.pch */,
-				056C885718C8C67C006260B3 /* Clang-Warnings.h */,
-			);
-			path = "CF++";
-			sourceTree = "<group>";
-		};
-		056C87DB18C8B22E006260B3 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				056C87DC18C8B22E006260B3 /* CF++ */,
-				056C87E718C8B22E006260B3 /* CF++.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		056C87DC18C8B22E006260B3 /* CF++ */ = {
-			isa = PBXGroup;
-			children = (
-				056C87DD18C8B22E006260B3 /* CFPP-Array.h */,
-				056C87DE18C8B22E006260B3 /* CFPP-Boolean.h */,
-				056C87DF18C8B22E006260B3 /* CFPP-Data.h */,
-				056C87E018C8B22E006260B3 /* CFPP-Date.h */,
-				056C87E118C8B22E006260B3 /* CFPP-Dictionary.h */,
-				056C87E318C8B22E006260B3 /* CFPP-Number.h */,
-				056C87E218C8B22E006260B3 /* CFPP-Pair.h */,
-				056C87E418C8B22E006260B3 /* CFPP-String.h */,
-				056C87E518C8B22E006260B3 /* CFPP-Type.h */,
-				056C87E618C8B22E006260B3 /* CFPP-URL.h */,
-			);
-			path = "CF++";
-			sourceTree = "<group>";
-		};
-		056C87E918C8B22E006260B3 /* source */ = {
-			isa = PBXGroup;
-			children = (
-				056C87EA18C8B22E006260B3 /* CFPP-Array.cpp */,
-				056C87EB18C8B22E006260B3 /* CFPP-Boolean.cpp */,
-				056C87EC18C8B22E006260B3 /* CFPP-Data.cpp */,
-				056C87ED18C8B22E006260B3 /* CFPP-Date.cpp */,
-				056C87EE18C8B22E006260B3 /* CFPP-Dictionary.cpp */,
-				056C87EF18C8B22E006260B3 /* CFPP-Pair.cpp */,
-				056C87F018C8B22E006260B3 /* CFPP-Number.cpp */,
-				056C87F118C8B22E006260B3 /* CFPP-String.cpp */,
-				056C87F218C8B22E006260B3 /* CFPP-Type.cpp */,
-				056C87F318C8B22E006260B3 /* CFPP-URL.cpp */,
-			);
-			path = source;
-			sourceTree = "<group>";
-		};
 		056C880D18C8B50E006260B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,12 +246,69 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		056C884318C8C471006260B3 /* CF++ Testing */ = {
+		05BDE00918CDB2450028F339 /* CF++ */ = {
 			isa = PBXGroup;
 			children = (
-				056C884418C8C471006260B3 /* main.cpp */,
+				05BDE00A18CDB2450028F339 /* Clang-Warnings.h */,
+				05BDE00B18CDB2450028F339 /* include */,
+				05BDE01818CDB2450028F339 /* Info.plist */,
+				05BDE01918CDB2450028F339 /* PrefixHeader.pch */,
+				05BDE01A18CDB2450028F339 /* source */,
 			);
-			path = "CF++ Testing";
+			name = "CF++";
+			path = "../../CF++";
+			sourceTree = "<group>";
+		};
+		05BDE00B18CDB2450028F339 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				05BDE00C18CDB2450028F339 /* CF++ */,
+				05BDE01718CDB2450028F339 /* CF++.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		05BDE00C18CDB2450028F339 /* CF++ */ = {
+			isa = PBXGroup;
+			children = (
+				05BDE00D18CDB2450028F339 /* CFPP-Array.h */,
+				05BDE00E18CDB2450028F339 /* CFPP-Boolean.h */,
+				05BDE00F18CDB2450028F339 /* CFPP-Data.h */,
+				05BDE01018CDB2450028F339 /* CFPP-Date.h */,
+				05BDE01118CDB2450028F339 /* CFPP-Dictionary.h */,
+				05BDE01218CDB2450028F339 /* CFPP-Number.h */,
+				05BDE01318CDB2450028F339 /* CFPP-Pair.h */,
+				05BDE01418CDB2450028F339 /* CFPP-String.h */,
+				05BDE01518CDB2450028F339 /* CFPP-Type.h */,
+				05BDE01618CDB2450028F339 /* CFPP-URL.h */,
+			);
+			path = "CF++";
+			sourceTree = "<group>";
+		};
+		05BDE01A18CDB2450028F339 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				05BDE01B18CDB2450028F339 /* CFPP-Array.cpp */,
+				05BDE01C18CDB2450028F339 /* CFPP-Boolean.cpp */,
+				05BDE01D18CDB2450028F339 /* CFPP-Data.cpp */,
+				05BDE01E18CDB2450028F339 /* CFPP-Date.cpp */,
+				05BDE01F18CDB2450028F339 /* CFPP-Dictionary.cpp */,
+				05BDE02018CDB2450028F339 /* CFPP-Number.cpp */,
+				05BDE02118CDB2450028F339 /* CFPP-Pair.cpp */,
+				05BDE02218CDB2450028F339 /* CFPP-String.cpp */,
+				05BDE02318CDB2450028F339 /* CFPP-Type.cpp */,
+				05BDE02418CDB2450028F339 /* CFPP-URL.cpp */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		05BDE02518CDB2450028F339 /* CF++ Testing */ = {
+			isa = PBXGroup;
+			children = (
+				05BDE02618CDB2450028F339 /* main.cpp */,
+			);
+			name = "CF++ Testing";
+			path = "../../CF++ Testing";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,17 +318,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056C881D18C8BCFC006260B3 /* CFPP-Pair.h in Headers */,
-				056C881718C8BCFC006260B3 /* CFPP-Array.h in Headers */,
-				056C881918C8BCFC006260B3 /* CFPP-Data.h in Headers */,
-				056C881F18C8BCFC006260B3 /* CFPP-Type.h in Headers */,
-				056C881A18C8BCFC006260B3 /* CFPP-Date.h in Headers */,
-				056C881C18C8BCFC006260B3 /* CFPP-Number.h in Headers */,
-				056C881E18C8BCFC006260B3 /* CFPP-String.h in Headers */,
-				056C882118C8BCFC006260B3 /* CF++.h in Headers */,
-				056C881818C8BCFC006260B3 /* CFPP-Boolean.h in Headers */,
-				056C882018C8BCFC006260B3 /* CFPP-URL.h in Headers */,
-				056C881B18C8BCFC006260B3 /* CFPP-Dictionary.h in Headers */,
+				05BDE05818CDB25E0028F339 /* CFPP-Type.h in Headers */,
+				05BDE05918CDB25E0028F339 /* CFPP-URL.h in Headers */,
+				05BDE05718CDB25E0028F339 /* CFPP-String.h in Headers */,
+				05BDE05418CDB25E0028F339 /* CFPP-Dictionary.h in Headers */,
+				05BDE05218CDB25E0028F339 /* CFPP-Data.h in Headers */,
+				05BDE05318CDB25E0028F339 /* CFPP-Date.h in Headers */,
+				05BDE05118CDB25E0028F339 /* CFPP-Boolean.h in Headers */,
+				05BDE05A18CDB25E0028F339 /* CF++.h in Headers */,
+				05BDE05618CDB25E0028F339 /* CFPP-Pair.h in Headers */,
+				05BDE05518CDB25E0028F339 /* CFPP-Number.h in Headers */,
+				05BDE05018CDB25E0028F339 /* CFPP-Array.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,17 +336,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056C889718C8C862006260B3 /* CFPP-Type.h in Headers */,
-				056C889818C8C862006260B3 /* CFPP-URL.h in Headers */,
-				056C889618C8C862006260B3 /* CFPP-String.h in Headers */,
-				056C889318C8C862006260B3 /* CFPP-Dictionary.h in Headers */,
-				056C889118C8C862006260B3 /* CFPP-Data.h in Headers */,
-				056C889218C8C862006260B3 /* CFPP-Date.h in Headers */,
-				056C889018C8C862006260B3 /* CFPP-Boolean.h in Headers */,
-				056C889918C8C862006260B3 /* CF++.h in Headers */,
-				056C889518C8C862006260B3 /* CFPP-Pair.h in Headers */,
-				056C889418C8C862006260B3 /* CFPP-Number.h in Headers */,
-				056C888F18C8C862006260B3 /* CFPP-Array.h in Headers */,
+				05BDE06E18CDB2600028F339 /* CFPP-Type.h in Headers */,
+				05BDE06F18CDB2600028F339 /* CFPP-URL.h in Headers */,
+				05BDE06D18CDB2600028F339 /* CFPP-String.h in Headers */,
+				05BDE06A18CDB2600028F339 /* CFPP-Dictionary.h in Headers */,
+				05BDE06818CDB2600028F339 /* CFPP-Data.h in Headers */,
+				05BDE06918CDB2600028F339 /* CFPP-Date.h in Headers */,
+				05BDE06718CDB2600028F339 /* CFPP-Boolean.h in Headers */,
+				05BDE07018CDB2600028F339 /* CF++.h in Headers */,
+				05BDE06C18CDB2600028F339 /* CFPP-Pair.h in Headers */,
+				05BDE06B18CDB2600028F339 /* CFPP-Number.h in Headers */,
+				05BDE06618CDB2600028F339 /* CFPP-Array.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,17 +354,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056C88A218C8C863006260B3 /* CFPP-Type.h in Headers */,
-				056C88A318C8C863006260B3 /* CFPP-URL.h in Headers */,
-				056C88A118C8C863006260B3 /* CFPP-String.h in Headers */,
-				056C889E18C8C863006260B3 /* CFPP-Dictionary.h in Headers */,
-				056C889C18C8C863006260B3 /* CFPP-Data.h in Headers */,
-				056C889D18C8C863006260B3 /* CFPP-Date.h in Headers */,
-				056C889B18C8C863006260B3 /* CFPP-Boolean.h in Headers */,
-				056C88A418C8C863006260B3 /* CF++.h in Headers */,
-				056C88A018C8C863006260B3 /* CFPP-Pair.h in Headers */,
-				056C889F18C8C863006260B3 /* CFPP-Number.h in Headers */,
-				056C889A18C8C863006260B3 /* CFPP-Array.h in Headers */,
+				05BDE06318CDB25F0028F339 /* CFPP-Type.h in Headers */,
+				05BDE06418CDB25F0028F339 /* CFPP-URL.h in Headers */,
+				05BDE06218CDB25F0028F339 /* CFPP-String.h in Headers */,
+				05BDE05F18CDB25F0028F339 /* CFPP-Dictionary.h in Headers */,
+				05BDE05D18CDB25F0028F339 /* CFPP-Data.h in Headers */,
+				05BDE05E18CDB25F0028F339 /* CFPP-Date.h in Headers */,
+				05BDE05C18CDB25F0028F339 /* CFPP-Boolean.h in Headers */,
+				05BDE06518CDB25F0028F339 /* CF++.h in Headers */,
+				05BDE06118CDB25F0028F339 /* CFPP-Pair.h in Headers */,
+				05BDE06018CDB25F0028F339 /* CFPP-Number.h in Headers */,
+				05BDE05B18CDB25F0028F339 /* CFPP-Array.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056C884518C8C471006260B3 /* main.cpp in Sources */,
+				05BDE02718CDB2480028F339 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,16 +514,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056C88F518C8DF84006260B3 /* CFPP-Data.cpp in Sources */,
-				056C88EB18C8DCED006260B3 /* CFPP-Pair.cpp in Sources */,
-				056C88F618C8DF84006260B3 /* CFPP-URL.cpp in Sources */,
-				056C881618C8B891006260B3 /* CFPP-Type.cpp in Sources */,
-				056C884218C8C26A006260B3 /* CFPP-Boolean.cpp in Sources */,
-				056C88E118C8D56E006260B3 /* CFPP-Date.cpp in Sources */,
-				056C88D418C8CB9A006260B3 /* CFPP-String.cpp in Sources */,
-				056C88EA18C8DC00006260B3 /* CFPP-Dictionary.cpp in Sources */,
-				056C88E218C8D649006260B3 /* CFPP-Array.cpp in Sources */,
-				056C88D818C8CE32006260B3 /* CFPP-Number.cpp in Sources */,
+				05BDE02A18CDB2540028F339 /* CFPP-Data.cpp in Sources */,
+				05BDE03018CDB2540028F339 /* CFPP-Type.cpp in Sources */,
+				05BDE03118CDB2540028F339 /* CFPP-URL.cpp in Sources */,
+				05BDE02818CDB2540028F339 /* CFPP-Array.cpp in Sources */,
+				05BDE02C18CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
+				05BDE02B18CDB2540028F339 /* CFPP-Date.cpp in Sources */,
+				05BDE02E18CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
+				05BDE02F18CDB2540028F339 /* CFPP-String.cpp in Sources */,
+				05BDE02918CDB2540028F339 /* CFPP-Boolean.cpp in Sources */,
+				05BDE02D18CDB2540028F339 /* CFPP-Number.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,16 +531,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056C88F318C8DF83006260B3 /* CFPP-Data.cpp in Sources */,
-				056C88EC18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */,
-				056C88F418C8DF83006260B3 /* CFPP-URL.cpp in Sources */,
-				056C885118C8C58D006260B3 /* CFPP-Type.cpp in Sources */,
-				056C885018C8C58D006260B3 /* CFPP-Boolean.cpp in Sources */,
-				056C88E018C8D56D006260B3 /* CFPP-Date.cpp in Sources */,
-				056C88D518C8CB9B006260B3 /* CFPP-String.cpp in Sources */,
-				056C88E918C8DC00006260B3 /* CFPP-Dictionary.cpp in Sources */,
-				056C88E318C8D649006260B3 /* CFPP-Array.cpp in Sources */,
-				056C88D918C8CE33006260B3 /* CFPP-Number.cpp in Sources */,
+				05BDE03418CDB2540028F339 /* CFPP-Data.cpp in Sources */,
+				05BDE03A18CDB2540028F339 /* CFPP-Type.cpp in Sources */,
+				05BDE03B18CDB2540028F339 /* CFPP-URL.cpp in Sources */,
+				05BDE03218CDB2540028F339 /* CFPP-Array.cpp in Sources */,
+				05BDE03618CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
+				05BDE03518CDB2540028F339 /* CFPP-Date.cpp in Sources */,
+				05BDE03818CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
+				05BDE03918CDB2540028F339 /* CFPP-String.cpp in Sources */,
+				05BDE03318CDB2540028F339 /* CFPP-Boolean.cpp in Sources */,
+				05BDE03718CDB2540028F339 /* CFPP-Number.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,16 +548,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056C88F118C8DF83006260B3 /* CFPP-Data.cpp in Sources */,
-				056C88ED18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */,
-				056C88F218C8DF83006260B3 /* CFPP-URL.cpp in Sources */,
-				056C888C18C8C7E8006260B3 /* CFPP-Type.cpp in Sources */,
-				056C888B18C8C7E8006260B3 /* CFPP-Boolean.cpp in Sources */,
-				056C88DF18C8D56D006260B3 /* CFPP-Date.cpp in Sources */,
-				056C88D618C8CB9B006260B3 /* CFPP-String.cpp in Sources */,
-				056C88E818C8DBFF006260B3 /* CFPP-Dictionary.cpp in Sources */,
-				056C88E418C8D64A006260B3 /* CFPP-Array.cpp in Sources */,
-				056C88DA18C8CE33006260B3 /* CFPP-Number.cpp in Sources */,
+				05BDE03E18CDB2540028F339 /* CFPP-Data.cpp in Sources */,
+				05BDE04418CDB2540028F339 /* CFPP-Type.cpp in Sources */,
+				05BDE04518CDB2540028F339 /* CFPP-URL.cpp in Sources */,
+				05BDE03C18CDB2540028F339 /* CFPP-Array.cpp in Sources */,
+				05BDE04018CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
+				05BDE03F18CDB2540028F339 /* CFPP-Date.cpp in Sources */,
+				05BDE04218CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
+				05BDE04318CDB2540028F339 /* CFPP-String.cpp in Sources */,
+				05BDE03D18CDB2540028F339 /* CFPP-Boolean.cpp in Sources */,
+				05BDE04118CDB2540028F339 /* CFPP-Number.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,16 +565,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056C88EF18C8DF82006260B3 /* CFPP-Data.cpp in Sources */,
-				056C88EE18C8DCEE006260B3 /* CFPP-Pair.cpp in Sources */,
-				056C88F018C8DF82006260B3 /* CFPP-URL.cpp in Sources */,
-				056C88D018C8C921006260B3 /* CFPP-Type.cpp in Sources */,
-				056C88CF18C8C921006260B3 /* CFPP-Boolean.cpp in Sources */,
-				056C88DE18C8D56C006260B3 /* CFPP-Date.cpp in Sources */,
-				056C88D718C8CB9C006260B3 /* CFPP-String.cpp in Sources */,
-				056C88E718C8DBFF006260B3 /* CFPP-Dictionary.cpp in Sources */,
-				056C88E518C8D64A006260B3 /* CFPP-Array.cpp in Sources */,
-				056C88DB18C8CE34006260B3 /* CFPP-Number.cpp in Sources */,
+				05BDE04818CDB2550028F339 /* CFPP-Data.cpp in Sources */,
+				05BDE04E18CDB2550028F339 /* CFPP-Type.cpp in Sources */,
+				05BDE04F18CDB2550028F339 /* CFPP-URL.cpp in Sources */,
+				05BDE04618CDB2550028F339 /* CFPP-Array.cpp in Sources */,
+				05BDE04A18CDB2550028F339 /* CFPP-Dictionary.cpp in Sources */,
+				05BDE04918CDB2550028F339 /* CFPP-Date.cpp in Sources */,
+				05BDE04C18CDB2550028F339 /* CFPP-Pair.cpp in Sources */,
+				05BDE04D18CDB2550028F339 /* CFPP-String.cpp in Sources */,
+				05BDE04718CDB2550028F339 /* CFPP-Boolean.cpp in Sources */,
+				05BDE04B18CDB2550028F339 /* CFPP-Number.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,6 +805,10 @@
 		056C87D818C8B0F8006260B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"../../CF++/include",
+				);
 				PRODUCT_NAME = Testing;
 			};
 			name = Debug;
@@ -810,6 +816,10 @@
 		056C87D918C8B0F8006260B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"../../CF++/include",
+				);
 				PRODUCT_NAME = Testing;
 			};
 			name = Release;
@@ -819,10 +829,10 @@
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"CF++/include",
+					"../../CF++/include",
 				);
 				PRODUCT_NAME = "CF++";
 			};
@@ -833,10 +843,10 @@
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"CF++/include",
+					"../../CF++/include",
 				);
 				PRODUCT_NAME = "CF++";
 			};
@@ -847,10 +857,10 @@
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"CF++/include",
+					"../../CF++/include",
 				);
 				PRODUCT_NAME = "CF++";
 			};
@@ -861,10 +871,10 @@
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"CF++/include",
+					"../../CF++/include",
 				);
 				PRODUCT_NAME = "CF++";
 			};
@@ -878,12 +888,12 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"CF++/include",
+					"../../CF++/include",
 				);
-				INFOPLIST_FILE = "CF++/Info.plist";
+				INFOPLIST_FILE = "../../CF++/Info.plist";
 				PRODUCT_NAME = "CF++";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -897,12 +907,12 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"CF++/include",
+					"../../CF++/include",
 				);
-				INFOPLIST_FILE = "CF++/Info.plist";
+				INFOPLIST_FILE = "../../CF++/Info.plist";
 				PRODUCT_NAME = "CF++";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -914,10 +924,10 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/CF__.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"CF++/include",
+					"../../CF++/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
@@ -933,10 +943,10 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/CF__.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"CF++/include",
+					"../../CF++/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";

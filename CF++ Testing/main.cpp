@@ -35,7 +35,7 @@
  * @abstract    CoreFoundation++ test executable
  */
 
-#include <CF++/CF++.h>
+#include <CF++.h>
 
 extern const char * externalKey;
 extern const char * externalByteBuffer;
