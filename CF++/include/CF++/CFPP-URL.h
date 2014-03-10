@@ -62,9 +62,7 @@ namespace CF
                 PartResourceSpecifier   = 0x0B,
                 PartScheme              = 0x0C,
                 PartStrictPath          = 0x0D,
-                PartUserName            = 0x0E,
-                PartPortNumber          = 0x0F,
-                PartDirectoryPath       = 0x10
+                PartUserName            = 0x0E
             }
             Part;
             
@@ -72,8 +70,8 @@ namespace CF
             URL( const URL & value );
             URL( CFTypeRef value );
             URL( CFURLRef value );
-            URL( CFStringRef value, bool isFileURL = false );
-            URL( std::string value, bool isFileURL = false );
+            URL( CFStringRef value );
+            URL( std::string value );
             
             virtual ~URL( void );
             
@@ -95,8 +93,8 @@ namespace CF
             bool operator != ( CFStringRef value );
             bool operator != ( std::string value );
             
-            bool operator /= ( CFStringRef value );
-            bool operator /= ( std::string value );
+            CF::URL & operator /= ( CFStringRef value );
+            CF::URL & operator /= ( std::string value );
             
             std::string operator [] ( Part part );
             
@@ -105,28 +103,28 @@ namespace CF
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            CFStringRef GetFileSystemPath( void );
-            CFStringRef GetFragment( void );
-            CFStringRef GetHostName( void );
-            CFStringRef GetLastPathComponent( void );
-            CFStringRef GetNetLocation( void );
-            CFStringRef GetParameterString( void );
-            CFStringRef GetPassword( void );
-            CFStringRef GetPath( void );
-            CFStringRef GetPathExtension( void );
-            CFStringRef GetQueryString( void );
-            CFStringRef GetResourceSpecifier( void );
-            CFStringRef GetScheme( void );
-            CFStringRef GetStrictPath( void );
-            CFStringRef GetUserName( void );
-            CFStringRef GetPortNumber( void );
-            CFStringRef GetDirectoryPath( void );
-            void        AppendPathComponent( CFStringRef component, bool isDirectory = false );
-            void        AppendPathComponent( std::string component, bool isDirectory = false );
-            void        AppendPathExtension( CFStringRef extension, bool isDirectory = false );
-            void        AppendPathExtension( std::string extension, bool isDirectory = false );
-            void        DeleteLastPathComponent( void );
-            void        DeletePathExtension( void );
+            CF::String GetFileSystemPath( CFURLPathStyle style = kCFURLPOSIXPathStyle );
+            CF::String GetFragment( void );
+            CF::String GetHostName( void );
+            CF::String GetLastPathComponent( void );
+            CF::String GetNetLocation( void );
+            CF::String GetParameterString( void );
+            CF::String GetPassword( void );
+            CF::String GetPath( void );
+            CF::String GetPathExtension( void );
+            CF::String GetQueryString( void );
+            CF::String GetResourceSpecifier( void );
+            CF::String GetScheme( void );
+            CF::String GetStrictPath( void );
+            CF::String GetUserName( void );
+            CF::Number GetPortNumber( void );
+            bool       HasDirectoryPath( void );
+            void       AppendPathComponent( CFStringRef component, bool isDirectory = false );
+            void       AppendPathComponent( std::string component, bool isDirectory = false );
+            void       AppendPathExtension( CFStringRef extension );
+            void       AppendPathExtension( std::string extension );
+            void       DeleteLastPathComponent( void );
+            void       DeletePathExtension( void );
             
         private:
             

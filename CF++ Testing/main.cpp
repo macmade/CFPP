@@ -249,7 +249,12 @@ int main( void )
     {
         CF::URL url;
         
-        std::cout << url << std::endl;
+        url = std::string( "http://www.xs-labs.com/en/projects/index.php" );
+        
+        std::cout << url                                                     << std::endl;
+        std::cout << "Scheme:         " << url[ CF::URL::PartScheme ]        << std::endl;
+        std::cout << "Hostname:       " << url[ CF::URL::PartHostName ]      << std::endl;
+        std::cout << "Path extension: " << url[ CF::URL::PartPathExtension ] << std::endl;
     }
     
     std::cout << std::endl;
