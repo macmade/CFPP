@@ -39,9 +39,73 @@
 
 namespace CF
 {
-    Data::Data( void )
+    Data::Data( CFIndex capacity )
     {
-        this->_cfObject = NULL;
+        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, capacity );
+    }
+    
+    Data::Data( const Data & value )
+    {
+        if( value._cfObject != NULL )
+        {
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, value._cfObject );
+        }
+        else
+        {
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+        }
+    }
+    
+    Data::Data( CFTypeRef value )
+    {
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, ( CFDataRef )value );
+        }
+        else
+        {
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+        }
+    }
+    
+    Data::Data( CFDataRef value )
+    {
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, ( CFDataRef )value );
+        }
+        else
+        {
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+        }
+    }
+    
+    Data::Data( CFStringRef value )
+    {
+        if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
+        {
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, CFStringGetLength( value ) );
+            
+            CFDataAppendBytes( this->_cfObject, ( const UInt8 * )CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ), CFStringGetLength( value ) );
+        }
+        else
+        {
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+        }
+    }
+    
+    Data::Data( std::string value )
+    {
+        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, ( CFIndex )( value.length() ) );
+        
+        CFDataAppendBytes( this->_cfObject, ( const UInt8 * )( value.c_str() ), ( CFIndex )( value.length() ) );
+    }
+    
+    Data::Data( Byte * value, CFIndex length )
+    {
+        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, length );
+        
+        CFDataAppendBytes( this->_cfObject, value, length );
     }
     
     Data::~Data( void )
@@ -53,6 +117,176 @@ namespace CF
             this->_cfObject = NULL;
         }
     }
+          
+    Data & Data::operator = ( const Data & value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        if( value._cfObject != NULL )
+        {
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, value._cfObject );
+        }
+        else
+        {
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+        }
+        
+        return *( this );
+    }
+    
+    Data & Data::operator = ( CFTypeRef value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, ( CFDataRef )value );
+        }
+        else
+        {
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+        }
+        
+        return *( this );
+    }
+    
+    Data & Data::operator = ( CFDataRef value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, value );
+        }
+        else
+        {
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+        }
+        
+        return *( this );
+    }
+    
+    Data & Data::operator = ( CFStringRef value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
+        {
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, CFStringGetLength( value ) );
+            
+            CFDataAppendBytes( this->_cfObject, ( const UInt8 * )CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ), CFStringGetLength( value ) );
+        }
+        else
+        {
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+        }
+        
+        return *( this );
+    }
+    
+    Data & Data::operator = ( std::string value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, ( CFIndex )( value.length() ) );
+        
+        CFDataAppendBytes( this->_cfObject, ( const UInt8 * )( value.c_str() ), ( CFIndex )( value.length() ) );
+        
+        return *( this );
+    }
+    
+    Data::operator const Byte * ()
+    {
+        if( this->_cfObject == NULL )
+        {
+            return NULL;
+        }
+        
+        return CFDataGetBytePtr( this->_cfObject );
+    }
+    
+    Data::operator std::string ()
+    {
+        std::string s;
+        
+        if( this->_cfObject == NULL )
+        {
+            return s;
+        }
+        
+        s = std::string( ( char * )CFDataGetBytePtr( this->_cfObject ) );
+        
+        return s;
+    }
+    
+    Byte Data::operator [] ( int index )
+    {
+        const Byte * bytes;
+        
+        if( index >= this->GetLength() )
+        {
+            return 0;
+        }
+        
+        bytes = this->GetBytePtr();
+        
+        return bytes[ index ];
+    }
+            
+    Data & Data::operator += ( Byte value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFDataAppendBytes( this->_cfObject, &value, 1 );
+        }
+        
+        return *( this );
+    }
+    
+    Data & Data::operator += ( CFStringRef value )
+    {
+        if( this->_cfObject != NULL && value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
+        {
+            CFDataAppendBytes( this->_cfObject, ( const UInt8 * )CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ), CFStringGetLength( value ) );
+        }
+        
+        return *( this );
+    }
+    
+    Data & Data::operator += ( CFDataRef value )
+    {
+        if( this->_cfObject != NULL && value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            CFDataAppendBytes( this->_cfObject, CFDataGetBytePtr( value ), CFDataGetLength( value ) );
+        }
+        
+        return *( this );
+    }
+    
+    Data & Data::operator += ( std::string value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFDataAppendBytes( this->_cfObject, ( const UInt8 * )( value.c_str() ), ( CFIndex )( value.length() ) );
+        }
+        
+        return *( this );
+    }
     
     CFTypeID Data::GetTypeID( void ) const
     {
@@ -62,5 +296,95 @@ namespace CF
     CFTypeRef Data::GetCFObject( void ) const
     {
         return this->_cfObject;
+    }
+    
+    CFIndex Data::GetLength( void )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return 0;
+        }
+        
+        return CFDataGetLength( this->_cfObject );
+    }
+    
+    void Data::SetLength( CFIndex length )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFDataSetLength( this->_cfObject, length );
+    }
+    
+    void Data::IncreaseLength( CFIndex extraLength )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFDataIncreaseLength( this->_cfObject, extraLength );
+    }
+    
+    const Byte * Data::GetBytePtr( void )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return NULL;
+        }
+        
+        return CFDataGetBytePtr( this->_cfObject );
+    }
+    
+    Byte * Data::GetMutableBytePtr( void )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return NULL;
+        }
+        
+        return CFDataGetMutableBytePtr( this->_cfObject );
+    }
+    
+    void Data::GetBytes( CFRange range, Byte * bytes )
+    {
+        if( this->_cfObject == NULL || bytes == NULL )
+        {
+            return;
+        }
+        
+        CFDataGetBytes( this->_cfObject, range, bytes );
+    }
+    
+    void Data::AppendBytes( Byte * bytes, CFIndex length )
+    {
+        if( this->_cfObject == NULL || bytes == NULL )
+        {
+            return;
+        }
+        
+        CFDataAppendBytes( this->_cfObject, bytes, length );
+    }
+    
+    void Data::ReplaceBytes( CFRange range, Byte * newBytes, CFIndex newLength )
+    {
+        if( this->_cfObject == NULL || newBytes == NULL )
+        {
+            return;
+        }
+        
+        CFDataReplaceBytes( this->_cfObject, range, newBytes, newLength );
+    }
+    
+    void Data::DeleteBytes( CFRange range )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFDataDeleteBytes( this->_cfObject, range );
     }
 }

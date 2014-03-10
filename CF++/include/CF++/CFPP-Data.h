@@ -56,7 +56,7 @@ namespace CF
             
             #endif
             
-            Data( void );
+            Data( CFIndex capacity = 4096 );
             Data( const Data & value );
             Data( CFTypeRef value );
             Data( CFDataRef value );
@@ -72,9 +72,8 @@ namespace CF
             Data & operator = ( CFStringRef value );
             Data & operator = ( std::string value );
             
-            operator Byte      * ();
-            operator CFStringRef ();
-            operator std::string ();
+            operator const Byte * ();
+            operator std::string  ();
             
             Byte operator [] ( int index );
             
@@ -86,15 +85,15 @@ namespace CF
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            CFIndex GetLength( void );
-            void    SetLength( CFIndex length );
-            void    IncreaseLength( CFIndex extraLength );
-            Byte  * GetBytePtr( void );
-            Byte  * GetMutableBytePtr( void );
-            void    GetBytes( Byte * buffer, CFRange range );
-            void    AppendBytes( Byte * bytes, CFIndex length );
-            void    ReplaceBytes( CFRange range, Byte * newBytes, CFIndex newLength );
-            void    DeleteBytes( CFRange range );
+            CFIndex      GetLength( void );
+            void         SetLength( CFIndex length );
+            void         IncreaseLength( CFIndex extraLength );
+            const Byte * GetBytePtr( void );
+            Byte       * GetMutableBytePtr( void );
+            void         GetBytes( CFRange range, Byte * bytes );
+            void         AppendBytes( Byte * bytes, CFIndex length );
+            void         ReplaceBytes( CFRange range, Byte * newBytes, CFIndex newLength );
+            void         DeleteBytes( CFRange range );
             
         private:
             

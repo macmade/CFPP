@@ -670,11 +670,10 @@ Single bytes can be retrieved as `CF::Data::Byte` using the `[]` operator:
 
 **Casting:**
 
-`CF::Data` can be safely casted to a `CFDataRef`, `CFStringRef`, `std::string` and `CF::Data::Byte` pointer:
+`CF::Data` can be safely casted to a `CFDataRef`, `std::string` and `CF::Data::Byte` pointer:
 
     CF::Data         d;
     CFDateRef        cfD = d;
-    CFStringRef      cfS = d;
     std::string      s   = d;
     CF::Data::Byte * bp  = d;
 

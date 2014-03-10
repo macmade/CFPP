@@ -259,7 +259,11 @@ int main( void )
     {
         CF::Data data;
         
-        std::cout << data << std::endl;
+        data = std::string( "hello, world" );
+        
+        std::cout << data                                   << std::endl;
+        std::cout << ( std::string )data                    << std::endl;
+        std::cout << "First byte is: " << ( char )data[ 0 ] << std::endl;
     }
     
     return EXIT_SUCCESS;
