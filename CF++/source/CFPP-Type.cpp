@@ -109,8 +109,10 @@ namespace CF
     
     std::string Type::Description( void ) const
     {
-        CFStringRef cfDescription;
-        std::string description;
+        CFStringRef  cfDescription;
+        std::string  description;
+        char       * cStr;
+        size_t       length;
         
         if( this->GetCFObject() == NULL )
         {
@@ -118,8 +120,28 @@ namespace CF
         }
         
         cfDescription = CFCopyDescription( this->GetCFObject() );
-        description   = CFStringGetCStringPtr( cfDescription, kCFStringEncodingUTF8 );
         
+        if( cfDescription == NULL )
+        {
+            return "(null)";
+        }
+        
+        length = ( size_t )CFStringGetMaximumSizeForEncoding( CFStringGetLength( cfDescription ), CFStringGetSystemEncoding() );
+        
+        cStr = ( char * )calloc( length + 1, 1 );
+        
+        if( cStr == NULL )
+        {
+            CFRelease( cfDescription );
+            
+            return "(null)";
+        }
+        
+        CFStringGetCString( cfDescription, cStr, ( CFIndex )( length + 1 ), CFStringGetSystemEncoding() );
+        
+        description = std::string( cStr );
+        
+        free( cStr );
         CFRelease( cfDescription );
         
         return description;
