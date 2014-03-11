@@ -30,29 +30,55 @@
 /* $Id$ */
 
 /*!
- * @header      CF++.h
+ * @header      CFPP-Error.h
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
- * @abstract    CoreFoundation++ main header file
+ * @abstract    CoreFoundation++ CFErrorRef wrapper
  */
 
-#ifndef __CFPP__
-#define __CFPP__
-
-#include <CoreFoundation/CoreFoundation.h>
-#include <string>
-#include <iostream>
-#include <vector>
+#ifndef __CFPP_ERROR_H__
+#define __CFPP_ERROR_H__
 
 #include <CF++/CFPP-Type.h>
-#include <CF++/CFPP-Boolean.h>
-#include <CF++/CFPP-Number.h>
-#include <CF++/CFPP-String.h>
-#include <CF++/CFPP-URL.h>
-#include <CF++/CFPP-Data.h>
-#include <CF++/CFPP-Date.h>
-#include <CF++/CFPP-Array.h>
-#include <CF++/CFPP-Pair.h>
-#include <CF++/CFPP-Dictionary.h>
-#include <CF++/CFPP-Error.h>
 
-#endif /* __CFPP__ */
+namespace CF
+{
+    class Error: public Type
+    {
+        public:
+            
+            Error( void );
+            Error( const Error & value );
+            Error( CFTypeRef value );
+            Error( CFErrorRef value );
+            Error( CF::String domain, CF::Number code );
+            Error( CF::String domain, CF::Number code, CF::Dictionary userInfo );
+            Error( CFStringRef domain, CFIndex code );
+            Error( CFStringRef domain, CFIndex code, CFDictionaryRef userInfo );
+            Error( std::string domain, CFIndex code );
+            Error( std::string domain, CFIndex code, CF::Dictionary userInfo );
+            Error( const char * domain, CFIndex code );
+            Error( const char * domain, CFIndex code, CF::Dictionary userInfo );
+            
+            virtual ~Error( void );
+            
+            Error & operator = ( const Error & value );
+            Error & operator = ( CFTypeRef value );
+            Error & operator = ( CFErrorRef value );
+            
+            virtual CFTypeID  GetTypeID( void ) const;
+            virtual CFTypeRef GetCFObject( void ) const;
+            
+            CF::String     GetDomain( void );
+            CF::Number     GetCode( void );
+            CF::Dictionary GetUserInfo( void );
+            CF::String     GetDescription( void );
+            CF::String     GetFailureReason( void );
+            CF::String     GetRecoverySuggestion( void );
+            
+        private:
+            
+            CFErrorRef _cfObject;
+    };
+}
+
+#endif /* __CFPP_ERROR_H__ */

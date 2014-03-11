@@ -271,5 +271,11 @@ int main( void )
         std::cout << "First byte is: " << ( char )data[ 0 ] << std::endl;
     }
     
+    {
+        CF::Error error( "com.xs-labs", 42 );
+        
+        std::cout << error << std::endl;
+    }
+    
     return EXIT_SUCCESS;
 }
