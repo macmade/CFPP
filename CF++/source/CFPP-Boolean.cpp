@@ -41,16 +41,38 @@ namespace CF
 {
     Boolean::Boolean( CFTypeRef cfObject )
     {
+        bool b;
+
         this->_cfObject = NULL;
         
-        this->SetValue( ( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() ) ? CFBooleanGetValue( ( CFBooleanRef )cfObject ) : false );
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID()  )
+        {
+            b = ( CFBooleanGetValue( ( CFBooleanRef )cfObject ) ) ? true : false;
+        }
+        else
+        {
+            b = false;
+        }
+
+        this->SetValue( b );
     }
     
     Boolean::Boolean( CFBooleanRef cfObject )
     {
+        bool b;
+
         this->_cfObject = NULL;
         
-        this->SetValue( ( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() ) ? CFBooleanGetValue( cfObject ) : false );
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            b = ( CFBooleanGetValue( cfObject ) ) ? true : false;
+        }
+        else
+        {
+            b = false;
+        }
+
+        this->SetValue( b );
     }
     
     Boolean::Boolean( bool value )
@@ -86,15 +108,37 @@ namespace CF
     
     Boolean & Boolean::operator = ( CFTypeRef value )
     {
-        this->SetValue( ( value != NULL && CFGetTypeID( value ) == this->GetTypeID() ) ? CFBooleanGetValue( ( CFBooleanRef )value ) : false );
+        bool b;
+
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            b = ( CFBooleanGetValue( ( CFBooleanRef )value ) ) ? true : false;
+        }
+        else
+        {
+            b = false;
+        }
+
+        this->SetValue( b );
         
         return *( this );
     }
     
     Boolean & Boolean::operator = ( CFBooleanRef value )
     {
-        this->SetValue( ( value != NULL && CFGetTypeID( value ) == this->GetTypeID() ) ? CFBooleanGetValue( value ) : false );
-        
+        bool b;
+
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            b = ( CFBooleanGetValue( value ) ) ? true : false;
+        }
+        else
+        {
+            b = false;
+        }
+
+        this->SetValue( b );
+
         return *( this );
     }
     
@@ -117,22 +161,30 @@ namespace CF
     
     bool Boolean::operator == ( CFTypeRef value ) const
     {
+        bool b;
+
         if( value == NULL || CFGetTypeID( value ) != this->GetTypeID() )
         {
             return false;
         }
         
-        return this->GetValue() == CFBooleanGetValue( ( CFBooleanRef )value );
+        b = ( CFBooleanGetValue( ( CFBooleanRef )value ) ) ? true : false;
+
+        return this->GetValue() == b;
     }
     
     bool Boolean::operator == ( CFBooleanRef value ) const
     {
+        bool b;
+
         if( value == NULL || CFGetTypeID( value ) != this->GetTypeID() )
         {
             return false;
         }
+
+        b = ( CFBooleanGetValue( value ) ) ? true : false;
         
-        return this->GetValue() == CFBooleanGetValue( value );
+        return this->GetValue() == b;
     }
             
     bool Boolean::operator != ( const Boolean & value ) const
@@ -177,7 +229,7 @@ namespace CF
             return false;
         }
         
-        return ( bool )CFBooleanGetValue( this->_cfObject );
+        return ( CFBooleanGetValue( this->_cfObject ) ) ? true : false;
     }
     
     void Boolean::SetValue( bool value )

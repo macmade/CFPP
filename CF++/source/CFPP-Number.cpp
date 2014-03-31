@@ -2447,7 +2447,7 @@ namespace CF
             return false;
         }
         
-        return CFNumberIsFloatType( this->_cfObject );
+        return ( CFNumberIsFloatType( this->_cfObject ) ) ? true : false;
     }
     
     Number::SInt8 Number::GetSInt8Value( void ) const

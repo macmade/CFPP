@@ -54,7 +54,7 @@ namespace CF
             return false;
         }
         
-        return CFEqual( this->GetCFObject(), value.GetCFObject() );
+        return ( CFEqual( this->GetCFObject(), value.GetCFObject() ) ) ? true : false;
     }
     
     bool Type::operator != ( const Type & value ) const

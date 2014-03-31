@@ -49,7 +49,7 @@ namespace CF
             String( void );
             String( CFTypeRef cfObject );
             String( CFStringRef cfObject );
-            String( std::string value, CFStringEncoding encoding = kCFStringEncodingUTF7 );
+            String( std::string value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( char * value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( const char * value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( const String & value );

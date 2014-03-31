@@ -407,7 +407,7 @@ namespace CF
             return false;
         }
         
-        return CFStringHasPrefix( this->_cfObject, value._cfObject );
+        return ( CFStringHasPrefix( this->_cfObject, value._cfObject ) ) ? true : false;
     }
     
     bool String::HasPrefix( CFStringRef value )
@@ -430,11 +430,12 @@ namespace CF
     
     bool String::HasSuffix( String value )
     {
-        String s;
+        if( this->_cfObject == NULL || value._cfObject == NULL )
+        {
+            return false;
+        }
         
-        s = value;
-        
-        return this->HasSuffix( s );
+        return ( CFStringHasSuffix( this->_cfObject, value._cfObject ) ) ? true : false;
     }
     
     bool String::HasSuffix( CFStringRef value )

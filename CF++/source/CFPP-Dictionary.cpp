@@ -269,7 +269,7 @@ namespace CF
             return false;
         }
         
-        return CFDictionaryContainsKey( this->_cfObject, key );
+        return ( CFDictionaryContainsKey( this->_cfObject, key ) ) ? true : false;
     }
     
     bool Dictionary::ContainsValue( CFTypeRef value )
@@ -279,7 +279,7 @@ namespace CF
             return false;
         }
         
-        return CFDictionaryContainsValue( this->_cfObject, value );
+        return ( CFDictionaryContainsValue( this->_cfObject, value ) ) ? true : false;
     }
     
     void Dictionary::RemoveAllValues( void )

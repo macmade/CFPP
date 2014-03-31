@@ -292,12 +292,12 @@ namespace CF
             return false;
         }
         
-        return CFArrayContainsValue
+        return ( CFArrayContainsValue
         (
             this->_cfObject,
             CFRangeMake( 0, this->GetCount() ),
             value
-        );
+        ) ) ? true : false;
     }
     
     void Array::RemoveAllValues( void )

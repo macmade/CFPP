@@ -63,8 +63,8 @@ namespace CF
             
             #endif
             
-            typedef float   Float64;
-            typedef double  Float32;
+            typedef float   Float32;
+            typedef double  Float64;
             
             Number( void );
             Number( CFTypeRef cfObject );

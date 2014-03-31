@@ -210,7 +210,7 @@ namespace CF
             case PartUserName:          s = this->GetUserName();            break;
         }
         
-        return s;
+        return s.GetValue();
     }
     
     bool URL::operator == ( const URL & value )
@@ -305,12 +305,12 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.GetValue();
         }
         
         str = CFURLGetString( this->_cfObject );
         
-        return str;
+        return str.GetValue();
     }
     
     CFTypeID URL::GetTypeID( void ) const
@@ -652,7 +652,7 @@ namespace CF
             return false;
         }
         
-        return CFURLHasDirectoryPath( this->_cfObject );
+        return ( CFURLHasDirectoryPath( this->_cfObject ) ) ? true : false;
     }
     
     void URL::AppendPathComponent( CFStringRef component, bool isDirectory )
