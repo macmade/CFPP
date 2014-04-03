@@ -170,6 +170,11 @@ namespace CF
         return *( this ) == u;
     }
     
+    bool UUID::operator == ( std::string value ) const
+    {
+        return this->GetString() == value;
+    }
+    
     bool UUID::operator != ( const UUID & value ) const
     {
         return !( *( this ) == value );
@@ -181,6 +186,11 @@ namespace CF
     }
     
     bool UUID::operator != ( CFUUIDRef value ) const
+    {
+        return !( *( this ) == value );
+    }
+    
+    bool UUID::operator != ( std::string value ) const
     {
         return !( *( this ) == value );
     }
