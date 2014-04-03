@@ -14,6 +14,7 @@
 		05632F9118ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */; };
 		05632F9218ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */; };
 		05632F9318ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */; };
+		05632F9518ED660900EB76D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05632F9418ED660900EB76D2 /* README.md */; };
 		056C884118C8C232006260B3 /* libCF++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libCF++.a */; };
 		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
@@ -156,6 +157,7 @@
 /* Begin PBXFileReference section */
 		05632F8B18ED5CA300EB76D2 /* CFPP-UUID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-UUID.h"; sourceTree = "<group>"; };
 		05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-UUID.cpp"; sourceTree = "<group>"; };
+		05632F9418ED660900EB76D2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		056C87CE18C8B0F8006260B3 /* Testing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Testing; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		056C881218C8B85F006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,6 +239,7 @@
 		056C87C518C8B0F8006260B3 = {
 			isa = PBXGroup;
 			children = (
+				05632F9418ED660900EB76D2 /* README.md */,
 				05BDE00918CDB2450028F339 /* CF++ */,
 				05BDE02518CDB2450028F339 /* CF++ Testing */,
 				056C880D18C8B50E006260B3 /* Frameworks */,
@@ -524,6 +527,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05632F9518ED660900EB76D2 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
