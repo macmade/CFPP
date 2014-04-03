@@ -30,30 +30,52 @@
 /* $Id$ */
 
 /*!
- * @header      CF++.h
+ * @header      CFPP-UUID.h
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
- * @abstract    CoreFoundation++ main header file
+ * @abstract    CoreFoundation++ CFUUIDRef wrapper
  */
 
-#ifndef __CFPP__
-#define __CFPP__
-
-#include <CoreFoundation/CoreFoundation.h>
-#include <string>
-#include <iostream>
-#include <vector>
+#ifndef __CFPP_UUID_H__
+#define __CFPP_UUID_H__
 
 #include <CF++/CFPP-Type.h>
-#include <CF++/CFPP-Boolean.h>
-#include <CF++/CFPP-Number.h>
-#include <CF++/CFPP-String.h>
-#include <CF++/CFPP-URL.h>
-#include <CF++/CFPP-Data.h>
-#include <CF++/CFPP-Date.h>
-#include <CF++/CFPP-Array.h>
-#include <CF++/CFPP-Pair.h>
-#include <CF++/CFPP-Dictionary.h>
-#include <CF++/CFPP-Error.h>
-#include <CF++/CFPP-UUID.h>
 
-#endif /* __CFPP__ */
+namespace CF
+{
+    class UUID: public Type
+    {
+        public:
+            
+            UUID( void );
+            UUID( const UUID & value );
+            UUID( CFTypeRef value );
+            UUID( CFUUIDRef value );
+            
+            virtual ~UUID( void );
+            
+            UUID & operator = ( const UUID & value );
+            UUID & operator = ( CFTypeRef value );
+            UUID & operator = ( CFUUIDRef value );
+            
+            bool operator == ( const UUID & value ) const;
+            bool operator == ( CFTypeRef value ) const;
+            bool operator == ( CFUUIDRef value ) const;
+            
+            bool operator != ( const UUID & value ) const;
+            bool operator != ( CFTypeRef value ) const;
+            bool operator != ( CFUUIDRef value ) const;
+            
+            operator std::string ();
+            
+            virtual CFTypeID  GetTypeID( void ) const;
+            virtual CFTypeRef GetCFObject( void ) const;
+            
+            CF::String GetString( void ) const;
+            
+        private:
+            
+            CFUUIDRef _cfObject;
+    };
+}
+
+#endif /* __CFPP_UUID_H__ */

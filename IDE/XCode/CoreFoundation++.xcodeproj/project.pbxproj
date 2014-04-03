@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05632F8C18ED5CA900EB76D2 /* CFPP-UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 05632F8B18ED5CA300EB76D2 /* CFPP-UUID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05632F8D18ED5CAA00EB76D2 /* CFPP-UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 05632F8B18ED5CA300EB76D2 /* CFPP-UUID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05632F8E18ED5CAA00EB76D2 /* CFPP-UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 05632F8B18ED5CA300EB76D2 /* CFPP-UUID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05632F9018ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */; };
+		05632F9118ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */; };
+		05632F9218ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */; };
+		05632F9318ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */; };
 		056C884118C8C232006260B3 /* libCF++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libCF++.a */; };
 		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
@@ -147,6 +154,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05632F8B18ED5CA300EB76D2 /* CFPP-UUID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-UUID.h"; sourceTree = "<group>"; };
+		05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-UUID.cpp"; sourceTree = "<group>"; };
 		056C87CE18C8B0F8006260B3 /* Testing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Testing; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		056C881218C8B85F006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,6 +300,7 @@
 				05BDE01518CDB2450028F339 /* CFPP-Type.h */,
 				05BDE01618CDB2450028F339 /* CFPP-URL.h */,
 				05A3A76C18CF00D200F7E0BC /* CFPP-Error.h */,
+				05632F8B18ED5CA300EB76D2 /* CFPP-UUID.h */,
 			);
 			path = "CF++";
 			sourceTree = "<group>";
@@ -309,6 +319,7 @@
 				05BDE02318CDB2450028F339 /* CFPP-Type.cpp */,
 				05BDE02418CDB2450028F339 /* CFPP-URL.cpp */,
 				05A3A76D18CF00DF00F7E0BC /* CFPP-Error.cpp */,
+				05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -338,6 +349,7 @@
 				05BDE05318CDB25E0028F339 /* CFPP-Date.h in Headers */,
 				05BDE05118CDB25E0028F339 /* CFPP-Boolean.h in Headers */,
 				05BDE05A18CDB25E0028F339 /* CF++.h in Headers */,
+				05632F8C18ED5CA900EB76D2 /* CFPP-UUID.h in Headers */,
 				05BDE05618CDB25E0028F339 /* CFPP-Pair.h in Headers */,
 				05BDE05518CDB25E0028F339 /* CFPP-Number.h in Headers */,
 				05BDE05018CDB25E0028F339 /* CFPP-Array.h in Headers */,
@@ -357,6 +369,7 @@
 				05BDE06918CDB2600028F339 /* CFPP-Date.h in Headers */,
 				05BDE06718CDB2600028F339 /* CFPP-Boolean.h in Headers */,
 				05BDE07018CDB2600028F339 /* CF++.h in Headers */,
+				05632F8D18ED5CAA00EB76D2 /* CFPP-UUID.h in Headers */,
 				05BDE06C18CDB2600028F339 /* CFPP-Pair.h in Headers */,
 				05BDE06B18CDB2600028F339 /* CFPP-Number.h in Headers */,
 				05BDE06618CDB2600028F339 /* CFPP-Array.h in Headers */,
@@ -376,6 +389,7 @@
 				05BDE05E18CDB25F0028F339 /* CFPP-Date.h in Headers */,
 				05BDE05C18CDB25F0028F339 /* CFPP-Boolean.h in Headers */,
 				05BDE06518CDB25F0028F339 /* CF++.h in Headers */,
+				05632F8E18ED5CAA00EB76D2 /* CFPP-UUID.h in Headers */,
 				05BDE06118CDB25F0028F339 /* CFPP-Pair.h in Headers */,
 				05BDE06018CDB25F0028F339 /* CFPP-Number.h in Headers */,
 				05BDE05B18CDB25F0028F339 /* CFPP-Array.h in Headers */,
@@ -535,6 +549,7 @@
 				05BDE02C18CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
 				05BDE02B18CDB2540028F339 /* CFPP-Date.cpp in Sources */,
 				05BDE02E18CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
+				05632F9018ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
 				05BDE02F18CDB2540028F339 /* CFPP-String.cpp in Sources */,
 				05BDE02918CDB2540028F339 /* CFPP-Boolean.cpp in Sources */,
 				05BDE02D18CDB2540028F339 /* CFPP-Number.cpp in Sources */,
@@ -553,6 +568,7 @@
 				05BDE03618CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
 				05BDE03518CDB2540028F339 /* CFPP-Date.cpp in Sources */,
 				05BDE03818CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
+				05632F9118ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
 				05BDE03918CDB2540028F339 /* CFPP-String.cpp in Sources */,
 				05BDE03318CDB2540028F339 /* CFPP-Boolean.cpp in Sources */,
 				05BDE03718CDB2540028F339 /* CFPP-Number.cpp in Sources */,
@@ -571,6 +587,7 @@
 				05BDE04018CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
 				05BDE03F18CDB2540028F339 /* CFPP-Date.cpp in Sources */,
 				05BDE04218CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
+				05632F9218ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
 				05BDE04318CDB2540028F339 /* CFPP-String.cpp in Sources */,
 				05BDE03D18CDB2540028F339 /* CFPP-Boolean.cpp in Sources */,
 				05BDE04118CDB2540028F339 /* CFPP-Number.cpp in Sources */,
@@ -589,6 +606,7 @@
 				05BDE04A18CDB2550028F339 /* CFPP-Dictionary.cpp in Sources */,
 				05BDE04918CDB2550028F339 /* CFPP-Date.cpp in Sources */,
 				05BDE04C18CDB2550028F339 /* CFPP-Pair.cpp in Sources */,
+				05632F9318ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
 				05BDE04D18CDB2550028F339 /* CFPP-String.cpp in Sources */,
 				05BDE04718CDB2550028F339 /* CFPP-Boolean.cpp in Sources */,
 				05BDE04B18CDB2550028F339 /* CFPP-Number.cpp in Sources */,

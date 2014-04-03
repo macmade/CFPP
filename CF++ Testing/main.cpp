@@ -277,5 +277,12 @@ int main( void )
         std::cout << error << std::endl;
     }
     
+    {
+        CF::UUID uuid;
+        
+        std::cout << uuid << std::endl;
+        std::cout << ( std::string )uuid << std::endl;
+    }
+    
     return EXIT_SUCCESS;
 }
