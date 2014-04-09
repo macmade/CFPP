@@ -39,6 +39,54 @@
 
 namespace CF
 {
+    URL URL::FileSystemURL( std::string path, bool isDir )
+    {
+        URL        url;
+        CFURLRef   cfURL;
+        CF::String str;
+        
+        str = path;
+        
+        cfURL = CFURLCreateWithFileSystemPath
+        (
+            ( CFAllocatorRef )NULL,
+            str,
+            #ifdef _WIN32
+            kCFURLWindowsPathStyle,
+            #else
+            kCFURLPOSIXPathStyle,
+            #endif
+            isDir
+        );
+        
+        url = cfURL;
+        
+        if( cfURL != NULL )
+        {
+            CFRelease( cfURL );
+        }
+        
+        return url;
+    }
+    
+    URL URL::FileSystemURL( CFTypeRef path, bool isDir )
+    {
+        CF::String str;
+        
+        str = path;
+        
+        return URL::FileSystemURL( str.GetValue(), isDir );
+    }
+    
+    URL URL::FileSystemURL( CFStringRef path, bool isDir )
+    {
+        CF::String str;
+        
+        str = path;
+        
+        return URL::FileSystemURL( str.GetValue(), isDir );
+    }
+    
     URL::URL( void )
     {
         this->_cfObject = NULL;

@@ -66,6 +66,10 @@ namespace CF
             }
             Part;
             
+            static URL FileSystemURL( std::string path, bool isDir = false );
+            static URL FileSystemURL( CFTypeRef path, bool isDir = false );
+            static URL FileSystemURL( CFStringRef path, bool isDir = false );
+            
             URL( void );
             URL( const URL & value );
             URL( CFTypeRef value );
