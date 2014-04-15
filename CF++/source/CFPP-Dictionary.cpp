@@ -37,21 +37,133 @@
 
 #include <CF++.h>
 
+static bool __hasCallBacks = false;
+
+static CFDictionaryKeyCallBacks   __keyCallbacks;
+static CFDictionaryValueCallBacks __valueCallbacks;
+
+#ifdef _WIN32
+
+static const void *	__CFDictionaryRetainCallBack( CFAllocatorRef allocator, const void * value );
+static const void *	__CFDictionaryRetainCallBack( CFAllocatorRef allocator, const void * value )
+{
+    ( void )allocator;
+    
+    if( value != NULL )
+    {
+        value = CFRetain( value );
+    }
+    
+    return value;
+}
+
+static void __CFDictionaryReleaseCallBack( CFAllocatorRef allocator, const void * value );
+static void __CFDictionaryReleaseCallBack( CFAllocatorRef allocator, const void * value )
+{
+    ( void )allocator;
+    
+    if( value != NULL )
+    {
+        CFRelease( value );
+    }
+}
+
+static CFStringRef __CFDictionaryCopyDescriptionCallBack( const void * value );
+static CFStringRef __CFDictionaryCopyDescriptionCallBack( const void * value )
+{
+    if( value == NULL )
+    {
+        return CFStringCreateWithCString( ( CFAllocatorRef )NULL, "(null)", kCFStringEncodingUTF8 );
+    }
+    
+    return CFCopyDescription( value );
+}
+
+static Boolean __CFDictionaryEqualCallBack( const void * value1, const void * value2 );
+static Boolean __CFDictionaryEqualCallBack( const void * value1, const void * value2 )
+{
+    if( value1 == value2 )
+    {
+        return true;
+    }
+    
+    if( value1 == NULL || value2 == NULL )
+    {
+        return false;
+    }
+    
+    return CFEqual( value1, value2 );
+}
+
+static CFHashCode __CFDictionaryHashCallBack( const void * value );
+static CFHashCode __CFDictionaryHashCallBack( const void * value )
+{
+    if( value == NULL )
+    {
+        return 0;
+    }
+    
+    return CFHash( value );
+}
+
+static void __createCallbacks( void )
+{
+    if( __hasCallBacks == true  )
+    {
+        return;
+    }
+    
+    __hasCallBacks = true;
+    
+    __keyCallbacks.version         = 0;
+    __keyCallbacks.retain          = __CFDictionaryRetainCallBack;
+    __keyCallbacks.release         = __CFDictionaryReleaseCallBack;
+    __keyCallbacks.copyDescription = __CFDictionaryCopyDescriptionCallBack;
+    __keyCallbacks.equal           = __CFDictionaryEqualCallBack;
+    __keyCallbacks.hash            = __CFDictionaryHashCallBack;
+    
+    __valueCallbacks.version         = 0;
+    __valueCallbacks.retain          = __CFDictionaryRetainCallBack;
+    __valueCallbacks.release         = __CFDictionaryReleaseCallBack;
+    __valueCallbacks.copyDescription = __CFDictionaryCopyDescriptionCallBack;
+    __valueCallbacks.equal           = __CFDictionaryEqualCallBack;
+}
+
+#else
+
+static void __createCallbacks( void )
+{
+    if( __hasCallBacks == true  )
+    {
+        return;
+    }
+    
+    __hasCallBacks      = true;
+    __keyCallbacks      = kCFTypeDictionaryKeyCallBacks;
+    __valueCallbacks    = kCFTypeDictionaryValueCallBacks;
+}
+
+#endif
+
 namespace CF
 {
     Dictionary::Dictionary( CFIndex capacity )
     {
+        __createCallbacks();
+        
         this->_cfObject = CFDictionaryCreateMutable
         (
             ( CFAllocatorRef )NULL,
             capacity,
-            &kCFTypeDictionaryKeyCallBacks,
-            &kCFTypeDictionaryValueCallBacks
+            &__keyCallbacks,
+            &__valueCallbacks
         );
     }
     
     Dictionary::Dictionary( const Dictionary & value )
     {
+        __createCallbacks();
+        
         if( value._cfObject != NULL )
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
@@ -67,14 +179,16 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeDictionaryKeyCallBacks,
-                &kCFTypeDictionaryValueCallBacks
+                &__keyCallbacks,
+                &__valueCallbacks
             );
         }
     }
     
     Dictionary::Dictionary( CFTypeRef cfObject )
     {
+        __createCallbacks();
+        
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
@@ -90,14 +204,16 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeDictionaryKeyCallBacks,
-                &kCFTypeDictionaryValueCallBacks
+                &__keyCallbacks,
+                &__valueCallbacks
             );
         }
     }
     
     Dictionary::Dictionary( CFDictionaryRef cfObject )
     {
+        __createCallbacks();
+        
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
@@ -113,8 +229,8 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeDictionaryKeyCallBacks,
-                &kCFTypeDictionaryValueCallBacks
+                &__keyCallbacks,
+                &__valueCallbacks
             );
         }
     }
@@ -151,8 +267,8 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeDictionaryKeyCallBacks,
-                &kCFTypeDictionaryValueCallBacks
+                &__keyCallbacks,
+                &__valueCallbacks
             );
         }
         
@@ -181,8 +297,8 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeDictionaryKeyCallBacks,
-                &kCFTypeDictionaryValueCallBacks
+                &__keyCallbacks,
+                &__valueCallbacks
             );
         }
         
@@ -211,8 +327,8 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeDictionaryKeyCallBacks,
-                &kCFTypeDictionaryValueCallBacks
+                &__keyCallbacks,
+                &__valueCallbacks
             );
         }
         
@@ -346,5 +462,4 @@ namespace CF
         
         return CFDictionarySetValue( this->_cfObject, key, value );
     }
-    
 }

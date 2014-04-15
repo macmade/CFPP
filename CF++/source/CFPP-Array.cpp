@@ -37,20 +37,112 @@
 
 #include <CF++.h>
 
+static bool __hasCallBacks = false;
+
+static CFArrayCallBacks __callbacks;
+
+#ifdef _WIN32
+
+static const void *	__CFArrayRetainCallBack( CFAllocatorRef allocator, const void * value );
+static const void *	__CFArrayRetainCallBack( CFAllocatorRef allocator, const void * value )
+{
+    ( void )allocator;
+    
+    if( value != NULL )
+    {
+        value = CFRetain( value );
+    }
+    
+    return value;
+}
+
+static void __CFArrayReleaseCallBack( CFAllocatorRef allocator, const void * value );
+static void __CFArrayReleaseCallBack( CFAllocatorRef allocator, const void * value )
+{
+    ( void )allocator;
+    
+    if( value != NULL )
+    {
+        CFRelease( value );
+    }
+}
+
+static CFStringRef __CFArrayCopyDescriptionCallBack( const void * value );
+static CFStringRef __CFArrayCopyDescriptionCallBack( const void * value )
+{
+    if( value == NULL )
+    {
+        return CFStringCreateWithCString( ( CFAllocatorRef )NULL, "(null)", kCFStringEncodingUTF8 );
+    }
+    
+    return CFCopyDescription( value );
+}
+
+static Boolean __CFArrayEqualCallBack( const void * value1, const void * value2 );
+static Boolean __CFArrayEqualCallBack( const void * value1, const void * value2 )
+{
+    if( value1 == value2 )
+    {
+        return true;
+    }
+    
+    if( value1 == NULL || value2 == NULL )
+    {
+        return false;
+    }
+    
+    return CFEqual( value1, value2 );
+}
+
+static void __createCallbacks( void )
+{
+    if( __hasCallBacks == true  )
+    {
+        return;
+    }
+    
+    __hasCallBacks = true;
+    
+    __callbacks.version         = 0;
+    __callbacks.retain          = __CFArrayRetainCallBack;
+    __callbacks.release         = __CFArrayReleaseCallBack;
+    __callbacks.copyDescription = __CFArrayCopyDescriptionCallBack;
+    __callbacks.equal           = __CFArrayEqualCallBack;
+}
+
+#else
+
+static void __createCallbacks( void )
+{
+    if( __hasCallBacks == true  )
+    {
+        return;
+    }
+    
+    __hasCallBacks = true;
+    __callbacks    = kCFTypeArrayCallBacks;
+}
+
+#endif
+
 namespace CF
 {
     Array::Array( CFIndex capacity )
     {
+        __createCallbacks();
+        
         this->_cfObject = CFArrayCreateMutable
         (
             ( CFAllocatorRef )NULL,
             capacity,
-            &kCFTypeArrayCallBacks
+            &__callbacks
         );
     }
     
     Array::Array( const Array & value )
     {
+        __createCallbacks();
+        
         if( value._cfObject != NULL )
         {
             this->_cfObject = CFArrayCreateMutableCopy
@@ -66,13 +158,15 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeArrayCallBacks
+                &__callbacks
             );
         }
     }
     
     Array::Array( CFTypeRef value )
     {
+        __createCallbacks();
+        
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = CFArrayCreateMutableCopy
@@ -88,13 +182,15 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeArrayCallBacks
+                &__callbacks
             );
         }
     }
     
     Array::Array( CFArrayRef value )
     {
+        __createCallbacks();
+        
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = CFArrayCreateMutableCopy
@@ -110,7 +206,7 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeArrayCallBacks
+                &__callbacks
             );
         }
     }
@@ -147,7 +243,7 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeArrayCallBacks
+                &__callbacks
             );
         }
         
@@ -176,7 +272,7 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeArrayCallBacks
+                &__callbacks
             );
         }
         
@@ -205,7 +301,7 @@ namespace CF
             (
                 ( CFAllocatorRef )NULL,
                 100,
-                &kCFTypeArrayCallBacks
+                &__callbacks
             );
         }
         
