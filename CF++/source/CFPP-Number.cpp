@@ -2432,7 +2432,7 @@ namespace CF
     
     CFTypeID Number::GetTypeID( void ) const
     {
-        return CFNullGetTypeID();
+        return CFNumberGetTypeID();
     }
     
     CFTypeRef Number::GetCFObject( void ) const
