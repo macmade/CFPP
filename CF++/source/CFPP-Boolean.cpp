@@ -37,6 +37,35 @@
 
 #include <CF++.h>
 
+#ifdef _WIN32
+
+#include <Windows.h>
+
+static bool         __hasCFBoolean   = false;
+static CFBooleanRef __cfBooleanTrue  = NULL;
+static CFBooleanRef __cfBooleanFalse = NULL;
+
+static void __loadCFBoolean( void )
+{
+    HMODULE cfModule;
+
+    if( __hasCFBoolean == true )
+    {
+        return;
+    }
+
+    cfModule = GetModuleHandle( L"CoreFoundation.dll" );
+
+    if( cfModule != NULL )
+    {
+        __hasCFBoolean   = true;
+        __cfBooleanTrue  = *( ( CFBooleanRef * )GetProcAddress( cfModule, "kCFBooleanTrue" ) );
+        __cfBooleanFalse = *( ( CFBooleanRef * )GetProcAddress( cfModule, "kCFBooleanFalse" ) );
+    }
+}
+
+#endif
+
 namespace CF
 {
     Boolean::Boolean( CFTypeRef cfObject )
@@ -239,6 +268,16 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
+        #ifdef _WIN32
+
+        __loadCFBoolean();
+
+        this->_cfObject = ( CFBooleanRef )CFRetain( ( value == true ) ? __cfBooleanTrue : __cfBooleanFalse );
+
+        #else
+        
         this->_cfObject = ( CFBooleanRef )CFRetain( ( value == true ) ? kCFBooleanTrue : kCFBooleanFalse );
+        
+        #endif
     }
 }
