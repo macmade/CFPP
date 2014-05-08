@@ -469,10 +469,29 @@ namespace CF
     std::string String::GetValue( CFStringEncoding encoding ) const
     {
         const char * s;
+        char       * buf;
+        size_t       length;
+        std::string  str;
         
         s = this->GetCStringValue( encoding );
         
-        return ( s == NULL ) ? "" : s;
+        if( s == NULL )
+        {
+            length = ( size_t )CFStringGetMaximumSizeForEncoding( CFStringGetLength( this->_cfObject ), encoding );
+            buf    = ( char * )calloc( length + 1, 1 );
+
+            CFStringGetCString( this->_cfObject, buf, ( CFIndex )( length + 1 ), encoding );
+
+            str = ( buf == NULL ) ? "" : buf;
+
+            free( buf );
+        }
+        else
+        {
+            str = s;
+        }
+
+        return str;
     }
     
     const char * String::GetCStringValue( CFStringEncoding encoding ) const
