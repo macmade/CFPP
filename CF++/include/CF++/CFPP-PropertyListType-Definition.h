@@ -113,9 +113,19 @@ namespace CF
             cfFormat = kCFPropertyListBinaryFormat_v1_0;
         }
         
-        cfData = CFPropertyListCreateData( ( CFAllocatorRef )NULL, this->GetCFObject() , cfFormat, 0, &cfError );
+        cfData = CFPropertyListCreateData( ( CFAllocatorRef )NULL, this->GetCFObject(), cfFormat, 0, &cfError );
         
-        if( cfData != NULL || cfError != NULL )
+        if( cfError != NULL )
+        {
+            if( cfData != NULL )
+            {
+                CFRelease( cfData );
+            }
+            
+            return d;
+        }
+        
+        if( cfData != NULL )
         {
             d = cfData;
             
