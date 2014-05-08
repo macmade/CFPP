@@ -38,11 +38,11 @@
 #ifndef __CFPP_DATE_H__
 #define __CFPP_DATE_H__
 
-#include <CF++/CFPP-Type.h>
+#include <CF++/CFPP-PropertyListType.h>
 
 namespace CF
 {
-    class Date: public Type
+    class Date: public PropertyListType< Date >
     {
         public:
             

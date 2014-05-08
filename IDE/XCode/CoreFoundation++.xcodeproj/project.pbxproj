@@ -100,6 +100,12 @@
 		05BDE06E18CDB2600028F339 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01518CDB2450028F339 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05BDE06F18CDB2600028F339 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01618CDB2450028F339 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05BDE07018CDB2600028F339 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01718CDB2450028F339 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05EFF0E0191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; };
+		05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; };
+		05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; };
+		05EFF0E9191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; };
+		05EFF0EA191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; };
+		05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +197,8 @@
 		05BDE02318CDB2450028F339 /* CFPP-Type.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Type.cpp"; sourceTree = "<group>"; };
 		05BDE02418CDB2450028F339 /* CFPP-URL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-URL.cpp"; sourceTree = "<group>"; };
 		05BDE02618CDB2450028F339 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CFPP-PropertyListType.h"; sourceTree = "<group>"; };
+		05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CFPP-PropertyListType-Definition.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +307,8 @@
 				05BDE01118CDB2450028F339 /* CFPP-Dictionary.h */,
 				05BDE01218CDB2450028F339 /* CFPP-Number.h */,
 				05BDE01318CDB2450028F339 /* CFPP-Pair.h */,
+				05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */,
+				05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */,
 				05BDE01418CDB2450028F339 /* CFPP-String.h */,
 				05BDE01518CDB2450028F339 /* CFPP-Type.h */,
 				05BDE01618CDB2450028F339 /* CFPP-URL.h */,
@@ -347,6 +357,7 @@
 				05BDE05918CDB25E0028F339 /* CFPP-URL.h in Headers */,
 				05BDE05718CDB25E0028F339 /* CFPP-String.h in Headers */,
 				05A3A77718CF00EC00F7E0BC /* CFPP-Error.h in Headers */,
+				05EFF0E0191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */,
 				05BDE05418CDB25E0028F339 /* CFPP-Dictionary.h in Headers */,
 				05BDE05218CDB25E0028F339 /* CFPP-Data.h in Headers */,
 				05BDE05318CDB25E0028F339 /* CFPP-Date.h in Headers */,
@@ -356,6 +367,7 @@
 				05BDE05618CDB25E0028F339 /* CFPP-Pair.h in Headers */,
 				05BDE05518CDB25E0028F339 /* CFPP-Number.h in Headers */,
 				05BDE05018CDB25E0028F339 /* CFPP-Array.h in Headers */,
+				05EFF0E9191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +379,7 @@
 				05BDE06F18CDB2600028F339 /* CFPP-URL.h in Headers */,
 				05BDE06D18CDB2600028F339 /* CFPP-String.h in Headers */,
 				05A3A77618CF00EC00F7E0BC /* CFPP-Error.h in Headers */,
+				05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */,
 				05BDE06A18CDB2600028F339 /* CFPP-Dictionary.h in Headers */,
 				05BDE06818CDB2600028F339 /* CFPP-Data.h in Headers */,
 				05BDE06918CDB2600028F339 /* CFPP-Date.h in Headers */,
@@ -376,6 +389,7 @@
 				05BDE06C18CDB2600028F339 /* CFPP-Pair.h in Headers */,
 				05BDE06B18CDB2600028F339 /* CFPP-Number.h in Headers */,
 				05BDE06618CDB2600028F339 /* CFPP-Array.h in Headers */,
+				05EFF0EA191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +401,7 @@
 				05BDE06418CDB25F0028F339 /* CFPP-URL.h in Headers */,
 				05BDE06218CDB25F0028F339 /* CFPP-String.h in Headers */,
 				05A3A77518CF00EB00F7E0BC /* CFPP-Error.h in Headers */,
+				05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */,
 				05BDE05F18CDB25F0028F339 /* CFPP-Dictionary.h in Headers */,
 				05BDE05D18CDB25F0028F339 /* CFPP-Data.h in Headers */,
 				05BDE05E18CDB25F0028F339 /* CFPP-Date.h in Headers */,
@@ -396,6 +411,7 @@
 				05BDE06118CDB25F0028F339 /* CFPP-Pair.h in Headers */,
 				05BDE06018CDB25F0028F339 /* CFPP-Number.h in Headers */,
 				05BDE05B18CDB25F0028F339 /* CFPP-Array.h in Headers */,
+				05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

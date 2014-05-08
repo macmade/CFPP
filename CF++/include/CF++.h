@@ -44,6 +44,7 @@
 #include <vector>
 
 #include <CF++/CFPP-Type.h>
+#include <CF++/CFPP-PropertyListType.h>
 #include <CF++/CFPP-Boolean.h>
 #include <CF++/CFPP-Number.h>
 #include <CF++/CFPP-String.h>
@@ -55,5 +56,6 @@
 #include <CF++/CFPP-Dictionary.h>
 #include <CF++/CFPP-Error.h>
 #include <CF++/CFPP-UUID.h>
+#include <CF++/CFPP-PropertyListType-Definition.h>
 
 #endif /* __CFPP__ */

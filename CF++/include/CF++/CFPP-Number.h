@@ -38,12 +38,12 @@
 #ifndef __CFPP_NUMBER_H__
 #define __CFPP_NUMBER_H__
 
-#include <CF++/CFPP-Type.h>
+#include <CF++/CFPP-PropertyListType.h>
 #include <stdint.h>
 
 namespace CF
 {
-    class Number: public Type
+    class Number: public PropertyListType< Number >
     {
         public:
             

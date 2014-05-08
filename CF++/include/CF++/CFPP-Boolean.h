@@ -38,11 +38,11 @@
 #ifndef __CFPP_BOOLEAN_H__
 #define __CFPP_BOOLEAN_H__
 
-#include <CF++/CFPP-Type.h>
+#include <CF++/CFPP-PropertyListType.h>
 
 namespace CF
 {
-    class Boolean: public Type
+    class Boolean: public PropertyListType< Boolean >
     {
         public:
             

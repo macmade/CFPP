@@ -30,59 +30,36 @@
 /* $Id$ */
 
 /*!
- * @header      CFPP-Dictionary.h
+ * @header      CFPP-PropertyListType.h
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
- * @abstract    CoreFoundation++ CFDictionaryRef wrapper
+ * @abstract    CoreFoundation++ base class for property list compatible types
  */
 
-#ifndef __CFPP_DICTIONARY_H__
-#define __CFPP_DICTIONARY_H__
+#ifndef __CFPP_PROPERTY_LIST_TYPE_H__
+#define __CFPP_PROPERTY_LIST_TYPE_H__
 
-#include <CF++/CFPP-PropertyListType.h>
-#include <CF++/CFPP-Pair.h>
-#include <CF++/CFPP-String.h>
+#include <CF++/CFPP-Type.h>
 
 namespace CF
 {
-    class Dictionary: public PropertyListType< Dictionary >
+    class Data;
+    
+    typedef enum
+    {
+        PropertyListFormatXML       = 0x00,
+        PropertyListFormatBinary    = 0x01
+    }
+    PropertyListFormat;
+    
+    template < class T >
+    class PropertyListType: public Type
     {
         public:
             
-            Dictionary( CFIndex capacity = 100 );
-            Dictionary( const Dictionary & value );
-            Dictionary( CFTypeRef cfObject );
-            Dictionary( CFDictionaryRef cfObject );
-            
-            virtual ~Dictionary( void );
-            
-            Dictionary & operator = ( const Dictionary & value );
-            Dictionary & operator = ( CFTypeRef value );
-            Dictionary & operator = ( CFDictionaryRef value );
-            
-            Dictionary & operator += ( Pair pair );
-            Dictionary & operator << ( Pair pair );
-            
-            CFTypeRef operator [] ( CFTypeRef key );
-            CFTypeRef operator [] ( const char * key );
-            CFTypeRef operator [] ( String key );
-            
-            virtual CFTypeID  GetTypeID( void ) const;
-            virtual CFTypeRef GetCFObject( void ) const;
-            
-            bool      ContainsKey( CFTypeRef key );
-            bool      ContainsValue( CFTypeRef value );
-            void      RemoveAllValues( void );
-            CFIndex   GetCount( void );
-            CFTypeRef GetValue( CFTypeRef key );
-            void      AddValue( CFTypeRef key, CFTypeRef value );
-            void      RemoveValue( CFTypeRef key );
-            void      ReplaceValue( CFTypeRef key, CFTypeRef value );
-            void      SetValue( CFTypeRef key, CFTypeRef value );
-            
-        private:
-            
-            CFMutableDictionaryRef _cfObject;
+            T FromPropertyList( std::string path );
+            bool ToPropertyList( std::string path, PropertyListFormat format = PropertyListFormatXML );
+            Data ToPropertyList( PropertyListFormat format = PropertyListFormatXML );
     };
 }
 
-#endif /* __CFPP_DICTIONARY_H__ */
+#endif /* __CFPP_PROPERTY_LIST_TYPE_H__ */

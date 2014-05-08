@@ -284,5 +284,19 @@ int main( void )
         std::cout << ( std::string )uuid << std::endl;
     }
     
+    std::cout << std::endl;
+    std::cout << "********** CF::PropertyListType **********" << std::endl;
+    std::cout << std::endl;
+    
+    {
+        CF::Dictionary dict;
+        
+        dict << CF::Pair( "foo", "hello, world" )
+             << CF::Pair( "bar", "hello, universe" )
+             << CF::Pair( "foobar", CF::Number( 42 ) );
+        
+        dict.ToPropertyList( "CF++.plist", CF::PropertyListFormatBinary ); 
+    }
+    
     return EXIT_SUCCESS;
 }

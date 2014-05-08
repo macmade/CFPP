@@ -38,11 +38,11 @@
 #ifndef __CFPP_STRING_H__
 #define __CFPP_STRING_H__
 
-#include <CF++/CFPP-Type.h>
+#include <CF++/CFPP-PropertyListType.h>
 
 namespace CF
 {
-    class String: public Type
+    class String: public PropertyListType< String >
     {
         public:
             

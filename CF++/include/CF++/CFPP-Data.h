@@ -38,11 +38,11 @@
 #ifndef __CFPP_DATA_H__
 #define __CFPP_DATA_H__
 
-#include <CF++/CFPP-Type.h>
+#include <CF++/CFPP-PropertyListType.h>
 
 namespace CF
 {
-    class Data: public Type
+    class Data: public PropertyListType< Data >
     {
         public:
             

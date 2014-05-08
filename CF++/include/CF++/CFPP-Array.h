@@ -38,13 +38,13 @@
 #ifndef __CFPP_ARRAY_H__
 #define __CFPP_ARRAY_H__
 
-#include <CF++/CFPP-Type.h>
+#include <CF++/CFPP-PropertyListType.h>
 #include <CF++/CFPP-String.h>
 #include <CF++/CFPP-Number.h>
 
 namespace CF
 {
-    class Array: public Type
+    class Array: public PropertyListType< Array >
     {
         public:
             
