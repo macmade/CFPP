@@ -47,11 +47,41 @@ namespace CF
     template < class T >
     T PropertyListType< T >::FromPropertyList( std::string path )
     {
-        T object;
+        CFTypeRef        cfObject;
+        T                object;
+        FILE           * fh;
+        CF::Data         data;
+        CF::Data::Byte * buf;
+        size_t           length;
         
-        ( void )path;
+        fh  = fopen( path.c_str(), "rb" );
+        buf = ( CF::Data::Byte * )malloc( 4096 );
         
-        std::cout << "FromPropertyList" << std::endl;
+        if( buf == NULL || fh == NULL )
+        {
+            goto end;
+        }
+        
+        while( !feof( fh ) )
+        {
+            length = fread( buf, 1, 10, fh );
+            
+            data.AppendBytes( buf, ( CFIndex )length );
+        }
+        
+        cfObject = CFPropertyListCreateWithData( ( CFAllocatorRef )NULL, data, 0, NULL, NULL );
+        
+        if( cfObject != NULL )
+        {
+            object = cfObject;
+            
+            CFRelease( cfObject );
+        }
+        
+        end:
+        
+        free( buf );
+        fclose( fh );
         
         return object;
     }
