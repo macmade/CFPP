@@ -41,6 +41,7 @@
 #include <CF++/CFPP-PropertyListType.h>
 #include <CF++/CFPP-Pair.h>
 #include <CF++/CFPP-String.h>
+#include <map>
 
 namespace CF
 {
@@ -78,6 +79,8 @@ namespace CF
             void      RemoveValue( CFTypeRef key );
             void      ReplaceValue( CFTypeRef key, CFTypeRef value );
             void      SetValue( CFTypeRef key, CFTypeRef value );
+            
+            std::map< CFTypeRef, CFTypeRef > GetKeysAndValues( void );
             
         private:
             

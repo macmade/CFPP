@@ -84,6 +84,8 @@ namespace CF
             void      AppendArray( CFArrayRef array );
             void      ExchangeValuesAtIndices( CFIndex index1, CFIndex index2 );
             
+            std::vector< CFTypeRef > GetValues( void );
+            
         protected:
             
             CFMutableArrayRef _cfObject;

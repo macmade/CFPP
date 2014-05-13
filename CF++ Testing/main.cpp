@@ -188,8 +188,10 @@ int main( void )
     std::cout << std::endl;
     
     {
-        CF::Array  array1;
-        CF::Array  array2;
+        CF::Array                           array1;
+        CF::Array                           array2;
+        std::vector< CFTypeRef >            values;
+        std::vector< CFTypeRef >::iterator  it;
         
         std::cout << array1 << std::endl;
         
@@ -212,6 +214,15 @@ int main( void )
         
         std::cout << "CF::Array[ 10 ] is:" << std::endl;
         CFShow( array1[ 10 ] );
+        
+        values = array1.GetValues();
+        
+        for( it = values.begin(); it != values.end(); it++ )
+        {
+            std::cout << "-- Value --" << std::endl;
+            
+            CFShow( *( it ) );
+        }
     }
     
     std::cout << std::endl;
@@ -219,7 +230,9 @@ int main( void )
     std::cout << std::endl;
     
     {
-        CF::Dictionary dictionary;
+        CF::Dictionary                              dictionary;
+        std::map< CFTypeRef, CFTypeRef >            values;
+        std::map< CFTypeRef, CFTypeRef >::iterator  it;
         
         std::cout << dictionary << std::endl;
         
@@ -240,6 +253,19 @@ int main( void )
         
         std::cout << "CF::Dictionary[ 'xxx' ] is:" << std::endl;
         CFShow( dictionary[ "xxx" ] );
+        
+        values = dictionary.GetKeysAndValues();
+        
+        for( it = values.begin(); it != values.end(); it++ )
+        {
+            std::cout << "-- Key --" << std::endl;
+            
+            CFShow( it->first );
+            
+            std::cout << "-- Value --" << std::endl;
+            
+            CFShow( it->second );
+        }
     }
     
     std::cout << std::endl;

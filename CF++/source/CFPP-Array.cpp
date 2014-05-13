@@ -490,4 +490,47 @@ namespace CF
         
         CFArrayExchangeValuesAtIndices( this->_cfObject, index1, index2 );
     }
+    
+    
+    std::vector< CFTypeRef > Array::GetValues( void )
+    {
+        std::vector< CFTypeRef > vector;
+        CFTypeRef              * values;
+        size_t                   count;
+        size_t                   i;
+        
+        values = NULL;
+        
+        if( this->_cfObject == NULL )
+        {
+            goto end;
+        }
+        
+        count = ( size_t )( this->GetCount() );
+        
+        if( count == 0 )
+        {
+            goto end;
+        }
+        
+        values = ( CFTypeRef * )calloc( sizeof( CFTypeRef ), count );
+        
+        if( values == NULL )
+        {
+            goto end;
+        }
+        
+        CFArrayGetValues( this->_cfObject, CFRangeMake( ( CFIndex )0, ( CFIndex )count ), ( const void ** )values );
+        
+        for( i = 0; i < count; i++ )
+        {
+            vector.push_back( values[ i ] );
+        }
+        
+        end:
+        
+        free( values );
+        
+        return vector;
+    }
 }

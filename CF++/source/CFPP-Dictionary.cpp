@@ -462,4 +462,50 @@ namespace CF
         
         return CFDictionarySetValue( this->_cfObject, key, value );
     }
+    
+    std::map< CFTypeRef, CFTypeRef > Dictionary::GetKeysAndValues( void )
+    {
+        std::map< CFTypeRef, CFTypeRef > map;
+        CFTypeRef                      * keys;
+        CFTypeRef                      * values;
+        size_t                           count;
+        size_t                           i;
+        
+        keys   = NULL;
+        values = NULL;
+        
+        if( this->_cfObject == NULL )
+        {
+            goto end;
+        }
+        
+        count = ( size_t )( this->GetCount() );
+        
+        if( count == 0 )
+        {
+            goto end;
+        }
+        
+        keys   = ( CFTypeRef * )calloc( sizeof( CFTypeRef ), count );
+        values = ( CFTypeRef * )calloc( sizeof( CFTypeRef ), count );
+        
+        if( keys == NULL || values == NULL )
+        {
+            goto end;
+        }
+        
+        CFDictionaryGetKeysAndValues( this->_cfObject, ( const void ** )keys, ( const void ** )values );
+        
+        for( i = 0; i < count; i++ )
+        {
+            map.insert( std::pair< CFTypeRef, CFTypeRef >( keys[ i ], values[ i ] ) );
+        }
+        
+        end:
+        
+        free( keys );
+        free( values );
+        
+        return map;
+    }
 }
