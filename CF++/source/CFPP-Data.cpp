@@ -39,20 +39,20 @@
 
 namespace CF
 {
-    Data::Data( CFIndex capacity )
+    Data::Data( void )
     {
-        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, capacity );
+        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
     }
     
     Data::Data( const Data & value )
     {
         if( value._cfObject != NULL )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, value._cfObject );
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, value._cfObject );
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         }
     }
     
@@ -60,11 +60,11 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, ( CFDataRef )value );
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, ( CFDataRef )value );
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         }
     }
     
@@ -72,11 +72,11 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, ( CFDataRef )value );
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, ( CFDataRef )value );
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         }
     }
     
@@ -84,26 +84,26 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, CFStringGetLength( value ) );
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
             
             CFDataAppendBytes( this->_cfObject, ( const UInt8 * )CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ), CFStringGetLength( value ) );
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         }
     }
     
     Data::Data( std::string value )
     {
-        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, ( CFIndex )( value.length() ) );
+        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         
         CFDataAppendBytes( this->_cfObject, ( const UInt8 * )( value.c_str() ), ( CFIndex )( value.length() ) );
     }
     
     Data::Data( Byte * value, CFIndex length )
     {
-        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, length );
+        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         
         CFDataAppendBytes( this->_cfObject, value, length );
     }
@@ -127,11 +127,11 @@ namespace CF
         
         if( value._cfObject != NULL )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, value._cfObject );
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, value._cfObject );
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         }
         
         return *( this );
@@ -146,11 +146,11 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, ( CFDataRef )value );
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, ( CFDataRef )value );
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         }
         
         return *( this );
@@ -165,11 +165,11 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 4096, value );
+            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, value );
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         }
         
         return *( this );
@@ -184,13 +184,13 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, CFStringGetLength( value ) );
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
             
             CFDataAppendBytes( this->_cfObject, ( const UInt8 * )CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ), CFStringGetLength( value ) );
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 4096 );
+            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         }
         
         return *( this );
@@ -203,7 +203,7 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, ( CFIndex )( value.length() ) );
+        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
         
         CFDataAppendBytes( this->_cfObject, ( const UInt8 * )( value.c_str() ), ( CFIndex )( value.length() ) );
         

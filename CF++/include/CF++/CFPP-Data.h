@@ -56,7 +56,7 @@ namespace CF
             
             #endif
             
-            Data( CFIndex capacity = 4096 );
+            Data( void );
             Data( const Data & value );
             Data( CFTypeRef value );
             Data( CFDataRef value );
