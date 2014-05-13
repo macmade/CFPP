@@ -41,6 +41,7 @@
 #include <CF++/CFPP-PropertyListType.h>
 #include <CF++/CFPP-String.h>
 #include <CF++/CFPP-Number.h>
+#include <map>
 
 namespace CF
 {

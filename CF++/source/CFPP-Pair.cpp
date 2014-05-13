@@ -96,7 +96,7 @@ namespace CF
         this->_value = NULL;
         s            = key;
         
-        this->SetKey( key );
+        this->SetKey( s );
         this->SetValue( value );
     }
     
