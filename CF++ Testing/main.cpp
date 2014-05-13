@@ -295,7 +295,9 @@ int main( void )
              << CF::Pair( "bar", "hello, universe" )
              << CF::Pair( "foobar", CF::Number( 42 ) );
         
-        dict.ToPropertyList( "CF++.plist", CF::PropertyListFormatBinary ); 
+        dict.ToPropertyList( "CF++.plist", CF::PropertyListFormatBinary );
+        
+        std::cout << CF::Dictionary::FromPropertyList( "/Users/macmade/Desktop/Manifest.plist" ) << std::endl;
     }
     
     return EXIT_SUCCESS;
