@@ -64,7 +64,7 @@ namespace CF
         
         while( !feof( fh ) )
         {
-            length = fread( buf, 1, 10, fh );
+            length = fread( buf, 1, 4096, fh );
             
             data.AppendBytes( buf, ( CFIndex )length );
         }
