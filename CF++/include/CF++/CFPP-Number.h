@@ -49,17 +49,25 @@ namespace CF
             
             #ifdef _WIN32
             
-            typedef __int8   SInt8;
-            typedef __int16 SInt16;
-            typedef __int32 SInt32;
-            typedef __int64 SInt64;
+            typedef          __int8   SInt8;
+            typedef unsigned __int8   UInt8;
+            typedef          __int16 SInt16;
+            typedef unsigned __int16 UInt16;
+            typedef          __int32 SInt32;
+            typedef unsigned __int32 UInt32;
+            typedef          __int64 SInt64;
+            typedef unsigned __int64 UInt64;
             
             #else
             
-            typedef int8_t  SInt8;
-            typedef int16_t SInt16;
-            typedef int32_t SInt32;
-            typedef int64_t SInt64;
+            typedef int8_t   SInt8;
+            typedef uint8_t  UInt8;
+            typedef int16_t  SInt16;
+            typedef uint16_t UInt16;
+            typedef int32_t  SInt32;
+            typedef uint32_t UInt32;
+            typedef int64_t  SInt64;
+            typedef uint64_t UInt64;
             
             #endif
             
@@ -74,6 +82,10 @@ namespace CF
             Number( SInt16 value );
             Number( SInt32 value );
             Number( SInt64 value );
+            Number( UInt8 value );
+            Number( UInt16 value );
+            Number( UInt32 value );
+            Number( UInt64 value );
             Number( Float32 value );
             Number( Float64 value );
             
@@ -86,6 +98,10 @@ namespace CF
             Number & operator = ( SInt16 value );
             Number & operator = ( SInt32 value );
             Number & operator = ( SInt64 value );
+            Number & operator = ( UInt8 value );
+            Number & operator = ( UInt16 value );
+            Number & operator = ( UInt32 value );
+            Number & operator = ( UInt64 value );
             Number & operator = ( Float32 value );
             Number & operator = ( Float64 value );
             
@@ -96,6 +112,10 @@ namespace CF
             bool operator == ( SInt16 value ) const;
             bool operator == ( SInt32 value ) const;
             bool operator == ( SInt64 value ) const;
+            bool operator == ( UInt8 value ) const;
+            bool operator == ( UInt16 value ) const;
+            bool operator == ( UInt32 value ) const;
+            bool operator == ( UInt64 value ) const;
             bool operator == ( Float32 value ) const;
             bool operator == ( Float64 value ) const;
             
@@ -106,6 +126,10 @@ namespace CF
             bool operator != ( SInt16 value ) const;
             bool operator != ( SInt32 value ) const;
             bool operator != ( SInt64 value ) const;
+            bool operator != ( UInt8 value ) const;
+            bool operator != ( UInt16 value ) const;
+            bool operator != ( UInt32 value ) const;
+            bool operator != ( UInt64 value ) const;
             bool operator != ( Float32 value ) const;
             bool operator != ( Float64 value ) const;
             
@@ -115,6 +139,10 @@ namespace CF
             bool operator >= ( SInt16 value ) const;
             bool operator >= ( SInt32 value ) const;
             bool operator >= ( SInt64 value ) const;
+            bool operator >= ( UInt8 value ) const;
+            bool operator >= ( UInt16 value ) const;
+            bool operator >= ( UInt32 value ) const;
+            bool operator >= ( UInt64 value ) const;
             bool operator >= ( Float32 value ) const;
             bool operator >= ( Float64 value ) const;
             
@@ -124,6 +152,10 @@ namespace CF
             bool operator <= ( SInt16 value ) const;
             bool operator <= ( SInt32 value ) const;
             bool operator <= ( SInt64 value ) const;
+            bool operator <= ( UInt8 value ) const;
+            bool operator <= ( UInt16 value ) const;
+            bool operator <= ( UInt32 value ) const;
+            bool operator <= ( UInt64 value ) const;
             bool operator <= ( Float32 value ) const;
             bool operator <= ( Float64 value ) const;
             
@@ -133,6 +165,10 @@ namespace CF
             bool operator > ( SInt16 value ) const;
             bool operator > ( SInt32 value ) const;
             bool operator > ( SInt64 value ) const;
+            bool operator > ( UInt8 value ) const;
+            bool operator > ( UInt16 value ) const;
+            bool operator > ( UInt32 value ) const;
+            bool operator > ( UInt64 value ) const;
             bool operator > ( Float32 value ) const;
             bool operator > ( Float64 value ) const;
             
@@ -142,6 +178,10 @@ namespace CF
             bool operator < ( SInt16 value ) const;
             bool operator < ( SInt32 value ) const;
             bool operator < ( SInt64 value ) const;
+            bool operator < ( UInt8 value ) const;
+            bool operator < ( UInt16 value ) const;
+            bool operator < ( UInt32 value ) const;
+            bool operator < ( UInt64 value ) const;
             bool operator < ( Float32 value ) const;
             bool operator < ( Float64 value ) const;
             
@@ -151,6 +191,10 @@ namespace CF
             bool operator && ( SInt16 value );
             bool operator && ( SInt32 value );
             bool operator && ( SInt64 value );
+            bool operator && ( UInt8 value );
+            bool operator && ( UInt16 value );
+            bool operator && ( UInt32 value );
+            bool operator && ( UInt64 value );
             bool operator && ( Float32 value );
             bool operator && ( Float64 value );
             
@@ -160,6 +204,10 @@ namespace CF
             bool operator || ( SInt16 value );
             bool operator || ( SInt32 value );
             bool operator || ( SInt64 value );
+            bool operator || ( UInt8 value );
+            bool operator || ( UInt16 value );
+            bool operator || ( UInt32 value );
+            bool operator || ( UInt64 value );
             bool operator || ( Float32 value );
             bool operator || ( Float64 value );
             
@@ -176,6 +224,10 @@ namespace CF
             Number & operator += ( SInt16 value );
             Number & operator += ( SInt32 value );
             Number & operator += ( SInt64 value );
+            Number & operator += ( UInt8 value );
+            Number & operator += ( UInt16 value );
+            Number & operator += ( UInt32 value );
+            Number & operator += ( UInt64 value );
             Number & operator += ( Float32 value );
             Number & operator += ( Float64 value );
             
@@ -185,6 +237,10 @@ namespace CF
             Number & operator -= ( SInt16 value );
             Number & operator -= ( SInt32 value );
             Number & operator -= ( SInt64 value );
+            Number & operator -= ( UInt8 value );
+            Number & operator -= ( UInt16 value );
+            Number & operator -= ( UInt32 value );
+            Number & operator -= ( UInt64 value );
             Number & operator -= ( Float32 value );
             Number & operator -= ( Float64 value );
             
@@ -194,6 +250,10 @@ namespace CF
             Number & operator *= ( SInt16 value );
             Number & operator *= ( SInt32 value );
             Number & operator *= ( SInt64 value );
+            Number & operator *= ( UInt8 value );
+            Number & operator *= ( UInt16 value );
+            Number & operator *= ( UInt32 value );
+            Number & operator *= ( UInt64 value );
             Number & operator *= ( Float32 value );
             Number & operator *= ( Float64 value );
             
@@ -203,6 +263,10 @@ namespace CF
             Number & operator /= ( SInt16 value );
             Number & operator /= ( SInt32 value );
             Number & operator /= ( SInt64 value );
+            Number & operator /= ( UInt8 value );
+            Number & operator /= ( UInt16 value );
+            Number & operator /= ( UInt32 value );
+            Number & operator /= ( UInt64 value );
             Number & operator /= ( Float32 value );
             Number & operator /= ( Float64 value );
             
@@ -212,6 +276,10 @@ namespace CF
             Number & operator |= ( SInt16 value );
             Number & operator |= ( SInt32 value );
             Number & operator |= ( SInt64 value );
+            Number & operator |= ( UInt8 value );
+            Number & operator |= ( UInt16 value );
+            Number & operator |= ( UInt32 value );
+            Number & operator |= ( UInt64 value );
             Number & operator |= ( Float32 value );
             Number & operator |= ( Float64 value );
             
@@ -221,6 +289,10 @@ namespace CF
             Number & operator &= ( SInt16 value );
             Number & operator &= ( SInt32 value );
             Number & operator &= ( SInt64 value );
+            Number & operator &= ( UInt8 value );
+            Number & operator &= ( UInt16 value );
+            Number & operator &= ( UInt32 value );
+            Number & operator &= ( UInt64 value );
             Number & operator &= ( Float32 value );
             Number & operator &= ( Float64 value );
             
@@ -230,6 +302,10 @@ namespace CF
             Number & operator %= ( SInt16 value );
             Number & operator %= ( SInt32 value );
             Number & operator %= ( SInt64 value );
+            Number & operator %= ( UInt8 value );
+            Number & operator %= ( UInt16 value );
+            Number & operator %= ( UInt32 value );
+            Number & operator %= ( UInt64 value );
             Number & operator %= ( Float32 value );
             Number & operator %= ( Float64 value );
             
@@ -239,6 +315,10 @@ namespace CF
             Number & operator ^= ( SInt16 value );
             Number & operator ^= ( SInt32 value );
             Number & operator ^= ( SInt64 value );
+            Number & operator ^= ( UInt8 value );
+            Number & operator ^= ( UInt16 value );
+            Number & operator ^= ( UInt32 value );
+            Number & operator ^= ( UInt64 value );
             Number & operator ^= ( Float32 value );
             Number & operator ^= ( Float64 value );
             
@@ -248,6 +328,10 @@ namespace CF
             Number & operator <<= ( SInt16 value );
             Number & operator <<= ( SInt32 value );
             Number & operator <<= ( SInt64 value );
+            Number & operator <<= ( UInt8 value );
+            Number & operator <<= ( UInt16 value );
+            Number & operator <<= ( UInt32 value );
+            Number & operator <<= ( UInt64 value );
             Number & operator <<= ( Float32 value );
             Number & operator <<= ( Float64 value );
             
@@ -257,6 +341,10 @@ namespace CF
             Number & operator >>= ( SInt16 value );
             Number & operator >>= ( SInt32 value );
             Number & operator >>= ( SInt64 value );
+            Number & operator >>= ( UInt8 value );
+            Number & operator >>= ( UInt16 value );
+            Number & operator >>= ( UInt32 value );
+            Number & operator >>= ( UInt64 value );
             Number & operator >>= ( Float32 value );
             Number & operator >>= ( Float64 value );
             
@@ -266,6 +354,10 @@ namespace CF
             Number operator + ( SInt16 value );
             Number operator + ( SInt32 value );
             Number operator + ( SInt64 value );
+            Number operator + ( UInt8 value );
+            Number operator + ( UInt16 value );
+            Number operator + ( UInt32 value );
+            Number operator + ( UInt64 value );
             Number operator + ( Float32 value );
             Number operator + ( Float64 value );
             
@@ -275,6 +367,10 @@ namespace CF
             Number operator - ( SInt16 value );
             Number operator - ( SInt32 value );
             Number operator - ( SInt64 value );
+            Number operator - ( UInt8 value );
+            Number operator - ( UInt16 value );
+            Number operator - ( UInt32 value );
+            Number operator - ( UInt64 value );
             Number operator - ( Float32 value );
             Number operator - ( Float64 value );
             
@@ -284,6 +380,10 @@ namespace CF
             Number operator * ( SInt16 value );
             Number operator * ( SInt32 value );
             Number operator * ( SInt64 value );
+            Number operator * ( UInt8 value );
+            Number operator * ( UInt16 value );
+            Number operator * ( UInt32 value );
+            Number operator * ( UInt64 value );
             Number operator * ( Float32 value );
             Number operator * ( Float64 value );
             
@@ -293,6 +393,10 @@ namespace CF
             Number operator / ( SInt16 value );
             Number operator / ( SInt32 value );
             Number operator / ( SInt64 value );
+            Number operator / ( UInt8 value );
+            Number operator / ( UInt16 value );
+            Number operator / ( UInt32 value );
+            Number operator / ( UInt64 value );
             Number operator / ( Float32 value );
             Number operator / ( Float64 value );
             
@@ -302,6 +406,10 @@ namespace CF
             Number operator % ( SInt16 value );
             Number operator % ( SInt32 value );
             Number operator % ( SInt64 value );
+            Number operator % ( UInt8 value );
+            Number operator % ( UInt16 value );
+            Number operator % ( UInt32 value );
+            Number operator % ( UInt64 value );
             Number operator % ( Float32 value );
             Number operator % ( Float64 value );
             
@@ -311,6 +419,10 @@ namespace CF
             Number operator & ( SInt16 value );
             Number operator & ( SInt32 value );
             Number operator & ( SInt64 value );
+            Number operator & ( UInt8 value );
+            Number operator & ( UInt16 value );
+            Number operator & ( UInt32 value );
+            Number operator & ( UInt64 value );
             Number operator & ( Float32 value );
             Number operator & ( Float64 value );
             
@@ -320,6 +432,10 @@ namespace CF
             Number operator | ( SInt16 value );
             Number operator | ( SInt32 value );
             Number operator | ( SInt64 value );
+            Number operator | ( UInt8 value );
+            Number operator | ( UInt16 value );
+            Number operator | ( UInt32 value );
+            Number operator | ( UInt64 value );
             Number operator | ( Float32 value );
             Number operator | ( Float64 value );
             
@@ -329,6 +445,10 @@ namespace CF
             Number operator ^ ( SInt16 value );
             Number operator ^ ( SInt32 value );
             Number operator ^ ( SInt64 value );
+            Number operator ^ ( UInt8 value );
+            Number operator ^ ( UInt16 value );
+            Number operator ^ ( UInt32 value );
+            Number operator ^ ( UInt64 value );
             Number operator ^ ( Float32 value );
             Number operator ^ ( Float64 value );
             
@@ -338,6 +458,10 @@ namespace CF
             Number operator << ( SInt16 value );
             Number operator << ( SInt32 value );
             Number operator << ( SInt64 value );
+            Number operator << ( UInt8 value );
+            Number operator << ( UInt16 value );
+            Number operator << ( UInt32 value );
+            Number operator << ( UInt64 value );
             Number operator << ( Float32 value );
             Number operator << ( Float64 value );
             
@@ -347,6 +471,10 @@ namespace CF
             Number operator >> ( SInt16 value );
             Number operator >> ( SInt32 value );
             Number operator >> ( SInt64 value );
+            Number operator >> ( UInt8 value );
+            Number operator >> ( UInt16 value );
+            Number operator >> ( UInt32 value );
+            Number operator >> ( UInt64 value );
             Number operator >> ( Float32 value );
             Number operator >> ( Float64 value );
             
@@ -354,6 +482,10 @@ namespace CF
             operator SInt16  ();
             operator SInt32  ();
             operator SInt64  ();
+            operator UInt8   ();
+            operator UInt16  ();
+            operator UInt32  ();
+            operator UInt64  ();
             operator Float32 ();
             operator Float64 ();
             
@@ -366,12 +498,20 @@ namespace CF
             SInt16  GetSInt16Value( void ) const;
             SInt32  GetSInt32Value( void ) const;
             SInt64  GetSInt64Value( void ) const;
+            UInt8   GetUInt8Value( void ) const;
+            UInt16  GetUInt16Value( void ) const;
+            UInt32  GetUInt32Value( void ) const;
+            UInt64  GetUInt64Value( void ) const;
             Float32 GetFloat32Value( void ) const;
             Float64 GetFloat64Value( void ) const;
             void    SetSInt8Value( SInt8 value );
             void    SetSInt16Value( SInt16 value );
             void    SetSInt32Value( SInt32 value );
             void    SetSInt64Value( SInt64 value );
+            void    SetUInt8Value( UInt8 value );
+            void    SetUInt16Value( UInt16 value );
+            void    SetUInt32Value( UInt32 value );
+            void    SetUInt64Value( UInt64 value );
             void    SetFloat32Value( Float32 value );
             void    SetFloat64Value( Float64 value );
             

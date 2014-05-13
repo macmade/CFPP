@@ -110,6 +110,34 @@ namespace CF
         this->SetSInt64Value( value );
     }
     
+    Number::Number( Number::UInt8 value )
+    {
+        this->_cfObject = NULL;
+        
+        this->SetUInt8Value( value );
+    }
+    
+    Number::Number( Number::UInt16 value )
+    {
+        this->_cfObject = NULL;
+        
+        this->SetUInt16Value( value );
+    }
+    
+    Number::Number( Number::UInt32 value )
+    {
+        this->_cfObject = NULL;
+        
+        this->SetUInt32Value( value );
+    }
+    
+    Number::Number( Number::UInt64 value )
+    {
+        this->_cfObject = NULL;
+        
+        this->SetUInt64Value( value );
+    }
+    
     Number::Number( Float32 value )
     {
         this->_cfObject = NULL;
@@ -219,6 +247,34 @@ namespace CF
         return *( this );
     }
     
+    Number & Number::operator = ( Number::UInt8 value )
+    {
+        this->SetUInt8Value( value );
+        
+        return *( this );
+    }
+    
+    Number & Number::operator = ( Number::UInt16 value )
+    {
+        this->SetUInt16Value( value );
+        
+        return *( this );
+    }
+    
+    Number & Number::operator = ( Number::UInt32 value )
+    {
+        this->SetUInt32Value( value );
+        
+        return *( this );
+    }
+    
+    Number & Number::operator = ( Number::UInt64 value )
+    {
+        this->SetUInt64Value( value );
+        
+        return *( this );
+    }
+    
     Number & Number::operator = ( Float32 value )
     {
         this->SetFloat32Value( value );
@@ -297,6 +353,42 @@ namespace CF
         return *( this ) == num;
     }
     
+    bool Number::operator == ( Number::UInt8 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) == num;
+    }
+    
+    bool Number::operator == ( Number::UInt16 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) == num;
+    }
+    
+    bool Number::operator == ( Number::UInt32 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) == num;
+    }
+    
+    bool Number::operator == ( Number::UInt64 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) == num;
+    }
+    
     bool Number::operator == ( Float32 value ) const
     {
         Number num;
@@ -346,6 +438,26 @@ namespace CF
     }
     
     bool Number::operator != ( Number::SInt64 value ) const
+    {
+        return !( *( this ) == value );
+    }
+    
+    bool Number::operator != ( Number::UInt8 value ) const
+    {
+        return !( *( this ) == value );
+    }
+    
+    bool Number::operator != ( Number::UInt16 value ) const
+    {
+        return !( *( this ) == value );
+    }
+    
+    bool Number::operator != ( Number::UInt32 value ) const
+    {
+        return !( *( this ) == value );
+    }
+    
+    bool Number::operator != ( Number::UInt64 value ) const
     {
         return !( *( this ) == value );
     }
@@ -407,6 +519,42 @@ namespace CF
     }
     
     bool Number::operator >= ( Number::SInt64 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >= num;
+    }
+    
+    bool Number::operator >= ( Number::UInt8 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >= num;
+    }
+    
+    bool Number::operator >= ( Number::UInt16 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >= num;
+    }
+    
+    bool Number::operator >= ( Number::UInt32 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >= num;
+    }
+    
+    bool Number::operator >= ( Number::UInt64 value ) const
     {
         Number num;
         
@@ -488,6 +636,42 @@ namespace CF
         return *( this ) <= num;
     }
     
+    bool Number::operator <= ( Number::UInt8 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <= num;
+    }
+    
+    bool Number::operator <= ( Number::UInt16 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <= num;
+    }
+    
+    bool Number::operator <= ( Number::UInt32 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <= num;
+    }
+    
+    bool Number::operator <= ( Number::UInt64 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <= num;
+    }
+    
     bool Number::operator <= ( Float32 value ) const
     {
         Number num;
@@ -553,6 +737,42 @@ namespace CF
     }
     
     bool Number::operator > ( Number::SInt64 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) > num;
+    }
+    
+    bool Number::operator > ( Number::UInt8 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) > num;
+    }
+    
+    bool Number::operator > ( Number::UInt16 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) > num;
+    }
+    
+    bool Number::operator > ( Number::UInt32 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) > num;
+    }
+    
+    bool Number::operator > ( Number::UInt64 value ) const
     {
         Number num;
         
@@ -634,6 +854,42 @@ namespace CF
         return *( this ) < num;
     }
     
+    bool Number::operator < ( Number::UInt8 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) < num;
+    }
+    
+    bool Number::operator < ( Number::UInt16 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) < num;
+    }
+    
+    bool Number::operator < ( Number::UInt32 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) < num;
+    }
+    
+    bool Number::operator < ( Number::UInt64 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) < num;
+    }
+    
     bool Number::operator < ( Float32 value ) const
     {
         Number num;
@@ -702,6 +958,42 @@ namespace CF
         return *( this ) && num;
     }
     
+    bool Number::operator && ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) && num;
+    }
+    
+    bool Number::operator && ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) && num;
+    }
+    
+    bool Number::operator && ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) && num;
+    }
+    
+    bool Number::operator && ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) && num;
+    }
+    
     bool Number::operator && ( Float32 value )
     {
         Number num;
@@ -762,6 +1054,42 @@ namespace CF
     }
     
     bool Number::operator || ( Number::SInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) || num;
+    }
+    
+    bool Number::operator || ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) || num;
+    }
+    
+    bool Number::operator || ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) || num;
+    }
+    
+    bool Number::operator || ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) || num;
+    }
+    
+    bool Number::operator || ( Number::UInt64 value )
     {
         Number num;
         
@@ -921,6 +1249,42 @@ namespace CF
         return *( this ) += num;
     }
     
+    Number & Number::operator += ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) += num;
+    }
+    
+    Number & Number::operator += ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) += num;
+    }
+    
+    Number & Number::operator += ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) += num;
+    }
+    
+    Number & Number::operator += ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) += num;
+    }
+    
     Number & Number::operator += ( Float32 value )
     {
         Number num;
@@ -1000,6 +1364,42 @@ namespace CF
     }
     
     Number & Number::operator -= ( Number::SInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) -= num;
+    }
+    
+    Number & Number::operator -= ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) -= num;
+    }
+    
+    Number & Number::operator -= ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) -= num;
+    }
+    
+    Number & Number::operator -= ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) -= num;
+    }
+    
+    Number & Number::operator -= ( Number::UInt64 value )
     {
         Number num;
         
@@ -1095,6 +1495,42 @@ namespace CF
         return *( this ) *= num;
     }
     
+    Number & Number::operator *= ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) *= num;
+    }
+    
+    Number & Number::operator *= ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) *= num;
+    }
+    
+    Number & Number::operator *= ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) *= num;
+    }
+    
+    Number & Number::operator *= ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) *= num;
+    }
+    
     Number & Number::operator *= ( Float32 value )
     {
         Number num;
@@ -1174,6 +1610,42 @@ namespace CF
     }
     
     Number & Number::operator /= ( Number::SInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) /= num;
+    }
+    
+    Number & Number::operator /= ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) /= num;
+    }
+    
+    Number & Number::operator /= ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) /= num;
+    }
+    
+    Number & Number::operator /= ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) /= num;
+    }
+    
+    Number & Number::operator /= ( Number::UInt64 value )
     {
         Number num;
         
@@ -1262,6 +1734,42 @@ namespace CF
         return *( this ) |= num;
     }
     
+    Number & Number::operator |= ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) |= num;
+    }
+    
+    Number & Number::operator |= ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) |= num;
+    }
+    
+    Number & Number::operator |= ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) |= num;
+    }
+    
+    Number & Number::operator |= ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) |= num;
+    }
+    
     Number & Number::operator |= ( Float32 value )
     {
         Number num;
@@ -1334,6 +1842,42 @@ namespace CF
     }
     
     Number & Number::operator &= ( Number::SInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) &= num;
+    }
+    
+    Number & Number::operator &= ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) &= num;
+    }
+    
+    Number & Number::operator &= ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) &= num;
+    }
+    
+    Number & Number::operator &= ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) &= num;
+    }
+    
+    Number & Number::operator &= ( Number::UInt64 value )
     {
         Number num;
         
@@ -1422,6 +1966,42 @@ namespace CF
         return *( this ) %= num;
     }
     
+    Number & Number::operator %= ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) %= num;
+    }
+    
+    Number & Number::operator %= ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) %= num;
+    }
+    
+    Number & Number::operator %= ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) %= num;
+    }
+    
+    Number & Number::operator %= ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) %= num;
+    }
+    
     Number & Number::operator %= ( Float32 value )
     {
         Number num;
@@ -1494,6 +2074,42 @@ namespace CF
     }
     
     Number & Number::operator ^= ( Number::SInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^= num;
+    }
+    
+    Number & Number::operator ^= ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^= num;
+    }
+    
+    Number & Number::operator ^= ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^= num;
+    }
+    
+    Number & Number::operator ^= ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^= num;
+    }
+    
+    Number & Number::operator ^= ( Number::UInt64 value )
     {
         Number num;
         
@@ -1582,6 +2198,42 @@ namespace CF
         return *( this ) <<= num;
     }
     
+    Number & Number::operator <<= ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <<= num;
+    }
+    
+    Number & Number::operator <<= ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <<= num;
+    }
+    
+    Number & Number::operator <<= ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <<= num;
+    }
+    
+    Number & Number::operator <<= ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <<= num;
+    }
+    
     Number & Number::operator <<= ( Float32 value )
     {
         Number num;
@@ -1662,6 +2314,42 @@ namespace CF
         return *( this ) >>= num;
     }
     
+    Number & Number::operator >>= ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >>= num;
+    }
+    
+    Number & Number::operator >>= ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >>= num;
+    }
+    
+    Number & Number::operator >>= ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >>= num;
+    }
+    
+    Number & Number::operator >>= ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >>= num;
+    }
+    
     Number & Number::operator >>= ( Float32 value )
     {
         Number num;
@@ -1726,6 +2414,42 @@ namespace CF
     }
     
     Number Number::operator + ( Number::SInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) + num;
+    }
+    
+    Number Number::operator + ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) + num;
+    }
+    
+    Number Number::operator + ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) + num;
+    }
+    
+    Number Number::operator + ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) + num;
+    }
+    
+    Number Number::operator + ( Number::UInt64 value )
     {
         Number num;
         
@@ -1806,6 +2530,42 @@ namespace CF
         return *( this ) - num;
     }
     
+    Number Number::operator - ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) - num;
+    }
+    
+    Number Number::operator - ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) - num;
+    }
+    
+    Number Number::operator - ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) - num;
+    }
+    
+    Number Number::operator - ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) - num;
+    }
+    
     Number Number::operator - ( Float32 value )
     {
         Number num;
@@ -1870,6 +2630,42 @@ namespace CF
     }
     
     Number Number::operator * ( Number::SInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) * num;
+    }
+    
+    Number Number::operator * ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) * num;
+    }
+    
+    Number Number::operator * ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) * num;
+    }
+    
+    Number Number::operator * ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) * num;
+    }
+    
+    Number Number::operator * ( Number::UInt64 value )
     {
         Number num;
         
@@ -1950,6 +2746,42 @@ namespace CF
         return *( this ) / num;
     }
     
+    Number Number::operator / ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) / num;
+    }
+    
+    Number Number::operator / ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) / num;
+    }
+    
+    Number Number::operator / ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) / num;
+    }
+    
+    Number Number::operator / ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) / num;
+    }
+    
     Number Number::operator / ( Float32 value )
     {
         Number num;
@@ -2014,6 +2846,42 @@ namespace CF
     }
     
     Number Number::operator % ( Number::SInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) % num;
+    }
+    
+    Number Number::operator % ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) % num;
+    }
+    
+    Number Number::operator % ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) % num;
+    }
+    
+    Number Number::operator % ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) % num;
+    }
+    
+    Number Number::operator % ( Number::UInt64 value )
     {
         Number num;
         
@@ -2094,6 +2962,42 @@ namespace CF
         return *( this ) & num;
     }
     
+    Number Number::operator & ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) & num;
+    }
+    
+    Number Number::operator & ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) & num;
+    }
+    
+    Number Number::operator & ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) & num;
+    }
+    
+    Number Number::operator & ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) & num;
+    }
+    
     Number Number::operator & ( Float32 value )
     {
         Number num;
@@ -2158,6 +3062,42 @@ namespace CF
     }
     
     Number Number::operator | ( Number::SInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) | num;
+    }
+    
+    Number Number::operator | ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) | num;
+    }
+    
+    Number Number::operator | ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) | num;
+    }
+    
+    Number Number::operator | ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) | num;
+    }
+    
+    Number Number::operator | ( Number::UInt64 value )
     {
         Number num;
         
@@ -2238,6 +3178,42 @@ namespace CF
         return *( this ) ^ num;
     }
     
+    Number Number::operator ^ ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^ num;
+    }
+    
+    Number Number::operator ^ ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^ num;
+    }
+    
+    Number Number::operator ^ ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^ num;
+    }
+    
+    Number Number::operator ^ ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^ num;
+    }
+    
     Number Number::operator ^ ( Float32 value )
     {
         Number num;
@@ -2302,6 +3278,42 @@ namespace CF
     }
     
     Number Number::operator << ( Number::SInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) << num;
+    }
+    
+    Number Number::operator << ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) << num;
+    }
+    
+    Number Number::operator << ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) << num;
+    }
+    
+    Number Number::operator << ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) << num;
+    }
+    
+    Number Number::operator << ( Number::UInt64 value )
     {
         Number num;
         
@@ -2382,6 +3394,42 @@ namespace CF
         return *( this ) >> num;
     }
     
+    Number Number::operator >> ( Number::UInt8 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >> num;
+    }
+    
+    Number Number::operator >> ( Number::UInt16 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >> num;
+    }
+    
+    Number Number::operator >> ( Number::UInt32 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >> num;
+    }
+    
+    Number Number::operator >> ( Number::UInt64 value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >> num;
+    }
+    
     Number Number::operator >> ( Float32 value )
     {
         Number num;
@@ -2418,6 +3466,26 @@ namespace CF
     Number::operator Number::SInt64 ()
     {
         return this->GetSInt64Value();
+    }
+            
+    Number::operator Number::UInt8 ()
+    {
+        return this->GetUInt8Value();
+    }
+    
+    Number::operator Number::UInt16 ()
+    {
+        return this->GetUInt16Value();
+    }
+    
+    Number::operator Number::UInt32 ()
+    {
+        return this->GetUInt32Value();
+    }
+    
+    Number::operator Number::UInt64 ()
+    {
+        return this->GetUInt64Value();
     }
     
     Number::operator Float32 ()
@@ -2506,6 +3574,26 @@ namespace CF
         return value;
     }
     
+    Number::UInt8 Number::GetUInt8Value( void ) const
+    {
+        return ( Number::UInt8 )( this->GetSInt8Value() );
+    }
+    
+    Number::UInt16 Number::GetUInt16Value( void ) const
+    {
+        return ( Number::UInt16 )( this->GetSInt8Value() );
+    }
+    
+    Number::UInt32 Number::GetUInt32Value( void ) const
+    {
+        return ( Number::UInt32 )( this->GetSInt8Value() );
+    }
+    
+    Number::UInt64 Number::GetUInt64Value( void ) const
+    {
+        return ( Number::UInt64 )( this->GetSInt8Value() );
+    }
+    
     Number::Float32 Number::GetFloat32Value( void ) const
     {
         Float32 value;
@@ -2572,6 +3660,26 @@ namespace CF
         }
         
         this->_cfObject = CFNumberCreate( ( CFAllocatorRef )NULL, kCFNumberSInt64Type, &value );
+    }
+    
+    void Number::SetUInt8Value( Number::UInt8 value )
+    {
+        this->SetSInt8Value( ( Number::SInt8 )value );
+    }
+    
+    void Number::SetUInt16Value( Number::UInt16 value )
+    {
+        this->SetSInt16Value( ( Number::SInt16 )value );
+    }
+    
+    void Number::SetUInt32Value( Number::UInt32 value )
+    {
+        this->SetSInt32Value( ( Number::SInt32 )value );
+    }
+    
+    void Number::SetUInt64Value( Number::UInt64 value )
+    {
+        this->SetSInt64Value( ( Number::SInt64 )value );
     }
     
     void Number::SetFloat32Value( Number::Float32 value )
