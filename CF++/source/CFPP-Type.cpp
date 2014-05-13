@@ -97,14 +97,29 @@ namespace CF
         return ( this->IsData() ) ? ( CFDataRef )( this->GetCFObject() ) : NULL;
     }
     
+    Type::operator CFMutableDataRef ()
+    {
+        return ( this->IsData() ) ? ( CFMutableDataRef )( this->GetCFObject() ) : NULL;
+    }
+    
     Type::operator CFArrayRef ()
     {
         return ( this->IsArray() ) ? ( CFArrayRef )( this->GetCFObject() ) : NULL;
     }
     
+    Type::operator CFMutableArrayRef ()
+    {
+        return ( this->IsArray() ) ? ( CFMutableArrayRef )( this->GetCFObject() ) : NULL;
+    }
+    
     Type::operator CFDictionaryRef ()
     {
         return ( this->IsDictionary() ) ? ( CFDictionaryRef )( this->GetCFObject() ) : NULL;
+    }
+    
+    Type::operator CFMutableDictionaryRef ()
+    {
+        return ( this->IsDictionary() ) ? ( CFMutableDictionaryRef )( this->GetCFObject() ) : NULL;
     }
     
     std::string Type::Description( void ) const

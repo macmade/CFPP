@@ -52,15 +52,18 @@ namespace CF
             bool operator == ( const Type & value ) const;
             bool operator != ( const Type & value ) const;
             
-            operator CFTypeRef       ();
-            operator CFBooleanRef    ();
-            operator CFNumberRef     ();
-            operator CFDateRef       ();
-            operator CFStringRef     ();
-            operator CFURLRef        ();
-            operator CFDataRef       ();
-            operator CFArrayRef      ();
-            operator CFDictionaryRef ();
+            operator CFTypeRef              ();
+            operator CFBooleanRef           ();
+            operator CFNumberRef            ();
+            operator CFDateRef              ();
+            operator CFStringRef            ();
+            operator CFURLRef               ();
+            operator CFDataRef              ();
+            operator CFMutableDataRef       ();
+            operator CFArrayRef             ();
+            operator CFMutableArrayRef      ();
+            operator CFDictionaryRef        ();
+            operator CFMutableDictionaryRef ();
             
             std::string Description( void ) const;
             CFHashCode  Hash( void ) const;
