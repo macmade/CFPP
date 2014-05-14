@@ -52,7 +52,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFUUIDCreate( ( CFAllocatorRef )NULL );
+            this->_cfObject = NULL;
         }
     }
     
@@ -64,7 +64,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFUUIDCreate( ( CFAllocatorRef )NULL );
+            this->_cfObject = NULL;
         }
     }
     
@@ -76,7 +76,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFUUIDCreate( ( CFAllocatorRef )NULL );
+            this->_cfObject = NULL;
         }
     }
     
@@ -103,7 +103,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFUUIDCreate( ( CFAllocatorRef )NULL );
+            this->_cfObject = NULL;
         }
         
         return *( this );
@@ -122,7 +122,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFUUIDCreate( ( CFAllocatorRef )NULL );
+            this->_cfObject = NULL;
         }
         
         return *( this );
@@ -141,7 +141,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFUUIDCreate( ( CFAllocatorRef )NULL );
+            this->_cfObject = NULL;
         }
         
         return *( this );

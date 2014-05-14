@@ -41,7 +41,7 @@
 #include <CF++/CFPP-PropertyListType.h>
 #include <CF++/CFPP-String.h>
 #include <CF++/CFPP-Number.h>
-#include <map>
+#include <vector>
 
 namespace CF
 {
@@ -49,7 +49,7 @@ namespace CF
     {
         public:
             
-            Array( CFIndex capacity = 100 );
+            Array( void );
             Array( const Array & value );
             Array( CFTypeRef value );
             Array( CFArrayRef value );

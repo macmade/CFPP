@@ -147,14 +147,14 @@ static void __createCallbacks( void )
 
 namespace CF
 {
-    Dictionary::Dictionary( CFIndex capacity )
+    Dictionary::Dictionary( void )
     {
         __createCallbacks();
         
         this->_cfObject = CFDictionaryCreateMutable
         (
             ( CFAllocatorRef )NULL,
-            capacity,
+            0,
             &__keyCallbacks,
             &__valueCallbacks
         );
@@ -175,13 +175,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDictionaryCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__keyCallbacks,
-                &__valueCallbacks
-            );
+            this->_cfObject = NULL;
         }
     }
     
@@ -200,13 +194,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDictionaryCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__keyCallbacks,
-                &__valueCallbacks
-            );
+            this->_cfObject = NULL;
         }
     }
     
@@ -225,13 +213,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDictionaryCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__keyCallbacks,
-                &__valueCallbacks
-            );
+            this->_cfObject = NULL;
         }
     }
     
@@ -263,13 +245,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDictionaryCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__keyCallbacks,
-                &__valueCallbacks
-            );
+            this->_cfObject = NULL;
         }
         
         return *( this );
@@ -293,13 +269,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDictionaryCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__keyCallbacks,
-                &__valueCallbacks
-            );
+            this->_cfObject = NULL;
         }
         
         return *( this );
@@ -323,13 +293,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDictionaryCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__keyCallbacks,
-                &__valueCallbacks
-            );
+            this->_cfObject = NULL;
         }
         
         return *( this );

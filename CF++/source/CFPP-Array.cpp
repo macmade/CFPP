@@ -127,14 +127,14 @@ static void __createCallbacks( void )
 
 namespace CF
 {
-    Array::Array( CFIndex capacity )
+    Array::Array( void )
     {
         __createCallbacks();
         
         this->_cfObject = CFArrayCreateMutable
         (
             ( CFAllocatorRef )NULL,
-            capacity,
+            0,
             &__callbacks
         );
     }
@@ -154,12 +154,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFArrayCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__callbacks
-            );
+            this->_cfObject = NULL;
         }
     }
     
@@ -178,12 +173,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFArrayCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__callbacks
-            );
+            this->_cfObject = NULL;
         }
     }
     
@@ -202,12 +192,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFArrayCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__callbacks
-            );
+            this->_cfObject = NULL;
         }
     }
     
@@ -239,12 +224,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFArrayCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__callbacks
-            );
+            this->_cfObject = NULL;
         }
         
         return *( this );
@@ -268,12 +248,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFArrayCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__callbacks
-            );
+            this->_cfObject = NULL;
         }
         
         return *( this );
@@ -297,12 +272,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFArrayCreateMutable
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                &__callbacks
-            );
+            this->_cfObject = NULL;
         }
         
         return *( this );
@@ -461,16 +431,7 @@ namespace CF
             return;
         }
         
-        if( this->_cfObject == NULL )
-        {
-            this->_cfObject = CFArrayCreateMutableCopy
-            (
-                ( CFAllocatorRef )NULL,
-                100,
-                array
-            );
-        }
-        else
+        if( this->_cfObject != NULL )
         {
             CFArrayAppendArray
             (

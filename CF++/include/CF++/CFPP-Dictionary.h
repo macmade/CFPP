@@ -49,7 +49,7 @@ namespace CF
     {
         public:
             
-            Dictionary( CFIndex capacity = 100 );
+            Dictionary( void );
             Dictionary( const Dictionary & value );
             Dictionary( CFTypeRef cfObject );
             Dictionary( CFDictionaryRef cfObject );

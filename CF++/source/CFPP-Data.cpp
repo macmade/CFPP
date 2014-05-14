@@ -52,7 +52,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+            this->_cfObject = NULL;
         }
     }
     
@@ -64,7 +64,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+            this->_cfObject = NULL;
         }
     }
     
@@ -76,7 +76,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+            this->_cfObject = NULL;
         }
     }
     
@@ -90,7 +90,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+            this->_cfObject = NULL;
         }
     }
     
@@ -131,7 +131,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+            this->_cfObject = NULL;
         }
         
         return *( this );
@@ -150,7 +150,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+            this->_cfObject = NULL;
         }
         
         return *( this );
@@ -169,7 +169,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+            this->_cfObject = NULL;
         }
         
         return *( this );
@@ -190,7 +190,7 @@ namespace CF
         }
         else
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+            this->_cfObject = NULL;
         }
         
         return *( this );
