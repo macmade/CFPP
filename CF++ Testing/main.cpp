@@ -174,7 +174,7 @@ int main( void )
         
         sleep( 1 );
         
-        date2 = CF::Date::currentDate();
+        date2 = CF::Date::CurrentDate();
         
         std::cout << date2 << std::endl;
         

@@ -46,7 +46,7 @@ namespace CF
     {
         public:
             
-            static Date currentDate( void );
+            static Date CurrentDate( void );
             
             Date( void );
             Date( const Date & value );

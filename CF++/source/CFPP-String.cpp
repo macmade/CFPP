@@ -473,6 +473,11 @@ namespace CF
         size_t       length;
         std::string  str;
         
+        if( this->_cfObject == NULL )
+        {
+            return "";
+        }
+        
         s = this->GetCStringValue( encoding );
         
         if( s == NULL )

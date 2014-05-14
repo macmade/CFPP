@@ -39,7 +39,7 @@
 
 namespace CF
 {
-    Date Date::currentDate( void )
+    Date Date::CurrentDate( void )
     {
         Date date;
         
