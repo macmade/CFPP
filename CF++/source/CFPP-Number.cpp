@@ -70,6 +70,246 @@ namespace CF
         }
     }
     
+    Number::Number( CFTypeRef cfObject, SInt8 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetSInt8Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, SInt16 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetSInt16Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, SInt32 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetSInt32Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, SInt64 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetSInt64Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, UInt8 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetUInt8Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, UInt16 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetUInt16Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, UInt32 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetUInt32Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, UInt64 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetUInt64Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, Float32 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetFloat32Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, Float64 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetFloat64Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, SInt8 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetSInt8Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, SInt16 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetSInt16Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, SInt32 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetSInt32Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, SInt64 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetSInt64Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, UInt8 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetUInt8Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, UInt16 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetUInt16Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, UInt32 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetUInt32Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, UInt64 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetUInt64Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, Float32 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetFloat32Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, Float64 defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetFloat64Value( defaultValueIfNULL );
+        }
+    }
+    
     Number::Number( const Number & value )
     {
         if( value._cfObject != NULL )

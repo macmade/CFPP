@@ -49,6 +49,8 @@ namespace CF
             String( void );
             String( CFTypeRef cfObject );
             String( CFStringRef cfObject );
+            String( CFTypeRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
+            String( CFStringRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( std::string value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( char * value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( const char * value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
@@ -85,8 +87,7 @@ namespace CF
             
             char operator [] ( int index );
             
-            operator std::string  ();
-            operator const char * ();
+            operator std::string ();
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

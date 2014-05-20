@@ -70,6 +70,30 @@ namespace CF
         }
     }
     
+    String::String( CFTypeRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFStringRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetValue( defaultValueIfNULL, encoding );
+        }
+    }
+    
+    String::String( CFStringRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = ( CFStringRef )CFRetain( cfObject );
+        }
+        else
+        {
+            this->SetValue( defaultValueIfNULL, encoding );
+        }
+    }
+    
     String::String( std::string value, CFStringEncoding encoding )
     {
         this->_cfObject = NULL;
@@ -383,11 +407,6 @@ namespace CF
     String::operator std::string ()
     {
         return this->GetValue();
-    }
-    
-    String::operator const char * ()
-    {
-        return this->GetCStringValue();
     }
     
     CFTypeID String::GetTypeID( void ) const

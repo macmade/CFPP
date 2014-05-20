@@ -71,7 +71,7 @@ namespace CF
     Boolean::Boolean( CFTypeRef cfObject )
     {
         bool b;
-
+        
         this->_cfObject = NULL;
         
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID()  )
@@ -82,14 +82,14 @@ namespace CF
         {
             b = false;
         }
-
+        
         this->SetValue( b );
     }
     
     Boolean::Boolean( CFBooleanRef cfObject )
     {
         bool b;
-
+        
         this->_cfObject = NULL;
         
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
@@ -100,7 +100,43 @@ namespace CF
         {
             b = false;
         }
-
+        
+        this->SetValue( b );
+    }
+    
+    Boolean::Boolean( CFTypeRef cfObject, bool defaultValueIfNULL )
+    {
+        bool b;
+        
+        this->_cfObject = NULL;
+        
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            b = ( CFBooleanGetValue( ( CFBooleanRef )cfObject ) ) ? true : false;
+        }
+        else
+        {
+            b = defaultValueIfNULL;
+        }
+        
+        this->SetValue( b );
+    }
+    
+    Boolean::Boolean( CFBooleanRef cfObject, bool defaultValueIfNULL )
+    {
+        bool b;
+        
+        this->_cfObject = NULL;
+        
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            b = ( CFBooleanGetValue( cfObject ) ) ? true : false;
+        }
+        else
+        {
+            b = defaultValueIfNULL;
+        }
+        
         this->SetValue( b );
     }
     

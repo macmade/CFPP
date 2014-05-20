@@ -49,6 +49,8 @@ namespace CF
             Boolean( const Boolean & value );
             Boolean( CFTypeRef cfObject );
             Boolean( CFBooleanRef cfObject );
+            Boolean( CFTypeRef cfObject, bool defaultValueIfNULL );
+            Boolean( CFBooleanRef cfObject, bool defaultValueIfNULL );
             Boolean( bool value = false );
             
             virtual ~Boolean( void );
