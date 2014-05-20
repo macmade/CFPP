@@ -78,6 +78,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetSInt8Value( defaultValueIfNULL );
         }
     }
@@ -90,6 +92,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetSInt16Value( defaultValueIfNULL );
         }
     }
@@ -102,6 +106,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetSInt32Value( defaultValueIfNULL );
         }
     }
@@ -114,6 +120,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetSInt64Value( defaultValueIfNULL );
         }
     }
@@ -126,6 +134,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetUInt8Value( defaultValueIfNULL );
         }
     }
@@ -138,6 +148,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetUInt16Value( defaultValueIfNULL );
         }
     }
@@ -150,6 +162,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetUInt32Value( defaultValueIfNULL );
         }
     }
@@ -162,6 +176,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetUInt64Value( defaultValueIfNULL );
         }
     }
@@ -174,6 +190,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetFloat32Value( defaultValueIfNULL );
         }
     }
@@ -186,6 +204,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetFloat64Value( defaultValueIfNULL );
         }
     }
@@ -198,6 +218,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetSInt8Value( defaultValueIfNULL );
         }
     }
@@ -210,6 +232,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetSInt16Value( defaultValueIfNULL );
         }
     }
@@ -222,6 +246,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetSInt32Value( defaultValueIfNULL );
         }
     }
@@ -234,6 +260,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetSInt64Value( defaultValueIfNULL );
         }
     }
@@ -246,6 +274,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetUInt8Value( defaultValueIfNULL );
         }
     }
@@ -258,6 +288,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetUInt16Value( defaultValueIfNULL );
         }
     }
@@ -270,6 +302,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetUInt32Value( defaultValueIfNULL );
         }
     }
@@ -282,6 +316,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetUInt64Value( defaultValueIfNULL );
         }
     }
@@ -294,6 +330,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetFloat32Value( defaultValueIfNULL );
         }
     }
@@ -306,6 +344,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetFloat64Value( defaultValueIfNULL );
         }
     }

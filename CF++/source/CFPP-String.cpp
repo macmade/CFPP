@@ -78,6 +78,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetValue( defaultValueIfNULL, encoding );
         }
     }
@@ -90,6 +92,8 @@ namespace CF
         }
         else
         {
+            this->_cfObject = NULL;
+            
             this->SetValue( defaultValueIfNULL, encoding );
         }
     }
