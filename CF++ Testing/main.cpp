@@ -323,7 +323,7 @@ int main( void )
         
         dict.ToPropertyList( "CF++.plist", CF::PropertyListFormatBinary );
         
-        std::cout << CF::Dictionary::FromPropertyList( "/Users/macmade/Desktop/Manifest.plist" ) << std::endl;
+        std::cout << CF::Dictionary::FromPropertyList( "CF++.plist" ) << std::endl;
     }
     
     return EXIT_SUCCESS;
