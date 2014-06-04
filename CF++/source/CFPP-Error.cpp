@@ -48,7 +48,7 @@ namespace CF
     {
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFErrorRef )CFRetain( value._cfObject );
+            this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value._cfObject ) ) );
         }
         else
         {
@@ -60,7 +60,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFErrorRef )CFRetain( value );
+            this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value ) ) );
         }
         else
         {
@@ -72,7 +72,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFErrorRef )CFRetain( value );
+            this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value ) ) );
         }
         else
         {
@@ -84,9 +84,9 @@ namespace CF
     {
         this->_cfObject = CFErrorCreate
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             domain,
-            ( CFIndex )( code.GetSInt64Value() ),
+            static_cast< CFIndex >( code.GetSInt64Value() ),
             NULL
         );
     }
@@ -95,9 +95,9 @@ namespace CF
     {
         this->_cfObject = CFErrorCreate
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             domain,
-            ( CFIndex )( code.GetSInt64Value() ),
+            static_cast< CFIndex >( code.GetSInt64Value() ),
             userInfo
         );
     }
@@ -106,7 +106,7 @@ namespace CF
     {
         this->_cfObject = CFErrorCreate
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             domain,
             code,
             NULL
@@ -117,7 +117,7 @@ namespace CF
     {
         this->_cfObject = CFErrorCreate
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             domain,
             code,
             userInfo
@@ -132,7 +132,7 @@ namespace CF
         
         this->_cfObject = CFErrorCreate
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             s,
             code,
             NULL
@@ -147,7 +147,7 @@ namespace CF
         
         this->_cfObject = CFErrorCreate
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             s,
             code,
             userInfo
@@ -162,7 +162,7 @@ namespace CF
         
         this->_cfObject = CFErrorCreate
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             s,
             code,
             NULL
@@ -177,7 +177,7 @@ namespace CF
         
         this->_cfObject = CFErrorCreate
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             s,
             code,
             userInfo
@@ -204,7 +204,7 @@ namespace CF
         
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFErrorRef )CFRetain( value._cfObject );
+            this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value._cfObject ) ) );
         }
         else
         {
@@ -223,7 +223,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFErrorRef )CFRetain( value );
+            this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value ) ) );
         }
         else
         {
@@ -242,7 +242,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFErrorRef )CFRetain( value );
+            this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value ) ) );
         }
         else
         {
@@ -287,7 +287,7 @@ namespace CF
             return n;
         }
         
-        n.SetSInt64Value( ( SInt64 )CFErrorGetCode( this->_cfObject ) );
+        n.SetSInt64Value( static_cast< SInt64 >( CFErrorGetCode( this->_cfObject ) ) );
         
         return n;
     }

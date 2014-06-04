@@ -41,14 +41,14 @@ namespace CF
 {
     UUID::UUID( void )
     {
-        this->_cfObject = CFUUIDCreate( ( CFAllocatorRef )NULL );
+        this->_cfObject = CFUUIDCreate( static_cast< CFAllocatorRef >( NULL ) );
     }
     
     UUID::UUID( const UUID & value )
     {
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFUUIDRef )CFRetain( value._cfObject );
+            this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value._cfObject ) );
         }
         else
         {
@@ -60,7 +60,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFUUIDRef )CFRetain( value );
+            this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value ) );
         }
         else
         {
@@ -72,7 +72,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFUUIDRef )CFRetain( value );
+            this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value ) );
         }
         else
         {
@@ -99,7 +99,7 @@ namespace CF
         
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFUUIDRef )CFRetain( value._cfObject );
+            this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value._cfObject ) );
         }
         else
         {
@@ -118,7 +118,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFUUIDRef )CFRetain( value );
+            this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value ) );
         }
         else
         {
@@ -137,7 +137,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFUUIDRef )CFRetain( value );
+            this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value ) );
         }
         else
         {
@@ -224,7 +224,7 @@ namespace CF
             return s;
         }
         
-        cfS = CFUUIDCreateString( ( CFAllocatorRef )NULL, this->_cfObject );
+        cfS = CFUUIDCreateString( static_cast< CFAllocatorRef >( NULL ), this->_cfObject );
         s   = cfS;
         
         if( cfS != NULL )

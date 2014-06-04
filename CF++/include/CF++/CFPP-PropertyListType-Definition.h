@@ -55,7 +55,7 @@ namespace CF
         size_t           length;
         
         fh  = fopen( path.c_str(), "rb" );
-        buf = ( CF::Data::Byte * )malloc( 4096 );
+        buf = static_cast< CF::Data::Byte * >( malloc( 4096 ) );
         
         if( buf == NULL || fh == NULL )
         {
@@ -66,10 +66,10 @@ namespace CF
         {
             length = fread( buf, 1, 4096, fh );
             
-            data.AppendBytes( buf, ( CFIndex )length );
+            data.AppendBytes( buf, static_cast< CFIndex >( length ) );
         }
         
-        cfObject = CFPropertyListCreateWithData( ( CFAllocatorRef )NULL, data, 0, NULL, NULL );
+        cfObject = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), data, 0, NULL, NULL );
         
         if( cfObject != NULL )
         {
@@ -106,7 +106,7 @@ namespace CF
             return false;
         }
         
-        cfStream = CFWriteStreamCreateWithFile( ( CFAllocatorRef )NULL, url );
+        cfStream = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
         
         if( cfStream == NULL )
         {
@@ -143,7 +143,7 @@ namespace CF
             cfFormat = kCFPropertyListBinaryFormat_v1_0;
         }
         
-        cfData = CFPropertyListCreateData( ( CFAllocatorRef )NULL, this->GetCFObject(), cfFormat, 0, &cfError );
+        cfData = CFPropertyListCreateData( static_cast< CFAllocatorRef >( NULL ), this->GetCFObject(), cfFormat, 0, &cfError );
         
         if( cfError != NULL )
         {

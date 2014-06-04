@@ -133,7 +133,7 @@ namespace CF
         
         this->_cfObject = CFArrayCreateMutable
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             0,
             &__callbacks
         );
@@ -147,7 +147,7 @@ namespace CF
         {
             this->_cfObject = CFArrayCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
+                static_cast< CFAllocatorRef >( NULL ),
                 CFArrayGetCount( value._cfObject ),
                 value._cfObject
             );
@@ -166,9 +166,9 @@ namespace CF
         {
             this->_cfObject = CFArrayCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
-                CFArrayGetCount( ( CFArrayRef )value ),
-                ( CFArrayRef )value
+                static_cast< CFAllocatorRef >( NULL ),
+                CFArrayGetCount( static_cast< CFArrayRef >( value ) ),
+                static_cast< CFArrayRef >( value )
             );
         }
         else
@@ -185,7 +185,7 @@ namespace CF
         {
             this->_cfObject = CFArrayCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
+                static_cast< CFAllocatorRef >( NULL ),
                 CFArrayGetCount( value ),
                 value
             );
@@ -217,7 +217,7 @@ namespace CF
         {
             this->_cfObject = CFArrayCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
+                static_cast< CFAllocatorRef >( NULL ),
                 CFArrayGetCount( value._cfObject ),
                 value._cfObject
             );
@@ -241,9 +241,9 @@ namespace CF
         {
             this->_cfObject = CFArrayCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
-                CFArrayGetCount( ( CFArrayRef )value ),
-                ( CFArrayRef )value
+                static_cast< CFAllocatorRef >( NULL ),
+                CFArrayGetCount( static_cast< CFArrayRef >( value ) ),
+                static_cast< CFArrayRef >( value )
             );
         }
         else
@@ -265,7 +265,7 @@ namespace CF
         {
             this->_cfObject = CFArrayCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
+                static_cast< CFAllocatorRef >( NULL ),
                 CFArrayGetCount( value ),
                 value
             );
@@ -287,7 +287,7 @@ namespace CF
     
     Array & Array::operator += ( CFTypeRef value )
     {
-        this->AppendArray( ( CFArrayRef )value );
+        this->AppendArray( static_cast< CFArrayRef >( value ) );
         
         return *( this );
     }
@@ -333,7 +333,7 @@ namespace CF
             
     CFTypeRef Array::operator [] ( int index )
     {
-        return this->GetValueAtIndex( ( CFIndex )index );
+        return this->GetValueAtIndex( static_cast< CFIndex >( index ) );
     }
     
     CFTypeID Array::GetTypeID( void ) const
@@ -467,21 +467,21 @@ namespace CF
             goto end;
         }
         
-        count = ( size_t )( this->GetCount() );
+        count = static_cast< size_t >( this->GetCount() );
         
         if( count == 0 )
         {
             goto end;
         }
         
-        values = ( CFTypeRef * )calloc( sizeof( CFTypeRef ), count );
+        values = static_cast< CFTypeRef * >( calloc( sizeof( CFTypeRef ), count ) );
         
         if( values == NULL )
         {
             goto end;
         }
         
-        CFArrayGetValues( this->_cfObject, CFRangeMake( ( CFIndex )0, ( CFIndex )count ), ( const void ** )values );
+        CFArrayGetValues( this->_cfObject, CFRangeMake( static_cast< CFIndex >( 0 ), static_cast< CFIndex >( count ) ), static_cast< const void ** >( values ) );
         
         for( i = 0; i < count; i++ )
         {

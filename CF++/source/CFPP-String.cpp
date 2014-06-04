@@ -50,7 +50,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFStringRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFStringRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -62,7 +62,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFStringRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFStringRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -74,7 +74,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFStringRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFStringRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -88,7 +88,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFStringRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFStringRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -111,7 +111,7 @@ namespace CF
         
         if( value == NULL )
         {
-            value = ( char * )"";
+            value = const_cast< char * >( "" );
         }
         
         this->SetValue( value, encoding );
@@ -128,7 +128,7 @@ namespace CF
     {
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFStringRef )CFRetain( ( value._cfObject ) );
+            this->_cfObject = static_cast< CFStringRef >( CFRetain( ( value._cfObject ) ) );
         }
         else
         {
@@ -155,7 +155,7 @@ namespace CF
         
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFStringRef )CFRetain( value._cfObject );
+            this->_cfObject = static_cast< CFStringRef >( CFRetain( value._cfObject ) );
         }
         else
         {
@@ -174,7 +174,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFStringRef )CFRetain( value );
+            this->_cfObject = static_cast< CFStringRef >( CFRetain( value ) );
         }
         else
         {
@@ -193,7 +193,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFStringRef )CFRetain( value );
+            this->_cfObject = static_cast< CFStringRef >( CFRetain( value ) );
         }
         else
         {
@@ -322,13 +322,13 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return *( ( String * )&value );
+            return const_cast< String & >( value );
         }
         
         strings[ 0 ] = this->_cfObject;
         strings[ 1 ] = value._cfObject;
-        array        = CFArrayCreate( ( CFAllocatorRef )NULL, ( const void ** )strings, 2, NULL );
-        newString    = CFStringCreateByCombiningStrings( ( CFAllocatorRef )NULL, array, CFSTR( "" ) );
+        array        = CFArrayCreate( static_cast< CFAllocatorRef >( NULL ), reinterpret_cast< const void ** >( strings ), 2, NULL );
+        newString    = CFStringCreateByCombiningStrings( static_cast< CFAllocatorRef >( NULL ), array, CFSTR( "" ) );
         
         CFRelease( array );
         CFRelease( this->_cfObject );
@@ -384,7 +384,7 @@ namespace CF
         const char * s;
         CFIndex      cfIndex;
         
-        cfIndex = ( CFIndex )index;
+        cfIndex = static_cast< CFIndex >( index );
         
         if( this->_cfObject == NULL )
         {
@@ -410,7 +410,7 @@ namespace CF
         
         s = CFStringGetCStringPtr( this->_cfObject, kCFStringEncodingUTF8 );
         
-        return s[ ( unsigned )cfIndex ];
+        return s[ static_cast< unsigned >( cfIndex ) ];
     }
     
     String::operator std::string ()
@@ -425,7 +425,7 @@ namespace CF
     
     CFTypeRef String::GetCFObject( void ) const
     {
-        return ( CFTypeRef )( this->_cfObject );
+        return static_cast< CFTypeRef >( this->_cfObject );
     }
             
     bool String::HasPrefix( String value )
@@ -510,10 +510,10 @@ namespace CF
         
         if( s == NULL )
         {
-            length = ( size_t )CFStringGetMaximumSizeForEncoding( CFStringGetLength( this->_cfObject ), encoding );
-            buf    = ( char * )calloc( length + 1, 1 );
+            length = static_cast< size_t >( CFStringGetMaximumSizeForEncoding( CFStringGetLength( this->_cfObject ), encoding ) );
+            buf    = static_cast< char * >( calloc( length + 1, 1 ) );
 
-            CFStringGetCString( this->_cfObject, buf, ( CFIndex )( length + 1 ), encoding );
+            CFStringGetCString( this->_cfObject, buf, static_cast< CFIndex >( length + 1 ), encoding );
 
             str = ( buf == NULL ) ? "" : buf;
 
@@ -544,6 +544,6 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFStringCreateWithCString( ( CFAllocatorRef )NULL, value.c_str(), encoding );
+        this->_cfObject = CFStringCreateWithCString( static_cast< CFAllocatorRef >( NULL ), value.c_str(), encoding );
     }
 }

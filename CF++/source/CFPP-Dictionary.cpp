@@ -153,7 +153,7 @@ namespace CF
         
         this->_cfObject = CFDictionaryCreateMutable
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             0,
             &__keyCallbacks,
             &__valueCallbacks
@@ -168,7 +168,7 @@ namespace CF
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
+                static_cast< CFAllocatorRef >( NULL ),
                 CFDictionaryGetCount( value._cfObject ),
                 value._cfObject
             );
@@ -187,9 +187,9 @@ namespace CF
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
-                CFDictionaryGetCount( ( CFDictionaryRef )cfObject ),
-                ( CFDictionaryRef )cfObject
+                static_cast< CFAllocatorRef >( NULL ),
+                CFDictionaryGetCount( static_cast< CFDictionaryRef >( cfObject ) ),
+                static_cast< CFDictionaryRef >( cfObject )
             );
         }
         else
@@ -206,7 +206,7 @@ namespace CF
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
+                static_cast< CFAllocatorRef >( NULL ),
                 CFDictionaryGetCount( cfObject ),
                 cfObject
             );
@@ -238,7 +238,7 @@ namespace CF
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
+                static_cast< CFAllocatorRef >( NULL ),
                 CFDictionaryGetCount( value._cfObject ),
                 value._cfObject
             );
@@ -262,9 +262,9 @@ namespace CF
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
-                CFDictionaryGetCount( ( CFDictionaryRef )value ),
-                ( CFDictionaryRef )value
+                static_cast< CFAllocatorRef >( NULL ),
+                CFDictionaryGetCount( static_cast< CFDictionaryRef >( value ) ),
+                static_cast< CFDictionaryRef >( value )
             );
         }
         else
@@ -286,7 +286,7 @@ namespace CF
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
             (
-                ( CFAllocatorRef )NULL,
+                static_cast< CFAllocatorRef >( NULL ),
                 CFDictionaryGetCount( value ),
                 value
             );
@@ -443,22 +443,22 @@ namespace CF
             goto end;
         }
         
-        count = ( size_t )( this->GetCount() );
+        count = static_cast< size_t >( this->GetCount() );
         
         if( count == 0 )
         {
             goto end;
         }
         
-        keys   = ( CFTypeRef * )calloc( sizeof( CFTypeRef ), count );
-        values = ( CFTypeRef * )calloc( sizeof( CFTypeRef ), count );
+        keys   = static_cast< CFTypeRef * >( calloc( sizeof( CFTypeRef ), count ) );
+        values = static_cast< CFTypeRef * >( calloc( sizeof( CFTypeRef ), count ) );
         
         if( keys == NULL || values == NULL )
         {
             goto end;
         }
         
-        CFDictionaryGetKeysAndValues( this->_cfObject, ( const void ** )keys, ( const void ** )values );
+        CFDictionaryGetKeysAndValues( this->_cfObject, reinterpret_cast< const void ** >( keys ), reinterpret_cast< const void ** >( values ) );
         
         for( i = 0; i < count; i++ )
         {

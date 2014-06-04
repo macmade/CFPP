@@ -76,7 +76,7 @@ namespace CF
         
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID()  )
         {
-            b = ( CFBooleanGetValue( ( CFBooleanRef )cfObject ) ) ? true : false;
+            b = ( CFBooleanGetValue( static_cast< CFBooleanRef >( cfObject ) ) ) ? true : false;
         }
         else
         {
@@ -112,7 +112,7 @@ namespace CF
         
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            b = ( CFBooleanGetValue( ( CFBooleanRef )cfObject ) ) ? true : false;
+            b = ( CFBooleanGetValue( static_cast< CFBooleanRef >( cfObject ) ) ) ? true : false;
         }
         else
         {
@@ -177,7 +177,7 @@ namespace CF
 
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            b = ( CFBooleanGetValue( ( CFBooleanRef )value ) ) ? true : false;
+            b = ( CFBooleanGetValue( static_cast< CFBooleanRef >( value ) ) ) ? true : false;
         }
         else
         {
@@ -233,7 +233,7 @@ namespace CF
             return false;
         }
         
-        b = ( CFBooleanGetValue( ( CFBooleanRef )value ) ) ? true : false;
+        b = ( CFBooleanGetValue( static_cast< CFBooleanRef >( value ) ) ) ? true : false;
 
         return this->GetValue() == b;
     }
@@ -284,7 +284,7 @@ namespace CF
     
     CFTypeRef Boolean::GetCFObject( void ) const
     {
-        return ( CFTypeRef )( this->_cfObject );
+        return static_cast< CFTypeRef >( this->_cfObject );
     }
             
     bool Boolean::GetValue( void ) const
@@ -308,11 +308,11 @@ namespace CF
 
         __loadCFBoolean();
 
-        this->_cfObject = ( CFBooleanRef )CFRetain( ( value == true ) ? __cfBooleanTrue : __cfBooleanFalse );
+        this->_cfObject = static_cast< CFBooleanRef >( CFRetain( ( value == true ) ? __cfBooleanTrue : __cfBooleanFalse ) );
 
         #else
         
-        this->_cfObject = ( CFBooleanRef )CFRetain( ( value == true ) ? kCFBooleanTrue : kCFBooleanFalse );
+        this->_cfObject = static_cast< CFBooleanRef >( CFRetain( ( value == true ) ? kCFBooleanTrue : kCFBooleanFalse ) );
         
         #endif
     }

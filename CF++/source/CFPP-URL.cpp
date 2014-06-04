@@ -49,7 +49,7 @@ namespace CF
         
         cfURL = CFURLCreateWithFileSystemPath
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             str,
             #ifdef _WIN32
             kCFURLWindowsPathStyle,
@@ -96,7 +96,7 @@ namespace CF
     {
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFURLRef )CFRetain( value._cfObject );
+            this->_cfObject = static_cast< CFURLRef >( CFRetain( value._cfObject ) );
         }
     }
     
@@ -104,7 +104,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFURLRef )CFRetain( value );
+            this->_cfObject = static_cast< CFURLRef >( CFRetain( value ) );
         }
     }
     
@@ -112,7 +112,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFURLRef )CFRetain( value );
+            this->_cfObject = static_cast< CFURLRef >( CFRetain( value ) );
         }
     }
     
@@ -120,7 +120,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
         {
-            this->_cfObject = CFURLCreateWithString( ( CFAllocatorRef )NULL, value, NULL );
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), value, NULL );
         }
     }
     
@@ -130,7 +130,7 @@ namespace CF
         
         s = value;
         
-        this->_cfObject = CFURLCreateWithString( ( CFAllocatorRef )NULL, ( CFStringRef )s, NULL );
+        this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
     }
     
     URL::~URL( void )
@@ -152,7 +152,7 @@ namespace CF
         
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFURLRef )CFRetain( value._cfObject );
+            this->_cfObject = static_cast< CFURLRef >( CFRetain( value._cfObject ) );
         }
         else
         {
@@ -171,7 +171,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFURLRef )CFRetain( value );
+            this->_cfObject = static_cast< CFURLRef >( CFRetain( value ) );
         }
         else
         {
@@ -190,7 +190,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFURLRef )CFRetain( value );
+            this->_cfObject = static_cast< CFURLRef >( CFRetain( value ) );
         }
         else
         {
@@ -209,7 +209,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
         {
-            this->_cfObject = CFURLCreateWithString( ( CFAllocatorRef )NULL, value, NULL );
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), value, NULL );
         }
         else
         {
@@ -230,7 +230,7 @@ namespace CF
         
         s = value;
         
-        this->_cfObject = CFURLCreateWithString( ( CFAllocatorRef )NULL, ( CFStringRef )s, NULL );
+        this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
         
         return *( this );
     }
@@ -241,21 +241,21 @@ namespace CF
         
         switch( part )
         {
-            case PartAll:               s = ( std::string )( *( this ) );   break;
-            case PartFileSystemPath:    s = this->GetFileSystemPath();      break;
-            case PartFragment:          s = this->GetFragment();            break;
-            case PartHostName:          s = this->GetHostName();            break;
-            case PartLastPathComponent: s = this->GetLastPathComponent();   break;
-            case PartNetLocation:       s = this->GetNetLocation();         break;
-            case PartParameterString:   s = this->GetParameterString();     break;
-            case PartPassword:          s = this->GetPassword();            break;
-            case PartPath:              s = this->GetPath();                break;
-            case PartPathExtension:     s = this->GetPathExtension();       break;
-            case PartQueryString:       s = this->GetQueryString();         break;
-            case PartResourceSpecifier: s = this->GetResourceSpecifier();   break;
-            case PartScheme:            s = this->GetScheme();              break;
-            case PartStrictPath:        s = this->GetStrictPath();          break;
-            case PartUserName:          s = this->GetUserName();            break;
+            case PartAll:               s = static_cast< std::string >( *( this ) );    break;
+            case PartFileSystemPath:    s = this->GetFileSystemPath();                  break;
+            case PartFragment:          s = this->GetFragment();                        break;
+            case PartHostName:          s = this->GetHostName();                        break;
+            case PartLastPathComponent: s = this->GetLastPathComponent();               break;
+            case PartNetLocation:       s = this->GetNetLocation();                     break;
+            case PartParameterString:   s = this->GetParameterString();                 break;
+            case PartPassword:          s = this->GetPassword();                        break;
+            case PartPath:              s = this->GetPath();                            break;
+            case PartPathExtension:     s = this->GetPathExtension();                   break;
+            case PartQueryString:       s = this->GetQueryString();                     break;
+            case PartResourceSpecifier: s = this->GetResourceSpecifier();               break;
+            case PartScheme:            s = this->GetScheme();                          break;
+            case PartStrictPath:        s = this->GetStrictPath();                      break;
+            case PartUserName:          s = this->GetUserName();                        break;
         }
         
         return s.GetValue();
@@ -266,8 +266,8 @@ namespace CF
         std::string url1;
         std::string url2;
         
-        url1 = ( std::string )*( this );
-        url2 = ( std::string )( ( CF::URL )value );
+        url1 = static_cast< std::string >( *( this ) );
+        url2 = static_cast< std::string >( const_cast< CF::URL & >( value ) );
         
         return url1 == url2;
     }
@@ -715,7 +715,7 @@ namespace CF
         url             = this->_cfObject;
         this->_cfObject = CFURLCreateCopyAppendingPathComponent
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             url,
             component,
             isDirectory
@@ -730,7 +730,7 @@ namespace CF
         
         s = component;
         
-        this->AppendPathComponent( ( CFStringRef )s, isDirectory );
+        this->AppendPathComponent( static_cast< CFStringRef >( s ), isDirectory );
     }
     
     void URL::AppendPathExtension( CFStringRef extension )
@@ -745,7 +745,7 @@ namespace CF
         url             = this->_cfObject;
         this->_cfObject = CFURLCreateCopyAppendingPathExtension
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             url,
             extension
         );
@@ -759,7 +759,7 @@ namespace CF
         
         s = extension;
         
-        this->AppendPathExtension( ( CFStringRef )s );
+        this->AppendPathExtension( static_cast< CFStringRef >( s ) );
     }
     
     void URL::DeleteLastPathComponent( void )
@@ -774,7 +774,7 @@ namespace CF
         url             = this->_cfObject;
         this->_cfObject = CFURLCreateCopyDeletingLastPathComponent
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             url
         );
         
@@ -793,7 +793,7 @@ namespace CF
         url             = this->_cfObject;
         this->_cfObject = CFURLCreateCopyDeletingPathExtension
         (
-            ( CFAllocatorRef )NULL,
+            static_cast< CFAllocatorRef >( NULL ),
             url
         );
         

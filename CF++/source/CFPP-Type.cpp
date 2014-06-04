@@ -69,57 +69,57 @@ namespace CF
     
     Type::operator CFBooleanRef ()
     {
-        return ( this->IsBoolean() ) ? ( CFBooleanRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsBoolean() ) ? static_cast< CFBooleanRef >( this->GetCFObject() ) : NULL;
     }
     
     Type::operator CFNumberRef ()
     {
-        return ( this->IsNumber() ) ? ( CFNumberRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsNumber() ) ? static_cast< CFNumberRef >( this->GetCFObject() ) : NULL;
     }
     
     Type::operator CFDateRef ()
     {
-        return ( this->IsDate() ) ? ( CFDateRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsDate() ) ? static_cast< CFDateRef >( this->GetCFObject() ) : NULL;
     }
     
     Type::operator CFStringRef ()
     {
-        return ( this->IsString() ) ? ( CFStringRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsString() ) ? static_cast< CFStringRef >( this->GetCFObject() ) : NULL;
     }
     
     Type::operator CFURLRef ()
     {
-        return ( this->IsURL() ) ? ( CFURLRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsURL() ) ? static_cast< CFURLRef >( this->GetCFObject() ) : NULL;
     }
     
     Type::operator CFDataRef ()
     {
-        return ( this->IsData() ) ? ( CFDataRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsData() ) ? static_cast< CFDataRef >( this->GetCFObject() ) : NULL;
     }
     
     Type::operator CFMutableDataRef ()
     {
-        return ( this->IsData() ) ? ( CFMutableDataRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsData() ) ? reinterpret_cast< CFMutableDataRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
     }
     
     Type::operator CFArrayRef ()
     {
-        return ( this->IsArray() ) ? ( CFArrayRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsArray() ) ? static_cast< CFArrayRef >( this->GetCFObject() ) : NULL;
     }
     
     Type::operator CFMutableArrayRef ()
     {
-        return ( this->IsArray() ) ? ( CFMutableArrayRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsArray() ) ? reinterpret_cast< CFMutableArrayRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
     }
     
     Type::operator CFDictionaryRef ()
     {
-        return ( this->IsDictionary() ) ? ( CFDictionaryRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsDictionary() ) ? static_cast< CFDictionaryRef >( this->GetCFObject() ) : NULL;
     }
     
     Type::operator CFMutableDictionaryRef ()
     {
-        return ( this->IsDictionary() ) ? ( CFMutableDictionaryRef )( this->GetCFObject() ) : NULL;
+        return ( this->IsDictionary() ) ? reinterpret_cast< CFMutableDictionaryRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
     }
     
     std::string Type::Description( void ) const
@@ -141,9 +141,9 @@ namespace CF
             return "(null)";
         }
         
-        length = ( size_t )CFStringGetMaximumSizeForEncoding( CFStringGetLength( cfDescription ), CFStringGetSystemEncoding() );
+        length = static_cast< size_t >( CFStringGetMaximumSizeForEncoding( CFStringGetLength( cfDescription ), CFStringGetSystemEncoding() ) );
         
-        cStr = ( char * )calloc( length + 1, 1 );
+        cStr = static_cast< char * >( calloc( length + 1, 1 ) );
         
         if( cStr == NULL )
         {
@@ -152,7 +152,7 @@ namespace CF
             return "(null)";
         }
         
-        CFStringGetCString( cfDescription, cStr, ( CFIndex )( length + 1 ), CFStringGetSystemEncoding() );
+        CFStringGetCString( cfDescription, cStr, static_cast< CFIndex >( length + 1 ), CFStringGetSystemEncoding() );
         
         description = std::string( cStr );
         
@@ -166,7 +166,7 @@ namespace CF
     {
         if( this->GetCFObject() == NULL )
         {
-            return ( CFHashCode )0;
+            return static_cast< CFHashCode >( 0 );
         }
         
         return CFHash( this->GetCFObject() );

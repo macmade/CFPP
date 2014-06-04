@@ -57,7 +57,7 @@ namespace CF
     {
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFDateRef )CFRetain( value._cfObject );
+            this->_cfObject = static_cast< CFDateRef >( CFRetain( value._cfObject ) );
         }
         else
         {
@@ -69,7 +69,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFDateRef )CFRetain( value );
+            this->_cfObject = static_cast< CFDateRef >( CFRetain( value ) );
         }
         else
         {
@@ -81,7 +81,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFDateRef )CFRetain( value );
+            this->_cfObject = static_cast< CFDateRef >( CFRetain( value ) );
         }
         else
         {
@@ -115,7 +115,7 @@ namespace CF
         
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFDateRef )CFRetain( value._cfObject );
+            this->_cfObject = static_cast< CFDateRef >( CFRetain( value._cfObject ) );
         }
         else
         {
@@ -134,7 +134,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFDateRef )CFRetain( value );
+            this->_cfObject = static_cast< CFDateRef >( CFRetain( value ) );
         }
         else
         {
@@ -153,7 +153,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFDateRef )CFRetain( value );
+            this->_cfObject = static_cast< CFDateRef >( CFRetain( value ) );
         }
         else
         {
@@ -473,7 +473,7 @@ namespace CF
     {
         if( this->_cfObject == NULL )
         {
-            return ( CFAbsoluteTime )0;
+            return static_cast< CFAbsoluteTime >( 0 );
         }
         
         return CFDateGetAbsoluteTime( this->_cfObject );
@@ -486,6 +486,6 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFDateCreate( ( CFAllocatorRef )NULL, value );
+        this->_cfObject = CFDateCreate( static_cast< CFAllocatorRef >( NULL ), value );
     }
 }

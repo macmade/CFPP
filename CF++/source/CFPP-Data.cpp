@@ -41,14 +41,14 @@ namespace CF
 {
     Data::Data( void )
     {
-        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+        this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
     }
     
     Data::Data( const Data & value )
     {
         if( value._cfObject != NULL )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, value._cfObject );
+            this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, value._cfObject );
         }
         else
         {
@@ -60,7 +60,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, ( CFDataRef )value );
+            this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, static_cast< CFDataRef >( value ) );
         }
         else
         {
@@ -72,7 +72,7 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, ( CFDataRef )value );
+            this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, static_cast< CFDataRef >( value ) );
         }
         else
         {
@@ -84,9 +84,9 @@ namespace CF
     {
         if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+            this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
             
-            CFDataAppendBytes( this->_cfObject, ( const UInt8 * )CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ), CFStringGetLength( value ) );
+            CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ) ), CFStringGetLength( value ) );
         }
         else
         {
@@ -96,14 +96,14 @@ namespace CF
     
     Data::Data( std::string value )
     {
-        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+        this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
         
-        CFDataAppendBytes( this->_cfObject, ( const UInt8 * )( value.c_str() ), ( CFIndex )( value.length() ) );
+        CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( value.c_str() ), static_cast< CFIndex >( value.length() ) );
     }
     
     Data::Data( Byte * value, CFIndex length )
     {
-        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+        this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
         
         CFDataAppendBytes( this->_cfObject, value, length );
     }
@@ -127,7 +127,7 @@ namespace CF
         
         if( value._cfObject != NULL )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, value._cfObject );
+            this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, value._cfObject );
         }
         else
         {
@@ -146,7 +146,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, ( CFDataRef )value );
+            this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, static_cast< CFDataRef >( value ) );
         }
         else
         {
@@ -165,7 +165,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutableCopy( ( CFAllocatorRef )NULL, 0, value );
+            this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, value );
         }
         else
         {
@@ -184,9 +184,9 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
         {
-            this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+            this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
             
-            CFDataAppendBytes( this->_cfObject, ( const UInt8 * )CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ), CFStringGetLength( value ) );
+            CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ) ), CFStringGetLength( value ) );
         }
         else
         {
@@ -203,9 +203,9 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFDataCreateMutable( ( CFAllocatorRef )NULL, 0 );
+        this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
         
-        CFDataAppendBytes( this->_cfObject, ( const UInt8 * )( value.c_str() ), ( CFIndex )( value.length() ) );
+        CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( value.c_str() ), static_cast< CFIndex >( value.length() ) );
         
         return *( this );
     }
@@ -229,7 +229,7 @@ namespace CF
             return s;
         }
         
-        s = std::string( ( char * )CFDataGetBytePtr( this->_cfObject ) );
+        s = std::string( reinterpret_cast< const char * >( CFDataGetBytePtr( this->_cfObject ) ) );
         
         return s;
     }
@@ -262,7 +262,7 @@ namespace CF
     {
         if( this->_cfObject != NULL && value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
         {
-            CFDataAppendBytes( this->_cfObject, ( const UInt8 * )CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ), CFStringGetLength( value ) );
+            CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ) ), CFStringGetLength( value ) );
         }
         
         return *( this );
@@ -282,7 +282,7 @@ namespace CF
     {
         if( this->_cfObject != NULL )
         {
-            CFDataAppendBytes( this->_cfObject, ( const UInt8 * )( value.c_str() ), ( CFIndex )( value.length() ) );
+            CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( value.c_str() ), static_cast< CFIndex >( value.length() ) );
         }
         
         return *( this );

@@ -50,7 +50,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -62,7 +62,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -74,7 +74,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -88,7 +88,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -102,7 +102,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -116,7 +116,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -130,7 +130,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -144,7 +144,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -158,7 +158,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -172,7 +172,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -186,7 +186,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -200,7 +200,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -214,7 +214,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -228,7 +228,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -242,7 +242,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -256,7 +256,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -270,7 +270,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -284,7 +284,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -298,7 +298,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -312,7 +312,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -326,7 +326,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -340,7 +340,7 @@ namespace CF
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
         else
         {
@@ -354,7 +354,7 @@ namespace CF
     {
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( value._cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( value._cfObject ) );
         }
         else
         {
@@ -451,7 +451,7 @@ namespace CF
         
         if( value._cfObject != NULL )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( value._cfObject );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( value._cfObject ) );
         }
         else
         {
@@ -470,7 +470,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( value );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( value ) );
         }
         else
         {
@@ -489,7 +489,7 @@ namespace CF
         
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
-            this->_cfObject = ( CFNumberRef )CFRetain( value );
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( value ) );
         }
         else
         {
@@ -1414,11 +1414,11 @@ namespace CF
     {
         if( this->IsFloatType() )
         {
-            this->SetFloat64Value( this->GetFloat64Value() + ( Float64 )1 );
+            this->SetFloat64Value( this->GetFloat64Value() + static_cast< Float64 >( 1 ) );
         }
         else
         {
-            this->SetSInt64Value( this->GetSInt64Value() + ( Number::SInt64 )1 );
+            this->SetSInt64Value( this->GetSInt64Value() + static_cast< Number::SInt64 >( 1 ) );
         }
         
         return *( this );
@@ -1439,11 +1439,11 @@ namespace CF
     {
         if( this->IsFloatType() )
         {
-            this->SetFloat64Value( this->GetFloat64Value() - ( Float64 )1 );
+            this->SetFloat64Value( this->GetFloat64Value() - static_cast< Float64 >( 1 ) );
         }
         else
         {
-            this->SetSInt64Value( this->GetSInt64Value() - ( Number::SInt64 )1 );
+            this->SetSInt64Value( this->GetSInt64Value() - static_cast< Number::SInt64 >( 1 ) );
         }
         
         return *( this );
@@ -3804,7 +3804,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return ( Number::SInt8 )0;
+            return static_cast< Number::SInt8 >( 0 );
         }
         
         CFNumberGetValue( this->_cfObject, kCFNumberSInt8Type, &value );
@@ -3818,7 +3818,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return ( Number::SInt16 )0;
+            return static_cast< Number::SInt16 >( 0 );
         }
         
         CFNumberGetValue( this->_cfObject, kCFNumberSInt16Type, &value );
@@ -3832,7 +3832,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return ( Number::SInt32 )0;
+            return static_cast< Number::SInt32 >( 0 );
         }
         
         CFNumberGetValue( this->_cfObject, kCFNumberSInt32Type, &value );
@@ -3846,7 +3846,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return ( Number::SInt64 )0;
+            return static_cast< Number::SInt64 >( 0 );
         }
         
         CFNumberGetValue( this->_cfObject, kCFNumberSInt64Type, &value );
@@ -3856,22 +3856,22 @@ namespace CF
     
     Number::UInt8 Number::GetUInt8Value( void ) const
     {
-        return ( Number::UInt8 )( this->GetSInt8Value() );
+        return static_cast< Number::UInt8 >( this->GetSInt8Value() );
     }
     
     Number::UInt16 Number::GetUInt16Value( void ) const
     {
-        return ( Number::UInt16 )( this->GetSInt8Value() );
+        return static_cast< Number::UInt16 >( this->GetSInt8Value() );
     }
     
     Number::UInt32 Number::GetUInt32Value( void ) const
     {
-        return ( Number::UInt32 )( this->GetSInt8Value() );
+        return static_cast< Number::UInt32 >( this->GetSInt8Value() );
     }
     
     Number::UInt64 Number::GetUInt64Value( void ) const
     {
-        return ( Number::UInt64 )( this->GetSInt8Value() );
+        return static_cast< Number::UInt64 >( this->GetSInt8Value() );
     }
     
     Number::Float32 Number::GetFloat32Value( void ) const
@@ -3880,7 +3880,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return ( Float32 )0;
+            return static_cast< Float32 >( 0 );
         }
         
         CFNumberGetValue( this->_cfObject, kCFNumberFloat32Type, &value );
@@ -3894,7 +3894,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return ( Float64 )0;
+            return static_cast< Float64 >( 0 );
         }
         
         CFNumberGetValue( this->_cfObject, kCFNumberFloat64Type, &value );
@@ -3909,7 +3909,7 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( ( CFAllocatorRef )NULL, kCFNumberSInt8Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberSInt8Type, &value );
     }
     
     void Number::SetSInt16Value( Number::SInt16 value )
@@ -3919,7 +3919,7 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( ( CFAllocatorRef )NULL, kCFNumberSInt16Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberSInt16Type, &value );
     }
     
     void Number::SetSInt32Value( Number::SInt32 value )
@@ -3929,7 +3929,7 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( ( CFAllocatorRef )NULL, kCFNumberSInt32Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberSInt32Type, &value );
     }
     
     void Number::SetSInt64Value( Number::SInt64 value )
@@ -3939,27 +3939,27 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( ( CFAllocatorRef )NULL, kCFNumberSInt64Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberSInt64Type, &value );
     }
     
     void Number::SetUInt8Value( Number::UInt8 value )
     {
-        this->SetSInt8Value( ( Number::SInt8 )value );
+        this->SetSInt8Value( static_cast< Number::SInt8 >( value ) );
     }
     
     void Number::SetUInt16Value( Number::UInt16 value )
     {
-        this->SetSInt16Value( ( Number::SInt16 )value );
+        this->SetSInt16Value( static_cast< Number::SInt16 >( value ) );
     }
     
     void Number::SetUInt32Value( Number::UInt32 value )
     {
-        this->SetSInt32Value( ( Number::SInt32 )value );
+        this->SetSInt32Value( static_cast< Number::SInt32 >( value ) );
     }
     
     void Number::SetUInt64Value( Number::UInt64 value )
     {
-        this->SetSInt64Value( ( Number::SInt64 )value );
+        this->SetSInt64Value( static_cast< Number::SInt64 >( value ) );
     }
     
     void Number::SetFloat32Value( Number::Float32 value )
@@ -3969,7 +3969,7 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( ( CFAllocatorRef )NULL, kCFNumberFloat32Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberFloat32Type, &value );
     }
     
     void Number::SetFloat64Value( Number::Float64 value )
@@ -3979,6 +3979,6 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( ( CFAllocatorRef )NULL, kCFNumberFloat64Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberFloat64Type, &value );
     }
 }
