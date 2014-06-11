@@ -81,7 +81,11 @@ namespace CF
         end:
         
         free( buf );
-        fclose( fh );
+        
+        if( fh != NULL )
+        {
+            fclose( fh );
+        }
         
         return object;
     }
