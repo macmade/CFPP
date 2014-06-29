@@ -3861,17 +3861,17 @@ namespace CF
     
     Number::UInt16 Number::GetUInt16Value( void ) const
     {
-        return static_cast< Number::UInt16 >( this->GetSInt8Value() );
+        return static_cast< Number::UInt16 >( this->GetSInt16Value() );
     }
     
     Number::UInt32 Number::GetUInt32Value( void ) const
     {
-        return static_cast< Number::UInt32 >( this->GetSInt8Value() );
+        return static_cast< Number::UInt32 >( this->GetSInt32Value() );
     }
     
     Number::UInt64 Number::GetUInt64Value( void ) const
     {
-        return static_cast< Number::UInt64 >( this->GetSInt8Value() );
+        return static_cast< Number::UInt64 >( this->GetSInt64Value() );
     }
     
     Number::Float32 Number::GetFloat32Value( void ) const
