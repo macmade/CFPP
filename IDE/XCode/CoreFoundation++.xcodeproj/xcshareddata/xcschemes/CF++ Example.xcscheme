@@ -15,8 +15,22 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "056C87CD18C8B0F8006260B3"
-               BuildableName = "Testing"
-               BlueprintName = "CF++ Testing"
+               BuildableName = "CFPPExample"
+               BlueprintName = "CF++ Example"
+               ReferencedContainer = "container:CoreFoundation++.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "05E71B621961D9D100F911C4"
+               BuildableName = "CF++ Tests.xctest"
+               BlueprintName = "CF++ Tests"
                ReferencedContainer = "container:CoreFoundation++.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,13 +42,23 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "05E71B621961D9D100F911C4"
+               BuildableName = "CF++ Tests.xctest"
+               BlueprintName = "CF++ Tests"
+               ReferencedContainer = "container:CoreFoundation++.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "056C87CD18C8B0F8006260B3"
-            BuildableName = "Testing"
-            BlueprintName = "CF++ Testing"
+            BuildableName = "CFPPExample"
+            BlueprintName = "CF++ Example"
             ReferencedContainer = "container:CoreFoundation++.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -52,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "056C87CD18C8B0F8006260B3"
-            BuildableName = "Testing"
-            BlueprintName = "CF++ Testing"
+            BuildableName = "CFPPExample"
+            BlueprintName = "CF++ Example"
             ReferencedContainer = "container:CoreFoundation++.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -70,8 +94,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "056C87CD18C8B0F8006260B3"
-            BuildableName = "Testing"
-            BlueprintName = "CF++ Testing"
+            BuildableName = "CFPPExample"
+            BlueprintName = "CF++ Example"
             ReferencedContainer = "container:CoreFoundation++.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
