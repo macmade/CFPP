@@ -88,7 +88,6 @@
 		05E71B5E1961D96100F911C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B5D1961D96100F911C4 /* main.cpp */; };
 		05E71B691961D9D100F911C4 /* libCF++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libCF++.a */; };
 		05E71B721961DA1100F911C4 /* BooleanTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B701961DA1100F911C4 /* BooleanTest.mm */; };
-		05E71B731961DA1100F911C4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05E71B711961DA1100F911C4 /* Info.plist */; };
 		05E71B761961F27800F911C4 /* ArrayTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B751961F27800F911C4 /* ArrayTest.mm */; };
 		05E71B811961F2CE00F911C4 /* DataTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B771961F2CE00F911C4 /* DataTest.mm */; };
 		05E71B821961F2CE00F911C4 /* DateTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B781961F2CE00F911C4 /* DateTest.mm */; };
@@ -180,7 +179,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		051F09651946EB70004B6E47 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		051F09651946EB70004B6E47 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05632F8B18ED5CA300EB76D2 /* CFPP-UUID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-UUID.h"; sourceTree = "<group>"; };
 		05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-UUID.cpp"; sourceTree = "<group>"; };
 		056C87CE18C8B0F8006260B3 /* CFPPExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CFPPExample; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -328,8 +327,7 @@
 				05BDE01918CDB2450028F339 /* PrefixHeader.pch */,
 				05BDE01A18CDB2450028F339 /* source */,
 			);
-			name = "CF++";
-			path = "../../CF++";
+			path = "CF++";
 			sourceTree = "<group>";
 		};
 		05BDE00B18CDB2450028F339 /* include */ = {
@@ -386,8 +384,7 @@
 			children = (
 				05E71B5D1961D96100F911C4 /* main.cpp */,
 			);
-			name = "CF++ Example";
-			path = "../../CF++ Example";
+			path = "CF++ Example";
 			sourceTree = "<group>";
 		};
 		05E71B6F1961DA1100F911C4 /* CF++ Tests */ = {
@@ -408,8 +405,7 @@
 				05E71B711961DA1100F911C4 /* Info.plist */,
 				05E71B741961DD4800F911C4 /* PrefixHeader.pch */,
 			);
-			name = "CF++ Tests";
-			path = "../../CF++ Tests";
+			path = "CF++ Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -628,7 +624,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05E71B731961DA1100F911C4 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -990,7 +985,7 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../../CF++/include",
+					"CF++/include",
 				);
 				PRODUCT_NAME = CFPPExample;
 			};
@@ -1001,7 +996,7 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../../CF++/include",
+					"CF++/include",
 				);
 				PRODUCT_NAME = CFPPExample;
 			};
@@ -1013,10 +1008,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../../CF++/include",
+					"CF++/include",
 				);
 				PRODUCT_NAME = "CF++";
 				SKIP_INSTALL = YES;
@@ -1029,10 +1024,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../../CF++/include",
+					"CF++/include",
 				);
 				PRODUCT_NAME = "CF++";
 				SKIP_INSTALL = YES;
@@ -1045,10 +1040,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../../CF++/include",
+					"CF++/include",
 				);
 				PRODUCT_NAME = "CF++";
 			};
@@ -1060,10 +1055,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../../CF++/include",
+					"CF++/include",
 				);
 				PRODUCT_NAME = "CF++";
 			};
@@ -1077,12 +1072,12 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../../CF++/include",
+					"CF++/include",
 				);
-				INFOPLIST_FILE = "../../CF++/Info.plist";
+				INFOPLIST_FILE = "CF++/Info.plist";
 				PRODUCT_NAME = "CF++";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1096,12 +1091,12 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../../CF++/include",
+					"CF++/include",
 				);
-				INFOPLIST_FILE = "../../CF++/Info.plist";
+				INFOPLIST_FILE = "CF++/Info.plist";
 				PRODUCT_NAME = "CF++";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1113,10 +1108,10 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/CF__.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../../CF++/include",
+					"CF++/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1133,10 +1128,10 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/CF__.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../../CF++/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../../CF++/include",
+					"CF++/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1157,14 +1152,14 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../../CF++ Tests/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "CF++ Tests/PrefixHeader.pch";
 				GCC_WARN_PEDANTIC = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"../../CF++/include",
+					"CF++/include",
 				);
-				INFOPLIST_FILE = "../../CF++ Tests/Info.plist";
+				INFOPLIST_FILE = "CF++ Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1180,14 +1175,14 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../../CF++ Tests/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "CF++ Tests/PrefixHeader.pch";
 				GCC_WARN_PEDANTIC = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"../../CF++/include",
+					"CF++/include",
 				);
-				INFOPLIST_FILE = "../../CF++ Tests/Info.plist";
+				INFOPLIST_FILE = "CF++ Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
