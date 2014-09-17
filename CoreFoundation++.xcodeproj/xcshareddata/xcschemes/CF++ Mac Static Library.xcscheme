@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0600"
+   LastUpgradeVersion = "0610"
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -50,6 +50,15 @@
       debugDocumentVersioning = "YES"
       debugXPCServices = "NO"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "056C881118C8B85F006260B3"
+            BuildableName = "libCF++.a"
+            BlueprintName = "CF++ Mac Static Library"
+            ReferencedContainer = "container:CoreFoundation++.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
