@@ -160,27 +160,9 @@ namespace CF
         }
     }
     
-    Pair & Pair::operator = ( const Pair value )
+    Pair & Pair::operator = ( Pair value )
     {
-        if( this->_key != NULL )
-        {
-            CFRelease( this->_key );
-        }
-        
-        if( this->_value != NULL )
-        {
-            CFRelease( this->_value );
-        }
-        
-        if( value._key != NULL )
-        {
-            this->_key = CFRetain( value._key );
-        }
-        
-        if( value._value != NULL )
-        {
-            this->_value = CFRetain( value._value );
-        }
+        swap( *( this ), value );
         
         return *( this );
     }

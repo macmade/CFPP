@@ -206,26 +206,9 @@ namespace CF
         }
     }
     
-    Array & Array::operator = ( const Array value )
+    Array & Array::operator = ( Array value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value._cfObject != NULL )
-        {
-            this->_cfObject = CFArrayCreateMutableCopy
-            (
-                static_cast< CFAllocatorRef >( NULL ),
-                CFArrayGetCount( value._cfObject ),
-                value._cfObject
-            );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
+        swap( *( this ), value );
         
         return *( this );
     }

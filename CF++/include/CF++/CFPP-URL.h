@@ -86,7 +86,7 @@ namespace CF
             
             virtual ~URL( void );
             
-            URL & operator = ( const URL value );
+            URL & operator = ( URL value );
             URL & operator = ( CFTypeRef value );
             URL & operator = ( CFURLRef value );
             URL & operator = ( CFStringRef value );

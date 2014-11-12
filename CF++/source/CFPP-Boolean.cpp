@@ -164,9 +164,9 @@ namespace CF
         }
     }
     
-    Boolean & Boolean::operator = ( const Boolean value )
+    Boolean & Boolean::operator = ( Boolean value )
     {
-        this->SetValue( value.GetValue() );
+        swap( *( this ), value );
         
         return *( this );
     }

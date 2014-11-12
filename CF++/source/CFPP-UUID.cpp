@@ -90,21 +90,9 @@ namespace CF
         }
     }
     
-    UUID & UUID::operator = ( const UUID value )
+    UUID & UUID::operator = ( UUID value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value._cfObject != NULL )
-        {
-            this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value._cfObject ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
+        swap( *( this ), value );
         
         return *( this );
     }

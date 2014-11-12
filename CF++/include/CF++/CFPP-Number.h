@@ -111,7 +111,7 @@ namespace CF
             
             virtual ~Number( void );
             
-            Number & operator = ( const Number value );
+            Number & operator = ( Number value );
             Number & operator = ( CFTypeRef value );
             Number & operator = ( CFNumberRef value );
             Number & operator = ( SInt8 value );

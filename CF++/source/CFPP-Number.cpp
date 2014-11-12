@@ -442,21 +442,9 @@ namespace CF
         }
     }
     
-    Number & Number::operator = ( const Number value )
+    Number & Number::operator = ( Number value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value._cfObject != NULL )
-        {
-            this->_cfObject = static_cast< CFNumberRef >( CFRetain( value._cfObject ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
+        swap( *( this ), value );
         
         return *( this );
     }

@@ -66,7 +66,7 @@ namespace CF
             
             virtual ~Data( void );
             
-            Data & operator = ( const Data value );
+            Data & operator = ( Data value );
             Data & operator = ( CFTypeRef value );
             Data & operator = ( CFDataRef value );
             Data & operator = ( CFStringRef value );

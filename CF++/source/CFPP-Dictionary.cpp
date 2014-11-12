@@ -227,26 +227,9 @@ namespace CF
         }
     }
     
-    Dictionary & Dictionary::operator = ( const Dictionary value )
+    Dictionary & Dictionary::operator = ( Dictionary value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value._cfObject != NULL )
-        {
-            this->_cfObject = CFDictionaryCreateMutableCopy
-            (
-                static_cast< CFAllocatorRef >( NULL ),
-                CFDictionaryGetCount( value._cfObject ),
-                value._cfObject
-            );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
+        swap( *( this ), value );
         
         return *( this );
     }

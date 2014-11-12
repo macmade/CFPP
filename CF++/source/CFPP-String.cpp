@@ -146,21 +146,9 @@ namespace CF
         }
     }
     
-    String & String::operator = ( const String value )
+    String & String::operator = ( String value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value._cfObject != NULL )
-        {
-            this->_cfObject = static_cast< CFStringRef >( CFRetain( value._cfObject ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
+        swap( *( this ), value );
         
         return *( this );
     }

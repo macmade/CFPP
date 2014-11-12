@@ -56,7 +56,7 @@ namespace CF
             
             virtual ~Date( void );
             
-            Date & operator = ( const Date value );
+            Date & operator = ( Date value );
             Date & operator = ( CFTypeRef value );
             Date & operator = ( CFDateRef value );
             Date & operator = ( CFAbsoluteTime value );

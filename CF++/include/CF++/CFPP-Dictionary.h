@@ -56,7 +56,7 @@ namespace CF
             
             virtual ~Dictionary( void );
             
-            Dictionary & operator = ( const Dictionary value );
+            Dictionary & operator = ( Dictionary value );
             Dictionary & operator = ( CFTypeRef value );
             Dictionary & operator = ( CFDictionaryRef value );
             

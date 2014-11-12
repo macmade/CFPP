@@ -60,7 +60,7 @@ namespace CF
             
             virtual ~Pair( void );
             
-            Pair & operator = ( const Pair value );
+            Pair & operator = ( Pair value );
             
             CFTypeRef GetKey( void );
             CFTypeRef GetValue( void );

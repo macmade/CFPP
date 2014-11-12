@@ -55,7 +55,7 @@ namespace CF
             
             virtual ~Boolean( void );
             
-            Boolean & operator = ( const Boolean value );
+            Boolean & operator = ( Boolean value );
             Boolean & operator = ( CFTypeRef value );
             Boolean & operator = ( CFBooleanRef value );
             Boolean & operator = ( bool value );

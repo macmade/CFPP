@@ -106,21 +106,9 @@ namespace CF
         }
     }
     
-    Date & Date::operator = ( const Date value )
+    Date & Date::operator = ( Date value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value._cfObject != NULL )
-        {
-            this->_cfObject = static_cast< CFDateRef >( CFRetain( value._cfObject ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
+        swap( *( this ), value );
         
         return *( this );
     }

@@ -56,7 +56,7 @@ namespace CF
             
             virtual ~Array( void );
             
-            Array & operator = ( const Array value );
+            Array & operator = ( Array value );
             Array & operator = ( CFTypeRef value );
             Array & operator = ( CFArrayRef value );
             
