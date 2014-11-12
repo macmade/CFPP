@@ -143,7 +143,7 @@ namespace CF
         }
     }
     
-    URL & URL::operator = ( const URL & value )
+    URL & URL::operator = ( const URL value )
     {
         if( this->_cfObject != NULL )
         {

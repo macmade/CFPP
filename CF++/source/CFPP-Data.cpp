@@ -118,7 +118,7 @@ namespace CF
         }
     }
           
-    Data & Data::operator = ( const Data & value )
+    Data & Data::operator = ( const Data value )
     {
         if( this->_cfObject != NULL )
         {

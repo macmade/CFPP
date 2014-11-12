@@ -206,7 +206,7 @@ namespace CF
         }
     }
     
-    Array & Array::operator = ( const Array & value )
+    Array & Array::operator = ( const Array value )
     {
         if( this->_cfObject != NULL )
         {

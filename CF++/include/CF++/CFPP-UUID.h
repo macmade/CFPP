@@ -53,7 +53,7 @@ namespace CF
             
             virtual ~UUID( void );
             
-            UUID & operator = ( const UUID & value );
+            UUID & operator = ( const UUID value );
             UUID & operator = ( CFTypeRef value );
             UUID & operator = ( CFUUIDRef value );
             

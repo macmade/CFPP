@@ -227,7 +227,7 @@ namespace CF
         }
     }
     
-    Dictionary & Dictionary::operator = ( const Dictionary & value )
+    Dictionary & Dictionary::operator = ( const Dictionary value )
     {
         if( this->_cfObject != NULL )
         {

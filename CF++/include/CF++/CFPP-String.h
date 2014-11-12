@@ -58,7 +58,7 @@ namespace CF
             
             virtual ~String( void );
             
-            String & operator = ( const String & value );
+            String & operator = ( const String value );
             String & operator = ( CFTypeRef value );
             String & operator = ( CFStringRef value );
             String & operator = ( std::string value );

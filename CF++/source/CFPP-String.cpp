@@ -146,7 +146,7 @@ namespace CF
         }
     }
     
-    String & String::operator = ( const String & value )
+    String & String::operator = ( const String value )
     {
         if( this->_cfObject != NULL )
         {

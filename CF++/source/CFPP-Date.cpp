@@ -106,7 +106,7 @@ namespace CF
         }
     }
     
-    Date & Date::operator = ( const Date & value )
+    Date & Date::operator = ( const Date value )
     {
         if( this->_cfObject != NULL )
         {

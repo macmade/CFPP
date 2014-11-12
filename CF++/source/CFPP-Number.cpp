@@ -442,7 +442,7 @@ namespace CF
         }
     }
     
-    Number & Number::operator = ( const Number & value )
+    Number & Number::operator = ( const Number value )
     {
         if( this->_cfObject != NULL )
         {

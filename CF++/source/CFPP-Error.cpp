@@ -195,7 +195,7 @@ namespace CF
     
     }
     
-    Error & Error::operator = ( const Error & value )
+    Error & Error::operator = ( const Error value )
     {
         if( this->_cfObject != NULL )
         {

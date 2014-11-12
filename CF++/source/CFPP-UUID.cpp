@@ -90,7 +90,7 @@ namespace CF
         }
     }
     
-    UUID & UUID::operator = ( const UUID & value )
+    UUID & UUID::operator = ( const UUID value )
     {
         if( this->_cfObject != NULL )
         {

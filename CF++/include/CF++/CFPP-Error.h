@@ -61,7 +61,7 @@ namespace CF
             
             virtual ~Error( void );
             
-            Error & operator = ( const Error & value );
+            Error & operator = ( const Error value );
             Error & operator = ( CFTypeRef value );
             Error & operator = ( CFErrorRef value );
             

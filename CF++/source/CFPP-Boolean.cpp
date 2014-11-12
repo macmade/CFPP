@@ -164,7 +164,7 @@ namespace CF
         }
     }
     
-    Boolean & Boolean::operator = ( const Boolean & value )
+    Boolean & Boolean::operator = ( const Boolean value )
     {
         this->SetValue( value.GetValue() );
         

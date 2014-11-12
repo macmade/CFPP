@@ -160,7 +160,7 @@ namespace CF
         }
     }
     
-    Pair & Pair::operator = ( const Pair & value )
+    Pair & Pair::operator = ( const Pair value )
     {
         if( this->_key != NULL )
         {
