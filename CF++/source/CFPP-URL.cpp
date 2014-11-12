@@ -371,17 +371,19 @@ namespace CF
         return this->_cfObject;
     }
     
-    CF::String URL::GetFileSystemPath( CFURLPathStyle style )
+    CF::String URL::GetFileSystemPath( PathStyle style )
     {
-        CF::String  str;
-        CFStringRef cfStr;
+        CF::String      str;
+        CFStringRef     cfStr;
+        CFURLPathStyle  cfPathStyle;
         
         if( this->_cfObject == NULL )
         {
             return str;
         }
         
-        cfStr = CFURLCopyFileSystemPath( this->_cfObject, style );
+        cfPathStyle = ( style == PathStyleWindows ) ? kCFURLWindowsPathStyle : kCFURLPOSIXPathStyle;
+        cfStr       = CFURLCopyFileSystemPath( this->_cfObject, cfPathStyle );
         
         if( cfStr != NULL )
         {

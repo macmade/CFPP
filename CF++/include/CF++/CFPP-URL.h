@@ -66,6 +66,13 @@ namespace CF
             }
             Part;
             
+            typedef enum
+            {
+                PathStylePOSIX      = 0x00,
+                PathStyleWindows    = 0x01
+            }
+            PathStyle;
+            
             static URL FileSystemURL( std::string path, bool isDir = false );
             static URL FileSystemURL( CFTypeRef path, bool isDir = false );
             static URL FileSystemURL( CFStringRef path, bool isDir = false );
@@ -107,7 +114,7 @@ namespace CF
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            CF::String GetFileSystemPath( CFURLPathStyle style = kCFURLPOSIXPathStyle );
+            CF::String GetFileSystemPath( PathStyle style = PathStylePOSIX );
             CF::String GetFragment( void );
             CF::String GetHostName( void );
             CF::String GetLastPathComponent( void );
