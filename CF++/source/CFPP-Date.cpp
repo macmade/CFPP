@@ -488,4 +488,11 @@ namespace CF
         
         this->_cfObject = CFDateCreate( static_cast< CFAllocatorRef >( NULL ), value );
     }
+    
+    void swap( Date & v1, Date & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }

@@ -472,4 +472,11 @@ namespace CF
         
         return map;
     }
+    
+    void swap( Dictionary & v1, Dictionary & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }

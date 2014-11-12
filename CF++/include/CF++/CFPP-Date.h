@@ -116,6 +116,8 @@ namespace CF
             CFAbsoluteTime GetValue( void ) const;
             void           SetValue( CFAbsoluteTime value );
             
+            friend void swap( Date & v1, Date & v2 );
+            
         protected:
             
             CFDateRef _cfObject;

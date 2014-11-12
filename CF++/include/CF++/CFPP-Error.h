@@ -75,6 +75,8 @@ namespace CF
             CF::String     GetFailureReason( void );
             CF::String     GetRecoverySuggestion( void );
             
+            friend void swap( Error & v1, Error & v2 );
+            
         private:
             
             CFErrorRef _cfObject;

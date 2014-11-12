@@ -316,4 +316,11 @@ namespace CF
         
         #endif
     }
+    
+    void swap( Boolean & v1, Boolean & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }

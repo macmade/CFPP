@@ -78,6 +78,8 @@ namespace CF
             bool GetValue( void ) const;
             void SetValue( bool value );
             
+            friend void swap( Boolean & v1, Boolean & v2 );
+            
         private:
             
             CFBooleanRef _cfObject;

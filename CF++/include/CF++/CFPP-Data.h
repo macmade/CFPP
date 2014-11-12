@@ -95,6 +95,8 @@ namespace CF
             void         ReplaceBytes( CFRange range, Byte * newBytes, CFIndex newLength );
             void         DeleteBytes( CFRange range );
             
+            friend void swap( Data & v1, Data & v2 );
+            
         private:
             
             CFMutableDataRef _cfObject;

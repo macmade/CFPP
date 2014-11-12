@@ -87,6 +87,8 @@ namespace CF
             
             std::vector< CFTypeRef > GetValues( void );
             
+            friend void swap( Array & v1, Array & v2 );
+            
         protected:
             
             CFMutableArrayRef _cfObject;

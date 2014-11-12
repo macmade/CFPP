@@ -130,6 +130,8 @@ namespace CF
             void       DeleteLastPathComponent( void );
             void       DeletePathExtension( void );
             
+            friend void swap( URL & v1, URL & v2 );
+            
         private:
             
             CFURLRef _cfObject;

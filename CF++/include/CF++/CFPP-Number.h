@@ -535,6 +535,8 @@ namespace CF
             void    SetFloat32Value( Float32 value );
             void    SetFloat64Value( Float64 value );
             
+            friend void swap( Number & v1, Number & v2 );
+            
         private:
             
             CFNumberRef _cfObject;

@@ -184,7 +184,7 @@ namespace CF
         
         return *( this );
     }
-            
+    
     CFTypeRef Pair::GetKey( void )
     {
         return this->_key;
@@ -227,5 +227,13 @@ namespace CF
         {
             this->_value = NULL;
         }
+    }
+    
+    void swap( Pair & v1, Pair & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._key, v2._key );
+        swap( v1._value, v2._value );
     }
 }

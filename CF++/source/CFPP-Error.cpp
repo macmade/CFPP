@@ -375,4 +375,11 @@ namespace CF
         
         return str;
     }
+    
+    void swap( Error & v1, Error & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }

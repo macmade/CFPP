@@ -494,4 +494,11 @@ namespace CF
         
         return vector;
     }
+    
+    void swap( Array & v1, Array & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }

@@ -3981,4 +3981,11 @@ namespace CF
         
         this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberFloat64Type, &value );
     }
+    
+    void swap( Number & v1, Number & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }

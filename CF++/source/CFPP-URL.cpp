@@ -799,4 +799,11 @@ namespace CF
         
         CFRelease( url );
     }
+    
+    void swap( URL & v1, URL & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }

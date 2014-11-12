@@ -74,6 +74,8 @@ namespace CF
             
             CF::String GetString( void ) const;
             
+            friend void swap( UUID & v1, UUID & v2 );
+            
         private:
             
             CFUUIDRef _cfObject;

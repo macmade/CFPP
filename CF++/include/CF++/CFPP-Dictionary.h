@@ -82,6 +82,8 @@ namespace CF
             
             std::map< CFTypeRef, CFTypeRef > GetKeysAndValues( void );
             
+            friend void swap( Dictionary & v1, Dictionary & v2 );
+            
         private:
             
             CFMutableDictionaryRef _cfObject;

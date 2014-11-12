@@ -234,4 +234,11 @@ namespace CF
         
         return s;
     }
+    
+    void swap( UUID & v1, UUID & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }

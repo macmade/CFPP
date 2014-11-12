@@ -105,6 +105,8 @@ namespace CF
             const char * GetCStringValue( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;
             void         SetValue( std::string value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             
+            friend void swap( String & v1, String & v2 );
+            
         private:
             
             CFStringRef _cfObject;

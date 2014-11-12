@@ -387,4 +387,11 @@ namespace CF
         
         CFDataDeleteBytes( this->_cfObject, range );
     }
+    
+    void swap( Data & v1, Data & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }
