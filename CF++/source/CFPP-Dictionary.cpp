@@ -217,6 +217,14 @@ namespace CF
         }
     }
     
+    #ifdef CFPP_HAS_CPP11
+    Dictionary::Dictionary( Dictionary && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
     Dictionary::~Dictionary( void )
     {
         if( this->_cfObject != NULL )

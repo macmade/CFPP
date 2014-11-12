@@ -84,6 +84,10 @@ namespace CF
             URL( CFStringRef value );
             URL( std::string value );
             
+            #ifdef CFPP_HAS_CPP11
+            URL( URL && value );
+            #endif
+            
             virtual ~URL( void );
             
             URL & operator = ( URL value );

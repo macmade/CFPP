@@ -54,6 +54,10 @@ namespace CF
             Date( CFDateRef value );
             Date( CFAbsoluteTime value );
             
+            #ifdef CFPP_HAS_CPP11
+            Date( Date && value );
+            #endif
+            
             virtual ~Date( void );
             
             Date & operator = ( Date value );

@@ -432,6 +432,14 @@ namespace CF
         this->SetFloat64Value( value );
     }
     
+    #ifdef CFPP_HAS_CPP11
+    Number::Number( Number && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
     Number::~Number( void )
     {
         if( this->_cfObject != NULL )

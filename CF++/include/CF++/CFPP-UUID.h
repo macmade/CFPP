@@ -51,6 +51,10 @@ namespace CF
             UUID( CFTypeRef value );
             UUID( CFUUIDRef value );
             
+            #ifdef CFPP_HAS_CPP11
+            UUID( UUID && value );
+            #endif
+            
             virtual ~UUID( void );
             
             UUID & operator = ( UUID value );

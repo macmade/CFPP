@@ -80,6 +80,14 @@ namespace CF
         }
     }
     
+    #ifdef CFPP_HAS_CPP11
+    UUID::UUID( UUID && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
     UUID::~UUID( void )
     {
         if( this->_cfObject != NULL )

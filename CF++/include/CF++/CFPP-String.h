@@ -56,6 +56,10 @@ namespace CF
             String( const char * value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( const String & value );
             
+            #ifdef CFPP_HAS_CPP11
+            String( String && value );
+            #endif
+            
             virtual ~String( void );
             
             String & operator = ( String value );

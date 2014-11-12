@@ -64,6 +64,10 @@ namespace CF
             Data( std::string value );
             Data( Byte * value, CFIndex length );
             
+            #ifdef CFPP_HAS_CPP11
+            Data( Data && value );
+            #endif
+            
             virtual ~Data( void );
             
             Data & operator = ( Data value );

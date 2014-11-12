@@ -154,6 +154,14 @@ namespace CF
         this->SetValue( value.GetValue() );
     }
     
+    #ifdef CFPP_HAS_CPP11
+    Boolean::Boolean( Boolean && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
     Boolean::~Boolean( void )
     {
         if( this->_cfObject != NULL )

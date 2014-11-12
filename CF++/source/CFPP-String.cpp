@@ -136,6 +136,14 @@ namespace CF
         }
     }
     
+    #ifdef CFPP_HAS_CPP11
+    String::String( String && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
     String::~String( void )
     {
         if( this->_cfObject != NULL )

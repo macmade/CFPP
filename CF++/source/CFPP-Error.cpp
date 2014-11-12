@@ -184,6 +184,14 @@ namespace CF
         );
     }
     
+    #ifdef CFPP_HAS_CPP11
+    Error::Error( Error && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
     Error::~Error( void )
     {
         if( this->_cfObject != NULL )

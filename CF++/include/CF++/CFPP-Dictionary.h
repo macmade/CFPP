@@ -54,6 +54,10 @@ namespace CF
             Dictionary( CFTypeRef cfObject );
             Dictionary( CFDictionaryRef cfObject );
             
+            #ifdef CFPP_HAS_CPP11
+            Dictionary( Dictionary && value );
+            #endif
+            
             virtual ~Dictionary( void );
             
             Dictionary & operator = ( Dictionary value );

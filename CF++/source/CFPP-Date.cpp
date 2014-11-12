@@ -96,6 +96,14 @@ namespace CF
         this->SetValue( value );
     }
     
+    #ifdef CFPP_HAS_CPP11
+    Date::Date( Date && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
     Date::~Date( void )
     {
         if( this->_cfObject != NULL )

@@ -54,6 +54,10 @@ namespace CF
             Array( CFTypeRef value );
             Array( CFArrayRef value );
             
+            #ifdef CFPP_HAS_CPP11
+            Array( Array && value );
+            #endif
+            
             virtual ~Array( void );
             
             Array & operator = ( Array value );

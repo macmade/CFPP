@@ -58,6 +58,10 @@ namespace CF
             Pair( String key, Number value );
             Pair( const char * key, Number value );
             
+            #ifdef CFPP_HAS_CPP11
+            Pair( Pair && value );
+            #endif
+            
             virtual ~Pair( void );
             
             Pair & operator = ( Pair value );

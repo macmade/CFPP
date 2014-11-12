@@ -133,6 +133,14 @@ namespace CF
         this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
     }
     
+    #ifdef CFPP_HAS_CPP11
+    URL::URL( URL && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
     URL::~URL( void )
     {
         if( this->_cfObject != NULL )

@@ -108,6 +108,14 @@ namespace CF
         CFDataAppendBytes( this->_cfObject, value, length );
     }
     
+    #ifdef CFPP_HAS_CPP11
+    Data::Data( Data && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
     Data::~Data( void )
     {
         if( this->_cfObject != NULL )

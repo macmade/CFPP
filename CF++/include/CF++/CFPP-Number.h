@@ -109,6 +109,10 @@ namespace CF
             Number( Float32 value );
             Number( Float64 value );
             
+            #ifdef CFPP_HAS_CPP11
+            Number( Number && value );
+            #endif
+            
             virtual ~Number( void );
             
             Number & operator = ( Number value );

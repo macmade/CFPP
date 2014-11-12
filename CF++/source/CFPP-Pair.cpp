@@ -147,6 +147,16 @@ namespace CF
         this->SetValue( value );
     }
     
+    #ifdef CFPP_HAS_CPP11
+    Pair::Pair( Pair && value )
+    {
+        this->_key   = value._key;
+        value._key   = NULL;
+        this->_value = value._value;
+        value._value = NULL;
+    }
+    #endif
+    
     Pair::~Pair( void )
     {
         if( this->_key != NULL )

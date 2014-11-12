@@ -53,6 +53,10 @@ namespace CF
             Boolean( CFBooleanRef cfObject, bool defaultValueIfNULL );
             Boolean( bool value = false );
             
+            #ifdef CFPP_HAS_CPP11
+            Boolean( Boolean && value );
+            #endif
+            
             virtual ~Boolean( void );
             
             Boolean & operator = ( Boolean value );
