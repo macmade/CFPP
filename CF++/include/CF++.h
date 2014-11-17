@@ -43,6 +43,12 @@
 #include <iostream>
 #include <vector>
 
+#if defined( __cplusplus ) && ( __cplusplus > 199711L || ( defined( _MSC_VER ) && _MSC_VER >= 1800 ) )
+    
+    #define CFPP_HAS_CPP11  1
+    
+#endif
+
 #include <CF++/CFPP-Type.h>
 #include <CF++/CFPP-PropertyListType.h>
 #include <CF++/CFPP-Boolean.h>
