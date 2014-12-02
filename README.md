@@ -2,6 +2,10 @@ CoreFoundation++
 ================
 
 [![Build Status](https://img.shields.io/travis/macmade/CFPP.svg?branch=master&style=flat)](https://travis-ci.org/macmade/CFPP)
+[![Issues](http://img.shields.io/github/issues/macmade/CFPP.svg?style=flat)](https://github.com/macmade/CFPP/issues)
+![Status](https://img.shields.io/badge/status-active-brightgreen.svg?style=flat)
+![License](https://img.shields.io/badge/license-boost-brightgreen.svg?style=flat)
+[![Contact](https://img.shields.io/badge/contact-@macmade-blue.svg?style=flat)](https://twitter.com/macmade)
 
 ### C++ wrapper for CoreFoundation base classes
 
