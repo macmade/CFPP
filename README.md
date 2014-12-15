@@ -18,9 +18,9 @@ Table of Contents
   4. [Available / Wrapped classes](#4)
   5. [Example](#5)
   6. [Documentation](#6)
-  7. [To-Do](#6)
-  8. [License](#7)
-  9. [Repository Infos](#8)
+  7. [To-Do](#7)
+  8. [License](#8)
+  9. [Repository Infos](#9)
 
 <a name="1"></a>
 About CoreFoundation
