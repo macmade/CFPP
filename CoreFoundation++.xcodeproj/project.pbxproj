@@ -99,10 +99,10 @@
 		05E71B881961F2CE00F911C4 /* StringTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B7E1961F2CE00F911C4 /* StringTest.mm */; };
 		05E71B891961F2CE00F911C4 /* URLTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B7F1961F2CE00F911C4 /* URLTest.mm */; };
 		05E71B8A1961F2CE00F911C4 /* UUIDTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B801961F2CE00F911C4 /* UUIDTest.mm */; };
-		05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; };
-		05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; };
-		05EFF0EA191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; };
-		05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; };
+		05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05EFF0EA191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -426,7 +426,6 @@
 				05BDE06F18CDB2600028F339 /* CFPP-URL.h in Headers */,
 				05BDE06D18CDB2600028F339 /* CFPP-String.h in Headers */,
 				05A3A77618CF00EC00F7E0BC /* CFPP-Error.h in Headers */,
-				05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */,
 				05BDE06A18CDB2600028F339 /* CFPP-Dictionary.h in Headers */,
 				05BDE06818CDB2600028F339 /* CFPP-Data.h in Headers */,
 				05BDE06918CDB2600028F339 /* CFPP-Date.h in Headers */,
@@ -435,8 +434,9 @@
 				05632F8D18ED5CAA00EB76D2 /* CFPP-UUID.h in Headers */,
 				05BDE06C18CDB2600028F339 /* CFPP-Pair.h in Headers */,
 				05BDE06B18CDB2600028F339 /* CFPP-Number.h in Headers */,
-				05BDE06618CDB2600028F339 /* CFPP-Array.h in Headers */,
+				05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */,
 				05EFF0EA191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */,
+				05BDE06618CDB2600028F339 /* CFPP-Array.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,21 +444,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05BDE06318CDB25F0028F339 /* CFPP-Type.h in Headers */,
-				05BDE06418CDB25F0028F339 /* CFPP-URL.h in Headers */,
-				05BDE06218CDB25F0028F339 /* CFPP-String.h in Headers */,
-				05A3A77518CF00EB00F7E0BC /* CFPP-Error.h in Headers */,
-				05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */,
-				05BDE05F18CDB25F0028F339 /* CFPP-Dictionary.h in Headers */,
+				05BDE05B18CDB25F0028F339 /* CFPP-Array.h in Headers */,
+				05BDE05C18CDB25F0028F339 /* CFPP-Boolean.h in Headers */,
 				05BDE05D18CDB25F0028F339 /* CFPP-Data.h in Headers */,
 				05BDE05E18CDB25F0028F339 /* CFPP-Date.h in Headers */,
-				05BDE05C18CDB25F0028F339 /* CFPP-Boolean.h in Headers */,
-				05BDE06518CDB25F0028F339 /* CF++.h in Headers */,
-				05632F8E18ED5CAA00EB76D2 /* CFPP-UUID.h in Headers */,
-				05BDE06118CDB25F0028F339 /* CFPP-Pair.h in Headers */,
+				05BDE05F18CDB25F0028F339 /* CFPP-Dictionary.h in Headers */,
 				05BDE06018CDB25F0028F339 /* CFPP-Number.h in Headers */,
-				05BDE05B18CDB25F0028F339 /* CFPP-Array.h in Headers */,
+				05BDE06118CDB25F0028F339 /* CFPP-Pair.h in Headers */,
+				05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */,
 				05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */,
+				05BDE06218CDB25F0028F339 /* CFPP-String.h in Headers */,
+				05BDE06318CDB25F0028F339 /* CFPP-Type.h in Headers */,
+				05BDE06418CDB25F0028F339 /* CFPP-URL.h in Headers */,
+				05A3A77518CF00EB00F7E0BC /* CFPP-Error.h in Headers */,
+				05632F8E18ED5CAA00EB76D2 /* CFPP-UUID.h in Headers */,
+				05BDE06518CDB25F0028F339 /* CF++.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,7 +581,7 @@
 		056C87C618C8B0F8006260B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					05E71B621961D9D100F911C4 = {
@@ -680,18 +680,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BDE03C18CDB2540028F339 /* CFPP-Array.cpp in Sources */,
+				05BDE03D18CDB2540028F339 /* CFPP-Boolean.cpp in Sources */,
 				05BDE03E18CDB2540028F339 /* CFPP-Data.cpp in Sources */,
+				05BDE03F18CDB2540028F339 /* CFPP-Date.cpp in Sources */,
+				05BDE04018CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
+				05BDE04118CDB2540028F339 /* CFPP-Number.cpp in Sources */,
+				05BDE04218CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
+				05BDE04318CDB2540028F339 /* CFPP-String.cpp in Sources */,
 				05BDE04418CDB2540028F339 /* CFPP-Type.cpp in Sources */,
 				05BDE04518CDB2540028F339 /* CFPP-URL.cpp in Sources */,
-				05BDE03C18CDB2540028F339 /* CFPP-Array.cpp in Sources */,
-				05BDE04018CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
-				05BDE03F18CDB2540028F339 /* CFPP-Date.cpp in Sources */,
-				05BDE04218CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
-				05632F9218ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
-				05BDE04318CDB2540028F339 /* CFPP-String.cpp in Sources */,
-				05BDE03D18CDB2540028F339 /* CFPP-Boolean.cpp in Sources */,
-				05BDE04118CDB2540028F339 /* CFPP-Number.cpp in Sources */,
 				05A3A77018CF00DF00F7E0BC /* CFPP-Error.cpp in Sources */,
+				05632F9218ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,7 +778,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
 				CLANG_ANALYZER_GCD = YES;
 				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
@@ -797,7 +796,7 @@
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = YES;
 				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -883,7 +882,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
 				CLANG_ANALYZER_GCD = YES;
 				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
@@ -902,7 +900,7 @@
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = YES;
 				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1105,7 +1103,6 @@
 		056C88CA18C8C8AD006260B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/CF__.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
@@ -1125,7 +1122,6 @@
 		056C88CB18C8C8AD006260B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/CF__.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
