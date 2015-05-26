@@ -137,7 +137,6 @@ namespace CF
         
         CFWriteStreamWrite( cfStream, d.GetBytePtr(), d.GetLength() );
         CFWriteStreamClose( cfStream );
-        
         CFRelease( cfStream );
         
         return true;
