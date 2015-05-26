@@ -28,40 +28,26 @@
  ******************************************************************************/
 
 /*!
- * @header      CF++.h
+ * @header      CFPP-ReadStream.h
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
- * @abstract    CoreFoundation++ main header file
+ * @abstract    CoreFoundation++ CFReadStreamRef wrapper
  */
 
-#ifndef __CFPP__
-#define __CFPP__
+#ifndef __CFPP_READ_STREAM_H__
+#define __CFPP_READ_STREAM_H__
 
-#include <CoreFoundation/CoreFoundation.h>
-#include <string>
-#include <iostream>
-#include <vector>
+namespace CF
+{
+    class ReadStream
+    {
+        public:
+            
+            
+            
+        private:
+            
+            
+    };
+}
 
-#if defined( __cplusplus ) && ( __cplusplus > 199711L || ( defined( _MSC_VER ) && _MSC_VER >= 1800 ) )
-    
-    #define CFPP_HAS_CPP11  1
-    
-#endif
-
-#include <CF++/CFPP-Type.h>
-#include <CF++/CFPP-PropertyListType.h>
-#include <CF++/CFPP-Boolean.h>
-#include <CF++/CFPP-Number.h>
-#include <CF++/CFPP-String.h>
-#include <CF++/CFPP-URL.h>
-#include <CF++/CFPP-Data.h>
-#include <CF++/CFPP-Date.h>
-#include <CF++/CFPP-Array.h>
-#include <CF++/CFPP-Pair.h>
-#include <CF++/CFPP-Dictionary.h>
-#include <CF++/CFPP-Error.h>
-#include <CF++/CFPP-UUID.h>
-#include <CF++/CFPP-ReadStream.h>
-#include <CF++/CFPP-WriteStream.h>
-#include <CF++/CFPP-PropertyListType-Definition.h>
-
-#endif /* __CFPP__ */
+#endif /* __CFPP_READ_STREAM_H__ */

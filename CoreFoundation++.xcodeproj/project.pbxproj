@@ -17,6 +17,18 @@
 		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C88E618C8D850006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
+		059DBCB81B14DC500014D9A1 /* CFPP-ReadStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB41B14DB460014D9A1 /* CFPP-ReadStream.h */; };
+		059DBCB91B14DC500014D9A1 /* CFPP-WriteStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB51B14DB460014D9A1 /* CFPP-WriteStream.h */; };
+		059DBCBA1B14DC500014D9A1 /* CFPP-ReadStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB41B14DB460014D9A1 /* CFPP-ReadStream.h */; };
+		059DBCBB1B14DC500014D9A1 /* CFPP-WriteStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB51B14DB460014D9A1 /* CFPP-WriteStream.h */; };
+		059DBCBC1B14DC5B0014D9A1 /* CFPP-ReadStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059DBCB61B14DB640014D9A1 /* CFPP-ReadStream.cpp */; };
+		059DBCBD1B14DC5B0014D9A1 /* CFPP-WriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059DBCB71B14DB640014D9A1 /* CFPP-WriteStream.cpp */; };
+		059DBCBE1B14DC5B0014D9A1 /* CFPP-ReadStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059DBCB61B14DB640014D9A1 /* CFPP-ReadStream.cpp */; };
+		059DBCBF1B14DC5B0014D9A1 /* CFPP-WriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059DBCB71B14DB640014D9A1 /* CFPP-WriteStream.cpp */; };
+		059DBCC01B14DC5C0014D9A1 /* CFPP-ReadStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059DBCB61B14DB640014D9A1 /* CFPP-ReadStream.cpp */; };
+		059DBCC11B14DC5C0014D9A1 /* CFPP-WriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059DBCB71B14DB640014D9A1 /* CFPP-WriteStream.cpp */; };
+		059DBCC21B14DC5C0014D9A1 /* CFPP-ReadStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059DBCB61B14DB640014D9A1 /* CFPP-ReadStream.cpp */; };
+		059DBCC31B14DC5C0014D9A1 /* CFPP-WriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 059DBCB71B14DB640014D9A1 /* CFPP-WriteStream.cpp */; };
 		05A3A76E18CF00DF00F7E0BC /* CFPP-Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A3A76D18CF00DF00F7E0BC /* CFPP-Error.cpp */; };
 		05A3A76F18CF00DF00F7E0BC /* CFPP-Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A3A76D18CF00DF00F7E0BC /* CFPP-Error.cpp */; };
 		05A3A77018CF00DF00F7E0BC /* CFPP-Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A3A76D18CF00DF00F7E0BC /* CFPP-Error.cpp */; };
@@ -188,6 +200,10 @@
 		056C884A18C8C547006260B3 /* libCF++.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libCF++.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C885F18C8C76B006260B3 /* CF++.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "CF++.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C88AA18C8C8AC006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		059DBCB41B14DB460014D9A1 /* CFPP-ReadStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-ReadStream.h"; sourceTree = "<group>"; };
+		059DBCB51B14DB460014D9A1 /* CFPP-WriteStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-WriteStream.h"; sourceTree = "<group>"; };
+		059DBCB61B14DB640014D9A1 /* CFPP-ReadStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-ReadStream.cpp"; sourceTree = "<group>"; };
+		059DBCB71B14DB640014D9A1 /* CFPP-WriteStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-WriteStream.cpp"; sourceTree = "<group>"; };
 		05A3A76C18CF00D200F7E0BC /* CFPP-Error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Error.h"; sourceTree = "<group>"; };
 		05A3A76D18CF00DF00F7E0BC /* CFPP-Error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Error.cpp"; sourceTree = "<group>"; };
 		05BDE00A18CDB2450028F339 /* Clang-Warnings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Clang-Warnings.h"; sourceTree = "<group>"; };
@@ -347,15 +363,17 @@
 				05BDE00F18CDB2450028F339 /* CFPP-Data.h */,
 				05BDE01018CDB2450028F339 /* CFPP-Date.h */,
 				05BDE01118CDB2450028F339 /* CFPP-Dictionary.h */,
+				05A3A76C18CF00D200F7E0BC /* CFPP-Error.h */,
 				05BDE01218CDB2450028F339 /* CFPP-Number.h */,
 				05BDE01318CDB2450028F339 /* CFPP-Pair.h */,
-				05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */,
 				05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */,
+				05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */,
+				059DBCB41B14DB460014D9A1 /* CFPP-ReadStream.h */,
 				05BDE01418CDB2450028F339 /* CFPP-String.h */,
 				05BDE01518CDB2450028F339 /* CFPP-Type.h */,
 				05BDE01618CDB2450028F339 /* CFPP-URL.h */,
-				05A3A76C18CF00D200F7E0BC /* CFPP-Error.h */,
 				05632F8B18ED5CA300EB76D2 /* CFPP-UUID.h */,
+				059DBCB51B14DB460014D9A1 /* CFPP-WriteStream.h */,
 			);
 			path = "CF++";
 			sourceTree = "<group>";
@@ -368,13 +386,15 @@
 				05BDE01D18CDB2450028F339 /* CFPP-Data.cpp */,
 				05BDE01E18CDB2450028F339 /* CFPP-Date.cpp */,
 				05BDE01F18CDB2450028F339 /* CFPP-Dictionary.cpp */,
+				05A3A76D18CF00DF00F7E0BC /* CFPP-Error.cpp */,
 				05BDE02018CDB2450028F339 /* CFPP-Number.cpp */,
 				05BDE02118CDB2450028F339 /* CFPP-Pair.cpp */,
+				059DBCB61B14DB640014D9A1 /* CFPP-ReadStream.cpp */,
 				05BDE02218CDB2450028F339 /* CFPP-String.cpp */,
 				05BDE02318CDB2450028F339 /* CFPP-Type.cpp */,
 				05BDE02418CDB2450028F339 /* CFPP-URL.cpp */,
-				05A3A76D18CF00DF00F7E0BC /* CFPP-Error.cpp */,
 				05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */,
+				059DBCB71B14DB640014D9A1 /* CFPP-WriteStream.cpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -427,12 +447,14 @@
 				05BDE06D18CDB2600028F339 /* CFPP-String.h in Headers */,
 				05A3A77618CF00EC00F7E0BC /* CFPP-Error.h in Headers */,
 				05BDE06A18CDB2600028F339 /* CFPP-Dictionary.h in Headers */,
+				059DBCB81B14DC500014D9A1 /* CFPP-ReadStream.h in Headers */,
 				05BDE06818CDB2600028F339 /* CFPP-Data.h in Headers */,
 				05BDE06918CDB2600028F339 /* CFPP-Date.h in Headers */,
 				05BDE06718CDB2600028F339 /* CFPP-Boolean.h in Headers */,
 				05BDE07018CDB2600028F339 /* CF++.h in Headers */,
 				05632F8D18ED5CAA00EB76D2 /* CFPP-UUID.h in Headers */,
 				05BDE06C18CDB2600028F339 /* CFPP-Pair.h in Headers */,
+				059DBCB91B14DC500014D9A1 /* CFPP-WriteStream.h in Headers */,
 				05BDE06B18CDB2600028F339 /* CFPP-Number.h in Headers */,
 				05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */,
 				05EFF0EA191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */,
@@ -449,12 +471,14 @@
 				05BDE05D18CDB25F0028F339 /* CFPP-Data.h in Headers */,
 				05BDE05E18CDB25F0028F339 /* CFPP-Date.h in Headers */,
 				05BDE05F18CDB25F0028F339 /* CFPP-Dictionary.h in Headers */,
+				059DBCBA1B14DC500014D9A1 /* CFPP-ReadStream.h in Headers */,
 				05BDE06018CDB25F0028F339 /* CFPP-Number.h in Headers */,
 				05BDE06118CDB25F0028F339 /* CFPP-Pair.h in Headers */,
 				05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */,
 				05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */,
 				05BDE06218CDB25F0028F339 /* CFPP-String.h in Headers */,
 				05BDE06318CDB25F0028F339 /* CFPP-Type.h in Headers */,
+				059DBCBB1B14DC500014D9A1 /* CFPP-WriteStream.h in Headers */,
 				05BDE06418CDB25F0028F339 /* CFPP-URL.h in Headers */,
 				05A3A77518CF00EB00F7E0BC /* CFPP-Error.h in Headers */,
 				05632F8E18ED5CAA00EB76D2 /* CFPP-UUID.h in Headers */,
@@ -643,10 +667,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BDE02A18CDB2540028F339 /* CFPP-Data.cpp in Sources */,
+				059DBCC21B14DC5C0014D9A1 /* CFPP-ReadStream.cpp in Sources */,
 				05BDE03018CDB2540028F339 /* CFPP-Type.cpp in Sources */,
 				05BDE03118CDB2540028F339 /* CFPP-URL.cpp in Sources */,
 				05BDE02818CDB2540028F339 /* CFPP-Array.cpp in Sources */,
 				05BDE02C18CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
+				059DBCC31B14DC5C0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
 				05BDE02B18CDB2540028F339 /* CFPP-Date.cpp in Sources */,
 				05BDE02E18CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
 				05632F9018ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
@@ -662,10 +688,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BDE03418CDB2540028F339 /* CFPP-Data.cpp in Sources */,
+				059DBCBC1B14DC5B0014D9A1 /* CFPP-ReadStream.cpp in Sources */,
 				05BDE03A18CDB2540028F339 /* CFPP-Type.cpp in Sources */,
 				05BDE03B18CDB2540028F339 /* CFPP-URL.cpp in Sources */,
 				05BDE03218CDB2540028F339 /* CFPP-Array.cpp in Sources */,
 				05BDE03618CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
+				059DBCBD1B14DC5B0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
 				05BDE03518CDB2540028F339 /* CFPP-Date.cpp in Sources */,
 				05BDE03818CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
 				05632F9118ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
@@ -681,10 +709,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BDE03C18CDB2540028F339 /* CFPP-Array.cpp in Sources */,
+				059DBCBE1B14DC5B0014D9A1 /* CFPP-ReadStream.cpp in Sources */,
 				05BDE03D18CDB2540028F339 /* CFPP-Boolean.cpp in Sources */,
 				05BDE03E18CDB2540028F339 /* CFPP-Data.cpp in Sources */,
 				05BDE03F18CDB2540028F339 /* CFPP-Date.cpp in Sources */,
 				05BDE04018CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
+				059DBCBF1B14DC5B0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
 				05BDE04118CDB2540028F339 /* CFPP-Number.cpp in Sources */,
 				05BDE04218CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
 				05BDE04318CDB2540028F339 /* CFPP-String.cpp in Sources */,
@@ -700,10 +730,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BDE04818CDB2550028F339 /* CFPP-Data.cpp in Sources */,
+				059DBCC01B14DC5C0014D9A1 /* CFPP-ReadStream.cpp in Sources */,
 				05BDE04E18CDB2550028F339 /* CFPP-Type.cpp in Sources */,
 				05BDE04F18CDB2550028F339 /* CFPP-URL.cpp in Sources */,
 				05BDE04618CDB2550028F339 /* CFPP-Array.cpp in Sources */,
 				05BDE04A18CDB2550028F339 /* CFPP-Dictionary.cpp in Sources */,
+				059DBCC11B14DC5C0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
 				05BDE04918CDB2550028F339 /* CFPP-Date.cpp in Sources */,
 				05BDE04C18CDB2550028F339 /* CFPP-Pair.cpp in Sources */,
 				05632F9318ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
