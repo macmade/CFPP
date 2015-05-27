@@ -45,44 +45,57 @@ namespace CF
     template < class T >
     T PropertyListType< T >::FromPropertyList( std::string path )
     {
-        CFTypeRef        cfObject;
         T                object;
-        FILE           * fh;
         CF::Data         data;
-        CF::Data::Byte * buf;
-        size_t           length;
+        CF::URL          url;
+        CFReadStreamRef  cfStream;
+        CF::Data::Byte * bytes;
+        CFIndex          i;
+        CFTypeRef        cfObject;
         
-        fh  = fopen( path.c_str(), "rb" );
-        buf = static_cast< CF::Data::Byte * >( malloc( 4096 ) );
+        url      = CF::URL::FileSystemURL( path );
+        cfStream = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
         
-        if( buf == NULL || fh == NULL )
+        if( cfStream == NULL )
         {
-            goto end;
+            return object;
         }
         
-        while( !feof( fh ) )
+        if( CFReadStreamOpen( cfStream ) == false )
         {
-            length = fread( buf, 1, 4096, fh );
+            CFRelease( cfStream );
             
-            data.AppendBytes( buf, static_cast< CFIndex >( length ) );
+            return object;
         }
+        
+        bytes = new CF::Data::Byte[ 4096 ];
+        
+        if( bytes == NULL )
+        {
+            CFRelease( cfStream );
+            
+            return object;
+        }
+        
+        while( CFReadStreamHasBytesAvailable( cfStream ) )
+        {
+            i = CFReadStreamRead( cfStream, bytes, 4096 );
+            
+            data.AppendBytes( bytes, i );
+        }
+        
+        delete[] bytes;
+        
+        CFReadStreamClose( cfStream );
+        CFRelease( cfStream );
         
         cfObject = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), data, 0, NULL, NULL );
         
         if( cfObject != NULL )
         {
             object = cfObject;
-            
+
             CFRelease( cfObject );
-        }
-        
-        end:
-        
-        free( buf );
-        
-        if( fh != NULL )
-        {
-            fclose( fh );
         }
         
         return object;
@@ -115,10 +128,15 @@ namespace CF
             return false;
         }
         
-        CFWriteStreamOpen( cfStream );
+        if( CFWriteStreamOpen( cfStream ) == false )
+        {
+            CFRelease( cfStream );
+            
+            return false;
+        }
+        
         CFWriteStreamWrite( cfStream, d.GetBytePtr(), d.GetLength() );
         CFWriteStreamClose( cfStream );
-        
         CFRelease( cfStream );
         
         return true;
