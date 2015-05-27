@@ -87,21 +87,21 @@ namespace CF
             String & operator += ( char * value );
             String & operator += ( const char * value );
             
-            char operator [] ( int index );
+            char operator [] ( int index ) const;
             
-            operator std::string ();
+            operator std::string () const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            bool HasPrefix( String value );
-            bool HasPrefix( CFStringRef value );
-            bool HasPrefix( std::string value );
-            bool HasSuffix( String value );
-            bool HasSuffix( CFStringRef value );
-            bool HasSuffix( std::string value );
+            bool HasPrefix( String value ) const;
+            bool HasPrefix( CFStringRef value ) const;
+            bool HasPrefix( std::string value ) const;
+            bool HasSuffix( String value ) const;
+            bool HasSuffix( CFStringRef value ) const;
+            bool HasSuffix( std::string value ) const;
             
-            CFIndex GetLength( void );
+            CFIndex GetLength( void ) const;
             
             std::string  GetValue( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;
             const char * GetCStringValue( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;

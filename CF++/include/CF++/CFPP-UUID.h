@@ -69,7 +69,7 @@ namespace CF
             bool operator != ( CFUUIDRef value ) const;
             bool operator != ( std::string value ) const;
             
-            operator std::string ();
+            operator std::string () const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

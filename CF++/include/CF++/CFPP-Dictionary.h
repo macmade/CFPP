@@ -65,24 +65,24 @@ namespace CF
             Dictionary & operator += ( Pair pair );
             Dictionary & operator << ( Pair pair );
             
-            CFTypeRef operator [] ( CFTypeRef key );
-            CFTypeRef operator [] ( const char * key );
-            CFTypeRef operator [] ( String key );
+            CFTypeRef operator [] ( CFTypeRef key ) const;
+            CFTypeRef operator [] ( const char * key ) const;
+            CFTypeRef operator [] ( String key ) const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            bool      ContainsKey( CFTypeRef key );
-            bool      ContainsValue( CFTypeRef value );
-            void      RemoveAllValues( void );
-            CFIndex   GetCount( void );
-            CFTypeRef GetValue( CFTypeRef key );
-            void      AddValue( CFTypeRef key, CFTypeRef value );
-            void      RemoveValue( CFTypeRef key );
-            void      ReplaceValue( CFTypeRef key, CFTypeRef value );
-            void      SetValue( CFTypeRef key, CFTypeRef value );
+            bool      ContainsKey( CFTypeRef key ) const;
+            bool      ContainsValue( CFTypeRef value ) const;
+            void      RemoveAllValues( void ) const;
+            CFIndex   GetCount( void ) const;
+            CFTypeRef GetValue( CFTypeRef key ) const;
+            void      AddValue( CFTypeRef key, CFTypeRef value ) const;
+            void      RemoveValue( CFTypeRef key ) const;
+            void      ReplaceValue( CFTypeRef key, CFTypeRef value ) const;
+            void      SetValue( CFTypeRef key, CFTypeRef value ) const;
             
-            std::map< CFTypeRef, CFTypeRef > GetKeysAndValues( void );
+            std::map< CFTypeRef, CFTypeRef > GetKeysAndValues( void ) const;
             
             friend void swap( Dictionary & v1, Dictionary & v2 );
             

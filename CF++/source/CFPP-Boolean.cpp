@@ -278,7 +278,7 @@ namespace CF
         return !( *( this ) == value );
     }
     
-    Boolean::operator bool ()
+    Boolean::operator bool () const
     {
         return this->GetValue();
     }

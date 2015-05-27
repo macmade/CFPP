@@ -55,8 +55,8 @@ namespace CF
         public:
             
             static T FromPropertyList( std::string path );
-            bool ToPropertyList( std::string path, PropertyListFormat format = PropertyListFormatXML );
-            Data ToPropertyList( PropertyListFormat format = PropertyListFormatXML );
+            bool ToPropertyList( std::string path, PropertyListFormat format = PropertyListFormatXML ) const;
+            Data ToPropertyList( PropertyListFormat format = PropertyListFormatXML ) const;
     };
 }
 

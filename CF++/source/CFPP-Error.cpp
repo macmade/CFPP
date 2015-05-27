@@ -256,7 +256,7 @@ namespace CF
         return this->_cfObject;
     }
     
-    CF::String Error::GetDomain( void )
+    CF::String Error::GetDomain( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -272,7 +272,7 @@ namespace CF
         return str;
     }
     
-    CF::Number Error::GetCode( void )
+    CF::Number Error::GetCode( void ) const
     {
         CF::Number n;
         
@@ -286,7 +286,7 @@ namespace CF
         return n;
     }
     
-    CF::Dictionary Error::GetUserInfo( void )
+    CF::Dictionary Error::GetUserInfo( void ) const
     {
         CF::Dictionary  d;
         CFDictionaryRef cfD;
@@ -307,7 +307,7 @@ namespace CF
         return d;
     }
     
-    CF::String Error::GetDescription( void )
+    CF::String Error::GetDescription( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -328,7 +328,7 @@ namespace CF
         return str;
     }
     
-    CF::String Error::GetFailureReason( void )
+    CF::String Error::GetFailureReason( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -349,7 +349,7 @@ namespace CF
         return str;
     }
     
-    CF::String Error::GetRecoverySuggestion( void )
+    CF::String Error::GetRecoverySuggestion( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;

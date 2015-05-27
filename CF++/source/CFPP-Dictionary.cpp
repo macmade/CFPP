@@ -302,12 +302,12 @@ namespace CF
         return *( this );
     }
     
-    CFTypeRef Dictionary::operator [] ( CFTypeRef key )
+    CFTypeRef Dictionary::operator [] ( CFTypeRef key ) const
     {
         return this->GetValue( key );
     }
     
-    CFTypeRef Dictionary::operator [] ( const char * key )
+    CFTypeRef Dictionary::operator [] ( const char * key ) const
     {
         String s;
         
@@ -316,7 +316,7 @@ namespace CF
         return this->GetValue( s );
     }
     
-    CFTypeRef Dictionary::operator [] ( String key )
+    CFTypeRef Dictionary::operator [] ( String key ) const
     {
         return this->GetValue( key );
     }
@@ -331,7 +331,7 @@ namespace CF
         return this->_cfObject;
     }
     
-    bool Dictionary::ContainsKey( CFTypeRef key )
+    bool Dictionary::ContainsKey( CFTypeRef key ) const
     {
         if( this->_cfObject == NULL || key == NULL )
         {
@@ -341,7 +341,7 @@ namespace CF
         return ( CFDictionaryContainsKey( this->_cfObject, key ) ) ? true : false;
     }
     
-    bool Dictionary::ContainsValue( CFTypeRef value )
+    bool Dictionary::ContainsValue( CFTypeRef value ) const
     {
         if( this->_cfObject == NULL || value == NULL )
         {
@@ -351,7 +351,7 @@ namespace CF
         return ( CFDictionaryContainsValue( this->_cfObject, value ) ) ? true : false;
     }
     
-    void Dictionary::RemoveAllValues( void )
+    void Dictionary::RemoveAllValues( void ) const
     {
         if( this->_cfObject == NULL )
         {
@@ -361,12 +361,12 @@ namespace CF
         CFDictionaryRemoveAllValues( this->_cfObject );
     }
     
-    CFIndex Dictionary::GetCount( void )
+    CFIndex Dictionary::GetCount( void ) const
     {
         return ( this->_cfObject == NULL ) ? 0 : CFDictionaryGetCount( this->_cfObject );
     }
     
-    CFTypeRef Dictionary::GetValue( CFTypeRef key )
+    CFTypeRef Dictionary::GetValue( CFTypeRef key ) const
     {
         if( this->_cfObject == NULL || key == NULL )
         {
@@ -376,7 +376,7 @@ namespace CF
         return CFDictionaryGetValue( this->_cfObject, key );
     }
     
-    void Dictionary::AddValue( CFTypeRef key, CFTypeRef value )
+    void Dictionary::AddValue( CFTypeRef key, CFTypeRef value ) const
     {
         if( this->_cfObject == NULL || key == NULL || value == NULL )
         {
@@ -386,7 +386,7 @@ namespace CF
         return CFDictionaryAddValue( this->_cfObject, key, value );
     }
     
-    void Dictionary::RemoveValue( CFTypeRef key )
+    void Dictionary::RemoveValue( CFTypeRef key ) const
     {
         if( this->_cfObject == NULL || key == NULL )
         {
@@ -396,7 +396,7 @@ namespace CF
         return CFDictionaryRemoveValue( this->_cfObject, key );
     }
     
-    void Dictionary::ReplaceValue( CFTypeRef key, CFTypeRef value )
+    void Dictionary::ReplaceValue( CFTypeRef key, CFTypeRef value ) const
     {
         if( this->_cfObject == NULL || key == NULL || value == NULL )
         {
@@ -406,7 +406,7 @@ namespace CF
         return CFDictionaryReplaceValue( this->_cfObject, key, value );
     }
     
-    void Dictionary::SetValue( CFTypeRef key, CFTypeRef value )
+    void Dictionary::SetValue( CFTypeRef key, CFTypeRef value ) const
     {
         if( this->_cfObject == NULL || key == NULL || value == NULL )
         {
@@ -416,7 +416,7 @@ namespace CF
         return CFDictionarySetValue( this->_cfObject, key, value );
     }
     
-    std::map< CFTypeRef, CFTypeRef > Dictionary::GetKeysAndValues( void )
+    std::map< CFTypeRef, CFTypeRef > Dictionary::GetKeysAndValues( void ) const
     {
         std::map< CFTypeRef, CFTypeRef > map;
         CFTypeRef                      * keys;

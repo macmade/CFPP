@@ -189,7 +189,7 @@ namespace CF
         return !( *( this ) == value );
     }
     
-    UUID::operator std::string ()
+    UUID::operator std::string () const
     {
         CF::String s;
         

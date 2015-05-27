@@ -373,7 +373,7 @@ namespace CF
         return *( this );
     }
     
-    char String::operator [] ( int index )
+    char String::operator [] ( int index ) const
     {
         const char * s;
         CFIndex      cfIndex;
@@ -407,7 +407,7 @@ namespace CF
         return s[ static_cast< unsigned >( cfIndex ) ];
     }
     
-    String::operator std::string ()
+    String::operator std::string () const
     {
         return this->GetValue();
     }
@@ -422,7 +422,7 @@ namespace CF
         return static_cast< CFTypeRef >( this->_cfObject );
     }
             
-    bool String::HasPrefix( String value )
+    bool String::HasPrefix( String value ) const
     {
         if( this->_cfObject == NULL || value._cfObject == NULL )
         {
@@ -432,7 +432,7 @@ namespace CF
         return ( CFStringHasPrefix( this->_cfObject, value._cfObject ) ) ? true : false;
     }
     
-    bool String::HasPrefix( CFStringRef value )
+    bool String::HasPrefix( CFStringRef value ) const
     {
         String s;
         
@@ -441,7 +441,7 @@ namespace CF
         return this->HasPrefix( s );
     }
     
-    bool String::HasPrefix( std::string value )
+    bool String::HasPrefix( std::string value ) const
     {
         String s;
         
@@ -450,7 +450,7 @@ namespace CF
         return this->HasPrefix( s );
     }
     
-    bool String::HasSuffix( String value )
+    bool String::HasSuffix( String value ) const
     {
         if( this->_cfObject == NULL || value._cfObject == NULL )
         {
@@ -460,7 +460,7 @@ namespace CF
         return ( CFStringHasSuffix( this->_cfObject, value._cfObject ) ) ? true : false;
     }
     
-    bool String::HasSuffix( CFStringRef value )
+    bool String::HasSuffix( CFStringRef value ) const
     {
         String s;
         
@@ -469,7 +469,7 @@ namespace CF
         return this->HasSuffix( s );
     }
     
-    bool String::HasSuffix( std::string value )
+    bool String::HasSuffix( std::string value ) const
     {
         String s;
         
@@ -478,7 +478,7 @@ namespace CF
         return this->HasSuffix( s );
     }
     
-    CFIndex String::GetLength( void )
+    CFIndex String::GetLength( void ) const
     {
         if( this->_cfObject == NULL )
         {

@@ -64,8 +64,8 @@ namespace CF
             
             Pair & operator = ( Pair value );
             
-            CFTypeRef GetKey( void );
-            CFTypeRef GetValue( void );
+            CFTypeRef GetKey( void ) const;
+            CFTypeRef GetValue( void ) const;
             void      SetKey( CFTypeRef key );
             void      SetValue( CFTypeRef value );
             

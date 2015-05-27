@@ -229,7 +229,7 @@ namespace CF
         return *( this );
     }
     
-    std::string URL::operator [] ( Part part )
+    std::string URL::operator [] ( Part part ) const
     {
         CF::String s;
         
@@ -255,7 +255,7 @@ namespace CF
         return s.GetValue();
     }
     
-    bool URL::operator == ( const URL & value )
+    bool URL::operator == ( const URL & value ) const
     {
         std::string url1;
         std::string url2;
@@ -266,7 +266,7 @@ namespace CF
         return url1 == url2;
     }
     
-    bool URL::operator == ( CFTypeRef value )
+    bool URL::operator == ( CFTypeRef value ) const
     {
         CF::URL url;
         
@@ -275,7 +275,7 @@ namespace CF
         return *( this ) == url;
     }
     
-    bool URL::operator == ( CFURLRef value )
+    bool URL::operator == ( CFURLRef value ) const
     {
         CF::URL url;
         
@@ -284,7 +284,7 @@ namespace CF
         return *( this ) == url;
     }
     
-    bool URL::operator == ( CFStringRef value )
+    bool URL::operator == ( CFStringRef value ) const
     {
         CF::URL url;
         
@@ -293,7 +293,7 @@ namespace CF
         return *( this ) == url;
     }
     
-    bool URL::operator == ( std::string value )
+    bool URL::operator == ( std::string value ) const
     {
         CF::URL url;
         
@@ -302,27 +302,27 @@ namespace CF
         return *( this ) == url;
     }
     
-    bool URL::operator != ( const URL & value )
+    bool URL::operator != ( const URL & value ) const
     {
         return !( *( this ) == value );
     }
     
-    bool URL::operator != ( CFTypeRef value )
+    bool URL::operator != ( CFTypeRef value ) const
     {
         return !( *( this ) == value );
     }
     
-    bool URL::operator != ( CFURLRef value )
+    bool URL::operator != ( CFURLRef value ) const
     {
         return !( *( this ) == value );
     }
     
-    bool URL::operator != ( CFStringRef value )
+    bool URL::operator != ( CFStringRef value ) const
     {
         return !( *( this ) == value );
     }
     
-    bool URL::operator != ( std::string value )
+    bool URL::operator != ( std::string value ) const
     {
         return !( *( this ) == value );
     }
@@ -341,7 +341,7 @@ namespace CF
         return *( this );
     }
     
-    URL::operator std::string ()
+    URL::operator std::string () const
     {
         CF::String str;
         
@@ -365,7 +365,7 @@ namespace CF
         return this->_cfObject;
     }
     
-    CF::String URL::GetFileSystemPath( PathStyle style )
+    CF::String URL::GetFileSystemPath( PathStyle style ) const
     {
         CF::String      str;
         CFStringRef     cfStr;
@@ -389,7 +389,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetFragment( void )
+    CF::String URL::GetFragment( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -411,7 +411,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetHostName( void )
+    CF::String URL::GetHostName( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -433,7 +433,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetLastPathComponent( void )
+    CF::String URL::GetLastPathComponent( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -455,7 +455,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetNetLocation( void )
+    CF::String URL::GetNetLocation( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -477,7 +477,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetParameterString( void )
+    CF::String URL::GetParameterString( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -499,7 +499,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetPassword( void )
+    CF::String URL::GetPassword( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -521,7 +521,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetPath( void )
+    CF::String URL::GetPath( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -543,7 +543,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetPathExtension( void )
+    CF::String URL::GetPathExtension( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -565,7 +565,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetQueryString( void )
+    CF::String URL::GetQueryString( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -587,7 +587,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetResourceSpecifier( void )
+    CF::String URL::GetResourceSpecifier( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -609,7 +609,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetScheme( void )
+    CF::String URL::GetScheme( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -631,7 +631,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetStrictPath( void )
+    CF::String URL::GetStrictPath( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -653,7 +653,7 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetUserName( void )
+    CF::String URL::GetUserName( void ) const
     {
         CF::String  str;
         CFStringRef cfStr;
@@ -675,7 +675,7 @@ namespace CF
         return str;
     }
     
-    CF::Number URL::GetPortNumber( void )
+    CF::Number URL::GetPortNumber( void ) const
     {
         CF::Number n;
         
@@ -689,7 +689,7 @@ namespace CF
         return n;
     }
     
-    bool URL::HasDirectoryPath( void )
+    bool URL::HasDirectoryPath( void ) const
     {
         if( this->_cfObject == NULL )
         {

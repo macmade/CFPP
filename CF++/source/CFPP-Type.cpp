@@ -60,62 +60,62 @@ namespace CF
         return !( *( this ) == value );
     }
             
-    Type::operator CFTypeRef ()
+    Type::operator CFTypeRef () const
     {
         return this->GetCFObject();
     }
     
-    Type::operator CFBooleanRef ()
+    Type::operator CFBooleanRef () const
     {
         return ( this->IsBoolean() ) ? static_cast< CFBooleanRef >( this->GetCFObject() ) : NULL;
     }
     
-    Type::operator CFNumberRef ()
+    Type::operator CFNumberRef () const
     {
         return ( this->IsNumber() ) ? static_cast< CFNumberRef >( this->GetCFObject() ) : NULL;
     }
     
-    Type::operator CFDateRef ()
+    Type::operator CFDateRef () const
     {
         return ( this->IsDate() ) ? static_cast< CFDateRef >( this->GetCFObject() ) : NULL;
     }
     
-    Type::operator CFStringRef ()
+    Type::operator CFStringRef () const
     {
         return ( this->IsString() ) ? static_cast< CFStringRef >( this->GetCFObject() ) : NULL;
     }
     
-    Type::operator CFURLRef ()
+    Type::operator CFURLRef () const
     {
         return ( this->IsURL() ) ? static_cast< CFURLRef >( this->GetCFObject() ) : NULL;
     }
     
-    Type::operator CFDataRef ()
+    Type::operator CFDataRef () const
     {
         return ( this->IsData() ) ? static_cast< CFDataRef >( this->GetCFObject() ) : NULL;
     }
     
-    Type::operator CFMutableDataRef ()
+    Type::operator CFMutableDataRef () const
     {
         return ( this->IsData() ) ? reinterpret_cast< CFMutableDataRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
     }
     
-    Type::operator CFArrayRef ()
+    Type::operator CFArrayRef () const
     {
         return ( this->IsArray() ) ? static_cast< CFArrayRef >( this->GetCFObject() ) : NULL;
     }
     
-    Type::operator CFMutableArrayRef ()
+    Type::operator CFMutableArrayRef () const
     {
         return ( this->IsArray() ) ? reinterpret_cast< CFMutableArrayRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
     }
     
-    Type::operator CFDictionaryRef ()
+    Type::operator CFDictionaryRef () const
     {
         return ( this->IsDictionary() ) ? static_cast< CFDictionaryRef >( this->GetCFObject() ) : NULL;
     }
     
-    Type::operator CFMutableDictionaryRef ()
+    Type::operator CFMutableDictionaryRef () const
     {
         return ( this->IsDictionary() ) ? reinterpret_cast< CFMutableDictionaryRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
     }

@@ -72,7 +72,7 @@ namespace CF
             bool operator != ( CFTypeRef value ) const;
             bool operator != ( CFBooleanRef value ) const;
             
-            operator bool ();
+            operator bool () const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

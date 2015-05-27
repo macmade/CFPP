@@ -175,12 +175,12 @@ namespace CF
         return *( this );
     }
     
-    CFTypeRef Pair::GetKey( void )
+    CFTypeRef Pair::GetKey( void ) const
     {
         return this->_key;
     }
     
-    CFTypeRef Pair::GetValue( void )
+    CFTypeRef Pair::GetValue( void ) const
     {
         return this->_value;
     }

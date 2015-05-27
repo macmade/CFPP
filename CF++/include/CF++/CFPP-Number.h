@@ -500,16 +500,16 @@ namespace CF
             Number operator >> ( Float32 value );
             Number operator >> ( Float64 value );
             
-            operator SInt8   ();
-            operator SInt16  ();
-            operator SInt32  ();
-            operator SInt64  ();
-            operator UInt8   ();
-            operator UInt16  ();
-            operator UInt32  ();
-            operator UInt64  ();
-            operator Float32 ();
-            operator Float64 ();
+            operator SInt8   () const;
+            operator SInt16  () const;
+            operator SInt32  () const;
+            operator SInt64  () const;
+            operator UInt8   () const;
+            operator UInt16  () const;
+            operator UInt32  () const;
+            operator UInt64  () const;
+            operator Float32 () const;
+            operator Float64 () const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

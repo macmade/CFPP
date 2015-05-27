@@ -448,7 +448,7 @@ namespace CF
         return n;
     }
     
-    Date::operator CFAbsoluteTime ()
+    Date::operator CFAbsoluteTime () const
     {
         return this->GetValue();
     }

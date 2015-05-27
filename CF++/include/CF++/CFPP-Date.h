@@ -110,7 +110,7 @@ namespace CF
             Date & operator -- ( void );
             Date   operator -- ( int );
             
-            operator CFAbsoluteTime ();
+            operator CFAbsoluteTime () const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

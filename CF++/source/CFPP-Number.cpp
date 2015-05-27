@@ -3722,52 +3722,52 @@ namespace CF
         return *( this ) >> num;
     }
             
-    Number::operator Number::SInt8 ()
+    Number::operator Number::SInt8 () const
     {
         return this->GetSInt8Value();
     }
     
-    Number::operator Number::SInt16 ()
+    Number::operator Number::SInt16 () const
     {
         return this->GetSInt16Value();
     }
     
-    Number::operator Number::SInt32 ()
+    Number::operator Number::SInt32 () const
     {
         return this->GetSInt32Value();
     }
     
-    Number::operator Number::SInt64 ()
+    Number::operator Number::SInt64 () const
     {
         return this->GetSInt64Value();
     }
             
-    Number::operator Number::UInt8 ()
+    Number::operator Number::UInt8 () const
     {
         return this->GetUInt8Value();
     }
     
-    Number::operator Number::UInt16 ()
+    Number::operator Number::UInt16 () const
     {
         return this->GetUInt16Value();
     }
     
-    Number::operator Number::UInt32 ()
+    Number::operator Number::UInt32 () const
     {
         return this->GetUInt32Value();
     }
     
-    Number::operator Number::UInt64 ()
+    Number::operator Number::UInt64 () const
     {
         return this->GetUInt64Value();
     }
     
-    Number::operator Float32 ()
+    Number::operator Float32 () const
     {
         return this->GetFloat32Value();
     }
     
-    Number::operator Float64 ()
+    Number::operator Float64 () const
     {
         return this->GetFloat64Value();
     }

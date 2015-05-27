@@ -89,7 +89,7 @@ namespace CF
     }
     
     template < class T >
-    bool PropertyListType< T >::ToPropertyList( std::string path, PropertyListFormat format )
+    bool PropertyListType< T >::ToPropertyList( std::string path, PropertyListFormat format ) const
     {
         CF::URL          url;
         CF::Data         d;
@@ -125,7 +125,7 @@ namespace CF
     }
     
     template < class T >
-    Data PropertyListType< T >::ToPropertyList( PropertyListFormat format )
+    Data PropertyListType< T >::ToPropertyList( PropertyListFormat format ) const
     {
         CFDataRef            cfData;
         CFErrorRef           cfError;

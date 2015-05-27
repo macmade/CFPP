@@ -71,23 +71,23 @@ namespace CF
             Array & operator << ( String value );
             Array & operator << ( Number value );
             
-            CFTypeRef operator [] ( int index );
+            CFTypeRef operator [] ( int index ) const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            CFIndex   GetCount( void );
-            bool      ContainsValue( CFTypeRef value );
-            void      RemoveAllValues( void );
-            CFTypeRef GetValueAtIndex( CFIndex index );
-            void      SetValueAtIndex( CFTypeRef value, CFIndex index );
-            void      InsertValueAtIndex( CFTypeRef value, CFIndex index );
-            void      AppendValue( CFTypeRef value );
-            void      RemoveValueAtIndex( CFIndex index );
-            void      AppendArray( CFArrayRef array );
-            void      ExchangeValuesAtIndices( CFIndex index1, CFIndex index2 );
+            CFIndex   GetCount( void ) const;
+            bool      ContainsValue( CFTypeRef value ) const;
+            void      RemoveAllValues( void ) const;
+            CFTypeRef GetValueAtIndex( CFIndex index ) const;
+            void      SetValueAtIndex( CFTypeRef value, CFIndex index ) const;
+            void      InsertValueAtIndex( CFTypeRef value, CFIndex index ) const;
+            void      AppendValue( CFTypeRef value ) const;
+            void      RemoveValueAtIndex( CFIndex index ) const;
+            void      AppendArray( CFArrayRef array ) const;
+            void      ExchangeValuesAtIndices( CFIndex index1, CFIndex index2 ) const;
             
-            std::vector< CFTypeRef > GetValues( void );
+            std::vector< CFTypeRef > GetValues( void ) const;
             
             friend void swap( Array & v1, Array & v2 );
             

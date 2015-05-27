@@ -94,44 +94,44 @@ namespace CF
             URL & operator = ( CFStringRef value );
             URL & operator = ( std::string value );
             
-            bool operator == ( const URL & value );
-            bool operator == ( CFTypeRef value );
-            bool operator == ( CFURLRef value );
-            bool operator == ( CFStringRef value );
-            bool operator == ( std::string value );
+            bool operator == ( const URL & value ) const;
+            bool operator == ( CFTypeRef value ) const;
+            bool operator == ( CFURLRef value ) const;
+            bool operator == ( CFStringRef value ) const;
+            bool operator == ( std::string value ) const;
             
-            bool operator != ( const URL & value );
-            bool operator != ( CFTypeRef value );
-            bool operator != ( CFURLRef value );
-            bool operator != ( CFStringRef value );
-            bool operator != ( std::string value );
+            bool operator != ( const URL & value ) const;
+            bool operator != ( CFTypeRef value ) const;
+            bool operator != ( CFURLRef value ) const;
+            bool operator != ( CFStringRef value ) const;
+            bool operator != ( std::string value ) const;
             
             CF::URL & operator /= ( CFStringRef value );
             CF::URL & operator /= ( std::string value );
             
-            std::string operator [] ( Part part );
+            std::string operator [] ( Part part ) const;
             
-            operator std::string ();
+            operator std::string () const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            CF::String GetFileSystemPath( PathStyle style = PathStylePOSIX );
-            CF::String GetFragment( void );
-            CF::String GetHostName( void );
-            CF::String GetLastPathComponent( void );
-            CF::String GetNetLocation( void );
-            CF::String GetParameterString( void );
-            CF::String GetPassword( void );
-            CF::String GetPath( void );
-            CF::String GetPathExtension( void );
-            CF::String GetQueryString( void );
-            CF::String GetResourceSpecifier( void );
-            CF::String GetScheme( void );
-            CF::String GetStrictPath( void );
-            CF::String GetUserName( void );
-            CF::Number GetPortNumber( void );
-            bool       HasDirectoryPath( void );
+            CF::String GetFileSystemPath( PathStyle style = PathStylePOSIX ) const;
+            CF::String GetFragment( void ) const;
+            CF::String GetHostName( void ) const;
+            CF::String GetLastPathComponent( void ) const;
+            CF::String GetNetLocation( void ) const;
+            CF::String GetParameterString( void ) const;
+            CF::String GetPassword( void ) const;
+            CF::String GetPath( void ) const;
+            CF::String GetPathExtension( void ) const;
+            CF::String GetQueryString( void ) const;
+            CF::String GetResourceSpecifier( void ) const;
+            CF::String GetScheme( void ) const;
+            CF::String GetStrictPath( void ) const;
+            CF::String GetUserName( void ) const;
+            CF::Number GetPortNumber( void ) const;
+            bool       HasDirectoryPath( void ) const;
             void       AppendPathComponent( CFStringRef component, bool isDirectory = false );
             void       AppendPathComponent( std::string component, bool isDirectory = false );
             void       AppendPathExtension( CFStringRef extension );

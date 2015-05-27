@@ -70,12 +70,12 @@ namespace CF
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            CF::String     GetDomain( void );
-            CF::Number     GetCode( void );
-            CF::Dictionary GetUserInfo( void );
-            CF::String     GetDescription( void );
-            CF::String     GetFailureReason( void );
-            CF::String     GetRecoverySuggestion( void );
+            CF::String     GetDomain( void ) const;
+            CF::Number     GetCode( void ) const;
+            CF::Dictionary GetUserInfo( void ) const;
+            CF::String     GetDescription( void ) const;
+            CF::String     GetFailureReason( void ) const;
+            CF::String     GetRecoverySuggestion( void ) const;
             
             friend void swap( Error & v1, Error & v2 );
             

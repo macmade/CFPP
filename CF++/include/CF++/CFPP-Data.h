@@ -74,10 +74,10 @@ namespace CF
             Data & operator = ( CFStringRef value );
             Data & operator = ( std::string value );
             
-            operator const Byte * ();
-            operator std::string  ();
+            operator const Byte * () const;
+            operator std::string  () const;
             
-            Byte operator [] ( int index );
+            Byte operator [] ( int index ) const;
             
             Data & operator += ( Byte value );
             Data & operator += ( CFStringRef value );
@@ -87,15 +87,15 @@ namespace CF
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            CFIndex      GetLength( void );
-            void         SetLength( CFIndex length );
-            void         IncreaseLength( CFIndex extraLength );
-            const Byte * GetBytePtr( void );
-            Byte       * GetMutableBytePtr( void );
-            void         GetBytes( CFRange range, Byte * bytes );
-            void         AppendBytes( Byte * bytes, CFIndex length );
-            void         ReplaceBytes( CFRange range, Byte * newBytes, CFIndex newLength );
-            void         DeleteBytes( CFRange range );
+            CFIndex      GetLength( void ) const;
+            void         SetLength( CFIndex length ) const;
+            void         IncreaseLength( CFIndex extraLength ) const;
+            const Byte * GetBytePtr( void ) const;
+            Byte       * GetMutableBytePtr( void ) const;
+            void         GetBytes( CFRange range, Byte * bytes ) const;
+            void         AppendBytes( Byte * bytes, CFIndex length ) const;
+            void         ReplaceBytes( CFRange range, Byte * newBytes, CFIndex newLength ) const;
+            void         DeleteBytes( CFRange range ) const;
             
             friend void swap( Data & v1, Data & v2 );
             

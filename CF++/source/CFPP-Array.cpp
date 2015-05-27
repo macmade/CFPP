@@ -320,7 +320,7 @@ namespace CF
         return *( this );
     }
             
-    CFTypeRef Array::operator [] ( int index )
+    CFTypeRef Array::operator [] ( int index ) const
     {
         return this->GetValueAtIndex( static_cast< CFIndex >( index ) );
     }
@@ -335,12 +335,12 @@ namespace CF
         return this->_cfObject;
     }
     
-    CFIndex Array::GetCount( void )
+    CFIndex Array::GetCount( void ) const
     {
         return ( this->_cfObject == NULL ) ? 0 : CFArrayGetCount( this->_cfObject );
     }
     
-    bool Array::ContainsValue( CFTypeRef value )
+    bool Array::ContainsValue( CFTypeRef value ) const
     {
         if( this->_cfObject == NULL || value == NULL )
         {
@@ -355,7 +355,7 @@ namespace CF
         ) ) ? true : false;
     }
     
-    void Array::RemoveAllValues( void )
+    void Array::RemoveAllValues( void ) const
     {
         if( this->_cfObject != NULL )
         {
@@ -363,7 +363,7 @@ namespace CF
         }
     }
     
-    CFTypeRef Array::GetValueAtIndex( CFIndex index )
+    CFTypeRef Array::GetValueAtIndex( CFIndex index ) const
     {
         if( this->_cfObject == NULL || index >= this->GetCount() )
         {
@@ -373,7 +373,7 @@ namespace CF
         return CFArrayGetValueAtIndex( this->_cfObject, index );
     }
     
-    void Array::SetValueAtIndex( CFTypeRef value, CFIndex index )
+    void Array::SetValueAtIndex( CFTypeRef value, CFIndex index ) const
     {
         if( this->_cfObject == NULL || index >= this->GetCount() || value == NULL )
         {
@@ -383,7 +383,7 @@ namespace CF
         CFArraySetValueAtIndex( this->_cfObject, index, value );
     }
     
-    void Array::InsertValueAtIndex( CFTypeRef value, CFIndex index )
+    void Array::InsertValueAtIndex( CFTypeRef value, CFIndex index ) const
     {
         if( this->_cfObject == NULL || index >= this->GetCount() || value == NULL )
         {
@@ -393,7 +393,7 @@ namespace CF
         CFArrayInsertValueAtIndex( this->_cfObject, index, value );
     }
     
-    void Array::AppendValue( CFTypeRef value )
+    void Array::AppendValue( CFTypeRef value ) const
     {
         if( this->_cfObject == NULL || value == NULL )
         {
@@ -403,7 +403,7 @@ namespace CF
         CFArrayAppendValue( this->_cfObject, value );
     }
     
-    void Array::RemoveValueAtIndex( CFIndex index )
+    void Array::RemoveValueAtIndex( CFIndex index ) const
     {
         if( this->_cfObject == NULL || index >= this->GetCount() )
         {
@@ -413,7 +413,7 @@ namespace CF
         CFArrayRemoveValueAtIndex( this->_cfObject, index );
     }
     
-    void Array::AppendArray( CFArrayRef array )
+    void Array::AppendArray( CFArrayRef array ) const
     {
         if( array == NULL || CFGetTypeID( array ) != this->GetTypeID() )
         {
@@ -431,7 +431,7 @@ namespace CF
         }
     }
     
-    void Array::ExchangeValuesAtIndices( CFIndex index1, CFIndex index2 )
+    void Array::ExchangeValuesAtIndices( CFIndex index1, CFIndex index2 ) const
     {
         if( this->_cfObject == NULL || index1 >= this->GetCount() || index2 >= this->GetCount() )
         {
@@ -442,7 +442,7 @@ namespace CF
     }
     
     
-    std::vector< CFTypeRef > Array::GetValues( void )
+    std::vector< CFTypeRef > Array::GetValues( void ) const
     {
         std::vector< CFTypeRef > vector;
         CFTypeRef              * values;
