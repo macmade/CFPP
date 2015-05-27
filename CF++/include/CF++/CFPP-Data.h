@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ CFDataRef wrapper
  */
 
-#ifndef __CFPP_DATA_H__
-#define __CFPP_DATA_H__
+#ifndef CFPP_DATA_H
+#define CFPP_DATA_H
 
 #include <CF++/CFPP-PropertyListType.h>
 
@@ -105,4 +105,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_DATA_H__ */
+#endif /* CFPP_DATA_H */

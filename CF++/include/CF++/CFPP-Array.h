@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ CFArrayRef wrapper
  */
 
-#ifndef __CFPP_ARRAY_H__
-#define __CFPP_ARRAY_H__
+#ifndef CFPP_ARRAY_H
+#define CFPP_ARRAY_H
 
 #include <CF++/CFPP-PropertyListType.h>
 #include <CF++/CFPP-String.h>
@@ -97,4 +97,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_ARRAY_H__ */
+#endif /* CFPP_ARRAY_H */

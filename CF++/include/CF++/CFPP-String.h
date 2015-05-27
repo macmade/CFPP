@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ CFStringRef wrapper
  */
 
-#ifndef __CFPP_STRING_H__
-#define __CFPP_STRING_H__
+#ifndef CFPP_STRING_H
+#define CFPP_STRING_H
 
 #include <CF++/CFPP-PropertyListType.h>
 
@@ -115,4 +115,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_STRING_H__ */
+#endif /* CFPP_STRING_H */

@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ pair of CFTypeRef
  */
 
-#ifndef __CFPP_PAIR_H__
-#define __CFPP_PAIR_H__
+#ifndef CFPP_PAIR_H
+#define CFPP_PAIR_H
 
 #include <CF++/CFPP-String.h>
 #include <CF++/CFPP-Number.h>
@@ -78,4 +78,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_PAIR_H__ */
+#endif /* CFPP_PAIR_H */

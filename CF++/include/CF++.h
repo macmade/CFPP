@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ main header file
  */
 
-#ifndef __CFPP__
-#define __CFPP__
+#ifndef CFPP
+#define CFPP
 
 #include <CoreFoundation/CoreFoundation.h>
 #include <string>
@@ -64,4 +64,4 @@
 #include <CF++/CFPP-WriteStream.h>
 #include <CF++/CFPP-PropertyListType-Definition.h>
 
-#endif /* __CFPP__ */
+#endif /* CFPP */

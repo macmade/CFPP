@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ CFNumberRef wrapper
  */
 
-#ifndef __CFPP_NUMBER_H__
-#define __CFPP_NUMBER_H__
+#ifndef CFPP_NUMBER_H
+#define CFPP_NUMBER_H
 
 #include <CF++/CFPP-PropertyListType.h>
 #include <stdint.h>
@@ -545,4 +545,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_NUMBER_H__ */
+#endif /* CFPP_NUMBER_H */

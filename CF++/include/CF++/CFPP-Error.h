@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ CFErrorRef wrapper
  */
 
-#ifndef __CFPP_ERROR_H__
-#define __CFPP_ERROR_H__
+#ifndef CFPP_ERROR_H
+#define CFPP_ERROR_H
 
 #include <CF++/CFPP-Type.h>
 
@@ -85,4 +85,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_ERROR_H__ */
+#endif /* CFPP_ERROR_H */

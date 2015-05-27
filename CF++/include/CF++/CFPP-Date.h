@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ CFDateRef wrapper
  */
 
-#ifndef __CFPP_DATE_H__
-#define __CFPP_DATE_H__
+#ifndef CFPP_DATE_H
+#define CFPP_DATE_H
 
 #include <CF++/CFPP-PropertyListType.h>
 
@@ -126,4 +126,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_DATE_H__ */
+#endif /* CFPP_DATE_H */

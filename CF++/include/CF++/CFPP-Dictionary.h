@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ CFDictionaryRef wrapper
  */
 
-#ifndef __CFPP_DICTIONARY_H__
-#define __CFPP_DICTIONARY_H__
+#ifndef CFPP_DICTIONARY_H
+#define CFPP_DICTIONARY_H
 
 #include <CF++/CFPP-PropertyListType.h>
 #include <CF++/CFPP-Pair.h>
@@ -92,4 +92,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_DICTIONARY_H__ */
+#endif /* CFPP_DICTIONARY_H */

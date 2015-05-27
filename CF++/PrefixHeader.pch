@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ precompiled header
  */
 
-#ifndef __CFPP_PREFIX_H__
-#define __CFPP_PREFIX_H__
+#ifndef CFPP_PREFIX_H
+#define CFPP_PREFIX_H
 
 #include <CoreFoundation/CoreFoundation.h>
 #include <string>
@@ -42,4 +42,4 @@
 
 #include "Clang-Warnings.h"
 
-#endif /* __CFPP_PREFIX_H__ */
+#endif /* CFPP_PREFIX_H */

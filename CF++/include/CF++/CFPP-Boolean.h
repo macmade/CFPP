@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ CFBooleanRef wrapper
  */
 
-#ifndef __CFPP_BOOLEAN_H__
-#define __CFPP_BOOLEAN_H__
+#ifndef CFPP_BOOLEAN_H
+#define CFPP_BOOLEAN_H
 
 #include <CF++/CFPP-PropertyListType.h>
 
@@ -88,4 +88,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_BOOLEAN_H__ */
+#endif /* CFPP_BOOLEAN_H */

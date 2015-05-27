@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ CFUUIDRef wrapper
  */
 
-#ifndef __CFPP_UUID_H__
-#define __CFPP_UUID_H__
+#ifndef CFPP_UUID_H
+#define CFPP_UUID_H
 
 #include <CF++/CFPP-Type.h>
 
@@ -84,4 +84,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_UUID_H__ */
+#endif /* CFPP_UUID_H */

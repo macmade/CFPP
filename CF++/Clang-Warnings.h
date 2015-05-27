@@ -33,8 +33,8 @@
  * @abstract    Extra warning flags for Clang
  */
 
-#ifndef __CFPP_WARNINGS__
-#define __CFPP_WARNINGS__
+#ifndef CFPP_WARNINGS_H
+#define CFPP_WARNINGS_H
 
 #ifndef __clang__
 
@@ -224,4 +224,4 @@
 
 #endif
 
-#endif /* __CFPP_WARNINGS__ */
+#endif /* CFPP_WARNINGS_H */

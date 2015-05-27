@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ base class for property list compatible types
  */
 
-#ifndef __CFPP_PROPERTY_LIST_TYPE_DEFINITION_H__
-#define __CFPP_PROPERTY_LIST_TYPE_DEFINITION_H__
+#ifndef CFPP_PROPERTY_LIST_TYPE_DEFINITION_H
+#define CFPP_PROPERTY_LIST_TYPE_DEFINITION_H
 
 #include <CF++/CFPP-PropertyListType.h>
 #include <CF++/CFPP-Data.h>
@@ -168,4 +168,4 @@ namespace CF
     }
 }
 
-#endif /* __CFPP_PROPERTY_LIST_TYPE_DEFINITION_H__ */
+#endif /* CFPP_PROPERTY_LIST_TYPE_DEFINITION_H */

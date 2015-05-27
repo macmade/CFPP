@@ -33,8 +33,8 @@
  * @abstract    CoreFoundation++ base abstract class for CF wrappers
  */
 
-#ifndef __CFPP_TYPE_H__
-#define __CFPP_TYPE_H__
+#ifndef CFPP_TYPE_H
+#define CFPP_TYPE_H
 
 namespace CF
 {
@@ -82,4 +82,4 @@ namespace CF
     };
 }
 
-#endif /* __CFPP_TYPE_H__ */
+#endif /* CFPP_TYPE_H */
