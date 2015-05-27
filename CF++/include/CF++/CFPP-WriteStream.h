@@ -42,11 +42,29 @@ namespace CF
     {
         public:
             
+            WriteStream( std::string path );
+            WriteStream( const WriteStream & value );
+            WriteStream( CFTypeRef value );
+            WriteStream( CFWriteStreamRef value );
             
+            #ifdef CFPP_HAS_CPP11
+            WriteStream( WriteStream && value );
+            #endif
+            
+            virtual ~WriteStream( void );
+            
+            WriteStream & operator = ( WriteStream value );
+            WriteStream & operator = ( CFTypeRef value );
+            WriteStream & operator = ( CFWriteStreamRef value );
+            
+            virtual CFTypeID  GetTypeID( void ) const;
+            virtual CFTypeRef GetCFObject( void ) const;
+            
+            friend void swap( WriteStream & v1, WriteStream & v2 );
             
         private:
             
-            
+            CFWriteStreamRef _cfObject;
     };
 }
 

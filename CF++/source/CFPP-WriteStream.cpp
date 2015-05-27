@@ -37,5 +37,128 @@
 
 namespace CF
 {
+    WriteStream::WriteStream( std::string path )
+    {
+        CF::URL url;
+        
+        url = CF::URL::FileSystemURL( path );
+        
+        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+    }
     
+    WriteStream::WriteStream( const WriteStream & value )
+    {
+        if( value._cfObject != NULL )
+        {
+            this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value._cfObject ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
+    WriteStream::WriteStream( CFTypeRef value )
+    {
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
+    WriteStream::WriteStream( CFWriteStreamRef value )
+    {
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
+    #ifdef CFPP_HAS_CPP11
+    WriteStream::WriteStream( WriteStream && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
+    WriteStream::~WriteStream( void )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+            
+            this->_cfObject = NULL;
+        }
+    }
+    
+    WriteStream & WriteStream::operator = ( WriteStream value )
+    {
+        swap( *( this ), value );
+        
+        return *( this );
+    }
+    
+    WriteStream & WriteStream::operator = ( CFTypeRef value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+        
+        return *( this );
+    }
+    
+    WriteStream & WriteStream::operator = ( CFWriteStreamRef value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+        
+        return *( this );
+    }
+    
+    CFTypeID WriteStream::GetTypeID( void ) const
+    {
+        return CFWriteStreamGetTypeID();
+    }
+    
+    CFTypeRef WriteStream::GetCFObject( void ) const
+    {
+        return this->_cfObject;
+    }
+    
+    void swap( WriteStream & v1, WriteStream & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }

@@ -42,11 +42,29 @@ namespace CF
     {
         public:
             
+            ReadStream( std::string path );
+            ReadStream( const ReadStream & value );
+            ReadStream( CFTypeRef value );
+            ReadStream( CFReadStreamRef value );
             
+            #ifdef CFPP_HAS_CPP11
+            ReadStream( ReadStream && value );
+            #endif
+            
+            virtual ~ReadStream( void );
+            
+            ReadStream & operator = ( ReadStream value );
+            ReadStream & operator = ( CFTypeRef value );
+            ReadStream & operator = ( CFReadStreamRef value );
+            
+            virtual CFTypeID  GetTypeID( void ) const;
+            virtual CFTypeRef GetCFObject( void ) const;
+            
+            friend void swap( ReadStream & v1, ReadStream & v2 );
             
         private:
             
-            
+            CFReadStreamRef _cfObject;
     };
 }
 

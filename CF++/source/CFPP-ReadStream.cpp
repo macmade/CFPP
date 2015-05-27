@@ -37,5 +37,128 @@
 
 namespace CF
 {
+    ReadStream::ReadStream( std::string path )
+    {
+        CF::URL url;
+        
+        url = CF::URL::FileSystemURL( path );
+        
+        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+    }
     
+    ReadStream::ReadStream( const ReadStream & value )
+    {
+        if( value._cfObject != NULL )
+        {
+            this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value._cfObject ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
+    ReadStream::ReadStream( CFTypeRef value )
+    {
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
+    ReadStream::ReadStream( CFReadStreamRef value )
+    {
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
+    #ifdef CFPP_HAS_CPP11
+    ReadStream::ReadStream( ReadStream && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+    }
+    #endif
+    
+    ReadStream::~ReadStream( void )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+            
+            this->_cfObject = NULL;
+        }
+    }
+    
+    ReadStream & ReadStream::operator = ( ReadStream value )
+    {
+        swap( *( this ), value );
+        
+        return *( this );
+    }
+    
+    ReadStream & ReadStream::operator = ( CFTypeRef value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+        
+        return *( this );
+    }
+    
+    ReadStream & ReadStream::operator = ( CFReadStreamRef value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+        
+        return *( this );
+    }
+    
+    CFTypeID ReadStream::GetTypeID( void ) const
+    {
+        return CFReadStreamGetTypeID();
+    }
+    
+    CFTypeRef ReadStream::GetCFObject( void ) const
+    {
+        return this->_cfObject;
+    }
+    
+    void swap( ReadStream & v1, ReadStream & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
 }
