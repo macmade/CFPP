@@ -46,7 +46,9 @@ namespace CF
     {
         public:
             
+            ReadStream( void );
             ReadStream( std::string path );
+            ReadStream( URL url );
             ReadStream( const ReadStream & value );
             ReadStream( CFTypeRef value );
             ReadStream( CFReadStreamRef value );
