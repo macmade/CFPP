@@ -39,66 +39,32 @@
 #include <CF++/CFPP-PropertyListType.h>
 #include <CF++/CFPP-Data.h>
 #include <CF++/CFPP-URL.h>
+#include <CF++/CFPP-ReadStream.h>
+#include <CF++/CFPP-AutoPointer.h>
 
 namespace CF
 {
     template < class T >
     T PropertyListType< T >::FromPropertyList( std::string path )
     {
-        T                object;
-        Data             data;
-        URL              url;
-        CFReadStreamRef  cfStream;
-        Data::Byte     * bytes;
-        CFIndex          i;
-        CFTypeRef        cfObject;
+        T           object;
+        Data        data;
+        URL         url;
+        ReadStream  stream;
+        AutoPointer ap;
         
         url      = URL::FileSystemURL( path );
-        cfStream = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        stream   = ReadStream( url );
         
-        if( cfStream == NULL )
+        if( stream.Open() == false )
         {
             return object;
         }
         
-        if( CFReadStreamOpen( cfStream ) == false )
-        {
-            CFRelease( cfStream );
-            
-            return object;
-        }
+        data = stream.Read();
+        ap   = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), data, 0, NULL, NULL );
         
-        bytes = new Data::Byte[ 4096 ];
-        
-        if( bytes == NULL )
-        {
-            CFRelease( cfStream );
-            
-            return object;
-        }
-        
-        while( CFReadStreamHasBytesAvailable( cfStream ) )
-        {
-            i = CFReadStreamRead( cfStream, bytes, 4096 );
-            
-            data.AppendBytes( bytes, i );
-        }
-        
-        delete[] bytes;
-        
-        CFReadStreamClose( cfStream );
-        CFRelease( cfStream );
-        
-        cfObject = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), data, 0, NULL, NULL );
-        
-        if( cfObject != NULL )
-        {
-            object = cfObject;
-
-            CFRelease( cfObject );
-        }
-        
-        return object;
+        return ap.As< T >();
     }
     
     template < class T >
