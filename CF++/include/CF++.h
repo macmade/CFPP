@@ -49,6 +49,7 @@
 
 #include <CF++/CFPP-Type.h>
 #include <CF++/CFPP-PropertyListType.h>
+#include <CF++/CFPP-AutoPointer.h>
 #include <CF++/CFPP-Boolean.h>
 #include <CF++/CFPP-Number.h>
 #include <CF++/CFPP-String.h>
