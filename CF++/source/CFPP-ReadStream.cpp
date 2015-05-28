@@ -39,9 +39,9 @@ namespace CF
 {
     ReadStream::ReadStream( std::string path )
     {
-        CF::URL url;
+        URL url;
         
-        url = CF::URL::FileSystemURL( path );
+        url = URL::FileSystemURL( path );
         
         this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
     }
@@ -195,9 +195,9 @@ namespace CF
         return CFReadStreamGetStatus( this->_cfObject );
     }
     
-    CF::Error ReadStream::GetError( void ) const
+    Error ReadStream::GetError( void ) const
     {
-        CF::Error  error;
+        Error      error;
         CFErrorRef cfError;
         
         if( this->_cfObject == NULL )
@@ -217,7 +217,7 @@ namespace CF
         return error;
     }
     
-    CFIndex ReadStream::Read( CF::Data::Byte * buffer, CFIndex length ) const
+    CFIndex ReadStream::Read( Data::Byte * buffer, CFIndex length ) const
     {
         if( this->_cfObject == NULL )
         {
@@ -232,11 +232,11 @@ namespace CF
         return CFReadStreamRead( this->_cfObject, buffer, length );
     }
     
-    CF::Data ReadStream::Read( CFIndex length ) const
+    Data ReadStream::Read( CFIndex length ) const
     {
-        CF::Data         data;
-        CF::Data::Byte * bytes;
-        CFIndex          read;
+        Data         data;
+        Data::Byte * bytes;
+        CFIndex      read;
         
         if( this->_cfObject == NULL )
         {
@@ -245,7 +245,7 @@ namespace CF
         
         if( length > 0 )
         {
-            bytes = new CF::Data::Byte[ length ];
+            bytes = new Data::Byte[ length ];
             read  = this->Read( bytes, length );
             
             if( read > 0 )
@@ -255,7 +255,7 @@ namespace CF
         }
         else
         {
-            bytes = new CF::Data::Byte[ 4096 ];
+            bytes = new Data::Byte[ 4096 ];
             
             while( this->HasBytesAvailable() )
             {
@@ -273,7 +273,7 @@ namespace CF
         return data;
     }
     
-    const CF::Data::Byte * ReadStream::GetBuffer( CFIndex maxBytesToRead, CFIndex * numBytesRead ) const
+    const Data::Byte * ReadStream::GetBuffer( CFIndex maxBytesToRead, CFIndex * numBytesRead ) const
     {
         if( this->_cfObject == NULL )
         {
@@ -283,7 +283,7 @@ namespace CF
         return CFReadStreamGetBuffer( this->_cfObject, maxBytesToRead, numBytesRead );
     }
     
-    AutoPointer ReadStream::GetProperty( CF::String name )
+    AutoPointer ReadStream::GetProperty( String name )
     {
         if( this->_cfObject == NULL )
         {
@@ -293,7 +293,7 @@ namespace CF
         return CFReadStreamCopyProperty( this->_cfObject, name );
     }
     
-    void ReadStream::SetProperty( CF::String name, CFTypeRef value )
+    void ReadStream::SetProperty( String name, CFTypeRef value )
     {
         if( this->_cfObject == NULL )
         {

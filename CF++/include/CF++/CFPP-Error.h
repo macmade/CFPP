@@ -48,14 +48,14 @@ namespace CF
             Error( const Error & value );
             Error( CFTypeRef value );
             Error( CFErrorRef value );
-            Error( CF::String domain, CF::Number code );
-            Error( CF::String domain, CF::Number code, CF::Dictionary userInfo );
+            Error( String domain, Number code );
+            Error( String domain, Number code, Dictionary userInfo );
             Error( CFStringRef domain, CFIndex code );
             Error( CFStringRef domain, CFIndex code, CFDictionaryRef userInfo );
             Error( std::string domain, CFIndex code );
-            Error( std::string domain, CFIndex code, CF::Dictionary userInfo );
+            Error( std::string domain, CFIndex code, Dictionary userInfo );
             Error( const char * domain, CFIndex code );
-            Error( const char * domain, CFIndex code, CF::Dictionary userInfo );
+            Error( const char * domain, CFIndex code, Dictionary userInfo );
             
             #ifdef CFPP_HAS_CPP11
             Error( Error && value );
@@ -70,12 +70,12 @@ namespace CF
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            CF::String     GetDomain( void ) const;
-            CF::Number     GetCode( void ) const;
-            CF::Dictionary GetUserInfo( void ) const;
-            CF::String     GetDescription( void ) const;
-            CF::String     GetFailureReason( void ) const;
-            CF::String     GetRecoverySuggestion( void ) const;
+            String     GetDomain( void ) const;
+            Number     GetCode( void ) const;
+            Dictionary GetUserInfo( void ) const;
+            String     GetDescription( void ) const;
+            String     GetFailureReason( void ) const;
+            String     GetRecoverySuggestion( void ) const;
             
             friend void swap( Error & v1, Error & v2 );
             

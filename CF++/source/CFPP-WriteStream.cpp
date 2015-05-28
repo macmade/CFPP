@@ -39,9 +39,9 @@ namespace CF
 {
     WriteStream::WriteStream( std::string path )
     {
-        CF::URL url;
+        URL url;
         
-        url = CF::URL::FileSystemURL( path );
+        url = URL::FileSystemURL( path );
         
         this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
     }

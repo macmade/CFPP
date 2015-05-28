@@ -191,7 +191,7 @@ namespace CF
     
     UUID::operator std::string () const
     {
-        CF::String s;
+        String s;
         
         s = this->GetString();
         
@@ -208,9 +208,9 @@ namespace CF
         return this->_cfObject;
     }
     
-    CF::String UUID::GetString( void ) const
+    String UUID::GetString( void ) const
     {
-        CF::String  s;
+        String      s;
         CFStringRef cfS;
         
         if( this->_cfObject == NULL )

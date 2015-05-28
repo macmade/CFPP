@@ -74,7 +74,7 @@ namespace CF
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            CF::String GetString( void ) const;
+            String GetString( void ) const;
             
             friend void swap( UUID & v1, UUID & v2 );
             

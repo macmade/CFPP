@@ -46,14 +46,14 @@ namespace CF
     T PropertyListType< T >::FromPropertyList( std::string path )
     {
         T                object;
-        CF::Data         data;
-        CF::URL          url;
+        Data             data;
+        URL              url;
         CFReadStreamRef  cfStream;
-        CF::Data::Byte * bytes;
+        Data::Byte     * bytes;
         CFIndex          i;
         CFTypeRef        cfObject;
         
-        url      = CF::URL::FileSystemURL( path );
+        url      = URL::FileSystemURL( path );
         cfStream = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
         
         if( cfStream == NULL )
@@ -68,7 +68,7 @@ namespace CF
             return object;
         }
         
-        bytes = new CF::Data::Byte[ 4096 ];
+        bytes = new Data::Byte[ 4096 ];
         
         if( bytes == NULL )
         {
@@ -104,8 +104,8 @@ namespace CF
     template < class T >
     bool PropertyListType< T >::ToPropertyList( std::string path, PropertyListFormat format ) const
     {
-        CF::URL          url;
-        CF::Data         d;
+        URL              url;
+        Data             d;
         CFWriteStreamRef cfStream;
         
         if( this->IsValid() == false )
@@ -113,7 +113,7 @@ namespace CF
             return false;
         }
         
-        url = CF::URL::FileSystemURL( path );
+        url = URL::FileSystemURL( path );
         d   = this->ToPropertyList( format );
         
         if( d.GetLength() == 0 )

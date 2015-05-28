@@ -78,7 +78,7 @@ namespace CF
         }
     }
     
-    Error::Error( CF::String domain, CF::Number code )
+    Error::Error( String domain, Number code )
     {
         this->_cfObject = CFErrorCreate
         (
@@ -89,7 +89,7 @@ namespace CF
         );
     }
     
-    Error::Error( CF::String domain, CF::Number code, CF::Dictionary userInfo )
+    Error::Error( String domain, Number code, Dictionary userInfo )
     {
         this->_cfObject = CFErrorCreate
         (
@@ -124,7 +124,7 @@ namespace CF
     
     Error::Error( std::string domain, CFIndex code )
     {
-        CF::String s;
+        String s;
         
         s = domain;
         
@@ -137,9 +137,9 @@ namespace CF
         );
     }
     
-    Error::Error( std::string domain, CFIndex code, CF::Dictionary userInfo )
+    Error::Error( std::string domain, CFIndex code, Dictionary userInfo )
     {
-        CF::String s;
+        String s;
         
         s = domain;
         
@@ -154,7 +154,7 @@ namespace CF
     
     Error::Error( const char * domain, CFIndex code )
     {
-        CF::String s;
+        String s;
         
         s = domain;
         
@@ -167,9 +167,9 @@ namespace CF
         );
     }
     
-    Error::Error( const char * domain, CFIndex code, CF::Dictionary userInfo )
+    Error::Error( const char * domain, CFIndex code, Dictionary userInfo )
     {
-        CF::String s;
+        String s;
         
         s = domain;
         
@@ -256,9 +256,9 @@ namespace CF
         return this->_cfObject;
     }
     
-    CF::String Error::GetDomain( void ) const
+    String Error::GetDomain( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -272,9 +272,9 @@ namespace CF
         return str;
     }
     
-    CF::Number Error::GetCode( void ) const
+    Number Error::GetCode( void ) const
     {
-        CF::Number n;
+        Number n;
         
         if( this->_cfObject == NULL )
         {
@@ -286,9 +286,9 @@ namespace CF
         return n;
     }
     
-    CF::Dictionary Error::GetUserInfo( void ) const
+    Dictionary Error::GetUserInfo( void ) const
     {
-        CF::Dictionary  d;
+        Dictionary      d;
         CFDictionaryRef cfD;
         
         if( this->_cfObject == NULL )
@@ -307,9 +307,9 @@ namespace CF
         return d;
     }
     
-    CF::String Error::GetDescription( void ) const
+    String Error::GetDescription( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -328,9 +328,9 @@ namespace CF
         return str;
     }
     
-    CF::String Error::GetFailureReason( void ) const
+    String Error::GetFailureReason( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -349,9 +349,9 @@ namespace CF
         return str;
     }
     
-    CF::String Error::GetRecoverySuggestion( void ) const
+    String Error::GetRecoverySuggestion( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )

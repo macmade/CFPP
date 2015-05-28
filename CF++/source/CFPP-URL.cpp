@@ -41,7 +41,7 @@ namespace CF
     {
         URL        url;
         CFURLRef   cfURL;
-        CF::String str;
+        String     str;
         
         str = path;
         
@@ -69,7 +69,7 @@ namespace CF
     
     URL URL::FileSystemURL( CFTypeRef path, bool isDir )
     {
-        CF::String str;
+        String str;
         
         str = path;
         
@@ -78,7 +78,7 @@ namespace CF
     
     URL URL::FileSystemURL( CFStringRef path, bool isDir )
     {
-        CF::String str;
+        String str;
         
         str = path;
         
@@ -124,7 +124,7 @@ namespace CF
     
     URL::URL( std::string value )
     {
-        CF::String s;
+        String s;
         
         s = value;
         
@@ -215,7 +215,7 @@ namespace CF
     
     URL & URL::operator = ( std::string value )
     {
-        CF::String s;
+        String s;
         
         if( this->_cfObject != NULL )
         {
@@ -231,7 +231,7 @@ namespace CF
     
     std::string URL::operator [] ( Part part ) const
     {
-        CF::String s;
+        String s;
         
         switch( part )
         {
@@ -261,14 +261,14 @@ namespace CF
         std::string url2;
         
         url1 = static_cast< std::string >( *( this ) );
-        url2 = static_cast< std::string >( const_cast< CF::URL & >( value ) );
+        url2 = static_cast< std::string >( const_cast< URL & >( value ) );
         
         return url1 == url2;
     }
     
     bool URL::operator == ( CFTypeRef value ) const
     {
-        CF::URL url;
+        URL url;
         
         url = value;
         
@@ -277,7 +277,7 @@ namespace CF
     
     bool URL::operator == ( CFURLRef value ) const
     {
-        CF::URL url;
+        URL url;
         
         url = value;
         
@@ -286,7 +286,7 @@ namespace CF
     
     bool URL::operator == ( CFStringRef value ) const
     {
-        CF::URL url;
+        URL url;
         
         url = value;
         
@@ -295,7 +295,7 @@ namespace CF
     
     bool URL::operator == ( std::string value ) const
     {
-        CF::URL url;
+        URL url;
         
         url = value;
         
@@ -327,14 +327,14 @@ namespace CF
         return !( *( this ) == value );
     }
     
-    CF::URL & URL::operator /= ( CFStringRef value )
+    URL & URL::operator /= ( CFStringRef value )
     {
         this->AppendPathComponent( value );
         
         return *( this );
     }
     
-    CF::URL & URL::operator /= ( std::string value )
+    URL & URL::operator /= ( std::string value )
     {
         this->AppendPathComponent( value );
         
@@ -343,7 +343,7 @@ namespace CF
     
     URL::operator std::string () const
     {
-        CF::String str;
+        String str;
         
         if( this->_cfObject == NULL )
         {
@@ -365,9 +365,9 @@ namespace CF
         return this->_cfObject;
     }
     
-    CF::String URL::GetFileSystemPath( PathStyle style ) const
+    String URL::GetFileSystemPath( PathStyle style ) const
     {
-        CF::String      str;
+        String          str;
         CFStringRef     cfStr;
         CFURLPathStyle  cfPathStyle;
         
@@ -389,9 +389,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetFragment( void ) const
+    String URL::GetFragment( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -411,9 +411,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetHostName( void ) const
+    String URL::GetHostName( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -433,9 +433,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetLastPathComponent( void ) const
+    String URL::GetLastPathComponent( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -455,9 +455,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetNetLocation( void ) const
+    String URL::GetNetLocation( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -477,9 +477,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetParameterString( void ) const
+    String URL::GetParameterString( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -499,9 +499,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetPassword( void ) const
+    String URL::GetPassword( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -521,9 +521,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetPath( void ) const
+    String URL::GetPath( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -543,9 +543,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetPathExtension( void ) const
+    String URL::GetPathExtension( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -565,9 +565,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetQueryString( void ) const
+    String URL::GetQueryString( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -587,9 +587,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetResourceSpecifier( void ) const
+    String URL::GetResourceSpecifier( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -609,9 +609,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetScheme( void ) const
+    String URL::GetScheme( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -631,9 +631,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetStrictPath( void ) const
+    String URL::GetStrictPath( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -653,9 +653,9 @@ namespace CF
         return str;
     }
     
-    CF::String URL::GetUserName( void ) const
+    String URL::GetUserName( void ) const
     {
-        CF::String  str;
+        String      str;
         CFStringRef cfStr;
         
         if( this->_cfObject == NULL )
@@ -675,9 +675,9 @@ namespace CF
         return str;
     }
     
-    CF::Number URL::GetPortNumber( void ) const
+    Number URL::GetPortNumber( void ) const
     {
-        CF::Number n;
+        Number n;
         
         if( this->_cfObject == NULL )
         {
@@ -722,7 +722,7 @@ namespace CF
     
     void URL::AppendPathComponent( std::string component, bool isDirectory )
     {
-        CF::String s;
+        String s;
         
         s = component;
         
@@ -751,7 +751,7 @@ namespace CF
     
     void URL::AppendPathExtension( std::string extension )
     {
-        CF::String s;
+        String s;
         
         s = extension;
         
