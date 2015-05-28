@@ -42,7 +42,9 @@ namespace CF
     {
         public:
             
+            WriteStream( void );
             WriteStream( std::string path );
+            WriteStream( URL url );
             WriteStream( const WriteStream & value );
             WriteStream( CFTypeRef value );
             WriteStream( CFWriteStreamRef value );
@@ -59,6 +61,16 @@ namespace CF
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
+            
+            bool               Open( void ) const;
+            void               Close( void ) const;
+            bool               CanAcceptBytes( void ) const;
+            CFStreamStatus     GetStatus( void ) const;
+            Error              GetError( void ) const;
+            CFIndex            Write( const Data::Byte * buffer, CFIndex length ) const;
+            CFIndex            Write( Data data ) const;
+            void               SetProperty( String name, CFTypeRef value );
+            void               SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context );
             
             friend void swap( WriteStream & v1, WriteStream & v2 );
             

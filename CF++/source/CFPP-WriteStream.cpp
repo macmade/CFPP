@@ -155,6 +155,108 @@ namespace CF
         return this->_cfObject;
     }
     
+    bool WriteStream::Open( void ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return false;
+        }
+        
+        return ( CFWriteStreamOpen( this->_cfObject ) ) ? true : false;
+    }
+    
+    void WriteStream::Close( void ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFWriteStreamClose( this->_cfObject );
+    }
+    
+    bool WriteStream::CanAcceptBytes( void ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return false;
+        }
+        
+        return ( CFWriteStreamCanAcceptBytes( this->_cfObject ) ) ? true : false;
+    }
+    
+    CFStreamStatus WriteStream::GetStatus( void ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return kCFStreamStatusError;
+        }
+        
+        return CFWriteStreamGetStatus( this->_cfObject );
+    }
+    
+    Error WriteStream::GetError( void ) const
+    {
+        Error      error;
+        CFErrorRef cfError;
+        
+        if( this->_cfObject == NULL )
+        {
+            return error;
+        }
+        
+        cfError = CFWriteStreamCopyError( this->_cfObject );
+        
+        if( cfError != NULL )
+        {
+            error = cfError;
+            
+            CFRelease( cfError );
+        }
+        
+        return error;
+    }
+    
+    CFIndex WriteStream::Write( const Data::Byte * buffer, CFIndex length ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return 0;
+        }
+        
+        if( buffer == NULL || length <= 0 )
+        {
+            return 0;
+        }
+        
+        return CFWriteStreamWrite( this->_cfObject, buffer, length );
+    }
+    
+    CFIndex WriteStream::Write( Data data ) const
+    {
+        return this->Write( data.GetBytePtr(), data.GetLength() );
+    }
+    
+    void WriteStream::SetProperty( String name, CFTypeRef value )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFWriteStreamSetProperty( this->_cfObject, name, value );
+    }
+    
+    void WriteStream::SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFWriteStreamSetClient( this->_cfObject, events, callback, context );
+    }
+    
     void swap( WriteStream & v1, WriteStream & v2 )
     {
         using std::swap;
