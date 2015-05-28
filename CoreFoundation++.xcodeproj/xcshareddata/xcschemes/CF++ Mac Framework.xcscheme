@@ -28,17 +28,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "05E71B621961D9D100F911C4"
-               BuildableName = "CF++ Tests.xctest"
-               BlueprintName = "CF++ Tests"
-               ReferencedContainer = "container:CoreFoundation++.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "056C885E18C8C76B006260B3"
+            BuildableName = "CF++.framework"
+            BlueprintName = "CF++ Mac Framework"
+            ReferencedContainer = "container:CoreFoundation++.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -67,6 +66,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "056C885E18C8C76B006260B3"
+            BuildableName = "CF++.framework"
+            BlueprintName = "CF++ Mac Framework"
+            ReferencedContainer = "container:CoreFoundation++.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

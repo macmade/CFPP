@@ -104,19 +104,6 @@
 		05BDE06F18CDB2600028F339 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01618CDB2450028F339 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05BDE07018CDB2600028F339 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01718CDB2450028F339 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05E71B5E1961D96100F911C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B5D1961D96100F911C4 /* main.cpp */; };
-		05E71B691961D9D100F911C4 /* libCF++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libCF++.a */; };
-		05E71B721961DA1100F911C4 /* BooleanTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B701961DA1100F911C4 /* BooleanTest.mm */; };
-		05E71B761961F27800F911C4 /* ArrayTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B751961F27800F911C4 /* ArrayTest.mm */; };
-		05E71B811961F2CE00F911C4 /* DataTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B771961F2CE00F911C4 /* DataTest.mm */; };
-		05E71B821961F2CE00F911C4 /* DateTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B781961F2CE00F911C4 /* DateTest.mm */; };
-		05E71B831961F2CE00F911C4 /* DictionaryTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B791961F2CE00F911C4 /* DictionaryTest.mm */; };
-		05E71B841961F2CE00F911C4 /* ErrorTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B7A1961F2CE00F911C4 /* ErrorTest.mm */; };
-		05E71B851961F2CE00F911C4 /* NumberTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B7B1961F2CE00F911C4 /* NumberTest.mm */; };
-		05E71B861961F2CE00F911C4 /* PairTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B7C1961F2CE00F911C4 /* PairTest.mm */; };
-		05E71B871961F2CE00F911C4 /* PropertyListTypeTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B7D1961F2CE00F911C4 /* PropertyListTypeTest.mm */; };
-		05E71B881961F2CE00F911C4 /* StringTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B7E1961F2CE00F911C4 /* StringTest.mm */; };
-		05E71B891961F2CE00F911C4 /* URLTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B7F1961F2CE00F911C4 /* URLTest.mm */; };
-		05E71B8A1961F2CE00F911C4 /* UUIDTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B801961F2CE00F911C4 /* UUIDTest.mm */; };
 		05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05EFF0EA191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -124,20 +111,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		05169CA01962ACD80082861C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 056C881118C8B85F006260B3;
-			remoteInfo = "CF++ Mac Static Library";
-		};
-		05169CA21962ACD80082861C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 056C881118C8B85F006260B3;
-			remoteInfo = "CF++ Mac Static Library";
-		};
 		056C883F18C8C22E006260B3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
@@ -165,13 +138,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 056C88A918C8C8AC006260B3;
 			remoteInfo = "CF++ iOS Static Library";
-		};
-		05E71B6A1961D9D100F911C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 056C881118C8B85F006260B3;
-			remoteInfo = "CF++ Mac Static Library";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -239,21 +205,6 @@
 		05BDE02318CDB2450028F339 /* CFPP-Type.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Type.cpp"; sourceTree = "<group>"; };
 		05BDE02418CDB2450028F339 /* CFPP-URL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-URL.cpp"; sourceTree = "<group>"; };
 		05E71B5D1961D96100F911C4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		05E71B631961D9D100F911C4 /* CF++ Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CF++ Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		05E71B701961DA1100F911C4 /* BooleanTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BooleanTest.mm; sourceTree = "<group>"; };
-		05E71B711961DA1100F911C4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05E71B741961DD4800F911C4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		05E71B751961F27800F911C4 /* ArrayTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ArrayTest.mm; sourceTree = "<group>"; };
-		05E71B771961F2CE00F911C4 /* DataTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DataTest.mm; sourceTree = "<group>"; };
-		05E71B781961F2CE00F911C4 /* DateTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DateTest.mm; sourceTree = "<group>"; };
-		05E71B791961F2CE00F911C4 /* DictionaryTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DictionaryTest.mm; sourceTree = "<group>"; };
-		05E71B7A1961F2CE00F911C4 /* ErrorTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ErrorTest.mm; sourceTree = "<group>"; };
-		05E71B7B1961F2CE00F911C4 /* NumberTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NumberTest.mm; sourceTree = "<group>"; };
-		05E71B7C1961F2CE00F911C4 /* PairTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PairTest.mm; sourceTree = "<group>"; };
-		05E71B7D1961F2CE00F911C4 /* PropertyListTypeTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PropertyListTypeTest.mm; sourceTree = "<group>"; };
-		05E71B7E1961F2CE00F911C4 /* StringTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StringTest.mm; sourceTree = "<group>"; };
-		05E71B7F1961F2CE00F911C4 /* URLTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = URLTest.mm; sourceTree = "<group>"; };
-		05E71B801961F2CE00F911C4 /* UUIDTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UUIDTest.mm; sourceTree = "<group>"; };
 		05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CFPP-PropertyListType.h"; sourceTree = "<group>"; };
 		05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CFPP-PropertyListType-Definition.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -298,14 +249,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		05E71B601961D9D100F911C4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				05E71B691961D9D100F911C4 /* libCF++.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -314,7 +257,6 @@
 			children = (
 				051F09651946EB70004B6E47 /* README.md */,
 				05BDE00918CDB2450028F339 /* CF++ */,
-				05E71B6F1961DA1100F911C4 /* CF++ Tests */,
 				05E71B5C1961D96100F911C4 /* CF++ Example */,
 				056C880D18C8B50E006260B3 /* Frameworks */,
 				056C87CF18C8B0F8006260B3 /* Products */,
@@ -329,7 +271,6 @@
 				056C884A18C8C547006260B3 /* libCF++.dylib */,
 				056C885F18C8C76B006260B3 /* CF++.framework */,
 				056C88AA18C8C8AC006260B3 /* libCF++.a */,
-				05E71B631961D9D100F911C4 /* CF++ Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -415,27 +356,6 @@
 				05E71B5D1961D96100F911C4 /* main.cpp */,
 			);
 			path = "CF++ Example";
-			sourceTree = "<group>";
-		};
-		05E71B6F1961DA1100F911C4 /* CF++ Tests */ = {
-			isa = PBXGroup;
-			children = (
-				05E71B751961F27800F911C4 /* ArrayTest.mm */,
-				05E71B701961DA1100F911C4 /* BooleanTest.mm */,
-				05E71B771961F2CE00F911C4 /* DataTest.mm */,
-				05E71B781961F2CE00F911C4 /* DateTest.mm */,
-				05E71B791961F2CE00F911C4 /* DictionaryTest.mm */,
-				05E71B7A1961F2CE00F911C4 /* ErrorTest.mm */,
-				05E71B7B1961F2CE00F911C4 /* NumberTest.mm */,
-				05E71B7C1961F2CE00F911C4 /* PairTest.mm */,
-				05E71B7D1961F2CE00F911C4 /* PropertyListTypeTest.mm */,
-				05E71B7E1961F2CE00F911C4 /* StringTest.mm */,
-				05E71B7F1961F2CE00F911C4 /* URLTest.mm */,
-				05E71B801961F2CE00F911C4 /* UUIDTest.mm */,
-				05E71B711961DA1100F911C4 /* Info.plist */,
-				05E71B741961DD4800F911C4 /* PrefixHeader.pch */,
-			);
-			path = "CF++ Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -591,26 +511,6 @@
 			productReference = 056C88AA18C8C8AC006260B3 /* libCF++.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		05E71B621961D9D100F911C4 /* CF++ Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 05E71B6C1961D9D100F911C4 /* Build configuration list for PBXNativeTarget "CF++ Tests" */;
-			buildPhases = (
-				05E71B5F1961D9D100F911C4 /* Sources */,
-				05E71B601961D9D100F911C4 /* Frameworks */,
-				05E71B611961D9D100F911C4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				05E71B6B1961D9D100F911C4 /* PBXTargetDependency */,
-				05169CA11962ACD80082861C /* PBXTargetDependency */,
-				05169CA31962ACD80082861C /* PBXTargetDependency */,
-			);
-			name = "CF++ Tests";
-			productName = "CF++ Tests";
-			productReference = 05E71B631961D9D100F911C4 /* CF++ Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -619,12 +519,6 @@
 			attributes = {
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "XS-Labs";
-				TargetAttributes = {
-					05E71B621961D9D100F911C4 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 056C881118C8B85F006260B3;
-					};
-				};
 			};
 			buildConfigurationList = 056C87C918C8B0F8006260B3 /* Build configuration list for PBXProject "CoreFoundation++" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -643,20 +537,12 @@
 				056C884918C8C547006260B3 /* CF++ Mac Dynamic Library */,
 				056C885E18C8C76B006260B3 /* CF++ Mac Framework */,
 				056C88A918C8C8AC006260B3 /* CF++ iOS Static Library */,
-				05E71B621961D9D100F911C4 /* CF++ Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		056C885D18C8C76B006260B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		05E71B611961D9D100F911C4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -762,38 +648,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		05E71B5F1961D9D100F911C4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				05E71B871961F2CE00F911C4 /* PropertyListTypeTest.mm in Sources */,
-				05E71B851961F2CE00F911C4 /* NumberTest.mm in Sources */,
-				05E71B831961F2CE00F911C4 /* DictionaryTest.mm in Sources */,
-				05E71B721961DA1100F911C4 /* BooleanTest.mm in Sources */,
-				05E71B841961F2CE00F911C4 /* ErrorTest.mm in Sources */,
-				05E71B821961F2CE00F911C4 /* DateTest.mm in Sources */,
-				05E71B761961F27800F911C4 /* ArrayTest.mm in Sources */,
-				05E71B811961F2CE00F911C4 /* DataTest.mm in Sources */,
-				05E71B891961F2CE00F911C4 /* URLTest.mm in Sources */,
-				05E71B881961F2CE00F911C4 /* StringTest.mm in Sources */,
-				05E71B8A1961F2CE00F911C4 /* UUIDTest.mm in Sources */,
-				05E71B861961F2CE00F911C4 /* PairTest.mm in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		05169CA11962ACD80082861C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 056C881118C8B85F006260B3 /* CF++ Mac Static Library */;
-			targetProxy = 05169CA01962ACD80082861C /* PBXContainerItemProxy */;
-		};
-		05169CA31962ACD80082861C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 056C881118C8B85F006260B3 /* CF++ Mac Static Library */;
-			targetProxy = 05169CA21962ACD80082861C /* PBXContainerItemProxy */;
-		};
 		056C884018C8C22E006260B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 056C881118C8B85F006260B3 /* CF++ Mac Static Library */;
@@ -813,11 +670,6 @@
 			isa = PBXTargetDependency;
 			target = 056C88A918C8C8AC006260B3 /* CF++ iOS Static Library */;
 			targetProxy = 056C88D118C8C93C006260B3 /* PBXContainerItemProxy */;
-		};
-		05E71B6B1961D9D100F911C4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 056C881118C8B85F006260B3 /* CF++ Mac Static Library */;
-			targetProxy = 05E71B6A1961D9D100F911C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1187,52 +1039,6 @@
 			};
 			name = Release;
 		};
-		05E71B6D1961D9D100F911C4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++ Tests/PrefixHeader.pch";
-				GCC_WARN_PEDANTIC = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"CF++/include",
-				);
-				INFOPLIST_FILE = "CF++ Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		05E71B6E1961D9D100F911C4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++ Tests/PrefixHeader.pch";
-				GCC_WARN_PEDANTIC = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"CF++/include",
-				);
-				INFOPLIST_FILE = "CF++ Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1286,15 +1092,6 @@
 			buildConfigurations = (
 				056C88CA18C8C8AD006260B3 /* Debug */,
 				056C88CB18C8C8AD006260B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		05E71B6C1961D9D100F911C4 /* Build configuration list for PBXNativeTarget "CF++ Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				05E71B6D1961D9D100F911C4 /* Debug */,
-				05E71B6E1961D9D100F911C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

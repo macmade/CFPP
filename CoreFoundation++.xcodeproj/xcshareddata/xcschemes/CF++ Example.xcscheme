@@ -20,20 +20,6 @@
                ReferencedContainer = "container:CoreFoundation++.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "05E71B621961D9D100F911C4"
-               BuildableName = "CF++ Tests.xctest"
-               BlueprintName = "CF++ Tests"
-               ReferencedContainer = "container:CoreFoundation++.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -42,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "05E71B621961D9D100F911C4"
-               BuildableName = "CF++ Tests.xctest"
-               BlueprintName = "CF++ Tests"
-               ReferencedContainer = "container:CoreFoundation++.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
