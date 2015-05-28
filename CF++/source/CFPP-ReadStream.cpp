@@ -155,6 +155,164 @@ namespace CF
         return this->_cfObject;
     }
     
+    bool ReadStream::Open( void ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return false;
+        }
+        
+        return ( CFReadStreamOpen( this->_cfObject ) ) ? true : false;
+    }
+    
+    void ReadStream::Close( void ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFReadStreamClose( this->_cfObject );
+    }
+    
+    bool ReadStream::HasBytesAvailable( void ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return false;
+        }
+        
+        return ( CFReadStreamHasBytesAvailable( this->_cfObject ) ) ? true : false;
+    }
+    
+    CFStreamStatus ReadStream::GetStatus( void ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return kCFStreamStatusError;
+        }
+        
+        return CFReadStreamGetStatus( this->_cfObject );
+    }
+    
+    CF::Error ReadStream::GetError( void ) const
+    {
+        CF::Error  error;
+        CFErrorRef cfError;
+        
+        if( this->_cfObject == NULL )
+        {
+            return error;
+        }
+        
+        cfError = CFReadStreamCopyError( this->_cfObject );
+        
+        if( cfError != NULL )
+        {
+            error = cfError;
+            
+            CFRelease( cfError );
+        }
+        
+        return error;
+    }
+    
+    CFIndex ReadStream::Read( CF::Data::Byte * buffer, CFIndex length ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return 0;
+        }
+        
+        if( buffer == NULL || length <= 0 )
+        {
+            return 0;
+        }
+        
+        return CFReadStreamRead( this->_cfObject, buffer, length );
+    }
+    
+    CF::Data ReadStream::Read( CFIndex length ) const
+    {
+        CF::Data         data;
+        CF::Data::Byte * bytes;
+        CFIndex          read;
+        
+        if( this->_cfObject == NULL )
+        {
+            return data;
+        }
+        
+        if( length > 0 )
+        {
+            bytes = new CF::Data::Byte[ length ];
+            read  = this->Read( bytes, length );
+            
+            if( read > 0 )
+            {
+                data.AppendBytes( bytes, read );
+            }
+        }
+        else
+        {
+            bytes = new CF::Data::Byte[ 4096 ];
+            
+            while( this->HasBytesAvailable() )
+            {
+                read = this->Read( bytes, 4096 );
+                
+                if( read > 0 )
+                {
+                    data.AppendBytes( bytes, read );
+                }
+            }
+        }
+        
+        delete[] bytes;
+        
+        return data;
+    }
+    
+    const CF::Data::Byte * ReadStream::GetBuffer( CFIndex maxBytesToRead, CFIndex * numBytesRead ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return NULL;
+        }
+        
+        return CFReadStreamGetBuffer( this->_cfObject, maxBytesToRead, numBytesRead );
+    }
+    
+    AutoPointer ReadStream::GetProperty( CF::String name )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return NULL;
+        }
+        
+        return CFReadStreamCopyProperty( this->_cfObject, name );
+    }
+    
+    void ReadStream::SetProperty( CF::String name, CFTypeRef value )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFReadStreamSetProperty( this->_cfObject, name, value );
+    }
+    
+    void ReadStream::SetClient( CFOptionFlags events, CFReadStreamClientCallBack callback, CFStreamClientContext * context )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFReadStreamSetClient( this->_cfObject, events, callback, context );
+    }
+    
     void swap( ReadStream & v1, ReadStream & v2 )
     {
         using std::swap;

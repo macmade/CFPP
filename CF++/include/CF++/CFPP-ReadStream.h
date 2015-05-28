@@ -36,6 +36,10 @@
 #ifndef CFPP_READ_STREAM_H
 #define CFPP_READ_STREAM_H
 
+#include <CF++/CFPP-Error.h>
+#include <CF++/CFPP-Data.h>
+#include <CF++/CFPP-AutoPointer.h>
+
 namespace CF
 {
     class ReadStream
@@ -59,6 +63,18 @@ namespace CF
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
+            
+            bool               Open( void ) const;
+            void               Close( void ) const;
+            bool               HasBytesAvailable( void ) const;
+            CFStreamStatus     GetStatus( void ) const;
+            Error              GetError( void ) const;
+            CFIndex            Read( Data::Byte * buffer, CFIndex length ) const;
+            Data               Read( CFIndex length = 0 ) const;
+            const Data::Byte * GetBuffer( CFIndex maxBytesToRead, CFIndex * numBytesRead ) const;
+            AutoPointer        GetProperty( String name );
+            void               SetProperty( String name, CFTypeRef value );
+            void               SetClient( CFOptionFlags events, CFReadStreamClientCallBack callback, CFStreamClientContext * context );
             
             friend void swap( ReadStream & v1, ReadStream & v2 );
             
