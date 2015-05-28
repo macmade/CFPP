@@ -19,6 +19,7 @@
 		056C585F1B1708D900C6214A /* CFPP-AutoPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C585B1B1707EE00C6214A /* CFPP-AutoPointer.cpp */; };
 		056C58601B1708DC00C6214A /* CFPP-AutoPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C585A1B1706BB00C6214A /* CFPP-AutoPointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C58611B1708DD00C6214A /* CFPP-AutoPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C585A1B1706BB00C6214A /* CFPP-AutoPointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		056C58A91B17A3B700C6214A /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		056C884118C8C232006260B3 /* libCF++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libCF++.a */; };
 		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
@@ -106,8 +107,7 @@
 		05E71B5E1961D96100F911C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B5D1961D96100F911C4 /* main.cpp */; };
 		05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		05EFF0EA191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -383,12 +383,12 @@
 				05BDE06918CDB2600028F339 /* CFPP-Date.h in Headers */,
 				05BDE06718CDB2600028F339 /* CFPP-Boolean.h in Headers */,
 				05BDE07018CDB2600028F339 /* CF++.h in Headers */,
+				056C58A91B17A3B700C6214A /* CFPP-PropertyListType-Definition.h in Headers */,
 				05632F8D18ED5CAA00EB76D2 /* CFPP-UUID.h in Headers */,
 				05BDE06C18CDB2600028F339 /* CFPP-Pair.h in Headers */,
 				059DBCB91B14DC500014D9A1 /* CFPP-WriteStream.h in Headers */,
 				05BDE06B18CDB2600028F339 /* CFPP-Number.h in Headers */,
 				05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */,
-				05EFF0EA191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */,
 				05BDE06618CDB2600028F339 /* CFPP-Array.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
