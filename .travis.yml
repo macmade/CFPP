@@ -1,3 +1,3 @@
 language: objective-c
 xcode_project: CoreFoundation++.xcodeproj
-xcode_scheme: CF++ Example
+xcode_scheme: CF++
