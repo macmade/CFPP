@@ -37,6 +37,9 @@
 
 namespace CF
 {
+    WriteStream::WriteStream( void ): _cfObject( NULL )
+    {}
+    
     WriteStream::WriteStream( std::string path )
     {
         URL url;
