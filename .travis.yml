@@ -1,3 +1,7 @@
 language: objective-c
 xcode_project: CoreFoundation++.xcodeproj
 xcode_scheme: CF++
+before_install:
+- bash Scripts/travis-before.sh
+after_success:
+- bash Scripts/travis-after.sh
