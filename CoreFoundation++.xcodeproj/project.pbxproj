@@ -20,10 +20,8 @@
 		056C58601B1708DC00C6214A /* CFPP-AutoPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C585A1B1706BB00C6214A /* CFPP-AutoPointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C58611B1708DD00C6214A /* CFPP-AutoPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C585A1B1706BB00C6214A /* CFPP-AutoPointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C58A91B17A3B700C6214A /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		056C884118C8C232006260B3 /* libCF++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libCF++.a */; };
 		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
-		056C88E618C8D850006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		059DBCB81B14DC500014D9A1 /* CFPP-ReadStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB41B14DB460014D9A1 /* CFPP-ReadStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		059DBCB91B14DC500014D9A1 /* CFPP-WriteStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB51B14DB460014D9A1 /* CFPP-WriteStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		059DBCBA1B14DC500014D9A1 /* CFPP-ReadStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB41B14DB460014D9A1 /* CFPP-ReadStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -104,53 +102,12 @@
 		05BDE06E18CDB2600028F339 /* CFPP-Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01518CDB2450028F339 /* CFPP-Type.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05BDE06F18CDB2600028F339 /* CFPP-URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01618CDB2450028F339 /* CFPP-URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05BDE07018CDB2600028F339 /* CF++.h in Headers */ = {isa = PBXBuildFile; fileRef = 05BDE01718CDB2450028F339 /* CF++.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		05E71B5E1961D96100F911C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05E71B5D1961D96100F911C4 /* main.cpp */; };
 		05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		056C883F18C8C22E006260B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 056C881118C8B85F006260B3;
-			remoteInfo = "CF++";
-		};
-		056C884E18C8C577006260B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 056C884918C8C547006260B3;
-			remoteInfo = "CF++ Mac Synamic Library";
-		};
-		056C888D18C8C7F0006260B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 056C885E18C8C76B006260B3;
-			remoteInfo = "CF++";
-		};
-		056C88D118C8C93C006260B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 056C88A918C8C8AC006260B3;
-			remoteInfo = "CF++ iOS Static Library";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		056C87CC18C8B0F8006260B3 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 		056C88A818C8C8AC006260B3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -168,7 +125,6 @@
 		05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-UUID.cpp"; sourceTree = "<group>"; };
 		056C585A1B1706BB00C6214A /* CFPP-AutoPointer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-AutoPointer.h"; sourceTree = "<group>"; };
 		056C585B1B1707EE00C6214A /* CFPP-AutoPointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-AutoPointer.cpp"; sourceTree = "<group>"; };
-		056C87CE18C8B0F8006260B3 /* CFPPExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CFPPExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		056C881218C8B85F006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C884A18C8C547006260B3 /* libCF++.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libCF++.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,21 +160,11 @@
 		05BDE02218CDB2450028F339 /* CFPP-String.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-String.cpp"; sourceTree = "<group>"; };
 		05BDE02318CDB2450028F339 /* CFPP-Type.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Type.cpp"; sourceTree = "<group>"; };
 		05BDE02418CDB2450028F339 /* CFPP-URL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-URL.cpp"; sourceTree = "<group>"; };
-		05E71B5D1961D96100F911C4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CFPP-PropertyListType.h"; sourceTree = "<group>"; };
 		05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CFPP-PropertyListType-Definition.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		056C87CB18C8B0F8006260B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				056C88E618C8D850006260B3 /* CoreFoundation.framework in Frameworks */,
-				056C884118C8C232006260B3 /* libCF++.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		056C880F18C8B85F006260B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,7 +203,6 @@
 			children = (
 				051F09651946EB70004B6E47 /* README.md */,
 				05BDE00918CDB2450028F339 /* CF++ */,
-				05E71B5C1961D96100F911C4 /* CF++ Example */,
 				056C880D18C8B50E006260B3 /* Frameworks */,
 				056C87CF18C8B0F8006260B3 /* Products */,
 			);
@@ -266,7 +211,6 @@
 		056C87CF18C8B0F8006260B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				056C87CE18C8B0F8006260B3 /* CFPPExample */,
 				056C881218C8B85F006260B3 /* libCF++.a */,
 				056C884A18C8C547006260B3 /* libCF++.dylib */,
 				056C885F18C8C76B006260B3 /* CF++.framework */,
@@ -350,14 +294,6 @@
 			path = source;
 			sourceTree = "<group>";
 		};
-		05E71B5C1961D96100F911C4 /* CF++ Example */ = {
-			isa = PBXGroup;
-			children = (
-				05E71B5D1961D96100F911C4 /* main.cpp */,
-			);
-			path = "CF++ Example";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -421,27 +357,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		056C87CD18C8B0F8006260B3 /* CF++ Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 056C87D718C8B0F8006260B3 /* Build configuration list for PBXNativeTarget "CF++ Example" */;
-			buildPhases = (
-				056C87CA18C8B0F8006260B3 /* Sources */,
-				056C87CB18C8B0F8006260B3 /* Frameworks */,
-				056C87CC18C8B0F8006260B3 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				056C884018C8C22E006260B3 /* PBXTargetDependency */,
-				056C884F18C8C577006260B3 /* PBXTargetDependency */,
-				056C888E18C8C7F0006260B3 /* PBXTargetDependency */,
-				056C88D218C8C93C006260B3 /* PBXTargetDependency */,
-			);
-			name = "CF++ Example";
-			productName = Testing;
-			productReference = 056C87CE18C8B0F8006260B3 /* CFPPExample */;
-			productType = "com.apple.product-type.tool";
-		};
 		056C881118C8B85F006260B3 /* CF++ Mac Static Library */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 056C881318C8B85F006260B3 /* Build configuration list for PBXNativeTarget "CF++ Mac Static Library" */;
@@ -532,7 +447,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				056C87CD18C8B0F8006260B3 /* CF++ Example */,
 				056C881118C8B85F006260B3 /* CF++ Mac Static Library */,
 				056C884918C8C547006260B3 /* CF++ Mac Dynamic Library */,
 				056C885E18C8C76B006260B3 /* CF++ Mac Framework */,
@@ -552,14 +466,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		056C87CA18C8B0F8006260B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				05E71B5E1961D96100F911C4 /* main.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		056C880E18C8B85F006260B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -649,29 +555,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		056C884018C8C22E006260B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 056C881118C8B85F006260B3 /* CF++ Mac Static Library */;
-			targetProxy = 056C883F18C8C22E006260B3 /* PBXContainerItemProxy */;
-		};
-		056C884F18C8C577006260B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 056C884918C8C547006260B3 /* CF++ Mac Dynamic Library */;
-			targetProxy = 056C884E18C8C577006260B3 /* PBXContainerItemProxy */;
-		};
-		056C888E18C8C7F0006260B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 056C885E18C8C76B006260B3 /* CF++ Mac Framework */;
-			targetProxy = 056C888D18C8C7F0006260B3 /* PBXContainerItemProxy */;
-		};
-		056C88D218C8C93C006260B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 056C88A918C8C8AC006260B3 /* CF++ iOS Static Library */;
-			targetProxy = 056C88D118C8C93C006260B3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		056C87D518C8B0F8006260B3 /* Debug */ = {
@@ -878,28 +761,6 @@
 			};
 			name = Release;
 		};
-		056C87D818C8B0F8006260B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
-				PRODUCT_NAME = CFPPExample;
-			};
-			name = Debug;
-		};
-		056C87D918C8B0F8006260B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
-				PRODUCT_NAME = CFPPExample;
-			};
-			name = Release;
-		};
 		056C881418C8B85F006260B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1047,15 +908,6 @@
 			buildConfigurations = (
 				056C87D518C8B0F8006260B3 /* Debug */,
 				056C87D618C8B0F8006260B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		056C87D718C8B0F8006260B3 /* Build configuration list for PBXNativeTarget "CF++ Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				056C87D818C8B0F8006260B3 /* Debug */,
-				056C87D918C8B0F8006260B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
