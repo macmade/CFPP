@@ -173,6 +173,25 @@ namespace CF
         return ( CFReadStreamOpen( this->_cfObject ) ) ? true : false;
     }
     
+    bool ReadStream::Open( std::string path )
+    {
+        return this->Open( URL::FileSystemURL( path ) );
+    }
+    
+    bool ReadStream::Open( URL url )
+    {
+        if( this->_cfObject != NULL )
+        {
+            this->Close();
+            
+            CFRelease( this->_cfObject );
+        }
+        
+        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        
+        return this->Open();
+    }
+    
     void ReadStream::Close( void ) const
     {
         if( this->_cfObject == NULL )

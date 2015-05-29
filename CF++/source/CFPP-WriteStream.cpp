@@ -165,6 +165,25 @@ namespace CF
         return ( CFWriteStreamOpen( this->_cfObject ) ) ? true : false;
     }
     
+    bool WriteStream::Open( std::string path )
+    {
+        return this->Open( URL::FileSystemURL( path ) );
+    }
+    
+    bool WriteStream::Open( URL url )
+    {
+        if( this->_cfObject != NULL )
+        {
+            this->Close();
+            
+            CFRelease( this->_cfObject );
+        }
+        
+        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        
+        return this->Open();
+    }
+    
     void WriteStream::Close( void ) const
     {
         if( this->_cfObject == NULL )

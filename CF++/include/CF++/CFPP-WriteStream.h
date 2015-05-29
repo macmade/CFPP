@@ -63,6 +63,8 @@ namespace CF
             virtual CFTypeRef GetCFObject( void ) const;
             
             bool               Open( void ) const;
+            bool               Open( std::string path );
+            bool               Open( URL url );
             void               Close( void ) const;
             bool               CanAcceptBytes( void ) const;
             CFStreamStatus     GetStatus( void ) const;
