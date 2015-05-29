@@ -16,6 +16,7 @@ Icon?
 *.mode2v3
 *.perspectivev3
 *.xccheckout
+*.profraw
 !default.pbxuser
 !default.mode1v3
 !default.mode2v3
