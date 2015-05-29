@@ -210,23 +210,16 @@ namespace CF
     
     String UUID::GetString( void ) const
     {
-        String      s;
-        CFStringRef cfS;
+        AutoPointer s;
         
         if( this->_cfObject == NULL )
         {
-            return s;
+            return s.As< CFStringRef >();
         }
         
-        cfS = CFUUIDCreateString( static_cast< CFAllocatorRef >( NULL ), this->_cfObject );
-        s   = cfS;
+        s = CFUUIDCreateString( static_cast< CFAllocatorRef >( NULL ), this->_cfObject );
         
-        if( cfS != NULL )
-        {
-            CFRelease( cfS );
-        }
-        
-        return s;
+        return s.As< CFStringRef >();
     }
     
     void swap( UUID & v1, UUID & v2 )

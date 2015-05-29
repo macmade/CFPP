@@ -219,24 +219,16 @@ namespace CF
     
     Error WriteStream::GetError( void ) const
     {
-        Error      error;
-        CFErrorRef cfError;
+        AutoPointer e;
         
         if( this->_cfObject == NULL )
         {
-            return error;
+            return e.As< CFErrorRef >();
         }
         
-        cfError = CFWriteStreamCopyError( this->_cfObject );
+        e = CFWriteStreamCopyError( this->_cfObject );
         
-        if( cfError != NULL )
-        {
-            error = cfError;
-            
-            CFRelease( cfError );
-        }
-        
-        return error;
+        return e.As< CFErrorRef >();
     }
     
     CFIndex WriteStream::Write( const Data::Byte * buffer, CFIndex length ) const

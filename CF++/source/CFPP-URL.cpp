@@ -39,13 +39,12 @@ namespace CF
 {
     URL URL::FileSystemURL( std::string path, bool isDir )
     {
-        URL        url;
-        CFURLRef   cfURL;
+        AutoPointer url;
         String     str;
         
         str = path;
         
-        cfURL = CFURLCreateWithFileSystemPath
+        url = CFURLCreateWithFileSystemPath
         (
             static_cast< CFAllocatorRef >( NULL ),
             str,
@@ -57,14 +56,7 @@ namespace CF
             isDir
         );
         
-        url = cfURL;
-        
-        if( cfURL != NULL )
-        {
-            CFRelease( cfURL );
-        }
-        
-        return url;
+        return url.As< CFURLRef >();
     }
     
     URL URL::FileSystemURL( CFTypeRef path, bool isDir )
@@ -367,312 +359,200 @@ namespace CF
     
     String URL::GetFileSystemPath( PathStyle style ) const
     {
-        String          str;
-        CFStringRef     cfStr;
-        CFURLPathStyle  cfPathStyle;
+        AutoPointer    str;
+        CFURLPathStyle cfPathStyle;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
         cfPathStyle = ( style == PathStyleWindows ) ? kCFURLWindowsPathStyle : kCFURLPOSIXPathStyle;
-        cfStr       = CFURLCopyFileSystemPath( this->_cfObject, cfPathStyle );
+        str         = CFURLCopyFileSystemPath( this->_cfObject, cfPathStyle );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetFragment( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyFragment( this->_cfObject, NULL );
+        str = CFURLCopyFragment( this->_cfObject, NULL );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetHostName( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyHostName( this->_cfObject );
+        str = CFURLCopyHostName( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetLastPathComponent( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyLastPathComponent( this->_cfObject );
+        str = CFURLCopyLastPathComponent( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetNetLocation( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyNetLocation( this->_cfObject );
+        str = CFURLCopyNetLocation( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetParameterString( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyParameterString( this->_cfObject, NULL );
+        str = CFURLCopyParameterString( this->_cfObject, NULL );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetPassword( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyPassword( this->_cfObject );
+        str = CFURLCopyPassword( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetPath( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyPath( this->_cfObject );
+        str = CFURLCopyPath( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetPathExtension( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyPathExtension( this->_cfObject );
+        str = CFURLCopyPathExtension( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetQueryString( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyQueryString( this->_cfObject, NULL );
+        str = CFURLCopyQueryString( this->_cfObject, NULL );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetResourceSpecifier( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyResourceSpecifier( this->_cfObject );
+        str = CFURLCopyResourceSpecifier( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetScheme( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyScheme( this->_cfObject );
+        str = CFURLCopyScheme( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetStrictPath( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyStrictPath( this->_cfObject, NULL );
+        str = CFURLCopyStrictPath( this->_cfObject, NULL );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     String URL::GetUserName( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer str;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return str.As< CFStringRef >();
         }
         
-        cfStr = CFURLCopyUserName( this->_cfObject );
+        str = CFURLCopyUserName( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            str = cfStr;
-            
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return str.As< CFStringRef >();
     }
     
     Number URL::GetPortNumber( void ) const

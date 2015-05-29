@@ -305,7 +305,7 @@ namespace CF
             
     String & String::operator += ( const String & value )
     {
-        CFArrayRef  array;
+        AutoPointer array;
         CFStringRef newString;
         CFStringRef strings[ 2 ];
         
@@ -322,13 +322,11 @@ namespace CF
         strings[ 0 ] = this->_cfObject;
         strings[ 1 ] = value._cfObject;
         array        = CFArrayCreate( static_cast< CFAllocatorRef >( NULL ), reinterpret_cast< const void ** >( strings ), 2, NULL );
-        newString    = CFStringCreateByCombiningStrings( static_cast< CFAllocatorRef >( NULL ), array, CFSTR( "" ) );
+        newString    = CFStringCreateByCombiningStrings( static_cast< CFAllocatorRef >( NULL ), array.As< CFArrayRef >(), CFSTR( "" ) );
         
-        CFRelease( array );
         CFRelease( this->_cfObject );
         
         this->_cfObject = newString;
-        
         
         return *( this );
     }

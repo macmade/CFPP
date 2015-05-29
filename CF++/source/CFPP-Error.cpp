@@ -288,86 +288,58 @@ namespace CF
     
     Dictionary Error::GetUserInfo( void ) const
     {
-        Dictionary      d;
-        CFDictionaryRef cfD;
+        AutoPointer d;
         
         if( this->_cfObject == NULL )
         {
-            return d;
+            return d.As< CFDictionaryRef >();
         }
         
-        cfD = CFErrorCopyUserInfo( this->_cfObject );
-        d   = cfD;
+        d = CFErrorCopyUserInfo( this->_cfObject );
         
-        if( cfD != NULL )
-        {
-            CFRelease( cfD );
-        }
-        
-        return d;
+        return d.As< CFDictionaryRef >();
     }
     
     String Error::GetDescription( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer s;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return s.As< CFStringRef >();
         }
         
-        cfStr = CFErrorCopyDescription( this->_cfObject );
-        str   = cfStr;
+        s = CFErrorCopyDescription( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return s.As< CFStringRef >();
     }
     
     String Error::GetFailureReason( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer s;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return s.As< CFStringRef >();
         }
         
-        cfStr = CFErrorCopyFailureReason( this->_cfObject );
-        str   = cfStr;
+        s = CFErrorCopyFailureReason( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return s.As< CFStringRef >();
     }
     
     String Error::GetRecoverySuggestion( void ) const
     {
-        String      str;
-        CFStringRef cfStr;
+        AutoPointer s;
         
         if( this->_cfObject == NULL )
         {
-            return str;
+            return s.As< CFStringRef >();
         }
         
-        cfStr = CFErrorCopyRecoverySuggestion( this->_cfObject );
-        str   = cfStr;
+        s = CFErrorCopyRecoverySuggestion( this->_cfObject );
         
-        if( cfStr != NULL )
-        {
-            CFRelease( cfStr );
-        }
-        
-        return str;
+        return s.As< CFStringRef >();
     }
     
     void swap( Error & v1, Error & v2 )

@@ -224,26 +224,18 @@ namespace CF
     
     Error ReadStream::GetError( void ) const
     {
-        Error      error;
-        CFErrorRef cfError;
+        AutoPointer e;
         
         if( this->_cfObject == NULL )
         {
-            return error;
+            return e.As< CFErrorRef >();
         }
         
-        cfError = CFReadStreamCopyError( this->_cfObject );
+        e = CFReadStreamCopyError( this->_cfObject );
         
-        if( cfError != NULL )
-        {
-            error = cfError;
-            
-            CFRelease( cfError );
-        }
-        
-        return error;
+        return e.As< CFErrorRef >();
     }
-    
+        
     CFIndex ReadStream::Read( Data::Byte * buffer, CFIndex length ) const
     {
         if( this->_cfObject == NULL )
