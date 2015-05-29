@@ -98,17 +98,14 @@ namespace CF
     template < class T >
     Data PropertyListType< T >::ToPropertyList( PropertyListFormat format ) const
     {
-        CFDataRef            cfData;
-        CFErrorRef           cfError;
+        AutoPointer          data;
         CFPropertyListFormat cfFormat;
-        Data                 d;
         
         if( this->IsValid() == false )
         {
-            return d;
+            return data.As< CFDataRef >();
         }
         
-        cfError  = NULL;
         cfFormat = kCFPropertyListXMLFormat_v1_0;
         
         if( format == PropertyListFormatBinary )
@@ -116,26 +113,9 @@ namespace CF
             cfFormat = kCFPropertyListBinaryFormat_v1_0;
         }
         
-        cfData = CFPropertyListCreateData( static_cast< CFAllocatorRef >( NULL ), this->GetCFObject(), cfFormat, 0, &cfError );
+        data = CFPropertyListCreateData( static_cast< CFAllocatorRef >( NULL ), this->GetCFObject(), cfFormat, 0, NULL );
         
-        if( cfError != NULL )
-        {
-            if( cfData != NULL )
-            {
-                CFRelease( cfData );
-            }
-            
-            return d;
-        }
-        
-        if( cfData != NULL )
-        {
-            d = cfData;
-            
-            CFRelease( cfData );
-        }
-        
-        return d;
+        return data.As< CFDataRef >();
     }
 }
 
