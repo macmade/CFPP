@@ -40,6 +40,7 @@
 #include <CF++/CFPP-Data.h>
 #include <CF++/CFPP-URL.h>
 #include <CF++/CFPP-ReadStream.h>
+#include <CF++/CFPP-WriteStream.h>
 #include <CF++/CFPP-AutoPointer.h>
 
 namespace CF
@@ -53,10 +54,9 @@ namespace CF
         ReadStream  stream;
         AutoPointer ap;
         
-        url      = URL::FileSystemURL( path );
-        stream   = ReadStream( url );
+        url = URL::FileSystemURL( path );
         
-        if( stream.Open() == false )
+        if( stream.Open( url ) == false )
         {
             return object;
         }
@@ -70,9 +70,9 @@ namespace CF
     template < class T >
     bool PropertyListType< T >::ToPropertyList( std::string path, PropertyListFormat format ) const
     {
-        URL              url;
-        Data             d;
-        CFWriteStreamRef cfStream;
+        URL         url;
+        Data        d;
+        WriteStream stream;
         
         if( this->IsValid() == false )
         {
@@ -87,25 +87,12 @@ namespace CF
             return false;
         }
         
-        cfStream = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
-        
-        if( cfStream == NULL )
+        if( stream.Open( url ) == false )
         {
             return false;
         }
         
-        if( CFWriteStreamOpen( cfStream ) == false )
-        {
-            CFRelease( cfStream );
-            
-            return false;
-        }
-        
-        CFWriteStreamWrite( cfStream, d.GetBytePtr(), d.GetLength() );
-        CFWriteStreamClose( cfStream );
-        CFRelease( cfStream );
-        
-        return true;
+        return stream.Write( d ) == d.GetLength();
     }
     
     template < class T >
