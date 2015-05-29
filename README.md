@@ -85,6 +85,10 @@ Available / Wrapped classes
     - CFMutableArray      => CF::Array
     - CFDictionary        => CF::Dictionary
     - CFMutableDictionary => CF::Dictionary
+    - CFUUIDRef           => CF::UUID
+    - CFErrorRef          => CF::Error
+    - CFReadStream        => CF::ReadStream
+    - CFWriteStream       => CF::WriteStream
 
 <a name="5"></a>
 Example
@@ -749,15 +753,12 @@ The following classes will be implemented soon:
 
     - CFBundle
     - CFDateFormatter
-    - CFError
     - CFNotificationCenter
     - CFNull
     - CFNumberFormatter
-    - CFPropertyList
     - CFRunLoop
     - CFRunLoopSource
     - CFRunLoopTimer
-    - CFUUID
     - CFSocket
     - CFSet
     - CFMutableSet
