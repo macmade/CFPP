@@ -20,6 +20,26 @@
 		056C58601B1708DC00C6214A /* CFPP-AutoPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C585A1B1706BB00C6214A /* CFPP-AutoPointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C58611B1708DD00C6214A /* CFPP-AutoPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C585A1B1706BB00C6214A /* CFPP-AutoPointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C58A91B17A3B700C6214A /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		056C58C51B1898FF00C6214A /* libCF++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libCF++.a */; };
+		056C58D21B1899C700C6214A /* gmock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C58B51B18985500C6214A /* gmock.framework */; };
+		056C58D31B1899C700C6214A /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C58B31B18985500C6214A /* GoogleMock.framework */; };
+		056C58D41B1899C700C6214A /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C58B71B18985500C6214A /* gtest.framework */; };
+		056C58DC1B189A2800C6214A /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58DB1B189A2800C6214A /* CFPP-Boolean.cpp */; };
+		056C58F01B189C6A00C6214A /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58E11B189C6A00C6214A /* CFPP-Array.cpp */; };
+		056C58F11B189C6A00C6214A /* CFPP-AutoPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58E21B189C6A00C6214A /* CFPP-AutoPointer.cpp */; };
+		056C58F21B189C6A00C6214A /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58E31B189C6A00C6214A /* CFPP-Data.cpp */; };
+		056C58F31B189C6A00C6214A /* CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58E41B189C6A00C6214A /* CFPP-Date.cpp */; };
+		056C58F41B189C6A00C6214A /* CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58E51B189C6A00C6214A /* CFPP-Dictionary.cpp */; };
+		056C58F51B189C6A00C6214A /* CFPP-Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58E61B189C6A00C6214A /* CFPP-Error.cpp */; };
+		056C58F61B189C6A00C6214A /* CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58E71B189C6A00C6214A /* CFPP-Number.cpp */; };
+		056C58F71B189C6A00C6214A /* CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58E81B189C6A00C6214A /* CFPP-Pair.cpp */; };
+		056C58F81B189C6A00C6214A /* CFPP-PropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58E91B189C6A00C6214A /* CFPP-PropertyListType.cpp */; };
+		056C58F91B189C6A00C6214A /* CFPP-ReadStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58EA1B189C6A00C6214A /* CFPP-ReadStream.cpp */; };
+		056C58FA1B189C6A00C6214A /* CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58EB1B189C6A00C6214A /* CFPP-String.cpp */; };
+		056C58FB1B189C6A00C6214A /* CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58EC1B189C6A00C6214A /* CFPP-Type.cpp */; };
+		056C58FC1B189C6A00C6214A /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58ED1B189C6A00C6214A /* CFPP-URL.cpp */; };
+		056C58FD1B189C6A00C6214A /* CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58EE1B189C6A00C6214A /* CFPP-UUID.cpp */; };
+		056C58FE1B189C6A00C6214A /* CFPP-WriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58EF1B189C6A00C6214A /* CFPP-WriteStream.cpp */; };
 		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		059DBCB81B14DC500014D9A1 /* CFPP-ReadStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB41B14DB460014D9A1 /* CFPP-ReadStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -107,6 +127,65 @@
 		05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		056C58B21B18985500C6214A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05818F861A685AEA0072A469;
+			remoteInfo = GoogleMock;
+		};
+		056C58B41B18985500C6214A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05E96ABD1A68600C00204102;
+			remoteInfo = gmock;
+		};
+		056C58B61B18985500C6214A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05E96B1F1A68634900204102;
+			remoteInfo = gtest;
+		};
+		056C58B81B18985500C6214A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05818F901A685AEA0072A469;
+			remoteInfo = GoogleMockTests;
+		};
+		056C58C61B1898FF00C6214A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 056C881118C8B85F006260B3;
+			remoteInfo = "CF++ Mac Static Library";
+		};
+		056C58D51B1899D000C6214A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 05818F851A685AEA0072A469;
+			remoteInfo = GoogleMock;
+		};
+		056C58D71B1899D000C6214A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 05E96AAE1A68600C00204102;
+			remoteInfo = gmock;
+		};
+		056C58D91B1899D000C6214A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 05E96B0A1A68634900204102;
+			remoteInfo = gtest;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		056C88A818C8C8AC006260B3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -125,6 +204,25 @@
 		05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-UUID.cpp"; sourceTree = "<group>"; };
 		056C585A1B1706BB00C6214A /* CFPP-AutoPointer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-AutoPointer.h"; sourceTree = "<group>"; };
 		056C585B1B1707EE00C6214A /* CFPP-AutoPointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-AutoPointer.cpp"; sourceTree = "<group>"; };
+		056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GoogleMock.xcodeproj; path = "Submodules/gmock-xcode/GoogleMock.xcodeproj"; sourceTree = "<group>"; };
+		056C58BF1B1898FF00C6214A /* CF++ Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CF++ Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		056C58CB1B18992100C6214A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		056C58DB1B189A2800C6214A /* CFPP-Boolean.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Boolean.cpp"; sourceTree = "<group>"; };
+		056C58E11B189C6A00C6214A /* CFPP-Array.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Array.cpp"; sourceTree = "<group>"; };
+		056C58E21B189C6A00C6214A /* CFPP-AutoPointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-AutoPointer.cpp"; sourceTree = "<group>"; };
+		056C58E31B189C6A00C6214A /* CFPP-Data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Data.cpp"; sourceTree = "<group>"; };
+		056C58E41B189C6A00C6214A /* CFPP-Date.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Date.cpp"; sourceTree = "<group>"; };
+		056C58E51B189C6A00C6214A /* CFPP-Dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Dictionary.cpp"; sourceTree = "<group>"; };
+		056C58E61B189C6A00C6214A /* CFPP-Error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Error.cpp"; sourceTree = "<group>"; };
+		056C58E71B189C6A00C6214A /* CFPP-Number.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Number.cpp"; sourceTree = "<group>"; };
+		056C58E81B189C6A00C6214A /* CFPP-Pair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Pair.cpp"; sourceTree = "<group>"; };
+		056C58E91B189C6A00C6214A /* CFPP-PropertyListType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-PropertyListType.cpp"; sourceTree = "<group>"; };
+		056C58EA1B189C6A00C6214A /* CFPP-ReadStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-ReadStream.cpp"; sourceTree = "<group>"; };
+		056C58EB1B189C6A00C6214A /* CFPP-String.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-String.cpp"; sourceTree = "<group>"; };
+		056C58EC1B189C6A00C6214A /* CFPP-Type.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Type.cpp"; sourceTree = "<group>"; };
+		056C58ED1B189C6A00C6214A /* CFPP-URL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-URL.cpp"; sourceTree = "<group>"; };
+		056C58EE1B189C6A00C6214A /* CFPP-UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-UUID.cpp"; sourceTree = "<group>"; };
+		056C58EF1B189C6A00C6214A /* CFPP-WriteStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-WriteStream.cpp"; sourceTree = "<group>"; };
 		056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		056C881218C8B85F006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C884A18C8C547006260B3 /* libCF++.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libCF++.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +263,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		056C58BC1B1898FF00C6214A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C58C51B1898FF00C6214A /* libCF++.a in Frameworks */,
+				056C58D31B1899C700C6214A /* GoogleMock.framework in Frameworks */,
+				056C58D21B1899C700C6214A /* gmock.framework in Frameworks */,
+				056C58D41B1899C700C6214A /* gtest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		056C880F18C8B85F006260B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,11 +307,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		056C58AC1B18985500C6214A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				056C58B31B18985500C6214A /* GoogleMock.framework */,
+				056C58B51B18985500C6214A /* gmock.framework */,
+				056C58B71B18985500C6214A /* gtest.framework */,
+				056C58B91B18985500C6214A /* GoogleMockTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		056C58C01B1898FF00C6214A /* CF++ Tests */ = {
+			isa = PBXGroup;
+			children = (
+				056C58E11B189C6A00C6214A /* CFPP-Array.cpp */,
+				056C58E21B189C6A00C6214A /* CFPP-AutoPointer.cpp */,
+				056C58DB1B189A2800C6214A /* CFPP-Boolean.cpp */,
+				056C58E31B189C6A00C6214A /* CFPP-Data.cpp */,
+				056C58E41B189C6A00C6214A /* CFPP-Date.cpp */,
+				056C58E51B189C6A00C6214A /* CFPP-Dictionary.cpp */,
+				056C58E61B189C6A00C6214A /* CFPP-Error.cpp */,
+				056C58E71B189C6A00C6214A /* CFPP-Number.cpp */,
+				056C58E81B189C6A00C6214A /* CFPP-Pair.cpp */,
+				056C58E91B189C6A00C6214A /* CFPP-PropertyListType.cpp */,
+				056C58EA1B189C6A00C6214A /* CFPP-ReadStream.cpp */,
+				056C58EB1B189C6A00C6214A /* CFPP-String.cpp */,
+				056C58EC1B189C6A00C6214A /* CFPP-Type.cpp */,
+				056C58ED1B189C6A00C6214A /* CFPP-URL.cpp */,
+				056C58EE1B189C6A00C6214A /* CFPP-UUID.cpp */,
+				056C58EF1B189C6A00C6214A /* CFPP-WriteStream.cpp */,
+				056C58C11B1898FF00C6214A /* Supporting Files */,
+			);
+			path = "CF++ Tests";
+			sourceTree = "<group>";
+		};
+		056C58C11B1898FF00C6214A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				056C58CB1B18992100C6214A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		056C87C518C8B0F8006260B3 = {
 			isa = PBXGroup;
 			children = (
+				056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */,
 				051F09651946EB70004B6E47 /* README.md */,
 				05BDE00918CDB2450028F339 /* CF++ */,
+				056C58C01B1898FF00C6214A /* CF++ Tests */,
 				056C880D18C8B50E006260B3 /* Frameworks */,
 				056C87CF18C8B0F8006260B3 /* Products */,
 			);
@@ -215,6 +369,7 @@
 				056C884A18C8C547006260B3 /* libCF++.dylib */,
 				056C885F18C8C76B006260B3 /* CF++.framework */,
 				056C88AA18C8C8AC006260B3 /* libCF++.a */,
+				056C58BF1B1898FF00C6214A /* CF++ Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -357,6 +512,27 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		056C58BE1B1898FF00C6214A /* CF++ Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 056C58C81B1898FF00C6214A /* Build configuration list for PBXNativeTarget "CF++ Tests" */;
+			buildPhases = (
+				056C58BB1B1898FF00C6214A /* Sources */,
+				056C58BC1B1898FF00C6214A /* Frameworks */,
+				056C58BD1B1898FF00C6214A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				056C58C71B1898FF00C6214A /* PBXTargetDependency */,
+				056C58D61B1899D000C6214A /* PBXTargetDependency */,
+				056C58D81B1899D000C6214A /* PBXTargetDependency */,
+				056C58DA1B1899D000C6214A /* PBXTargetDependency */,
+			);
+			name = "CF++ Tests";
+			productName = "CF++ Tests";
+			productReference = 056C58BF1B1898FF00C6214A /* CF++ Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		056C881118C8B85F006260B3 /* CF++ Mac Static Library */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 056C881318C8B85F006260B3 /* Build configuration list for PBXNativeTarget "CF++ Mac Static Library" */;
@@ -434,6 +610,11 @@
 			attributes = {
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "XS-Labs";
+				TargetAttributes = {
+					056C58BE1B1898FF00C6214A = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
 			};
 			buildConfigurationList = 056C87C918C8B0F8006260B3 /* Build configuration list for PBXProject "CoreFoundation++" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -445,17 +626,62 @@
 			mainGroup = 056C87C518C8B0F8006260B3;
 			productRefGroup = 056C87CF18C8B0F8006260B3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 056C58AC1B18985500C6214A /* Products */;
+					ProjectRef = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				056C881118C8B85F006260B3 /* CF++ Mac Static Library */,
 				056C884918C8C547006260B3 /* CF++ Mac Dynamic Library */,
 				056C885E18C8C76B006260B3 /* CF++ Mac Framework */,
 				056C88A918C8C8AC006260B3 /* CF++ iOS Static Library */,
+				056C58BE1B1898FF00C6214A /* CF++ Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		056C58B31B18985500C6214A /* GoogleMock.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GoogleMock.framework;
+			remoteRef = 056C58B21B18985500C6214A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		056C58B51B18985500C6214A /* gmock.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = gmock.framework;
+			remoteRef = 056C58B41B18985500C6214A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		056C58B71B18985500C6214A /* gtest.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = gtest.framework;
+			remoteRef = 056C58B61B18985500C6214A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		056C58B91B18985500C6214A /* GoogleMockTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GoogleMockTests.xctest;
+			remoteRef = 056C58B81B18985500C6214A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
+		056C58BD1B1898FF00C6214A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		056C885D18C8C76B006260B3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -466,6 +692,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		056C58BB1B1898FF00C6214A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056C58F71B189C6A00C6214A /* CFPP-Pair.cpp in Sources */,
+				056C58F01B189C6A00C6214A /* CFPP-Array.cpp in Sources */,
+				056C58FE1B189C6A00C6214A /* CFPP-WriteStream.cpp in Sources */,
+				056C58FC1B189C6A00C6214A /* CFPP-URL.cpp in Sources */,
+				056C58F11B189C6A00C6214A /* CFPP-AutoPointer.cpp in Sources */,
+				056C58F91B189C6A00C6214A /* CFPP-ReadStream.cpp in Sources */,
+				056C58F51B189C6A00C6214A /* CFPP-Error.cpp in Sources */,
+				056C58FA1B189C6A00C6214A /* CFPP-String.cpp in Sources */,
+				056C58F41B189C6A00C6214A /* CFPP-Dictionary.cpp in Sources */,
+				056C58F31B189C6A00C6214A /* CFPP-Date.cpp in Sources */,
+				056C58F21B189C6A00C6214A /* CFPP-Data.cpp in Sources */,
+				056C58FD1B189C6A00C6214A /* CFPP-UUID.cpp in Sources */,
+				056C58DC1B189A2800C6214A /* CFPP-Boolean.cpp in Sources */,
+				056C58FB1B189C6A00C6214A /* CFPP-Type.cpp in Sources */,
+				056C58F61B189C6A00C6214A /* CFPP-Number.cpp in Sources */,
+				056C58F81B189C6A00C6214A /* CFPP-PropertyListType.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		056C880E18C8B85F006260B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -556,7 +805,68 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		056C58C71B1898FF00C6214A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 056C881118C8B85F006260B3 /* CF++ Mac Static Library */;
+			targetProxy = 056C58C61B1898FF00C6214A /* PBXContainerItemProxy */;
+		};
+		056C58D61B1899D000C6214A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMock;
+			targetProxy = 056C58D51B1899D000C6214A /* PBXContainerItemProxy */;
+		};
+		056C58D81B1899D000C6214A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = gmock;
+			targetProxy = 056C58D71B1899D000C6214A /* PBXContainerItemProxy */;
+		};
+		056C58DA1B1899D000C6214A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = gtest;
+			targetProxy = 056C58D91B1899D000C6214A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		056C58C91B1898FF00C6214A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"CF++/include",
+				);
+				INFOPLIST_FILE = "CF++ Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		056C58CA1B1898FF00C6214A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"CF++/include",
+				);
+				INFOPLIST_FILE = "CF++ Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		056C87D518C8B0F8006260B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -903,6 +1213,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		056C58C81B1898FF00C6214A /* Build configuration list for PBXNativeTarget "CF++ Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				056C58C91B1898FF00C6214A /* Debug */,
+				056C58CA1B1898FF00C6214A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		056C87C918C8B0F8006260B3 /* Build configuration list for PBXProject "CoreFoundation++" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
