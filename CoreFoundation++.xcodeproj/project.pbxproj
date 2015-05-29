@@ -223,6 +223,9 @@
 		056C58ED1B189C6A00C6214A /* CFPP-URL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-URL.cpp"; sourceTree = "<group>"; };
 		056C58EE1B189C6A00C6214A /* CFPP-UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-UUID.cpp"; sourceTree = "<group>"; };
 		056C58EF1B189C6A00C6214A /* CFPP-WriteStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-WriteStream.cpp"; sourceTree = "<group>"; };
+		056C59011B189E5700C6214A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		056C59021B189E5700C6214A /* travis-osx-after.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "travis-osx-after.sh"; sourceTree = "<group>"; };
+		056C59031B189E5700C6214A /* travis-osx-before.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "travis-osx-before.sh"; sourceTree = "<group>"; };
 		056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		056C881218C8B85F006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C884A18C8C547006260B3 /* libCF++.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libCF++.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,12 +353,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		056C59001B189E5700C6214A /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				056C59011B189E5700C6214A /* .gitignore */,
+				056C59021B189E5700C6214A /* travis-osx-after.sh */,
+				056C59031B189E5700C6214A /* travis-osx-before.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		056C87C518C8B0F8006260B3 = {
 			isa = PBXGroup;
 			children = (
 				056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */,
 				051F09651946EB70004B6E47 /* README.md */,
 				05BDE00918CDB2450028F339 /* CF++ */,
+				056C59001B189E5700C6214A /* Scripts */,
 				056C58C01B1898FF00C6214A /* CF++ Tests */,
 				056C880D18C8B50E006260B3 /* Frameworks */,
 				056C87CF18C8B0F8006260B3 /* Products */,
