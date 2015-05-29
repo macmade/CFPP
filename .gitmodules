@@ -1,0 +1,3 @@
+[submodule "Submodules/gmock-xcode"]
+	path = Submodules/gmock-xcode
+	url = https://github.com/macmade/gmock-xcode.git
