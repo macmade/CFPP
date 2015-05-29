@@ -2,6 +2,7 @@ CoreFoundation++
 ================
 
 [![Build Status](https://img.shields.io/travis/macmade/CFPP.svg?branch=master&style=flat)](https://travis-ci.org/macmade/CFPP)
+[![Coverage Status](https://img.shields.io/coveralls/macmade/CFPP.svg?branch=master&style=flat)](https://coveralls.io/r/macmade/CFPP?branch=master)
 [![Issues](http://img.shields.io/github/issues/macmade/CFPP.svg?style=flat)](https://github.com/macmade/CFPP/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?style=flat)
 ![License](https://img.shields.io/badge/license-boost-brightgreen.svg?style=flat)
