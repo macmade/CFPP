@@ -172,3 +172,157 @@ TEST( CFPP_Type, CastToCFMutableStringRef )
         ASSERT_TRUE( static_cast< CFMutableStringRef >( t2 ) == NULL );
     }
 }
+
+TEST( CFPP_Type, CastToCFURLRef )
+{
+    CF::URL     u( std::string( "http://www.xs-labs.com/" ) );
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = u;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFURLRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFURLRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFDataRef )
+{
+    CF::Data    d;
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = d;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFDataRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFDataRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFMutableDataRef )
+{
+    CF::Data    d;
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = d;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFMutableDataRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFMutableDataRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFArrayRef )
+{
+    CF::Array   a;
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = a;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFArrayRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFArrayRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFMutableArrayRef )
+{
+    CF::Array   a;
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = a;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFMutableArrayRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFMutableArrayRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFDictionaryRef )
+{
+    CF::Dictionary d;
+    CF::Boolean    b;
+    
+    {
+        const CF::Type & t1 = d;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFDictionaryRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFDictionaryRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFMutableDictionaryRef )
+{
+    CF::Dictionary d;
+    CF::Boolean    b;
+    
+    {
+        const CF::Type & t1 = d;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFMutableDictionaryRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFMutableDictionaryRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFUUIDRef )
+{
+    CF::UUID    u;
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = u;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFUUIDRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFUUIDRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFErrorRef )
+{
+    CF::Error   e( std::string( "Unknown error" ), 0 );
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = e;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFErrorRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFErrorRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFReadStreamRef )
+{
+    CF::ReadStream r( std::string( "/tmp/cf++.txt" ) );
+    CF::Boolean    b;
+    
+    {
+        const CF::Type & t1 = r;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFReadStreamRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFReadStreamRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFWriteStreamRef )
+{
+    CF::WriteStream w( std::string( "/tmp/cf++.txt" ) );
+    CF::Boolean     b;
+    
+    {
+        const CF::Type & t1 = w;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFWriteStreamRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFWriteStreamRef >( t2 ) == NULL );
+    }
+}
