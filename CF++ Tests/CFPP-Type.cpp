@@ -38,7 +38,81 @@
 
 using namespace testing;
 
-TEST( CFPP_Type, Foo )
+TEST( CFPP_Type, OperatorEqual )
 {
-    ASSERT_EQ( 1, 1 );
+    int         x;
+    long        y;
+    CFNumberRef cfN1;
+    CFNumberRef cfN2;
+    CF::Number  n1;
+    CF::Number  n2;
+    
+    x    = 0;
+    y    = 0;
+    cfN1 = CFNumberCreate( NULL, kCFNumberIntType,  &x );
+    cfN2 = CFNumberCreate( NULL, kCFNumberLongType, &y );
+    n1   = cfN1;
+    n2   = cfN2;
+    
+    CFRelease( n1 );
+    CFRelease( n2 );
+    
+    {
+        const CF::Type & t1 = n1;
+        const CF::Type & t2 = n2;
+        
+        ASSERT_EQ( t1, t2 );
+    }
+}
+
+TEST( CFPP_Type, OperatorNotEqual )
+{
+    int         x;
+    long        y;
+    CFNumberRef cfN1;
+    CFNumberRef cfN2;
+    CF::Number  n1;
+    CF::Number  n2;
+    
+    x    = 0;
+    y    = 1;
+    cfN1 = CFNumberCreate( NULL, kCFNumberIntType,  &x );
+    cfN2 = CFNumberCreate( NULL, kCFNumberLongType, &y );
+    n1   = cfN1;
+    n2   = cfN2;
+    
+    CFRelease( n1 );
+    CFRelease( n2 );
+    
+    {
+        const CF::Type & t1 = n1;
+        const CF::Type & t2 = n2;
+        
+        ASSERT_NE( t1, t2 );
+    }
+}
+
+TEST( CFPP_Type, CastToCFType )
+{
+    CF::Number n;
+    
+    {
+        const CF::Type & t = n;
+        
+        ASSERT_TRUE( static_cast< CFTypeRef >( t ) != NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFBoolean )
+{
+    CF::Boolean b;
+    CF::Number  n;
+    
+    {
+        const CF::Type & t1 = b;
+        const CF::Type & t2 = n;
+        
+        ASSERT_TRUE( static_cast< CFBooleanRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFBooleanRef >( t2 ) == NULL );
+    }
 }
