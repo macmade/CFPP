@@ -92,7 +92,7 @@ TEST( CFPP_Type, OperatorNotEqual )
     }
 }
 
-TEST( CFPP_Type, CastToCFType )
+TEST( CFPP_Type, CastToCFTypeRef )
 {
     CF::Number n;
     
@@ -103,7 +103,7 @@ TEST( CFPP_Type, CastToCFType )
     }
 }
 
-TEST( CFPP_Type, CastToCFBoolean )
+TEST( CFPP_Type, CastToCFBooleanRef )
 {
     CF::Boolean b;
     CF::Number  n;
@@ -114,5 +114,61 @@ TEST( CFPP_Type, CastToCFBoolean )
         
         ASSERT_TRUE( static_cast< CFBooleanRef >( t1 ) != NULL );
         ASSERT_TRUE( static_cast< CFBooleanRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFNumberRef )
+{
+    CF::Number  n;
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = n;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFNumberRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFNumberRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFDateRef )
+{
+    CF::Date    d;
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = d;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFDateRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFDateRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFStringRef )
+{
+    CF::String  s;
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = s;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFStringRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFStringRef >( t2 ) == NULL );
+    }
+}
+
+TEST( CFPP_Type, CastToCFMutableStringRef )
+{
+    CF::String  s;
+    CF::Boolean b;
+    
+    {
+        const CF::Type & t1 = s;
+        const CF::Type & t2 = b;
+        
+        ASSERT_TRUE( static_cast< CFMutableStringRef >( t1 ) != NULL );
+        ASSERT_TRUE( static_cast< CFMutableStringRef >( t2 ) == NULL );
     }
 }
