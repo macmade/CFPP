@@ -40,6 +40,7 @@
 		056C58FC1B189C6A00C6214A /* CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58ED1B189C6A00C6214A /* CFPP-URL.cpp */; };
 		056C58FD1B189C6A00C6214A /* CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58EE1B189C6A00C6214A /* CFPP-UUID.cpp */; };
 		056C58FE1B189C6A00C6214A /* CFPP-WriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056C58EF1B189C6A00C6214A /* CFPP-WriteStream.cpp */; };
+		056C5A0C1B19346D00C6214A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		059DBCB81B14DC500014D9A1 /* CFPP-ReadStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB41B14DB460014D9A1 /* CFPP-ReadStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -269,6 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056C5A0C1B19346D00C6214A /* CoreFoundation.framework in Frameworks */,
 				056C58C51B1898FF00C6214A /* libCF++.a in Frameworks */,
 				056C58D31B1899C700C6214A /* GoogleMock.framework in Frameworks */,
 				056C58D21B1899C700C6214A /* gmock.framework in Frameworks */,
