@@ -87,7 +87,7 @@ namespace CF
     
     Type::operator CFMutableStringRef () const
     {
-        return ( this->IsDictionary() ) ? static_cast< CFMutableStringRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsString() ) ? static_cast< CFMutableStringRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
     }
     
     Type::operator CFURLRef () const
