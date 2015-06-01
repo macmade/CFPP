@@ -262,7 +262,7 @@ namespace CF
     
     bool Type::IsReadStream( void ) const
     {
-        return this->GetTypeID() == CFWriteStreamGetTypeID();
+        return this->GetTypeID() == CFReadStreamGetTypeID();
     }
     
     bool Type::IsWriteStream( void ) const

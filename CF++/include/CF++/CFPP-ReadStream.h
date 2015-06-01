@@ -38,7 +38,7 @@
 
 namespace CF
 {
-    class CFPP_EXPORT ReadStream
+    class CFPP_EXPORT ReadStream: public Type
     {
         public:
             

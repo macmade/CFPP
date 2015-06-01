@@ -38,7 +38,7 @@
 
 namespace CF
 {
-    class CFPP_EXPORT WriteStream
+    class CFPP_EXPORT WriteStream: public Type
     {
         public:
             
