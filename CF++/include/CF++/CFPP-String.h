@@ -36,8 +36,6 @@
 #ifndef CFPP_STRING_H
 #define CFPP_STRING_H
 
-#include <CF++/CFPP-PropertyListType.h>
-
 namespace CF
 {
     class CFPP_EXPORT String: public PropertyListType< String >

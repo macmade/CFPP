@@ -36,8 +36,6 @@
 #ifndef CFPP_ERROR_H
 #define CFPP_ERROR_H
 
-#include <CF++/CFPP-Type.h>
-
 namespace CF
 {
     class CFPP_EXPORT Error: public Type

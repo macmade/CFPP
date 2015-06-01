@@ -36,8 +36,6 @@
 #ifndef CFPP_UUID_H
 #define CFPP_UUID_H
 
-#include <CF++/CFPP-Type.h>
-
 namespace CF
 {
     class CFPP_EXPORT UUID: public Type

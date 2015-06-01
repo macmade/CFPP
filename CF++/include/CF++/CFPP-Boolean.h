@@ -36,8 +36,6 @@
 #ifndef CFPP_BOOLEAN_H
 #define CFPP_BOOLEAN_H
 
-#include <CF++/CFPP-PropertyListType.h>
-
 namespace CF
 {
     class CFPP_EXPORT Boolean: public PropertyListType< Boolean >

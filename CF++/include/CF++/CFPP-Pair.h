@@ -36,9 +36,6 @@
 #ifndef CFPP_PAIR_H
 #define CFPP_PAIR_H
 
-#include <CF++/CFPP-String.h>
-#include <CF++/CFPP-Number.h>
-
 namespace CF
 {
     class CFPP_EXPORT Pair

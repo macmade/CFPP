@@ -36,9 +36,6 @@
 #ifndef CFPP_DICTIONARY_H
 #define CFPP_DICTIONARY_H
 
-#include <CF++/CFPP-PropertyListType.h>
-#include <CF++/CFPP-Pair.h>
-#include <CF++/CFPP-String.h>
 #include <map>
 
 namespace CF

@@ -36,8 +36,6 @@
 #ifndef CFPP_DATA_H
 #define CFPP_DATA_H
 
-#include <CF++/CFPP-PropertyListType.h>
-
 namespace CF
 {
     class CFPP_EXPORT Data: public PropertyListType< Data >

@@ -36,7 +36,6 @@
 #ifndef CFPP_NUMBER_H
 #define CFPP_NUMBER_H
 
-#include <CF++/CFPP-PropertyListType.h>
 #include <stdint.h>
 
 namespace CF

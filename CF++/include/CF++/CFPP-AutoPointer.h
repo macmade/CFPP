@@ -36,9 +36,6 @@
 #ifndef CFPP_AUTO_POINTER_H
 #define CFPP_AUTO_POINTER_H
 
-#include <CF++/CFPP-PropertyListType.h>
-#include <CF++/CFPP-String.h>
-#include <CF++/CFPP-Number.h>
 #include <vector>
 
 namespace CF

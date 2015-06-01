@@ -36,13 +36,6 @@
 #ifndef CFPP_PROPERTY_LIST_TYPE_DEFINITION_H
 #define CFPP_PROPERTY_LIST_TYPE_DEFINITION_H
 
-#include <CF++/CFPP-PropertyListType.h>
-#include <CF++/CFPP-Data.h>
-#include <CF++/CFPP-URL.h>
-#include <CF++/CFPP-ReadStream.h>
-#include <CF++/CFPP-WriteStream.h>
-#include <CF++/CFPP-AutoPointer.h>
-
 namespace CF
 {
     template < class T >

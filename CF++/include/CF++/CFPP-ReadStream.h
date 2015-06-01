@@ -36,10 +36,6 @@
 #ifndef CFPP_READ_STREAM_H
 #define CFPP_READ_STREAM_H
 
-#include <CF++/CFPP-Error.h>
-#include <CF++/CFPP-Data.h>
-#include <CF++/CFPP-AutoPointer.h>
-
 namespace CF
 {
     class CFPP_EXPORT ReadStream

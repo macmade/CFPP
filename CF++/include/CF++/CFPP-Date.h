@@ -36,8 +36,6 @@
 #ifndef CFPP_DATE_H
 #define CFPP_DATE_H
 
-#include <CF++/CFPP-PropertyListType.h>
-
 namespace CF
 {
     class CFPP_EXPORT Date: public PropertyListType< Date >

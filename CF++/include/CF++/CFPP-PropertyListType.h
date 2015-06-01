@@ -36,8 +36,6 @@
 #ifndef CFPP_PROPERTY_LIST_TYPE_H
 #define CFPP_PROPERTY_LIST_TYPE_H
 
-#include <CF++/CFPP-Type.h>
-
 namespace CF
 {
     class Data;

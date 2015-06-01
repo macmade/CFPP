@@ -36,8 +36,6 @@
 #ifndef CFPP_URL_H
 #define CFPP_URL_H
 
-#include <CF++/CFPP-Type.h>
-
 namespace CF
 {
     class CFPP_EXPORT URL: public Type
