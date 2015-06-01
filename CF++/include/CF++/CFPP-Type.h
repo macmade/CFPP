@@ -55,6 +55,7 @@ namespace CF
             operator CFNumberRef            () const;
             operator CFDateRef              () const;
             operator CFStringRef            () const;
+            operator CFMutableStringRef     () const;
             operator CFURLRef               () const;
             operator CFDataRef              () const;
             operator CFMutableDataRef       () const;
@@ -62,6 +63,10 @@ namespace CF
             operator CFMutableArrayRef      () const;
             operator CFDictionaryRef        () const;
             operator CFMutableDictionaryRef () const;
+            operator CFUUIDRef              () const;
+            operator CFErrorRef             () const;
+            operator CFReadStreamRef        () const;
+            operator CFWriteStreamRef       () const;
             
             std::string Description( void ) const;
             CFHashCode  Hash( void ) const;
@@ -77,6 +82,10 @@ namespace CF
             bool IsData( void ) const;
             bool IsArray( void ) const;
             bool IsDictionary( void ) const;
+            bool IsUUID( void ) const;
+            bool IsError( void ) const;
+            bool IsReadStream( void ) const;
+            bool IsWriteStream( void ) const;
             
             friend std::ostream & operator << ( std::ostream & os, const Type & obj );
     };

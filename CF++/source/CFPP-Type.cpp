@@ -85,6 +85,11 @@ namespace CF
         return ( this->IsString() ) ? static_cast< CFStringRef >( this->GetCFObject() ) : NULL;
     }
     
+    Type::operator CFMutableStringRef () const
+    {
+        return ( this->IsDictionary() ) ? static_cast< CFMutableStringRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+    }
+    
     Type::operator CFURLRef () const
     {
         return ( this->IsURL() ) ? static_cast< CFURLRef >( this->GetCFObject() ) : NULL;
@@ -97,7 +102,7 @@ namespace CF
     
     Type::operator CFMutableDataRef () const
     {
-        return ( this->IsData() ) ? reinterpret_cast< CFMutableDataRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsData() ) ? static_cast< CFMutableDataRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
     }
     
     Type::operator CFArrayRef () const
@@ -107,7 +112,7 @@ namespace CF
     
     Type::operator CFMutableArrayRef () const
     {
-        return ( this->IsArray() ) ? reinterpret_cast< CFMutableArrayRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsArray() ) ? static_cast< CFMutableArrayRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
     }
     
     Type::operator CFDictionaryRef () const
@@ -117,7 +122,27 @@ namespace CF
     
     Type::operator CFMutableDictionaryRef () const
     {
-        return ( this->IsDictionary() ) ? reinterpret_cast< CFMutableDictionaryRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsDictionary() ) ? static_cast< CFMutableDictionaryRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+    }
+    
+    Type::operator CFUUIDRef () const
+    {
+        return ( this->IsUUID() ) ? static_cast< CFUUIDRef >( this->GetCFObject() ) : NULL;
+    }
+    
+    Type::operator CFErrorRef () const
+    {
+        return ( this->IsError() ) ? static_cast< CFErrorRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+    }
+    
+    Type::operator CFReadStreamRef () const
+    {
+        return ( this->IsReadStream() ) ? static_cast< CFReadStreamRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+    }
+    
+    Type::operator CFWriteStreamRef () const
+    {
+        return ( this->IsWriteStream() ) ? static_cast< CFWriteStreamRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
     }
     
     std::string Type::Description( void ) const
@@ -223,6 +248,26 @@ namespace CF
     bool Type::IsDictionary( void ) const
     {
         return this->GetTypeID() == CFDictionaryGetTypeID();
+    }
+    
+    bool Type::IsUUID( void ) const
+    {
+        return this->GetTypeID() == CFUUIDGetTypeID();
+    }
+    
+    bool Type::IsError( void ) const
+    {
+        return this->GetTypeID() == CFErrorGetTypeID();
+    }
+    
+    bool Type::IsReadStream( void ) const
+    {
+        return this->GetTypeID() == CFWriteStreamGetTypeID();
+    }
+    
+    bool Type::IsWriteStream( void ) const
+    {
+        return this->GetTypeID() == CFWriteStreamGetTypeID();
     }
     
     void Type::Show( void ) const
