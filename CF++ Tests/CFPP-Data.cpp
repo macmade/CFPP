@@ -37,8 +37,3 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
-
-TEST( CFPP_Data, Foo )
-{
-    ASSERT_EQ( 1, 1 );
-}
