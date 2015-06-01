@@ -42,9 +42,17 @@
 #include <vector>
 
 #if defined( __cplusplus ) && ( __cplusplus > 199711L || ( defined( _MSC_VER ) && _MSC_VER >= 1800 ) )
-    
-    #define CFPP_HAS_CPP11  1
-    
+#define CFPP_HAS_CPP11  1
+#endif
+
+#ifdef _WIN32
+#ifdef CFPP_DLL_BUILD
+#define CFPP_EXPORT __declspec( dllexport )
+#else
+#define CFPP_EXPORT __declspec( dllimport )
+#endif
+#else
+#define CFPP_EXPORT     
 #endif
 
 #include <CF++/CFPP-Type.h>

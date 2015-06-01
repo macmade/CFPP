@@ -40,7 +40,7 @@
 
 namespace CF
 {
-    class UUID: public Type
+    class CFPP_EXPORT UUID: public Type
     {
         public:
             

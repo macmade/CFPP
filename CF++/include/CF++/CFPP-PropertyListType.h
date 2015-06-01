@@ -50,7 +50,7 @@ namespace CF
     PropertyListFormat;
     
     template < class T >
-    class PropertyListType: public Type
+    class CFPP_EXPORT PropertyListType: public Type
     {
         public:
             

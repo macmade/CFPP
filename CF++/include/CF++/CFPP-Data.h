@@ -40,7 +40,7 @@
 
 namespace CF
 {
-    class Data: public PropertyListType< Data >
+    class CFPP_EXPORT Data: public PropertyListType< Data >
     {
         public:
             

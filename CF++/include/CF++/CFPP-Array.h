@@ -43,7 +43,7 @@
 
 namespace CF
 {
-    class Array: public PropertyListType< Array >
+    class CFPP_EXPORT Array: public PropertyListType< Array >
     {
         public:
             

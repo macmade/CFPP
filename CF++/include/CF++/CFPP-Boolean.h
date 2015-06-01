@@ -40,7 +40,7 @@
 
 namespace CF
 {
-    class Boolean: public PropertyListType< Boolean >
+    class CFPP_EXPORT Boolean: public PropertyListType< Boolean >
     {
         public:
             

@@ -43,7 +43,7 @@
 
 namespace CF
 {
-    class Dictionary: public PropertyListType< Dictionary >
+    class CFPP_EXPORT Dictionary: public PropertyListType< Dictionary >
     {
         public:
             

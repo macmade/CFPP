@@ -40,7 +40,7 @@
 
 namespace CF
 {
-    class String: public PropertyListType< String >
+    class CFPP_EXPORT String: public PropertyListType< String >
     {
         public:
             

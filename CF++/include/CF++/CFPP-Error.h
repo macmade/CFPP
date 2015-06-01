@@ -40,7 +40,7 @@
 
 namespace CF
 {
-    class Error: public Type
+    class CFPP_EXPORT Error: public Type
     {
         public:
             

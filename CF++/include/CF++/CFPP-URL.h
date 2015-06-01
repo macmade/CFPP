@@ -40,7 +40,7 @@
 
 namespace CF
 {
-    class URL: public Type
+    class CFPP_EXPORT URL: public Type
     {
         public:
             
