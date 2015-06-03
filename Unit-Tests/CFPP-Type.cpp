@@ -278,3 +278,135 @@ TEST( CFPP_Type, IsValid )
     ASSERT_TRUE(  t1.IsValid() );
     ASSERT_FALSE( t2.IsValid() );
 }
+
+TEST( CFPP_Type, IsBoolean )
+{
+    CF::Boolean o1;
+    CF::Number  o2;
+    CF::Type  & t1 = o1;
+    CF::Type  & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsBoolean() );
+    ASSERT_FALSE( t2.IsBoolean() );
+}
+
+TEST( CFPP_Type, IsNumber )
+{
+    CF::Number  o1;
+    CF::Boolean o2;
+    CF::Type  & t1 = o1;
+    CF::Type  & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsNumber() );
+    ASSERT_FALSE( t2.IsNumber() );
+}
+
+TEST( CFPP_Type, IsDate )
+{
+    CF::Date    o1;
+    CF::Boolean o2;
+    CF::Type  & t1 = o1;
+    CF::Type  & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsDate() );
+    ASSERT_FALSE( t2.IsDate() );
+}
+
+TEST( CFPP_Type, IsString )
+{
+    CF::String  o1;
+    CF::Boolean o2;
+    CF::Type  & t1 = o1;
+    CF::Type  & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsString() );
+    ASSERT_FALSE( t2.IsString() );
+}
+
+TEST( CFPP_Type, IsURL )
+{
+    CF::URL     o1;
+    CF::Boolean o2;
+    CF::Type  & t1 = o1;
+    CF::Type  & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsURL() );
+    ASSERT_FALSE( t2.IsURL() );
+}
+
+TEST( CFPP_Type, IsData )
+{
+    CF::Data    o1;
+    CF::Boolean o2;
+    CF::Type  & t1 = o1;
+    CF::Type  & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsData() );
+    ASSERT_FALSE( t2.IsData() );
+}
+
+TEST( CFPP_Type, IsArray )
+{
+    CF::Array   o1;
+    CF::Boolean o2;
+    CF::Type  & t1 = o1;
+    CF::Type  & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsArray() );
+    ASSERT_FALSE( t2.IsArray() );
+}
+
+TEST( CFPP_Type, IsDictionary )
+{
+    CF::Dictionary o1;
+    CF::Boolean    o2;
+    CF::Type     & t1 = o1;
+    CF::Type     & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsDictionary() );
+    ASSERT_FALSE( t2.IsDictionary() );
+}
+
+TEST( CFPP_Type, IsUUID )
+{
+    CF::UUID    o1;
+    CF::Boolean o2;
+    CF::Type  & t1 = o1;
+    CF::Type  & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsUUID() );
+    ASSERT_FALSE( t2.IsUUID() );
+}
+
+TEST( CFPP_Type, IsError )
+{
+    CF::Error   o1;
+    CF::Boolean o2;
+    CF::Type  & t1 = o1;
+    CF::Type  & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsError() );
+    ASSERT_FALSE( t2.IsError() );
+}
+
+TEST( CFPP_Type, IsReadStream )
+{
+    CF::ReadStream o1;
+    CF::Boolean    o2;
+    CF::Type     & t1 = o1;
+    CF::Type     & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsReadStream() );
+    ASSERT_FALSE( t2.IsReadStream() );
+}
+
+TEST( CFPP_Type, IsWriteStream )
+{
+    CF::WriteStream o1;
+    CF::Boolean     o2;
+    CF::Type      & t1 = o1;
+    CF::Type      & t2 = o2;
+    
+    ASSERT_TRUE(  t1.IsWriteStream() );
+    ASSERT_FALSE( t2.IsWriteStream() );
+}
