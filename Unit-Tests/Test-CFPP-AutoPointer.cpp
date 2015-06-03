@@ -37,3 +37,39 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_AutoPointer, CTOR )
+{
+    CF::AutoPointer p;
+    
+    ASSERT_TRUE( p.GetCFObject() == NULL );
+}
+
+TEST( CFPP_AutoPointer, CTOR_CFType )
+{
+    CFStringRef s;
+    CFIndex     i;
+    
+    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    i = CFGetRetainCount( s );
+    
+    CF::AutoPointer p( s );
+    
+    ASSERT_EQ( p.GetCFObject(), s );
+    ASSERT_EQ( CFGetRetainCount( p.GetCFObject() ), i );
+}
+
+TEST( CFPP_AutoPointer, CCTOR )
+{
+    CFStringRef s;
+    CFIndex     i;
+    
+    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    i = CFGetRetainCount( s );
+    
+    CF::AutoPointer p1( s );
+    CF::AutoPointer p2( p1 );
+    
+    ASSERT_EQ( p1.GetCFObject(), p2.GetCFObject() );
+    ASSERT_EQ( CFGetRetainCount( p2.GetCFObject() ), i + 1 );
+}
