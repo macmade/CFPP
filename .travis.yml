@@ -1,6 +1,6 @@
 language: objective-c
 xcode_project: CoreFoundation++.xcodeproj
-xcode_scheme: CF++
+xcode_scheme: CF++ Mac Static Library
 before_install:
 - bash Scripts/travis-before.sh
 after_success:
