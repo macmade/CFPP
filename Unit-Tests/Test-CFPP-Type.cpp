@@ -259,6 +259,14 @@ TEST( CFPP_Type, Hash )
     ASSERT_TRUE( t.Hash() == CFHash( t.GetCFObject() ) );
 }
 
+TEST( CFPP_Type, Show )
+{
+    CF::Array o;
+    
+    ASSERT_NO_THROW( o.Show() );
+    ASSERT_NO_FATAL_FAILURE( o.Show() );
+}
+
 TEST( CFPP_Type, GetRetainCount )
 {
     CF::Array  o;
@@ -409,4 +417,15 @@ TEST( CFPP_Type, IsWriteStream )
     
     ASSERT_TRUE(  t1.IsWriteStream() );
     ASSERT_FALSE( t2.IsWriteStream() );
+}
+
+TEST( CFPP_Type, STDOstreamFriend )
+{
+    CF::Array         o;
+    std::stringstream ss;
+    
+    ss << o;
+    
+    ASSERT_TRUE( ss.str().length() > 0 );
+    ASSERT_TRUE( ss.str().find( "<CFArray 0x" ) == 0 );
 }
