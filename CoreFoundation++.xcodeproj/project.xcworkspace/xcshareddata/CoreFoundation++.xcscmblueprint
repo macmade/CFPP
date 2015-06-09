@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B1764083CD350F39D0754DBF900B411F37563D7B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A59B79241FF48B87B8A2D6239F13C873F14163E3" : 0,
+    "B1764083CD350F39D0754DBF900B411F37563D7B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0F11F6D1-5DBA-4A16-BB09-9B71B34927A5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A59B79241FF48B87B8A2D6239F13C873F14163E3" : "CFPPSubmodules\/gmock-xcode",
+    "B1764083CD350F39D0754DBF900B411F37563D7B" : "CFPP"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CoreFoundation++",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CoreFoundation++.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/macmade\/gmock-xcode.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A59B79241FF48B87B8A2D6239F13C873F14163E3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:macmade\/CFPP.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B1764083CD350F39D0754DBF900B411F37563D7B"
+    }
+  ]
+}

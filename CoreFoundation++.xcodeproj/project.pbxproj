@@ -616,7 +616,7 @@
 		056C87C618C8B0F8006260B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					056C58BE1B1898FF00C6214A = {
@@ -882,6 +882,7 @@
 				);
 				INFOPLIST_FILE = "Unit-Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -902,6 +903,7 @@
 				);
 				INFOPLIST_FILE = "Unit-Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1057,6 +1059,7 @@
 					"CF++/include",
 				);
 				INFOPLIST_FILE = "CF++/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1097,6 +1100,7 @@
 				);
 				INFOPLIST_FILE = "Unit-Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = GCov;
@@ -1154,6 +1158,7 @@
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1385,6 +1390,7 @@
 					"CF++/include",
 				);
 				INFOPLIST_FILE = "CF++/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1404,6 +1410,7 @@
 					"CF++/include",
 				);
 				INFOPLIST_FILE = "CF++/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
 				WRAPPER_EXTENSION = framework;
 			};
