@@ -40,6 +40,6 @@
 #include <string>
 #include <iostream>
 
-#include "Clang-Warnings.h"
+#include "../Submodules/SeriousCode/clang-warnings.h"
 
 #endif /* CFPP_PREFIX_H */

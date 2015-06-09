@@ -237,7 +237,6 @@
 		059DBCB71B14DB640014D9A1 /* CFPP-WriteStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-WriteStream.cpp"; sourceTree = "<group>"; };
 		05A3A76C18CF00D200F7E0BC /* CFPP-Error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Error.h"; sourceTree = "<group>"; };
 		05A3A76D18CF00DF00F7E0BC /* CFPP-Error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Error.cpp"; sourceTree = "<group>"; };
-		05BDE00A18CDB2450028F339 /* Clang-Warnings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Clang-Warnings.h"; sourceTree = "<group>"; };
 		05BDE00D18CDB2450028F339 /* CFPP-Array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Array.h"; sourceTree = "<group>"; };
 		05BDE00E18CDB2450028F339 /* CFPP-Boolean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Boolean.h"; sourceTree = "<group>"; };
 		05BDE00F18CDB2450028F339 /* CFPP-Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFPP-Data.h"; sourceTree = "<group>"; };
@@ -391,7 +390,6 @@
 		05BDE00918CDB2450028F339 /* CF++ */ = {
 			isa = PBXGroup;
 			children = (
-				05BDE00A18CDB2450028F339 /* Clang-Warnings.h */,
 				05BDE00B18CDB2450028F339 /* include */,
 				05BDE01818CDB2450028F339 /* Info.plist */,
 				05BDE01918CDB2450028F339 /* PrefixHeader.pch */,
