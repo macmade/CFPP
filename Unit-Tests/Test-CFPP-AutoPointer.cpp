@@ -149,3 +149,21 @@ TEST( CFPP_AutoPointer, GetCFObject )
     
     ASSERT_EQ( p.GetCFObject(), s );
 }
+
+TEST( CFPP_AutoPointer, As )
+{
+    CFStringRef s;
+    CF::String  s1;
+    CF::String  s2;
+    
+    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    
+    CF::AutoPointer p( s );
+    
+    s1 = p.As< CFStringRef >();
+    s2 = p.As< CF::String >();
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s2.IsValid() );
+    ASSERT_TRUE( s1 == s2 );
+}
