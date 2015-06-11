@@ -37,3 +37,39 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_Boolean, CTOR )
+{
+    CF::Boolean b;
+    
+    ASSERT_FALSE( b.GetValue() );
+}
+
+TEST( CFPP_Boolean, CTOR_CFType )
+{
+    CFBooleanRef b;
+    CFStringRef  s;
+    
+    b = kCFBooleanTrue;
+    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    
+    {
+        CF::Boolean b1( static_cast< CFTypeRef >( b ) );
+        CF::Boolean b2( static_cast< CFTypeRef >( s ) );
+        
+        ASSERT_TRUE( b1.GetValue() );
+        ASSERT_FALSE( b2.GetValue() );
+    }
+    
+    CFRelease( s );
+}
+
+TEST( CFPP_Boolean, CTOR_CFBoolean )
+{
+    CF::Boolean b1( kCFBooleanTrue );
+    CF::Boolean b2( kCFBooleanFalse );
+    
+    ASSERT_TRUE( b1.GetValue() );
+    ASSERT_FALSE( b2.GetValue() );
+    
+}
