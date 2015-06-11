@@ -53,7 +53,7 @@ TEST( CFPP_AutoPointer, CTOR_CFType )
     s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
     i = CFGetRetainCount( s );
     
-    CF::AutoPointer p( s );
+    CF::AutoPointer p( static_cast< CFTypeRef >( s ) );
     
     ASSERT_EQ( p.GetCFObject(), s );
     ASSERT_EQ( p.GetRetainCount(), i );
