@@ -46,7 +46,12 @@ namespace CF
         URL         url;
         ReadStream  stream;
         AutoPointer ap;
-        
+
+        if( path.length() == 0 )
+        {
+            return object;
+        }
+
         url = URL::FileSystemURL( path );
         
         if( stream.Open( url ) == false )
