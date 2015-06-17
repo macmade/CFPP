@@ -56,7 +56,7 @@ namespace CF
             isDir
         );
         
-        return url.As< CFURLRef >();
+        return url.As< CF::URL >();
     }
     
     URL URL::FileSystemURL( CFTypeRef path, bool isDir )
