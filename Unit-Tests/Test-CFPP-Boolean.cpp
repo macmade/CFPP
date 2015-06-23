@@ -40,9 +40,11 @@ using namespace testing;
 
 TEST( CFPP_Boolean, CTOR )
 {
-    CF::Boolean b;
+    CF::Boolean b1;
+    CF::Boolean b2( true );
     
-    ASSERT_FALSE( b.GetValue() );
+    ASSERT_FALSE( b1.GetValue() );
+    ASSERT_TRUE(  b2.GetValue() );
 }
 
 TEST( CFPP_Boolean, CTOR_CFType )
@@ -56,9 +58,11 @@ TEST( CFPP_Boolean, CTOR_CFType )
     {
         CF::Boolean b1( static_cast< CFTypeRef >( b ) );
         CF::Boolean b2( static_cast< CFTypeRef >( s ) );
+        CF::Boolean b3( static_cast< CFTypeRef >( NULL ) );
         
-        ASSERT_TRUE( b1.GetValue() );
+        ASSERT_TRUE(  b1.GetValue() );
         ASSERT_FALSE( b2.GetValue() );
+        ASSERT_FALSE( b3.GetValue() );
     }
     
     CFRelease( s );
@@ -68,8 +72,60 @@ TEST( CFPP_Boolean, CTOR_CFBoolean )
 {
     CF::Boolean b1( kCFBooleanTrue );
     CF::Boolean b2( kCFBooleanFalse );
+    CF::Boolean b3( static_cast< CFBooleanRef >( NULL ) );
     
-    ASSERT_TRUE( b1.GetValue() );
+    ASSERT_TRUE(  b1.GetValue() );
     ASSERT_FALSE( b2.GetValue() );
+    ASSERT_FALSE( b3.GetValue() );
+}
+
+TEST( CFPP_Boolean, CTOR_CFType_WithDefaultValue )
+{
+    CFBooleanRef b;
+    CFStringRef  s;
     
+    b = kCFBooleanTrue;
+    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    
+    {
+        CF::Boolean b1( static_cast< CFTypeRef >( b ), false );
+        CF::Boolean b2( static_cast< CFTypeRef >( s ), true );
+        CF::Boolean b3( static_cast< CFTypeRef >( NULL ), true );
+        
+        ASSERT_TRUE( b1.GetValue() );
+        ASSERT_TRUE( b2.GetValue() );
+        ASSERT_TRUE( b3.GetValue() );
+    }
+    
+    CFRelease( s );
+}
+
+TEST( CFPP_Boolean, CTOR_CFBoolean_WithDefaultValue )
+{
+    CF::Boolean b1( kCFBooleanTrue, false );
+    CF::Boolean b2( kCFBooleanFalse, true );
+    CF::Boolean b3( static_cast< CFBooleanRef >( NULL ), true );
+    
+    ASSERT_TRUE(  b1.GetValue() );
+    ASSERT_FALSE( b2.GetValue() );
+    ASSERT_TRUE(  b3.GetValue() );
+}
+
+TEST( CFPP_Boolean, CCTOR )
+{
+    CF::Boolean b1( CF::Boolean( true ) );
+    CF::Boolean b2( CF::Boolean( false ) );
+    
+    ASSERT_TRUE(  b1.GetValue() );
+    ASSERT_FALSE( b2.GetValue() );
+}
+
+TEST( CFPP_Boolean, MCTOR )
+{
+    CF::Boolean b1( true );
+    CF::Boolean b2( std::move( b1 ) );
+    
+    ASSERT_FALSE( b1.GetValue() );
+    ASSERT_FALSE( b1.IsValid() );
+    ASSERT_TRUE(  b2.GetValue() );
 }
