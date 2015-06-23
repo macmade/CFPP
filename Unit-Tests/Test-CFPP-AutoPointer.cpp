@@ -74,6 +74,23 @@ TEST( CFPP_AutoPointer, CCTOR )
     ASSERT_EQ( CFGetRetainCount( p2.GetCFObject() ), i + 1 );
 }
 
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_AutoPointer, MCTOR )
+{
+    CFStringRef s;
+    CFIndex     i;
+    
+    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    i = CFGetRetainCount( s );
+    
+    CF::AutoPointer p1( s );
+    CF::AutoPointer p2( std::move( p1 ) );
+    
+    ASSERT_EQ( p1.GetCFObject(), static_cast< CFTypeRef >( NULL ) );
+    ASSERT_EQ( p2.GetRetainCount(), i );
+}
+#endif
+
 TEST( CFPP_AutoPointer, DTOR )
 {
     CFStringRef s;
@@ -119,23 +136,27 @@ TEST( CFPP_AutoPointer, OperatorAssignCFType )
     CF::AutoPointer p;
     CFStringRef     s1;
     CFStringRef     s2;
+    CFIndex         i1;
+    CFIndex         i2;
     
     s1 = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    i1 = CFGetRetainCount( s1 );
     p  = s1;
     
     ASSERT_EQ( p.GetCFObject(), s1 );
-    ASSERT_EQ( p.GetRetainCount(), 1 );
+    ASSERT_EQ( p.GetRetainCount(), i1 );
     
     CFRetain( s1 );
     
-    ASSERT_EQ( CFGetRetainCount( s1 ), 2 );
+    ASSERT_EQ( p.GetRetainCount(), i1 + 1 );
     
     s2 = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    i2 = CFGetRetainCount( s2 );
     p  = s2;
     
     ASSERT_EQ( p.GetCFObject(), s2 );
-    ASSERT_EQ( p.GetRetainCount(), 1 );
-    ASSERT_EQ( CFGetRetainCount( s1 ), 1 );
+    ASSERT_EQ( p.GetRetainCount(), i2 );
+    ASSERT_EQ( CFGetRetainCount( s1 ), i1 );
     
     CFRelease( s1 );
 }
