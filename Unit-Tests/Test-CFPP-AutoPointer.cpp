@@ -167,9 +167,11 @@ TEST( CFPP_AutoPointer, GetTypeID )
     
     s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
     
-    CF::AutoPointer p( s );
+    CF::AutoPointer p1( s );
+    CF::AutoPointer p2;
     
-    ASSERT_EQ( p.GetTypeID(), CFStringGetTypeID() );
+    ASSERT_EQ( p1.GetTypeID(), CFStringGetTypeID() );
+    ASSERT_EQ( p2.GetTypeID(), static_cast< CFTypeID >( 0 ) );
 }
 
 TEST( CFPP_AutoPointer, GetCFObject )
