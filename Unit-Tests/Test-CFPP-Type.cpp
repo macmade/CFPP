@@ -261,10 +261,41 @@ TEST( CFPP_Type, Hash )
 
 TEST( CFPP_Type, Show )
 {
-    CF::Array o;
+    ASSERT_NO_THROW( CF::Array().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::Array().Show() );
     
-    ASSERT_NO_THROW( o.Show() );
-    ASSERT_NO_FATAL_FAILURE( o.Show() );
+    ASSERT_NO_THROW( CF::Boolean().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::Boolean().Show() );
+    
+    ASSERT_NO_THROW( CF::Data().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::Data().Show() );
+    
+    ASSERT_NO_THROW( CF::Date().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::Date().Show() );
+    
+    ASSERT_NO_THROW( CF::Dictionary().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::Dictionary().Show() );
+    
+    ASSERT_NO_THROW( CF::Error().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::Error().Show() );
+    
+    ASSERT_NO_THROW( CF::Number().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::Number().Show() );
+    
+    ASSERT_NO_THROW( CF::ReadStream().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::ReadStream().Show() );
+    
+    ASSERT_NO_THROW( CF::String().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::String().Show() );
+    
+    ASSERT_NO_THROW( CF::URL().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::URL().Show() );
+    
+    ASSERT_NO_THROW( CF::UUID().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::UUID().Show() );
+    
+    ASSERT_NO_THROW( CF::WriteStream().Show() );
+    ASSERT_NO_FATAL_FAILURE( CF::WriteStream().Show() );
 }
 
 TEST( CFPP_Type, GetRetainCount )

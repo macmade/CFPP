@@ -117,15 +117,27 @@ TEST( CFPP_AutoPointer, OperatorAssignAutoPointer )
 TEST( CFPP_AutoPointer, OperatorAssignCFType )
 {
     CF::AutoPointer p;
-    CFStringRef     s;
-    CFIndex         i;
+    CFStringRef     s1;
+    CFStringRef     s2;
     
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
-    i = CFGetRetainCount( s );
-    p = s;
+    s1 = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    p  = s1;
     
-    ASSERT_EQ( p.GetCFObject(), s );
-    ASSERT_EQ( p.GetRetainCount(), i );
+    ASSERT_EQ( p.GetCFObject(), s1 );
+    ASSERT_EQ( p.GetRetainCount(), 1 );
+    
+    CFRetain( s1 );
+    
+    ASSERT_EQ( CFGetRetainCount( s1 ), 2 );
+    
+    s2 = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    p  = s2;
+    
+    ASSERT_EQ( p.GetCFObject(), s2 );
+    ASSERT_EQ( p.GetRetainCount(), 1 );
+    ASSERT_EQ( CFGetRetainCount( s1 ), 1 );
+    
+    CFRelease( s1 );
 }
 
 TEST( CFPP_AutoPointer, GetTypeID )
