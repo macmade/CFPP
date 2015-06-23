@@ -133,16 +133,66 @@ TEST( CFPP_Boolean, MCTOR )
 }
 
 TEST( CFPP_Boolean, OperatorAssignBoolean )
-{}
+{
+    CF::Boolean b1;
+    CF::Boolean b2( true );
+    CF::Boolean b3( false );
+    
+    ASSERT_FALSE( b1.GetValue() );
+    
+    b1 = b2;
+    
+    ASSERT_TRUE( b1.GetValue() );
+    
+    b1 = b3;
+    
+    ASSERT_FALSE( b1.GetValue() );
+}
 
 TEST( CFPP_Boolean, OperatorAssignCFType )
-{}
+{
+    CF::Boolean b1;
+    
+    ASSERT_FALSE( b1.GetValue() );
+    
+    b1 = static_cast< CFTypeRef >( kCFBooleanTrue );
+    
+    ASSERT_TRUE( b1.GetValue() );
+    
+    b1 = static_cast< CFTypeRef >( kCFBooleanFalse );
+    
+    ASSERT_FALSE( b1.GetValue() );
+}
 
 TEST( CFPP_Boolean, OperatorAssignCFBoolean )
-{}
+{
+    CF::Boolean b1;
+    
+    ASSERT_FALSE( b1.GetValue() );
+    
+    b1 = kCFBooleanTrue;
+    
+    ASSERT_TRUE( b1.GetValue() );
+    
+    b1 = kCFBooleanFalse;
+    
+    ASSERT_FALSE( b1.GetValue() );
+}
 
 TEST( CFPP_Boolean, OperatorAssignBool )
-{}
+{
+    CF::Boolean b1;
+    
+    ASSERT_FALSE( b1.GetValue() );
+    
+    b1 = true;
+    
+    ASSERT_TRUE( b1.GetValue() );
+    
+    b1 = false;
+    
+    ASSERT_FALSE( b1.GetValue() );
+}
 
 TEST( CFPP_Boolean, OperatorEqualBoolean )
 {
