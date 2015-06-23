@@ -152,6 +152,7 @@ TEST( CFPP_Boolean, OperatorAssignBoolean )
 TEST( CFPP_Boolean, OperatorAssignCFType )
 {
     CF::Boolean b1;
+    CF::String  s( "hello, world" );
     
     ASSERT_FALSE( b1.GetValue() );
     
@@ -162,11 +163,20 @@ TEST( CFPP_Boolean, OperatorAssignCFType )
     b1 = static_cast< CFTypeRef >( kCFBooleanFalse );
     
     ASSERT_FALSE( b1.GetValue() );
+    
+    b1 = kCFBooleanTrue;
+    
+    ASSERT_TRUE( b1.GetValue() );
+    
+    b1 = static_cast< CFTypeRef >( s.GetCFObject() );
+    
+    ASSERT_FALSE( b1.GetValue() );
 }
 
 TEST( CFPP_Boolean, OperatorAssignCFBoolean )
 {
     CF::Boolean b1;
+    CF::String  s( "hello, world" );
     
     ASSERT_FALSE( b1.GetValue() );
     
@@ -175,6 +185,14 @@ TEST( CFPP_Boolean, OperatorAssignCFBoolean )
     ASSERT_TRUE( b1.GetValue() );
     
     b1 = kCFBooleanFalse;
+    
+    ASSERT_FALSE( b1.GetValue() );
+    
+    b1 = kCFBooleanTrue;
+    
+    ASSERT_TRUE( b1.GetValue() );
+    
+    b1 = static_cast< CFBooleanRef >( s.GetCFObject() );
     
     ASSERT_FALSE( b1.GetValue() );
 }
@@ -213,9 +231,10 @@ TEST( CFPP_Boolean, OperatorEqualCFType )
     
     ASSERT_TRUE(  b1 == static_cast< CFTypeRef >( kCFBooleanTrue ) );
     ASSERT_FALSE( b1 == static_cast< CFTypeRef >( kCFBooleanFalse ) );
+    ASSERT_FALSE( b1 == static_cast< CFTypeRef >( s.GetCFObject() ) );
     ASSERT_TRUE(  b2 == static_cast< CFTypeRef >( kCFBooleanFalse ) );
     ASSERT_FALSE( b2 == static_cast< CFTypeRef >( kCFBooleanTrue ) );
-    ASSERT_TRUE(  b2 != static_cast< CFTypeRef >( s.GetCFObject() ) );
+    ASSERT_FALSE( b2 == static_cast< CFTypeRef >( s.GetCFObject() ) );
 }
 
 TEST( CFPP_Boolean, OperatorEqualCFBoolean )
@@ -226,9 +245,10 @@ TEST( CFPP_Boolean, OperatorEqualCFBoolean )
     
     ASSERT_TRUE(  b1 == kCFBooleanTrue );
     ASSERT_FALSE( b1 == kCFBooleanFalse );
+    ASSERT_FALSE( b1 == static_cast< CFBooleanRef >( s.GetCFObject() ) );
     ASSERT_TRUE(  b2 == kCFBooleanFalse );
     ASSERT_FALSE( b2 == kCFBooleanTrue );
-    ASSERT_TRUE(  b2 != static_cast< CFBooleanRef >( s.GetCFObject() ) );
+    ASSERT_FALSE( b2 == static_cast< CFBooleanRef >( s.GetCFObject() ) );
 }
 
 TEST( CFPP_Boolean, OperatorEqualBool )
@@ -261,6 +281,7 @@ TEST( CFPP_Boolean, OperatorNotEqualCFType )
     
     ASSERT_TRUE(  b1 != static_cast< CFTypeRef >( kCFBooleanFalse ) );
     ASSERT_FALSE( b1 != static_cast< CFTypeRef >( kCFBooleanTrue ) );
+    ASSERT_TRUE(  b1 != static_cast< CFTypeRef >( s.GetCFObject() ) );
     ASSERT_TRUE(  b2 != static_cast< CFTypeRef >( kCFBooleanTrue ) );
     ASSERT_FALSE( b2 != static_cast< CFTypeRef >( kCFBooleanFalse ) );
     ASSERT_TRUE(  b2 != static_cast< CFTypeRef >( s.GetCFObject() ) );
@@ -274,6 +295,7 @@ TEST( CFPP_Boolean, OperatorNotEqualCFBoolean )
     
     ASSERT_TRUE(  b1 != kCFBooleanFalse );
     ASSERT_FALSE( b1 != kCFBooleanTrue );
+    ASSERT_TRUE(  b1 != static_cast< CFBooleanRef >( s.GetCFObject() ) );
     ASSERT_TRUE(  b2 != kCFBooleanTrue );
     ASSERT_FALSE( b2 != kCFBooleanFalse );
     ASSERT_TRUE(  b2 != static_cast< CFBooleanRef >( s.GetCFObject() ) );
