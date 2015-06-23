@@ -296,7 +296,7 @@ namespace CF
         {
             className = "CF::URL";
         }
-        else if( this->IsURL() )
+        else if( this->IsData() )
         {
             className = "CF::Data";
         }
@@ -307,6 +307,22 @@ namespace CF
         else if( this->IsDictionary() )
         {
             className = "CF::Dictionary";
+        }
+        else if( this->IsUUID() )
+        {
+            className = "CF::UUID";
+        }
+        else if( this->IsError() )
+        {
+            className = "CF::Error";
+        }
+        else if( this->IsReadStream() )
+        {
+            className = "CF::ReadStream";
+        }
+        else if( this->IsWriteStream() )
+        {
+            className = "CF::WriteStream";
         }
         
         std::cout << className << " - " << this->Description() << std::endl;
