@@ -113,11 +113,13 @@ TEST( CFPP_Boolean, CTOR_CFBoolean_WithDefaultValue )
 
 TEST( CFPP_Boolean, CCTOR )
 {
-    CF::Boolean b1( CF::Boolean( true ) );
-    CF::Boolean b2( CF::Boolean( false ) );
+    CF::Boolean b1( true );
+    CF::Boolean b2( false );
+    CF::Boolean b3( b1 );
+    CF::Boolean b4( b2 );
     
-    ASSERT_TRUE(  b1.GetValue() );
-    ASSERT_FALSE( b2.GetValue() );
+    ASSERT_TRUE(  b3.GetValue() );
+    ASSERT_FALSE( b4.GetValue() );
 }
 
 TEST( CFPP_Boolean, MCTOR )
