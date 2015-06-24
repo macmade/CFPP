@@ -79,7 +79,7 @@ TEST( CFPP_Boolean, CTOR_CFBoolean )
     ASSERT_FALSE( b3.GetValue() );
 }
 
-TEST( CFPP_Boolean, CTOR_CFType_WithDefaultValue )
+TEST( CFPP_Boolean, CTOR_CFType_DefaultValue )
 {
     CFBooleanRef b;
     CFStringRef  s;
@@ -100,7 +100,7 @@ TEST( CFPP_Boolean, CTOR_CFType_WithDefaultValue )
     CFRelease( s );
 }
 
-TEST( CFPP_Boolean, CTOR_CFBoolean_WithDefaultValue )
+TEST( CFPP_Boolean, CTOR_CFBoolean_DefaultValue )
 {
     CF::Boolean b1( kCFBooleanTrue, false );
     CF::Boolean b2( kCFBooleanFalse, true );
@@ -363,6 +363,9 @@ TEST( CFPP_Boolean, Swap )
 {
     CF::Boolean b1( true );
     CF::Boolean b2( false );
+    
+    ASSERT_EQ( b1.GetValue(), true );
+    ASSERT_EQ( b2.GetValue(), false );
     
     swap( b1, b2 );
     
