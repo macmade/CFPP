@@ -128,19 +128,72 @@ TEST( CFPP_String, OperatorNotEqualCChar )
 {}
 
 TEST( CFPP_String, OperatorPlusEqualString )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s += CF::String( "..." );
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world..." );
+    
+    s += CF::String();
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world..." );
+}
 
 TEST( CFPP_String, OperatorPlusEqualCFString )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s += CFSTR( "..." );
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world..." );
+    
+    ASSERT_NO_THROW(         s += static_cast< CFStringRef >( NULL ) );
+    ASSERT_NO_FATAL_FAILURE( s += static_cast< CFStringRef >( NULL ) );
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world..." );
+}
 
 TEST( CFPP_String, OperatorPlusEqualSTDString )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s += std::string( "..." );
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world..." );
+    
+    s += std::string( "" );
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world..." );
+}
 
 TEST( CFPP_String, OperatorPlusEqualChar )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s += const_cast< char * >( "..." );
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world..." );
+    
+    ASSERT_NO_THROW(         s += static_cast< char * >( NULL ) );
+    ASSERT_NO_FATAL_FAILURE( s += static_cast< char * >( NULL ) );
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world..." );
+}
 
 TEST( CFPP_String, OperatorPlusEqualCChar )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s += static_cast< const char * >( "..." );
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world..." );
+    
+    ASSERT_NO_THROW(         s += static_cast< const char * >( NULL ) );
+    ASSERT_NO_FATAL_FAILURE( s += static_cast< const char * >( NULL ) );
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world..." );
+}
 
 TEST( CFPP_String, OperatorSubscript )
 {
@@ -160,7 +213,12 @@ TEST( CFPP_String, OperatorSubscript )
 }
 
 TEST( CFPP_String, CastToSTDString )
-{}
+{
+    std::string s1( "hello, world" );
+    CF::String  s2( "hello, world" );
+    
+    ASSERT_TRUE( s1 == static_cast< std::string >( s2 ) );
+}
 
 TEST( CFPP_String, GetTypeID )
 {
@@ -170,25 +228,90 @@ TEST( CFPP_String, GetTypeID )
 }
 
 TEST( CFPP_String, GetCFObject )
-{}
+{
+    CF::String s1;
+    CF::String s2( "hello, world" );
+    
+    ASSERT_TRUE( s1.GetCFObject() != NULL );
+    ASSERT_TRUE( s2.GetCFObject() != NULL );
+    ASSERT_TRUE( CFEqual( s2.GetCFObject(), CFSTR( "hello, world" ) ) );
+}
 
 TEST( CFPP_String, HasPrefix_String )
-{}
+{
+    CF::String s1;
+    CF::String s2( "hello, world" );
+    
+    ASSERT_FALSE( s1.HasPrefix( CF::String( "hello" ) ) );
+    ASSERT_FALSE( s1.HasPrefix( CF::String( "" ) ) );
+    ASSERT_TRUE(  s2.HasPrefix( CF::String( "hello" ) ) );
+    ASSERT_FALSE( s2.HasPrefix( CF::String( "" ) ) );
+    ASSERT_FALSE( s2.HasPrefix( CF::String( "world" ) ) );
+}
 
 TEST( CFPP_String, HasPrefix_CFString )
-{}
+{
+    CF::String s1;
+    CF::String s2( "hello, world" );
+    
+    ASSERT_FALSE( s1.HasPrefix( CFSTR( "hello" ) ) );
+    ASSERT_FALSE( s1.HasPrefix( CFSTR( "" ) ) );
+    ASSERT_FALSE( s1.HasPrefix( static_cast< CFStringRef >( NULL ) ) );
+    ASSERT_TRUE(  s2.HasPrefix( CFSTR( "hello" ) ) );
+    ASSERT_FALSE( s2.HasPrefix( CFSTR( "" ) ) );
+    ASSERT_FALSE( s2.HasPrefix( CFSTR( "world" ) ) );
+    ASSERT_FALSE( s2.HasPrefix( static_cast< CFStringRef >( NULL ) ) );
+}
 
 TEST( CFPP_String, HasPrefix_STDString )
-{}
+{
+    CF::String s1;
+    CF::String s2( "hello, world" );
+    
+    ASSERT_FALSE( s1.HasPrefix( std::string( "hello" ) ) );
+    ASSERT_FALSE( s1.HasPrefix( std::string( "" ) ) );
+    ASSERT_TRUE(  s2.HasPrefix( std::string( "hello" ) ) );
+    ASSERT_FALSE( s2.HasPrefix( std::string( "" ) ) );
+    ASSERT_FALSE( s2.HasPrefix( std::string( "world" ) ) );
+}
 
 TEST( CFPP_String, HasSuffix_String )
-{}
+{
+    CF::String s1;
+    CF::String s2( "hello, world" );
+    
+    ASSERT_FALSE( s1.HasSuffix( CF::String( "world" ) ) );
+    ASSERT_FALSE( s1.HasSuffix( CF::String( "" ) ) );
+    ASSERT_TRUE(  s2.HasSuffix( CF::String( "world" ) ) );
+    ASSERT_FALSE( s2.HasSuffix( CF::String( "" ) ) );
+    ASSERT_FALSE( s2.HasSuffix( CF::String( "universe" ) ) );
+}
 
 TEST( CFPP_String, HasSuffix_CFString )
-{}
+{
+    CF::String s1;
+    CF::String s2( "hello, world" );
+    
+    ASSERT_FALSE( s1.HasSuffix( CFSTR( "world" ) ) );
+    ASSERT_FALSE( s1.HasSuffix( CFSTR( "" ) ) );
+    ASSERT_FALSE( s1.HasSuffix( static_cast< CFStringRef >( NULL ) ) );
+    ASSERT_TRUE(  s2.HasSuffix( CFSTR( "world" ) ) );
+    ASSERT_FALSE( s2.HasSuffix( CFSTR( "" ) ) );
+    ASSERT_FALSE( s2.HasSuffix( CFSTR( "universe" ) ) );
+    ASSERT_FALSE( s2.HasSuffix( static_cast< CFStringRef >( NULL ) ) );
+}
 
 TEST( CFPP_String, HasSuffix_STDString )
-{}
+{
+    CF::String s1;
+    CF::String s2( "hello, world" );
+    
+    ASSERT_FALSE( s1.HasSuffix( std::string( "world" ) ) );
+    ASSERT_FALSE( s1.HasSuffix( std::string( "" ) ) );
+    ASSERT_TRUE(  s2.HasSuffix( std::string( "world" ) ) );
+    ASSERT_FALSE( s2.HasSuffix( std::string( "" ) ) );
+    ASSERT_FALSE( s2.HasSuffix( std::string( "universe" ) ) );
+}
 
 TEST( CFPP_String, GetLength )
 {
