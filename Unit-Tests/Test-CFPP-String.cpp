@@ -37,3 +37,215 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_String, CTOR )
+{
+    CF::String s;
+    
+    ASSERT_EQ( s.GetValue(),  "" );
+    ASSERT_EQ( s.GetLength(), 0 );
+}
+
+TEST( CFPP_String, CTOR_CFType )
+{}
+
+TEST( CFPP_String, CTOR_CFString )
+{}
+
+TEST( CFPP_String, CTOR_CFType_DefaultValue_Encoding )
+{}
+
+TEST( CFPP_String, CTOR_CFString_DefaultValue_Encoding )
+{}
+
+TEST( CFPP_String, CTOR_STDString_Encoding )
+{}
+
+TEST( CFPP_String, CTOR_Char_Encoding )
+{}
+
+TEST( CFPP_String, CTOR_CChar_Encoding )
+{}
+
+TEST( CFPP_String, CCTOR )
+{}
+
+TEST( CFPP_String, MCTOR )
+{}
+
+TEST( CFPP_String, OperatorAssignString )
+{}
+
+TEST( CFPP_String, OperatorAssignCFType )
+{}
+
+TEST( CFPP_String, OperatorAssignCFString )
+{}
+
+TEST( CFPP_String, OperatorAssignSTDString )
+{}
+
+TEST( CFPP_String, OperatorAssignChar )
+{}
+
+TEST( CFPP_String, OperatorAssignCChar )
+{}
+
+TEST( CFPP_String, OperatorEqualString )
+{}
+
+TEST( CFPP_String, OperatorEqualCFType )
+{}
+
+TEST( CFPP_String, OperatorEqualCFString )
+{}
+
+TEST( CFPP_String, OperatorEqualSTDString )
+{}
+
+TEST( CFPP_String, OperatorEqualChar )
+{}
+
+TEST( CFPP_String, OperatorEqualCChar )
+{}
+
+TEST( CFPP_String, OperatorNotEqualString )
+{}
+
+TEST( CFPP_String, OperatorNotEqualCFType )
+{}
+
+TEST( CFPP_String, OperatorNotEqualCFString )
+{}
+
+TEST( CFPP_String, OperatorNotEqualSTDString )
+{}
+
+TEST( CFPP_String, OperatorNotEqualChar )
+{}
+
+TEST( CFPP_String, OperatorNotEqualCChar )
+{}
+
+TEST( CFPP_String, OperatorPlusEqualString )
+{}
+
+TEST( CFPP_String, OperatorPlusEqualCFString )
+{}
+
+TEST( CFPP_String, OperatorPlusEqualSTDString )
+{}
+
+TEST( CFPP_String, OperatorPlusEqualChar )
+{}
+
+TEST( CFPP_String, OperatorPlusEqualCChar )
+{}
+
+TEST( CFPP_String, OperatorSubscript )
+{
+    CF::String s( "hello, world" );
+    
+    ASSERT_EQ( s[  0 ], 'h' );
+    ASSERT_EQ( s[ 11 ], 'd' );
+    
+    ASSERT_NO_THROW( s[  12 ] );
+    ASSERT_NO_THROW( s[ 100 ] );
+    
+    ASSERT_NO_FATAL_FAILURE( s[  12 ] );
+    ASSERT_NO_FATAL_FAILURE( s[ 100 ] );
+    
+    ASSERT_EQ( s[  12 ], 0 );
+    ASSERT_EQ( s[ 100 ], 0 );
+}
+
+TEST( CFPP_String, CastToSTDString )
+{}
+
+TEST( CFPP_String, GetTypeID )
+{
+    CF::String s;
+    
+    ASSERT_EQ( s.GetTypeID(), CFStringGetTypeID() );
+}
+
+TEST( CFPP_String, GetCFObject )
+{}
+
+TEST( CFPP_String, HasPrefix_String )
+{}
+
+TEST( CFPP_String, HasPrefix_CFString )
+{}
+
+TEST( CFPP_String, HasPrefix_STDString )
+{}
+
+TEST( CFPP_String, HasSuffix_String )
+{}
+
+TEST( CFPP_String, HasSuffix_CFString )
+{}
+
+TEST( CFPP_String, HasSuffix_STDString )
+{}
+
+TEST( CFPP_String, GetLength )
+{
+    CF::String s;
+    
+    ASSERT_EQ( s.GetLength(), 0 );
+    
+    s.SetValue( "hello, world" );
+    
+    ASSERT_EQ( s.GetLength(), 12 );
+    
+    s.SetValue( "" );
+    
+    ASSERT_EQ( s.GetLength(), 0 );
+}
+
+TEST( CFPP_String, GetValue )
+{
+    std::string ss;
+    CF::String  s( "hello, world" );
+    
+    ss = s.GetValue();
+    
+    ASSERT_EQ( ss, "hello, world" );
+}
+
+TEST( CFPP_String, GetCStringValue )
+{
+    const char * p;
+    CF::String   s( "hello, world" );
+    
+    p = s.GetCStringValue();
+    
+    ASSERT_EQ( strcmp( p, "hello, world" ), 0 );
+}
+
+TEST( CFPP_String, SetValue )
+{
+    CF::String s( "hello, world" );
+    
+    ASSERT_EQ( s.GetValue(), "hello, world" );
+    
+    s.SetValue( "hello, universe" );
+    
+    ASSERT_EQ( s.GetValue(), "hello, universe" );
+}
+
+TEST( CFPP_String, Swap )
+{
+    CF::String s1( "hello, world" );
+    CF::String s2( "hello, universe" );
+    
+    ASSERT_EQ( s1.GetValue(), "hello, world" );
+    ASSERT_EQ( s2.GetValue(), "hello, universe" );
+    
+    swap( s1, s2 );
+    
+    ASSERT_EQ( s1.GetValue(), "hello, universe" );
+    ASSERT_EQ( s2.GetValue(), "hello, world" );
+}
