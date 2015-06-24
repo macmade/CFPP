@@ -206,14 +206,28 @@ namespace CF
     
     String & String::operator = ( char * value )
     {
-        this->SetValue( value );
+        if( value == NULL )
+        {
+            this->SetValue( "" );
+        }
+        else
+        {
+            this->SetValue( value );
+        }
         
         return *( this );
     }
     
     String & String::operator = ( const char * value )
     {
-        this->SetValue( value );
+        if( value == NULL )
+        {
+            this->SetValue( "" );
+        }
+        else
+        {
+            this->SetValue( value );
+        }
         
         return *( this );
     }
