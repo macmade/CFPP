@@ -86,28 +86,100 @@ TEST( CFPP_Error, CTOR_CFError )
 }
 
 TEST( CFPP_Error, CTOR_StringDomain_NumberCode )
-{}
+{
+    CF::Error e( "com.xs-labs", 42 );
+    
+    ASSERT_EQ( e.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e.GetCode(), 42 );
+}
 
 TEST( CFPP_Error, CTOR_StringDomain_NumberCode_DictionaryInfo )
-{}
+{
+    CF::Dictionary info;
+    
+    info << CF::Pair( "hello", "hello, world" );
+    
+    {
+        CF::Error e( "com.xs-labs", 42, info );
+        
+        ASSERT_EQ( e.GetDomain(), "com.xs-labs" );
+        ASSERT_EQ( e.GetCode(), 42 );
+        ASSERT_GT( e.GetUserInfo().GetCount(), 0 );
+        ASSERT_EQ( CF::String( e.GetUserInfo()[ "hello" ] ), "hello, world" );
+    }
+}
 
 TEST( CFPP_Error, CTOR_CFDomain_CFCode )
-{}
+{
+    CF::Error e( CFSTR( "com.xs-labs" ), 42 );
+    
+    ASSERT_EQ( e.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e.GetCode(), 42 );
+}
 
 TEST( CFPP_Error, CTOR_CFDomain_CFCode_CFInfo )
-{}
+{
+    CF::Dictionary info;
+    
+    info << CF::Pair( "hello", "hello, world" );
+    
+    {
+        CF::Error e( CFSTR( "com.xs-labs" ), 42, static_cast< CFDictionaryRef >( info.GetCFObject() ) );
+        
+        ASSERT_EQ( e.GetDomain(), "com.xs-labs" );
+        ASSERT_EQ( e.GetCode(), 42 );
+        ASSERT_GT( e.GetUserInfo().GetCount(), 0 );
+        ASSERT_EQ( CF::String( e.GetUserInfo()[ "hello" ] ), "hello, world" );
+    }
+}
 
 TEST( CFPP_Error, CTOR_STDStringDomain_CFCode )
-{}
+{
+    CF::Error e( std::string( "com.xs-labs" ), 42 );
+    
+    ASSERT_EQ( e.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e.GetCode(), 42 );
+}
 
 TEST( CFPP_Error, CTOR_STDStringDomain_CFCode_DictionaryInfo )
-{}
+{
+    CF::Dictionary info;
+    
+    info << CF::Pair( "hello", "hello, world" );
+    
+    {
+        CF::Error e( std::string( "com.xs-labs" ), 42, static_cast< CFDictionaryRef >( info.GetCFObject() ) );
+        
+        ASSERT_EQ( e.GetDomain(), "com.xs-labs" );
+        ASSERT_EQ( e.GetCode(), 42 );
+        ASSERT_GT( e.GetUserInfo().GetCount(), 0 );
+        ASSERT_EQ( CF::String( e.GetUserInfo()[ "hello" ] ), "hello, world" );
+    }
+}
 
 TEST( CFPP_Error, CTOR_CCharDomain_CFCode )
-{}
+{
+    CF::Error e( "com.xs-labs", 42 );
+    
+    ASSERT_EQ( e.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e.GetCode(), 42 );
+}
 
 TEST( CFPP_Error, CTOR_CCharDomain_CFCode_DictionaryInfo )
-{}
+{
+    CF::Dictionary info;
+    
+    info << CF::Pair( "hello", "hello, world" );
+    
+    {
+        CF::Error e( "com.xs-labs", 42, static_cast< CFDictionaryRef >( info.GetCFObject() ) );
+        
+        ASSERT_EQ( e.GetDomain(), "com.xs-labs" );
+        ASSERT_EQ( e.GetCode(), 42 );
+        ASSERT_GT( e.GetUserInfo().GetCount(), 0 );
+        ASSERT_EQ( CF::String( e.GetUserInfo()[ "hello" ] ), "hello, world" );
+    }
+}
 
 TEST( CFPP_Error, CCTOR )
 {
