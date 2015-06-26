@@ -119,6 +119,11 @@ namespace CF
     {
         this->_cfObject = NULL;
         
+        if( value == NULL )
+        {
+            value = "";
+        }
+        
         this->SetValue( value, encoding );
     }
     
