@@ -61,7 +61,6 @@
 		05A3A77118CF00DF00F7E0BC /* CFPP-Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A3A76D18CF00DF00F7E0BC /* CFPP-Error.cpp */; };
 		05A3A77518CF00EB00F7E0BC /* CFPP-Error.h in Headers */ = {isa = PBXBuildFile; fileRef = 05A3A76C18CF00D200F7E0BC /* CFPP-Error.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05A3A77618CF00EC00F7E0BC /* CFPP-Error.h in Headers */ = {isa = PBXBuildFile; fileRef = 05A3A76C18CF00D200F7E0BC /* CFPP-Error.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		05AFBBB91B3E0F78003830B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AFBBB81B3E0F78003830B1 /* Foundation.framework */; };
 		05BDE02818CDB2540028F339 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01B18CDB2450028F339 /* CFPP-Array.cpp */; };
 		05BDE02918CDB2540028F339 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01C18CDB2450028F339 /* CFPP-Boolean.cpp */; };
 		05BDE02A18CDB2540028F339 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01D18CDB2450028F339 /* CFPP-Data.cpp */; };
@@ -271,7 +270,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05AFBBB91B3E0F78003830B1 /* Foundation.framework in Frameworks */,
 				056BC7B21B2379D300B21D46 /* libCF++.a in Frameworks */,
 				056C5A0C1B19346D00C6214A /* CoreFoundation.framework in Frameworks */,
 				056C58D31B1899C700C6214A /* GoogleMock.framework in Frameworks */,
