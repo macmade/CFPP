@@ -93,7 +93,16 @@ TEST( CFPP_Error, MCTOR )
 }
 
 TEST( CFPP_Error, OperatorEqualError )
-{}
+{
+    CF::Error e1( "com.xs-labs", 42 );
+    CF::Error e2( "org.xs-labs", 0 );
+    
+    e2 = e1;
+    
+    ASSERT_TRUE(  e2.IsValid() );
+    ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e2.GetCode(), 42 );
+}
 
 TEST( CFPP_Error, OperatorEqualCFType )
 {}
@@ -137,16 +146,59 @@ TEST( CFPP_Error, GetCode )
 }
 
 TEST( CFPP_Error, GetUserInfo )
-{}
+{
+    CF::Dictionary info;
+    
+    info << CF::Pair( CF::String( "hello" ), CF::String( "hello, world" ) );
+    
+    {
+        CF::Dictionary i;
+        CF::Error      e( "com.xs-labs", 42, info );
+        
+        ASSERT_GT( e.GetUserInfo().GetCount(), 0 );
+        ASSERT_EQ( CF::String( e.GetUserInfo()[ "hello" ] ), "hello, world" );
+    }
+    
+}
 
 TEST( CFPP_Error, GetDescription )
-{}
+{
+    CF::Dictionary info;
+    
+    info << CF::Pair( CF::String( kCFErrorLocalizedDescriptionKey ), CF::String( "hello, world" ) );
+    
+    {
+        CF::Error e( "com.xs-labs", 42, info );
+        
+        ASSERT_EQ( e.GetDescription(), "hello, world" );
+    }
+}
 
 TEST( CFPP_Error, GetFailureReason )
-{}
+{
+    CF::Dictionary info;
+    
+    info << CF::Pair( CF::String( kCFErrorLocalizedFailureReasonKey ), CF::String( "hello, world" ) );
+    
+    {
+        CF::Error e( "com.xs-labs", 42, info );
+        
+        ASSERT_EQ( e.GetFailureReason(), "hello, world" );
+    }
+}
 
 TEST( CFPP_Error, GetRecoverySuggestion )
-{}
+{
+    CF::Dictionary info;
+    
+    info << CF::Pair( CF::String( kCFErrorLocalizedRecoverySuggestionKey ), CF::String( "hello, world" ) );
+    
+    {
+        CF::Error e( "com.xs-labs", 42, info );
+        
+        ASSERT_EQ( e.GetRecoverySuggestion(), "hello, world" );
+    }
+}
 
 TEST( CFPP_Error, Swap )
 {
