@@ -510,6 +510,10 @@ TEST( CFPP_String, GetValue )
     
     ASSERT_EQ( ss, "hello, world" );
     
+    ss = s.GetValue( kCFStringEncodingDOSLatin1 );
+    
+    ASSERT_EQ( ss, "hello, world" );
+    
     s  = static_cast< CFStringRef >( NULL );
     ss = s.GetValue();
     
