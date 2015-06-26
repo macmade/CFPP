@@ -534,22 +534,18 @@ TEST( CFPP_String, GetLength )
 
 TEST( CFPP_String, GetValue )
 {
-    std::string ss;
     CF::String  s( "hello, world" );
     
-    ss = s.GetValue();
+    ASSERT_EQ(   s.GetValue(),                             "hello, world" );
+    ASSERT_EQ(   s.GetValue( kCFStringEncodingDOSLatin1 ), "hello, world" );
+    ASSERT_EQ(   s.GetValue( kCFStringEncodingISOLatin1 ), "hello, world" );
+    ASSERT_EQ(   s.GetValue( kCFStringEncodingISOLatin9 ), "hello, world" );
+    ASSERT_TRUE( s.GetValue( kCFStringEncodingUTF16 ).length() > 0 );
     
-    ASSERT_EQ( ss, "hello, world" );
-    
-    ss = s.GetValue( kCFStringEncodingDOSLatin1 );
-    
-    ASSERT_EQ( ss, "hello, world" );
-    
-    s  = static_cast< CFStringRef >( NULL );
-    ss = s.GetValue();
+    s = static_cast< CFStringRef >( NULL );
     
     ASSERT_FALSE( s.IsValid() );
-    ASSERT_EQ( ss, "" );
+    ASSERT_EQ( s.GetValue(), "" );
 }
 
 TEST( CFPP_String, GetCStringValue )
