@@ -92,40 +92,108 @@ TEST( CFPP_String, OperatorAssignCChar )
 {}
 
 TEST( CFPP_String, OperatorEqualString )
-{}
+{
+    ASSERT_TRUE(  CF::String( "hello, world" ) == CF::String( "hello, world" ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == CF::String( "hello, universe" ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == CF::String() );
+    ASSERT_TRUE(  CF::String()                 == CF::String() );
+}
 
 TEST( CFPP_String, OperatorEqualCFType )
-{}
+{
+    ASSERT_TRUE(  CF::String( "hello, world" ) == static_cast< CFTypeRef >( CFSTR( "hello, world" ) ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< CFTypeRef >( CFSTR( "hello, universe" ) ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< CFTypeRef >( CFSTR( "" ) ) );
+    ASSERT_TRUE(  CF::String()                 == static_cast< CFTypeRef >( CFSTR( "" ) ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< CFTypeRef >( NULL ) );
+}
 
 TEST( CFPP_String, OperatorEqualCFString )
-{}
+{
+    ASSERT_TRUE(  CF::String( "hello, world" ) == CFSTR( "hello, world" ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == CFSTR( "hello, universe" ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == CFSTR( "" ) );
+    ASSERT_TRUE(  CF::String()                 == CFSTR( "" ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< CFStringRef >( NULL ) );
+}
 
 TEST( CFPP_String, OperatorEqualSTDString )
-{}
+{
+    ASSERT_TRUE(  CF::String( "hello, world" ) == std::string( "hello, world" ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == std::string( "hello, universe" ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == std::string() );
+    ASSERT_TRUE(  CF::String()                 == std::string() );
+}
 
 TEST( CFPP_String, OperatorEqualChar )
-{}
+{
+    ASSERT_TRUE(  CF::String( "hello, world" ) == const_cast< char * >( "hello, world" ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == const_cast< char * >( "hello, universe" ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == const_cast< char * >( "" ) );
+    ASSERT_TRUE(  CF::String()                 == const_cast< char * >( "" ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< char * >( NULL ) );
+}
 
 TEST( CFPP_String, OperatorEqualCChar )
-{}
+{
+    ASSERT_TRUE(  CF::String( "hello, world" ) == "hello, world" );
+    ASSERT_FALSE( CF::String( "hello, world" ) == "hello, universe" );
+    ASSERT_FALSE( CF::String( "hello, world" ) == "" );
+    ASSERT_TRUE(  CF::String()                 == "" );
+    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< const char * >( NULL ) );
+}
 
 TEST( CFPP_String, OperatorNotEqualString )
-{}
+{
+    ASSERT_FALSE( CF::String( "hello, world" ) != CF::String( "hello, world" ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != CF::String( "hello, universe" ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != CF::String() );
+    ASSERT_FALSE( CF::String()                 != CF::String() );
+}
 
 TEST( CFPP_String, OperatorNotEqualCFType )
-{}
+{
+    ASSERT_FALSE( CF::String( "hello, world" ) != static_cast< CFTypeRef >( CFSTR( "hello, world" ) ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< CFTypeRef >( CFSTR( "hello, universe" ) ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< CFTypeRef >( CFSTR( "" ) ) );
+    ASSERT_FALSE( CF::String()                 != static_cast< CFTypeRef >( CFSTR( "" ) ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< CFTypeRef >( NULL ) );
+}
 
 TEST( CFPP_String, OperatorNotEqualCFString )
-{}
+{
+    ASSERT_FALSE( CF::String( "hello, world" ) != CFSTR( "hello, world" ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != CFSTR( "hello, universe" ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != CFSTR( "" ) );
+    ASSERT_FALSE( CF::String()                 != CFSTR( "" ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< CFStringRef >( NULL ) );
+}
 
 TEST( CFPP_String, OperatorNotEqualSTDString )
-{}
+{
+    ASSERT_FALSE( CF::String( "hello, world" ) != std::string( "hello, world" ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != std::string( "hello, universe" ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != std::string() );
+    ASSERT_FALSE( CF::String()                 != std::string() );
+}
 
 TEST( CFPP_String, OperatorNotEqualChar )
-{}
+{
+    ASSERT_FALSE( CF::String( "hello, world" ) != const_cast< char * >( "hello, world" ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != const_cast< char * >( "hello, universe" ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != const_cast< char * >( "" ) );
+    ASSERT_FALSE( CF::String()                 != const_cast< char * >( "" ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< char * >( NULL ) );
+}
 
 TEST( CFPP_String, OperatorNotEqualCChar )
-{}
+{
+    ASSERT_FALSE( CF::String( "hello, world" ) != "hello, world" );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != "hello, universe" );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != "" );
+    ASSERT_FALSE( CF::String()                 != "" );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< const char * >( NULL ) );
+}
 
 TEST( CFPP_String, OperatorPlusEqualString )
 {
