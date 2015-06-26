@@ -55,7 +55,7 @@ TEST( CFPP_String, CTOR_CFType )
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_FALSE( s2.IsValid() );
-    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
     ASSERT_TRUE(  s1.GetValue() == "hello, world" );
 }
 
@@ -67,24 +67,67 @@ TEST( CFPP_String, CTOR_CFString )
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_FALSE( s2.IsValid() );
-    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
     ASSERT_TRUE(  s1.GetValue() == "hello, world" );
 }
 
 TEST( CFPP_String, CTOR_CFType_DefaultValue_Encoding )
-{}
+{
+    CF::String s1( static_cast< CFTypeRef >( CFSTR( "hello, world" ) ), "hello, universe", kCFStringEncodingASCII );
+    CF::String s2( static_cast< CFTypeRef >( NULL ), "hello, universe", kCFStringEncodingASCII );
+    CF::String s3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ), "hello, universe", kCFStringEncodingASCII );
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s2.IsValid() );
+    ASSERT_TRUE( s3.IsValid() );
+    ASSERT_TRUE( s1.GetValue() == "hello, world" );
+    ASSERT_TRUE( s2.GetValue() == "hello, universe" );
+    ASSERT_TRUE( s3.GetValue() == "hello, universe" );
+}
 
 TEST( CFPP_String, CTOR_CFString_DefaultValue_Encoding )
-{}
+{
+    CF::String s1( CFSTR( "hello, world" ), "hello, universe", kCFStringEncodingASCII );
+    CF::String s2( static_cast< CFStringRef >( NULL ), "hello, universe", kCFStringEncodingASCII );
+    CF::String s3( static_cast< CFStringRef >( CF::Boolean().GetCFObject() ), "hello, universe", kCFStringEncodingASCII );
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s2.IsValid() );
+    ASSERT_TRUE( s3.IsValid() );
+    ASSERT_TRUE( s1.GetValue() == "hello, world" );
+    ASSERT_TRUE( s2.GetValue() == "hello, universe" );
+    ASSERT_TRUE( s3.GetValue() == "hello, universe" );
+}
 
 TEST( CFPP_String, CTOR_STDString_Encoding )
-{}
+{
+    CF::String s1( std::string( "hello, world" ), kCFStringEncodingASCII );
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s1.GetValue() == "hello, world" );
+}
 
 TEST( CFPP_String, CTOR_Char_Encoding )
-{}
+{
+    CF::String s1( const_cast< char * >( "hello, world" ), kCFStringEncodingASCII );
+    CF::String s2( static_cast< char * >( NULL ), kCFStringEncodingASCII );
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s2.IsValid() );
+    ASSERT_TRUE( s1.GetValue() == "hello, world" );
+    ASSERT_TRUE( s2.GetValue() == "" );
+}
 
 TEST( CFPP_String, CTOR_CChar_Encoding )
-{}
+{
+    CF::String s1( "hello, world", kCFStringEncodingASCII );
+    CF::String s2( static_cast< const char * >( NULL ), kCFStringEncodingASCII );
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s2.IsValid() );
+    ASSERT_TRUE( s1.GetValue() == "hello, world" );
+    ASSERT_TRUE( s2.GetValue() == "" );
+}
 
 TEST( CFPP_String, CCTOR )
 {
