@@ -105,10 +105,36 @@ TEST( CFPP_Error, OperatorEqualError )
 }
 
 TEST( CFPP_Error, OperatorEqualCFType )
-{}
+{
+    CF::Error e1( "com.xs-labs", 42 );
+    CF::Error e2( "org.xs-labs", 0 );
+    
+    e2 = static_cast< CFTypeRef >( e1.GetCFObject() );
+    
+    ASSERT_TRUE(  e2.IsValid() );
+    ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e2.GetCode(), 42 );
+    
+    e2 = static_cast< CFTypeRef >( NULL );
+    
+    ASSERT_FALSE( e2.IsValid() );
+}
 
 TEST( CFPP_Error, OperatorEqualCFError )
-{}
+{
+    CF::Error e1( "com.xs-labs", 42 );
+    CF::Error e2( "org.xs-labs", 0 );
+    
+    e2 = static_cast< CFErrorRef >( const_cast< void * >( e1.GetCFObject() ) );
+    
+    ASSERT_TRUE(  e2.IsValid() );
+    ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e2.GetCode(), 42 );
+    
+    e2 = static_cast< CFErrorRef >( NULL );
+    
+    ASSERT_FALSE( e2.IsValid() );
+}
 
 TEST( CFPP_Error, GetTypeID )
 {
