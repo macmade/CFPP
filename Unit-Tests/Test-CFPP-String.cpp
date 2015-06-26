@@ -74,22 +74,100 @@ TEST( CFPP_String, MCTOR )
 {}
 
 TEST( CFPP_String, OperatorAssignString )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s = CF::String( "hello, universe" );
+    
+    ASSERT_TRUE( s == "hello, universe" );
+    
+    s = CF::String();
+    
+    ASSERT_TRUE( s == "" );
+}
 
 TEST( CFPP_String, OperatorAssignCFType )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s = static_cast< CFTypeRef >( CFSTR( "hello, universe" ) );
+    
+    ASSERT_TRUE( s == "hello, universe" );
+    
+    s = static_cast< CFTypeRef >( CFSTR( "" ) );
+    
+    ASSERT_TRUE( s == "" );
+    
+    s = static_cast< CFTypeRef >( NULL );
+    
+    ASSERT_FALSE( s.IsValid() );
+}
 
 TEST( CFPP_String, OperatorAssignCFString )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s = CFSTR( "hello, universe" );
+    
+    ASSERT_TRUE( s == "hello, universe" );
+    
+    s = CFSTR( "" );
+    
+    ASSERT_TRUE( s == "" );
+    
+    s = static_cast< CFStringRef >( NULL );
+    
+    ASSERT_FALSE( s.IsValid() );
+}
 
 TEST( CFPP_String, OperatorAssignSTDString )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s = std::string( "hello, universe" );
+    
+    ASSERT_TRUE( s == "hello, universe" );
+    
+    s = std::string();
+    
+    ASSERT_TRUE( s == "" );
+}
 
 TEST( CFPP_String, OperatorAssignChar )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s = static_cast< char * >( NULL );
+    
+    ASSERT_TRUE( s == "" );
+    
+    s = const_cast< char * >( "hello, universe" );
+    
+    ASSERT_TRUE( s == "hello, universe" );
+    
+    s = const_cast< char * >( "" );
+    
+    ASSERT_TRUE( s.IsValid() );
+    ASSERT_TRUE( s == "" );
+}
 
 TEST( CFPP_String, OperatorAssignCChar )
-{}
+{
+    CF::String s( "hello, world" );
+    
+    s = static_cast< const char * >( NULL );
+    
+    ASSERT_TRUE( s == "" );
+    
+    s = "hello, universe";
+    
+    ASSERT_TRUE( s == "hello, universe" );
+    
+    s = "";
+    
+    ASSERT_TRUE( s.IsValid() );
+    ASSERT_TRUE( s == "" );
+}
 
 TEST( CFPP_String, OperatorEqualString )
 {
