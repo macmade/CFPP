@@ -42,15 +42,34 @@ TEST( CFPP_String, CTOR )
 {
     CF::String s;
     
+    ASSERT_TRUE( s.IsValid() );
     ASSERT_EQ( s.GetValue(),  "" );
     ASSERT_EQ( s.GetLength(), 0 );
 }
 
 TEST( CFPP_String, CTOR_CFType )
-{}
+{
+    CF::String s1( static_cast< CFTypeRef >( CFSTR( "hello, world" ) ) );
+    CF::String s2( static_cast< CFTypeRef >( NULL ) );
+    CF::String s3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_TRUE(  s1.GetValue() == "hello, world" );
+}
 
 TEST( CFPP_String, CTOR_CFString )
-{}
+{
+    CF::String s1( CFSTR( "hello, world" ) );
+    CF::String s2( static_cast< CFStringRef >( NULL ) );
+    CF::String s3( static_cast< CFStringRef >( CF::Boolean().GetCFObject() ) );
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_TRUE(  s1.GetValue() == "hello, world" );
+}
 
 TEST( CFPP_String, CTOR_CFType_DefaultValue_Encoding )
 {}
@@ -68,10 +87,22 @@ TEST( CFPP_String, CTOR_CChar_Encoding )
 {}
 
 TEST( CFPP_String, CCTOR )
-{}
+{
+    CF::String s1( "hello, world" );
+    CF::String s2( s1 );
+    
+    ASSERT_TRUE( s2.GetValue() == "hello, world" );
+}
 
 TEST( CFPP_String, MCTOR )
-{}
+{
+    CF::String s1( "hello, world" );
+    CF::String s2( std::move( s1 ) );
+    
+    ASSERT_FALSE( s1.IsValid() );
+    ASSERT_TRUE(  s2.IsValid() );
+    ASSERT_TRUE(  s2.GetValue() == "hello, world" );
+}
 
 TEST( CFPP_String, OperatorAssignString )
 {
