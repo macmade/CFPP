@@ -284,6 +284,14 @@ TEST( CFPP_String, OperatorPlusEqualString )
     s += CF::String();
     
     ASSERT_TRUE( s.GetValue() == "hello, world..." );
+    
+    s = static_cast< CFStringRef >( NULL );
+    
+    ASSERT_FALSE( s.IsValid() );
+    
+    s += CF::String( "hello, world" );
+    
+    ASSERT_TRUE( s.GetValue() == "hello, world" );
 }
 
 TEST( CFPP_String, OperatorPlusEqualCFString )
@@ -345,17 +353,31 @@ TEST( CFPP_String, OperatorSubscript )
 {
     CF::String s( "hello, world" );
     
-    ASSERT_EQ( s[  0 ], 'h' );
-    ASSERT_EQ( s[ 11 ], 'd' );
+    ASSERT_EQ( s[   0 ], 'h' );
+    ASSERT_EQ( s[  11 ], 'd' );
+    ASSERT_EQ( s[  -1 ], 'd' );
+    ASSERT_EQ( s[ -12 ], 'h' );
     
-    ASSERT_NO_THROW( s[  12 ] );
-    ASSERT_NO_THROW( s[ 100 ] );
+    ASSERT_NO_THROW( s[   12 ] );
+    ASSERT_NO_THROW( s[  100 ] );
+    ASSERT_NO_THROW( s[  -13 ] );
+    ASSERT_NO_THROW( s[ -100 ] );
     
-    ASSERT_NO_FATAL_FAILURE( s[  12 ] );
-    ASSERT_NO_FATAL_FAILURE( s[ 100 ] );
+    ASSERT_NO_FATAL_FAILURE( s[   12 ] );
+    ASSERT_NO_FATAL_FAILURE( s[  100 ] );
+    ASSERT_NO_FATAL_FAILURE( s[  -13 ] );
+    ASSERT_NO_FATAL_FAILURE( s[ -100 ] );
     
-    ASSERT_EQ( s[  12 ], 0 );
-    ASSERT_EQ( s[ 100 ], 0 );
+    ASSERT_EQ( s[   12 ], 0 );
+    ASSERT_EQ( s[  100 ], 0 );
+    ASSERT_EQ( s[  -13 ], 0 );
+    ASSERT_EQ( s[ -100 ], 0 );
+    
+    s = static_cast< CFStringRef >( NULL );
+    
+    ASSERT_FALSE( s.IsValid() );
+    ASSERT_EQ( s[  11 ], 0 );
+    ASSERT_EQ( s[ -11 ], 0 );
 }
 
 TEST( CFPP_String, CastToSTDString )
@@ -472,6 +494,11 @@ TEST( CFPP_String, GetLength )
     s.SetValue( "" );
     
     ASSERT_EQ( s.GetLength(), 0 );
+    
+    s = static_cast< CFStringRef >( NULL );
+    
+    ASSERT_FALSE( s.IsValid() );
+    ASSERT_EQ( s.GetLength(), 0 );
 }
 
 TEST( CFPP_String, GetValue )
@@ -482,6 +509,12 @@ TEST( CFPP_String, GetValue )
     ss = s.GetValue();
     
     ASSERT_EQ( ss, "hello, world" );
+    
+    s  = static_cast< CFStringRef >( NULL );
+    ss = s.GetValue();
+    
+    ASSERT_FALSE( s.IsValid() );
+    ASSERT_EQ( ss, "" );
 }
 
 TEST( CFPP_String, GetCStringValue )
@@ -492,6 +525,11 @@ TEST( CFPP_String, GetCStringValue )
     p = s.GetCStringValue();
     
     ASSERT_EQ( strcmp( p, "hello, world" ), 0 );
+    
+    s = static_cast< CFStringRef >( NULL );
+    
+    ASSERT_FALSE( s.IsValid() );
+    ASSERT_TRUE( s.GetCStringValue() == NULL );
 }
 
 TEST( CFPP_String, SetValue )

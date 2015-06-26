@@ -330,7 +330,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return const_cast< String & >( value );
+            this->SetValue( "" );
         }
         
         strings[ 0 ] = this->_cfObject;
