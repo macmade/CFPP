@@ -39,13 +39,51 @@
 using namespace testing;
 
 TEST( CFPP_Error, CTOR )
-{}
+{
+    CF::Error e;
+    
+    ASSERT_FALSE( e.IsValid() );
+}
 
 TEST( CFPP_Error, CTOR_CFType )
-{}
+{
+    CFErrorRef cfE;
+    
+    cfE = CFErrorCreate( NULL, CFSTR( "com.xs-labs" ), 42, NULL );
+    
+    {
+        CF::Error e1( static_cast< CFTypeRef >( cfE ) );
+        CF::Error e2( static_cast< CFTypeRef >( NULL ) );
+        CF::Error e3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
+        
+        ASSERT_TRUE(  e1.IsValid() );
+        ASSERT_FALSE( e2.IsValid() );
+        ASSERT_FALSE( e3.IsValid() );
+        ASSERT_EQ( e1.GetDomain(), "com.xs-labs" );
+    }
+    
+    CFRelease( cfE );
+}
 
 TEST( CFPP_Error, CTOR_CFError )
-{}
+{
+    CFErrorRef cfE;
+    
+    cfE = CFErrorCreate( NULL, CFSTR( "com.xs-labs" ), 42, NULL );
+    
+    {
+        CF::Error e1( static_cast< CFErrorRef >( cfE ) );
+        CF::Error e2( static_cast< CFErrorRef >( NULL ) );
+        CF::Error e3( static_cast< CFErrorRef >( const_cast< void * >( CF::Boolean().GetCFObject() ) ) );
+        
+        ASSERT_TRUE(  e1.IsValid() );
+        ASSERT_FALSE( e2.IsValid() );
+        ASSERT_FALSE( e3.IsValid() );
+        ASSERT_EQ( e1.GetDomain(), "com.xs-labs" );
+    }
+    
+    CFRelease( cfE );
+}
 
 TEST( CFPP_Error, CTOR_StringDomain_NumberCode )
 {}
