@@ -292,7 +292,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return d.As< CFDictionaryRef >();
+            return CF::Dictionary();
         }
         
         d = CFErrorCopyUserInfo( this->_cfObject );
@@ -306,7 +306,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return s.As< CFStringRef >();
+            return CF::String();
         }
         
         s = CFErrorCopyDescription( this->_cfObject );
@@ -320,7 +320,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return s.As< CFStringRef >();
+            return CF::String();
         }
         
         s = CFErrorCopyFailureReason( this->_cfObject );
@@ -334,7 +334,7 @@ namespace CF
         
         if( this->_cfObject == NULL )
         {
-            return s.As< CFStringRef >();
+            return CF::String();
         }
         
         s = CFErrorCopyRecoverySuggestion( this->_cfObject );

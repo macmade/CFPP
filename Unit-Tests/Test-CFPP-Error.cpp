@@ -157,8 +157,12 @@ TEST( CFPP_Error, GetUserInfo )
         
         ASSERT_GT( e.GetUserInfo().GetCount(), 0 );
         ASSERT_EQ( CF::String( e.GetUserInfo()[ "hello" ] ), "hello, world" );
+        
+        e = static_cast< CFErrorRef >( NULL );
+        
+        ASSERT_FALSE( e.IsValid() );
+        ASSERT_EQ( e.GetUserInfo().GetCount(), 0 );
     }
-    
 }
 
 TEST( CFPP_Error, GetDescription )
@@ -171,6 +175,11 @@ TEST( CFPP_Error, GetDescription )
         CF::Error e( "com.xs-labs", 42, info );
         
         ASSERT_EQ( e.GetDescription(), "hello, world" );
+        
+        e = static_cast< CFErrorRef >( NULL );
+        
+        ASSERT_FALSE( e.IsValid() );
+        ASSERT_EQ( e.GetDescription(), "" );
     }
 }
 
@@ -184,6 +193,11 @@ TEST( CFPP_Error, GetFailureReason )
         CF::Error e( "com.xs-labs", 42, info );
         
         ASSERT_EQ( e.GetFailureReason(), "hello, world" );
+        
+        e = static_cast< CFErrorRef >( NULL );
+        
+        ASSERT_FALSE( e.IsValid() );
+        ASSERT_EQ( e.GetFailureReason(), "" );
     }
 }
 
@@ -197,6 +211,11 @@ TEST( CFPP_Error, GetRecoverySuggestion )
         CF::Error e( "com.xs-labs", 42, info );
         
         ASSERT_EQ( e.GetRecoverySuggestion(), "hello, world" );
+        
+        e = static_cast< CFErrorRef >( NULL );
+        
+        ASSERT_FALSE( e.IsValid() );
+        ASSERT_EQ( e.GetRecoverySuggestion(), "" );
     }
 }
 
