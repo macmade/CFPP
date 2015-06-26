@@ -37,3 +37,126 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_Error, CTOR )
+{}
+
+TEST( CFPP_Error, CTOR_CFType )
+{}
+
+TEST( CFPP_Error, CTOR_CFError )
+{}
+
+TEST( CFPP_Error, CTOR_StringDomain_NumberCode )
+{}
+
+TEST( CFPP_Error, CTOR_StringDomain_NumberCode_DictionaryInfo )
+{}
+
+TEST( CFPP_Error, CTOR_CFDomain_CFCode )
+{}
+
+TEST( CFPP_Error, CTOR_CFDomain_CFCode_CFInfo )
+{}
+
+TEST( CFPP_Error, CTOR_STDStringDomain_CFCode )
+{}
+
+TEST( CFPP_Error, CTOR_STDStringDomain_CFCode_DictionaryInfo )
+{}
+
+TEST( CFPP_Error, CTOR_CCharDomain_CFCode )
+{}
+
+TEST( CFPP_Error, CTOR_CCharDomain_CFCode_DictionaryInfo )
+{}
+
+TEST( CFPP_Error, CCTOR )
+{
+    CF::Error e1( "com.xs-labs", 42 );
+    CF::Error e2( e1 );
+    
+    ASSERT_TRUE( e2.IsValid() );
+    ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e2.GetCode(), 42 );
+}
+
+TEST( CFPP_Error, MCTOR )
+{
+    CF::Error e1( "com.xs-labs", 42 );
+    CF::Error e2( std::move( e1 ) );
+    
+    ASSERT_FALSE( e1.IsValid() );
+    ASSERT_TRUE(  e2.IsValid() );
+    ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e2.GetCode(), 42 );
+}
+
+TEST( CFPP_Error, OperatorEqualError )
+{}
+
+TEST( CFPP_Error, OperatorEqualCFType )
+{}
+
+TEST( CFPP_Error, OperatorEqualCFError )
+{}
+
+TEST( CFPP_Error, GetTypeID )
+{
+    CF::Error e;
+    
+    ASSERT_EQ( e.GetTypeID(), CFErrorGetTypeID() );
+}
+
+TEST( CFPP_Error, GetCFObject )
+{
+    CF::Error e1( "com.xs-labs", 42 );
+    CF::Error e2;
+    
+    ASSERT_TRUE( e1.GetCFObject() != NULL );
+    ASSERT_TRUE( e2.GetCFObject() == NULL );
+    ASSERT_EQ( CFGetTypeID( e1.GetCFObject() ), CFErrorGetTypeID() );
+}
+
+TEST( CFPP_Error, GetDomain )
+{
+    CF::Error e1( "com.xs-labs", 42 );
+    CF::Error e2;
+    
+    ASSERT_EQ( e1.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e2.GetDomain(), "" );
+}
+
+TEST( CFPP_Error, GetCode )
+{
+    CF::Error e1( "com.xs-labs", 42 );
+    CF::Error e2;
+    
+    ASSERT_EQ( e1.GetCode(), 42 );
+    ASSERT_EQ( e2.GetCode(), 0 );
+}
+
+TEST( CFPP_Error, GetUserInfo )
+{}
+
+TEST( CFPP_Error, GetDescription )
+{}
+
+TEST( CFPP_Error, GetFailureReason )
+{}
+
+TEST( CFPP_Error, GetRecoverySuggestion )
+{}
+
+TEST( CFPP_Error, Swap )
+{
+    CF::Error e1( "com.xs-labs", 42 );
+    CF::Error e2;
+    
+    swap( e1, e2 );
+    
+    ASSERT_FALSE( e1.IsValid() );
+    ASSERT_TRUE(  e2.IsValid() );
+    ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
+    ASSERT_EQ( e2.GetCode(), 42 );
+}

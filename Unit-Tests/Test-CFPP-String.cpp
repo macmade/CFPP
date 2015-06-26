@@ -473,10 +473,14 @@ TEST( CFPP_String, GetCFObject )
 {
     CF::String s1;
     CF::String s2( "hello, world" );
+    CF::String s3( static_cast< CFStringRef >( NULL ) );
     
     ASSERT_TRUE( s1.GetCFObject() != NULL );
     ASSERT_TRUE( s2.GetCFObject() != NULL );
+    ASSERT_TRUE( s3.GetCFObject() == NULL );
     ASSERT_TRUE( CFEqual( s2.GetCFObject(), CFSTR( "hello, world" ) ) );
+    ASSERT_EQ( CFGetTypeID( s1.GetCFObject() ), CFStringGetTypeID() );
+    ASSERT_EQ( CFGetTypeID( s2.GetCFObject() ), CFStringGetTypeID() );
 }
 
 TEST( CFPP_String, HasPrefix_String )
