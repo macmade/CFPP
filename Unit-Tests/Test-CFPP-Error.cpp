@@ -202,7 +202,7 @@ TEST( CFPP_Error, MCTOR )
     ASSERT_EQ( e2.GetCode(), 42 );
 }
 
-TEST( CFPP_Error, OperatorEqualError )
+TEST( CFPP_Error, OperatorAssignError )
 {
     CF::Error e1( "com.xs-labs", 42 );
     CF::Error e2( "org.xs-labs", 0 );
@@ -214,7 +214,7 @@ TEST( CFPP_Error, OperatorEqualError )
     ASSERT_EQ( e2.GetCode(), 42 );
 }
 
-TEST( CFPP_Error, OperatorEqualCFType )
+TEST( CFPP_Error, OperatorAssignCFType )
 {
     CF::Error e1( "com.xs-labs", 42 );
     CF::Error e2( "org.xs-labs", 0 );
@@ -230,7 +230,7 @@ TEST( CFPP_Error, OperatorEqualCFType )
     ASSERT_FALSE( e2.IsValid() );
 }
 
-TEST( CFPP_Error, OperatorEqualCFError )
+TEST( CFPP_Error, OperatorAssignCFError )
 {
     CF::Error e1( "com.xs-labs", 42 );
     CF::Error e2( "org.xs-labs", 0 );
