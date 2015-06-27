@@ -37,3 +37,1359 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_Number, CTOR )
+{}
+
+TEST( CFPP_Number, CTOR_CFType )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber )
+{}
+
+TEST( CFPP_Number, CTOR_CFType_SInt8 )
+{}
+
+TEST( CFPP_Number, CTOR_CFType_SInt16 )
+{}
+
+TEST( CFPP_Number, CTOR_CFType_SInt32 )
+{}
+
+TEST( CFPP_Number, CTOR_CFType_SInt64 )
+{}
+
+TEST( CFPP_Number, CTOR_CFType_UInt8 )
+{}
+
+TEST( CFPP_Number, CTOR_CFType_UInt16 )
+{}
+
+TEST( CFPP_Number, CTOR_CFType_UInt32 )
+{}
+
+TEST( CFPP_Number, CTOR_CFType_UInt64 )
+{}
+
+TEST( CFPP_Number, CTOR_CFType_Float32 )
+{}
+
+TEST( CFPP_Number, CTOR_CFType_Float64 )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber_SInt8 )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber_SInt16 )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber_SInt32 )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber_SInt64 )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber_UInt8 )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber_UInt16 )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber_UInt32 )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber_UInt64 )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber_Float32 )
+{}
+
+TEST( CFPP_Number, CTOR_CFNumber_Float64 )
+{}
+
+TEST( CFPP_Number, CTOR_SInt8 )
+{}
+
+TEST( CFPP_Number, CTOR_SInt16 )
+{}
+
+TEST( CFPP_Number, CTOR_SInt32 )
+{}
+
+TEST( CFPP_Number, CTOR_SInt64 )
+{}
+
+TEST( CFPP_Number, CTOR_UInt8 )
+{}
+
+TEST( CFPP_Number, CTOR_UInt16 )
+{}
+
+TEST( CFPP_Number, CTOR_UInt32 )
+{}
+
+TEST( CFPP_Number, CTOR_UInt64 )
+{}
+
+TEST( CFPP_Number, CTOR_Float32 )
+{}
+
+TEST( CFPP_Number, CTOR_Float64 )
+{}
+
+TEST( CFPP_Number, CCTOR )
+{}
+
+TEST( CFPP_Number, MCTOR )
+{}
+
+TEST( CFPP_Number, OperatorAssignNumber )
+{}
+
+TEST( CFPP_Number, OperatorAssignCFType )
+{}
+
+TEST( CFPP_Number, OperatorAssignCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorAssignSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorAssignSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorAssignSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorAssignSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorAssignUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorAssignUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorAssignUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorAssignUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorAssignFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorAssignFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorNotEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterOrEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorLesserOrEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterNumber )
+{}
+
+TEST( CFPP_Number, OperatorGreaterCFType )
+{}
+
+TEST( CFPP_Number, OperatorGreaterCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorGreaterSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorGreaterFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorLesserNumber )
+{}
+
+TEST( CFPP_Number, OperatorLesserCFType )
+{}
+
+TEST( CFPP_Number, OperatorLesserCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorLesserSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorLesserSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorLesserSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorLesserSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorLesserUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorLesserUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorLesserUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorLesserUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorLesserFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorLesserFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorAndNumber )
+{}
+
+TEST( CFPP_Number, OperatorAndCFType )
+{}
+
+TEST( CFPP_Number, OperatorAndCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorAndSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorAndSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorAndSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorAndSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorAndUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorAndUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorAndUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorAndUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorAndFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorAndFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorOrNumber )
+{}
+
+TEST( CFPP_Number, OperatorOrCFType )
+{}
+
+TEST( CFPP_Number, OperatorOrCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorOrSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorOrSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorOrSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorOrSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorOrUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorOrUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorOrUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorOrUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorOrFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorOrFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseNot )
+{}
+
+TEST( CFPP_Number, OperatorLogicalNot )
+{}
+
+TEST( CFPP_Number, OperatorPrefixIncrement )
+{}
+
+TEST( CFPP_Number, OperatorPosfixIncrement )
+{}
+
+TEST( CFPP_Number, OperatorPrefixDecrement )
+{}
+
+TEST( CFPP_Number, OperatorPostfixDecrement )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorPlusEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorMinusEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideOrEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideAndEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorModEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorModEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorModEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorModEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorModEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorModEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorModEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorModEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorModEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorModEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorModEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorModEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorModEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorXorEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualNumber )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualCFType )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftEqualFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorPlusNumber )
+{}
+
+TEST( CFPP_Number, OperatorPlusCFType )
+{}
+
+TEST( CFPP_Number, OperatorPlusCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorPlusSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorPlusSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorPlusSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorPlusSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorPlusUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorPlusUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorPlusUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorPlusUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorPlusFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorPlusFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorMinusNumber )
+{}
+
+TEST( CFPP_Number, OperatorMinusCFType )
+{}
+
+TEST( CFPP_Number, OperatorMinusCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorMinusSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorMinusSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorMinusSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorMinusSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorMinusUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorMinusUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorMinusUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorMinusUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorMinusFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorMinusFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyNumber )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyCFType )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorMultiplySInt8 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplySInt16 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplySInt32 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplySInt64 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorMultiplyFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideNumber )
+{}
+
+TEST( CFPP_Number, OperatorDivideCFType )
+{}
+
+TEST( CFPP_Number, OperatorDivideCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorDivideSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorDivideSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorDivideSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorDivideUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorDivideUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorDivideFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorDivideFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorModNumber )
+{}
+
+TEST( CFPP_Number, OperatorModCFType )
+{}
+
+TEST( CFPP_Number, OperatorModCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorModSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorModSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorModSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorModSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorModUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorModUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorModUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorModUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorModFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorModFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndNumber )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndCFType )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseAndFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrNumber )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrCFType )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorBitwiseOrFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorXorNumber )
+{}
+
+TEST( CFPP_Number, OperatorXorCFType )
+{}
+
+TEST( CFPP_Number, OperatorXorCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorXorSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorXorSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorXorSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorXorSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorXorUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorXorUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorXorUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorXorUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorXorFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorXorFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftNumber )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftCFType )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorLeftShiftFloat64 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftNumber )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftCFType )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftCFNumber )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftSInt8 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftSInt16 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftSInt32 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftSInt64 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftUInt8 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftUInt16 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftUInt32 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftUInt64 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftFloat32 )
+{}
+
+TEST( CFPP_Number, OperatorRightShiftFloat64 )
+{}
+
+TEST( CFPP_Number, CastToSInt8 )
+{}
+
+TEST( CFPP_Number, CastToSInt16 )
+{}
+
+TEST( CFPP_Number, CastToSInt32 )
+{}
+
+TEST( CFPP_Number, CastToSInt64 )
+{}
+
+TEST( CFPP_Number, CastToUInt8 )
+{}
+
+TEST( CFPP_Number, CastToUInt16 )
+{}
+
+TEST( CFPP_Number, CastToUInt32 )
+{}
+
+TEST( CFPP_Number, CastToUInt64 )
+{}
+
+TEST( CFPP_Number, CastToFloat32 )
+{}
+
+TEST( CFPP_Number, CastToFloat64 )
+{}
+
+TEST( CFPP_Number, GetTypeID )
+{}
+
+TEST( CFPP_Number, GetCFObject )
+{}
+
+TEST( CFPP_Number, IsFloatType )
+{}
+
+TEST( CFPP_Number, GetSInt8Value )
+{}
+
+TEST( CFPP_Number, GetSInt16Value )
+{}
+
+TEST( CFPP_Number, GetSInt32Value )
+{}
+
+TEST( CFPP_Number, GetSInt64Value )
+{}
+
+TEST( CFPP_Number, GetUInt8Value )
+{}
+
+TEST( CFPP_Number, GetUInt16Value )
+{}
+
+TEST( CFPP_Number, GetUInt32Value )
+{}
+
+TEST( CFPP_Number, GetUInt64Value )
+{}
+
+TEST( CFPP_Number, GetFloat32Value )
+{}
+
+TEST( CFPP_Number, GetFloat64Value )
+{}
+
+TEST( CFPP_Number, SetSInt8Value )
+{}
+
+TEST( CFPP_Number, SetSInt16Value )
+{}
+
+TEST( CFPP_Number, SetSInt32Value )
+{}
+
+TEST( CFPP_Number, SetSInt64Value )
+{}
+
+TEST( CFPP_Number, SetUInt8Value )
+{}
+
+TEST( CFPP_Number, SetUInt16Value )
+{}
+
+TEST( CFPP_Number, SetUInt32Value )
+{}
+
+TEST( CFPP_Number, SetUInt64Value )
+{}
+
+TEST( CFPP_Number, SetFloat32Value )
+{}
+
+TEST( CFPP_Number, SetFloat64Value )
+{}
+
+TEST( CFPP_Number, Swap )
+{}
