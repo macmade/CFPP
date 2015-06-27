@@ -1323,73 +1323,207 @@ TEST( CFPP_Number, CastToFloat64 )
 {}
 
 TEST( CFPP_Number, GetTypeID )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_EQ( n.GetTypeID(), CFNumberGetTypeID() );
+}
 
 TEST( CFPP_Number, GetCFObject )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_TRUE( n1.GetCFObject() != NULL );
+    ASSERT_TRUE( n2.GetCFObject() != NULL );
+    ASSERT_TRUE( n3.GetCFObject() == NULL );
+    ASSERT_EQ( CFGetTypeID( n1.GetCFObject() ), CFNumberGetTypeID() );
+    ASSERT_EQ( CFGetTypeID( n2.GetCFObject() ), CFNumberGetTypeID() );
+}
 
 TEST( CFPP_Number, IsFloatType )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( static_cast< CF::Number::UInt8 >( 42 ) );
+    CF::Number n3( static_cast< CF::Number::Float32 >( 42 ) );
+    
+    ASSERT_FALSE( n1.IsFloatType() );
+    ASSERT_FALSE( n2.IsFloatType() );
+    ASSERT_TRUE(  n3.IsFloatType() );
+}
 
 TEST( CFPP_Number, GetSInt8Value )
-{}
+{
+    CF::Number n( 42 );
+    
+    ASSERT_EQ( n.GetSInt8Value(), static_cast< CF::Number::SInt8 >( 42 ) );
+}
 
 TEST( CFPP_Number, GetSInt16Value )
-{}
+{
+    CF::Number n( 42 );
+    
+    ASSERT_EQ( n.GetSInt16Value(), static_cast< CF::Number::SInt16 >( 42 ) );
+}
 
 TEST( CFPP_Number, GetSInt32Value )
-{}
+{
+    CF::Number n( 42 );
+    
+    ASSERT_EQ( n.GetSInt32Value(), static_cast< CF::Number::SInt32 >( 42 ) );
+}
 
 TEST( CFPP_Number, GetSInt64Value )
-{}
+{
+    CF::Number n( 42 );
+    
+    ASSERT_EQ( n.GetSInt64Value(), static_cast< CF::Number::SInt64 >( 42 ) );
+}
 
 TEST( CFPP_Number, GetUInt8Value )
-{}
+{
+    CF::Number n( 42 );
+    
+    ASSERT_EQ( n.GetUInt8Value(), static_cast< CF::Number::UInt8 >( 42 ) );
+}
 
 TEST( CFPP_Number, GetUInt16Value )
-{}
+{
+    CF::Number n( 42 );
+    
+    ASSERT_EQ( n.GetUInt16Value(), static_cast< CF::Number::UInt16 >( 42 ) );
+}
 
 TEST( CFPP_Number, GetUInt32Value )
-{}
+{
+    CF::Number n( 42 );
+    
+    ASSERT_EQ( n.GetUInt32Value(), static_cast< CF::Number::UInt32 >( 42 ) );
+}
 
 TEST( CFPP_Number, GetUInt64Value )
-{}
+{
+    CF::Number n( 42 );
+    
+    ASSERT_EQ( n.GetUInt64Value(), static_cast< CF::Number::UInt64 >( 42 ) );
+}
 
 TEST( CFPP_Number, GetFloat32Value )
-{}
+{
+    CF::Number n( 42 );
+    
+    ASSERT_GT( n.GetFloat32Value(), static_cast< CF::Number::Float32 >( 41 ) );
+    ASSERT_LT( n.GetFloat32Value(), static_cast< CF::Number::Float32 >( 43 ) );
+}
 
 TEST( CFPP_Number, GetFloat64Value )
-{}
+{
+    CF::Number n( 42 );
+    
+    ASSERT_GT( n.GetFloat64Value(), static_cast< CF::Number::Float64 >( 41 ) );
+    ASSERT_LT( n.GetFloat64Value(), static_cast< CF::Number::Float64 >( 43 ) );
+}
 
 TEST( CFPP_Number, SetSInt8Value )
-{}
+{
+    CF::Number n;
+    
+    n.SetSInt8Value( 42 );
+    
+    ASSERT_EQ( n.GetSInt8Value(), static_cast< CF::Number::SInt8 >( 42 ) );
+}
 
 TEST( CFPP_Number, SetSInt16Value )
-{}
+{
+    CF::Number n;
+    
+    n.SetSInt16Value( 42 );
+    
+    ASSERT_EQ( n.GetSInt16Value(), static_cast< CF::Number::SInt16 >( 42 ) );
+}
 
 TEST( CFPP_Number, SetSInt32Value )
-{}
+{
+    CF::Number n;
+    
+    n.SetSInt32Value( 42 );
+    
+    ASSERT_EQ( n.GetSInt32Value(), static_cast< CF::Number::SInt32 >( 42 ) );
+}
 
 TEST( CFPP_Number, SetSInt64Value )
-{}
+{
+    CF::Number n;
+    
+    n.SetSInt64Value( 42 );
+    
+    ASSERT_EQ( n.GetSInt64Value(), static_cast< CF::Number::SInt64 >( 42 ) );
+}
 
 TEST( CFPP_Number, SetUInt8Value )
-{}
+{
+    CF::Number n;
+    
+    n.SetUInt8Value( 42 );
+    
+    ASSERT_EQ( n.GetUInt8Value(), static_cast< CF::Number::UInt8 >( 42 ) );
+}
 
 TEST( CFPP_Number, SetUInt16Value )
-{}
+{
+    CF::Number n;
+    
+    n.SetUInt16Value( 42 );
+    
+    ASSERT_EQ( n.GetUInt16Value(), static_cast< CF::Number::UInt16 >( 42 ) );
+}
 
 TEST( CFPP_Number, SetUInt32Value )
-{}
+{
+    CF::Number n;
+    
+    n.SetUInt32Value( 42 );
+    
+    ASSERT_EQ( n.GetUInt32Value(), static_cast< CF::Number::UInt32 >( 42 ) );
+}
 
 TEST( CFPP_Number, SetUInt64Value )
-{}
+{
+    CF::Number n;
+    
+    n.SetUInt64Value( 42 );
+    
+    ASSERT_EQ( n.GetUInt64Value(), static_cast< CF::Number::UInt64 >( 42 ) );
+}
 
 TEST( CFPP_Number, SetFloat32Value )
-{}
+{
+    CF::Number n;
+    
+    n.SetFloat32Value( 42 );
+    
+    ASSERT_GT( n.GetFloat32Value(), static_cast< CF::Number::Float32 >( 41 ) );
+    ASSERT_LT( n.GetFloat32Value(), static_cast< CF::Number::Float32 >( 43 ) );
+}
 
 TEST( CFPP_Number, SetFloat64Value )
-{}
+{
+    CF::Number n;
+    
+    n.SetFloat64Value( 42 );
+    
+    ASSERT_GT( n.GetFloat64Value(), static_cast< CF::Number::Float64 >( 41 ) );
+    ASSERT_LT( n.GetFloat64Value(), static_cast< CF::Number::Float64 >( 43 ) );
+}
 
 TEST( CFPP_Number, Swap )
-{}
+{
+    CF::Number n1( 1 );
+    CF::Number n2( 2 );
+    
+    swap( n1, n2 );
+    
+    ASSERT_EQ( n1, 2 );
+    ASSERT_EQ( n2, 1 );
+}
