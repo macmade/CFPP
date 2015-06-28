@@ -301,8 +301,6 @@ namespace CF
             Number & operator |= ( UInt16 value );
             Number & operator |= ( UInt32 value );
             Number & operator |= ( UInt64 value );
-            Number & operator |= ( Float32 value );
-            Number & operator |= ( Float64 value );
             
             Number & operator &= ( const Number & value );
             Number & operator &= ( CFNumberRef value );
@@ -314,8 +312,6 @@ namespace CF
             Number & operator &= ( UInt16 value );
             Number & operator &= ( UInt32 value );
             Number & operator &= ( UInt64 value );
-            Number & operator &= ( Float32 value );
-            Number & operator &= ( Float64 value );
             
             Number & operator %= ( const Number & value );
             Number & operator %= ( CFNumberRef value );
@@ -340,8 +336,6 @@ namespace CF
             Number & operator ^= ( UInt16 value );
             Number & operator ^= ( UInt32 value );
             Number & operator ^= ( UInt64 value );
-            Number & operator ^= ( Float32 value );
-            Number & operator ^= ( Float64 value );
             
             Number & operator <<= ( const Number & value );
             Number & operator <<= ( CFNumberRef value );
@@ -353,8 +347,6 @@ namespace CF
             Number & operator <<= ( UInt16 value );
             Number & operator <<= ( UInt32 value );
             Number & operator <<= ( UInt64 value );
-            Number & operator <<= ( Float32 value );
-            Number & operator <<= ( Float64 value );
             
             Number & operator >>= ( const Number & value );
             Number & operator >>= ( CFNumberRef value );
@@ -366,8 +358,6 @@ namespace CF
             Number & operator >>= ( UInt16 value );
             Number & operator >>= ( UInt32 value );
             Number & operator >>= ( UInt64 value );
-            Number & operator >>= ( Float32 value );
-            Number & operator >>= ( Float64 value );
             
             Number operator + ( const Number & value );
             Number operator + ( CFNumberRef value );
@@ -444,8 +434,6 @@ namespace CF
             Number operator & ( UInt16 value );
             Number operator & ( UInt32 value );
             Number operator & ( UInt64 value );
-            Number operator & ( Float32 value );
-            Number operator & ( Float64 value );
             
             Number operator | ( const Number & value );
             Number operator | ( CFNumberRef value );
@@ -457,8 +445,6 @@ namespace CF
             Number operator | ( UInt16 value );
             Number operator | ( UInt32 value );
             Number operator | ( UInt64 value );
-            Number operator | ( Float32 value );
-            Number operator | ( Float64 value );
             
             Number operator ^ ( const Number & value );
             Number operator ^ ( CFNumberRef value );
@@ -470,8 +456,6 @@ namespace CF
             Number operator ^ ( UInt16 value );
             Number operator ^ ( UInt32 value );
             Number operator ^ ( UInt64 value );
-            Number operator ^ ( Float32 value );
-            Number operator ^ ( Float64 value );
             
             Number operator << ( const Number & value );
             Number operator << ( CFNumberRef value );
@@ -483,8 +467,6 @@ namespace CF
             Number operator << ( UInt16 value );
             Number operator << ( UInt32 value );
             Number operator << ( UInt64 value );
-            Number operator << ( Float32 value );
-            Number operator << ( Float64 value );
             
             Number operator >> ( const Number & value );
             Number operator >> ( CFNumberRef value );
@@ -496,8 +478,6 @@ namespace CF
             Number operator >> ( UInt16 value );
             Number operator >> ( UInt32 value );
             Number operator >> ( UInt64 value );
-            Number operator >> ( Float32 value );
-            Number operator >> ( Float64 value );
             
             operator SInt8   () const;
             operator SInt16  () const;

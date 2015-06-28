@@ -2044,24 +2044,6 @@ namespace CF
         return *( this ) |= num;
     }
     
-    Number & Number::operator |= ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
-    }
-    
-    Number & Number::operator |= ( Float64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
-    }
-    
     Number & Number::operator &= ( const Number & value )
     {
         if( this->_cfObject == NULL && value._cfObject == NULL )
@@ -2152,24 +2134,6 @@ namespace CF
     }
     
     Number & Number::operator &= ( Number::UInt64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
-    }
-    
-    Number & Number::operator &= ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
-    }
-    
-    Number & Number::operator &= ( Float64 value )
     {
         Number num;
         
@@ -2392,24 +2356,6 @@ namespace CF
         return *( this ) ^= num;
     }
     
-    Number & Number::operator ^= ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
-    }
-    
-    Number & Number::operator ^= ( Float64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
-    }
-    
     Number & Number::operator <<= ( const Number & value )
     {
         if( this->_cfObject == NULL && value._cfObject == NULL )
@@ -2508,24 +2454,6 @@ namespace CF
         return *( this ) <<= num;
     }
     
-    Number & Number::operator <<= ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
-    }
-    
-    Number & Number::operator <<= ( Float64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
-    }
-    
     Number & Number::operator >>= ( const Number & value )
     {
         if( this->_cfObject == NULL && value._cfObject == NULL )
@@ -2616,24 +2544,6 @@ namespace CF
     }
     
     Number & Number::operator >>= ( Number::UInt64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
-    }
-    
-    Number & Number::operator >>= ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
-    }
-    
-    Number & Number::operator >>= ( Float64 value )
     {
         Number num;
         
@@ -3272,24 +3182,6 @@ namespace CF
         return *( this ) & num;
     }
     
-    Number Number::operator & ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
-    }
-    
-    Number Number::operator & ( Float64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
-    }
-    
     Number Number::operator | ( const Number & value )
     {
         Number num;
@@ -3372,24 +3264,6 @@ namespace CF
     }
     
     Number Number::operator | ( Number::UInt64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
-    }
-    
-    Number Number::operator | ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
-    }
-    
-    Number Number::operator | ( Float64 value )
     {
         Number num;
         
@@ -3488,24 +3362,6 @@ namespace CF
         return *( this ) ^ num;
     }
     
-    Number Number::operator ^ ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
-    }
-    
-    Number Number::operator ^ ( Float64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
-    }
-    
     Number Number::operator << ( const Number & value )
     {
         Number num;
@@ -3596,24 +3452,6 @@ namespace CF
         return *( this ) << num;
     }
     
-    Number Number::operator << ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
-    }
-    
-    Number Number::operator << ( Float64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
-    }
-    
     Number Number::operator >> ( const Number & value )
     {
         Number num;
@@ -3696,24 +3534,6 @@ namespace CF
     }
     
     Number Number::operator >> ( Number::UInt64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
-    }
-    
-    Number Number::operator >> ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
-    }
-    
-    Number Number::operator >> ( Float64 value )
     {
         Number num;
         
