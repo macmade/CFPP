@@ -1456,16 +1456,6 @@ namespace CF
     
     Number & Number::operator += ( const Number & value )
     {
-        if( this->_cfObject == NULL && value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
-        if( value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
         if( this->IsFloatType() )
         {
             this->SetFloat64Value( this->GetFloat64Value() + value.GetFloat64Value() );
@@ -1579,16 +1569,6 @@ namespace CF
     
     Number & Number::operator -= ( const Number & value )
     {
-        if( this->_cfObject == NULL && value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
-        if( value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
         if( this->IsFloatType() )
         {
             this->SetFloat64Value( this->GetFloat64Value() - value.GetFloat64Value() );
@@ -1702,16 +1682,6 @@ namespace CF
     
     Number & Number::operator *= ( const Number & value )
     {
-        if( this->_cfObject == NULL && value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
-        if( value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
         if( this->IsFloatType() )
         {
             this->SetFloat64Value( this->GetFloat64Value() * value.GetFloat64Value() );
@@ -1825,22 +1795,22 @@ namespace CF
     
     Number & Number::operator /= ( const Number & value )
     {
-        if( this->_cfObject == NULL && value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
-        if( value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
         if( this->IsFloatType() )
         {
+            if( fabs( value.GetFloat64Value() ) < DBL_EPSILON )
+            {
+                throw std::runtime_error( "Division by zero" );
+            }
+            
             this->SetFloat64Value( this->GetFloat64Value() / value.GetFloat64Value() );
         }
         else
         {
+            if( value.GetSInt64Value() == 0 )
+            {
+                throw std::runtime_error( "Division by zero" );
+            }
+            
             this->SetSInt64Value( this->GetSInt64Value() / value.GetSInt64Value() );
         }
         
@@ -1948,16 +1918,6 @@ namespace CF
     
     Number & Number::operator |= ( const Number & value )
     {
-        if( this->_cfObject == NULL && value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
-        if( value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
         this->SetSInt64Value( this->GetSInt64Value() | value.GetSInt64Value() );
         
         return *( this );
@@ -2046,16 +2006,6 @@ namespace CF
     
     Number & Number::operator &= ( const Number & value )
     {
-        if( this->_cfObject == NULL && value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
-        if( value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
         this->SetSInt64Value( this->GetSInt64Value() & value.GetSInt64Value() );
         
         return *( this );
@@ -2144,14 +2094,9 @@ namespace CF
     
     Number & Number::operator %= ( const Number & value )
     {
-        if( this->_cfObject == NULL && value._cfObject == NULL )
+        if( value.GetSInt64Value() == 0 )
         {
-            return *( this );
-        }
-        
-        if( value._cfObject == NULL )
-        {
-            return *( this );
+            throw std::runtime_error( "Division by zero" );
         }
         
         this->SetSInt64Value( this->GetSInt64Value() % value.GetSInt64Value() );
@@ -2240,36 +2185,8 @@ namespace CF
         return *( this ) %= num;
     }
     
-    Number & Number::operator %= ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
-    }
-    
-    Number & Number::operator %= ( Float64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
-    }
-    
     Number & Number::operator ^= ( const Number & value )
     {
-        if( this->_cfObject == NULL && value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
-        if( value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
         this->SetSInt64Value( this->GetSInt64Value() ^ value.GetSInt64Value() );
         
         return *( this );
@@ -2358,16 +2275,6 @@ namespace CF
     
     Number & Number::operator <<= ( const Number & value )
     {
-        if( this->_cfObject == NULL && value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
-        if( value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
         this->SetSInt64Value( this->GetSInt64Value() << value.GetSInt64Value() );
         
         return *( this );
@@ -2456,16 +2363,6 @@ namespace CF
     
     Number & Number::operator >>= ( const Number & value )
     {
-        if( this->_cfObject == NULL && value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
-        if( value._cfObject == NULL )
-        {
-            return *( this );
-        }
-        
         this->SetSInt64Value( this->GetSInt64Value() >> value.GetSInt64Value() );
         
         return *( this );
@@ -3066,24 +2963,6 @@ namespace CF
     }
     
     Number Number::operator % ( Number::UInt64 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
-    }
-    
-    Number Number::operator % ( Float32 value )
-    {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
-    }
-    
-    Number Number::operator % ( Float64 value )
     {
         Number num;
         
