@@ -823,12 +823,6 @@ TEST( CFPP_Number, OperatorXorEqualUInt32 )
 TEST( CFPP_Number, OperatorXorEqualUInt64 )
 {}
 
-TEST( CFPP_Number, OperatorXorEqualFloat32 )
-{}
-
-TEST( CFPP_Number, OperatorXorEqualFloat64 )
-{}
-
 TEST( CFPP_Number, OperatorLeftShiftEqualNumber )
 {}
 
@@ -862,12 +856,6 @@ TEST( CFPP_Number, OperatorLeftShiftEqualUInt32 )
 TEST( CFPP_Number, OperatorLeftShiftEqualUInt64 )
 {}
 
-TEST( CFPP_Number, OperatorLeftShiftEqualFloat32 )
-{}
-
-TEST( CFPP_Number, OperatorLeftShiftEqualFloat64 )
-{}
-
 TEST( CFPP_Number, OperatorRightShiftEqualNumber )
 {}
 
@@ -899,12 +887,6 @@ TEST( CFPP_Number, OperatorRightShiftEqualUInt32 )
 {}
 
 TEST( CFPP_Number, OperatorRightShiftEqualUInt64 )
-{}
-
-TEST( CFPP_Number, OperatorRightShiftEqualFloat32 )
-{}
-
-TEST( CFPP_Number, OperatorRightShiftEqualFloat64 )
 {}
 
 TEST( CFPP_Number, OperatorPlusNumber )
@@ -1135,12 +1117,6 @@ TEST( CFPP_Number, OperatorBitwiseAndUInt32 )
 TEST( CFPP_Number, OperatorBitwiseAndUInt64 )
 {}
 
-TEST( CFPP_Number, OperatorBitwiseAndFloat32 )
-{}
-
-TEST( CFPP_Number, OperatorBitwiseAndFloat64 )
-{}
-
 TEST( CFPP_Number, OperatorBitwiseOrNumber )
 {}
 
@@ -1172,12 +1148,6 @@ TEST( CFPP_Number, OperatorBitwiseOrUInt32 )
 {}
 
 TEST( CFPP_Number, OperatorBitwiseOrUInt64 )
-{}
-
-TEST( CFPP_Number, OperatorBitwiseOrFloat32 )
-{}
-
-TEST( CFPP_Number, OperatorBitwiseOrFloat64 )
 {}
 
 TEST( CFPP_Number, OperatorXorNumber )
@@ -1213,12 +1183,6 @@ TEST( CFPP_Number, OperatorXorUInt32 )
 TEST( CFPP_Number, OperatorXorUInt64 )
 {}
 
-TEST( CFPP_Number, OperatorXorFloat32 )
-{}
-
-TEST( CFPP_Number, OperatorXorFloat64 )
-{}
-
 TEST( CFPP_Number, OperatorLeftShiftNumber )
 {}
 
@@ -1250,12 +1214,6 @@ TEST( CFPP_Number, OperatorLeftShiftUInt32 )
 {}
 
 TEST( CFPP_Number, OperatorLeftShiftUInt64 )
-{}
-
-TEST( CFPP_Number, OperatorLeftShiftFloat32 )
-{}
-
-TEST( CFPP_Number, OperatorLeftShiftFloat64 )
 {}
 
 TEST( CFPP_Number, OperatorRightShiftNumber )
@@ -1291,41 +1249,121 @@ TEST( CFPP_Number, OperatorRightShiftUInt32 )
 TEST( CFPP_Number, OperatorRightShiftUInt64 )
 {}
 
-TEST( CFPP_Number, OperatorRightShiftFloat32 )
-{}
-
-TEST( CFPP_Number, OperatorRightShiftFloat64 )
-{}
-
 TEST( CFPP_Number, CastToSInt8 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( static_cast< CF::Number::SInt8 >( n1 ), static_cast< CF::Number::SInt8 >(  0 ) );
+    ASSERT_EQ( static_cast< CF::Number::SInt8 >( n2 ), static_cast< CF::Number::SInt8 >( 42 ) );
+    ASSERT_EQ( static_cast< CF::Number::SInt8 >( n3 ), static_cast< CF::Number::SInt8 >(  0 ) );
+}
 
 TEST( CFPP_Number, CastToSInt16 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( static_cast< CF::Number::SInt16 >( n1 ), static_cast< CF::Number::SInt16 >(  0 ) );
+    ASSERT_EQ( static_cast< CF::Number::SInt16 >( n2 ), static_cast< CF::Number::SInt16 >( 42 ) );
+    ASSERT_EQ( static_cast< CF::Number::SInt16 >( n3 ), static_cast< CF::Number::SInt16 >(  0 ) );
+}
 
 TEST( CFPP_Number, CastToSInt32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( static_cast< CF::Number::SInt32 >( n1 ), static_cast< CF::Number::SInt32 >(  0 ) );
+    ASSERT_EQ( static_cast< CF::Number::SInt32 >( n2 ), static_cast< CF::Number::SInt32 >( 42 ) );
+    ASSERT_EQ( static_cast< CF::Number::SInt32 >( n3 ), static_cast< CF::Number::SInt32 >(  0 ) );
+}
 
 TEST( CFPP_Number, CastToSInt64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( static_cast< CF::Number::SInt64 >( n1 ), static_cast< CF::Number::SInt64 >(  0 ) );
+    ASSERT_EQ( static_cast< CF::Number::SInt64 >( n2 ), static_cast< CF::Number::SInt64 >( 42 ) );
+    ASSERT_EQ( static_cast< CF::Number::SInt64 >( n3 ), static_cast< CF::Number::SInt64 >(  0 ) );
+}
 
 TEST( CFPP_Number, CastToUInt8 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( static_cast< CF::Number::UInt8 >( n1 ), static_cast< CF::Number::UInt8 >(  0 ) );
+    ASSERT_EQ( static_cast< CF::Number::UInt8 >( n2 ), static_cast< CF::Number::UInt8 >( 42 ) );
+    ASSERT_EQ( static_cast< CF::Number::UInt8 >( n3 ), static_cast< CF::Number::UInt8 >(  0 ) );
+}
 
 TEST( CFPP_Number, CastToUInt16 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( static_cast< CF::Number::UInt16 >( n1 ), static_cast< CF::Number::UInt16 >(  0 ) );
+    ASSERT_EQ( static_cast< CF::Number::UInt16 >( n2 ), static_cast< CF::Number::UInt16 >( 42 ) );
+    ASSERT_EQ( static_cast< CF::Number::UInt16 >( n3 ), static_cast< CF::Number::UInt16 >(  0 ) );
+}
 
 TEST( CFPP_Number, CastToUInt32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( static_cast< CF::Number::UInt32 >( n1 ), static_cast< CF::Number::UInt32 >(  0 ) );
+    ASSERT_EQ( static_cast< CF::Number::UInt32 >( n2 ), static_cast< CF::Number::UInt32 >( 42 ) );
+    ASSERT_EQ( static_cast< CF::Number::UInt32 >( n3 ), static_cast< CF::Number::UInt32 >(  0 ) );
+}
 
 TEST( CFPP_Number, CastToUInt64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( static_cast< CF::Number::UInt64 >( n1 ), static_cast< CF::Number::UInt64 >(  0 ) );
+    ASSERT_EQ( static_cast< CF::Number::UInt64 >( n2 ), static_cast< CF::Number::UInt64 >( 42 ) );
+    ASSERT_EQ( static_cast< CF::Number::UInt64 >( n3 ), static_cast< CF::Number::UInt64 >(  0 ) );
+}
 
 TEST( CFPP_Number, CastToFloat32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_GT( static_cast< CF::Number::Float32 >( n1 ), static_cast< CF::Number::Float32 >( -1 ) );
+    ASSERT_LT( static_cast< CF::Number::Float32 >( n1 ), static_cast< CF::Number::Float32 >(  1 ) );
+    ASSERT_GT( static_cast< CF::Number::Float32 >( n2 ), static_cast< CF::Number::Float32 >( 41 ) );
+    ASSERT_LT( static_cast< CF::Number::Float32 >( n2 ), static_cast< CF::Number::Float32 >( 43 ) );
+    ASSERT_GT( static_cast< CF::Number::Float32 >( n3 ), static_cast< CF::Number::Float32 >( -1 ) );
+    ASSERT_LT( static_cast< CF::Number::Float32 >( n3 ), static_cast< CF::Number::Float32 >(  1 ) );
+}
 
 TEST( CFPP_Number, CastToFloat64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_GT( static_cast< CF::Number::Float64 >( n1 ), static_cast< CF::Number::Float64 >( -1 ) );
+    ASSERT_LT( static_cast< CF::Number::Float64 >( n1 ), static_cast< CF::Number::Float64 >(  1 ) );
+    ASSERT_GT( static_cast< CF::Number::Float64 >( n2 ), static_cast< CF::Number::Float64 >( 41 ) );
+    ASSERT_LT( static_cast< CF::Number::Float64 >( n2 ), static_cast< CF::Number::Float64 >( 43 ) );
+    ASSERT_GT( static_cast< CF::Number::Float64 >( n3 ), static_cast< CF::Number::Float64 >( -1 ) );
+    ASSERT_LT( static_cast< CF::Number::Float64 >( n3 ), static_cast< CF::Number::Float64 >(  1 ) );
+}
 
 TEST( CFPP_Number, GetTypeID )
 {
