@@ -567,7 +567,7 @@ namespace CF
     {
         if( this->IsFloatType() || value.IsFloatType() )
         {
-            return this->GetFloat64Value() == value.GetFloat64Value();
+            return fabs( this->GetFloat64Value() - value.GetFloat64Value() ) < DBL_EPSILON;
         }
         
         return this->GetSInt64Value() == value.GetSInt64Value();
