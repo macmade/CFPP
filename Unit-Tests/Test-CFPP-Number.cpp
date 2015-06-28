@@ -784,12 +784,6 @@ TEST( CFPP_Number, OperatorModEqualUInt32 )
 TEST( CFPP_Number, OperatorModEqualUInt64 )
 {}
 
-TEST( CFPP_Number, OperatorModEqualFloat32 )
-{}
-
-TEST( CFPP_Number, OperatorModEqualFloat64 )
-{}
-
 TEST( CFPP_Number, OperatorXorEqualNumber )
 {}
 
@@ -1076,12 +1070,6 @@ TEST( CFPP_Number, OperatorModUInt32 )
 {}
 
 TEST( CFPP_Number, OperatorModUInt64 )
-{}
-
-TEST( CFPP_Number, OperatorModFloat32 )
-{}
-
-TEST( CFPP_Number, OperatorModFloat64 )
 {}
 
 TEST( CFPP_Number, OperatorBitwiseAndNumber )
