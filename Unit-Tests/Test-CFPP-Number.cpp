@@ -519,16 +519,64 @@ TEST( CFPP_Number, OperatorLogicalNot )
 {}
 
 TEST( CFPP_Number, OperatorPrefixIncrement )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( ++n1,  1 );
+    ASSERT_EQ( ++n2, 43 );
+    ASSERT_EQ( ++n3,  1 );
+    
+    ASSERT_EQ( n1,  1 );
+    ASSERT_EQ( n2, 43 );
+    ASSERT_EQ( n3,  1 );
+}
 
 TEST( CFPP_Number, OperatorPosfixIncrement )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( n1++,  0 );
+    ASSERT_EQ( n2++, 42 );
+    ASSERT_EQ( n3++,  0 );
+    
+    ASSERT_EQ( n1,  1 );
+    ASSERT_EQ( n2, 43 );
+    ASSERT_EQ( n3,  1 );
+}
 
 TEST( CFPP_Number, OperatorPrefixDecrement )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( --n1, -1 );
+    ASSERT_EQ( --n2, 41 );
+    ASSERT_EQ( --n3, -1 );
+    
+    ASSERT_EQ( n1, -1 );
+    ASSERT_EQ( n2, 41 );
+    ASSERT_EQ( n3, -1 );
+}
 
 TEST( CFPP_Number, OperatorPostfixDecrement )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_EQ( n1--,  0 );
+    ASSERT_EQ( n2--, 42 );
+    ASSERT_EQ( n3--,  0 );
+    
+    ASSERT_EQ( n1, -1 );
+    ASSERT_EQ( n2, 41 );
+    ASSERT_EQ( n3, -1 );
+}
 
 TEST( CFPP_Number, OperatorPlusEqualNumber )
 {
