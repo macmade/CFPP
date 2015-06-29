@@ -1456,7 +1456,7 @@ namespace CF
     
     Number & Number::operator += ( const Number & value )
     {
-        if( this->IsFloatType() )
+        if( this->IsFloatType() || value.IsFloatType() )
         {
             this->SetFloat64Value( this->GetFloat64Value() + value.GetFloat64Value() );
         }
@@ -1569,7 +1569,7 @@ namespace CF
     
     Number & Number::operator -= ( const Number & value )
     {
-        if( this->IsFloatType() )
+        if( this->IsFloatType() || value.IsFloatType() )
         {
             this->SetFloat64Value( this->GetFloat64Value() - value.GetFloat64Value() );
         }
@@ -1682,7 +1682,7 @@ namespace CF
     
     Number & Number::operator *= ( const Number & value )
     {
-        if( this->IsFloatType() )
+        if( this->IsFloatType() || value.IsFloatType() )
         {
             this->SetFloat64Value( this->GetFloat64Value() * value.GetFloat64Value() );
         }
