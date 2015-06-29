@@ -348,6 +348,11 @@ TEST( CFPP_Type, GetRetainCount )
     
     ASSERT_TRUE( t.GetRetainCount() == CFGetRetainCount( t.GetCFObject() ) );
     ASSERT_TRUE( t.GetRetainCount() == 1 );
+    
+    o = static_cast< CFArrayRef >( NULL );
+    
+    ASSERT_FALSE( t.IsValid() );
+    ASSERT_TRUE(  t.GetRetainCount() == 0 );
 }
 
 TEST( CFPP_Type, IsValid )
