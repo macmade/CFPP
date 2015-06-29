@@ -531,160 +531,1072 @@ TEST( CFPP_Number, OperatorPostfixDecrement )
 {}
 
 TEST( CFPP_Number, OperatorPlusEqualNumber )
-{}
+{
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 += CF::Number( 10 );
+        n2 += CF::Number( 10 );
+        n3 += CF::Number( 10 );
+        
+        ASSERT_EQ( n1, 10 );
+        ASSERT_EQ( n2, 52 );
+        ASSERT_EQ( n3, 10 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 += n3;
+        n2 += n3;
+        n3 += n3;
+        
+        ASSERT_EQ( n1,  0 );
+        ASSERT_EQ( n2, 42 );
+        ASSERT_EQ( n3,  0 );
+    }
+}
 
 TEST( CFPP_Number, OperatorPlusEqualCFType )
-{}
+{
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 += static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+        n2 += static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+        n3 += static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+        
+        ASSERT_EQ( n1, 10 );
+        ASSERT_EQ( n2, 52 );
+        ASSERT_EQ( n3, 10 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 += static_cast< CFTypeRef >( n3.GetCFObject() );
+        n2 += static_cast< CFTypeRef >( n3.GetCFObject() );
+        n3 += static_cast< CFTypeRef >( n3.GetCFObject() );
+        
+        ASSERT_EQ( n1,  0 );
+        ASSERT_EQ( n2, 42 );
+        ASSERT_EQ( n3,  0 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 += static_cast< CFTypeRef >( CF::Array().GetCFObject() );
+        n2 += static_cast< CFTypeRef >( CF::Array().GetCFObject() );
+        n3 += static_cast< CFTypeRef >( CF::Array().GetCFObject() );
+        
+        ASSERT_EQ( n1,  0 );
+        ASSERT_EQ( n2, 42 );
+        ASSERT_EQ( n3,  0 );
+    }
+}
 
 TEST( CFPP_Number, OperatorPlusEqualCFNumber )
-{}
+{
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 += static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+        n2 += static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+        n3 += static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+        
+        ASSERT_EQ( n1, 10 );
+        ASSERT_EQ( n2, 52 );
+        ASSERT_EQ( n3, 10 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 += static_cast< CFNumberRef >( n3.GetCFObject() );
+        n2 += static_cast< CFNumberRef >( n3.GetCFObject() );
+        n3 += static_cast< CFNumberRef >( n3.GetCFObject() );
+        
+        ASSERT_EQ( n1,  0 );
+        ASSERT_EQ( n2, 42 );
+        ASSERT_EQ( n3,  0 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 += static_cast< CFNumberRef >( CF::Array().GetCFObject() );
+        n2 += static_cast< CFNumberRef >( CF::Array().GetCFObject() );
+        n3 += static_cast< CFNumberRef >( CF::Array().GetCFObject() );
+        
+        ASSERT_EQ( n1,  0 );
+        ASSERT_EQ( n2, 42 );
+        ASSERT_EQ( n3,  0 );
+    }
+}
 
 TEST( CFPP_Number, OperatorPlusEqualSInt8 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 += static_cast< CF::Number::SInt8 >( 10 );
+    n2 += static_cast< CF::Number::SInt8 >( 10 );
+    n3 += static_cast< CF::Number::SInt8 >( 10 );
+    
+    ASSERT_EQ( n1, 10 );
+    ASSERT_EQ( n2, 52 );
+    ASSERT_EQ( n3, 10 );
+}
 
 TEST( CFPP_Number, OperatorPlusEqualSInt16 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 += static_cast< CF::Number::SInt16 >( 10 );
+    n2 += static_cast< CF::Number::SInt16 >( 10 );
+    n3 += static_cast< CF::Number::SInt16 >( 10 );
+    
+    ASSERT_EQ( n1, 10 );
+    ASSERT_EQ( n2, 52 );
+    ASSERT_EQ( n3, 10 );
+}
 
 TEST( CFPP_Number, OperatorPlusEqualSInt32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 += static_cast< CF::Number::SInt32 >( 10 );
+    n2 += static_cast< CF::Number::SInt32 >( 10 );
+    n3 += static_cast< CF::Number::SInt32 >( 10 );
+    
+    ASSERT_EQ( n1, 10 );
+    ASSERT_EQ( n2, 52 );
+    ASSERT_EQ( n3, 10 );
+}
 
 TEST( CFPP_Number, OperatorPlusEqualSInt64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 += static_cast< CF::Number::SInt64 >( 10 );
+    n2 += static_cast< CF::Number::SInt64 >( 10 );
+    n3 += static_cast< CF::Number::SInt64 >( 10 );
+    
+    ASSERT_EQ( n1, 10 );
+    ASSERT_EQ( n2, 52 );
+    ASSERT_EQ( n3, 10 );
+}
 
 TEST( CFPP_Number, OperatorPlusEqualUInt8 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 += static_cast< CF::Number::UInt8 >( 10 );
+    n2 += static_cast< CF::Number::UInt8 >( 10 );
+    n3 += static_cast< CF::Number::UInt8 >( 10 );
+    
+    ASSERT_EQ( n1, 10 );
+    ASSERT_EQ( n2, 52 );
+    ASSERT_EQ( n3, 10 );
+}
 
 TEST( CFPP_Number, OperatorPlusEqualUInt16 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 += static_cast< CF::Number::UInt16 >( 10 );
+    n2 += static_cast< CF::Number::UInt16 >( 10 );
+    n3 += static_cast< CF::Number::UInt16 >( 10 );
+    
+    ASSERT_EQ( n1, 10 );
+    ASSERT_EQ( n2, 52 );
+    ASSERT_EQ( n3, 10 );
+}
 
 TEST( CFPP_Number, OperatorPlusEqualUInt32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 += static_cast< CF::Number::UInt32 >( 10 );
+    n2 += static_cast< CF::Number::UInt32 >( 10 );
+    n3 += static_cast< CF::Number::UInt32 >( 10 );
+    
+    ASSERT_EQ( n1, 10 );
+    ASSERT_EQ( n2, 52 );
+    ASSERT_EQ( n3, 10 );
+}
 
 TEST( CFPP_Number, OperatorPlusEqualUInt64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 += static_cast< CF::Number::UInt64 >( 10 );
+    n2 += static_cast< CF::Number::UInt64 >( 10 );
+    n3 += static_cast< CF::Number::UInt64 >( 10 );
+    
+    ASSERT_EQ( n1, 10 );
+    ASSERT_EQ( n2, 52 );
+    ASSERT_EQ( n3, 10 );
+}
 
 TEST( CFPP_Number, OperatorPlusEqualFloat32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 += static_cast< CF::Number::Float32 >( 10 );
+    n2 += static_cast< CF::Number::Float32 >( 10 );
+    n3 += static_cast< CF::Number::Float32 >( 10 );
+    
+    ASSERT_EQ( n1, 10 );
+    ASSERT_EQ( n2, 52 );
+    ASSERT_EQ( n3, 10 );
+}
 
 TEST( CFPP_Number, OperatorPlusEqualFloat64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 += static_cast< CF::Number::Float64 >( 10 );
+    n2 += static_cast< CF::Number::Float64 >( 10 );
+    n3 += static_cast< CF::Number::Float64 >( 10 );
+    
+    ASSERT_EQ( n1, 10 );
+    ASSERT_EQ( n2, 52 );
+    ASSERT_EQ( n3, 10 );
+}
 
 TEST( CFPP_Number, OperatorMinusEqualNumber )
-{}
+{
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 -= CF::Number( 10 );
+        n2 -= CF::Number( 10 );
+        n3 -= CF::Number( 10 );
+        
+        ASSERT_EQ( n1, -10 );
+        ASSERT_EQ( n2,  32 );
+        ASSERT_EQ( n3, -10 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 -= n3;
+        n2 -= n3;
+        n3 -= n3;
+        
+        ASSERT_EQ( n1,  0 );
+        ASSERT_EQ( n2, 42 );
+        ASSERT_EQ( n3,  0 );
+    }
+}
 
 TEST( CFPP_Number, OperatorMinusEqualCFType )
-{}
+{
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 -= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+        n2 -= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+        n3 -= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+        
+        ASSERT_EQ( n1, -10 );
+        ASSERT_EQ( n2,  32 );
+        ASSERT_EQ( n3, -10 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 -= static_cast< CFTypeRef >( n3.GetCFObject() );
+        n2 -= static_cast< CFTypeRef >( n3.GetCFObject() );
+        n3 -= static_cast< CFTypeRef >( n3.GetCFObject() );
+        
+        ASSERT_EQ( n1,  0 );
+        ASSERT_EQ( n2, 42 );
+        ASSERT_EQ( n3,  0 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 -= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
+        n2 -= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
+        n3 -= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
+        
+        ASSERT_EQ( n1,  0 );
+        ASSERT_EQ( n2, 42 );
+        ASSERT_EQ( n3,  0 );
+    }
+}
 
 TEST( CFPP_Number, OperatorMinusEqualCFNumber )
-{}
+{
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 -= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+        n2 -= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+        n3 -= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+        
+        ASSERT_EQ( n1, -10 );
+        ASSERT_EQ( n2,  32 );
+        ASSERT_EQ( n3, -10 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 -= static_cast< CFNumberRef >( n3.GetCFObject() );
+        n2 -= static_cast< CFNumberRef >( n3.GetCFObject() );
+        n3 -= static_cast< CFNumberRef >( n3.GetCFObject() );
+        
+        ASSERT_EQ( n1,  0 );
+        ASSERT_EQ( n2, 42 );
+        ASSERT_EQ( n3,  0 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 -= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
+        n2 -= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
+        n3 -= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
+        
+        ASSERT_EQ( n1,  0 );
+        ASSERT_EQ( n2, 42 );
+        ASSERT_EQ( n3,  0 );
+    }
+}
 
 TEST( CFPP_Number, OperatorMinusEqualSInt8 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 -= static_cast< CF::Number::SInt8 >( 10 );
+    n2 -= static_cast< CF::Number::SInt8 >( 10 );
+    n3 -= static_cast< CF::Number::SInt8 >( 10 );
+    
+    ASSERT_EQ( n1, -10 );
+    ASSERT_EQ( n2,  32 );
+    ASSERT_EQ( n3, -10 );
+}
 
 TEST( CFPP_Number, OperatorMinusEqualSInt16 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 -= static_cast< CF::Number::SInt16 >( 10 );
+    n2 -= static_cast< CF::Number::SInt16 >( 10 );
+    n3 -= static_cast< CF::Number::SInt16 >( 10 );
+    
+    ASSERT_EQ( n1, -10 );
+    ASSERT_EQ( n2,  32 );
+    ASSERT_EQ( n3, -10 );
+}
 
 TEST( CFPP_Number, OperatorMinusEqualSInt32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 -= static_cast< CF::Number::SInt32 >( 10 );
+    n2 -= static_cast< CF::Number::SInt32 >( 10 );
+    n3 -= static_cast< CF::Number::SInt32 >( 10 );
+    
+    ASSERT_EQ( n1, -10 );
+    ASSERT_EQ( n2,  32 );
+    ASSERT_EQ( n3, -10 );
+}
 
 TEST( CFPP_Number, OperatorMinusEqualSInt64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 -= static_cast< CF::Number::SInt64 >( 10 );
+    n2 -= static_cast< CF::Number::SInt64 >( 10 );
+    n3 -= static_cast< CF::Number::SInt64 >( 10 );
+    
+    ASSERT_EQ( n1, -10 );
+    ASSERT_EQ( n2,  32 );
+    ASSERT_EQ( n3, -10 );
+}
 
 TEST( CFPP_Number, OperatorMinusEqualUInt8 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 -= static_cast< CF::Number::UInt8 >( 10 );
+    n2 -= static_cast< CF::Number::UInt8 >( 10 );
+    n3 -= static_cast< CF::Number::UInt8 >( 10 );
+    
+    ASSERT_EQ( n1, -10 );
+    ASSERT_EQ( n2,  32 );
+    ASSERT_EQ( n3, -10 );
+}
 
 TEST( CFPP_Number, OperatorMinusEqualUInt16 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 -= static_cast< CF::Number::UInt16 >( 10 );
+    n2 -= static_cast< CF::Number::UInt16 >( 10 );
+    n3 -= static_cast< CF::Number::UInt16 >( 10 );
+    
+    ASSERT_EQ( n1, -10 );
+    ASSERT_EQ( n2,  32 );
+    ASSERT_EQ( n3, -10 );
+}
 
 TEST( CFPP_Number, OperatorMinusEqualUInt32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 -= static_cast< CF::Number::UInt32 >( 10 );
+    n2 -= static_cast< CF::Number::UInt32 >( 10 );
+    n3 -= static_cast< CF::Number::UInt32 >( 10 );
+    
+    ASSERT_EQ( n1, -10 );
+    ASSERT_EQ( n2,  32 );
+    ASSERT_EQ( n3, -10 );
+}
 
 TEST( CFPP_Number, OperatorMinusEqualUInt64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 -= static_cast< CF::Number::UInt64 >( 10 );
+    n2 -= static_cast< CF::Number::UInt64 >( 10 );
+    n3 -= static_cast< CF::Number::UInt64 >( 10 );
+    
+    ASSERT_EQ( n1, -10 );
+    ASSERT_EQ( n2,  32 );
+    ASSERT_EQ( n3, -10 );
+}
 
 TEST( CFPP_Number, OperatorMinusEqualFloat32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 -= static_cast< CF::Number::Float32 >( 10 );
+    n2 -= static_cast< CF::Number::Float32 >( 10 );
+    n3 -= static_cast< CF::Number::Float32 >( 10 );
+    
+    ASSERT_EQ( n1, -10 );
+    ASSERT_EQ( n2,  32 );
+    ASSERT_EQ( n3, -10 );
+}
 
 TEST( CFPP_Number, OperatorMinusEqualFloat64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 -= static_cast< CF::Number::Float64 >( 10 );
+    n2 -= static_cast< CF::Number::Float64 >( 10 );
+    n3 -= static_cast< CF::Number::Float64 >( 10 );
+    
+    ASSERT_EQ( n1, -10 );
+    ASSERT_EQ( n2,  32 );
+    ASSERT_EQ( n3, -10 );
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualNumber )
-{}
+{
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 *= CF::Number( 10 );
+        n2 *= CF::Number( 10 );
+        n3 *= CF::Number( 10 );
+        
+        ASSERT_EQ( n1,   0 );
+        ASSERT_EQ( n2, 420 );
+        ASSERT_EQ( n3,   0 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 *= n3;
+        n2 *= n3;
+        n3 *= n3;
+        
+        ASSERT_EQ( n1, 0 );
+        ASSERT_EQ( n2, 0 );
+        ASSERT_EQ( n3, 0 );
+    }
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualCFType )
-{}
+{
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 *= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+        n2 *= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+        n3 *= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+        
+        ASSERT_EQ( n1,   0 );
+        ASSERT_EQ( n2, 420 );
+        ASSERT_EQ( n3,   0 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 *= static_cast< CFTypeRef >( n3.GetCFObject() );
+        n2 *= static_cast< CFTypeRef >( n3.GetCFObject() );
+        n3 *= static_cast< CFTypeRef >( n3.GetCFObject() );
+        
+        ASSERT_EQ( n1, 0 );
+        ASSERT_EQ( n2, 0 );
+        ASSERT_EQ( n3, 0 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 *= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
+        n2 *= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
+        n3 *= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
+        
+        ASSERT_EQ( n1, 0 );
+        ASSERT_EQ( n2, 0 );
+        ASSERT_EQ( n3, 0 );
+    }
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualCFNumber )
-{}
+{
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 *= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+        n2 *= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+        n3 *= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+        
+        ASSERT_EQ( n1,   0 );
+        ASSERT_EQ( n2, 420 );
+        ASSERT_EQ( n3,   0 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 *= static_cast< CFNumberRef >( n3.GetCFObject() );
+        n2 *= static_cast< CFNumberRef >( n3.GetCFObject() );
+        n3 *= static_cast< CFNumberRef >( n3.GetCFObject() );
+        
+        ASSERT_EQ( n1, 0 );
+        ASSERT_EQ( n2, 0 );
+        ASSERT_EQ( n3, 0 );
+    }
+    
+    {
+        CF::Number n1;
+        CF::Number n2( 42 );
+        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        
+        n1 *= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
+        n2 *= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
+        n3 *= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
+        
+        ASSERT_EQ( n1, 0 );
+        ASSERT_EQ( n2, 0 );
+        ASSERT_EQ( n3, 0 );
+    }
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualSInt8 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 *= static_cast< CF::Number::SInt8 >( 10 );
+    n2 *= static_cast< CF::Number::SInt8 >( 10 );
+    n3 *= static_cast< CF::Number::SInt8 >( 10 );
+    
+    ASSERT_EQ( n1,   0 );
+    ASSERT_EQ( n2, 420 );
+    ASSERT_EQ( n3,   0 );
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualSInt16 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 *= static_cast< CF::Number::SInt16 >( 10 );
+    n2 *= static_cast< CF::Number::SInt16 >( 10 );
+    n3 *= static_cast< CF::Number::SInt16 >( 10 );
+    
+    ASSERT_EQ( n1,   0 );
+    ASSERT_EQ( n2, 420 );
+    ASSERT_EQ( n3,   0 );
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualSInt32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 *= static_cast< CF::Number::SInt32 >( 10 );
+    n2 *= static_cast< CF::Number::SInt32 >( 10 );
+    n3 *= static_cast< CF::Number::SInt32 >( 10 );
+    
+    ASSERT_EQ( n1,   0 );
+    ASSERT_EQ( n2, 420 );
+    ASSERT_EQ( n3,   0 );
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualSInt64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 *= static_cast< CF::Number::SInt64 >( 10 );
+    n2 *= static_cast< CF::Number::SInt64 >( 10 );
+    n3 *= static_cast< CF::Number::SInt64 >( 10 );
+    
+    ASSERT_EQ( n1,   0 );
+    ASSERT_EQ( n2, 420 );
+    ASSERT_EQ( n3,   0 );
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualUInt8 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 *= static_cast< CF::Number::UInt8 >( 10 );
+    n2 *= static_cast< CF::Number::UInt8 >( 10 );
+    n3 *= static_cast< CF::Number::UInt8 >( 10 );
+    
+    ASSERT_EQ( n1,   0 );
+    ASSERT_EQ( n2, 420 );
+    ASSERT_EQ( n3,   0 );
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualUInt16 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 *= static_cast< CF::Number::UInt16 >( 10 );
+    n2 *= static_cast< CF::Number::UInt16 >( 10 );
+    n3 *= static_cast< CF::Number::UInt16 >( 10 );
+    
+    ASSERT_EQ( n1,   0 );
+    ASSERT_EQ( n2, 420 );
+    ASSERT_EQ( n3,   0 );
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualUInt32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 *= static_cast< CF::Number::UInt32 >( 10 );
+    n2 *= static_cast< CF::Number::UInt32 >( 10 );
+    n3 *= static_cast< CF::Number::UInt32 >( 10 );
+    
+    ASSERT_EQ( n1,   0 );
+    ASSERT_EQ( n2, 420 );
+    ASSERT_EQ( n3,   0 );
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualUInt64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 *= static_cast< CF::Number::UInt64 >( 10 );
+    n2 *= static_cast< CF::Number::UInt64 >( 10 );
+    n3 *= static_cast< CF::Number::UInt64 >( 10 );
+    
+    ASSERT_EQ( n1,   0 );
+    ASSERT_EQ( n2, 420 );
+    ASSERT_EQ( n3,   0 );
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualFloat32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 *= static_cast< CF::Number::Float32 >( 10 );
+    n2 *= static_cast< CF::Number::Float32 >( 10 );
+    n3 *= static_cast< CF::Number::Float32 >( 10 );
+    
+    ASSERT_EQ( n1,   0 );
+    ASSERT_EQ( n2, 420 );
+    ASSERT_EQ( n3,   0 );
+}
 
 TEST( CFPP_Number, OperatorMultiplyEqualFloat64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 *= static_cast< CF::Number::Float64 >( 10 );
+    n2 *= static_cast< CF::Number::Float64 >( 10 );
+    n3 *= static_cast< CF::Number::Float64 >( 10 );
+    
+    ASSERT_EQ( n1,   0 );
+    ASSERT_EQ( n2, 420 );
+    ASSERT_EQ( n3,   0 );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualNumber )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= CF::Number( 10 );
+    n2 /= CF::Number( 10 );
+    n3 /= CF::Number( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= n3, std::runtime_error );
+    ASSERT_THROW( n2 /= n3, std::runtime_error );
+    ASSERT_THROW( n3 /= n3, std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualCFType )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+    n2 /= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+    n3 /= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CFTypeRef >( n3.GetCFObject() ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CFTypeRef >( n3.GetCFObject() ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CFTypeRef >( n3.GetCFObject() ), std::runtime_error );
+    
+    ASSERT_THROW( n1 /= static_cast< CFTypeRef >( CF::Array().GetCFObject() ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CFTypeRef >( CF::Array().GetCFObject() ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CFTypeRef >( CF::Array().GetCFObject() ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualCFNumber )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+    n2 /= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+    n3 /= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CFNumberRef >( n3.GetCFObject() ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CFNumberRef >( n3.GetCFObject() ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CFNumberRef >( n3.GetCFObject() ), std::runtime_error );
+    
+    ASSERT_THROW( n1 /= static_cast< CFNumberRef >( CF::Array().GetCFObject() ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CFNumberRef >( CF::Array().GetCFObject() ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CFNumberRef >( CF::Array().GetCFObject() ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualSInt8 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CF::Number::SInt8 >( 10 );
+    n2 /= static_cast< CF::Number::SInt8 >( 10 );
+    n3 /= static_cast< CF::Number::SInt8 >( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CF::Number::SInt8 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CF::Number::SInt8 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CF::Number::SInt8 >( 0 ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualSInt16 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CF::Number::SInt16 >( 10 );
+    n2 /= static_cast< CF::Number::SInt16 >( 10 );
+    n3 /= static_cast< CF::Number::SInt16 >( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CF::Number::SInt16 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CF::Number::SInt16 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CF::Number::SInt16 >( 0 ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualSInt32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CF::Number::SInt32 >( 10 );
+    n2 /= static_cast< CF::Number::SInt32 >( 10 );
+    n3 /= static_cast< CF::Number::SInt32 >( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CF::Number::SInt32 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CF::Number::SInt32 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CF::Number::SInt32 >( 0 ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualSInt64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CF::Number::SInt64 >( 10 );
+    n2 /= static_cast< CF::Number::SInt64 >( 10 );
+    n3 /= static_cast< CF::Number::SInt64 >( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CF::Number::SInt64 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CF::Number::SInt64 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CF::Number::SInt64 >( 0 ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualUInt8 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CF::Number::UInt8 >( 10 );
+    n2 /= static_cast< CF::Number::UInt8 >( 10 );
+    n3 /= static_cast< CF::Number::UInt8 >( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CF::Number::UInt8 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CF::Number::UInt8 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CF::Number::UInt8 >( 0 ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualUInt16 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CF::Number::UInt16 >( 10 );
+    n2 /= static_cast< CF::Number::UInt16 >( 10 );
+    n3 /= static_cast< CF::Number::UInt16 >( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CF::Number::UInt16 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CF::Number::UInt16 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CF::Number::UInt16 >( 0 ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualUInt32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CF::Number::UInt32 >( 10 );
+    n2 /= static_cast< CF::Number::UInt32 >( 10 );
+    n3 /= static_cast< CF::Number::UInt32 >( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CF::Number::UInt32 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CF::Number::UInt32 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CF::Number::UInt32 >( 0 ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualUInt64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CF::Number::UInt64 >( 10 );
+    n2 /= static_cast< CF::Number::UInt64 >( 10 );
+    n3 /= static_cast< CF::Number::UInt64 >( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CF::Number::UInt64 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CF::Number::UInt64 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CF::Number::UInt64 >( 0 ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualFloat32 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CF::Number::Float32 >( 10 );
+    n2 /= static_cast< CF::Number::Float32 >( 10 );
+    n3 /= static_cast< CF::Number::Float32 >( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CF::Number::Float32 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CF::Number::Float32 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CF::Number::Float32 >( 0 ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorDivideEqualFloat64 )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 42 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    n1 /= static_cast< CF::Number::Float64 >( 10 );
+    n2 /= static_cast< CF::Number::Float64 >( 10 );
+    n3 /= static_cast< CF::Number::Float64 >( 10 );
+    
+    ASSERT_TRUE( FloatIsEqual( n1, 0.0 ) );
+    ASSERT_TRUE( FloatIsEqual( n2, 4.2 ) );
+    ASSERT_TRUE( FloatIsEqual( n3, 0.0 ) );
+    
+    ASSERT_THROW( n1 /= static_cast< CF::Number::Float64 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n2 /= static_cast< CF::Number::Float64 >( 0 ), std::runtime_error );
+    ASSERT_THROW( n3 /= static_cast< CF::Number::Float64 >( 0 ), std::runtime_error );
+}
 
 TEST( CFPP_Number, OperatorOrEqualNumber )
 {
