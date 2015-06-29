@@ -1795,24 +1795,12 @@ namespace CF
     
     Number & Number::operator /= ( const Number & value )
     {
-        if( this->IsFloatType() )
+        if( fabs( value.GetFloat64Value() ) < DBL_EPSILON )
         {
-            if( fabs( value.GetFloat64Value() ) < DBL_EPSILON )
-            {
-                throw std::runtime_error( "Division by zero" );
-            }
-            
-            this->SetFloat64Value( this->GetFloat64Value() / value.GetFloat64Value() );
+            throw std::runtime_error( "Division by zero" );
         }
-        else
-        {
-            if( value.GetSInt64Value() == 0 )
-            {
-                throw std::runtime_error( "Division by zero" );
-            }
-            
-            this->SetSInt64Value( this->GetSInt64Value() / value.GetSInt64Value() );
-        }
+        
+        this->SetFloat64Value( this->GetFloat64Value() / value.GetFloat64Value() );
         
         return *( this );
     }
