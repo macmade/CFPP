@@ -1420,9 +1420,7 @@ namespace CF
     
     Number Number::operator ++ ( int )
     {
-        Number n;
-        
-        n = *( this );
+        Number n( *( this ) );
         
         operator++();
         
@@ -1445,9 +1443,7 @@ namespace CF
     
     Number Number::operator -- ( int )
     {
-        Number n;
-        
-        n = *( this );
+        Number n( *( this ) );
         
         operator--();
         
