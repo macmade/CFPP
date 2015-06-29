@@ -45,7 +45,26 @@ TEST( CFPP_Type, OperatorEqual )
     CF::Type & t1 = o1;
     CF::Type & t2 = o2;
     
-    ASSERT_EQ( t1, t2 );
+    ASSERT_TRUE( t1 == t2 );
+    
+    o1 = static_cast< CFNumberRef >( NULL );
+    
+    ASSERT_FALSE( t1.IsValid() );
+    ASSERT_FALSE( t1 == t2 );
+    
+    o1 = 1;
+    o2 = static_cast< CFNumberRef >( NULL );
+    
+    ASSERT_TRUE(  t1.IsValid() );
+    ASSERT_FALSE( t2.IsValid() );
+    ASSERT_FALSE( t1 == t2 );
+    
+    o1 = static_cast< CFNumberRef >( NULL );
+    o2 = static_cast< CFNumberRef >( NULL );
+    
+    ASSERT_FALSE( t1.IsValid() );
+    ASSERT_FALSE( t2.IsValid() );
+    ASSERT_FALSE( t1 == t2 );
 }
 
 TEST( CFPP_Type, OperatorNotEqual )
@@ -55,7 +74,26 @@ TEST( CFPP_Type, OperatorNotEqual )
     CF::Type & t1 = o1;
     CF::Type & t2 = o2;
         
-    ASSERT_NE( t1, t2 );
+    ASSERT_TRUE( t1 != t2 );
+    
+    o1 = static_cast< CFNumberRef >( NULL );
+    
+    ASSERT_FALSE( t1.IsValid() );
+    ASSERT_TRUE(  t1 != t2 );
+    
+    o1 = 1;
+    o2 = static_cast< CFNumberRef >( NULL );
+    
+    ASSERT_TRUE(  t1.IsValid() );
+    ASSERT_FALSE( t2.IsValid() );
+    ASSERT_TRUE(  t1 != t2 );
+    
+    o1 = static_cast< CFNumberRef >( NULL );
+    o2 = static_cast< CFNumberRef >( NULL );
+    
+    ASSERT_FALSE( t1.IsValid() );
+    ASSERT_FALSE( t2.IsValid() );
+    ASSERT_TRUE(  t1 != t2 );
 }
 
 TEST( CFPP_Type, CastToCFTypeRef )
@@ -257,6 +295,11 @@ TEST( CFPP_Type, Hash )
     CF::Type & t = o;
     
     ASSERT_TRUE( t.Hash() == CFHash( t.GetCFObject() ) );
+    
+    o = static_cast< CFNumberRef >( NULL );
+    
+    ASSERT_FALSE( t.IsValid() );
+    ASSERT_EQ( t.Hash(), static_cast< CFHashCode >( 0 ) );
 }
 
 TEST( CFPP_Type, Show )
