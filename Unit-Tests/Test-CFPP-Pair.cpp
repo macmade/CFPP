@@ -37,3 +37,122 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_Pair, CTOR_CFType_CFType )
+{}
+
+TEST( CFPP_Pair, CTOR_String_CFType )
+{}
+
+TEST( CFPP_Pair, CTOR_CChar_CFType )
+{}
+
+TEST( CFPP_Pair, CTOR_String_String )
+{}
+
+TEST( CFPP_Pair, CTOR_CChar_String )
+{}
+
+TEST( CFPP_Pair, CTOR_String_CChar )
+{}
+
+TEST( CFPP_Pair, CTOR_CChar_CChar )
+{}
+
+TEST( CFPP_Pair, CTOR_String_Number )
+{}
+
+TEST( CFPP_Pair, CTOR_CChar_Number )
+{}
+
+TEST( CFPP_Pair, CCTOR )
+{
+    CF::Pair p1( "hello", "world" );
+    CF::Pair p2( p1 );
+    
+    ASSERT_EQ( p1.GetKey(),   p2.GetKey() );
+    ASSERT_EQ( p1.GetValue(), p2.GetValue() );
+}
+
+TEST( CFPP_Pair, MCTOR )
+{
+    CF::Pair p1( "hello", "world" );
+    CF::Pair p2( std::move( p1 ) );
+    
+    ASSERT_TRUE(  p1.GetKey()   == NULL );
+    ASSERT_TRUE(  p1.GetValue() == NULL );
+    ASSERT_FALSE( p2.GetKey()   == NULL );
+    ASSERT_FALSE( p2.GetValue() == NULL );
+}
+
+TEST( CFPP_Pair, OperatorAssign )
+{
+    CF::Pair p1( "hello", "world" );
+    CF::Pair p2( "hi",    "universe" );
+    
+    ASSERT_EQ( CF::String( p1.GetKey() ),   "hello" );
+    ASSERT_EQ( CF::String( p1.GetValue() ), "world" );
+    
+    p1 = p2;
+    
+    ASSERT_EQ( CF::String( p1.GetKey() ),   "hi" );
+    ASSERT_EQ( CF::String( p1.GetValue() ), "universe" );
+}
+
+TEST( CFPP_Pair, GetKey )
+{
+    CF::Pair p1( "hello", "world" );
+    
+    ASSERT_TRUE( p1.GetKey() != NULL );
+}
+
+TEST( CFPP_Pair, GetValue )
+{
+    CF::Pair p1( "hello", "world" );
+    
+    ASSERT_TRUE( p1.GetValue() != NULL );
+}
+
+TEST( CFPP_Pair, SetKey )
+{
+    CF::Pair p1( "hello", "world" );
+    
+    p1.SetKey( CF::String( "hi" ) );
+    
+    ASSERT_EQ( CF::String( p1.GetKey() ), "hi" );
+    
+    p1.SetKey( NULL );
+    
+    ASSERT_TRUE( p1.GetKey() == NULL );
+}
+
+TEST( CFPP_Pair, SetValue )
+{
+    CF::Pair p1( "hello", "world" );
+    
+    p1.SetValue( CF::String( "universe" ) );
+    
+    ASSERT_EQ( CF::String( p1.GetValue() ), "universe" );
+    
+    p1.SetValue( NULL );
+    
+    ASSERT_TRUE( p1.GetValue() == NULL );
+}
+
+TEST( CFPP_Pair, Swap )
+{
+    CF::Pair p1( "hello", "world" );
+    CF::Pair p2( "hi",    "universe" );
+    
+    ASSERT_EQ( CF::String( p1.GetKey() ),   "hello" );
+    ASSERT_EQ( CF::String( p1.GetValue() ), "world" );
+    ASSERT_EQ( CF::String( p2.GetKey() ),   "hi" );
+    ASSERT_EQ( CF::String( p2.GetValue() ), "universe" );
+    
+    swap( p1, p2 );
+    
+    ASSERT_EQ( CF::String( p2.GetKey() ),   "hello" );
+    ASSERT_EQ( CF::String( p2.GetValue() ), "world" );
+    ASSERT_EQ( CF::String( p1.GetKey() ),   "hi" );
+    ASSERT_EQ( CF::String( p1.GetValue() ), "universe" );
+}
