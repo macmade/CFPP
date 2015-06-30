@@ -37,3 +37,280 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_UUID, CTOR )
+{
+    CF::UUID u;
+    
+    ASSERT_TRUE( u.IsValid() );
+    ASSERT_GT( u.GetString().GetLength(), 0 );
+}
+
+TEST( CFPP_UUID, CTOR_CFType )
+{
+    CF::UUID u1;
+    CF::UUID u2( static_cast< CFTypeRef >( u1.GetCFObject() ) );
+    CF::UUID u3( static_cast< CFTypeRef >( NULL ) );
+    CF::UUID u4( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
+    
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+    ASSERT_FALSE( u4.IsValid() );
+    ASSERT_EQ( u1, u2 );
+}
+
+TEST( CFPP_UUID, CTOR_CFUUID )
+{
+    CF::UUID u1;
+    CF::UUID u2( static_cast< CFUUIDRef >( u1.GetCFObject() ) );
+    CF::UUID u3( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( CF::Boolean().GetCFObject() ) );
+    
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+    ASSERT_FALSE( u4.IsValid() );
+    ASSERT_EQ( u1, u2 );
+}
+
+TEST( CFPP_UUID, CCTOR )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    
+    ASSERT_TRUE( u1.IsValid() );
+    ASSERT_TRUE( u1.IsValid() );
+    ASSERT_EQ( u1.GetString(), u2.GetString() );
+}
+
+TEST( CFPP_UUID, MCTOR )
+{
+    CF::UUID u1;
+    CF::UUID u2( std::move( u1 ) );
+    
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u1.IsValid() );
+}
+
+TEST( CFPP_UUID, OperatorAssignUUID )
+{
+    CF::UUID u1;
+    CF::UUID u2;
+    
+    ASSERT_NE( u1.GetString(), u2.GetString() );
+    
+    u1 = u2;
+    
+    ASSERT_EQ( u1.GetString(), u2.GetString() );
+}
+
+TEST( CFPP_UUID, OperatorAssignCFType )
+{
+    CF::UUID u1;
+    CF::UUID u2;
+    
+    ASSERT_NE( u1, u2 );
+    
+    u1 = static_cast< CFTypeRef >( u2.GetCFObject() );
+    
+    ASSERT_TRUE( u1.IsValid() );
+    ASSERT_EQ( u1, u2 );
+    
+    u1 = static_cast< CFTypeRef >( NULL );
+    
+    ASSERT_FALSE( u1.IsValid() );
+    
+    u1 = u2;
+    
+    ASSERT_TRUE( u1.IsValid() );
+    
+    u1 = static_cast< CFTypeRef >( CF::Boolean().GetCFObject() );
+    
+    ASSERT_FALSE( u1.IsValid() );
+}
+
+TEST( CFPP_UUID, OperatorAssignCFUUID )
+{
+    CF::UUID u1;
+    CF::UUID u2;
+    
+    ASSERT_NE( u1, u2 );
+    
+    u1 = static_cast< CFUUIDRef >( u2.GetCFObject() );
+    
+    ASSERT_TRUE( u1.IsValid() );
+    ASSERT_EQ( u1, u2 );
+    
+    u1 = static_cast< CFUUIDRef >( NULL );
+    
+    ASSERT_FALSE( u1.IsValid() );
+    
+    u1 = u2;
+    
+    ASSERT_TRUE( u1.IsValid() );
+    
+    u1 = static_cast< CFUUIDRef >( CF::Boolean().GetCFObject() );
+    
+    ASSERT_FALSE( u1.IsValid() );
+}
+
+TEST( CFPP_UUID, OperatorEqualUUID )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    CF::UUID u3;
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_TRUE(  u1 == u2 );
+    ASSERT_FALSE( u1 == u3 );
+    ASSERT_FALSE( u4 == u1 );
+    ASSERT_FALSE( u4 == u4 );
+}
+
+TEST( CFPP_UUID, OperatorEqualCFType )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    CF::UUID u3;
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_TRUE(  u1 == static_cast< CFTypeRef >( u2.GetCFObject() ) );
+    ASSERT_FALSE( u1 == static_cast< CFTypeRef >( u3.GetCFObject() ) );
+    ASSERT_FALSE( u4 == static_cast< CFTypeRef >( u1.GetCFObject() ) );
+    ASSERT_FALSE( u4 == static_cast< CFTypeRef >( u4.GetCFObject() ) );
+    ASSERT_FALSE( u4 == static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
+}
+
+TEST( CFPP_UUID, OperatorEqualCFUUID )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    CF::UUID u3;
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_TRUE(  u1 == static_cast< CFUUIDRef >( u2.GetCFObject() ) );
+    ASSERT_FALSE( u1 == static_cast< CFUUIDRef >( u3.GetCFObject() ) );
+    ASSERT_FALSE( u4 == static_cast< CFUUIDRef >( u1.GetCFObject() ) );
+    ASSERT_FALSE( u4 == static_cast< CFUUIDRef >( u4.GetCFObject() ) );
+    ASSERT_FALSE( u4 == static_cast< CFUUIDRef >( CF::Boolean().GetCFObject() ) );
+}
+
+TEST( CFPP_UUID, OperatorEqualSTDString )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    CF::UUID u3;
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_TRUE(  u1 == static_cast< std::string >( u2.GetString() ) );
+    ASSERT_FALSE( u1 == static_cast< std::string >( u3.GetString() ) );
+    ASSERT_FALSE( u4 == static_cast< std::string >( u1.GetString() ) );
+    ASSERT_FALSE( u4 == static_cast< std::string >( u4.GetString() ) );
+}
+
+TEST( CFPP_UUID, OperatorNotEqualUUID )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    CF::UUID u3;
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_FALSE( u1 != u2 );
+    ASSERT_TRUE(  u1 != u3 );
+    ASSERT_TRUE(  u4 != u1 );
+    ASSERT_TRUE(  u4 != u4 );
+}
+
+TEST( CFPP_UUID, OperatorNotEqualCFType )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    CF::UUID u3;
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_FALSE( u1 != static_cast< CFTypeRef >( u2.GetCFObject() ) );
+    ASSERT_TRUE(  u1 != static_cast< CFTypeRef >( u3.GetCFObject() ) );
+    ASSERT_TRUE(  u4 != static_cast< CFTypeRef >( u1.GetCFObject() ) );
+    ASSERT_TRUE(  u4 != static_cast< CFTypeRef >( u4.GetCFObject() ) );
+    ASSERT_TRUE(  u4 != static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
+}
+
+TEST( CFPP_UUID, OperatorNotEqualCFUUID )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    CF::UUID u3;
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_FALSE( u1 != static_cast< CFUUIDRef >( u2.GetCFObject() ) );
+    ASSERT_TRUE(  u1 != static_cast< CFUUIDRef >( u3.GetCFObject() ) );
+    ASSERT_TRUE(  u4 != static_cast< CFUUIDRef >( u1.GetCFObject() ) );
+    ASSERT_TRUE(  u4 != static_cast< CFUUIDRef >( u4.GetCFObject() ) );
+    ASSERT_TRUE(  u4 != static_cast< CFUUIDRef >( CF::Boolean().GetCFObject() ) );
+}
+
+TEST( CFPP_UUID, OperatorNotEqualSTDString )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    CF::UUID u3;
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_FALSE( u1 != static_cast< std::string >( u2.GetString() ) );
+    ASSERT_TRUE(  u1 != static_cast< std::string >( u3.GetString() ) );
+    ASSERT_TRUE(  u4 != static_cast< std::string >( u1.GetString() ) );
+    ASSERT_TRUE(  u4 != static_cast< std::string >( u4.GetString() ) );
+}
+
+TEST( CFPP_UUID, CastToSTDString )
+{
+    CF::UUID    u;
+    std::string s( static_cast< std::string >( u ) );
+    
+    ASSERT_TRUE( s.length() == 36 );
+    ASSERT_EQ( u.GetString(), s );
+}
+
+TEST( CFPP_UUID, GetTypeID )
+{
+    CF::UUID u;
+    
+    ASSERT_EQ( u.GetTypeID(), CFUUIDGetTypeID() );
+}
+
+TEST( CFPP_UUID, GetCFObject )
+{
+    CF::UUID u1;
+    CF::UUID u2( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_TRUE( u1.GetCFObject() != NULL );
+    ASSERT_TRUE( u2.GetCFObject() == NULL );
+    ASSERT_EQ( CFGetTypeID( u1.GetCFObject() ), CFUUIDGetTypeID() );
+}
+
+TEST( CFPP_UUID, GetString )
+{
+    CF::UUID u;
+    
+    ASSERT_EQ( u.GetString().GetLength(), 36 );
+    
+    u = static_cast< CFUUIDRef >( NULL );
+    
+    ASSERT_FALSE( u.IsValid() );
+    ASSERT_EQ( u.GetString().GetLength(), 0 );
+}
+
+TEST( CFPP_UUID, Swap )
+{
+    CF::UUID    u1;
+    CF::UUID    u2;
+    std::string s1( u1.GetString() );
+    std::string s2( u2.GetString() );
+    
+    ASSERT_EQ( u1.GetString(), s1 );
+    ASSERT_EQ( u2.GetString(), s2 );
+    
+    swap( u1, u2 );
+    
+    ASSERT_EQ( u1.GetString(), s2 );
+    ASSERT_EQ( u2.GetString(), s1 );
+}
