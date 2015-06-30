@@ -37,9 +37,7 @@
 		056C58601B1708DC00C6214A /* CFPP-AutoPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C585A1B1706BB00C6214A /* CFPP-AutoPointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C58611B1708DD00C6214A /* CFPP-AutoPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 056C585A1B1706BB00C6214A /* CFPP-AutoPointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C58A91B17A3B700C6214A /* CFPP-PropertyListType-Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		056C58D21B1899C700C6214A /* gmock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C58B51B18985500C6214A /* gmock.framework */; };
 		056C58D31B1899C700C6214A /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C58B31B18985500C6214A /* GoogleMock.framework */; };
-		056C58D41B1899C700C6214A /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C58B71B18985500C6214A /* gtest.framework */; };
 		056C5A0C1B19346D00C6214A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
@@ -171,20 +169,6 @@
 			remoteGlobalIDString = 05818F851A685AEA0072A469;
 			remoteInfo = GoogleMock;
 		};
-		056C58D71B1899D000C6214A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 05E96AAE1A68600C00204102;
-			remoteInfo = gmock;
-		};
-		056C58D91B1899D000C6214A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 05E96B0A1A68634900204102;
-			remoteInfo = gtest;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -273,8 +257,6 @@
 				056BC7B21B2379D300B21D46 /* libCF++.a in Frameworks */,
 				056C5A0C1B19346D00C6214A /* CoreFoundation.framework in Frameworks */,
 				056C58D31B1899C700C6214A /* GoogleMock.framework in Frameworks */,
-				056C58D21B1899C700C6214A /* gmock.framework in Frameworks */,
-				056C58D41B1899C700C6214A /* gtest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,8 +514,6 @@
 			dependencies = (
 				056C58C71B1898FF00C6214A /* PBXTargetDependency */,
 				056C58D61B1899D000C6214A /* PBXTargetDependency */,
-				056C58D81B1899D000C6214A /* PBXTargetDependency */,
-				056C58DA1B1899D000C6214A /* PBXTargetDependency */,
 			);
 			name = "CF++ Tests";
 			productName = "CF++ Tests";
@@ -852,16 +832,6 @@
 			isa = PBXTargetDependency;
 			name = GoogleMock;
 			targetProxy = 056C58D51B1899D000C6214A /* PBXContainerItemProxy */;
-		};
-		056C58D81B1899D000C6214A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = gmock;
-			targetProxy = 056C58D71B1899D000C6214A /* PBXContainerItemProxy */;
-		};
-		056C58DA1B1899D000C6214A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = gtest;
-			targetProxy = 056C58D91B1899D000C6214A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
