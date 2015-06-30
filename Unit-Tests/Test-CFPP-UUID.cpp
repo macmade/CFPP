@@ -76,10 +76,14 @@ TEST( CFPP_UUID, CCTOR )
 {
     CF::UUID u1;
     CF::UUID u2( u1 );
+    CF::UUID u3( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( u3 );
     
     ASSERT_TRUE( u1.IsValid() );
     ASSERT_TRUE( u1.IsValid() );
     ASSERT_EQ( u1.GetString(), u2.GetString() );
+    ASSERT_FALSE( u3.IsValid() );
+    ASSERT_FALSE( u4.IsValid() );
 }
 
 TEST( CFPP_UUID, MCTOR )
