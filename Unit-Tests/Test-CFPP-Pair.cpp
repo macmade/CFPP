@@ -39,31 +39,94 @@
 using namespace testing;
 
 TEST( CFPP_Pair, CTOR_CFType_CFType )
-{}
+{
+    CF::String s1( "hello" );
+    CF::String s2( "world" );
+    CF::Pair   p( static_cast< CFTypeRef >( s1.GetCFObject() ), static_cast< CFTypeRef >( s2.GetCFObject() ) );
+    
+    ASSERT_TRUE( p.GetKey()   == s1.GetCFObject() );
+    ASSERT_TRUE( p.GetValue() == s2.GetCFObject() );
+}
 
 TEST( CFPP_Pair, CTOR_String_CFType )
-{}
+{
+    CF::String s1( "hello" );
+    CF::String s2( "world" );
+    CF::Pair   p( s1, static_cast< CFTypeRef >( s2.GetCFObject() ) );
+    
+    ASSERT_TRUE( p.GetKey()   == s1.GetCFObject() );
+    ASSERT_TRUE( p.GetValue() == s2.GetCFObject() );
+}
 
 TEST( CFPP_Pair, CTOR_CChar_CFType )
-{}
+{
+    const char * s1 = "hello";
+    CF::String   s2( "world" );
+    CF::Pair     p( s1, static_cast< CFTypeRef >( s2.GetCFObject() ) );
+    
+    ASSERT_TRUE( CF::String( p.GetKey() ) == s1 );
+    ASSERT_TRUE( p.GetValue() == s2.GetCFObject() );
+}
 
 TEST( CFPP_Pair, CTOR_String_String )
-{}
+{
+    CF::String s1( "hello" );
+    CF::String s2( "world" );
+    CF::Pair   p( s1, s2 );
+    
+    ASSERT_TRUE( p.GetKey()   == s1.GetCFObject() );
+    ASSERT_TRUE( p.GetValue() == s2.GetCFObject() );
+}
 
 TEST( CFPP_Pair, CTOR_CChar_String )
-{}
+{
+    const char * s1 = "hello";
+    CF::String   s2( "world" );
+    CF::Pair     p( s1, s2 );
+    
+    ASSERT_TRUE( CF::String( p.GetKey() ) == s1 );
+    ASSERT_TRUE( p.GetValue() == s2.GetCFObject() );
+}
 
 TEST( CFPP_Pair, CTOR_String_CChar )
-{}
+{
+    CF::String   s1( "hello" );
+    const char * s2 = "world";
+    CF::Pair     p( s1, s2 );
+    
+    ASSERT_TRUE( p.GetKey() == s1.GetCFObject() );
+    ASSERT_TRUE( CF::String( p.GetValue() ) == s2 );
+}
 
 TEST( CFPP_Pair, CTOR_CChar_CChar )
-{}
+{
+    const char * s1 = "hello";
+    const char * s2 = "world";
+    CF::Pair     p( s1, s2 );
+    
+    ASSERT_TRUE( CF::String( p.GetKey() )   == s1 );
+    ASSERT_TRUE( CF::String( p.GetValue() ) == s2 );
+}
 
 TEST( CFPP_Pair, CTOR_String_Number )
-{}
+{
+    CF::String s( "hello" );
+    CF::Number n( 42 );
+    CF::Pair   p( s, n );
+    
+    ASSERT_TRUE( p.GetKey()   == s.GetCFObject() );
+    ASSERT_TRUE( p.GetValue() == n.GetCFObject() );
+}
 
 TEST( CFPP_Pair, CTOR_CChar_Number )
-{}
+{
+    const char * s = "hello";
+    CF::Number   n( 42 );
+    CF::Pair     p( s, n );
+    
+    ASSERT_TRUE( CF::String( p.GetKey() ) == s );
+    ASSERT_TRUE( p.GetValue() == n.GetCFObject() );
+}
 
 TEST( CFPP_Pair, CCTOR )
 {
