@@ -28,7 +28,7 @@
  ******************************************************************************/
 
 /*!
- * @file        CFPP-Error.cpp
+ * @file        Test-CFPP-Error.cpp
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
  * @abstract    Unit tests for CF::Error
  */

@@ -28,7 +28,7 @@
  ******************************************************************************/
 
 /*!
- * @file        CFPP-Array.cpp
+ * @file        Test-CFPP-Array.cpp
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
  * @abstract    Unit tests for CF::Array
  */

@@ -28,7 +28,7 @@
  ******************************************************************************/
 
 /*!
- * @file        CFPP-ReadStream.cpp
+ * @file        Test-CFPP-ReadStream.cpp
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
  * @abstract    Unit tests for CF::ReadStream
  */
