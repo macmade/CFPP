@@ -756,6 +756,15 @@ namespace CF
         return this->GetSInt64Value() >= value.GetSInt64Value();
     }
     
+    bool Number::operator >= ( CFTypeRef value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >= num;
+    }
+    
     bool Number::operator >= ( CFNumberRef value ) const
     {
         Number num;
@@ -863,6 +872,15 @@ namespace CF
         }
         
         return this->GetSInt64Value() <= value.GetSInt64Value();
+    }
+    
+    bool Number::operator <= ( CFTypeRef value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <= num;
     }
     
     bool Number::operator <= ( CFNumberRef value ) const
@@ -974,6 +992,15 @@ namespace CF
         return this->GetSInt64Value() > value.GetSInt64Value();
     }
     
+    bool Number::operator > ( CFTypeRef value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) > num;
+    }
+    
     bool Number::operator > ( CFNumberRef value ) const
     {
         Number num;
@@ -1083,6 +1110,15 @@ namespace CF
         return this->GetSInt64Value() < value.GetSInt64Value();
     }
     
+    bool Number::operator < ( CFTypeRef value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) < num;
+    }
+    
     bool Number::operator < ( CFNumberRef value ) const
     {
         Number num;
@@ -1182,12 +1218,12 @@ namespace CF
         return *( this ) < num;
     }
     
-    bool Number::operator && ( const Number & value )
+    bool Number::operator && ( const Number & value ) const
     {
         return this->GetSInt64Value() && value.GetSInt64Value();
     }
     
-    bool Number::operator && ( CFNumberRef value )
+    bool Number::operator && ( CFTypeRef value ) const
     {
         Number num;
         
@@ -1196,7 +1232,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::SInt8 value )
+    bool Number::operator && ( CFNumberRef value ) const
     {
         Number num;
         
@@ -1205,7 +1241,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::SInt16 value )
+    bool Number::operator && ( Number::SInt8 value ) const
     {
         Number num;
         
@@ -1214,7 +1250,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::SInt32 value )
+    bool Number::operator && ( Number::SInt16 value ) const
     {
         Number num;
         
@@ -1223,7 +1259,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::SInt64 value )
+    bool Number::operator && ( Number::SInt32 value ) const
     {
         Number num;
         
@@ -1232,7 +1268,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::UInt8 value )
+    bool Number::operator && ( Number::SInt64 value ) const
     {
         Number num;
         
@@ -1241,7 +1277,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::UInt16 value )
+    bool Number::operator && ( Number::UInt8 value ) const
     {
         Number num;
         
@@ -1250,7 +1286,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::UInt32 value )
+    bool Number::operator && ( Number::UInt16 value ) const
     {
         Number num;
         
@@ -1259,7 +1295,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::UInt64 value )
+    bool Number::operator && ( Number::UInt32 value ) const
     {
         Number num;
         
@@ -1268,7 +1304,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Float32 value )
+    bool Number::operator && ( Number::UInt64 value ) const
     {
         Number num;
         
@@ -1277,7 +1313,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Float64 value )
+    bool Number::operator && ( Float32 value ) const
     {
         Number num;
         
@@ -1286,12 +1322,21 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator || ( const Number & value )
+    bool Number::operator && ( Float64 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) && num;
+    }
+    
+    bool Number::operator || ( const Number & value ) const
     {
         return this->GetSInt64Value() || value.GetSInt64Value();
     }
     
-    bool Number::operator || ( CFNumberRef value )
+    bool Number::operator || ( CFTypeRef value ) const
     {
         Number num;
         
@@ -1300,7 +1345,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::SInt8 value )
+    bool Number::operator || ( CFNumberRef value ) const
     {
         Number num;
         
@@ -1309,7 +1354,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::SInt16 value )
+    bool Number::operator || ( Number::SInt8 value ) const
     {
         Number num;
         
@@ -1318,7 +1363,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::SInt32 value )
+    bool Number::operator || ( Number::SInt16 value ) const
     {
         Number num;
         
@@ -1327,7 +1372,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::SInt64 value )
+    bool Number::operator || ( Number::SInt32 value ) const
     {
         Number num;
         
@@ -1336,7 +1381,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::UInt8 value )
+    bool Number::operator || ( Number::SInt64 value ) const
     {
         Number num;
         
@@ -1345,7 +1390,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::UInt16 value )
+    bool Number::operator || ( Number::UInt8 value ) const
     {
         Number num;
         
@@ -1354,7 +1399,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::UInt32 value )
+    bool Number::operator || ( Number::UInt16 value ) const
     {
         Number num;
         
@@ -1363,7 +1408,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::UInt64 value )
+    bool Number::operator || ( Number::UInt32 value ) const
     {
         Number num;
         
@@ -1372,7 +1417,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Float32 value )
+    bool Number::operator || ( Number::UInt64 value ) const
     {
         Number num;
         
@@ -1381,7 +1426,16 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Float64 value )
+    bool Number::operator || ( Float32 value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) || num;
+    }
+    
+    bool Number::operator || ( Float64 value ) const
     {
         Number num;
         

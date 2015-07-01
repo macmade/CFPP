@@ -155,6 +155,7 @@ namespace CF
             bool operator != ( Float64 value ) const;
             
             bool operator >= ( const Number & value ) const;
+            bool operator >= ( CFTypeRef value ) const;
             bool operator >= ( CFNumberRef value ) const;
             bool operator >= ( SInt8 value ) const;
             bool operator >= ( SInt16 value ) const;
@@ -168,6 +169,7 @@ namespace CF
             bool operator >= ( Float64 value ) const;
             
             bool operator <= ( const Number & value ) const;
+            bool operator <= ( CFTypeRef value ) const;
             bool operator <= ( CFNumberRef value ) const;
             bool operator <= ( SInt8 value ) const;
             bool operator <= ( SInt16 value ) const;
@@ -181,6 +183,7 @@ namespace CF
             bool operator <= ( Float64 value ) const;
             
             bool operator > ( const Number & value ) const;
+            bool operator > ( CFTypeRef value ) const;
             bool operator > ( CFNumberRef value ) const;
             bool operator > ( SInt8 value ) const;
             bool operator > ( SInt16 value ) const;
@@ -194,6 +197,7 @@ namespace CF
             bool operator > ( Float64 value ) const;
             
             bool operator < ( const Number & value ) const;
+            bool operator < ( CFTypeRef value ) const;
             bool operator < ( CFNumberRef value ) const;
             bool operator < ( SInt8 value ) const;
             bool operator < ( SInt16 value ) const;
@@ -206,31 +210,33 @@ namespace CF
             bool operator < ( Float32 value ) const;
             bool operator < ( Float64 value ) const;
             
-            bool operator && ( const Number & value );
-            bool operator && ( CFNumberRef value );
-            bool operator && ( SInt8 value );
-            bool operator && ( SInt16 value );
-            bool operator && ( SInt32 value );
-            bool operator && ( SInt64 value );
-            bool operator && ( UInt8 value );
-            bool operator && ( UInt16 value );
-            bool operator && ( UInt32 value );
-            bool operator && ( UInt64 value );
-            bool operator && ( Float32 value );
-            bool operator && ( Float64 value );
+            bool operator && ( const Number & value ) const;
+            bool operator && ( CFTypeRef value ) const;
+            bool operator && ( CFNumberRef value ) const;
+            bool operator && ( SInt8 value ) const;
+            bool operator && ( SInt16 value ) const;
+            bool operator && ( SInt32 value ) const;
+            bool operator && ( SInt64 value ) const;
+            bool operator && ( UInt8 value ) const;
+            bool operator && ( UInt16 value ) const;
+            bool operator && ( UInt32 value ) const;
+            bool operator && ( UInt64 value ) const;
+            bool operator && ( Float32 value ) const;
+            bool operator && ( Float64 value ) const;
             
-            bool operator || ( const Number & value );
-            bool operator || ( CFNumberRef value );
-            bool operator || ( SInt8 value );
-            bool operator || ( SInt16 value );
-            bool operator || ( SInt32 value );
-            bool operator || ( SInt64 value );
-            bool operator || ( UInt8 value );
-            bool operator || ( UInt16 value );
-            bool operator || ( UInt32 value );
-            bool operator || ( UInt64 value );
-            bool operator || ( Float32 value );
-            bool operator || ( Float64 value );
+            bool operator || ( const Number & value ) const;
+            bool operator || ( CFTypeRef value ) const;
+            bool operator || ( CFNumberRef value ) const;
+            bool operator || ( SInt8 value ) const;
+            bool operator || ( SInt16 value ) const;
+            bool operator || ( SInt32 value ) const;
+            bool operator || ( SInt64 value ) const;
+            bool operator || ( UInt8 value ) const;
+            bool operator || ( UInt16 value ) const;
+            bool operator || ( UInt32 value ) const;
+            bool operator || ( UInt64 value ) const;
+            bool operator || ( Float32 value ) const;
+            bool operator || ( Float64 value ) const;
             
             Number & operator ~ ( void );
             Number & operator ! ( void );
