@@ -440,13 +440,6 @@ namespace CF
         
         CFArrayExchangeValuesAtIndices( this->_cfObject, index1, index2 );
     }
-        
-    void swap( Array & v1, Array & v2 )
-    {
-        using std::swap;
-        
-        swap( v1._cfObject, v2._cfObject );
-    }
     
     Array::Iterator Array::begin( void )
     {
@@ -457,6 +450,13 @@ namespace CF
     {
         return Iterator( this->_cfObject, this->GetCount(), this->GetCount() );
     }
+        
+    void swap( Array & v1, Array & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+    }
     
     Array::Iterator::Iterator( void ):
         _cfObject( NULL ),
@@ -466,6 +466,7 @@ namespace CF
     
     Array::Iterator::Iterator( const Iterator & value ):
         _cfObject( value._cfObject ),
+        _count( value._count ),
         _pos( value._pos )
     {
         if( this->_cfObject != NULL )
@@ -604,7 +605,7 @@ namespace CF
     
     CFTypeRef Array::Iterator::operator -> ( void ) const
     {
-        return this->GetCFObject();
+        return operator*();
     }
     
     Array::Iterator::operator CFTypeRef () const
