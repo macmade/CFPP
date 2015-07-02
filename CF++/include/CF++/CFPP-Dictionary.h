@@ -103,8 +103,8 @@ namespace CF
                     Iterator & operator += ( CFIndex value );
                     Iterator & operator -= ( CFIndex value );
                     
-                    Iterator operator + ( const Iterator & value );
-                    Iterator operator - ( const Iterator & value );
+                    Iterator operator + ( CFIndex value );
+                    Iterator operator - ( CFIndex value );
                     
                     bool operator == ( const Iterator & value ) const;
                     bool operator != ( const Iterator & value ) const;

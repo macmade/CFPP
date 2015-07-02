@@ -612,30 +612,34 @@ namespace CF
     
     Dictionary::Iterator & Dictionary::Iterator::operator += ( CFIndex value )
     {
-        ( void )value;
+        this->_pos += value;
         
         return *( this );
     }
     
     Dictionary::Iterator & Dictionary::Iterator::operator -= ( CFIndex value )
     {
-        ( void )value;
+        this->_pos -= value;
         
         return *( this );
     }
     
-    Dictionary::Iterator Dictionary::Iterator::operator + ( const Dictionary::Iterator & value )
+    Dictionary::Iterator Dictionary::Iterator::operator + ( CFIndex value )
     {
-        ( void )value;
+        Iterator i;
         
-        return *( this );
+        i = *( this );
+        
+        return i += value;
     }
     
-    Dictionary::Iterator Dictionary::Iterator::operator - ( const Dictionary::Iterator & value )
+    Dictionary::Iterator Dictionary::Iterator::operator - ( CFIndex value )
     {
-        ( void )value;
+        Iterator i;
         
-        return *( this );
+        i = *( this );
+        
+        return i -= value;
     }
     
     bool Dictionary::Iterator::operator == ( const Iterator & value ) const
