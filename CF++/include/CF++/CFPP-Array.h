@@ -119,8 +119,8 @@ namespace CF
                     
                     operator CFTypeRef () const;
                     
-                    virtual CFTypeID  GetTypeID( void ) const;
-                    virtual CFTypeRef GetCFObject( void ) const;
+                    CFTypeID  GetTypeID( void ) const;
+                    CFTypeRef GetCFObject( void ) const;
                     
                     friend void swap( Iterator & v1, Iterator & v2 );
                     
