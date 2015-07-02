@@ -107,6 +107,56 @@ namespace CF
             
             friend void swap( String & v1, String & v2 );
             
+            class CFPP_EXPORT Iterator: public std::iterator< std::bidirectional_iterator_tag, char >
+            {
+                public:
+                    
+                    Iterator( void );
+                    Iterator( const Iterator & value );
+                    
+                    #ifdef CFPP_HAS_CPP11
+                    Iterator( Iterator && value );
+                    #endif
+                    
+                    virtual ~Iterator( void );
+                    
+                    Iterator & operator = ( Iterator value );
+                    Iterator & operator ++( void );
+                    Iterator   operator ++( int );
+                    Iterator & operator --( void );
+                    Iterator   operator --( int );
+                    
+                    Iterator & operator += ( CFIndex value );
+                    Iterator & operator -= ( CFIndex value );
+                    
+                    Iterator operator + ( CFIndex value );
+                    Iterator operator - ( CFIndex value );
+                    
+                    bool operator == ( const Iterator & value ) const;
+                    bool operator != ( const Iterator & value ) const;
+                    
+                    char operator *  ( void ) const;
+                    char operator -> ( void ) const;
+                    
+                    operator char () const;
+                    
+                    friend void swap( Iterator & v1, Iterator & v2 );
+                    
+                private:
+                    
+                    friend class String;
+                    
+                    Iterator( CFStringRef string, CFIndex length, CFIndex pos = 0 );
+                    
+                    CFStringRef  _cfObject;
+                    CFIndex      _length;
+                    CFIndex      _pos;
+                    const char * _cp;
+            };
+            
+            Iterator begin( void );
+            Iterator end( void );
+            
         private:
             
             CFStringRef _cfObject;
