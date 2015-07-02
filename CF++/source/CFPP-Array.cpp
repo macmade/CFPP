@@ -440,54 +440,223 @@ namespace CF
         
         CFArrayExchangeValuesAtIndices( this->_cfObject, index1, index2 );
     }
-    
-    
-    std::vector< CFTypeRef > Array::GetValues( void ) const
-    {
-        std::vector< CFTypeRef > vector;
-        CFTypeRef              * values;
-        size_t                   count;
-        size_t                   i;
         
-        values = NULL;
-        
-        if( this->_cfObject == NULL )
-        {
-            goto end;
-        }
-        
-        count = static_cast< size_t >( this->GetCount() );
-        
-        if( count == 0 )
-        {
-            goto end;
-        }
-        
-        values = static_cast< CFTypeRef * >( calloc( sizeof( CFTypeRef ), count ) );
-        
-        if( values == NULL )
-        {
-            goto end;
-        }
-        
-        CFArrayGetValues( this->_cfObject, CFRangeMake( static_cast< CFIndex >( 0 ), static_cast< CFIndex >( count ) ), static_cast< const void ** >( values ) );
-        
-        for( i = 0; i < count; i++ )
-        {
-            vector.push_back( values[ i ] );
-        }
-        
-        end:
-        
-        free( values );
-        
-        return vector;
-    }
-    
     void swap( Array & v1, Array & v2 )
     {
         using std::swap;
         
         swap( v1._cfObject, v2._cfObject );
+    }
+    
+    Array::Iterator Array::begin( void )
+    {
+        return Iterator( this->_cfObject, this->GetCount() );
+    }
+    
+    Array::Iterator Array::end( void )
+    {
+        return Iterator( this->_cfObject, this->GetCount(), this->GetCount() );
+    }
+    
+    Array::Iterator::Iterator( void ):
+        _cfObject( NULL ),
+        _count( 0 ),
+        _pos( 0 )
+    {}
+    
+    Array::Iterator::Iterator( const Iterator & value ):
+        _cfObject( value._cfObject ),
+        _pos( value._pos )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRetain( this->_cfObject );
+        }
+    }
+    
+    Array::Iterator::Iterator( CFArrayRef array, CFIndex count, CFIndex pos ):
+        _cfObject( array ),
+        _count( count ),
+        _pos( pos )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRetain( this->_cfObject );
+        }
+    }
+    
+    #ifdef CFPP_HAS_CPP11
+    Array::Iterator::Iterator( Iterator && value )
+    {
+        this->_cfObject = value._cfObject;
+        value._cfObject = NULL;
+        this->_count    = value._count;
+        value._count    = 0;
+        this->_pos      = value._pos;
+        value._pos      = 0;
+    }
+    #endif
+    
+    Array::Iterator::~Iterator( void )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+    }
+    
+    Array::Iterator & Array::Iterator::operator = ( Iterator value )
+    {
+        swap( *( this ), value );
+        
+        return *( this );
+    }
+    
+    Array::Iterator & Array::Iterator::operator ++( void )
+    {
+        this->_pos++;
+        
+        return *( this );
+    }
+    
+    Array::Iterator Array::Iterator::operator ++( int )
+    {
+        Iterator it( *( this ) );
+        
+        operator++();
+        
+        return it;
+    }
+    
+    Array::Iterator & Array::Iterator::operator --( void )
+    {
+        this->_pos--;
+        
+        return *( this );
+    }
+    
+    Array::Iterator Array::Iterator::operator --( int )
+    {
+        Iterator it( *( this ) );
+        
+        operator--();
+        
+        return it;
+    }
+    
+    Array::Iterator & Array::Iterator::operator += ( CFIndex value )
+    {
+        ( void )value;
+        
+        return *( this );
+    }
+    
+    Array::Iterator & Array::Iterator::operator -= ( CFIndex value )
+    {
+        ( void )value;
+        
+        return *( this );
+    }
+    
+    Array::Iterator Array::Iterator::operator + ( const Array::Iterator & value )
+    {
+        ( void )value;
+        
+        return *( this );
+    }
+    
+    Array::Iterator Array::Iterator::operator - ( const Array::Iterator & value )
+    {
+        ( void )value;
+        
+        return *( this );
+    }
+    
+    bool Array::Iterator::operator == ( const Iterator & value ) const
+    {
+        if( this->_cfObject != value._cfObject )
+        {
+            return false;
+        }
+        
+        if( this->_count != value._count )
+        {
+            return false;
+        }
+        
+        if( this->_pos != value._pos )
+        {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    bool Array::Iterator::operator != ( const Iterator & value ) const
+    {
+        return !( *( this ) == value );
+    }
+    
+    CFTypeRef Array::Iterator::operator * ( void ) const
+    {
+        return this->GetCFObject();
+    }
+    
+    CFTypeRef Array::Iterator::operator -> ( void ) const
+    {
+        return this->GetCFObject();
+    }
+    
+    Array::Iterator::operator CFTypeRef () const
+    {
+        return this->GetCFObject();
+    }
+    
+    CFTypeID Array::Iterator::GetTypeID( void ) const
+    {
+        CFTypeRef o;
+        
+        o = this->GetCFObject();
+        
+        if( o != NULL )
+        {
+            return CFGetTypeID( o );
+        }
+        
+        return 0;
+    }
+    
+    CFTypeRef Array::Iterator::GetCFObject( void ) const
+    {
+        if( this->_cfObject == NULL )
+        {
+            return NULL;
+        }
+        
+        if( this->_count == 0 )
+        {
+            return NULL;
+        }
+        
+        if( this->_pos >= this->_count )
+        {
+            return NULL;
+        }
+        
+        if( this->_pos < 0 )
+        {
+            return NULL;
+        }
+        
+        return CFArrayGetValueAtIndex( this->_cfObject, this->_pos );
+    }
+    
+    void swap( Array::Iterator::Iterator & v1, Array::Iterator::Iterator & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
+        swap( v1._count,    v2._count );
+        swap( v1._pos,      v2._pos );
     }
 }

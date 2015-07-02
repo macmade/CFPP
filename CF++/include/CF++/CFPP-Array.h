@@ -83,10 +83,60 @@ namespace CF
             void      RemoveValueAtIndex( CFIndex index ) const;
             void      AppendArray( CFArrayRef array ) const;
             void      ExchangeValuesAtIndices( CFIndex index1, CFIndex index2 ) const;
-            
-            std::vector< CFTypeRef > GetValues( void ) const;
-            
+                        
             friend void swap( Array & v1, Array & v2 );
+            
+            class CFPP_EXPORT Iterator: public Type, public std::iterator< std::bidirectional_iterator_tag, CFTypeRef >
+            {
+                public:
+                    
+                    Iterator( void );
+                    Iterator( const Iterator & value );
+                    
+                    #ifdef CFPP_HAS_CPP11
+                    Iterator( Iterator && value );
+                    #endif
+                    
+                    virtual ~Iterator( void );
+                    
+                    Iterator & operator = ( Iterator value );
+                    Iterator & operator ++( void );
+                    Iterator   operator ++( int );
+                    Iterator & operator --( void );
+                    Iterator   operator --( int );
+                    
+                    Iterator & operator += ( CFIndex value );
+                    Iterator & operator -= ( CFIndex value );
+                    
+                    Iterator operator + ( const Iterator & value );
+                    Iterator operator - ( const Iterator & value );
+                    
+                    bool operator == ( const Iterator & value ) const;
+                    bool operator != ( const Iterator & value ) const;
+                    
+                    CFTypeRef operator *  ( void ) const;
+                    CFTypeRef operator -> ( void ) const;
+                    
+                    operator CFTypeRef () const;
+                    
+                    virtual CFTypeID  GetTypeID( void ) const;
+                    virtual CFTypeRef GetCFObject( void ) const;
+                    
+                    friend void swap( Iterator & v1, Iterator & v2 );
+                    
+                private:
+                    
+                    friend class Array;
+                    
+                    Iterator( CFArrayRef array, CFIndex count, CFIndex pos = 0 );
+                    
+                    CFArrayRef _cfObject;
+                    CFIndex    _count;
+                    CFIndex    _pos;
+            };
+            
+            Iterator begin( void );
+            Iterator end( void );
             
         protected:
             
