@@ -45,22 +45,95 @@ TEST( CFPP_String_Iterator, StringEnd )
 {}
 
 TEST( CFPP_String_Iterator, CTOR )
-{}
+{
+    CF::String::Iterator i;
+    
+    ASSERT_EQ( *( i ), 0 );
+}
 
 TEST( CFPP_String_Iterator, CCTOR )
-{}
+{
+    CF::String           s( "hello, world" );
+    CF::String::Iterator i1;
+    CF::String::Iterator i2( i1 );
+    CF::String::Iterator i3( s.begin() );
+    CF::String::Iterator i4( i3 );
+    
+    ASSERT_EQ( *( i1 ), 0 );
+    ASSERT_EQ( *( i2 ), 0 );
+    ASSERT_EQ( *( i3 ), 'h' );
+    ASSERT_EQ( *( i4 ), 'h' );
+}
 
+#ifdef CFPP_HAS_CPP11
 TEST( CFPP_String_Iterator, MCTOR )
-{}
+{
+    CF::String           s( "hello, world" );
+    CF::String::Iterator i1;
+    CF::String::Iterator i2( std::move( i1 ) );
+    CF::String::Iterator i3( s.begin() );
+    CF::String::Iterator i4( std::move( i3 ) );
+    
+    ASSERT_EQ( *( i1 ), 0 );
+    ASSERT_EQ( *( i2 ), 0 );
+    ASSERT_EQ( *( i3 ), 0 );
+    ASSERT_EQ( *( i4 ), 'h' );
+}
+#endif
 
 TEST( CFPP_String_Iterator, OperatorAssign )
-{}
+{
+    CF::String           s( "hello, world" );
+    CF::String::Iterator i1;
+    CF::String::Iterator i2;
+    CF::String::Iterator i3( s.begin() );
+    CF::String::Iterator i4;
+    
+    ASSERT_EQ( *( i1 ), 0 );
+    ASSERT_EQ( *( i3 ), 'h' );
+    
+    i2 = i1;
+    i4 = i3;
+    
+    ASSERT_EQ( *( i2 ), 0 );
+    ASSERT_EQ( *( i4 ), 'h' );
+}
 
 TEST( CFPP_String_Iterator, OperatorPrefixIncrement )
-{}
+{
+    CF::String           s( "hello, world" );
+    CF::String::Iterator i1;
+    CF::String::Iterator i2;
+    CF::String::Iterator i3;
+    CF::String::Iterator i4;
+    
+    i1 = s.begin();
+    i2 = i1++;
+    i4 = i3++;
+    
+    ASSERT_EQ( *( i1 ), 'e' );
+    ASSERT_EQ( *( i2 ), 'h' );
+    ASSERT_EQ( *( i3 ), 0 );
+    ASSERT_EQ( *( i4 ), 0 );
+}
 
 TEST( CFPP_String_Iterator, OperatorPostfixIncrement )
-{}
+{
+    CF::String           s( "hello, world" );
+    CF::String::Iterator i1;
+    CF::String::Iterator i2;
+    CF::String::Iterator i3;
+    CF::String::Iterator i4;
+    
+    i1 = s.begin();
+    i2 = ++i1;
+    i4 = ++i3;
+    
+    ASSERT_EQ( *( i1 ), 'e' );
+    ASSERT_EQ( *( i2 ), 'e' );
+    ASSERT_EQ( *( i3 ), 0 );
+    ASSERT_EQ( *( i4 ), 0 );
+}
 
 TEST( CFPP_String_Iterator, OperatorPrefixDecrement )
 {}
@@ -97,3 +170,66 @@ TEST( CFPP_String_Iterator, OperatorCastToChar )
 
 TEST( CFPP_String_Iterator, Swap )
 {}
+
+TEST( CFPP_String_Iterator, TestIterate )
+{
+    CF::String           s1;
+    CF::String           s2( static_cast< CFStringRef >( NULL ) );
+    CF::String           s3( "hello" );
+    CF::String::Iterator it;
+    CFIndex              i;
+    
+    {
+        i = 0;
+        
+        for( it = s1.begin(); it != s1.end(); ++it )
+        {
+            i++;
+        }
+        
+        ASSERT_EQ( i, 0 );
+    }
+    
+    {
+        i = 0;
+        
+        for( it = s2.begin(); it != s2.end(); ++it )
+        {
+            i++;
+        }
+        
+        ASSERT_EQ( i, 0 );
+    }
+    
+    {
+        i = 0;
+        
+            std::cout << s3 << std::endl;
+        
+        for( it = s3.begin(); it != s3.end(); ++it )
+        {
+            /*
+            switch( i )
+            {
+                case 0: ASSERT_EQ( *( it ), 'h' ); break;
+                case 1: ASSERT_EQ( *( it ), 'e' ); break;
+                case 2: ASSERT_EQ( *( it ), 'l' ); break;
+                case 3: ASSERT_EQ( *( it ), 'l' ); break;
+                case 4: ASSERT_EQ( *( it ), 'o' ); break;
+            }
+            */
+            
+            i++;
+        }
+        
+        ASSERT_EQ( i, 5 );
+    }
+}
+
+TEST( CFPP_String_Iterator, TestIterateSTD )
+{}
+
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_String_Iterator, TestIterateCPP11 )
+{}
+#endif
