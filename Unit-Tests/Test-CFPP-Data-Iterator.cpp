@@ -47,8 +47,10 @@ TEST( CFPP_Data_Iterator, DataEnd )
 TEST( CFPP_Data_Iterator, CTOR )
 {}
 
+#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Data_Iterator, CCTOR )
 {}
+#endif
 
 TEST( CFPP_Data_Iterator, MCTOR )
 {}

@@ -50,8 +50,10 @@ TEST( CFPP_Array_Iterator, CTOR )
 TEST( CFPP_Array_Iterator, CCTOR )
 {}
 
+#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Array_Iterator, MCTOR )
 {}
+#endif
 
 TEST( CFPP_Array_Iterator, OperatorAssign )
 {}

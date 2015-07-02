@@ -50,8 +50,10 @@ TEST( CFPP_Dictionary_Iterator, CTOR )
 TEST( CFPP_Dictionary_Iterator, CCTOR )
 {}
 
+#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Dictionary_Iterator, MCTOR )
 {}
+#endif
 
 TEST( CFPP_Dictionary_Iterator, OperatorAssign )
 {}
