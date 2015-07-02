@@ -79,9 +79,62 @@ namespace CF
             void      ReplaceValue( CFTypeRef key, CFTypeRef value ) const;
             void      SetValue( CFTypeRef key, CFTypeRef value ) const;
             
-            std::map< CFTypeRef, CFTypeRef > GetKeysAndValues( void ) const;
-            
             friend void swap( Dictionary & v1, Dictionary & v2 );
+            
+            class CFPP_EXPORT Iterator: public Type, public std::iterator< std::bidirectional_iterator_tag, CFTypeRef >
+            {
+                public:
+                    
+                    Iterator( void );
+                    Iterator( const Iterator & value );
+                    
+                    #ifdef CFPP_HAS_CPP11
+                    Iterator( Iterator && value );
+                    #endif
+                    
+                    virtual ~Iterator( void );
+                    
+                    Iterator & operator = ( Iterator value );
+                    Iterator & operator ++( void );
+                    Iterator   operator ++( int );
+                    Iterator & operator --( void );
+                    Iterator   operator --( int );
+                    
+                    Iterator & operator += ( CFIndex value );
+                    Iterator & operator -= ( CFIndex value );
+                    
+                    Iterator operator + ( const Iterator & value );
+                    Iterator operator - ( const Iterator & value );
+                    
+                    bool operator == ( const Iterator & value ) const;
+                    bool operator != ( const Iterator & value ) const;
+                    
+                    CF::Pair operator *  ( void ) const;
+                    CF::Pair operator -> ( void ) const;
+                    
+                    operator CFTypeRef () const;
+                    
+                    CFTypeID  GetTypeID( void ) const;
+                    CFTypeRef GetCFObject( void ) const;
+                    CFTypeRef GetKey( void ) const;
+                    CFTypeRef GetValue( void ) const;
+                    
+                    friend void swap( Iterator & v1, Iterator & v2 );
+                    
+                private:
+                    
+                    friend class Dictionary;
+                    
+                    Iterator( CFDictionaryRef dictionary, CF::Array keys, CFIndex count, CFIndex pos = 0 );
+                    
+                    CFDictionaryRef _cfObject;
+                    CF::Array       _keys;
+                    CFIndex         _count;
+                    CFIndex         _pos;
+            };
+            
+            Iterator begin( void );
+            Iterator end( void );
             
         private:
             
