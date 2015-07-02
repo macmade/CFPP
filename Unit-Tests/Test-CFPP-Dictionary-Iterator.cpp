@@ -38,3 +38,74 @@
 
 using namespace testing;
 
+TEST( CFPP_Dictionary_Iterator, DictionaryBegin )
+{}
+
+TEST( CFPP_Dictionary_Iterator, DictionaryEnd )
+{}
+
+TEST( CFPP_Dictionary_Iterator, CTOR )
+{}
+
+TEST( CFPP_Dictionary_Iterator, CCTOR )
+{}
+
+TEST( CFPP_Dictionary_Iterator, MCTOR )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorAssign )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorPrefixIncrement )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorPostfixIncrement )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorPrefixDecrement )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorPostfixDecrement )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorPlusEqual )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorMinusEqual )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorPlus )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorMinus )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorEqual )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorNotEqual )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorMultiply )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorDereference )
+{}
+
+TEST( CFPP_Dictionary_Iterator, OperatorCastToCFType )
+{}
+
+TEST( CFPP_Dictionary_Iterator, GetTypeID )
+{}
+
+TEST( CFPP_Dictionary_Iterator, GetCFObject )
+{}
+
+TEST( CFPP_Dictionary_Iterator, GetKey )
+{}
+
+TEST( CFPP_Dictionary_Iterator, GetValue )
+{}
+
+TEST( CFPP_Dictionary_Iterator, Swap )
+{}

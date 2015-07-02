@@ -38,3 +38,62 @@
 
 using namespace testing;
 
+TEST( CFPP_Data_Iterator, DataBegin )
+{}
+
+TEST( CFPP_Data_Iterator, DataEnd )
+{}
+
+TEST( CFPP_Data_Iterator, CTOR )
+{}
+
+TEST( CFPP_Data_Iterator, CCTOR )
+{}
+
+TEST( CFPP_Data_Iterator, MCTOR )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorAssign )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorPrefixIncrement )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorPostfixIncrement )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorPrefixDecrement )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorPostfixDecrement )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorPlusEqual )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorMinusEqual )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorPlus )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorMinus )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorEqual )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorNotEqual )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorMultiply )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorDereference )
+{}
+
+TEST( CFPP_Data_Iterator, OperatorCastToByte )
+{}
+
+TEST( CFPP_Data_Iterator, Swap )
+{}

@@ -38,3 +38,62 @@
 
 using namespace testing;
 
+TEST( CFPP_String_Iterator, StringBegin )
+{}
+
+TEST( CFPP_String_Iterator, StringEnd )
+{}
+
+TEST( CFPP_String_Iterator, CTOR )
+{}
+
+TEST( CFPP_String_Iterator, CCTOR )
+{}
+
+TEST( CFPP_String_Iterator, MCTOR )
+{}
+
+TEST( CFPP_String_Iterator, OperatorAssign )
+{}
+
+TEST( CFPP_String_Iterator, OperatorPrefixIncrement )
+{}
+
+TEST( CFPP_String_Iterator, OperatorPostfixIncrement )
+{}
+
+TEST( CFPP_String_Iterator, OperatorPrefixDecrement )
+{}
+
+TEST( CFPP_String_Iterator, OperatorPostfixDecrement )
+{}
+
+TEST( CFPP_String_Iterator, OperatorPlusEqual )
+{}
+
+TEST( CFPP_String_Iterator, OperatorMinusEqual )
+{}
+
+TEST( CFPP_String_Iterator, OperatorPlus )
+{}
+
+TEST( CFPP_String_Iterator, OperatorMinus )
+{}
+
+TEST( CFPP_String_Iterator, OperatorEqual )
+{}
+
+TEST( CFPP_String_Iterator, OperatorNotEqual )
+{}
+
+TEST( CFPP_String_Iterator, OperatorMultiply )
+{}
+
+TEST( CFPP_String_Iterator, OperatorDereference )
+{}
+
+TEST( CFPP_String_Iterator, OperatorCastToChar )
+{}
+
+TEST( CFPP_String_Iterator, Swap )
+{}

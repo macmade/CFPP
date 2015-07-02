@@ -38,3 +38,68 @@
 
 using namespace testing;
 
+TEST( CFPP_Array_Iterator, ArrayBegin )
+{}
+
+TEST( CFPP_Array_Iterator, ArrayEnd )
+{}
+
+TEST( CFPP_Array_Iterator, CTOR )
+{}
+
+TEST( CFPP_Array_Iterator, CCTOR )
+{}
+
+TEST( CFPP_Array_Iterator, MCTOR )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorAssign )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorPrefixIncrement )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorPostfixIncrement )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorPrefixDecrement )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorPostfixDecrement )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorPlusEqual )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorMinusEqual )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorPlus )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorMinus )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorEqual )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorNotEqual )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorMultiply )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorDereference )
+{}
+
+TEST( CFPP_Array_Iterator, OperatorCastToCFType )
+{}
+
+TEST( CFPP_Array_Iterator, GetTypeID )
+{}
+
+TEST( CFPP_Array_Iterator, GetCFObject )
+{}
+
+TEST( CFPP_Array_Iterator, Swap )
+{}
