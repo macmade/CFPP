@@ -204,8 +204,6 @@ TEST( CFPP_String_Iterator, TestIterate )
     {
         i = 0;
         
-            std::cout << s3 << std::endl;
-        
         for( it = s3.begin(); it != s3.end(); ++it )
         {
             /*
