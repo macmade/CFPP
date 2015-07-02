@@ -558,13 +558,6 @@ namespace CF
         this->_cfObject = CFStringCreateWithCString( static_cast< CFAllocatorRef >( NULL ), value.c_str(), encoding );
     }
     
-    void swap( String & v1, String & v2 )
-    {
-        using std::swap;
-        
-        swap( v1._cfObject, v2._cfObject );
-    }
-    
     String::Iterator String::begin( void )
     {
         return Iterator( this->_cfObject, this->GetLength() );
@@ -573,6 +566,13 @@ namespace CF
     String::Iterator String::end( void )
     {
         return Iterator( this->_cfObject, this->GetLength(), this->GetLength() );
+    }
+    
+    void swap( String & v1, String & v2 )
+    {
+        using std::swap;
+        
+        swap( v1._cfObject, v2._cfObject );
     }
     
     String::Iterator::Iterator( void ):
