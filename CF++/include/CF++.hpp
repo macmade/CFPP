@@ -55,22 +55,22 @@
 #define CFPP_EXPORT     
 #endif
 
-#include <CF++/CFPP-Type.h>
-#include <CF++/CFPP-PropertyListType.h>
-#include <CF++/CFPP-AutoPointer.h>
-#include <CF++/CFPP-Boolean.h>
-#include <CF++/CFPP-Number.h>
-#include <CF++/CFPP-String.h>
-#include <CF++/CFPP-URL.h>
-#include <CF++/CFPP-Data.h>
-#include <CF++/CFPP-Date.h>
-#include <CF++/CFPP-Array.h>
-#include <CF++/CFPP-Pair.h>
-#include <CF++/CFPP-Dictionary.h>
-#include <CF++/CFPP-Error.h>
-#include <CF++/CFPP-UUID.h>
-#include <CF++/CFPP-ReadStream.h>
-#include <CF++/CFPP-WriteStream.h>
-#include <CF++/CFPP-PropertyListType-Definition.h>
+#include <CF++/CFPP-Type.hpp>
+#include <CF++/CFPP-PropertyListType.hpp>
+#include <CF++/CFPP-AutoPointer.hpp>
+#include <CF++/CFPP-Boolean.hpp>
+#include <CF++/CFPP-Number.hpp>
+#include <CF++/CFPP-String.hpp>
+#include <CF++/CFPP-URL.hpp>
+#include <CF++/CFPP-Data.hpp>
+#include <CF++/CFPP-Date.hpp>
+#include <CF++/CFPP-Array.hpp>
+#include <CF++/CFPP-Pair.hpp>
+#include <CF++/CFPP-Dictionary.hpp>
+#include <CF++/CFPP-Error.hpp>
+#include <CF++/CFPP-UUID.hpp>
+#include <CF++/CFPP-ReadStream.hpp>
+#include <CF++/CFPP-WriteStream.hpp>
+#include <CF++/CFPP-PropertyListType-Definition.hpp>
 
 #endif /* CFPP */

@@ -33,7 +33,7 @@
  * @abstract    CoreFoundation++ CFReadStreamRef wrapper
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 
 namespace CF
 {

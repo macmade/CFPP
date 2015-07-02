@@ -33,7 +33,7 @@
  * @abstract    CoreFoundation++ CFBooleanRef wrapper
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 
 #ifdef _WIN32
 

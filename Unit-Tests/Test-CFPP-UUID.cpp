@@ -33,7 +33,7 @@
  * @abstract    Unit tests for CF::UUID
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;

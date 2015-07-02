@@ -33,7 +33,7 @@
  * @abstract    CoreFoundation++ CFArrayRef wrapper
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 
 static bool __hasCallBacks = false;
 

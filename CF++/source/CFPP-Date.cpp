@@ -33,7 +33,7 @@
  * @abstract    CoreFoundation++ CFDateRef wrapper
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 
 namespace CF
 {

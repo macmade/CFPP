@@ -34,7 +34,7 @@
  */
 
 
-#include <CF++.h>
+#include <CF++.hpp>
 
 namespace CF
 {    

@@ -33,7 +33,7 @@
  * @abstract    CoreFoundation++ CFNumberRef wrapper
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 
 namespace CF
 {

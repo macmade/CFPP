@@ -33,7 +33,7 @@
  * @abstract    CoreFoundation++ base abstract class for CF wrappers
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 
 namespace CF
 {

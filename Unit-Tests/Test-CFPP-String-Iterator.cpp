@@ -33,7 +33,7 @@
  * @abstract    Unit tests for CF::String::Iterator
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;

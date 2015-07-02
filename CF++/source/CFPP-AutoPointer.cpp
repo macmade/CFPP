@@ -33,7 +33,7 @@
  * @abstract    CoreFoundation++ auto-pointer for CF types
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 
 namespace CF
 {

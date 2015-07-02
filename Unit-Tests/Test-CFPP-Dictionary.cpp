@@ -33,7 +33,7 @@
  * @abstract    Unit tests for CF::Dictionary
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;

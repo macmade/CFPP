@@ -33,7 +33,7 @@
  * @abstract    CoreFoundation++ CFDictionaryRef wrapper
  */
 
-#include <CF++.h>
+#include <CF++.hpp>
 
 static bool __hasCallBacks = false;
 
