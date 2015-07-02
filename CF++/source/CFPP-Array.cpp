@@ -547,30 +547,34 @@ namespace CF
     
     Array::Iterator & Array::Iterator::operator += ( CFIndex value )
     {
-        ( void )value;
+        this->_pos += value;
         
         return *( this );
     }
     
     Array::Iterator & Array::Iterator::operator -= ( CFIndex value )
     {
-        ( void )value;
+        this->_pos -= value;
         
         return *( this );
     }
     
-    Array::Iterator Array::Iterator::operator + ( const Array::Iterator & value )
+    Array::Iterator Array::Iterator::operator + ( CFIndex value )
     {
-        ( void )value;
+        Iterator i;
         
-        return *( this );
+        i = *( this );
+        
+        return i += value;
     }
     
-    Array::Iterator Array::Iterator::operator - ( const Array::Iterator & value )
+    Array::Iterator Array::Iterator::operator - ( CFIndex value )
     {
-        ( void )value;
+        Iterator i;
         
-        return *( this );
+        i = *( this );
+        
+        return i -= value;
     }
     
     bool Array::Iterator::operator == ( const Iterator & value ) const
