@@ -56,7 +56,7 @@ namespace CF
         }
     }
     
-    String::Iterator::Iterator( CFStringRef string, CFIndex length, CFIndex pos ):
+    String::Iterator::Iterator( CFStringRef string, CFStringEncoding encoding, CFIndex length, CFIndex pos ):
         _cfObject( string ),
         _length( length ),
         _pos( pos ),
@@ -66,7 +66,7 @@ namespace CF
         {
             CFRetain( this->_cfObject );
         
-            this->_cp = CFStringGetCStringPtr( this->_cfObject, kCFStringEncodingUTF8 );
+            this->_cp = CFStringGetCStringPtr( this->_cfObject, encoding );
         }
     }
     

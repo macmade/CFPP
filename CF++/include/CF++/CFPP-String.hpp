@@ -145,7 +145,7 @@ namespace CF
                     
                     friend class String;
                     
-                    Iterator( CFStringRef string, CFIndex length, CFIndex pos = 0 );
+                    Iterator( CFStringRef string, CFStringEncoding encoding, CFIndex length, CFIndex pos = 0 );
                     
                     CFStringRef  _cfObject;
                     CFIndex      _length;
@@ -153,8 +153,8 @@ namespace CF
                     const char * _cp;
             };
             
-            Iterator begin( void ) const;
-            Iterator end( void ) const;
+            Iterator begin( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;
+            Iterator end( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;
             
         private:
             
