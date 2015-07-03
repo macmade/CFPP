@@ -288,6 +288,13 @@ TEST( CFPP_String_Iterator, OperatorEqual )
     i2--;
     
     ASSERT_TRUE( i1 == i2 );
+    
+    s2 += ", world";
+    
+    i1 = s1.begin();
+    i2 = s2.begin();
+    
+    ASSERT_FALSE( i1 == i2 );
 }
 
 TEST( CFPP_String_Iterator, OperatorNotEqual )
@@ -313,6 +320,13 @@ TEST( CFPP_String_Iterator, OperatorNotEqual )
     i2--;
     
     ASSERT_FALSE( i1 != i2 );
+    
+    s2 += ", world";
+    
+    i1 = s1.begin();
+    i2 = s2.begin();
+    
+    ASSERT_TRUE( i1 != i2 );
 }
 
 TEST( CFPP_String_Iterator, OperatorMultiply )
