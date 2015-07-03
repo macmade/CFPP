@@ -527,16 +527,6 @@ namespace CF
     
     bool Data::Iterator::operator == ( const Iterator & value ) const
     {
-        if( this->_cfObject == NULL )
-        {
-            return false;
-        }
-        
-        if( this->_bp == NULL )
-        {
-            return false;
-        }
-        
         if( this->_cfObject != value._cfObject )
         {
             return false;
