@@ -421,6 +421,11 @@ namespace CF
         
         s = CFStringGetCStringPtr( this->_cfObject, kCFStringEncodingUTF8 );
         
+        if( s == NULL )
+        {
+            return 0;
+        }
+        
         return s[ static_cast< unsigned >( cfIndex ) ];
     }
     
