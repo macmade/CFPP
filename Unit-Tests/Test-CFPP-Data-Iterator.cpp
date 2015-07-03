@@ -269,15 +269,16 @@ TEST( CFPP_Data_Iterator, OperatorMinus )
 
 TEST( CFPP_Data_Iterator, OperatorEqual )
 {
-    CF::Data           d( __bytes, sizeof( __bytes ) );
+    CF::Data           d1( __bytes, sizeof( __bytes ) );
+    CF::Data           d2( __bytes, sizeof( __bytes ) );
     CF::Data::Iterator i1;
     CF::Data::Iterator i2;
     
     ASSERT_TRUE( i1 == i1 );
     ASSERT_TRUE( i1 == i2 );
     
-    i1 = d.begin();
-    i2 = d.begin();
+    i1 = d1.begin();
+    i2 = d1.begin();
     
     ASSERT_TRUE( i1 == i1 );
     ASSERT_TRUE( i1 == i2 );
@@ -289,19 +290,25 @@ TEST( CFPP_Data_Iterator, OperatorEqual )
     i2--;
     
     ASSERT_TRUE( i1 == i2 );
+    
+    i1 = d1.begin();
+    i2 = d2.begin();
+    
+    ASSERT_FALSE( i1 == i2 );
 }
 
 TEST( CFPP_Data_Iterator, OperatorNotEqual )
 {
-    CF::Data           d( __bytes, sizeof( __bytes ) );
+    CF::Data           d1( __bytes, sizeof( __bytes ) );
+    CF::Data           d2( __bytes, sizeof( __bytes ) );
     CF::Data::Iterator i1;
     CF::Data::Iterator i2;
     
     ASSERT_FALSE( i1 != i1 );
     ASSERT_FALSE( i1 != i2 );
     
-    i1 = d.begin();
-    i2 = d.begin();
+    i1 = d1.begin();
+    i2 = d1.begin();
     
     ASSERT_FALSE( i1 != i1 );
     ASSERT_FALSE( i1 != i2 );
@@ -313,6 +320,11 @@ TEST( CFPP_Data_Iterator, OperatorNotEqual )
     i2--;
     
     ASSERT_FALSE( i1 != i2 );
+    
+    i1 = d1.begin();
+    i2 = d2.begin();
+    
+    ASSERT_TRUE( i1 != i2 );
 }
 
 TEST( CFPP_Data_Iterator, OperatorMultiply )
