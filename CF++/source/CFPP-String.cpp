@@ -751,11 +751,6 @@ namespace CF
         return this->_cp[ this->_pos ];
     }
     
-    char String::Iterator::operator -> ( void ) const
-    {
-        return operator*();
-    }
-    
     String::Iterator::operator char () const
     {
         return operator*();

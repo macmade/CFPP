@@ -135,8 +135,7 @@ namespace CF
                     bool operator == ( const Iterator & value ) const;
                     bool operator != ( const Iterator & value ) const;
                     
-                    char operator *  ( void ) const;
-                    char operator -> ( void ) const;
+                    char operator * ( void ) const;
                     
                     operator char () const;
                     
