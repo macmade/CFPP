@@ -147,10 +147,14 @@ namespace CF
                     
                     Iterator( CFStringRef string, CFStringEncoding encoding, CFIndex length, CFIndex pos = 0 );
                     
-                    CFStringRef  _cfObject;
-                    CFIndex      _length;
-                    CFIndex      _pos;
-                    char       * _cp;
+                    CFStringRef             _cfObject;
+                    CFIndex                 _length;
+                    CFIndex                 _pos;
+                    #ifdef CFPP_HAS_CPP11
+                    std::shared_ptr< char > _cp;
+                    #else
+                    char                  * _cp;
+                    #endif
             };
             
             Iterator begin( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;
