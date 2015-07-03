@@ -337,6 +337,10 @@ TEST( CFPP_Data_Iterator, OperatorMultiply )
     i = d.begin();
     
     ASSERT_EQ( *( i ), 0xDE );
+    
+    i--;
+    
+    ASSERT_EQ( *( i ), 0x00 );
 }
 
 TEST( CFPP_Data_Iterator, OperatorCastToByte )
@@ -349,6 +353,10 @@ TEST( CFPP_Data_Iterator, OperatorCastToByte )
     i = d.begin();
     
     ASSERT_EQ( static_cast< CF::Data::Byte >( i ), 0xDE );
+    
+    i--;
+    
+    ASSERT_EQ( static_cast< CF::Data::Byte >( i ), 0x00 );
 }
 
 TEST( CFPP_Data_Iterator, Swap )
