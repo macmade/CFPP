@@ -48,11 +48,21 @@ namespace CF
         _cfObject( value._cfObject ),
         _length( value._length ),
         _pos( value._pos ),
-        _cp( value._cp )
+        _cp( NULL )
     {
         if( this->_cfObject != NULL )
         {
             CFRetain( this->_cfObject );
+        }
+        
+        if( value._cp != NULL )
+        {
+            this->_cp = new char[ value._length + 1 ];
+            
+            if( this->_cp != NULL )
+            {
+                memcpy( this->_cp, value._cp, static_cast< std::size_t >( value._length + 1 ) );
+            }
         }
     }
     
@@ -65,8 +75,18 @@ namespace CF
         if( this->_cfObject != NULL )
         {
             CFRetain( this->_cfObject );
-        
-            this->_cp = CFStringGetCStringPtr( this->_cfObject, encoding );
+            
+            {
+                std::size_t size;
+                
+                size      = static_cast< std::size_t >( CFStringGetMaximumSizeForEncoding( CFStringGetLength( this->_cfObject ), encoding ) );
+                this->_cp = new char[ size + 1 ];
+                
+                if( this->_cp != NULL )
+                {
+                    CFStringGetCString( this->_cfObject, this->_cp, static_cast< CFIndex >( length + 1 ), encoding );
+                }
+            }
         }
     }
     
@@ -90,6 +110,8 @@ namespace CF
         {
             CFRelease( this->_cfObject );
         }
+        
+        delete this->_cp;
     }
     
     String::Iterator & String::Iterator::operator = ( Iterator value )

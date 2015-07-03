@@ -150,7 +150,7 @@ namespace CF
                     CFStringRef  _cfObject;
                     CFIndex      _length;
                     CFIndex      _pos;
-                    const char * _cp;
+                    char       * _cp;
             };
             
             Iterator begin( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;
