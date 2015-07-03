@@ -382,12 +382,12 @@ namespace CF
         CFDataDeleteBytes( this->_cfObject, range );
     }
     
-    Data::Iterator Data::begin( void )
+    Data::Iterator Data::begin( void ) const
     {
         return Iterator( this->_cfObject, this->GetLength() );
     }
     
-    Data::Iterator Data::end( void )
+    Data::Iterator Data::end( void ) const
     {
         return Iterator( this->_cfObject, this->GetLength(), this->GetLength() );
     }

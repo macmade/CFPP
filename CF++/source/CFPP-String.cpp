@@ -558,12 +558,12 @@ namespace CF
         this->_cfObject = CFStringCreateWithCString( static_cast< CFAllocatorRef >( NULL ), value.c_str(), encoding );
     }
     
-    String::Iterator String::begin( void )
+    String::Iterator String::begin( void ) const
     {
         return Iterator( this->_cfObject, this->GetLength() );
     }
     
-    String::Iterator String::end( void )
+    String::Iterator String::end( void ) const
     {
         return Iterator( this->_cfObject, this->GetLength(), this->GetLength() );
     }

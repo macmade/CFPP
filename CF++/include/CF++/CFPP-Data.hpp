@@ -143,8 +143,8 @@ namespace CF
                     const Byte * _bp;
             };
             
-            Iterator begin( void );
-            Iterator end( void );
+            Iterator begin( void ) const;
+            Iterator end( void ) const;
             
         private:
             

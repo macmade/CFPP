@@ -153,8 +153,8 @@ namespace CF
                     const char * _cp;
             };
             
-            Iterator begin( void );
-            Iterator end( void );
+            Iterator begin( void ) const;
+            Iterator end( void ) const;
             
         private:
             

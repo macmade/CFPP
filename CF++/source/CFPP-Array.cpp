@@ -441,12 +441,12 @@ namespace CF
         CFArrayExchangeValuesAtIndices( this->_cfObject, index1, index2 );
     }
     
-    Array::Iterator Array::begin( void )
+    Array::Iterator Array::begin( void ) const
     {
         return Iterator( this->_cfObject, this->GetCount() );
     }
     
-    Array::Iterator Array::end( void )
+    Array::Iterator Array::end( void ) const
     {
         return Iterator( this->_cfObject, this->GetCount(), this->GetCount() );
     }

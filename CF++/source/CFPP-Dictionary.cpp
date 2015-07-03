@@ -464,7 +464,7 @@ namespace CF
     }
     */
     
-    Dictionary::Iterator Dictionary::begin( void )
+    Dictionary::Iterator Dictionary::begin( void ) const
     {
         CF::Array   keys;
         CFTypeRef * cfKeys;
@@ -506,9 +506,9 @@ namespace CF
         return Iterator( this->_cfObject, keys, this->GetCount() );
     }
     
-    Dictionary::Iterator Dictionary::end( void )
+    Dictionary::Iterator Dictionary::end( void ) const
     {
-        return Iterator( this->_cfObject, static_cast< CFArrayRef >( NULL ), this->GetCount(), this->GetCount() );
+        return Iterator( this->_cfObject, static_cast< CFDictionaryRef >( NULL ), this->GetCount(), this->GetCount() );
     }
     
     void swap( Dictionary & v1, Dictionary & v2 )
