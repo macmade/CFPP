@@ -111,7 +111,7 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        delete this->_cp;
+        delete [] this->_cp;
     }
     
     String::Iterator & String::Iterator::operator = ( Iterator value )
