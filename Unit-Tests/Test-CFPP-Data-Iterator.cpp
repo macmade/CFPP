@@ -327,7 +327,7 @@ TEST( CFPP_Data_Iterator, OperatorNotEqual )
     ASSERT_TRUE( i1 != i2 );
 }
 
-TEST( CFPP_Data_Iterator, OperatorMultiply )
+TEST( CFPP_Data_Iterator, OperatorDereference )
 {
     CF::Data           d( __bytes, sizeof( __bytes ) );
     CF::Data::Iterator i;

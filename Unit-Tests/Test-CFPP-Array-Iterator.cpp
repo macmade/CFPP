@@ -88,10 +88,10 @@ TEST( CFPP_Array_Iterator, OperatorEqual )
 TEST( CFPP_Array_Iterator, OperatorNotEqual )
 {}
 
-TEST( CFPP_Array_Iterator, OperatorMultiply )
+TEST( CFPP_Array_Iterator, OperatorDereference )
 {}
 
-TEST( CFPP_Array_Iterator, OperatorDereference )
+TEST( CFPP_Array_Iterator, OperatorMemberAccess )
 {}
 
 TEST( CFPP_Array_Iterator, OperatorCastToCFType )

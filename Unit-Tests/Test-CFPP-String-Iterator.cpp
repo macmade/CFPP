@@ -329,7 +329,7 @@ TEST( CFPP_String_Iterator, OperatorNotEqual )
     ASSERT_TRUE( i1 != i2 );
 }
 
-TEST( CFPP_String_Iterator, OperatorMultiply )
+TEST( CFPP_String_Iterator, OperatorDereference )
 {
     CF::String           d( "hello" );
     CF::String::Iterator i;

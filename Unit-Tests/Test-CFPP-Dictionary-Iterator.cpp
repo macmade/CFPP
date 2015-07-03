@@ -88,10 +88,10 @@ TEST( CFPP_Dictionary_Iterator, OperatorEqual )
 TEST( CFPP_Dictionary_Iterator, OperatorNotEqual )
 {}
 
-TEST( CFPP_Dictionary_Iterator, OperatorMultiply )
+TEST( CFPP_Dictionary_Iterator, OperatorDereference )
 {}
 
-TEST( CFPP_Dictionary_Iterator, OperatorDereference )
+TEST( CFPP_Dictionary_Iterator, OperatorMemberAccess )
 {}
 
 TEST( CFPP_Dictionary_Iterator, OperatorCastToCFType )
