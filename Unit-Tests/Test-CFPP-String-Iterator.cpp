@@ -436,7 +436,7 @@ TEST( CFPP_String_Iterator, TestIterateSTD )
     CF::String           s2( static_cast< CFStringRef >( NULL ) );
     CF::String           s3( "hello" );
     CF::String::Iterator it;
-    CFIndex            i;
+    CFIndex              i;
     
     {
         i = 0;
