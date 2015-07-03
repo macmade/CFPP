@@ -56,16 +56,45 @@ namespace CF
         }
     }
     
-    Dictionary::Iterator::Iterator( CFDictionaryRef dictionary, CF::Array keys, CFIndex count, CFIndex pos ):
+    Dictionary::Iterator::Iterator( CFDictionaryRef dictionary, CFIndex count, CFIndex pos ):
         _cfObject( dictionary ),
-        _keys( keys ),
         _count( count ),
         _pos( pos )
     {
+        CF::Array   keys;
+        CFTypeRef * cfKeys;
+        CFIndex     i;
+        
         if( this->_cfObject != NULL )
         {
             CFRetain( this->_cfObject );
         }
+        
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        if( count == 0 )
+        {
+            return;
+        }
+        
+        cfKeys = static_cast< CFTypeRef * >( calloc( sizeof( CFTypeRef ), static_cast< size_t >( count ) ) );
+        
+        if( cfKeys == NULL )
+        {
+            return;
+        }
+        
+        CFDictionaryGetKeysAndValues( this->_cfObject, reinterpret_cast< const void ** >( cfKeys ), NULL );
+        
+        for( i = 0; i < count; i++ )
+        {
+            keys << cfKeys[ i ];
+        }
+        
+        free( cfKeys );
     }
     
     #ifdef CFPP_HAS_CPP11

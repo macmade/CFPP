@@ -125,7 +125,7 @@ namespace CF
                     
                     friend class Dictionary;
                     
-                    Iterator( CFDictionaryRef dictionary, CF::Array keys, CFIndex count, CFIndex pos = 0 );
+                    Iterator( CFDictionaryRef dictionary, CFIndex count, CFIndex pos = 0 );
                     
                     CFDictionaryRef _cfObject;
                     CF::Array       _keys;

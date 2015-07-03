@@ -416,99 +416,14 @@ namespace CF
         return CFDictionarySetValue( this->_cfObject, key, value );
     }
     
-    /*
-    std::map< CFTypeRef, CFTypeRef > Dictionary::GetKeysAndValues( void ) const
-    {
-        std::map< CFTypeRef, CFTypeRef > map;
-        CFTypeRef                      * keys;
-        CFTypeRef                      * values;
-        size_t                           count;
-        size_t                           i;
-        
-        keys   = NULL;
-        values = NULL;
-        
-        if( this->_cfObject == NULL )
-        {
-            goto end;
-        }
-        
-        count = static_cast< size_t >( this->GetCount() );
-        
-        if( count == 0 )
-        {
-            goto end;
-        }
-        
-        keys   = static_cast< CFTypeRef * >( calloc( sizeof( CFTypeRef ), count ) );
-        values = static_cast< CFTypeRef * >( calloc( sizeof( CFTypeRef ), count ) );
-        
-        if( keys == NULL || values == NULL )
-        {
-            goto end;
-        }
-        
-        CFDictionaryGetKeysAndValues( this->_cfObject, reinterpret_cast< const void ** >( keys ), reinterpret_cast< const void ** >( values ) );
-        
-        for( i = 0; i < count; i++ )
-        {
-            map.insert( std::pair< CFTypeRef, CFTypeRef >( keys[ i ], values[ i ] ) );
-        }
-        
-        end:
-        
-        free( keys );
-        free( values );
-        
-        return map;
-    }
-    */
-    
     Dictionary::Iterator Dictionary::begin( void ) const
     {
-        CF::Array   keys;
-        CFTypeRef * cfKeys;
-        size_t      count;
-        size_t      i;
-        
-        cfKeys = NULL;
-        
-        if( this->_cfObject == NULL )
-        {
-            goto done;
-        }
-        
-        count = static_cast< size_t >( this->GetCount() );
-        
-        if( count == 0 )
-        {
-            goto done;
-        }
-        
-        cfKeys = static_cast< CFTypeRef * >( calloc( sizeof( CFTypeRef ), count ) );
-        
-        if( cfKeys == NULL )
-        {
-            goto done;
-        }
-        
-        CFDictionaryGetKeysAndValues( this->_cfObject, reinterpret_cast< const void ** >( cfKeys ), NULL );
-        
-        for( i = 0; i < count; i++ )
-        {
-            keys << cfKeys[ i ];
-        }
-        
-        done:
-        
-        free( cfKeys );
-        
-        return Iterator( this->_cfObject, keys, this->GetCount() );
+        return Iterator( this->_cfObject, this->GetCount() );
     }
     
     Dictionary::Iterator Dictionary::end( void ) const
     {
-        return Iterator( this->_cfObject, static_cast< CFDictionaryRef >( NULL ), this->GetCount(), this->GetCount() );
+        return Iterator( this->_cfObject, this->GetCount(), this->GetCount() );
     }
     
     void swap( Dictionary & v1, Dictionary & v2 )
