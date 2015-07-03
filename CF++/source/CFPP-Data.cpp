@@ -527,6 +527,16 @@ namespace CF
     
     bool Data::Iterator::operator == ( const Iterator & value ) const
     {
+        if( this->_cfObject == NULL )
+        {
+            return false;
+        }
+        
+        if( this->_bp == NULL )
+        {
+            return false;
+        }
+        
         if( this->_cfObject != value._cfObject )
         {
             return false;
@@ -573,11 +583,6 @@ namespace CF
         }
         
         return this->_bp[ this->_pos ];
-    }
-    
-    Data::Byte Data::Iterator::operator -> ( void ) const
-    {
-        return operator*();
     }
     
     Data::Iterator::operator Data::Byte () const
