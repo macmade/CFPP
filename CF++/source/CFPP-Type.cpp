@@ -165,8 +165,7 @@ namespace CF
         }
         
         length = static_cast< size_t >( CFStringGetMaximumSizeForEncoding( CFStringGetLength( cfDescription ), CFStringGetSystemEncoding() ) );
-        
-        cStr = static_cast< char * >( calloc( length + 1, 1 ) );
+        cStr   = new char [ length + 1 ];
         
         if( cStr == NULL )
         {
@@ -175,11 +174,13 @@ namespace CF
             return "(null)";
         }
         
+        memset( cStr, 0, length + 1 );
         CFStringGetCString( cfDescription, cStr, static_cast< CFIndex >( length + 1 ), CFStringGetSystemEncoding() );
         
         description = std::string( cStr );
         
-        free( cStr );
+        delete [] cStr;
+        
         CFRelease( cfDescription );
         
         return description;

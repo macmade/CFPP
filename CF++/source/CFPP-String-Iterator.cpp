@@ -84,6 +84,7 @@ namespace CF
                 
                 if( this->_cp != NULL )
                 {
+                    memset( this->_cp, 0, size + 1 );
                     CFStringGetCString( this->_cfObject, this->_cp, static_cast< CFIndex >( length + 1 ), encoding );
                 }
             }

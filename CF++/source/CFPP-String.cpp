@@ -527,19 +527,20 @@ namespace CF
         if( s == NULL )
         {
             length = static_cast< size_t >( CFStringGetMaximumSizeForEncoding( CFStringGetLength( this->_cfObject ), encoding ) );
-            buf    = static_cast< char * >( calloc( length + 1, 1 ) );
-
+            buf    = new char [ length + 1 ];
+            
+            memset( buf, 0, length + 1 );
             CFStringGetCString( this->_cfObject, buf, static_cast< CFIndex >( length + 1 ), encoding );
-
+            
             str = ( buf == NULL ) ? "" : buf;
-
-            free( buf );
+            
+            delete [] buf;
         }
         else
         {
             str = s;
         }
-
+        
         return str;
     }
     

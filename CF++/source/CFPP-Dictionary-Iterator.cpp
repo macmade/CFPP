@@ -80,7 +80,9 @@ namespace CF
             return;
         }
         
-        cfKeys = static_cast< CFTypeRef * >( calloc( sizeof( CFTypeRef ), static_cast< size_t >( count ) ) );
+        cfKeys = new CFTypeRef[ static_cast< size_t >( count ) ];
+        
+        memset( cfKeys, 0, static_cast< size_t >( count ) );
         
         if( cfKeys == NULL )
         {
@@ -94,7 +96,7 @@ namespace CF
             keys << cfKeys[ i ];
         }
         
-        free( cfKeys );
+        delete [] cfKeys;
     }
     
     #ifdef CFPP_HAS_CPP11
