@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		050596F11B4C5F89005E19D2 /* CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 050596F01B4C5F89005E19D2 /* CFPP-ReadStream-Iterator.cpp */; };
-		050596F31B4C5F8D005E19D2 /* Test-CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 050596F21B4C5F8D005E19D2 /* Test-CFPP-ReadStream-Iterator.cpp */; };
+		050596F51B4C6971005E19D2 /* CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 050596F01B4C5F89005E19D2 /* CFPP-ReadStream-Iterator.cpp */; };
+		050596F61B4C6971005E19D2 /* CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 050596F01B4C5F89005E19D2 /* CFPP-ReadStream-Iterator.cpp */; };
+		050596F71B4C6972005E19D2 /* CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 050596F01B4C5F89005E19D2 /* CFPP-ReadStream-Iterator.cpp */; };
+		050596F81B4C697A005E19D2 /* Test-CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 050596F21B4C5F8D005E19D2 /* Test-CFPP-ReadStream-Iterator.cpp */; };
 		052B1AE31B45CC0100B97CB9 /* Test-CFPP-Array-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1AD91B45C9E000B97CB9 /* Test-CFPP-Array-Iterator.cpp */; };
 		052B1AE41B45CC0100B97CB9 /* Test-CFPP-Data-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1ADA1B45C9E000B97CB9 /* Test-CFPP-Data-Iterator.cpp */; };
 		052B1AE51B45CC0100B97CB9 /* Test-CFPP-Dictionary-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1ADB1B45C9E000B97CB9 /* Test-CFPP-Dictionary-Iterator.cpp */; };
@@ -758,6 +761,7 @@
 				054702B51B1D8FD10036259D /* Test-CFPP-Pair.cpp in Sources */,
 				052B1AE51B45CC0100B97CB9 /* Test-CFPP-Dictionary-Iterator.cpp in Sources */,
 				054702AD1B1D8FD10036259D /* Test-CFPP-Array.cpp in Sources */,
+				050596F81B4C697A005E19D2 /* Test-CFPP-ReadStream-Iterator.cpp in Sources */,
 				054702BC1B1D8FD10036259D /* Test-CFPP-WriteStream.cpp in Sources */,
 				054702BA1B1D8FD10036259D /* Test-CFPP-URL.cpp in Sources */,
 				052B1AE41B45CC0100B97CB9 /* Test-CFPP-Data-Iterator.cpp in Sources */,
@@ -785,7 +789,6 @@
 				05BDE02A18CDB2540028F339 /* CFPP-Data.cpp in Sources */,
 				056C585C1B1708D800C6214A /* CFPP-AutoPointer.cpp in Sources */,
 				059DBCC21B14DC5C0014D9A1 /* CFPP-ReadStream.cpp in Sources */,
-				050596F31B4C5F8D005E19D2 /* Test-CFPP-ReadStream-Iterator.cpp in Sources */,
 				05BDE03018CDB2540028F339 /* CFPP-Type.cpp in Sources */,
 				054D7D341B46CC1D006AFF67 /* CFPP-Array-Iterator.cpp in Sources */,
 				05BDE03118CDB2540028F339 /* CFPP-URL.cpp in Sources */,
@@ -820,6 +823,7 @@
 				05BDE03618CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
 				059DBCBD1B14DC5B0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
 				05BDE03518CDB2540028F339 /* CFPP-Date.cpp in Sources */,
+				050596F51B4C6971005E19D2 /* CFPP-ReadStream-Iterator.cpp in Sources */,
 				05BDE03818CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
 				05632F9118ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
 				05BDE03918CDB2540028F339 /* CFPP-String.cpp in Sources */,
@@ -846,6 +850,7 @@
 				05BDE04018CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
 				059DBCBF1B14DC5B0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
 				05BDE04118CDB2540028F339 /* CFPP-Number.cpp in Sources */,
+				050596F61B4C6971005E19D2 /* CFPP-ReadStream-Iterator.cpp in Sources */,
 				05BDE04218CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
 				05BDE04318CDB2540028F339 /* CFPP-String.cpp in Sources */,
 				05BDE04418CDB2540028F339 /* CFPP-Type.cpp in Sources */,
@@ -872,6 +877,7 @@
 				05BDE04A18CDB2550028F339 /* CFPP-Dictionary.cpp in Sources */,
 				059DBCC11B14DC5C0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
 				05BDE04918CDB2550028F339 /* CFPP-Date.cpp in Sources */,
+				050596F71B4C6972005E19D2 /* CFPP-ReadStream-Iterator.cpp in Sources */,
 				05BDE04C18CDB2550028F339 /* CFPP-Pair.cpp in Sources */,
 				05632F9318ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
 				05BDE04D18CDB2550028F339 /* CFPP-String.cpp in Sources */,

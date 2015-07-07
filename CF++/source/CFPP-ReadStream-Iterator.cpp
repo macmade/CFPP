@@ -36,4 +36,118 @@
 #include <CF++.hpp>
 
 namespace CF
-{}
+{
+    ReadStream::Iterator::Iterator( void )
+    {}
+    
+    ReadStream::Iterator::Iterator( CFReadStreamRef stream, CFIndex bytesToRead )
+    {
+        ( void )stream;
+        ( void )bytesToRead;
+    }
+    
+    ReadStream::Iterator::Iterator( const Iterator & value )
+    {
+        ( void )value;
+    }
+
+    #ifdef CFPP_HAS_CPP11
+    ReadStream::Iterator::Iterator( Iterator && value )
+    {
+        ( void )value;
+    }
+    #endif
+
+    ReadStream::Iterator::~Iterator( void )
+    {}
+
+    ReadStream::Iterator & ReadStream::Iterator::operator = ( Iterator value )
+    {
+        ( void )value;
+        
+        return *( this );
+    }
+    
+    ReadStream::Iterator & ReadStream::Iterator::operator ++( void )
+    {
+        return *( this );
+    }
+    
+    ReadStream::Iterator ReadStream::Iterator::operator ++( int )
+    {
+        return *( this );
+    }
+    
+    ReadStream::Iterator & ReadStream::Iterator::operator --( void )
+    {
+        return *( this );
+    }
+    
+    ReadStream::Iterator ReadStream::Iterator::operator --( int )
+    {
+        return *( this );
+    }
+
+    ReadStream::Iterator & ReadStream::Iterator::operator += ( CFIndex value )
+    {
+        ( void )value;
+        
+        return *( this );
+    }
+    
+    ReadStream::Iterator & ReadStream::Iterator::operator -= ( CFIndex value )
+    {
+        ( void )value;
+        
+        return *( this );
+    }
+
+    ReadStream::Iterator ReadStream::Iterator::operator + ( CFIndex value )
+    {
+        ( void )value;
+        
+        return *( this );
+    }
+    
+    ReadStream::Iterator ReadStream::Iterator::operator - ( CFIndex value )
+    {
+        ( void )value;
+        
+        return *( this );
+    }
+
+    bool ReadStream::Iterator::operator == ( const Iterator & value ) const
+    {
+        ( void )value;
+        
+        return false;
+    }
+    
+    bool ReadStream::Iterator::operator != ( const Iterator & value ) const
+    {
+        ( void )value;
+        
+        return false;
+    }
+
+    Data ReadStream::Iterator::operator * ( void ) const
+    {
+        return static_cast< CFDataRef >( NULL );
+    }
+    
+    Data ReadStream::Iterator::operator -> ( void ) const
+    {
+        return static_cast< CFDataRef >( NULL );
+    }
+
+    ReadStream::Iterator::operator Data () const
+    {
+        return static_cast< CFDataRef >( NULL );
+    }
+
+    void swap( ReadStream::Iterator & v1, ReadStream::Iterator & v2 )
+    {
+        ( void )v1;
+        ( void )v2;
+    }
+}
