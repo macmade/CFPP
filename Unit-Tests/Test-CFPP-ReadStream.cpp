@@ -73,10 +73,26 @@ TEST( CFPP_ReadStream, CTOR_URL )
 }
 
 TEST( CFPP_ReadStream, CTOR_CFType )
-{}
+{
+    CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
+    CF::ReadStream s2( static_cast< CFTypeRef >( s1.GetCFObject() ) );
+    CF::ReadStream s3( static_cast< CFTypeRef >( NULL ) );
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_TRUE(  s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
+}
 
 TEST( CFPP_ReadStream, CTOR_CFReadStream )
-{}
+{
+    CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
+    CF::ReadStream s2( static_cast< CFReadStreamRef >( const_cast< void * >( s1.GetCFObject() ) ) );
+    CF::ReadStream s3( static_cast< CFReadStreamRef >( NULL ) );
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_TRUE(  s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
+}
 
 TEST( CFPP_ReadStream, CCTOR )
 {
@@ -99,13 +115,57 @@ TEST( CFPP_ReadStream, MCTOR )
 #endif
 
 TEST( CFPP_ReadStream, OperatorAssignReadStream )
-{}
+{
+    CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
+    CF::ReadStream s2;
+    CF::ReadStream s3;
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
+    
+    s2 = s1;
+    
+    ASSERT_TRUE( s2.IsValid() );
+    
+    s2 = s3;
+    
+    ASSERT_FALSE( s2.IsValid() );
+}
 
 TEST( CFPP_ReadStream, OperatorAssignCFType )
-{}
+{
+    CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
+    CF::ReadStream s2;
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    
+    s2 = static_cast< CFTypeRef >( s1.GetCFObject() );
+    
+    ASSERT_TRUE( s2.IsValid() );
+    
+    s2 = static_cast< CFTypeRef >( NULL );
+    
+    ASSERT_FALSE( s2.IsValid() );
+}
 
 TEST( CFPP_ReadStream, OperatorAssignCFReadStream )
-{}
+{
+    CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
+    CF::ReadStream s2;
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    
+    s2 = static_cast< CFReadStreamRef >( const_cast< void * >( s1.GetCFObject() ) );
+    
+    ASSERT_TRUE( s2.IsValid() );
+    
+    s2 = static_cast< CFReadStreamRef >( NULL );
+    
+    ASSERT_FALSE( s2.IsValid() );
+}
 
 TEST( CFPP_ReadStream, GetTypeID )
 {
