@@ -70,6 +70,7 @@ namespace CF
             PathStyle;
             
             static URL FileSystemURL( std::string path, bool isDir = false );
+            static URL FileSystemURL( const char * path, bool isDir = false );
             static URL FileSystemURL( CFTypeRef path, bool isDir = false );
             static URL FileSystemURL( CFStringRef path, bool isDir = false );
             
@@ -79,6 +80,7 @@ namespace CF
             URL( CFURLRef value );
             URL( CFStringRef value );
             URL( std::string value );
+            URL( const char * value );
             
             #ifdef CFPP_HAS_CPP11
             URL( URL && value );
@@ -91,6 +93,7 @@ namespace CF
             URL & operator = ( CFURLRef value );
             URL & operator = ( CFStringRef value );
             URL & operator = ( std::string value );
+            URL & operator = ( const char * value );
             
             bool operator == ( const URL & value ) const;
             bool operator == ( CFTypeRef value ) const;
