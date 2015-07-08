@@ -54,6 +54,15 @@ namespace CF
         this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
     }
     
+    ReadStream::ReadStream( const char * path )
+    {
+        URL url;
+        
+        url = URL::FileSystemURL( path );
+        
+        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+    }
+    
     ReadStream::ReadStream( const ReadStream & value )
     {
         if( value._cfObject != NULL )
@@ -174,6 +183,11 @@ namespace CF
     }
     
     bool ReadStream::Open( std::string path )
+    {
+        return this->Open( URL::FileSystemURL( path ) );
+    }
+    
+    bool ReadStream::Open( const char * path )
     {
         return this->Open( URL::FileSystemURL( path ) );
     }

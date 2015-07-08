@@ -44,6 +44,7 @@ namespace CF
             
             ReadStream( void );
             ReadStream( std::string path );
+            ReadStream( const char * path );
             ReadStream( URL url );
             ReadStream( const ReadStream & value );
             ReadStream( CFTypeRef value );
@@ -64,6 +65,7 @@ namespace CF
             
             bool               Open( void ) const;
             bool               Open( std::string path );
+            bool               Open( const char * path );
             bool               Open( URL url );
             void               Close( void ) const;
             bool               HasBytesAvailable( void ) const;
@@ -99,14 +101,10 @@ namespace CF
                     Iterator & operator = ( Iterator value );
                     Iterator & operator ++( void );
                     Iterator   operator ++( int );
-                    Iterator & operator --( void );
-                    Iterator   operator --( int );
                     
                     Iterator & operator += ( CFIndex value );
-                    Iterator & operator -= ( CFIndex value );
                     
                     Iterator operator + ( CFIndex value );
-                    Iterator operator - ( CFIndex value );
                     
                     bool operator == ( const Iterator & value ) const;
                     bool operator != ( const Iterator & value ) const;
