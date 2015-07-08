@@ -37,3 +37,109 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_ReadStream, CTOR )
+{
+    CF::ReadStream s;
+    
+    ASSERT_FALSE( s.IsValid() );
+}
+
+TEST( CFPP_ReadStream, CTOR_STDString )
+{
+    CF::ReadStream s1( std::string( "/etc/hosts" ) );
+    CF::ReadStream s2( std::string( "/foo/bar" ) );
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s2.IsValid() );
+}
+
+TEST( CFPP_ReadStream, CTOR_CChar )
+{
+    CF::ReadStream s1( "/etc/hosts" );
+    CF::ReadStream s2( "/foo/bar" );
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s2.IsValid() );
+}
+
+TEST( CFPP_ReadStream, CTOR_URL )
+{
+    CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
+    CF::ReadStream s2( CF::URL( "file:///foo/bar" ) );
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s2.IsValid() );
+}
+
+TEST( CFPP_ReadStream, CTOR_CFType )
+{}
+
+TEST( CFPP_ReadStream, CTOR_CFReadStream )
+{}
+
+TEST( CFPP_ReadStream, CCTOR )
+{}
+
+TEST( CFPP_ReadStream, MCTOR )
+{}
+
+TEST( CFPP_ReadStream, OperatorAssignReadStream )
+{}
+
+TEST( CFPP_ReadStream, OperatorAssignCFType )
+{}
+
+TEST( CFPP_ReadStream, OperatorAssignCFReadStream )
+{}
+
+TEST( CFPP_ReadStream, GetTypeID )
+{}
+
+TEST( CFPP_ReadStream, GetCFObject )
+{}
+
+TEST( CFPP_ReadStream, Open )
+{}
+
+TEST( CFPP_ReadStream, Open_STDString )
+{}
+
+TEST( CFPP_ReadStream, Open_CChar )
+{}
+
+TEST( CFPP_ReadStream, Open_URL )
+{}
+
+TEST( CFPP_ReadStream, Close )
+{}
+
+TEST( CFPP_ReadStream, HasBytesAvailable )
+{}
+
+TEST( CFPP_ReadStream, GetStatus )
+{}
+
+TEST( CFPP_ReadStream, GetError )
+{}
+
+TEST( CFPP_ReadStream, Read_BytePtr_CFIndex )
+{}
+
+TEST( CFPP_ReadStream, Read_CFIndex )
+{}
+
+TEST( CFPP_ReadStream, GetBuffer )
+{}
+
+TEST( CFPP_ReadStream, GetProperty )
+{}
+
+TEST( CFPP_ReadStream, SetProperty )
+{}
+
+TEST( CFPP_ReadStream, SetClient )
+{}
+
+TEST( CFPP_ReadStream, Swap )
+{}
