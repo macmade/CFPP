@@ -331,34 +331,48 @@ TEST( CFPP_String_Iterator, OperatorNotEqual )
 
 TEST( CFPP_String_Iterator, OperatorDereference )
 {
-    CF::String           d( "hello" );
-    CF::String::Iterator i;
+    CF::String           d1( "hello" );
+    CF::String           d2( static_cast< CFStringRef >( NULL ) );
+    CF::String::Iterator i1;
+    CF::String::Iterator i2;
     
-    ASSERT_EQ( *( i ), 0 );
+    ASSERT_EQ( *( i1 ), 0 );
+    ASSERT_EQ( *( i2 ), 0 );
     
-    i = d.begin();
+    i1 = d1.begin();
+    i2 = d2.begin();
     
-    ASSERT_EQ( *( i ), 'h' );
+    ASSERT_EQ( *( i1 ), 'h' );
+    ASSERT_EQ( *( i2 ), 0 );
     
-    i--;
+    i1--;
+    i2--;
     
-    ASSERT_EQ( *( i ), 0 );
+    ASSERT_EQ( *( i1 ), 0 );
+    ASSERT_EQ( *( i2 ), 0 );
 }
 
 TEST( CFPP_String_Iterator, OperatorCastToChar )
 {
-    CF::String           d( "hello" );
-    CF::String::Iterator i;
+    CF::String           d1( "hello" );
+    CF::String           d2( static_cast< CFStringRef >( NULL ) );
+    CF::String::Iterator i1;
+    CF::String::Iterator i2;
     
-    ASSERT_EQ( static_cast< char >( i ), 0 );
+    ASSERT_EQ( static_cast< char >( i1 ), 0 );
+    ASSERT_EQ( static_cast< char >( i2 ), 0 );
     
-    i = d.begin();
+    i1 = d1.begin();
+    i2 = d2.begin();
     
-    ASSERT_EQ( static_cast< char >( i ), 'h' );
+    ASSERT_EQ( static_cast< char >( i1 ), 'h' );
+    ASSERT_EQ( static_cast< char >( i2 ), 0 );
     
-    i--;
+    i1--;
+    i2--;
     
-    ASSERT_EQ( static_cast< char >( i ), 0 );
+    ASSERT_EQ( static_cast< char >( i1 ), 0 );
+    ASSERT_EQ( static_cast< char >( i2 ), 0 );
 }
 
 TEST( CFPP_String_Iterator, Swap )

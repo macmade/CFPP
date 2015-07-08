@@ -329,34 +329,48 @@ TEST( CFPP_Data_Iterator, OperatorNotEqual )
 
 TEST( CFPP_Data_Iterator, OperatorDereference )
 {
-    CF::Data           d( __bytes, sizeof( __bytes ) );
-    CF::Data::Iterator i;
+    CF::Data           d1( __bytes, sizeof( __bytes ) );
+    CF::Data           d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data::Iterator i1;
+    CF::Data::Iterator i2;
     
-    ASSERT_EQ( *( i ), 0x00 );
+    ASSERT_EQ( *( i1 ), 0x00 );
+    ASSERT_EQ( *( i2 ), 0x00 );
     
-    i = d.begin();
+    i1 = d1.begin();
+    i2 = d2.begin();
     
-    ASSERT_EQ( *( i ), 0xDE );
+    ASSERT_EQ( *( i1 ), 0xDE );
+    ASSERT_EQ( *( i2 ), 0x00 );
     
-    i--;
+    i1--;
+    i2--;
     
-    ASSERT_EQ( *( i ), 0x00 );
+    ASSERT_EQ( *( i1 ), 0x00 );
+    ASSERT_EQ( *( i2 ), 0x00 );
 }
 
 TEST( CFPP_Data_Iterator, OperatorCastToByte )
 {
-    CF::Data           d( __bytes, sizeof( __bytes ) );
-    CF::Data::Iterator i;
+    CF::Data           d1( __bytes, sizeof( __bytes ) );
+    CF::Data           d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data::Iterator i1;
+    CF::Data::Iterator i2;
     
-    ASSERT_EQ( static_cast< CF::Data::Byte >( i ), 0x00 );
+    ASSERT_EQ( static_cast< CF::Data::Byte >( i1 ), 0x00 );
+    ASSERT_EQ( static_cast< CF::Data::Byte >( i2 ), 0x00 );
     
-    i = d.begin();
+    i1 = d1.begin();
+    i2 = d2.begin();
     
-    ASSERT_EQ( static_cast< CF::Data::Byte >( i ), 0xDE );
+    ASSERT_EQ( static_cast< CF::Data::Byte >( i1 ), 0xDE );
+    ASSERT_EQ( static_cast< CF::Data::Byte >( i2 ), 0x00 );
     
-    i--;
+    i1--;
+    i2--;
     
-    ASSERT_EQ( static_cast< CF::Data::Byte >( i ), 0x00 );
+    ASSERT_EQ( static_cast< CF::Data::Byte >( i1 ), 0x00 );
+    ASSERT_EQ( static_cast< CF::Data::Byte >( i2 ), 0x00 );
 }
 
 TEST( CFPP_Data_Iterator, Swap )
