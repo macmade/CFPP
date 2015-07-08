@@ -56,104 +56,349 @@ TEST( CFPP_Number, CTOR )
     CF::Number n;
     
     ASSERT_TRUE( n.IsValid() );
-    ASSERT_EQ( n, 0 );
+    ASSERT_TRUE( n == 0 );
+    ASSERT_TRUE( n.GetCFObject() != NULL );
 }
 
 TEST( CFPP_Number, CTOR_CFType )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ) );
+    
+    ASSERT_TRUE(  n1.IsValid() );
+    ASSERT_FALSE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 0 );
+    
+    ASSERT_TRUE( n1.GetCFObject() != NULL );
+    ASSERT_TRUE( n2.GetCFObject() == NULL );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_TRUE(  n1.IsValid() );
+    ASSERT_FALSE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 0 );
+    
+    ASSERT_TRUE( n1.GetCFObject() != NULL );
+    ASSERT_TRUE( n2.GetCFObject() == NULL );
+}
 
 TEST( CFPP_Number, CTOR_CFType_SInt8 )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::SInt8 >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< CF::Number::SInt8 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFType_SInt16 )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::SInt16 >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< CF::Number::SInt16 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFType_SInt32 )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::SInt32 >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< CF::Number::SInt32 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFType_SInt64 )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::SInt64 >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< CF::Number::SInt64 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFType_UInt8 )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::UInt8 >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< CF::Number::UInt8 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFType_UInt16 )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::UInt16 >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< CF::Number::UInt16 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFType_UInt32 )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::UInt32 >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< CF::Number::UInt32 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFType_UInt64 )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::UInt64 >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< CF::Number::UInt64 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFType_Float32 )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::Float32 >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< CF::Number::Float32 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFType_Float64 )
-{}
+{
+    CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::Float64 >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< CF::Number::Float64 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber_SInt8 )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::SInt8 >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< CF::Number::SInt8 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber_SInt16 )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::SInt16 >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< CF::Number::SInt16 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber_SInt32 )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::SInt32 >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< CF::Number::SInt32 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber_SInt64 )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::SInt64 >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< CF::Number::SInt64 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber_UInt8 )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::UInt8 >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< CF::Number::UInt8 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber_UInt16 )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::UInt16 >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< CF::Number::UInt16 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber_UInt32 )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::UInt32 >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< CF::Number::UInt32 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber_UInt64 )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::UInt64 >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< CF::Number::UInt64 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber_Float32 )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::Float32 >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< CF::Number::Float32 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_CFNumber_Float64 )
-{}
+{
+    CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< CF::Number::Float64 >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< CF::Number::Float64 >( 43 ) );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 43 );
+}
 
 TEST( CFPP_Number, CTOR_SInt8 )
-{}
+{
+    CF::Number n( static_cast< CF::Number::SInt8 >( 42 ) );
+    
+    ASSERT_TRUE( n == 42 );
+}
 
 TEST( CFPP_Number, CTOR_SInt16 )
-{}
+{
+    CF::Number n( static_cast< CF::Number::SInt16 >( 42 ) );
+    
+    ASSERT_TRUE( n == 42 );
+}
 
 TEST( CFPP_Number, CTOR_SInt32 )
-{}
+{
+    CF::Number n( static_cast< CF::Number::SInt32 >( 42 ) );
+    
+    ASSERT_TRUE( n == 42 );
+}
 
 TEST( CFPP_Number, CTOR_SInt64 )
-{}
+{
+    CF::Number n( static_cast< CF::Number::SInt64 >( 42 ) );
+    
+    ASSERT_TRUE( n == 42 );
+}
 
 TEST( CFPP_Number, CTOR_UInt8 )
-{}
+{
+    CF::Number n( static_cast< CF::Number::UInt8 >( 42 ) );
+    
+    ASSERT_TRUE( n == 42 );
+}
 
 TEST( CFPP_Number, CTOR_UInt16 )
-{}
+{
+    CF::Number n( static_cast< CF::Number::UInt16 >( 42 ) );
+    
+    ASSERT_TRUE( n == 42 );
+}
 
 TEST( CFPP_Number, CTOR_UInt32 )
-{}
+{
+    CF::Number n( static_cast< CF::Number::UInt32 >( 42 ) );
+    
+    ASSERT_TRUE( n == 42 );
+}
 
 TEST( CFPP_Number, CTOR_UInt64 )
-{}
+{
+    CF::Number n( static_cast< CF::Number::UInt64 >( 42 ) );
+    
+    ASSERT_TRUE( n == 42 );
+}
 
 TEST( CFPP_Number, CTOR_Float32 )
-{}
+{
+    CF::Number n( static_cast< CF::Number::Float32 >( 42 ) );
+    
+    ASSERT_TRUE( n == 42 );
+}
 
 TEST( CFPP_Number, CTOR_Float64 )
-{}
+{
+    CF::Number n( static_cast< CF::Number::Float64 >( 42 ) );
+    
+    ASSERT_TRUE( n == 42 );
+}
 
 TEST( CFPP_Number, CCTOR )
 {
