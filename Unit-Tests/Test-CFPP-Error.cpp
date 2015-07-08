@@ -191,6 +191,7 @@ TEST( CFPP_Error, CCTOR )
     ASSERT_EQ( e2.GetCode(), 42 );
 }
 
+#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Error, MCTOR )
 {
     CF::Error e1( "com.xs-labs", 42 );
@@ -201,6 +202,7 @@ TEST( CFPP_Error, MCTOR )
     ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
     ASSERT_EQ( e2.GetCode(), 42 );
 }
+#endif
 
 TEST( CFPP_Error, OperatorAssignError )
 {

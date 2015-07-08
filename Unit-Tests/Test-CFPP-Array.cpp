@@ -72,6 +72,7 @@ TEST( CFPP_Array, CCTOR )
     }
 }
 
+#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Array, MCTOR )
 {
     CF::Array a1;
@@ -90,6 +91,7 @@ TEST( CFPP_Array, MCTOR )
         ASSERT_EQ( a2.GetCount(), 2 );
     }
 }
+#endif
 
 TEST( CFPP_Array, OperatorAssignArray )
 {}
