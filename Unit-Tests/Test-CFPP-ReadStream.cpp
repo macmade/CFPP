@@ -79,10 +79,24 @@ TEST( CFPP_ReadStream, CTOR_CFReadStream )
 {}
 
 TEST( CFPP_ReadStream, CCTOR )
-{}
+{
+    CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
+    CF::ReadStream s2( s1 );
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s2.IsValid() );
+}
 
+#ifdef CFPP_HAS_CPP11
 TEST( CFPP_ReadStream, MCTOR )
-{}
+{
+    CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
+    CF::ReadStream s2( std::move( s1 ) );
+    
+    ASSERT_FALSE( s1.IsValid() );
+    ASSERT_TRUE(  s2.IsValid() );
+}
+#endif
 
 TEST( CFPP_ReadStream, OperatorAssignReadStream )
 {}
@@ -94,10 +108,23 @@ TEST( CFPP_ReadStream, OperatorAssignCFReadStream )
 {}
 
 TEST( CFPP_ReadStream, GetTypeID )
-{}
+{
+    CF::ReadStream s;
+    
+    ASSERT_EQ( s.GetTypeID(), CFReadStreamGetTypeID() );
+}
 
 TEST( CFPP_ReadStream, GetCFObject )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2( CF::URL( "file:///etc/hosts" ) );
+    CF::ReadStream s3( static_cast< CFReadStreamRef >( NULL ) );
+    
+    ASSERT_TRUE( s1.GetCFObject() == NULL );
+    ASSERT_TRUE( s2.GetCFObject() != NULL );
+    ASSERT_TRUE( s3.GetCFObject() == NULL );
+    ASSERT_EQ( CFGetTypeID( s2.GetCFObject() ), CFReadStreamGetTypeID() );
+}
 
 TEST( CFPP_ReadStream, Open )
 {}
