@@ -59,6 +59,15 @@ namespace CF
         return url.As< CF::URL >();
     }
     
+    URL URL::FileSystemURL( const char * path, bool isDir )
+    {
+        String str;
+        
+        str = path;
+        
+        return URL::FileSystemURL( str.GetValue(), isDir );
+    }
+    
     URL URL::FileSystemURL( CFTypeRef path, bool isDir )
     {
         String str;
@@ -115,6 +124,15 @@ namespace CF
     }
     
     URL::URL( std::string value )
+    {
+        String s;
+        
+        s = value;
+        
+        this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
+    }
+    
+    URL::URL( const char * value )
     {
         String s;
         
@@ -206,6 +224,22 @@ namespace CF
     }
     
     URL & URL::operator = ( std::string value )
+    {
+        String s;
+        
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        s = value;
+        
+        this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
+        
+        return *( this );
+    }
+    
+    URL & URL::operator = ( const char * value )
     {
         String s;
         
