@@ -37,33 +37,62 @@
 
 namespace CF
 {
-    ReadStream::Iterator::Iterator( void )
+    ReadStream::Iterator::Iterator( void ):
+        _cfObject( NULL ),
+        _bytesToRead( 0 ),
+        _data( static_cast< CFDataRef >( NULL ) ),
+        _end( false )
     {}
     
-    ReadStream::Iterator::Iterator( CFReadStreamRef stream, CFIndex bytesToRead )
+    ReadStream::Iterator::Iterator( CFReadStreamRef stream, CFIndex bytesToRead ):
+        _cfObject( stream ),
+        _bytesToRead( bytesToRead ),
+        _data( static_cast< CFDataRef >( NULL ) ),
+        _end( false )
     {
-        ( void )stream;
-        ( void )bytesToRead;
+        if( this->_cfObject != NULL )
+        {
+            CFRetain( this->_cfObject );
+        }
     }
     
-    ReadStream::Iterator::Iterator( const Iterator & value )
+    ReadStream::Iterator::Iterator( const Iterator & value ):
+        _cfObject( value._cfObject ),
+        _bytesToRead( value._bytesToRead ),
+        _data( value._data ),
+        _end( value._end )
     {
-        ( void )value;
+        if( this->_cfObject != NULL )
+        {
+            CFRetain( this->_cfObject );
+        }
     }
 
     #ifdef CFPP_HAS_CPP11
     ReadStream::Iterator::Iterator( Iterator && value )
     {
-        ( void )value;
+        this->_cfObject     = value._cfObject;
+        value._cfObject     = NULL;
+        this->_bytesToRead  = value._bytesToRead;
+        value._bytesToRead  = 0;
+        this->_end          = value._end;
+        value._end          = false;
+        
+        swap( this->_data, value._data );
     }
     #endif
 
     ReadStream::Iterator::~Iterator( void )
-    {}
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+    }
 
     ReadStream::Iterator & ReadStream::Iterator::operator = ( Iterator value )
     {
-        ( void )value;
+        swap( *( this ), value );
         
         return *( this );
     }
@@ -77,16 +106,6 @@ namespace CF
     {
         return *( this );
     }
-    
-    ReadStream::Iterator & ReadStream::Iterator::operator --( void )
-    {
-        return *( this );
-    }
-    
-    ReadStream::Iterator ReadStream::Iterator::operator --( int )
-    {
-        return *( this );
-    }
 
     ReadStream::Iterator & ReadStream::Iterator::operator += ( CFIndex value )
     {
@@ -94,22 +113,8 @@ namespace CF
         
         return *( this );
     }
-    
-    ReadStream::Iterator & ReadStream::Iterator::operator -= ( CFIndex value )
-    {
-        ( void )value;
-        
-        return *( this );
-    }
 
     ReadStream::Iterator ReadStream::Iterator::operator + ( CFIndex value )
-    {
-        ( void )value;
-        
-        return *( this );
-    }
-    
-    ReadStream::Iterator ReadStream::Iterator::operator - ( CFIndex value )
     {
         ( void )value;
         
@@ -132,22 +137,26 @@ namespace CF
 
     Data ReadStream::Iterator::operator * ( void ) const
     {
-        return static_cast< CFDataRef >( NULL );
+        return this->_data;
     }
     
     Data ReadStream::Iterator::operator -> ( void ) const
     {
-        return static_cast< CFDataRef >( NULL );
+        return this->_data;
     }
 
     ReadStream::Iterator::operator Data () const
     {
-        return static_cast< CFDataRef >( NULL );
+        return this->_data;
     }
 
     void swap( ReadStream::Iterator & v1, ReadStream::Iterator & v2 )
     {
-        ( void )v1;
-        ( void )v2;
+        using std::swap;
+        
+        swap( v1._cfObject,    v2._cfObject );
+        swap( v1._bytesToRead, v2._bytesToRead );
+        swap( v1._data,        v2._data );
+        swap( v1._end,         v2._end );
     }
 }
