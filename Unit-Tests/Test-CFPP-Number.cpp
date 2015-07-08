@@ -156,49 +156,209 @@ TEST( CFPP_Number, CTOR_Float64 )
 {}
 
 TEST( CFPP_Number, CCTOR )
-{}
+{
+    CF::Number n1( 42 );
+    CF::Number n2( n1 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n4( n3 );
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
+    
+    ASSERT_TRUE( n1 == 42 );
+    ASSERT_TRUE( n2 == 42 ); 
+    
+    ASSERT_FALSE( n3.IsValid() );
+    ASSERT_FALSE( n4.IsValid() );
+}
 
 TEST( CFPP_Number, MCTOR )
-{}
+{
+    CF::Number n1( 42 );
+    CF::Number n2( std::move( n1 ) );
+    
+    ASSERT_FALSE( n1.IsValid() );
+    ASSERT_TRUE(  n2.IsValid() );
+    
+    ASSERT_TRUE( n2 == 42 );
+}
 
 TEST( CFPP_Number, OperatorAssignNumber )
-{}
+{
+    CF::Number n1;
+    CF::Number n2( 1 );
+    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    
+    ASSERT_TRUE( n1 == 0 );
+    ASSERT_TRUE( n2 == 1 );
+    ASSERT_FALSE( n3.IsValid() );
+    
+    n1 = n2;
+    
+    ASSERT_TRUE( n1 == 1 );
+    
+    n1 = n3;
+    
+    ASSERT_FALSE( n1.IsValid() );
+    ASSERT_TRUE( n1 == 0 );
+    
+    n1 = n2;
+    
+    ASSERT_TRUE( n1.IsValid() );
+    ASSERT_TRUE( n1 == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignCFType )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CFTypeRef >( CF::Number( 1 ).GetCFObject() );
+    
+    ASSERT_TRUE( n == 1 );
+    
+    n = static_cast< CFTypeRef >( NULL );
+    
+    ASSERT_FALSE( n.IsValid() );
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CFTypeRef >( CF::Number( 1 ).GetCFObject() );
+    
+    ASSERT_TRUE( n.IsValid() );
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignCFNumber )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CFNumberRef >( CF::Number( 1 ).GetCFObject() );
+    
+    ASSERT_TRUE( n == 1 );
+    
+    n = static_cast< CFNumberRef >( NULL );
+    
+    ASSERT_FALSE( n.IsValid() );
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CFNumberRef >( CF::Number( 1 ).GetCFObject() );
+    
+    ASSERT_TRUE( n.IsValid() );
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignSInt8 )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CF::Number::SInt8 >( 1 );
+    
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignSInt16 )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CF::Number::SInt16 >( 1 );
+    
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignSInt32 )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CF::Number::SInt32 >( 1 );
+    
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignSInt64 )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CF::Number::SInt64 >( 1 );
+    
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignUInt8 )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CF::Number::UInt8 >( 1 );
+    
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignUInt16 )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CF::Number::UInt16 >( 1 );
+    
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignUInt32 )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CF::Number::UInt32 >( 1 );
+    
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignUInt64 )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CF::Number::UInt64 >( 1 );
+    
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignFloat32 )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CF::Number::Float32 >( 1 );
+    
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorAssignFloat64 )
-{}
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n == 0 );
+    
+    n = static_cast< CF::Number::Float64 >( 1 );
+    
+    ASSERT_TRUE( n == 1 );
+}
 
 TEST( CFPP_Number, OperatorEqualNumber )
 {
