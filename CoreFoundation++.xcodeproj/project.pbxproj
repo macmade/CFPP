@@ -412,7 +412,7 @@
 		056C585A1B1706BB00C6214A /* CFPP-AutoPointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "CFPP-AutoPointer.hpp"; sourceTree = "<group>"; };
 		056C585B1B1707EE00C6214A /* CFPP-AutoPointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-AutoPointer.cpp"; sourceTree = "<group>"; };
 		056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GoogleMock.xcodeproj; path = "Submodules/gmock-xcode/GoogleMock.xcodeproj"; sourceTree = "<group>"; };
-		056C58BF1B1898FF00C6214A /* CF++ Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CF++ Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		056C58BF1B1898FF00C6214A /* CF++ Tests (C++11).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CF++ Tests (C++11).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C590E1B18A15A00C6214A /* travis-after.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "travis-after.sh"; sourceTree = "<group>"; };
 		056C590F1B18A15A00C6214A /* travis-before.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "travis-before.sh"; sourceTree = "<group>"; };
 		056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -607,7 +607,7 @@
 				056C884A18C8C547006260B3 /* libCF++.dylib */,
 				056C885F18C8C76B006260B3 /* CF++.framework */,
 				056C88AA18C8C8AC006260B3 /* libCF++.a */,
-				056C58BF1B1898FF00C6214A /* CF++ Tests.xctest */,
+				056C58BF1B1898FF00C6214A /* CF++ Tests (C++11).xctest */,
 				052B35951B4EB810009D98A4 /* libCF++.a */,
 				052B35C51B4EB814009D98A4 /* libCF++.dylib */,
 				052B35F61B4EB81C009D98A4 /* CF++.framework */,
@@ -924,7 +924,7 @@
 			);
 			name = "CF++ Tests (C++11)";
 			productName = "CF++ Tests";
-			productReference = 056C58BF1B1898FF00C6214A /* CF++ Tests.xctest */;
+			productReference = 056C58BF1B1898FF00C6214A /* CF++ Tests (C++11).xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		056C881118C8B85F006260B3 /* CF++ Mac Static Library (C++11) */ = {
