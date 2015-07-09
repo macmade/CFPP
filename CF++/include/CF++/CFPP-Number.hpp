@@ -524,6 +524,8 @@ namespace CF
             
             CFNumberRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFNumberRef> { typedef CF::Number type; };
 }
 
 #endif /* CFPP_NUMBER_H */

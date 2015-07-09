@@ -150,6 +150,10 @@ namespace CF
             
             CFMutableDataRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFDataRef> { typedef CF::Data type; };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFMutableDataRef> { typedef CF::Data type; };
 }
 
 #endif /* CFPP_DATA_H */

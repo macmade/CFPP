@@ -56,6 +56,31 @@
 #endif
 
 #include <CF++/CFPP-Type.hpp>
+
+namespace CF
+{
+	/*!
+		@brief CFPP class for CF type.
+		Support binding CFPP types with their matching CF types for overloaded CF::BridgingRelease function
+	 */
+	template<typename>struct ClassFor; template<> struct ClassFor<CFTypeRef> { typedef CF::Type type; };
+
+	/*!
+		@function BridgingRelease
+		@brief Convert a CF object into it's matching CFPP type.
+		@note This function is implicitly defined for all CF types that CFPP wraps.
+		@param cf A valid CoreFoundation object or NULL. A non-NULL value will be released.
+		@return A CFPP object constructed with the CoreFoundation object. If the object is NULL, the default constructor is used.
+	 */
+	template <typename CFType>
+	static inline typename ClassFor<CFType>::type BridgingRelease(CFType CF_RELEASES_ARGUMENT cf) {
+		if (cf == nullptr) return typename ClassFor<CFType>::type();
+		typename ClassFor<CFType>::type cfpp(cf);
+		CFRelease(cf);
+		return cfpp;
+	}
+}
+
 #include <CF++/CFPP-PropertyListType.hpp>
 #include <CF++/CFPP-AutoPointer.hpp>
 #include <CF++/CFPP-Boolean.hpp>

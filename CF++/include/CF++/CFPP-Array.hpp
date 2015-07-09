@@ -142,6 +142,10 @@ namespace CF
             
             CFMutableArrayRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFArrayRef> { typedef CF::Array type; };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFMutableArrayRef> { typedef CF::Array type; };
 }
 
 #endif /* CFPP_ARRAY_H */

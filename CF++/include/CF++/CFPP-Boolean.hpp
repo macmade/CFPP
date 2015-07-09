@@ -84,6 +84,8 @@ namespace CF
             
             CFBooleanRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFBooleanRef> { typedef CF::Boolean type; };
 }
 
 #endif /* CFPP_BOOLEAN_H */

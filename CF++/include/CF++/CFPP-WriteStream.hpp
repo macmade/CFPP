@@ -80,6 +80,8 @@ namespace CF
             
             CFWriteStreamRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFWriteStreamRef> { typedef CF::WriteStream type; };
 }
 
 #endif /* CFPP_WRITE_STREAM_H */
