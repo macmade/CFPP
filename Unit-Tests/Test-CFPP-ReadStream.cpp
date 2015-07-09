@@ -296,25 +296,25 @@ TEST( CFPP_ReadStream, GetStatus )
     CF::ReadStream s2( "/etc/hosts" );
     CF::ReadStream s3( "/foo/bar" );
     
-    ASSERT_EQ( s1.GetStatus(), kCFStreamStatusError );
-    ASSERT_EQ( s2.GetStatus(), kCFStreamStatusNotOpen );
-    ASSERT_EQ( s3.GetStatus(), kCFStreamStatusNotOpen );
+    ASSERT_TRUE( s1.GetStatus() == kCFStreamStatusError );
+    ASSERT_TRUE( s2.GetStatus() == kCFStreamStatusNotOpen );
+    ASSERT_TRUE( s3.GetStatus() == kCFStreamStatusNotOpen );
     
     s1.Open();
     s2.Open();
     s3.Open();
     
-    ASSERT_EQ( s1.GetStatus(), kCFStreamStatusError );
-    ASSERT_EQ( s2.GetStatus(), kCFStreamStatusOpen );
-    ASSERT_EQ( s3.GetStatus(), kCFStreamStatusError );
+    ASSERT_TRUE( s1.GetStatus() == kCFStreamStatusError );
+    ASSERT_TRUE( s2.GetStatus() == kCFStreamStatusOpen );
+    ASSERT_TRUE( s3.GetStatus() == kCFStreamStatusError );
     
     s1.Close();
     s2.Close();
     s3.Close();
     
-    ASSERT_EQ( s1.GetStatus(), kCFStreamStatusError );
-    ASSERT_EQ( s2.GetStatus(), kCFStreamStatusClosed );
-    ASSERT_EQ( s3.GetStatus(), kCFStreamStatusError );
+    ASSERT_TRUE( s1.GetStatus() == kCFStreamStatusError );
+    ASSERT_TRUE( s2.GetStatus() == kCFStreamStatusClosed );
+    ASSERT_TRUE( s3.GetStatus() == kCFStreamStatusError );
 }
 
 TEST( CFPP_ReadStream, GetError )
