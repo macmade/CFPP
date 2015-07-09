@@ -4418,3 +4418,26 @@ TEST( CFPP_Number, Swap )
     ASSERT_EQ( n1, 2 );
     ASSERT_EQ( n2, 1 );
 }
+
+// Hidden from analyzer because it misreports a leak
+#ifndef __clang_analyzer__
+TEST( CFPP_Number, BridgingRelease )
+{
+	// Wrapper retains, so retain count should be the same after bridge
+
+	int x = 42;
+	CFNumberRef cf = CFNumberCreate(NULL, kCFNumberIntType, &x);
+
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::Number cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CFRelease(cf);
+}
+#endif

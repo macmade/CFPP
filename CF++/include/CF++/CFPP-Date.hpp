@@ -122,6 +122,8 @@ namespace CF
             
             CFDateRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFDateRef> { typedef CF::Date type; };
 }
 
 #endif /* CFPP_DATE_H */

@@ -146,6 +146,8 @@ namespace CF
             
             CFURLRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFURLRef> { typedef CF::URL type; };
 }
 
 #endif /* CFPP_URL_H */

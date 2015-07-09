@@ -374,3 +374,20 @@ TEST( CFPP_Boolean, Swap )
     ASSERT_EQ( b1.GetValue(), false );
     ASSERT_EQ( b2.GetValue(), true );
 }
+
+TEST( CFPP_Boolean, BridgingRelease )
+{
+	// Wrapper retains, so retain count should be the same after bridge
+
+	CFBooleanRef cf = (CFBooleanRef)CFRetain(kCFBooleanTrue);
+
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::Boolean cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+}

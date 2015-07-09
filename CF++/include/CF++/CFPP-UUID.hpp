@@ -80,6 +80,8 @@ namespace CF
             
             CFUUIDRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFUUIDRef> { typedef CF::UUID type; };
 }
 
 #endif /* CFPP_UUID_H */

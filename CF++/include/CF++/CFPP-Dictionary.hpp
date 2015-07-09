@@ -140,6 +140,10 @@ namespace CF
             
             CFMutableDictionaryRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFDictionaryRef> { typedef CF::Dictionary type; };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFMutableDictionaryRef> { typedef CF::Dictionary type; };
 }
 
 #endif /* CFPP_DICTIONARY_H */

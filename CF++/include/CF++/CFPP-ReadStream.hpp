@@ -139,6 +139,8 @@ namespace CF
             
             CFReadStreamRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFReadStreamRef> { typedef CF::ReadStream type; };
 }
 
 #endif /* CFPP_READ_STREAM_H */

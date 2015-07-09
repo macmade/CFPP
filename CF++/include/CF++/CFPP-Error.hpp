@@ -81,6 +81,8 @@ namespace CF
             
             CFErrorRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFErrorRef> { typedef CF::Error type; };
 }
 
 #endif /* CFPP_ERROR_H */

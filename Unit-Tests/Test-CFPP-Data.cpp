@@ -37,3 +37,44 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+// Hidden from analyzer because it misreports a leak
+#ifndef __clang_analyzer__
+TEST( CFPP_Data, BridgingRelease )
+{
+	// Wrapper copies, so retain count decreases after bridge
+
+	CFDataRef cf = CFDataCreate(NULL, NULL, 0);
+
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::Data cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount - 1);
+
+	CFRelease(cf);
+}
+
+TEST( CFPP_Data, BridgingReleaseM )
+{
+	// Wrapper copies, so retain count decreases after bridge
+
+	CFMutableDataRef cf = CFDataCreateMutable(NULL, 0);
+
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::Data cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount - 1);
+
+	CFRelease(cf);
+}
+#endif

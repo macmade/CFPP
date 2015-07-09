@@ -369,3 +369,25 @@ TEST( CFPP_Error, Swap )
     ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
     ASSERT_EQ( e2.GetCode(), 42 );
 }
+
+// Hidden from analyzer because it misreports a leak
+#ifndef __clang_analyzer__
+TEST( CFPP_Error, BridgingRelease )
+{
+	// Wrapper retains, so retain count should be the same after bridge
+
+	CFErrorRef cf = CFErrorCreate(NULL, CFSTR(""), 0, NULL);
+
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::Error cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CFRelease(cf);
+}
+#endif

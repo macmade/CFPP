@@ -164,6 +164,10 @@ namespace CF
             
             CFStringRef _cfObject;
     };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFStringRef> { typedef CF::String type; };
+
+	template<typename>struct ClassFor; template<> struct ClassFor<CFMutableStringRef> { typedef CF::String type; };
 }
 
 #endif /* CFPP_STRING_H */

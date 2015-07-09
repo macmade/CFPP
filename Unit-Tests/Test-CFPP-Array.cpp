@@ -192,3 +192,44 @@ TEST( CFPP_Array, Swap )
     ASSERT_EQ( a1.GetCount(), 0 );
     ASSERT_EQ( a2.GetCount(), 2 );
 }
+
+// Hidden from analyzer because it misreports a leak
+#ifndef __clang_analyzer__
+TEST( CFPP_Array, BridgingRelease )
+{
+	// Wrapper copies, so retain count decreases after bridge
+
+	CFArrayRef cf = CFArrayCreate(NULL, NULL, 0, NULL);
+
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::Array cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount - 1);
+
+	CFRelease(cf);
+}
+
+TEST( CFPP_Array, BridgingReleaseM )
+{
+	// Wrapper copies, so retain count decreases after bridge
+
+	CFMutableArrayRef cf = CFArrayCreateMutable(NULL, 0, NULL);
+	
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::Array cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount - 1);
+
+	CFRelease(cf);
+}
+#endif
