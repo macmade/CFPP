@@ -187,25 +187,135 @@ TEST( CFPP_ReadStream, GetCFObject )
 }
 
 TEST( CFPP_ReadStream, Open )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2( std::string( "/etc/hosts" ) );
+    CF::ReadStream s3( std::string( "/foo/bar" ) );
+    
+    ASSERT_FALSE( s1.Open() );
+    ASSERT_TRUE(  s2.Open() );
+    ASSERT_FALSE( s3.Open() );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+    
+    ASSERT_FALSE( s1.Open() );
+    ASSERT_FALSE( s2.Open() );
+    ASSERT_FALSE( s3.Open() );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+}
 
 TEST( CFPP_ReadStream, Open_STDString )
-{}
+{
+    CF::ReadStream s;
+    
+    ASSERT_FALSE( s.IsValid() );
+    ASSERT_TRUE(  s.Open( std::string( "/etc/hosts" ) ) );
+    ASSERT_TRUE(  s.IsValid() );
+    ASSERT_FALSE( s.Open( std::string( "/foo/bar" ) ) );
+    ASSERT_TRUE(  s.IsValid() );
+    
+    s.Close();
+}
 
 TEST( CFPP_ReadStream, Open_CChar )
-{}
+{
+    CF::ReadStream s;
+    
+    ASSERT_FALSE( s.IsValid() );
+    ASSERT_TRUE(  s.Open( "/etc/hosts" ) );
+    ASSERT_TRUE(  s.IsValid() );
+    ASSERT_FALSE( s.Open( "/foo/bar" ) );
+    ASSERT_TRUE(  s.IsValid() );
+    
+    s.Close();
+}
 
 TEST( CFPP_ReadStream, Open_URL )
-{}
+{
+    CF::ReadStream s;
+    
+    ASSERT_FALSE( s.IsValid() );
+    ASSERT_TRUE(  s.Open( CF::URL( "file:///etc/hosts" ) ) );
+    ASSERT_TRUE(  s.IsValid() );
+    ASSERT_FALSE( s.Open( CF::URL( "file:///foo/bar" ) ) );
+    ASSERT_TRUE(  s.IsValid() );
+    
+    s.Close();
+}
 
 TEST( CFPP_ReadStream, Close )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2( "/etc/hosts" );
+    CF::ReadStream s3( "/foo/bar" );
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    ASSERT_NO_FATAL_FAILURE( s1.Close() );
+    ASSERT_NO_FATAL_FAILURE( s2.Close() );
+    ASSERT_NO_FATAL_FAILURE( s3.Close() );
+    
+    ASSERT_NO_THROW( s1.Close() );
+    ASSERT_NO_THROW( s2.Close() );
+    ASSERT_NO_THROW( s3.Close() );
+}
 
 TEST( CFPP_ReadStream, HasBytesAvailable )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2( "/etc/hosts" );
+    CF::ReadStream s3( "/foo/bar" );
+    
+    ASSERT_FALSE( s1.HasBytesAvailable() );
+    ASSERT_FALSE( s2.HasBytesAvailable() );
+    ASSERT_FALSE( s3.HasBytesAvailable() );
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    ASSERT_FALSE( s1.HasBytesAvailable() );
+    ASSERT_TRUE(  s2.HasBytesAvailable() );
+    ASSERT_FALSE( s3.HasBytesAvailable() );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+}
 
 TEST( CFPP_ReadStream, GetStatus )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2( "/etc/hosts" );
+    CF::ReadStream s3( "/foo/bar" );
+    
+    ASSERT_EQ( s1.GetStatus(), kCFStreamStatusError );
+    ASSERT_EQ( s2.GetStatus(), kCFStreamStatusNotOpen );
+    ASSERT_EQ( s3.GetStatus(), kCFStreamStatusNotOpen );
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    ASSERT_EQ( s1.GetStatus(), kCFStreamStatusError );
+    ASSERT_EQ( s2.GetStatus(), kCFStreamStatusOpen );
+    ASSERT_EQ( s3.GetStatus(), kCFStreamStatusError );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+    
+    ASSERT_EQ( s1.GetStatus(), kCFStreamStatusError );
+    ASSERT_EQ( s2.GetStatus(), kCFStreamStatusClosed );
+    ASSERT_EQ( s3.GetStatus(), kCFStreamStatusError );
+}
 
 TEST( CFPP_ReadStream, GetError )
 {}
