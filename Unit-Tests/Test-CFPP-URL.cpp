@@ -44,7 +44,7 @@ TEST( CFPP_URL, BridgingRelease )
 {
 	// Wrapper retains, so retain count should be the same after bridge
 
-	CFURLRef cf = CFURLCreateWithString(NULL, CFSTR(""), NULL);
+	CFURLRef cf = CFURLCreateWithString(NULL, CFSTR("/"), NULL);
 
 	CFRetain(cf);
 
