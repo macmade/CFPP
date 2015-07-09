@@ -441,6 +441,7 @@ TEST( CFPP_Data_Iterator, TestIterate )
     }
 }
 
+#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Data_Iterator, TestIterateSTD )
 {
     CF::Data           d1;
@@ -490,6 +491,7 @@ TEST( CFPP_Data_Iterator, TestIterateSTD )
         ASSERT_EQ( i, 4 );
     }
 }
+#endif
 
 #ifdef CFPP_HAS_CPP11
 TEST( CFPP_Data_Iterator, TestIterateCPP11 )

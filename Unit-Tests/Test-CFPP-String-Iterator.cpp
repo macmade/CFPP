@@ -444,6 +444,7 @@ TEST( CFPP_String_Iterator, TestIterate )
     }
 }
 
+#ifdef CFPP_HAS_CPP11
 TEST( CFPP_String_Iterator, TestIterateSTD )
 {
     CF::String           s1;
@@ -494,6 +495,7 @@ TEST( CFPP_String_Iterator, TestIterateSTD )
         ASSERT_EQ( i, 5 );
     }
 }
+#endif
 
 #ifdef CFPP_HAS_CPP11
 TEST( CFPP_String_Iterator, TestIterateCPP11 )
