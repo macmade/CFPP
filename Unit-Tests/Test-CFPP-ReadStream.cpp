@@ -230,3 +230,25 @@ TEST( CFPP_ReadStream, SetClient )
 
 TEST( CFPP_ReadStream, Swap )
 {}
+
+// Hidden from analyzer because it misreports a leak
+#ifndef __clang_analyzer__
+TEST( CFPP_ReadStream, BridgingRelease )
+{
+	// Wrapper retains, so retain count should be the same after bridge
+
+	CFReadStreamRef cf = CFReadStreamCreateWithBytesNoCopy(NULL, NULL, 0, kCFAllocatorNull);
+
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::ReadStream cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CFRelease(cf);
+}
+#endif

@@ -320,3 +320,25 @@ TEST( CFPP_UUID, Swap )
     ASSERT_EQ( u1.GetString(), s2 );
     ASSERT_EQ( u2.GetString(), s1 );
 }
+
+// Hidden from analyzer because it misreports a leak
+#ifndef __clang_analyzer__
+TEST( CFPP_UUID, BridgingRelease )
+{
+	// Wrapper retains, so retain count should be the same after bridge
+
+	CFUUIDRef cf = CFUUIDCreate(NULL);
+
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::UUID cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CFRelease(cf);
+}
+#endif

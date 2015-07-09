@@ -636,3 +636,44 @@ TEST( CFPP_String, Swap )
     ASSERT_EQ( s1.GetValue(), "hello, universe" );
     ASSERT_EQ( s2.GetValue(), "hello, world" );
 }
+
+// Hidden from analyzer because it misreports a leak
+#ifndef __clang_analyzer__
+TEST( CFPP_String, BridgingRelease )
+{
+	// Wrapper retains, so retain count should be the same after bridge
+
+	CFStringRef cf = CFStringCreateWithFormat(NULL, NULL, CFSTR(""));
+
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::String cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CFRelease(cf);
+}
+
+TEST( CFPP_String, BridgingReleaseM )
+{
+	// Wrapper retains, so retain count should be the same after bridge
+
+	CFMutableStringRef cf = CFStringCreateMutable(NULL, 0);
+
+	CFRetain(cf);
+
+	CFIndex retainCount = CFGetRetainCount(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CF::String cpp = CF::BridgingRelease(cf);
+
+	ASSERT_EQ(CFGetRetainCount(cf), retainCount);
+
+	CFRelease(cf);
+}
+#endif
