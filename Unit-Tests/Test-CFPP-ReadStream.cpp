@@ -319,20 +319,25 @@ TEST( CFPP_ReadStream, GetStatus )
 
 TEST( CFPP_ReadStream, GetError )
 {
-    CF::ReadStream s1( "/etc/hosts" );
-    CF::ReadStream s2( "/foo/bar" );
+    CF::ReadStream s1;
+    CF::ReadStream s2( "/etc/hosts" );
+    CF::ReadStream s3( "/foo/bar" );
     
     ASSERT_EQ( s1.GetError().GetCode(), 0 );
     ASSERT_EQ( s2.GetError().GetCode(), 0 );
+    ASSERT_EQ( s3.GetError().GetCode(), 0 );
     
     s1.Open();
     s2.Open();
+    s3.Open();
     
     ASSERT_EQ( s1.GetError().GetCode(), 0 );
-    ASSERT_NE( s2.GetError().GetCode(), 0 );
+    ASSERT_EQ( s2.GetError().GetCode(), 0 );
+    ASSERT_NE( s3.GetError().GetCode(), 0 );
     
     s1.Close();
     s2.Close();
+    s3.Close();
 }
 
 TEST( CFPP_ReadStream, Read_BytePtr_CFIndex )
@@ -403,9 +408,33 @@ TEST( CFPP_ReadStream, Read_CFIndex )
     ASSERT_EQ( d2.GetLength(), 10 );
     ASSERT_EQ( d3.GetLength(),  0 );
     
+    d1 = s1.Read();
+    d2 = s2.Read();
+    d3 = s3.Read();
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    ASSERT_TRUE( d3.IsValid() );
+    
+    ASSERT_EQ( d1.GetLength(), 0 );
+    ASSERT_GT( d2.GetLength(), 0 );
+    ASSERT_EQ( d3.GetLength(), 0 );
+    
     s1.Close();
     s2.Close();
     s3.Close();
+    
+    d1 = s1.Read( 10 );
+    d2 = s2.Read( 10 );
+    d3 = s3.Read( 10 );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    ASSERT_TRUE( d3.IsValid() );
+    
+    ASSERT_EQ( d1.GetLength(), 0 );
+    ASSERT_EQ( d2.GetLength(), 0 );
+    ASSERT_EQ( d3.GetLength(), 0 );
     
     d1 = s1.Read( 10 );
     d2 = s2.Read( 10 );
@@ -481,7 +510,7 @@ TEST( CFPP_ReadStream, GetBuffer )
     ASSERT_EQ( i3, -1 );
 }
 
-TEST( CFPP_ReadStream, GetSetProperty )
+TEST( CFPP_ReadStream, GetProperty )
 {
     CF::ReadStream  s1;
     CF::ReadStream  s2( "/etc/hosts" );
