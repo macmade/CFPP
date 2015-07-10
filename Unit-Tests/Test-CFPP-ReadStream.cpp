@@ -481,14 +481,40 @@ TEST( CFPP_ReadStream, GetBuffer )
     ASSERT_EQ( i3, -1 );
 }
 
-TEST( CFPP_ReadStream, GetProperty )
-{}
-
-TEST( CFPP_ReadStream, SetProperty )
-{}
-
-TEST( CFPP_ReadStream, SetClient )
-{}
+TEST( CFPP_ReadStream, GetSetProperty )
+{
+    CF::ReadStream  s1;
+    CF::ReadStream  s2( "/etc/hosts" );
+    CF::ReadStream  s3( "/foo/bar" );
+    CF::AutoPointer p1;
+    CF::AutoPointer p2;
+    CF::AutoPointer p3;
+    
+    p1 = s1.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    p2 = s2.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    p3 = s3.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    
+    ASSERT_FALSE( p1.IsValid() );
+    ASSERT_FALSE( p2.IsValid() );
+    ASSERT_FALSE( p3.IsValid() );
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    p1 = s1.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    p2 = s2.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    p3 = s3.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    
+    ASSERT_FALSE( p1.IsValid() );
+    ASSERT_TRUE(  p2.IsValid() );
+    ASSERT_TRUE(  p2.IsNumber() );
+    ASSERT_FALSE( p3.IsValid() );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+}
 
 TEST( CFPP_ReadStream, Swap )
 {
