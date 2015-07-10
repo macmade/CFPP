@@ -318,16 +318,168 @@ TEST( CFPP_ReadStream, GetStatus )
 }
 
 TEST( CFPP_ReadStream, GetError )
-{}
+{
+    CF::ReadStream s1( "/etc/hosts" );
+    CF::ReadStream s2( "/foo/bar" );
+    
+    ASSERT_EQ( s1.GetError().GetCode(), 0 );
+    ASSERT_EQ( s2.GetError().GetCode(), 0 );
+    
+    s1.Open();
+    s2.Open();
+    
+    ASSERT_EQ( s1.GetError().GetCode(), 0 );
+    ASSERT_NE( s2.GetError().GetCode(), 0 );
+    
+    s1.Close();
+    s2.Close();
+}
 
 TEST( CFPP_ReadStream, Read_BytePtr_CFIndex )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2( "/etc/hosts" );
+    CF::ReadStream s3( "/foo/bar" );
+    CF::Data::Byte buf[ 1024 ];
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    ASSERT_NO_FATAL_FAILURE( s1.Read( NULL, 10 ) );
+    ASSERT_NO_FATAL_FAILURE( s2.Read( NULL, 10 ) );
+    ASSERT_NO_FATAL_FAILURE( s3.Read( NULL, 10 ) );
+    
+    ASSERT_NO_THROW( s1.Read( NULL, 10 ) );
+    ASSERT_NO_THROW( s2.Read( NULL, 10 ) );
+    ASSERT_NO_THROW( s3.Read( NULL, 10 ) );
+    
+    ASSERT_EQ( s1.Read( NULL, 10 ), 0 );
+    ASSERT_EQ( s2.Read( NULL, 10 ), 0 );
+    ASSERT_EQ( s3.Read( NULL, 10 ), 0 );
+    
+    ASSERT_EQ( s1.Read( buf, 10 ),  0 );
+    ASSERT_EQ( s2.Read( buf, 10 ), 10 );
+    ASSERT_EQ( s3.Read( buf, 10 ), -1 );
+    
+    while( s2.HasBytesAvailable() )
+    {
+        s2.Read( buf, 1024 );
+    }
+    
+    ASSERT_EQ( s2.Read( buf, 10 ), 0 );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+    
+    ASSERT_EQ( s1.Read( buf, 10 ),  0 );
+    ASSERT_EQ( s2.Read( buf, 10 ), -1 );
+    ASSERT_EQ( s3.Read( buf, 10 ), -1 );
+}
 
 TEST( CFPP_ReadStream, Read_CFIndex )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2( "/etc/hosts" );
+    CF::ReadStream s3( "/foo/bar" );
+    CF::Data       d1;
+    CF::Data       d2;
+    CF::Data       d3;
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    d1 = s1.Read( 10 );
+    d2 = s2.Read( 10 );
+    d3 = s3.Read( 10 );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    ASSERT_TRUE( d3.IsValid() );
+    
+    ASSERT_EQ( d1.GetLength(),  0 );
+    ASSERT_EQ( d2.GetLength(), 10 );
+    ASSERT_EQ( d3.GetLength(),  0 );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+    
+    d1 = s1.Read( 10 );
+    d2 = s2.Read( 10 );
+    d3 = s3.Read( 10 );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    ASSERT_TRUE( d3.IsValid() );
+    
+    ASSERT_EQ( d1.GetLength(), 0 );
+    ASSERT_EQ( d2.GetLength(), 0 );
+    ASSERT_EQ( d3.GetLength(), 0 );
+}
 
 TEST( CFPP_ReadStream, GetBuffer )
-{}
+{
+    CF::ReadStream         s1;
+    CF::ReadStream         s2( "/etc/hosts" );
+    CF::ReadStream         s3( "/foo/bar" );
+    CFIndex                i1;
+    CFIndex                i2;
+    CFIndex                i3;
+    const CF::Data::Byte * buf1;
+    const CF::Data::Byte * buf2;
+    const CF::Data::Byte * buf3;
+    
+    i1 = 0;
+    i2 = 0;
+    i3 = 0;
+    
+    buf1 = s1.GetBuffer( 10, &i1 );
+    buf2 = s2.GetBuffer( 10, &i2 );
+    buf3 = s3.GetBuffer( 10, &i3 );
+    
+    ASSERT_TRUE( buf1 == NULL );
+    ASSERT_TRUE( buf2 == NULL );
+    ASSERT_TRUE( buf3 == NULL );
+    
+    ASSERT_EQ( i1,  0 );
+    ASSERT_EQ( i2, -1 );
+    ASSERT_EQ( i3, -1 );
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    buf1 = s1.GetBuffer( 10, &i1 );
+    buf2 = s2.GetBuffer( 10, &i2 );
+    buf3 = s3.GetBuffer( 10, &i3 );
+    
+    ASSERT_TRUE( buf1 == NULL );
+    ASSERT_TRUE( buf2 == NULL );
+    ASSERT_TRUE( buf3 == NULL );
+    
+    ASSERT_EQ( i1,  0 );
+    ASSERT_EQ( i2,  0 );
+    ASSERT_EQ( i3, -1 );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+    
+    buf1 = s1.GetBuffer( 10, &i1 );
+    buf2 = s2.GetBuffer( 10, &i2 );
+    buf3 = s3.GetBuffer( 10, &i3 );
+    
+    ASSERT_TRUE( buf1 == NULL );
+    ASSERT_TRUE( buf2 == NULL );
+    ASSERT_TRUE( buf3 == NULL );
+    
+    ASSERT_EQ( i1,  0 );
+    ASSERT_EQ( i2, -1 );
+    ASSERT_EQ( i3, -1 );
+}
 
 TEST( CFPP_ReadStream, GetProperty )
 {}
@@ -339,4 +491,21 @@ TEST( CFPP_ReadStream, SetClient )
 {}
 
 TEST( CFPP_ReadStream, Swap )
-{}
+{
+    CF::ReadStream s1( "/etc/hosts" );
+    CF::ReadStream s2( "/foo/bar" );
+    
+    s1.Open();
+    s2.Open();
+    
+    ASSERT_TRUE( s1.GetStatus() == kCFStreamStatusOpen );
+    ASSERT_TRUE( s2.GetStatus() == kCFStreamStatusError );
+    
+    swap( s1, s2 );
+    
+    ASSERT_TRUE( s1.GetStatus() == kCFStreamStatusError );
+    ASSERT_TRUE( s2.GetStatus() == kCFStreamStatusOpen );
+    
+    s1.Close();
+    s2.Close();
+}
