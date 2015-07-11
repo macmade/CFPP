@@ -40,7 +40,21 @@ namespace CF
     WriteStream::WriteStream( void ): _cfObject( NULL )
     {}
     
+    WriteStream::WriteStream( URL url )
+    {
+        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+    }
+    
     WriteStream::WriteStream( std::string path )
+    {
+        URL url;
+        
+        url = URL::FileSystemURL( path );
+        
+        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+    }
+    
+    WriteStream::WriteStream( const char * path )
     {
         URL url;
         
@@ -173,6 +187,11 @@ namespace CF
         return this->Open( URL::FileSystemURL( path ) );
     }
     
+    bool WriteStream::Open( const char * path )
+    {
+        return this->Open( URL::FileSystemURL( path ) );
+    }
+    
     bool WriteStream::Open( URL url )
     {
         if( this->_cfObject != NULL )
@@ -249,6 +268,16 @@ namespace CF
     CFIndex WriteStream::Write( Data data ) const
     {
         return this->Write( data.GetBytePtr(), data.GetLength() );
+    }
+    
+    AutoPointer WriteStream::GetProperty( String name )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return NULL;
+        }
+        
+        return CFWriteStreamCopyProperty( this->_cfObject, name );
     }
     
     bool WriteStream::SetProperty( String name, CFTypeRef value )

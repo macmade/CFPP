@@ -44,6 +44,7 @@ namespace CF
             
             WriteStream( void );
             WriteStream( std::string path );
+            WriteStream( const char * path );
             WriteStream( URL url );
             WriteStream( const WriteStream & value );
             WriteStream( CFTypeRef value );
@@ -64,6 +65,7 @@ namespace CF
             
             bool               Open( void ) const;
             bool               Open( std::string path );
+            bool               Open( const char * path );
             bool               Open( URL url );
             void               Close( void ) const;
             bool               CanAcceptBytes( void ) const;
@@ -71,6 +73,7 @@ namespace CF
             Error              GetError( void ) const;
             CFIndex            Write( const Data::Byte * buffer, CFIndex length ) const;
             CFIndex            Write( Data data ) const;
+            AutoPointer        GetProperty( String name );
             bool               SetProperty( String name, CFTypeRef value );
             bool               SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context );
             void               ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode );
