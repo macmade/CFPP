@@ -634,7 +634,7 @@ TEST( CFPP_ReadStream, SetClient )
     s2.Open();
     s3.Open();
     
-    CFRunLoopRunInMode( kCFRunLoopDefaultMode, 2, true );
+    CFRunLoopRunInMode( kCFRunLoopDefaultMode, 5, true );
     
     s1.Close();
     s2.Close();
