@@ -589,6 +589,66 @@ TEST( CFPP_ReadStream, SetProperty )
     s3.Close();
 }
 
+static bool __client1 = false;
+static bool __client2 = false;
+static bool __client3 = false;
+
+void __ClientCallback( CFReadStreamRef stream, CFStreamEventType type, void * info );
+void __ClientCallback( CFReadStreamRef stream, CFStreamEventType type, void * info )
+{
+    ( void )stream;
+    ( void )type;
+    
+    if( info != NULL )
+    {
+        *( reinterpret_cast< bool * >( info ) ) = true;
+    }
+}
+
+TEST( CFPP_ReadStream, SetClient )
+{
+    CF::ReadStream        s1;
+    CF::ReadStream        s2( "/etc/hosts" );
+    CF::ReadStream        s3( "/foo/bar" );
+    CFStreamClientContext ctx1;
+    CFStreamClientContext ctx2;
+    CFStreamClientContext ctx3;
+    
+    memset( &ctx1, 0, sizeof( CFStreamClientContext ) );
+    memset( &ctx2, 0, sizeof( CFStreamClientContext ) );
+    memset( &ctx3, 0, sizeof( CFStreamClientContext ) );
+    
+    ctx1.info = &__client1;
+    ctx2.info = &__client2;
+    ctx3.info = &__client3;
+    
+    ASSERT_FALSE( s1.SetClient( kCFStreamEventOpenCompleted, __ClientCallback, &ctx1 ) );
+    ASSERT_TRUE(  s2.SetClient( kCFStreamEventOpenCompleted, __ClientCallback, &ctx2 ) );
+    ASSERT_TRUE(  s3.SetClient( kCFStreamEventOpenCompleted, __ClientCallback, &ctx3 ) );
+    
+    s1.ScheduleWithRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
+    s2.ScheduleWithRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
+    s3.ScheduleWithRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    CFRunLoopRunInMode( kCFRunLoopDefaultMode, 2, true );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+    
+    ASSERT_FALSE( __client1 );
+    ASSERT_TRUE(  __client2 );
+    ASSERT_FALSE( __client3 );
+    
+    s1.UnscheduleFromRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
+    s2.UnscheduleFromRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
+    s3.UnscheduleFromRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
+}
+
 TEST( CFPP_ReadStream, Swap )
 {
     CF::ReadStream s1( "/etc/hosts" );
