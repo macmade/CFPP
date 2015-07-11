@@ -326,14 +326,14 @@ namespace CF
         return CFReadStreamCopyProperty( this->_cfObject, name );
     }
     
-    void ReadStream::SetProperty( String name, CFTypeRef value )
+    bool ReadStream::SetProperty( String name, CFTypeRef value )
     {
         if( this->_cfObject == NULL )
         {
-            return;
+            return false;
         }
         
-        CFReadStreamSetProperty( this->_cfObject, name, value );
+        return CFReadStreamSetProperty( this->_cfObject, name, value );
     }
     
     void ReadStream::SetClient( CFOptionFlags events, CFReadStreamClientCallBack callback, CFStreamClientContext * context )

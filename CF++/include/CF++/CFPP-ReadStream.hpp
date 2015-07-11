@@ -75,7 +75,7 @@ namespace CF
             Data               Read( CFIndex length = 0 ) const;
             const Data::Byte * GetBuffer( CFIndex maxBytesToRead, CFIndex * numBytesRead ) const;
             AutoPointer        GetProperty( String name );
-            void               SetProperty( String name, CFTypeRef value );
+            bool               SetProperty( String name, CFTypeRef value );
             void               SetClient( CFOptionFlags events, CFReadStreamClientCallBack callback, CFStreamClientContext * context );
             
             friend void swap( ReadStream & v1, ReadStream & v2 );
