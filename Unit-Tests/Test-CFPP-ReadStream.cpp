@@ -605,6 +605,10 @@ void __ClientCallback( CFReadStreamRef stream, CFStreamEventType type, void * in
     }
 }
 
+#ifdef CFPP_HAS_CPP11
+#include <thread>
+#endif
+
 TEST( CFPP_ReadStream, SetClient )
 {
     CF::ReadStream        s1;
@@ -626,19 +630,35 @@ TEST( CFPP_ReadStream, SetClient )
     ASSERT_TRUE(  s2.SetClient( kCFStreamEventOpenCompleted, __ClientCallback, &ctx2 ) );
     ASSERT_TRUE(  s3.SetClient( kCFStreamEventOpenCompleted, __ClientCallback, &ctx3 ) );
     
+    #ifdef CFPP_HAS_CPP11
+    
     s1.ScheduleWithRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
     s2.ScheduleWithRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
     s3.ScheduleWithRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
     
-    s1.Open();
-    s2.Open();
-    s3.Open();
+    {
+        CFRunLoopRef rl;
+        
+        rl = CFRunLoopGetCurrent();
+        
+        std::thread t
+        (
+            [ s1, s2, s3, rl ] ()
+            {
+                sleep( 1 );
+                
+                s1.Open();
+                s2.Open();
+                s3.Open();
+                
+                CFRunLoopStop( rl );
+            }
+        );
+        
+        t.detach();
+    }
     
-    CFRunLoopRunInMode( kCFRunLoopDefaultMode, 5, true );
-    
-    s1.Close();
-    s2.Close();
-    s3.Close();
+    CFRunLoopRun();
     
     ASSERT_FALSE( __client1 );
     ASSERT_TRUE(  __client2 );
@@ -647,6 +667,12 @@ TEST( CFPP_ReadStream, SetClient )
     s1.UnscheduleFromRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
     s2.UnscheduleFromRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
     s3.UnscheduleFromRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
+    
+    #endif
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
 }
 
 TEST( CFPP_ReadStream, Swap )
