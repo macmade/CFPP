@@ -37,3 +37,66 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_ReadStream_Iterator, ReadStreamBegin )
+{}
+
+TEST( CFPP_ReadStream_Iterator, ReadStreamEnd )
+{}
+
+TEST( CFPP_ReadStream_Iterator, CTOR )
+{}
+
+TEST( CFPP_ReadStream_Iterator, CCTOR )
+{}
+
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_ReadStream_Iterator, MCTOR )
+{}
+#endif
+
+TEST( CFPP_ReadStream_Iterator, OperatorAssign )
+{}
+
+TEST( CFPP_ReadStream_Iterator, OperatorPrefixIncrement )
+{}
+
+TEST( CFPP_ReadStream_Iterator, OperatorPostfixIncrement )
+{}
+
+TEST( CFPP_ReadStream_Iterator, OperatorPlusEqual )
+{}
+
+TEST( CFPP_ReadStream_Iterator, OperatorPlus )
+{}
+
+TEST( CFPP_ReadStream_Iterator, OperatorEqual )
+{}
+
+TEST( CFPP_ReadStream_Iterator, OperatorNotEqual )
+{}
+
+TEST( CFPP_ReadStream_Iterator, OperatorDereference )
+{}
+
+TEST( CFPP_ReadStream_Iterator, OperatorMemberAccess )
+{}
+
+TEST( CFPP_ReadStream_Iterator, OperatorCastToData )
+{}
+
+TEST( CFPP_ReadStream_Iterator, Swap )
+{}
+
+TEST( CFPP_ReadStream_Iterator, TestIterate )
+{}
+
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_ReadStream_Iterator, TestIterateSTD )
+{}
+#endif
+
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_ReadStream_Iterator, TestIterateCPP11 )
+{}
+#endif
