@@ -251,24 +251,44 @@ namespace CF
         return this->Write( data.GetBytePtr(), data.GetLength() );
     }
     
-    void WriteStream::SetProperty( String name, CFTypeRef value )
+    bool WriteStream::SetProperty( String name, CFTypeRef value )
     {
         if( this->_cfObject == NULL )
         {
-            return;
+            return false;
         }
         
-        CFWriteStreamSetProperty( this->_cfObject, name, value );
+        return CFWriteStreamSetProperty( this->_cfObject, name, value );
     }
     
-    void WriteStream::SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context )
+    bool WriteStream::SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return false;
+        }
+        
+        return CFWriteStreamSetClient( this->_cfObject, events, callback, context );
+    }
+    
+    void WriteStream::ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode )
     {
         if( this->_cfObject == NULL )
         {
             return;
         }
         
-        CFWriteStreamSetClient( this->_cfObject, events, callback, context );
+        CFWriteStreamScheduleWithRunLoop( this->_cfObject, runLoop, mode );
+    }
+    
+    void WriteStream::UnscheduleFromRunLoop( CFRunLoopRef runLoop, CF::String mode )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFWriteStreamUnscheduleFromRunLoop( this->_cfObject, runLoop, mode );
     }
     
     void swap( WriteStream & v1, WriteStream & v2 )

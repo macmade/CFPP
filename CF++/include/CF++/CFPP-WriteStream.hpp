@@ -71,8 +71,10 @@ namespace CF
             Error              GetError( void ) const;
             CFIndex            Write( const Data::Byte * buffer, CFIndex length ) const;
             CFIndex            Write( Data data ) const;
-            void               SetProperty( String name, CFTypeRef value );
-            void               SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context );
+            bool               SetProperty( String name, CFTypeRef value );
+            bool               SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context );
+            void               ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode );
+            void               UnscheduleFromRunLoop( CFRunLoopRef runLoop, CF::String mode );
             
             friend void swap( WriteStream & v1, WriteStream & v2 );
             
