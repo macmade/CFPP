@@ -545,6 +545,50 @@ TEST( CFPP_ReadStream, GetProperty )
     s3.Close();
 }
 
+TEST( CFPP_ReadStream, SetProperty )
+{
+    CF::ReadStream  s1;
+    CF::ReadStream  s2( "/etc/hosts" );
+    CF::ReadStream  s3( "/foo/bar" );
+    CF::AutoPointer p1;
+    CF::AutoPointer p2;
+    CF::AutoPointer p3;
+    
+    p1 = s1.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    p2 = s2.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    p3 = s3.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    
+    ASSERT_FALSE( p1.IsValid() );
+    ASSERT_FALSE( p2.IsValid() );
+    ASSERT_FALSE( p3.IsValid() );
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    ASSERT_FALSE( s1.SetProperty( kCFStreamPropertyFileCurrentOffset, CF::Number( 42 ) ) );
+    ASSERT_TRUE(  s2.SetProperty( kCFStreamPropertyFileCurrentOffset, CF::Number( 42 ) ) );
+    ASSERT_TRUE(  s3.SetProperty( kCFStreamPropertyFileCurrentOffset, CF::Number( 42 ) ) );
+    
+    p1 = s1.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    p2 = s2.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    p3 = s3.GetProperty( kCFStreamPropertyFileCurrentOffset );
+    
+    ASSERT_FALSE( p1.IsValid() );
+    ASSERT_TRUE(  p2.IsValid() );
+    ASSERT_TRUE(  p3.IsValid() );
+    
+    ASSERT_TRUE( p2.IsNumber() );
+    ASSERT_TRUE( p3.IsNumber() );
+    
+    ASSERT_EQ( p2.As< CF::Number >(), 42 );
+    ASSERT_EQ( p3.As< CF::Number >(), 42 );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+}
+
 TEST( CFPP_ReadStream, Swap )
 {
     CF::ReadStream s1( "/etc/hosts" );
