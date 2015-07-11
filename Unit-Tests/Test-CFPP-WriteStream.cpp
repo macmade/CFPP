@@ -487,6 +487,8 @@ TEST( CFPP_WriteStream, SetClient )
                 s2.Open();
                 s3.Open();
                 
+                sleep( 1 );
+                
                 CFRunLoopStop( rl );
             }
         );
