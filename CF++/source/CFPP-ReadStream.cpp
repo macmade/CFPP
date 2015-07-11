@@ -336,14 +336,34 @@ namespace CF
         return CFReadStreamSetProperty( this->_cfObject, name, value );
     }
     
-    void ReadStream::SetClient( CFOptionFlags events, CFReadStreamClientCallBack callback, CFStreamClientContext * context )
+    bool ReadStream::SetClient( CFOptionFlags events, CFReadStreamClientCallBack callback, CFStreamClientContext * context )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return false;
+        }
+        
+        return CFReadStreamSetClient( this->_cfObject, events, callback, context );
+    }
+    
+    void ReadStream::ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode )
     {
         if( this->_cfObject == NULL )
         {
             return;
         }
         
-        CFReadStreamSetClient( this->_cfObject, events, callback, context );
+        CFReadStreamScheduleWithRunLoop( this->_cfObject, runLoop, mode );
+    }
+    
+    void ReadStream::UnscheduleFromRunLoop( CFRunLoopRef runLoop, CF::String mode )
+    {
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        CFReadStreamUnscheduleFromRunLoop( this->_cfObject, runLoop, mode );
     }
     
     ReadStream::Iterator ReadStream::begin( CFIndex bytesToRead ) const
