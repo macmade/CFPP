@@ -37,3 +37,164 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_Date, CurrentDate )
+{}
+
+TEST( CFPP_Date, CTOR )
+{}
+
+TEST( CFPP_Date, CTOR_CFType )
+{}
+
+TEST( CFPP_Date, CTOR_CFDate )
+{}
+
+TEST( CFPP_Date, CTOR_CFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, CCTOR )
+{}
+
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_Date, MCTOR )
+{}
+#endif
+
+TEST( CFPP_Date, OperatorAssignDate )
+{}
+
+TEST( CFPP_Date, OperatorAssignCFType )
+{}
+
+TEST( CFPP_Date, OperatorAssignCFDate )
+{}
+
+TEST( CFPP_Date, OperatorAssignCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorEqualDate )
+{}
+
+TEST( CFPP_Date, OperatorEqualCFType )
+{}
+
+TEST( CFPP_Date, OperatorEqualCFDate )
+{}
+
+TEST( CFPP_Date, OperatorEqualCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorNotEqualDate )
+{}
+
+TEST( CFPP_Date, OperatorNotEqualCFType )
+{}
+
+TEST( CFPP_Date, OperatorNotEqualCFDate )
+{}
+
+TEST( CFPP_Date, OperatorNotEqualCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorGreaterOrEqualDate )
+{}
+
+TEST( CFPP_Date, OperatorGreaterOrEqualCFDate )
+{}
+
+TEST( CFPP_Date, OperatorGreaterOrEqualCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorLesserOrEqualDate )
+{}
+
+TEST( CFPP_Date, OperatorLesserOrEqualCFDate )
+{}
+
+TEST( CFPP_Date, OperatorLesserOrEqualCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorGreaterDate )
+{}
+
+TEST( CFPP_Date, OperatorGreaterCFDate )
+{}
+
+TEST( CFPP_Date, OperatorGreaterCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorLesserDate )
+{}
+
+TEST( CFPP_Date, OperatorLesserCFDate )
+{}
+
+TEST( CFPP_Date, OperatorLesserCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorPlusEqualDate )
+{}
+
+TEST( CFPP_Date, OperatorPlusEqualCFDate )
+{}
+
+TEST( CFPP_Date, OperatorPlusEqualCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorMinusEqualDate )
+{}
+
+TEST( CFPP_Date, OperatorMinusEqualCFDate )
+{}
+
+TEST( CFPP_Date, OperatorMinusEqualCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorPlusDate )
+{}
+
+TEST( CFPP_Date, OperatorPlusCFDate )
+{}
+
+TEST( CFPP_Date, OperatorPlusCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorMinusDate )
+{}
+
+TEST( CFPP_Date, OperatorMinusCFDate )
+{}
+
+TEST( CFPP_Date, OperatorMinusCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, OperatorPrefixIncrement )
+{}
+
+TEST( CFPP_Date, OperatorPostfixIncrement )
+{}
+
+TEST( CFPP_Date, OperatorPrefixDecrement )
+{}
+
+TEST( CFPP_Date, OperatorPostfixDecrement )
+{}
+
+TEST( CFPP_Date, CastToCFAbsoluteTime )
+{}
+
+TEST( CFPP_Date, GetTypeID )
+{}
+
+TEST( CFPP_Date, GetCFObject )
+{}
+
+TEST( CFPP_Date, GetValue )
+{}
+
+TEST( CFPP_Date, SetValue )
+{}
+
+TEST( CFPP_Date, Swap )
+{}

@@ -37,3 +37,176 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_URL, FileSystemURL_STDString )
+{}
+
+TEST( CFPP_URL, FileSystemURL_CChar )
+{}
+
+TEST( CFPP_URL, FileSystemURL_CFType )
+{}
+
+TEST( CFPP_URL, FileSystemURL_CFString )
+{}
+
+TEST( CFPP_URL, CTOR )
+{}
+
+TEST( CFPP_URL, CTOR_CFType )
+{}
+
+TEST( CFPP_URL, CTOR_CFURL )
+{}
+
+TEST( CFPP_URL, CTOR_CFString )
+{}
+
+TEST( CFPP_URL, CTOR_STDString )
+{}
+
+TEST( CFPP_URL, CTOR_CChar )
+{}
+
+TEST( CFPP_URL, CCTOR )
+{}
+
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_URL, MCTOR )
+{}
+#endif
+
+TEST( CFPP_URL, OperatorAssignURL )
+{}
+
+TEST( CFPP_URL, OperatorAssignCFType )
+{}
+
+TEST( CFPP_URL, OperatorAssignCFURL )
+{}
+
+TEST( CFPP_URL, OperatorAssignCFString )
+{}
+
+TEST( CFPP_URL, OperatorAssignSTDString )
+{}
+
+TEST( CFPP_URL, OperatorAssignCChar )
+{}
+
+TEST( CFPP_URL, OperatorEqualURL )
+{}
+
+TEST( CFPP_URL, OperatorEqualCFType )
+{}
+
+TEST( CFPP_URL, OperatorEqualCFURL )
+{}
+
+TEST( CFPP_URL, OperatorEqualCFString )
+{}
+
+TEST( CFPP_URL, OperatorEqualSTDString )
+{}
+
+TEST( CFPP_URL, OperatorNotEqualURL )
+{}
+
+TEST( CFPP_URL, OperatorNotEqualCFType )
+{}
+
+TEST( CFPP_URL, OperatorNotEqualCFURL )
+{}
+
+TEST( CFPP_URL, OperatorNotEqualCFString )
+{}
+
+TEST( CFPP_URL, OperatorNotEqualSTDString )
+{}
+
+TEST( CFPP_URL, OperatorDivideCFString )
+{}
+
+TEST( CFPP_URL, OperatorDivideSTDString )
+{}
+
+TEST( CFPP_URL, OperatorSubscript )
+{}
+
+TEST( CFPP_URL, CastToString )
+{}
+
+TEST( CFPP_URL, GetTypeID )
+{}
+
+TEST( CFPP_URL, GetCFObject )
+{}
+
+TEST( CFPP_URL, GetFileSystemPath )
+{}
+
+TEST( CFPP_URL, GetFragment )
+{}
+
+TEST( CFPP_URL, GetHostName )
+{}
+
+TEST( CFPP_URL, GetLastPathComponent )
+{}
+
+TEST( CFPP_URL, GetNetLocation )
+{}
+
+TEST( CFPP_URL, GetParameterString )
+{}
+
+TEST( CFPP_URL, GetPassword )
+{}
+
+TEST( CFPP_URL, GetPath )
+{}
+
+TEST( CFPP_URL, GetPathExtension )
+{}
+
+TEST( CFPP_URL, GetQueryString )
+{}
+
+TEST( CFPP_URL, GetResourceSpecifier )
+{}
+
+TEST( CFPP_URL, GetScheme )
+{}
+
+TEST( CFPP_URL, GetStrictPath )
+{}
+
+TEST( CFPP_URL, GetUserName )
+{}
+
+TEST( CFPP_URL, GetPortNumber )
+{}
+
+TEST( CFPP_URL, HasDirectoryPath )
+{}
+
+TEST( CFPP_URL, AppendPathComponent_CFString )
+{}
+
+TEST( CFPP_URL, AppendPathComponent_STDString )
+{}
+
+TEST( CFPP_URL, AppendPathExtension_CFString )
+{}
+
+TEST( CFPP_URL, AppendPathExtension_STDString )
+{}
+
+TEST( CFPP_URL, DeleteLastPathComponent )
+{}
+
+TEST( CFPP_URL, DeletePathExtension )
+{}
+
+TEST( CFPP_URL, Swap )
+{}

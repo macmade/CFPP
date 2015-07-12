@@ -37,3 +37,101 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_Data, CTOR )
+{}
+
+TEST( CFPP_Data, CTOR_CFType )
+{}
+
+TEST( CFPP_Data, CTOR_CFData )
+{}
+
+TEST( CFPP_Data, CTOR_CFString )
+{}
+
+TEST( CFPP_Data, CTOR_STDString )
+{}
+
+TEST( CFPP_Data, CTOR_BytePtr )
+{}
+
+TEST( CFPP_Data, CCTOR )
+{}
+
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_Data, MCTOR )
+{}
+#endif
+
+TEST( CFPP_Data, OperatorAssignData )
+{}
+
+TEST( CFPP_Data, OperatorAssignCFType )
+{}
+
+TEST( CFPP_Data, OperatorAssignCFData )
+{}
+
+TEST( CFPP_Data, OperatorAssignCFString )
+{}
+
+TEST( CFPP_Data, OperatorAssignSTDString )
+{}
+
+TEST( CFPP_Data, CastToBytePtr )
+{}
+
+TEST( CFPP_Data, CastToSTDString )
+{}
+
+TEST( CFPP_Data, OperatorSubscript )
+{}
+
+TEST( CFPP_Data, OperatorPlusEqualByte )
+{}
+
+TEST( CFPP_Data, OperatorPlusEqualCFString )
+{}
+
+TEST( CFPP_Data, OperatorPlusEqualCFData )
+{}
+
+TEST( CFPP_Data, OperatorPlusEqualSTDString )
+{}
+
+TEST( CFPP_Data, GetTypeID )
+{}
+
+TEST( CFPP_Data, GetCFObject )
+{}
+
+TEST( CFPP_Data, GetLength )
+{}
+
+TEST( CFPP_Data, SetLength )
+{}
+
+TEST( CFPP_Data, IncreaseLength )
+{}
+
+TEST( CFPP_Data, GetBytePtr )
+{}
+
+TEST( CFPP_Data, GetMutableBytePtr )
+{}
+
+TEST( CFPP_Data, GetBytes )
+{}
+
+TEST( CFPP_Data, AppendBytes )
+{}
+
+TEST( CFPP_Data, ReplaceBytes )
+{}
+
+TEST( CFPP_Data, DeleteBytes )
+{}
+
+TEST( CFPP_Data, Swap )
+{}

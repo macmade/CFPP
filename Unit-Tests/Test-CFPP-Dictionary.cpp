@@ -37,3 +37,80 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+TEST( CFPP_Dictionary, CTOR )
+{}
+
+TEST( CFPP_Dictionary, CTOR_CFType )
+{}
+
+TEST( CFPP_Dictionary, CTOR_CFDictionary )
+{}
+
+TEST( CFPP_Dictionary, CCTOR )
+{}
+
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_Dictionary, MCTOR )
+{}
+#endif
+
+TEST( CFPP_Dictionary, OperatorAssignDictionary )
+{}
+
+TEST( CFPP_Dictionary, OperatorAssignCFType )
+{}
+
+TEST( CFPP_Dictionary, OperatorAssignCFDictionary )
+{}
+
+TEST( CFPP_Dictionary, OperatorPlusEqual )
+{}
+
+TEST( CFPP_Dictionary, OperatorLeftShiftEqual )
+{}
+
+TEST( CFPP_Dictionary, OperatorSubscriptCFType )
+{}
+
+TEST( CFPP_Dictionary, OperatorSubscriptCChar )
+{}
+
+TEST( CFPP_Dictionary, OperatorSubscriptString )
+{}
+
+TEST( CFPP_Dictionary, GetTypeID )
+{}
+
+TEST( CFPP_Dictionary, GetCFObject )
+{}
+
+TEST( CFPP_Dictionary, ContainsKey )
+{}
+
+TEST( CFPP_Dictionary, ContainsValue )
+{}
+
+TEST( CFPP_Dictionary, RemoveAllValues )
+{}
+
+TEST( CFPP_Dictionary, GetCount )
+{}
+
+TEST( CFPP_Dictionary, GetValue )
+{}
+
+TEST( CFPP_Dictionary, AddValue )
+{}
+
+TEST( CFPP_Dictionary, RemoveValue )
+{}
+
+TEST( CFPP_Dictionary, ReplaceValue )
+{}
+
+TEST( CFPP_Dictionary, SetValue )
+{}
+
+TEST( CFPP_Dictionary, Swap )
+{}
