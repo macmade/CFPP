@@ -37,3 +37,76 @@
 #include <GoogleMock/GoogleMock.h>
 
 using namespace testing;
+
+static const char * __plist = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                              "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n"
+                              "<plist version=\"1.0\">\n"
+                              "<dict>\n"
+                              "	<key>hello</key>\n"
+                              "	<string>world</string>\n"
+                              "</dict>\n"
+                              "</plist>\n";
+
+TEST( CFPP_PropertyListType, FromPropertyList )
+{
+    CF::Dictionary d;
+    
+    d = CF::Dictionary::FromPropertyList( "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/Resources/Info.plist" );
+    
+    ASSERT_TRUE( d.IsValid() );
+    ASSERT_GT( d.GetCount(), 0 );
+    ASSERT_EQ( CF::String( d[ "CFBundleIdentifier" ] ), "com.apple.CoreFoundation" );
+}
+
+TEST( CFPP_PropertyListType, FromPropertyListString )
+{
+    CF::Dictionary d;
+    
+    d = CF::Dictionary::FromPropertyListString( __plist );
+    
+    ASSERT_TRUE( d.IsValid() );
+    ASSERT_EQ( d.GetCount(), 1 );
+    ASSERT_EQ( CF::String( d[ "hello" ] ), "world" );
+}
+
+TEST( CFPP_PropertyListType, ToPropertyList_STDString_PropertyListFormat )
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2;
+    
+    d1 << CF::Pair( "hello", "world" );
+    
+    ASSERT_TRUE( d1.ToPropertyList( "/tmp/com.xs-labs.cfpp.plist", CF::PropertyListFormatBinary ) );
+    
+    d2 = CF::Dictionary::FromPropertyList( "/tmp/com.xs-labs.cfpp.plist" );
+    
+    ASSERT_TRUE( d2.IsValid() );
+    ASSERT_EQ( d1, d2 );
+    
+    ASSERT_TRUE( d1.ToPropertyList( "/tmp/com.xs-labs.cfpp.plist", CF::PropertyListFormatXML ) );
+    
+    d2 = CF::Dictionary::FromPropertyList( "/tmp/com.xs-labs.cfpp.plist" );
+    
+    ASSERT_TRUE( d2.IsValid() );
+    ASSERT_EQ( d1, d2 );
+}
+
+TEST( CFPP_PropertyListType, ToPropertyList_PropertyListFormat )
+{
+    CF::Dictionary d;
+    CF::Data       d1;
+    CF::Data       d2;
+    
+    d << CF::Pair( "hello", "world" );
+    
+    d1 = d.ToPropertyList( CF::PropertyListFormatBinary );
+    d2 = d.ToPropertyList( CF::PropertyListFormatXML );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    
+    ASSERT_GT( d1.GetLength(), 0 );
+    ASSERT_GT( d2.GetLength(), 0 );
+    
+    ASSERT_NE( d1, d2 );
+}
