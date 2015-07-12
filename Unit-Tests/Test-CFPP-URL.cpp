@@ -110,7 +110,7 @@ TEST( CFPP_URL, CTOR_CFString )
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_TRUE(  u2.IsValid() );
-    ASSERT_TRUE(  u3.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
     ASSERT_FALSE( u4.IsValid() );
 }
 
@@ -126,7 +126,7 @@ TEST( CFPP_URL, CTOR_CChar )
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_TRUE(  u2.IsValid() );
-    ASSERT_TRUE(  u3.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
     ASSERT_FALSE( u4.IsValid() );
 }
 
@@ -221,6 +221,10 @@ TEST( CFPP_URL, OperatorAssignCFString )
     
     ASSERT_TRUE( u.IsValid() );
     
+    u = static_cast< CFStringRef >( CF::String( "" ) );
+    
+    ASSERT_FALSE( u.IsValid() );
+    
     u = static_cast< CFStringRef >( NULL );
     
     ASSERT_FALSE( u.IsValid() );
@@ -238,7 +242,7 @@ TEST( CFPP_URL, OperatorAssignSTDString )
     
     u = std::string( "" );
     
-    ASSERT_TRUE( u.IsValid() );
+    ASSERT_FALSE( u.IsValid() );
 }
 
 TEST( CFPP_URL, OperatorAssignCChar )
@@ -250,6 +254,10 @@ TEST( CFPP_URL, OperatorAssignCChar )
     u = "http://www.xs-labs.com/";
     
     ASSERT_TRUE( u.IsValid() );
+    
+    u = "";
+    
+    ASSERT_FALSE( u.IsValid() );
     
     u = static_cast< const char * >( NULL );
     

@@ -42,21 +42,26 @@ namespace CF
         AutoPointer url;
         String     str;
         
-        str = path;
+        if( path.length() > 0 )
+        {
+            str = path;
+            
+            url = CFURLCreateWithFileSystemPath
+            (
+                static_cast< CFAllocatorRef >( NULL ),
+                str,
+                #ifdef _WIN32
+                kCFURLWindowsPathStyle,
+                #else
+                kCFURLPOSIXPathStyle,
+                #endif
+                isDir
+            );
+            
+            return url.As< CF::URL >();
+        }
         
-        url = CFURLCreateWithFileSystemPath
-        (
-            static_cast< CFAllocatorRef >( NULL ),
-            str,
-            #ifdef _WIN32
-            kCFURLWindowsPathStyle,
-            #else
-            kCFURLPOSIXPathStyle,
-            #endif
-            isDir
-        );
-        
-        return url.As< CF::URL >();
+        return static_cast< CFURLRef >( NULL );
     }
     
     URL URL::FileSystemURL( const char * path, bool isDir )
@@ -129,9 +134,13 @@ namespace CF
     
     URL::URL( CFStringRef value )
     {
-        if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
+        String s;
+        
+        s = value;
+        
+        if( s.GetLength() > 0 )
         {
-            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), value, NULL );
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
         }
         else
         {
@@ -145,17 +154,24 @@ namespace CF
         
         s = value;
         
-        this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
+        if( s.GetLength() > 0 )
+        {
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
     }
     
     URL::URL( const char * value )
     {
         String s;
         
-        if( value != NULL )
+        s = value;
+        
+        if( s.GetLength() > 0 )
         {
-            s = value;
-            
             this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
         }
         else
@@ -229,14 +245,18 @@ namespace CF
     
     URL & URL::operator = ( CFStringRef value )
     {
+        String s;
+        
         if( this->_cfObject != NULL )
         {
             CFRelease( this->_cfObject );
         }
         
-        if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
-        {
-            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), value, NULL );
+        s = value;
+        
+        if( s.GetLength() > 0 )
+        {    
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
         }
         else
         {
@@ -257,7 +277,14 @@ namespace CF
         
         s = value;
         
-        this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
+        if( s.GetLength() > 0 )
+        {    
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
         
         return *( this );
     }
@@ -271,10 +298,10 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        if( value != NULL )
-        {
-            s = value;
-            
+        s = value;
+        
+        if( s.GetLength() > 0 )
+        {    
             this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
         }
         else
