@@ -96,43 +96,59 @@ TEST( CFPP_URL, CTOR )
 }
 
 TEST( CFPP_URL, CTOR_CFType )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/" );
+    CF::URL u2( static_cast< CFTypeRef >( u1.GetCFObject() ) );
+    CF::URL u3( static_cast< CFTypeRef >( NULL ) );
+    
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+}
 
 TEST( CFPP_URL, CTOR_CFURL )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/" );
+    CF::URL u2( static_cast< CFURLRef >( u1.GetCFObject() ) );
+    CF::URL u3( static_cast< CFURLRef >( NULL ) );
+    
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+}
 
 TEST( CFPP_URL, CTOR_CFString )
 {
-    CF::URL u1( static_cast< CFStringRef >( CF::String( "/etc/hosts" ) ) );
-    CF::URL u2( static_cast< CFStringRef >( CF::String( "/foo/bar" ) ) );
-    CF::URL u3( static_cast< CFStringRef >( CF::String( "" ) ) );
-    CF::URL u4( static_cast< CFStringRef >( NULL ) );
+    CF::URL u1( static_cast< CFStringRef >( CF::String( "http://www.xs-labs.com/" ) ) );
+    CF::URL u2( static_cast< CFStringRef >( CF::String( "" ) ) );
+    CF::URL u3( static_cast< CFStringRef >( NULL ) );
     
     ASSERT_TRUE(  u1.IsValid() );
-    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
     ASSERT_FALSE( u3.IsValid() );
-    ASSERT_FALSE( u4.IsValid() );
 }
 
 TEST( CFPP_URL, CTOR_STDString )
-{}
+{
+    CF::URL u1( std::string( "http://www.xs-labs.com/" ) );
+    CF::URL u2( std::string( "" ) );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+}
 
 TEST( CFPP_URL, CTOR_CChar )
 {
-    CF::URL u1( "/etc/hosts" );
-    CF::URL u2( "/foo/bar" );
-    CF::URL u3( "" );
-    CF::URL u4( static_cast< const char * >( NULL ) );
+    CF::URL u1( "http://www.xs-labs.com/" );
+    CF::URL u2( "" );
+    CF::URL u3( static_cast< const char * >( NULL ) );
     
     ASSERT_TRUE(  u1.IsValid() );
-    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
     ASSERT_FALSE( u3.IsValid() );
-    ASSERT_FALSE( u4.IsValid() );
 }
 
 TEST( CFPP_URL, CCTOR )
 {
-    CF::URL u1( "/etc/hosts" );
+    CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2( u1 );
     CF::URL u3( static_cast< const char * >( NULL ) );
     CF::URL u4( u3 );
@@ -146,7 +162,7 @@ TEST( CFPP_URL, CCTOR )
 #ifdef CFPP_HAS_CPP11
 TEST( CFPP_URL, MCTOR )
 {
-    CF::URL u1( "/etc/hosts" );
+    CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2( std::move( u1 ) );
     
     ASSERT_FALSE( u1.IsValid() );
@@ -156,7 +172,7 @@ TEST( CFPP_URL, MCTOR )
 
 TEST( CFPP_URL, OperatorAssignURL )
 {
-    CF::URL u1( "/etc/hosts" );
+    CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2;
     CF::URL u3( static_cast< const char * >( NULL ) );
     
@@ -175,7 +191,7 @@ TEST( CFPP_URL, OperatorAssignURL )
 
 TEST( CFPP_URL, OperatorAssignCFType )
 {
-    CF::URL u1( "/etc/hosts" );
+    CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2;
     CF::URL u3( static_cast< const char * >( NULL ) );
     
@@ -194,7 +210,7 @@ TEST( CFPP_URL, OperatorAssignCFType )
 
 TEST( CFPP_URL, OperatorAssignCFURL )
 {
-    CF::URL u1( "/etc/hosts" );
+    CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2;
     CF::URL u3( static_cast< const char * >( NULL ) );
     
