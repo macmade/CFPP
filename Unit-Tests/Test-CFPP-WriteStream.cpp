@@ -341,16 +341,79 @@ TEST( CFPP_WriteStream, GetError )
 }
 
 TEST( CFPP_WriteStream, Write_BytePtr_CFIndex )
-{}
+{
+    CF::WriteStream s1;
+    CF::WriteStream s2( "/etc/hosts" );
+    CF::WriteStream s3( "/tmp/com.xs-labs.cfpp" );
+    CF::Data::Byte  buf[ 4 ];
+    
+    buf[ 0 ] = 0xDE;
+    buf[ 1 ] = 0xAD;
+    buf[ 2 ] = 0xBE;
+    buf[ 3 ] = 0xEF;
+    
+    ASSERT_EQ( s1.Write( buf, sizeof( buf ) ),  0 );
+    ASSERT_EQ( s2.Write( buf, sizeof( buf ) ), -1 );
+    ASSERT_EQ( s3.Write( buf, sizeof( buf ) ), -1 );
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    ASSERT_EQ( s1.Write( buf, sizeof( buf ) ),  0 );
+    ASSERT_EQ( s2.Write( buf, sizeof( buf ) ), -1 );
+    ASSERT_EQ( s3.Write( buf, sizeof( buf ) ),  4 );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+    
+    ASSERT_EQ( s1.Write( buf, sizeof( buf ) ),  0 );
+    ASSERT_EQ( s2.Write( buf, sizeof( buf ) ), -1 );
+    ASSERT_EQ( s3.Write( buf, sizeof( buf ) ), -1 );
+}
 
 TEST( CFPP_WriteStream, Write_Data )
-{}
+{
+    CF::WriteStream s1;
+    CF::WriteStream s2( "/etc/hosts" );
+    CF::WriteStream s3( "/tmp/com.xs-labs.cfpp" );
+    CF::Data::Byte  buf[ 4 ];
+    CF::Data::Data  d;
+    
+    buf[ 0 ] = 0xDE;
+    buf[ 1 ] = 0xAD;
+    buf[ 2 ] = 0xBE;
+    buf[ 3 ] = 0xEF;
+    
+    d = CF::Data( buf, sizeof( buf ) );
+    
+    ASSERT_EQ( s1.Write( d ),  0 );
+    ASSERT_EQ( s2.Write( d ), -1 );
+    ASSERT_EQ( s3.Write( d ), -1 );
+    
+    s1.Open();
+    s2.Open();
+    s3.Open();
+    
+    ASSERT_EQ( s1.Write( d ),  0 );
+    ASSERT_EQ( s2.Write( d ), -1 );
+    ASSERT_EQ( s3.Write( d ),  4 );
+    
+    s1.Close();
+    s2.Close();
+    s3.Close();
+    
+    ASSERT_EQ( s1.Write( d ),  0 );
+    ASSERT_EQ( s2.Write( d ), -1 );
+    ASSERT_EQ( s3.Write( d ), -1 );
+}
 
 TEST( CFPP_WriteStream, GetProperty )
 {
-    CF::WriteStream  s1;
-    CF::WriteStream  s2( "/etc/hosts" );
-    CF::WriteStream  s3( "/tmp/com.xs-labs.cfpp" );
+    CF::WriteStream s1;
+    CF::WriteStream s2( "/etc/hosts" );
+    CF::WriteStream s3( "/tmp/com.xs-labs.cfpp" );
     CF::AutoPointer p1;
     CF::AutoPointer p2;
     CF::AutoPointer p3;
