@@ -645,13 +645,13 @@ TEST( CFPP_ReadStream, SetClient )
         (
             [ s1, s2, s3, rl ] ()
             {
-                sleep( 1 );
+                std::this_thread::sleep_for( std::chrono::milliseconds( 10 ) );
                 
                 s1.Open();
                 s2.Open();
                 s3.Open();
                 
-                sleep( 1 );
+                std::this_thread::sleep_for( std::chrono::milliseconds( 10 ) );
                 
                 CFRunLoopStop( rl );
             }

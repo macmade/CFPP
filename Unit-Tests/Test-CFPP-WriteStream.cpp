@@ -443,6 +443,7 @@ void __ClientCallback( CFWriteStreamRef stream, CFStreamEventType type, void * i
 
 #ifdef CFPP_HAS_CPP11
 #include <thread>
+#include <chrono>
 #endif
 
 TEST( CFPP_WriteStream, SetClient )
@@ -481,13 +482,13 @@ TEST( CFPP_WriteStream, SetClient )
         (
             [ s1, s2, s3, rl ] ()
             {
-                sleep( 1 );
+                std::this_thread::sleep_for( std::chrono::milliseconds( 10 ) );
                 
                 s1.Open();
                 s2.Open();
                 s3.Open();
                 
-                sleep( 1 );
+                std::this_thread::sleep_for( std::chrono::milliseconds( 10 ) );
                 
                 CFRunLoopStop( rl );
             }
