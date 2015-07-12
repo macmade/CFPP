@@ -399,6 +399,25 @@ TEST( CFPP_URL, OperatorEqualSTDString )
     ASSERT_TRUE(  u3 == std::string( "http://www.xs-labs.org/" ) );
 }
 
+TEST( CFPP_URL, OperatorEqualCChar )
+{
+    CF::URL u1;
+    CF::URL u2( "http://www.xs-labs.com/" );
+    CF::URL u3( "http://www.xs-labs.org/" );
+    
+    ASSERT_FALSE( u1 == "" );
+    ASSERT_FALSE( u1 == "http://www.xs-labs.com/" );
+    ASSERT_FALSE( u1 == "http://www.xs-labs.org/" );
+    
+    ASSERT_FALSE( u2 == "" );
+    ASSERT_TRUE(  u2 == "http://www.xs-labs.com/" );
+    ASSERT_FALSE( u2 == "http://www.xs-labs.org/" );
+    
+    ASSERT_FALSE( u3 == "" );
+    ASSERT_FALSE( u3 == "http://www.xs-labs.com/" );
+    ASSERT_TRUE(  u3 == "http://www.xs-labs.org/" );
+}
+
 TEST( CFPP_URL, OperatorNotEqualURL )
 {
     CF::URL u1;
@@ -518,11 +537,95 @@ TEST( CFPP_URL, OperatorNotEqualSTDString )
     ASSERT_FALSE( u3 != std::string( "http://www.xs-labs.org/" ) );
 }
 
+TEST( CFPP_URL, OperatorNotEqualCChar )
+{
+    CF::URL u1;
+    CF::URL u2( "http://www.xs-labs.com/" );
+    CF::URL u3( "http://www.xs-labs.org/" );
+    
+    ASSERT_TRUE( u1 != "" );
+    ASSERT_TRUE( u1 != "http://www.xs-labs.com/" );
+    ASSERT_TRUE( u1 != "http://www.xs-labs.org/" );
+    
+    ASSERT_TRUE(  u2 != "" );
+    ASSERT_FALSE( u2 != "http://www.xs-labs.com/" );
+    ASSERT_TRUE(  u2 != "http://www.xs-labs.org/" );
+    
+    ASSERT_TRUE(  u3 != "" );
+    ASSERT_TRUE(  u3 != "http://www.xs-labs.com/" );
+    ASSERT_FALSE( u3 != "http://www.xs-labs.org/" );
+}
+
 TEST( CFPP_URL, OperatorDivideCFString )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/" );
+    CF::URL u2;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    u1 /= static_cast< CFStringRef >( CF::String( "foo" ) );
+    u1 /= static_cast< CFStringRef >( CF::String( "" ) );
+    u1 /= static_cast< CFStringRef >( CF::String( "bar" ) );
+    
+    u2 /= static_cast< CFStringRef >( CF::String( "foo" ) );
+    u2 /= static_cast< CFStringRef >( CF::String( "" ) );
+    u2 /= static_cast< CFStringRef >( CF::String( "bar" ) );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    ASSERT_TRUE( u1 == "http://www.xs-labs.com/foo/bar" );
+    ASSERT_TRUE( u1 == "http://www.xs-labs.com/foo/bar" );
+}
 
 TEST( CFPP_URL, OperatorDivideSTDString )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/" );
+    CF::URL u2;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    u1 /= std::string( "foo" );
+    u1 /= std::string( "" );
+    u1 /= std::string( "bar" );
+    
+    u2 /= std::string( "foo" );
+    u2 /= std::string( "" );
+    u2 /= std::string( "bar" );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    ASSERT_TRUE( u1 == "http://www.xs-labs.com/foo/bar" );
+    ASSERT_TRUE( u1 == "http://www.xs-labs.com/foo/bar" );
+}
+
+TEST( CFPP_URL, OperatorDivideCChar )
+{
+    CF::URL u1( "http://www.xs-labs.com/" );
+    CF::URL u2;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    u1 /= "foo";
+    u1 /= "";
+    u1 /= static_cast< const char * >( NULL );
+    u1 /= "bar";
+    
+    u2 /= "foo";
+    u2 /= "";
+    u2 /= static_cast< const char * >( NULL );
+    u2 /= "bar";
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    ASSERT_TRUE( u1 == "http://www.xs-labs.com/foo/bar" );
+    ASSERT_TRUE( u1 == "http://www.xs-labs.com/foo/bar" );
+}
 
 TEST( CFPP_URL, OperatorSubscript )
 {}
@@ -590,10 +693,16 @@ TEST( CFPP_URL, AppendPathComponent_CFString )
 TEST( CFPP_URL, AppendPathComponent_STDString )
 {}
 
+TEST( CFPP_URL, AppendPathComponent_CChar )
+{}
+
 TEST( CFPP_URL, AppendPathExtension_CFString )
 {}
 
 TEST( CFPP_URL, AppendPathExtension_STDString )
+{}
+
+TEST( CFPP_URL, AppendPathExtension_CChar )
 {}
 
 TEST( CFPP_URL, DeleteLastPathComponent )
