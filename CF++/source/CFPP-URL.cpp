@@ -97,6 +97,10 @@ namespace CF
         {
             this->_cfObject = static_cast< CFURLRef >( CFRetain( value._cfObject ) );
         }
+        else
+        {
+            this->_cfObject = NULL;
+        }
     }
     
     URL::URL( CFTypeRef value )
@@ -104,6 +108,10 @@ namespace CF
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFURLRef >( CFRetain( value ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
         }
     }
     
@@ -113,6 +121,10 @@ namespace CF
         {
             this->_cfObject = static_cast< CFURLRef >( CFRetain( value ) );
         }
+        else
+        {
+            this->_cfObject = NULL;
+        }
     }
     
     URL::URL( CFStringRef value )
@@ -120,6 +132,10 @@ namespace CF
         if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
         {
             this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), value, NULL );
+        }
+        else
+        {
+            this->_cfObject = NULL;
         }
     }
     
@@ -136,9 +152,16 @@ namespace CF
     {
         String s;
         
-        s = value;
-        
-        this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
+        if( value != NULL )
+        {
+            s = value;
+            
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
     }
     
     #ifdef CFPP_HAS_CPP11
@@ -248,9 +271,16 @@ namespace CF
             CFRelease( this->_cfObject );
         }
         
-        s = value;
-        
-        this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
+        if( value != NULL )
+        {
+            s = value;
+            
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
         
         return *( this );
     }
