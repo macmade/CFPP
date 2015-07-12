@@ -390,6 +390,15 @@ namespace CF
         return *( this ) == url;
     }
     
+    bool URL::operator == ( const char * value ) const
+    {
+        URL url;
+        
+        url = value;
+        
+        return *( this ) == url;
+    }
+    
     bool URL::operator != ( const URL & value ) const
     {
         return !( *( this ) == value );
@@ -415,6 +424,11 @@ namespace CF
         return !( *( this ) == value );
     }
     
+    bool URL::operator != ( const char * value ) const
+    {
+        return !( *( this ) == value );
+    }
+    
     URL & URL::operator /= ( CFStringRef value )
     {
         this->AppendPathComponent( value );
@@ -423,6 +437,13 @@ namespace CF
     }
     
     URL & URL::operator /= ( std::string value )
+    {
+        this->AppendPathComponent( value );
+        
+        return *( this );
+    }
+    
+    URL & URL::operator /= ( const char * value )
     {
         this->AppendPathComponent( value );
         
@@ -705,6 +726,15 @@ namespace CF
         this->AppendPathComponent( static_cast< CFStringRef >( s ), isDirectory );
     }
     
+    void URL::AppendPathComponent( const char * component, bool isDirectory )
+    {
+        String s;
+        
+        s = component;
+        
+        this->AppendPathComponent( static_cast< CFStringRef >( s ), isDirectory );
+    }
+    
     void URL::AppendPathExtension( CFStringRef extension )
     {
         CFURLRef url;
@@ -726,6 +756,15 @@ namespace CF
     }
     
     void URL::AppendPathExtension( std::string extension )
+    {
+        String s;
+        
+        s = extension;
+        
+        this->AppendPathExtension( static_cast< CFStringRef >( s ) );
+    }
+    
+    void URL::AppendPathExtension( const char * extension )
     {
         String s;
         
