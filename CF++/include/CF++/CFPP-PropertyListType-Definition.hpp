@@ -41,7 +41,6 @@ namespace CF
     template < class T >
     T PropertyListType< T >::FromPropertyList( std::string path )
     {
-        T           object;
         Data        data;
         URL         url;
         ReadStream  stream;
@@ -49,14 +48,14 @@ namespace CF
 
         if( path.length() == 0 )
         {
-            return object;
+            return static_cast< CFTypeRef >( NULL );
         }
 
         url = URL::FileSystemURL( path );
         
         if( stream.Open( url ) == false )
         {
-            return object;
+            return static_cast< CFTypeRef >( NULL );
         }
         
         data = stream.Read();
@@ -68,13 +67,12 @@ namespace CF
     template < class T >
     T PropertyListType< T >::FromPropertyListString( std::string plist )
     {
-        T           object;
         AutoPointer ap;
         Data        data;
         
         if( plist.length() == 0 )
         {
-            return object;
+            return static_cast< CFTypeRef >( NULL );
         }
         
         data = CF::Data( plist );
@@ -119,7 +117,7 @@ namespace CF
         
         if( this->IsValid() == false )
         {
-            return data.As< CFDataRef >();
+            return static_cast< CFDataRef >( NULL );
         }
         
         cfFormat = kCFPropertyListXMLFormat_v1_0;
