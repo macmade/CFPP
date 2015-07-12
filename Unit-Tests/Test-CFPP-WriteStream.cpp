@@ -364,6 +364,18 @@ TEST( CFPP_WriteStream, Write_BytePtr_CFIndex )
     ASSERT_EQ( s2.Write( buf, sizeof( buf ) ), -1 );
     ASSERT_EQ( s3.Write( buf, sizeof( buf ) ),  4 );
     
+    ASSERT_NO_FATAL_FAILURE( s1.Write( NULL, sizeof( buf ) ) );
+    ASSERT_NO_FATAL_FAILURE( s2.Write( NULL, sizeof( buf ) ) );
+    ASSERT_NO_FATAL_FAILURE( s3.Write( NULL, sizeof( buf ) ) );
+    
+    ASSERT_NO_THROW( s1.Write( NULL, sizeof( buf ) ) );
+    ASSERT_NO_THROW( s2.Write( NULL, sizeof( buf ) ) );
+    ASSERT_NO_THROW( s3.Write( NULL, sizeof( buf ) ) );
+    
+    ASSERT_EQ( s1.Write( NULL, sizeof( buf ) ), 0 );
+    ASSERT_EQ( s2.Write( NULL, sizeof( buf ) ), 0 );
+    ASSERT_EQ( s3.Write( NULL, sizeof( buf ) ), 0 );
+    
     s1.Close();
     s2.Close();
     s3.Close();
