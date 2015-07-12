@@ -765,13 +765,43 @@ TEST( CFPP_URL, GetPath )
 }
 
 TEST( CFPP_URL, GetPathExtension )
-{}
+{
+    CF::URL u1;
+    CF::URL u2( "http://www.xs-labs.com/foo/bar" );
+    CF::URL u3( "http://www.xs-labs.com/foo/bar.txt" );
+    
+    ASSERT_FALSE( u1.GetPathExtension().IsValid() );
+    ASSERT_FALSE( u2.GetPathExtension().IsValid() );
+    ASSERT_TRUE(  u3.GetPathExtension().IsValid() );
+    
+    ASSERT_EQ( u3.GetPathExtension(), "txt" ); 
+}
 
 TEST( CFPP_URL, GetQueryString )
-{}
+{
+    CF::URL u1;
+    CF::URL u2( "http://www.xs-labs.com/" );
+    CF::URL u3( "http://www.xs-labs.com/?foo=1&bar=2" );
+    
+    ASSERT_FALSE( u1.GetQueryString().IsValid() );
+    ASSERT_FALSE( u2.GetQueryString().IsValid() );
+    ASSERT_TRUE(  u3.GetQueryString().IsValid() );
+    
+    ASSERT_EQ( u3.GetQueryString(), "foo=1&bar=2" ); 
+}
 
 TEST( CFPP_URL, GetResourceSpecifier )
-{}
+{
+    CF::URL u1;
+    CF::URL u2( "http://www.xs-labs.com/" );
+    CF::URL u3( "http://www.xs-labs.com/#foobar?foo=bar" );
+    
+    ASSERT_FALSE( u1.GetResourceSpecifier().IsValid() );
+    ASSERT_FALSE( u2.GetResourceSpecifier().IsValid() );
+    ASSERT_TRUE(  u3.GetResourceSpecifier().IsValid() );
+    
+    ASSERT_EQ( u3.GetResourceSpecifier(), "#foobar?foo=bar" ); 
+}
 
 TEST( CFPP_URL, GetScheme )
 {
@@ -785,7 +815,20 @@ TEST( CFPP_URL, GetScheme )
 }
 
 TEST( CFPP_URL, GetStrictPath )
-{}
+{
+    CF::URL u1;
+    CF::URL u2( "http://www.xs-labs.com" );
+    CF::URL u3( "http://www.xs-labs.com/" );
+    CF::URL u4( "http://www.xs-labs.com/foo/bar#foobar" );
+    
+    ASSERT_FALSE( u1.GetStrictPath().IsValid() );
+    ASSERT_FALSE( u2.GetStrictPath().IsValid() );
+    ASSERT_TRUE(  u3.GetStrictPath().IsValid() );
+    ASSERT_TRUE(  u4.GetStrictPath().IsValid() );
+    
+    ASSERT_EQ( u3.GetStrictPath(), "" );
+    ASSERT_EQ( u4.GetStrictPath(), "foo/bar" );
+}
 
 TEST( CFPP_URL, GetUserName )
 {
@@ -814,7 +857,21 @@ TEST( CFPP_URL, GetPortNumber )
 }
 
 TEST( CFPP_URL, HasDirectoryPath )
-{}
+{
+    CF::URL u1;
+    CF::URL u2( "http://www.xs-labs.com" );
+    CF::URL u3( "http://www.xs-labs.com/" );
+    CF::URL u4( "http://www.xs-labs.com/foo/bar" );
+    CF::URL u5( "http://www.xs-labs.com/foo/bar/" );
+    CF::URL u6( "http://www.xs-labs.com/foo/bar.txt" );
+    
+    ASSERT_FALSE( u1.HasDirectoryPath() );
+    ASSERT_FALSE( u2.HasDirectoryPath() );
+    ASSERT_TRUE(  u3.HasDirectoryPath() );
+    ASSERT_FALSE( u4.HasDirectoryPath() );
+    ASSERT_TRUE(  u5.HasDirectoryPath() );
+    ASSERT_FALSE( u6.HasDirectoryPath() );
+}
 
 TEST( CFPP_URL, AppendPathComponent_CFString )
 {}
