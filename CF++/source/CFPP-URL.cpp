@@ -343,6 +343,11 @@ namespace CF
         std::string url1;
         std::string url2;
         
+        if( this->_cfObject == NULL || value._cfObject == NULL )
+        {
+            return false;
+        }
+        
         url1 = static_cast< std::string >( *( this ) );
         url2 = static_cast< std::string >( const_cast< URL & >( value ) );
         
