@@ -66,6 +66,24 @@ namespace CF
     }
     
     template < class T >
+    T PropertyListType< T >::FromPropertyListString( std::string plist )
+    {
+        T           object;
+        AutoPointer ap;
+        Data        data;
+        
+        if( plist.length() == 0 )
+        {
+            return object;
+        }
+        
+        data = CF::Data( plist );
+        ap   = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), data, 0, NULL, NULL );
+        
+        return ap.As< T >();
+    }
+    
+    template < class T >
     bool PropertyListType< T >::ToPropertyList( std::string path, PropertyListFormat format ) const
     {
         URL         url;
