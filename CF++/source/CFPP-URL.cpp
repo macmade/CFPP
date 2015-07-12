@@ -676,12 +676,10 @@ namespace CF
     {
         Number n;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject != NULL )
         {
-            return 0;
+            n.SetSInt32Value( CFURLGetPortNumber( this->_cfObject ) );
         }
-        
-        n.SetSInt32Value( CFURLGetPortNumber( this->_cfObject ) );
         
         return n;
     }
