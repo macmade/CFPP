@@ -56,6 +56,14 @@ TEST( CFPP_PropertyListType, FromPropertyList )
     ASSERT_TRUE( d.IsValid() );
     ASSERT_GT( d.GetCount(), 0 );
     ASSERT_EQ( CF::String( d[ "CFBundleIdentifier" ] ), "com.apple.CoreFoundation" );
+    
+    d = CF::Dictionary::FromPropertyList( "" );
+    
+    ASSERT_FALSE( d.IsValid() );
+    
+    d = CF::Dictionary::FromPropertyList( "/foo/bar" );
+    
+    ASSERT_FALSE( d.IsValid() );
 }
 
 TEST( CFPP_PropertyListType, FromPropertyListString )
@@ -67,6 +75,10 @@ TEST( CFPP_PropertyListType, FromPropertyListString )
     ASSERT_TRUE( d.IsValid() );
     ASSERT_EQ( d.GetCount(), 1 );
     ASSERT_EQ( CF::String( d[ "hello" ] ), "world" );
+    
+    d = CF::Dictionary::FromPropertyListString( "" );
+    
+    ASSERT_FALSE( d.IsValid() );
 }
 
 TEST( CFPP_PropertyListType, ToPropertyList_STDString_PropertyListFormat )
@@ -89,6 +101,14 @@ TEST( CFPP_PropertyListType, ToPropertyList_STDString_PropertyListFormat )
     
     ASSERT_TRUE( d2.IsValid() );
     ASSERT_EQ( d1, d2 );
+    
+    ASSERT_FALSE( d1.ToPropertyList( "/foo/bar", CF::PropertyListFormatBinary ) );
+    ASSERT_FALSE( d1.ToPropertyList( "/foo/bar", CF::PropertyListFormatXML ) );
+    
+    d1 = static_cast< CFDictionaryRef >( NULL );
+    
+    ASSERT_FALSE( d1.ToPropertyList( "/tmp/com.xs-labs.cfpp.plist", CF::PropertyListFormatBinary ) );
+    ASSERT_FALSE( d1.ToPropertyList( "/tmp/com.xs-labs.cfpp.plist", CF::PropertyListFormatXML ) );
 }
 
 TEST( CFPP_PropertyListType, ToPropertyList_PropertyListFormat )
@@ -109,4 +129,11 @@ TEST( CFPP_PropertyListType, ToPropertyList_PropertyListFormat )
     ASSERT_GT( d2.GetLength(), 0 );
     
     ASSERT_NE( d1, d2 );
+    
+    d  = static_cast< CFDictionaryRef >( NULL );
+    d1 = d.ToPropertyList( CF::PropertyListFormatBinary );
+    d2 = d.ToPropertyList( CF::PropertyListFormatXML );
+    
+    ASSERT_FALSE( d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
 }
