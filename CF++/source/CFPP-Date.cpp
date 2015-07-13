@@ -465,7 +465,7 @@ namespace CF
     
     Date & Date::operator -- ( void )
     {
-        this->SetValue( this->GetValue() + 1 );
+        this->SetValue( this->GetValue() - 1 );
         
         return *( this );
     }
@@ -476,7 +476,7 @@ namespace CF
         
         n = *( this );
         
-        operator++();
+        operator--();
         
         return n;
     }

@@ -1122,16 +1122,108 @@ TEST( CFPP_Date, OperatorMinusCFAbsoluteTime )
 }
 
 TEST( CFPP_Date, OperatorPrefixIncrement )
-{}
+{
+    CF::Date d1( 42 );
+    CF::Date d2( static_cast< CFDateRef >( NULL ) );
+    CF::Date d3( 1 );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    
+    ASSERT_TRUE( d1 > d3 );
+    
+    d3 = ++d1;
+    
+    ASSERT_GT( d1.GetValue(), 42 );
+    ASSERT_LT( d1.GetValue(), 44 );
+    ASSERT_TRUE( d3 == d1 );
+    
+    d3 = ++d2;
+    
+    ASSERT_GT( d2.GetValue(), 0 );
+    ASSERT_LT( d2.GetValue(), 2 );
+    ASSERT_TRUE( d3 == d2 );
+}
 
 TEST( CFPP_Date, OperatorPostfixIncrement )
-{}
+{
+    CF::Date d1( 42 );
+    CF::Date d2( static_cast< CFDateRef >( NULL ) );
+    CF::Date d3( 1 );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    
+    ASSERT_TRUE( d1 > d3 );
+    
+    d3 = d1++;
+    
+    ASSERT_GT( d1.GetValue(), 42 );
+    ASSERT_LT( d1.GetValue(), 44 );
+    ASSERT_GT( d3.GetValue(), 41 );
+    ASSERT_LT( d3.GetValue(), 43 );
+    ASSERT_TRUE( d3 < d1 );
+    
+    d3 = d2++;
+    
+    ASSERT_GT( d2.GetValue(), 0 );
+    ASSERT_LT( d2.GetValue(), 2 );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Date, OperatorPrefixDecrement )
-{}
+{
+    CF::Date d1( 42 );
+    CF::Date d2( static_cast< CFDateRef >( NULL ) );
+    CF::Date d3( 1 );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    
+    ASSERT_TRUE( d1 > d3 );
+    
+    d3 = --d1;
+    
+    ASSERT_GT( d1.GetValue(), 40 );
+    ASSERT_LT( d1.GetValue(), 42 );
+    ASSERT_TRUE( d3 == d1 );
+    
+    d3 = --d2;
+    
+    ASSERT_GT( d2.GetValue(), -2 );
+    ASSERT_LT( d2.GetValue(),  0 );
+    ASSERT_TRUE( d3 == d2 );
+}
 
 TEST( CFPP_Date, OperatorPostfixDecrement )
-{}
+{
+    CF::Date d1( 42 );
+    CF::Date d2( static_cast< CFDateRef >( NULL ) );
+    CF::Date d3( 1 );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    
+    ASSERT_TRUE( d1 > d3 );
+    
+    d3 = d1--;
+    
+    ASSERT_GT( d1.GetValue(), 40 );
+    ASSERT_LT( d1.GetValue(), 42 );
+    ASSERT_GT( d3.GetValue(), 41 );
+    ASSERT_LT( d3.GetValue(), 43 );
+    ASSERT_TRUE( d3 > d1 );
+    
+    d3 = d2--;
+    
+    ASSERT_GT( d2.GetValue(), -2 );
+    ASSERT_LT( d2.GetValue(),  0 );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Date, CastToCFAbsoluteTime )
 {
