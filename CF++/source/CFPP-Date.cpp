@@ -166,7 +166,12 @@ namespace CF
     
     bool Date::operator == ( const Date & value ) const
     {
-        return this->GetValue() == value.GetValue();
+        if( this->_cfObject == NULL || value._cfObject == NULL )
+        {
+            return false;
+        }
+        
+        return CFDateCompare( this->_cfObject, value._cfObject, NULL ) == kCFCompareEqualTo;
     }
     
     bool Date::operator == ( CFTypeRef value ) const
