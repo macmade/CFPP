@@ -223,7 +223,16 @@ namespace CF
     
     bool Date::operator >= ( const Date & value ) const
     {
-        return this->GetValue() >= value.GetValue();
+        CFComparisonResult r;
+        
+        if( this->_cfObject == NULL || value._cfObject == NULL )
+        {
+            return false;
+        }
+        
+        r = CFDateCompare( this->_cfObject, value._cfObject, NULL );
+        
+        return r == kCFCompareGreaterThan || r == kCFCompareEqualTo;
     }
     
     bool Date::operator >= ( CFDateRef value ) const
@@ -246,7 +255,16 @@ namespace CF
     
     bool Date::operator <= ( const Date & value ) const
     {
-        return this->GetValue() <= value.GetValue();
+        CFComparisonResult r;
+        
+        if( this->_cfObject == NULL || value._cfObject == NULL )
+        {
+            return false;
+        }
+        
+        r = CFDateCompare( this->_cfObject, value._cfObject, NULL );
+        
+        return r == kCFCompareLessThan || r == kCFCompareEqualTo;
     }
     
     bool Date::operator <= ( CFDateRef value ) const
@@ -255,7 +273,7 @@ namespace CF
         
         date = value;
         
-        return *( this ) >= date;
+        return *( this ) <= date;
     }
     
     bool Date::operator <= ( CFAbsoluteTime value ) const
@@ -264,12 +282,17 @@ namespace CF
         
         date = value;
         
-        return *( this ) >= date;
+        return *( this ) <= date;
     }
     
     bool Date::operator > ( const Date & value ) const
     {
-        return this->GetValue() > value.GetValue();
+        if( this->_cfObject == NULL || value._cfObject == NULL )
+        {
+            return false;
+        }
+        
+        return CFDateCompare( this->_cfObject, value._cfObject, NULL ) == kCFCompareGreaterThan;
     }
     
     bool Date::operator > ( CFDateRef value ) const
@@ -292,7 +315,12 @@ namespace CF
     
     bool Date::operator < ( const Date & value ) const
     {
-        return this->GetValue() < value.GetValue();
+        if( this->_cfObject == NULL || value._cfObject == NULL )
+        {
+            return false;
+        }
+        
+        return CFDateCompare( this->_cfObject, value._cfObject, NULL ) == kCFCompareLessThan;
     }
     
     bool Date::operator < ( CFDateRef value ) const
