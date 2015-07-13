@@ -996,16 +996,66 @@ TEST( CFPP_Date, CastToCFAbsoluteTime )
 {}
 
 TEST( CFPP_Date, GetTypeID )
-{}
+{
+    CF::Date d;
+    
+    ASSERT_EQ( d.GetTypeID(), CFDateGetTypeID() );
+}
 
 TEST( CFPP_Date, GetCFObject )
-{}
+{
+    CF::Date d1;
+    CF::Date d2( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_TRUE( d1.GetCFObject() != NULL );
+    ASSERT_TRUE( d2.GetCFObject() == NULL );
+    ASSERT_EQ( CFGetTypeID( d1.GetCFObject() ), CFDateGetTypeID() );
+}
 
 TEST( CFPP_Date, GetValue )
-{}
+{
+    CF::Date d1( 1 );
+    CF::Date d2( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    ASSERT_GT( d1.GetValue(), 0 );
+    ASSERT_LT( d1.GetValue(), 2 );
+    
+    ASSERT_GT( d2.GetValue(), -1 );
+    ASSERT_LT( d2.GetValue(),  1 );
+}
 
 TEST( CFPP_Date, SetValue )
-{}
+{
+    CF::Date d1( 1 );
+    CF::Date d2( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    d1.SetValue( 42 );
+    d2.SetValue( 42 );
+    
+    ASSERT_GT( d1.GetValue(), 41 );
+    ASSERT_LT( d1.GetValue(), 43 );
+    
+    ASSERT_GT( d2.GetValue(), 41 );
+    ASSERT_LT( d2.GetValue(), 43 );
+}
 
 TEST( CFPP_Date, Swap )
-{}
+{
+    CF::Date d1( 1 );
+    CF::Date d2( 2 );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    
+    ASSERT_TRUE( d2 > d1 );
+    
+    swap( d1, d2 );
+    
+    ASSERT_TRUE( d1 > d2 );
+}
