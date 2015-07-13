@@ -576,7 +576,6 @@ TEST( CFPP_URL, OperatorDivideCFString )
     ASSERT_FALSE( u2.IsValid() );
     
     ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar" );
-    ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar" );
 }
 
 TEST( CFPP_URL, OperatorDivideSTDString )
@@ -598,7 +597,6 @@ TEST( CFPP_URL, OperatorDivideSTDString )
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
     
-    ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar" );
     ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar" );
 }
 
@@ -623,7 +621,6 @@ TEST( CFPP_URL, OperatorDivideCChar )
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
     
-    ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar" );
     ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar" );
 }
 
@@ -909,28 +906,170 @@ TEST( CFPP_URL, HasDirectoryPath )
 }
 
 TEST( CFPP_URL, AppendPathComponent_CFString )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/" );
+    CF::URL u2;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    u1.AppendPathComponent( static_cast< CFStringRef >( CF::String( "foo" ) ) );
+    u1.AppendPathComponent( static_cast< CFStringRef >( CF::String( "" ) ) );
+    u1.AppendPathComponent( static_cast< CFStringRef >( CF::String( "bar" ) ) );
+    
+    u2.AppendPathComponent( static_cast< CFStringRef >( CF::String( "foo" ) ) );
+    u2.AppendPathComponent( static_cast< CFStringRef >( CF::String( "" ) ) );
+    u2.AppendPathComponent( static_cast< CFStringRef >( CF::String( "bar" ) ) );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar" );
+}
 
 TEST( CFPP_URL, AppendPathComponent_STDString )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/" );
+    CF::URL u2;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    u1.AppendPathComponent( std::string( "foo" ) );
+    u1.AppendPathComponent( std::string( "" ) );
+    u1.AppendPathComponent( std::string( "bar" ) );
+    
+    u2.AppendPathComponent( std::string( "foo" ) );
+    u2.AppendPathComponent( std::string( "" ) );
+    u2.AppendPathComponent( std::string( "bar" ) );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar" );
+}
 
 TEST( CFPP_URL, AppendPathComponent_CChar )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/" );
+    CF::URL u2;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    u1.AppendPathComponent( "foo" );
+    u1.AppendPathComponent( "" );
+    u1.AppendPathComponent( "bar" );
+    
+    u2.AppendPathComponent( "foo" );
+    u2.AppendPathComponent( "" );
+    u2.AppendPathComponent( "bar" );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar" );
+}
 
 TEST( CFPP_URL, AppendPathExtension_CFString )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/foo/bar?foobar=1" );
+    CF::URL u2;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    u1.AppendPathExtension( static_cast< CFStringRef >( CF::String( "txt" ) ) );
+    u2.AppendPathExtension( static_cast< CFStringRef >( CF::String( "txt" ) ) );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar.txt?foobar=1" );
+}
 
 TEST( CFPP_URL, AppendPathExtension_STDString )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/foo/bar?foobar=1" );
+    CF::URL u2;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    u1.AppendPathExtension( std::string( "txt" ) );
+    u2.AppendPathExtension( std::string( "txt" ) );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar.txt?foobar=1" );
+}
 
 TEST( CFPP_URL, AppendPathExtension_CChar )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/foo/bar?foobar=1" );
+    CF::URL u2;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    u1.AppendPathExtension( "txt" );
+    u2.AppendPathExtension( "txt" );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    
+    ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar.txt?foobar=1" );
+}
 
 TEST( CFPP_URL, DeleteLastPathComponent )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/" );
+    CF::URL u2( "http://www.xs-labs.com/foo/bar?foobar=1" );
+    CF::URL u3( "http://www.xs-labs.com/foo/bar.txt?foobar=1" );
+    CF::URL u4;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_TRUE(  u3.IsValid() );
+    ASSERT_FALSE( u4.IsValid() );
+    
+    u1.DeleteLastPathComponent();
+    u2.DeleteLastPathComponent();
+    u3.DeleteLastPathComponent();
+    u4.DeleteLastPathComponent();
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_TRUE(  u3.IsValid() );
+    ASSERT_FALSE( u4.IsValid() );
+    
+    ASSERT_EQ( u1, "http://www.xs-labs.com/../" );
+    ASSERT_EQ( u2, "http://www.xs-labs.com/foo/?foobar=1" );
+    ASSERT_EQ( u3, "http://www.xs-labs.com/foo/?foobar=1" );
+}
 
 TEST( CFPP_URL, DeletePathExtension )
-{}
+{
+    CF::URL u1( "http://www.xs-labs.com/foo/bar?foobar=1" );
+    CF::URL u2( "http://www.xs-labs.com/foo/bar.txt?foobar=1" );
+    CF::URL u3;
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+    
+    u1.DeletePathExtension();
+    u2.DeletePathExtension();
+    u3.DeletePathExtension();
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+    
+    ASSERT_EQ( u1, "http://www.xs-labs.com/foo/bar?foobar=1" );
+    ASSERT_EQ( u2, "http://www.xs-labs.com/foo/bar?foobar=1" );
+}
 
 TEST( CFPP_URL, Swap )
 {
