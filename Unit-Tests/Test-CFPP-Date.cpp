@@ -214,31 +214,194 @@ TEST( CFPP_Date, OperatorAssignCFDate )
 }
 
 TEST( CFPP_Date, OperatorAssignCFAbsoluteTime )
-{}
+{
+    CF::Date d1;
+    CF::Date d2( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    d2 = d1.GetValue();
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    
+    ASSERT_GT(   d2.GetValue(), 0 );
+    ASSERT_TRUE( d2.GetValue() > d1.GetValue() - 1 );
+    ASSERT_TRUE( d2.GetValue() < d1.GetValue() + 1 );
+    
+    d2 = static_cast< CFAbsoluteTime >( 0 );
+    
+    ASSERT_TRUE( d2.IsValid() );
+    ASSERT_TRUE( d2.GetValue() > -1 );
+    ASSERT_TRUE( d2.GetValue() <  1 );
+    
+    d2 = static_cast< CFAbsoluteTime >( -1 );
+    
+    ASSERT_TRUE( d2.IsValid() );
+    ASSERT_TRUE( d2.GetValue() > -2 );
+    ASSERT_TRUE( d2.GetValue() <  0 );
+}
 
 TEST( CFPP_Date, OperatorEqualDate )
-{}
+{
+    CF::Date d1;
+    CF::Date d2( d1 );
+    CF::Date d3( static_cast< CFAbsoluteTime >( 0 ) );
+    CF::Date d4( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1 == d2 );
+    ASSERT_FALSE( d1 == d3 );
+    ASSERT_FALSE( d1 == d4 );
+    
+    ASSERT_FALSE( d3 == d1 );
+    ASSERT_TRUE(  d3 == d3 );
+    ASSERT_FALSE( d3 == d4 );
+    
+    ASSERT_FALSE( d4 == d1 );
+    ASSERT_FALSE( d4 == d3 );
+    ASSERT_FALSE( d4 == d4 );
+}
 
 TEST( CFPP_Date, OperatorEqualCFType )
-{}
+{
+    CF::Date d1;
+    CF::Date d2( d1 );
+    CF::Date d3( static_cast< CFAbsoluteTime >( 0 ) );
+    CF::Date d4( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1 == static_cast< CFTypeRef >( d2.GetCFObject() ) );
+    ASSERT_FALSE( d1 == static_cast< CFTypeRef >( d3.GetCFObject() ) );
+    ASSERT_FALSE( d1 == static_cast< CFTypeRef >( d4.GetCFObject() ) );
+    
+    ASSERT_FALSE( d3 == static_cast< CFTypeRef >( d1.GetCFObject() ) );
+    ASSERT_TRUE(  d3 == static_cast< CFTypeRef >( d3.GetCFObject() ) );
+    ASSERT_FALSE( d3 == static_cast< CFTypeRef >( d4.GetCFObject() ) );
+    
+    ASSERT_FALSE( d4 == static_cast< CFTypeRef >( d1.GetCFObject() ) );
+    ASSERT_FALSE( d4 == static_cast< CFTypeRef >( d3.GetCFObject() ) );
+    ASSERT_FALSE( d4 == static_cast< CFTypeRef >( d4.GetCFObject() ) );
+}
 
 TEST( CFPP_Date, OperatorEqualCFDate )
-{}
+{
+    CF::Date d1;
+    CF::Date d2( d1 );
+    CF::Date d3( static_cast< CFAbsoluteTime >( 0 ) );
+    CF::Date d4( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1 == static_cast< CFDateRef >( d2.GetCFObject() ) );
+    ASSERT_FALSE( d1 == static_cast< CFDateRef >( d3.GetCFObject() ) );
+    ASSERT_FALSE( d1 == static_cast< CFDateRef >( d4.GetCFObject() ) );
+    
+    ASSERT_FALSE( d3 == static_cast< CFDateRef >( d1.GetCFObject() ) );
+    ASSERT_TRUE(  d3 == static_cast< CFDateRef >( d3.GetCFObject() ) );
+    ASSERT_FALSE( d3 == static_cast< CFDateRef >( d4.GetCFObject() ) );
+    
+    ASSERT_FALSE( d4 == static_cast< CFDateRef >( d1.GetCFObject() ) );
+    ASSERT_FALSE( d4 == static_cast< CFDateRef >( d3.GetCFObject() ) );
+    ASSERT_FALSE( d4 == static_cast< CFDateRef >( d4.GetCFObject() ) );
+}
 
 TEST( CFPP_Date, OperatorEqualCFAbsoluteTime )
-{}
+{
+    CF::Date d1;
+    CF::Date d2( d1 );
+    CF::Date d3( static_cast< CFAbsoluteTime >( 0 ) );
+    CF::Date d4( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1 == d2.GetValue() );
+    ASSERT_FALSE( d1 == d3.GetValue() );
+    ASSERT_FALSE( d1 == d4.GetValue() );
+    
+    ASSERT_FALSE( d3 == d1.GetValue() );
+    ASSERT_TRUE(  d3 == d3.GetValue() );
+    ASSERT_TRUE(  d3 == d4.GetValue() );
+    
+    ASSERT_FALSE( d4 == d1.GetValue() );
+    ASSERT_FALSE( d4 == d3.GetValue() );
+    ASSERT_FALSE( d4 == d4.GetValue() );
+}
 
 TEST( CFPP_Date, OperatorNotEqualDate )
-{}
+{
+    CF::Date d1;
+    CF::Date d2( d1 );
+    CF::Date d3( static_cast< CFAbsoluteTime >( 0 ) );
+    CF::Date d4( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_FALSE( d1 != d2 );
+    ASSERT_TRUE(  d1 != d3 );
+    ASSERT_TRUE(  d1 != d4 );
+    
+    ASSERT_TRUE(  d3 != d1 );
+    ASSERT_FALSE( d3 != d3 );
+    ASSERT_TRUE(  d3 != d4 );
+    
+    ASSERT_TRUE( d4 != d1 );
+    ASSERT_TRUE( d4 != d3 );
+    ASSERT_TRUE( d4 != d4 );
+}
 
 TEST( CFPP_Date, OperatorNotEqualCFType )
-{}
+{
+    CF::Date d1;
+    CF::Date d2( d1 );
+    CF::Date d3( static_cast< CFAbsoluteTime >( 0 ) );
+    CF::Date d4( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_FALSE( d1 != static_cast< CFTypeRef >( d2.GetCFObject() ) );
+    ASSERT_TRUE(  d1 != static_cast< CFTypeRef >( d3.GetCFObject() ) );
+    ASSERT_TRUE(  d1 != static_cast< CFTypeRef >( d4.GetCFObject() ) );
+    
+    ASSERT_TRUE(  d3 != static_cast< CFTypeRef >( d1.GetCFObject() ) );
+    ASSERT_FALSE( d3 != static_cast< CFTypeRef >( d3.GetCFObject() ) );
+    ASSERT_TRUE(  d3 != static_cast< CFTypeRef >( d4.GetCFObject() ) );
+    
+    ASSERT_TRUE( d4 != static_cast< CFTypeRef >( d1.GetCFObject() ) );
+    ASSERT_TRUE( d4 != static_cast< CFTypeRef >( d3.GetCFObject() ) );
+    ASSERT_TRUE( d4 != static_cast< CFTypeRef >( d4.GetCFObject() ) );
+}
 
 TEST( CFPP_Date, OperatorNotEqualCFDate )
-{}
+{
+    CF::Date d1;
+    CF::Date d2( d1 );
+    CF::Date d3( static_cast< CFAbsoluteTime >( 0 ) );
+    CF::Date d4( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_FALSE( d1 != static_cast< CFDateRef >( d2.GetCFObject() ) );
+    ASSERT_TRUE(  d1 != static_cast< CFDateRef >( d3.GetCFObject() ) );
+    ASSERT_TRUE(  d1 != static_cast< CFDateRef >( d4.GetCFObject() ) );
+    
+    ASSERT_TRUE(  d3 != static_cast< CFDateRef >( d1.GetCFObject() ) );
+    ASSERT_FALSE( d3 != static_cast< CFDateRef >( d3.GetCFObject() ) );
+    ASSERT_TRUE(  d3 != static_cast< CFDateRef >( d4.GetCFObject() ) );
+    
+    ASSERT_TRUE( d4 != static_cast< CFDateRef >( d1.GetCFObject() ) );
+    ASSERT_TRUE( d4 != static_cast< CFDateRef >( d3.GetCFObject() ) );
+    ASSERT_TRUE( d4 != static_cast< CFDateRef >( d4.GetCFObject() ) );
+}
 
 TEST( CFPP_Date, OperatorNotEqualCFAbsoluteTime )
-{}
+{
+    CF::Date d1;
+    CF::Date d2( d1 );
+    CF::Date d3( static_cast< CFAbsoluteTime >( 0 ) );
+    CF::Date d4( static_cast< CFDateRef >( NULL ) );
+    
+    ASSERT_FALSE( d1 != d2.GetValue() );
+    ASSERT_TRUE(  d1 != d3.GetValue() );
+    ASSERT_TRUE(  d1 != d4.GetValue() );
+    
+    ASSERT_TRUE(  d3 != d1.GetValue() );
+    ASSERT_FALSE( d3 != d3.GetValue() );
+    ASSERT_FALSE( d3 != d4.GetValue() );
+    
+    ASSERT_TRUE( d4 != d1.GetValue() );
+    ASSERT_TRUE( d4 != d3.GetValue() );
+    ASSERT_TRUE( d4 != d4.GetValue() );
+}
 
 TEST( CFPP_Date, OperatorGreaterOrEqualDate )
 {}
