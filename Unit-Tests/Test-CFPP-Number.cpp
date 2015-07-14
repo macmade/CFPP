@@ -108,20 +108,21 @@ TEST( CFPP_Number, CTOR_CFNumber )
 template< typename T >
 void TMPL_CFPP_Number_CTOR_AutoPointer_T( void )
 {
-    int i = 1;
+    int i =  1;
+    T   v = 42;
     
     {
-        CF::Number n1( CF::AutoPointer( CFNumberCreate( NULL, kCFNumberIntType, &i ) ), 42 );
-        CF::Number n2( CF::AutoPointer( CFUUIDCreate( NULL ) ), 42 );
-        CF::Number n3( CF::AutoPointer( NULL ), 42 );
+        CF::Number n1( CF::AutoPointer( CFNumberCreate( NULL, kCFNumberIntType, &i ) ), v );
+        CF::Number n2( CF::AutoPointer( CFUUIDCreate( NULL ) ), v );
+        CF::Number n3( CF::AutoPointer( NULL ), v );
         
         ASSERT_TRUE( n1.IsValid() );
         ASSERT_TRUE( n2.IsValid() );
         ASSERT_TRUE( n3.IsValid() );
         
-        ASSERT_TRUE( n1 ==  1 );
-        ASSERT_TRUE( n2 == 42 );
-        ASSERT_TRUE( n3 == 42 );
+        ASSERT_TRUE( n1 == i );
+        ASSERT_TRUE( n2 == v );
+        ASSERT_TRUE( n3 == v );
     }
 }
 
