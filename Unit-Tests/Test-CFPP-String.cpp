@@ -47,6 +47,17 @@ TEST( CFPP_String, CTOR )
     ASSERT_EQ( s.GetLength(), 0 );
 }
 
+TEST( CFPP_String, CTOR_AutoPointer )
+{
+    CF::String s1( CF::AutoPointer( CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII ) ) );
+    CF::String s2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::String s3( CF::AutoPointer( NULL ) );
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
+}
+
 TEST( CFPP_String, CTOR_CFType )
 {
     CF::String s1( static_cast< CFTypeRef >( CFSTR( "hello, world" ) ) );
@@ -69,6 +80,21 @@ TEST( CFPP_String, CTOR_CFString )
     ASSERT_FALSE( s2.IsValid() );
     ASSERT_FALSE( s3.IsValid() );
     ASSERT_TRUE(  s1.GetValue() == "hello, world" );
+}
+
+TEST( CFPP_String, CTOR_AutoPointer_DefaultValue_Encoding )
+{
+    CF::String s1( CF::AutoPointer( CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII ) ), "hello, universe" );
+    CF::String s2( CF::AutoPointer( CFUUIDCreate( NULL ) ), "hello, universe" );
+    CF::String s3( CF::AutoPointer( NULL ), "hello, universe" );
+    
+    ASSERT_TRUE( s1.IsValid() );
+    ASSERT_TRUE( s2.IsValid() );
+    ASSERT_TRUE( s3.IsValid() );
+    
+    ASSERT_TRUE( s1 == "hello, world" );
+    ASSERT_TRUE( s2 == "hello, universe" );
+    ASSERT_TRUE( s3 == "hello, universe" );
 }
 
 TEST( CFPP_String, CTOR_CFType_DefaultValue_Encoding )
@@ -160,6 +186,25 @@ TEST( CFPP_String, OperatorAssignString )
     s = CF::String();
     
     ASSERT_TRUE( s == "" );
+}
+
+TEST( CFPP_String, OperatorAssignAutoPointer )
+{
+    CF::String s1( static_cast< CFTypeRef >( NULL ) );
+    CF::String s2;
+    CF::String s3;
+    
+    ASSERT_FALSE( s1.IsValid() );
+    ASSERT_TRUE(  s2.IsValid() );
+    ASSERT_TRUE(  s3.IsValid() );
+    
+    s1 = CF::AutoPointer( CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII ) );
+    s2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    s3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
 }
 
 TEST( CFPP_String, OperatorAssignCFType )

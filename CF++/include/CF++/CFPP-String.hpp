@@ -43,8 +43,10 @@ namespace CF
         public:
             
             String( void );
+            String( const AutoPointer & value );
             String( CFTypeRef cfObject );
             String( CFStringRef cfObject );
+            String( const AutoPointer & value, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( CFTypeRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( CFStringRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( std::string value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
@@ -59,6 +61,7 @@ namespace CF
             virtual ~String( void );
             
             String & operator = ( String value );
+            String & operator = ( const AutoPointer & value );
             String & operator = ( CFTypeRef value );
             String & operator = ( CFStringRef value );
             String & operator = ( std::string value );

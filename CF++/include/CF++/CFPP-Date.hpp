@@ -46,6 +46,7 @@ namespace CF
             
             Date( void );
             Date( const Date & value );
+            Date( const AutoPointer & value );
             Date( CFTypeRef value );
             Date( CFDateRef value );
             Date( CFAbsoluteTime value );
@@ -57,6 +58,7 @@ namespace CF
             virtual ~Date( void );
             
             Date & operator = ( Date value );
+            Date & operator = ( const AutoPointer & value );
             Date & operator = ( CFTypeRef value );
             Date & operator = ( CFDateRef value );
             Date & operator = ( CFAbsoluteTime value );

@@ -76,6 +76,7 @@ namespace CF
             
             URL( void );
             URL( const URL & value );
+            URL( const AutoPointer & value );
             URL( CFTypeRef value );
             URL( CFURLRef value );
             URL( CFStringRef value );
@@ -89,6 +90,7 @@ namespace CF
             virtual ~URL( void );
             
             URL & operator = ( URL value );
+            URL & operator = ( const AutoPointer & value );
             URL & operator = ( CFTypeRef value );
             URL & operator = ( CFURLRef value );
             URL & operator = ( CFStringRef value );

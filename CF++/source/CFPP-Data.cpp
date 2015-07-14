@@ -54,6 +54,18 @@ namespace CF
         }
     }
     
+    Data::Data( const AutoPointer & value )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, static_cast< CFDataRef >( value ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     Data::Data( CFTypeRef value )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
@@ -129,6 +141,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    Data & Data::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     Data & Data::operator = ( CFTypeRef value )

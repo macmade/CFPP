@@ -72,6 +72,17 @@ TEST( CFPP_WriteStream, CTOR_URL )
     ASSERT_TRUE( s2.IsValid() );
 }
 
+TEST( CFPP_WriteStream, CTOR_AutoPointer )
+{
+    CF::WriteStream s1( CF::AutoPointer( CFWriteStreamCreateWithFile( NULL, CF::URL( "file:///etc/hosts" ) ) ) );
+    CF::WriteStream s2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::WriteStream s3( CF::AutoPointer( NULL ) );
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
+}
+
 TEST( CFPP_WriteStream, CTOR_CFType )
 {
     CF::WriteStream s1( CF::URL( "file:///etc/hosts" ) );
@@ -131,6 +142,25 @@ TEST( CFPP_WriteStream, OperatorAssignWriteStream )
     s2 = s3;
     
     ASSERT_FALSE( s2.IsValid() );
+}
+
+TEST( CFPP_WriteStream, OperatorAssignAutoPointer )
+{
+    CF::WriteStream s1;
+    CF::WriteStream s2( CF::URL( "file:///etc/hosts" ) );
+    CF::WriteStream s3( CF::URL( "file:///etc/hosts" ) );
+    
+    ASSERT_FALSE( s1.IsValid() );
+    ASSERT_TRUE(  s2.IsValid() );
+    ASSERT_TRUE(  s3.IsValid() );
+    
+    s1 = CF::AutoPointer( CFWriteStreamCreateWithFile( NULL, CF::URL( "file:///etc/hosts" ) ) );
+    s2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    s3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
 }
 
 TEST( CFPP_WriteStream, OperatorAssignCFType )

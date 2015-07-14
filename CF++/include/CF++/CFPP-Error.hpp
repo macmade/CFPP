@@ -44,6 +44,7 @@ namespace CF
             
             Error( void );
             Error( const Error & value );
+            Error( const AutoPointer & value );
             Error( CFTypeRef value );
             Error( CFErrorRef value );
             Error( String domain, Number code );
@@ -62,6 +63,7 @@ namespace CF
             virtual ~Error( void );
             
             Error & operator = ( Error value );
+            Error & operator = ( const AutoPointer & value );
             Error & operator = ( CFTypeRef value );
             Error & operator = ( CFErrorRef value );
             

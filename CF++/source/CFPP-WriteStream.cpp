@@ -75,6 +75,18 @@ namespace CF
         }
     }
     
+    WriteStream::WriteStream( const AutoPointer & value )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     WriteStream::WriteStream( CFTypeRef value )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
@@ -122,6 +134,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    WriteStream & WriteStream::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     WriteStream & WriteStream::operator = ( CFTypeRef value )

@@ -95,6 +95,17 @@ TEST( CFPP_URL, CTOR )
     ASSERT_FALSE( u.IsValid() );
 }
 
+TEST( CFPP_URL, CTOR_AutoPointer )
+{
+    CF::URL u1( CF::AutoPointer( CFURLCreateWithFileSystemPath( NULL, CF::String( "/etc/hosts" ), kCFURLPOSIXPathStyle, false ) ) );
+    CF::URL u2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::URL u3( CF::AutoPointer( NULL ) );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+}
+
 TEST( CFPP_URL, CTOR_CFType )
 {
     CF::URL u1( "http://www.xs-labs.com/" );
@@ -187,6 +198,25 @@ TEST( CFPP_URL, OperatorAssignURL )
     u2 = u3;
     
     ASSERT_FALSE( u2.IsValid() );
+}
+
+TEST( CFPP_URL, OperatorAssignAutoPointer )
+{
+    CF::URL u1;
+    CF::URL u2( "http://www.xs-labs.com/" );
+    CF::URL u3( "http://www.xs-labs.com/" );
+    
+    ASSERT_FALSE( u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_TRUE(  u3.IsValid() );
+    
+    u1 = CF::AutoPointer( CFURLCreateWithFileSystemPath( NULL, CF::String( "/etc/hosts" ), kCFURLPOSIXPathStyle, false ) );
+    u2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    u3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
 }
 
 TEST( CFPP_URL, OperatorAssignCFType )

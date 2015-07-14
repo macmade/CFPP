@@ -47,6 +47,21 @@ TEST( CFPP_Boolean, CTOR )
     ASSERT_TRUE(  b2.GetValue() );
 }
 
+TEST( CFPP_Boolean, CTOR_AutoPointer )
+{
+    CF::Boolean b1( CF::AutoPointer( CFRetain( kCFBooleanTrue ) ) );
+    CF::Boolean b2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::Boolean b3( CF::AutoPointer( NULL ) );
+    
+    ASSERT_TRUE( b1.IsValid() );
+    ASSERT_TRUE( b2.IsValid() );
+    ASSERT_TRUE( b3.IsValid() );
+    
+    ASSERT_TRUE(  b1.GetValue() );
+    ASSERT_FALSE( b2.GetValue() );
+    ASSERT_FALSE( b3.GetValue() );
+}
+
 TEST( CFPP_Boolean, CTOR_CFType )
 {
     CFBooleanRef b;
@@ -77,6 +92,21 @@ TEST( CFPP_Boolean, CTOR_CFBoolean )
     ASSERT_TRUE(  b1.GetValue() );
     ASSERT_FALSE( b2.GetValue() );
     ASSERT_FALSE( b3.GetValue() );
+}
+
+TEST( CFPP_Boolean, CTOR_AutoPointer_DefaultValue )
+{
+    CF::Boolean b1( CF::AutoPointer( CFRetain( kCFBooleanTrue ) ), false );
+    CF::Boolean b2( CF::AutoPointer( CFUUIDCreate( NULL ) ), true );
+    CF::Boolean b3( CF::AutoPointer( NULL ), true );
+    
+    ASSERT_TRUE( b1.IsValid() );
+    ASSERT_TRUE( b2.IsValid() );
+    ASSERT_TRUE( b3.IsValid() );
+    
+    ASSERT_TRUE( b1.GetValue() );
+    ASSERT_TRUE( b2.GetValue() );
+    ASSERT_TRUE( b3.GetValue() );
 }
 
 TEST( CFPP_Boolean, CTOR_CFType_DefaultValue )
@@ -149,6 +179,25 @@ TEST( CFPP_Boolean, OperatorAssignBoolean )
     b1 = b3;
     
     ASSERT_FALSE( b1.GetValue() );
+}
+
+TEST( CFPP_Boolean, OperatorAssignAutoPointer )
+{
+    CF::Boolean b1;
+    CF::Boolean b2;
+    CF::Boolean b3;
+    
+    b1 = CF::AutoPointer( CFRetain( kCFBooleanTrue ) );
+    b2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    b3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE( b1.IsValid() );
+    ASSERT_TRUE( b2.IsValid() );
+    ASSERT_TRUE( b3.IsValid() );
+    
+    ASSERT_TRUE(  b1.GetValue() );
+    ASSERT_FALSE( b2.GetValue() );
+    ASSERT_FALSE( b3.GetValue() );
 }
 
 TEST( CFPP_Boolean, OperatorAssignCFType )

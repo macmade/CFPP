@@ -67,6 +67,17 @@ TEST( CFPP_Date, CTOR )
     ASSERT_TRUE( d.GetValue() < t + 1 );
 }
 
+TEST( CFPP_Date, CTOR_AutoPointer )
+{
+    CF::Date d1( CF::AutoPointer( CFDateCreate( NULL, 0 ) ) );
+    CF::Date d2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::Date d3( CF::AutoPointer( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+}
+
 TEST( CFPP_Date, CTOR_CFType )
 {
     CFAbsoluteTime t;
@@ -163,6 +174,25 @@ TEST( CFPP_Date, OperatorAssignDate )
     d2 = d3;
     
     ASSERT_FALSE( d2.IsValid() );
+}
+
+TEST( CFPP_Date, OperatorAssignAutoPointer )
+{
+    CF::Date d1( static_cast< CFTypeRef >( NULL ) );
+    CF::Date d2;
+    CF::Date d3;
+    
+    ASSERT_FALSE( d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    
+    d1 = CF::AutoPointer( CFDateCreate( NULL, 0 ) );
+    d2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    d3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
 }
 
 TEST( CFPP_Date, OperatorAssignCFType )

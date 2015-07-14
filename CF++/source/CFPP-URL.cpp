@@ -120,6 +120,18 @@ namespace CF
         }
     }
     
+    URL::URL( const AutoPointer & value )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFURLRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     URL::URL( CFURLRef value )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
@@ -203,6 +215,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    URL & URL::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     URL & URL::operator = ( CFTypeRef value )

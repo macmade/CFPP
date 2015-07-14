@@ -47,6 +47,7 @@ namespace CF
             ReadStream( const char * path );
             ReadStream( URL url );
             ReadStream( const ReadStream & value );
+            ReadStream( const AutoPointer & value );
             ReadStream( CFTypeRef value );
             ReadStream( CFReadStreamRef value );
             
@@ -57,6 +58,7 @@ namespace CF
             virtual ~ReadStream( void );
             
             ReadStream & operator = ( ReadStream value );
+            ReadStream & operator = ( const AutoPointer & value );
             ReadStream & operator = ( CFTypeRef value );
             ReadStream & operator = ( CFReadStreamRef value );
             

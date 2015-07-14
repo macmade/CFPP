@@ -60,6 +60,21 @@ TEST( CFPP_Number, CTOR )
     ASSERT_TRUE( n.GetCFObject() != NULL );
 }
 
+TEST( CFPP_Number, CTOR_AutoPointer )
+{
+    int i = 0;
+    
+    {
+        CF::Number n1( CF::AutoPointer( CFNumberCreate( NULL, kCFNumberIntType, &i ) ) );
+        CF::Number n2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+        CF::Number n3( CF::AutoPointer( NULL ) );
+        
+        ASSERT_TRUE(  n1.IsValid() );
+        ASSERT_FALSE( n2.IsValid() );
+        ASSERT_FALSE( n3.IsValid() );
+    }
+}
+
 TEST( CFPP_Number, CTOR_CFType )
 {
     CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ) );
@@ -88,6 +103,40 @@ TEST( CFPP_Number, CTOR_CFNumber )
     
     ASSERT_TRUE( n1.GetCFObject() != NULL );
     ASSERT_TRUE( n2.GetCFObject() == NULL );
+}
+
+template< typename T >
+void TMPL_CFPP_Number_CTOR_AutoPointer_T( void )
+{
+    int i = 1;
+    
+    {
+        CF::Number n1( CF::AutoPointer( CFNumberCreate( NULL, kCFNumberIntType, &i ) ), 42 );
+        CF::Number n2( CF::AutoPointer( CFUUIDCreate( NULL ) ), 42 );
+        CF::Number n3( CF::AutoPointer( NULL ), 42 );
+        
+        ASSERT_TRUE( n1.IsValid() );
+        ASSERT_TRUE( n2.IsValid() );
+        ASSERT_TRUE( n3.IsValid() );
+        
+        ASSERT_TRUE( n1 ==  1 );
+        ASSERT_TRUE( n2 == 42 );
+        ASSERT_TRUE( n3 == 42 );
+    }
+}
+
+TEST( CFPP_Number, CTOR_AutoPointer_T )
+{
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::SInt8 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::SInt16 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::SInt32 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::SInt64 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::UInt8 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::UInt16 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::UInt32 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::Float32 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::Float64 >();
 }
 
 template< typename T >
@@ -219,6 +268,29 @@ TEST( CFPP_Number, OperatorAssignNumber )
     
     ASSERT_TRUE( n1.IsValid() );
     ASSERT_TRUE( n1 == 1 );
+}
+
+TEST( CFPP_Number, OperatorAssignAutoPointer )
+{
+    int i = 0;
+    
+    {
+        CF::Number n1( static_cast< CFTypeRef >( NULL ) );
+        CF::Number n2;
+        CF::Number n3;
+        
+        ASSERT_FALSE( n1.IsValid() );
+        ASSERT_TRUE(  n2.IsValid() );
+        ASSERT_TRUE(  n3.IsValid() );
+        
+        n1 = CF::AutoPointer( CFNumberCreate( NULL, kCFNumberIntType, &i ) );
+        n2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+        n3 = CF::AutoPointer( NULL );
+        
+        ASSERT_TRUE(  n1.IsValid() );
+        ASSERT_FALSE( n2.IsValid() );
+        ASSERT_FALSE( n3.IsValid() );
+    }
 }
 
 TEST( CFPP_Number, OperatorAssignCFType )

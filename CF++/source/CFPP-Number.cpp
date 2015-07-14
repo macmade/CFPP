@@ -44,6 +44,18 @@ namespace CF
         this->SetSInt32Value( 0 );
     }
     
+    Number::Number( const AutoPointer & value )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     Number::Number( CFTypeRef cfObject )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
@@ -65,6 +77,146 @@ namespace CF
         else
         {
             this->_cfObject = NULL;
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, SInt8 defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetSInt8Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, SInt16 defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetSInt16Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, SInt32 defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetSInt32Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, SInt64 defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetSInt64Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, UInt8 defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetUInt8Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, UInt16 defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetUInt16Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, UInt32 defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetUInt32Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, UInt64 defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetUInt64Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, Float64 defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetFloat64Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, Float32 defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetFloat32Value( defaultValueIfNULL );
         }
     }
     
@@ -453,6 +605,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    Number & Number::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     Number & Number::operator = ( CFTypeRef value )

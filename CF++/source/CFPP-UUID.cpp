@@ -54,6 +54,18 @@ namespace CF
         }
     }
     
+    UUID::UUID( const AutoPointer & value )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFUUIDRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     UUID::UUID( CFTypeRef value )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
@@ -101,6 +113,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    UUID & UUID::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     UUID & UUID::operator = ( CFTypeRef value )

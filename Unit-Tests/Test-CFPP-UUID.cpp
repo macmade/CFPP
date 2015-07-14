@@ -46,6 +46,17 @@ TEST( CFPP_UUID, CTOR )
     ASSERT_GT( u.GetString().GetLength(), 0 );
 }
 
+TEST( CFPP_UUID, CTOR_AutoPointer )
+{
+    CF::UUID u1( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::UUID u2( CF::AutoPointer( CFDateCreate( NULL, 0 ) ) );
+    CF::UUID u3( CF::AutoPointer( NULL ) );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+}
+
 TEST( CFPP_UUID, CTOR_CFType )
 {
     CF::UUID u1;
@@ -107,6 +118,25 @@ TEST( CFPP_UUID, OperatorAssignUUID )
     u1 = u2;
     
     ASSERT_EQ( u1.GetString(), u2.GetString() );
+}
+
+TEST( CFPP_UUID, OperatorAssignAutoPointer )
+{
+    CF::UUID u1( static_cast< CFTypeRef >( NULL ) );
+    CF::UUID u2;
+    CF::UUID u3;
+    
+    ASSERT_FALSE( u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_TRUE(  u3.IsValid() );
+    
+    u1 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    u2 = CF::AutoPointer( CFDateCreate( NULL, 0 ) );
+    u3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
 }
 
 TEST( CFPP_UUID, OperatorAssignCFType )

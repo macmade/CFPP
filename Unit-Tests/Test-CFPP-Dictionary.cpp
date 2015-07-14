@@ -41,6 +41,9 @@ using namespace testing;
 TEST( CFPP_Dictionary, CTOR )
 {}
 
+TEST( CFPP_Dictionary, CTOR_AutoPointer )
+{}
+
 TEST( CFPP_Dictionary, CTOR_CFType )
 {}
 
@@ -56,6 +59,9 @@ TEST( CFPP_Dictionary, MCTOR )
 #endif
 
 TEST( CFPP_Dictionary, OperatorAssignDictionary )
+{}
+
+TEST( CFPP_Dictionary, OperatorAssignAutoPointer )
 {}
 
 TEST( CFPP_Dictionary, OperatorAssignCFType )

@@ -43,8 +43,10 @@ namespace CF
         public:
             
             Boolean( const Boolean & value );
+            Boolean( const AutoPointer & value );
             Boolean( CFTypeRef cfObject );
             Boolean( CFBooleanRef cfObject );
+            Boolean( const AutoPointer & value, bool defaultValueIfNULL );
             Boolean( CFTypeRef cfObject, bool defaultValueIfNULL );
             Boolean( CFBooleanRef cfObject, bool defaultValueIfNULL );
             Boolean( bool value = false );
@@ -56,6 +58,7 @@ namespace CF
             virtual ~Boolean( void );
             
             Boolean & operator = ( Boolean value );
+            Boolean & operator = ( const AutoPointer & value );
             Boolean & operator = ( CFTypeRef value );
             Boolean & operator = ( CFBooleanRef value );
             Boolean & operator = ( bool value );

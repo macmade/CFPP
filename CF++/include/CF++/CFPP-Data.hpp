@@ -54,6 +54,7 @@ namespace CF
             
             Data( void );
             Data( const Data & value );
+            Data( const AutoPointer & value );
             Data( CFTypeRef value );
             Data( CFDataRef value );
             Data( CFStringRef value );
@@ -67,6 +68,7 @@ namespace CF
             virtual ~Data( void );
             
             Data & operator = ( Data value );
+            Data & operator = ( const AutoPointer & value );
             Data & operator = ( CFTypeRef value );
             Data & operator = ( CFDataRef value );
             Data & operator = ( CFStringRef value );

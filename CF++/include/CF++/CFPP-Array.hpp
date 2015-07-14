@@ -46,6 +46,7 @@ namespace CF
             
             Array( void );
             Array( const Array & value );
+            Array( const AutoPointer & value );
             Array( CFTypeRef value );
             Array( CFArrayRef value );
             
@@ -56,6 +57,7 @@ namespace CF
             virtual ~Array( void );
             
             Array & operator = ( Array value );
+            Array & operator = ( const AutoPointer & value );
             Array & operator = ( CFTypeRef value );
             Array & operator = ( CFArrayRef value );
             

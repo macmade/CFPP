@@ -66,11 +66,25 @@ static void __loadCFBoolean( void )
 
 namespace CF
 {
-    Boolean::Boolean( CFTypeRef cfObject )
+    Boolean::Boolean( const AutoPointer & value ): _cfObject( NULL )
     {
         bool b;
         
-        this->_cfObject = NULL;
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            b = ( CFBooleanGetValue( static_cast< CFBooleanRef >( value ) ) ) ? true : false;
+        }
+        else
+        {
+            b = false;
+        }
+        
+        this->SetValue( b );
+    }
+    
+    Boolean::Boolean( CFTypeRef cfObject ): _cfObject( NULL )
+    {
+        bool b;
         
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID()  )
         {
@@ -84,11 +98,9 @@ namespace CF
         this->SetValue( b );
     }
     
-    Boolean::Boolean( CFBooleanRef cfObject )
+    Boolean::Boolean( CFBooleanRef cfObject ): _cfObject( NULL )
     {
         bool b;
-        
-        this->_cfObject = NULL;
         
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -102,11 +114,25 @@ namespace CF
         this->SetValue( b );
     }
     
-    Boolean::Boolean( CFTypeRef cfObject, bool defaultValueIfNULL )
+    Boolean::Boolean( const AutoPointer & value, bool defaultValueIfNULL ): _cfObject( NULL )
     {
         bool b;
         
-        this->_cfObject = NULL;
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            b = ( CFBooleanGetValue( static_cast< CFBooleanRef >( value ) ) ) ? true : false;
+        }
+        else
+        {
+            b = defaultValueIfNULL;
+        }
+        
+        this->SetValue( b );
+    }
+    
+    Boolean::Boolean( CFTypeRef cfObject, bool defaultValueIfNULL ): _cfObject( NULL )
+    {
+        bool b;
         
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -120,11 +146,9 @@ namespace CF
         this->SetValue( b );
     }
     
-    Boolean::Boolean( CFBooleanRef cfObject, bool defaultValueIfNULL )
+    Boolean::Boolean( CFBooleanRef cfObject, bool defaultValueIfNULL ): _cfObject( NULL )
     {
         bool b;
-        
-        this->_cfObject = NULL;
         
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -138,17 +162,13 @@ namespace CF
         this->SetValue( b );
     }
     
-    Boolean::Boolean( bool value )
+    Boolean::Boolean( bool value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetValue( value );
     }
     
-    Boolean::Boolean( const Boolean & value )
+    Boolean::Boolean( const Boolean & value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetValue( value.GetValue() );
     }
     
@@ -175,6 +195,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    Boolean & Boolean::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     Boolean & Boolean::operator = ( CFTypeRef value )

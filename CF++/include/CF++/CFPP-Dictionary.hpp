@@ -46,6 +46,7 @@ namespace CF
             
             Dictionary( void );
             Dictionary( const Dictionary & value );
+            Dictionary( const AutoPointer & value );
             Dictionary( CFTypeRef cfObject );
             Dictionary( CFDictionaryRef cfObject );
             
@@ -56,6 +57,7 @@ namespace CF
             virtual ~Dictionary( void );
             
             Dictionary & operator = ( Dictionary value );
+            Dictionary & operator = ( const AutoPointer & value );
             Dictionary & operator = ( CFTypeRef value );
             Dictionary & operator = ( CFDictionaryRef value );
             

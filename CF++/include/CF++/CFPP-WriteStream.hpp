@@ -47,6 +47,7 @@ namespace CF
             WriteStream( const char * path );
             WriteStream( URL url );
             WriteStream( const WriteStream & value );
+            WriteStream( const AutoPointer & value );
             WriteStream( CFTypeRef value );
             WriteStream( CFWriteStreamRef value );
             
@@ -57,6 +58,7 @@ namespace CF
             virtual ~WriteStream( void );
             
             WriteStream & operator = ( WriteStream value );
+            WriteStream & operator = ( const AutoPointer & value );
             WriteStream & operator = ( CFTypeRef value );
             WriteStream & operator = ( CFWriteStreamRef value );
             

@@ -75,6 +75,18 @@ namespace CF
         }
     }
     
+    ReadStream::ReadStream( const AutoPointer & value )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     ReadStream::ReadStream( CFTypeRef value )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
@@ -122,6 +134,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    ReadStream & ReadStream::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     ReadStream & ReadStream::operator = ( CFTypeRef value )

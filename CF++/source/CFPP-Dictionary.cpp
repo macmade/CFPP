@@ -177,6 +177,25 @@ namespace CF
         }
     }
     
+    Dictionary::Dictionary( const AutoPointer & value )
+    {
+        __createCallbacks();
+        
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = CFDictionaryCreateMutableCopy
+            (
+                static_cast< CFAllocatorRef >( NULL ),
+                CFDictionaryGetCount( value ),
+                value
+            );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     Dictionary::Dictionary( CFTypeRef cfObject )
     {
         __createCallbacks();
@@ -238,6 +257,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    Dictionary & Dictionary::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     Dictionary & Dictionary::operator = ( CFTypeRef value )

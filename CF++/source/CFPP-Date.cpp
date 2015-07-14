@@ -63,6 +63,18 @@ namespace CF
         }
     }
     
+    Date::Date( const AutoPointer & value )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFDateRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     Date::Date( CFTypeRef value )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
@@ -117,6 +129,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    Date & Date::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     Date & Date::operator = ( CFTypeRef value )

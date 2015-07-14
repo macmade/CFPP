@@ -156,6 +156,25 @@ namespace CF
         }
     }
     
+    Array::Array( const AutoPointer & value )
+    {
+        __createCallbacks();
+        
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = CFArrayCreateMutableCopy
+            (
+                static_cast< CFAllocatorRef >( NULL ),
+                CFArrayGetCount( value ),
+                value
+            );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     Array::Array( CFTypeRef value )
     {
         __createCallbacks();
@@ -217,6 +236,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    Array & Array::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     Array & Array::operator = ( CFTypeRef value )

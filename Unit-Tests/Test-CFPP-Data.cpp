@@ -41,6 +41,9 @@ using namespace testing;
 TEST( CFPP_Data, CTOR )
 {}
 
+TEST( CFPP_Data, CTOR_AutoPointer )
+{}
+
 TEST( CFPP_Data, CTOR_CFType )
 {}
 
@@ -65,6 +68,9 @@ TEST( CFPP_Data, MCTOR )
 #endif
 
 TEST( CFPP_Data, OperatorAssignData )
+{}
+
+TEST( CFPP_Data, OperatorAssignAutoPointer )
 {}
 
 TEST( CFPP_Data, OperatorAssignCFType )

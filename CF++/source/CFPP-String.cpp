@@ -44,6 +44,18 @@ namespace CF
         this->SetValue( "" );
     }
     
+    String::String( const AutoPointer & value )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFStringRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     String::String( CFTypeRef cfObject )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
@@ -65,6 +77,20 @@ namespace CF
         else
         {
             this->_cfObject = NULL;
+        }
+    }
+    
+    String::String( const AutoPointer & value, std::string defaultValueIfNULL, CFStringEncoding encoding )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFStringRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetValue( defaultValueIfNULL, encoding );
         }
     }
     
@@ -162,6 +188,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    String & String::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     String & String::operator = ( CFTypeRef value )

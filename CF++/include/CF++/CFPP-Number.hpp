@@ -72,8 +72,19 @@ namespace CF
             typedef double  Float64;
             
             Number( void );
+            Number( const AutoPointer & value );
             Number( CFTypeRef cfObject );
             Number( CFNumberRef cfObject );
+            Number( const AutoPointer & value, SInt8 defaultValueIfNULL );
+            Number( const AutoPointer & value, SInt16 defaultValueIfNULL );
+            Number( const AutoPointer & value, SInt32 defaultValueIfNULL );
+            Number( const AutoPointer & value, SInt64 defaultValueIfNULL );
+            Number( const AutoPointer & value, UInt8 defaultValueIfNULL );
+            Number( const AutoPointer & value, UInt16 defaultValueIfNULL );
+            Number( const AutoPointer & value, UInt32 defaultValueIfNULL );
+            Number( const AutoPointer & value, UInt64 defaultValueIfNULL );
+            Number( const AutoPointer & value, Float32 defaultValueIfNULL );
+            Number( const AutoPointer & value, Float64 defaultValueIfNULL );
             Number( CFTypeRef cfObject, SInt8 defaultValueIfNULL );
             Number( CFTypeRef cfObject, SInt16 defaultValueIfNULL );
             Number( CFTypeRef cfObject, SInt32 defaultValueIfNULL );
@@ -113,6 +124,7 @@ namespace CF
             virtual ~Number( void );
             
             Number & operator = ( Number value );
+            Number & operator = ( const AutoPointer & value );
             Number & operator = ( CFTypeRef value );
             Number & operator = ( CFNumberRef value );
             Number & operator = ( SInt8 value );

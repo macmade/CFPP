@@ -54,6 +54,18 @@ namespace CF
         }
     }
     
+    Error::Error( const AutoPointer & value )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFErrorRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+        }
+    }
+    
     Error::Error( CFTypeRef value )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
@@ -206,6 +218,11 @@ namespace CF
         swap( *( this ), value );
         
         return *( this );
+    }
+    
+    Error & Error::operator = ( const AutoPointer & value )
+    {
+        return operator =( value.GetCFObject() );
     }
     
     Error & Error::operator = ( CFTypeRef value )

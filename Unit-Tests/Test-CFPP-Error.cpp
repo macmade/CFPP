@@ -45,6 +45,17 @@ TEST( CFPP_Error, CTOR )
     ASSERT_FALSE( e.IsValid() );
 }
 
+TEST( CFPP_Error, CTOR_AutoPointer )
+{
+    CF::Error e1( CF::AutoPointer( CFErrorCreate( NULL, CF::String( "com.xs-labs" ), 0, NULL ) ) );
+    CF::Error e2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::Error e3( CF::AutoPointer( NULL ) );
+    
+    ASSERT_TRUE(  e1.IsValid() );
+    ASSERT_FALSE( e2.IsValid() );
+    ASSERT_FALSE( e3.IsValid() );
+}
+
 TEST( CFPP_Error, CTOR_CFType )
 {
     CFErrorRef cfE;
@@ -214,6 +225,25 @@ TEST( CFPP_Error, OperatorAssignError )
     ASSERT_TRUE(  e2.IsValid() );
     ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
     ASSERT_EQ( e2.GetCode(), 42 );
+}
+
+TEST( CFPP_Error, OperatorAssignAutoPointer )
+{
+    CF::Error e1;
+    CF::Error e2( "com.xs-labs", 0 );
+    CF::Error e3( "org.xs-labs", 0 );
+    
+    ASSERT_FALSE( e1.IsValid() );
+    ASSERT_TRUE(  e2.IsValid() );
+    ASSERT_TRUE(  e3.IsValid() );
+    
+    e1 = CF::AutoPointer( CFErrorCreate( NULL, CF::String( "com.xs-labs" ), 0, NULL ) );
+    e2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    e3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE(  e1.IsValid() );
+    ASSERT_FALSE( e2.IsValid() );
+    ASSERT_FALSE( e3.IsValid() );
 }
 
 TEST( CFPP_Error, OperatorAssignCFType )

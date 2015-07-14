@@ -63,13 +63,15 @@ TEST( CFPP_ReadStream, CTOR_CChar )
     ASSERT_TRUE( s2.IsValid() );
 }
 
-TEST( CFPP_ReadStream, CTOR_URL )
+TEST( CFPP_ReadStream, CTOR_AutoPointer )
 {
-    CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
-    CF::ReadStream s2( CF::URL( "file:///foo/bar" ) );
+    CF::ReadStream s1( CF::AutoPointer( CFReadStreamCreateWithFile( NULL, CF::URL( "file:///etc/hosts" ) ) ) );
+    CF::ReadStream s2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::ReadStream s3( CF::AutoPointer( NULL ) );
     
-    ASSERT_TRUE( s1.IsValid() );
-    ASSERT_TRUE( s2.IsValid() );
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
 }
 
 TEST( CFPP_ReadStream, CTOR_CFType )
@@ -94,13 +96,15 @@ TEST( CFPP_ReadStream, CTOR_CFReadStream )
     ASSERT_FALSE( s3.IsValid() );
 }
 
-TEST( CFPP_ReadStream, CCTOR )
+TEST( CFPP_ReadStream, CTOR_URL )
 {
     CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
-    CF::ReadStream s2( s1 );
+    CF::ReadStream s2( CF::URL( "file:///foo/bar" ) );
+    CF::ReadStream s3( s1 );
     
     ASSERT_TRUE( s1.IsValid() );
     ASSERT_TRUE( s2.IsValid() );
+    ASSERT_TRUE( s3.IsValid() );
 }
 
 #ifdef CFPP_HAS_CPP11
@@ -131,6 +135,25 @@ TEST( CFPP_ReadStream, OperatorAssignReadStream )
     s2 = s3;
     
     ASSERT_FALSE( s2.IsValid() );
+}
+
+TEST( CFPP_ReadStream, OperatorAssignAutoPointer )
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2( "/etc/hosts" );
+    CF::ReadStream s3( "/etc/hosts" );
+    
+    ASSERT_FALSE( s1.IsValid() );
+    ASSERT_TRUE(  s2.IsValid() );
+    ASSERT_TRUE(  s3.IsValid() );
+    
+    s1 = CF::AutoPointer( CFReadStreamCreateWithFile( NULL, CF::URL( "file:///etc/hosts" ) ) );
+    s2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    s3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE(  s1.IsValid() );
+    ASSERT_FALSE( s2.IsValid() );
+    ASSERT_FALSE( s3.IsValid() );
 }
 
 TEST( CFPP_ReadStream, OperatorAssignCFType )

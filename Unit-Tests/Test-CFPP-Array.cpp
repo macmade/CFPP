@@ -46,6 +46,9 @@ TEST( CFPP_Array, CTOR )
     ASSERT_EQ( a.GetCount(), 0 );
 }
 
+TEST( CFPP_Array, CTOR_AutoPointer )
+{}
+
 TEST( CFPP_Array, CTOR_CFType )
 {}
 
@@ -94,6 +97,9 @@ TEST( CFPP_Array, MCTOR )
 #endif
 
 TEST( CFPP_Array, OperatorAssignArray )
+{}
+
+TEST( CFPP_Array, OperatorAssignAutoPointer )
 {}
 
 TEST( CFPP_Array, OperatorAssignCFType )
