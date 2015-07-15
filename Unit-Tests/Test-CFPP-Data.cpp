@@ -39,10 +39,23 @@
 using namespace testing;
 
 TEST( CFPP_Data, CTOR )
-{}
+{
+    CF::Data d;
+    
+    ASSERT_TRUE( d.IsValid() );
+    ASSERT_EQ( d.GetLength(), 0 );
+}
 
 TEST( CFPP_Data, CTOR_AutoPointer )
-{}
+{
+    CF::Data d1( CF::AutoPointer( CFDataCreateMutable( NULL, 10 ) ) );
+    CF::Data d2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::Data d3( CF::AutoPointer( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Data, CTOR_CFType )
 {}
@@ -71,7 +84,23 @@ TEST( CFPP_Data, OperatorAssignData )
 {}
 
 TEST( CFPP_Data, OperatorAssignAutoPointer )
-{}
+{
+    CF::Data d1( static_cast< CFTypeRef >( NULL ) );
+    CF::Data d2;
+    CF::Data d3;
+    
+    ASSERT_FALSE( d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    
+    d1 = CF::AutoPointer( CFDataCreateMutable( NULL, 10 ) );
+    d2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    d3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Data, OperatorAssignCFType )
 {}
@@ -107,10 +136,22 @@ TEST( CFPP_Data, OperatorPlusEqualSTDString )
 {}
 
 TEST( CFPP_Data, GetTypeID )
-{}
+{
+    CF::Data d;
+    
+    ASSERT_EQ( d.GetTypeID(), CFDataGetTypeID() );
+}
 
 TEST( CFPP_Data, GetCFObject )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( static_cast< CFStringRef >( NULL ) );
+    
+    ASSERT_TRUE( d1.GetCFObject() != NULL );
+    ASSERT_TRUE( d2.GetCFObject() == NULL );
+    
+    ASSERT_EQ( CFGetTypeID( d1.GetCFObject() ), CFDataGetTypeID() );
+}
 
 TEST( CFPP_Data, GetLength )
 {}
@@ -140,4 +181,15 @@ TEST( CFPP_Data, DeleteBytes )
 {}
 
 TEST( CFPP_Data, Swap )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    swap( d1, d2 );
+    
+    ASSERT_FALSE( d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+}
