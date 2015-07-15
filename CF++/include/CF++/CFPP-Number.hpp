@@ -46,8 +46,6 @@ namespace CF
             
             #ifdef _WIN32
             
-            typedef          __int8   SInt8;
-            typedef unsigned __int8   UInt8;
             typedef          __int16 SInt16;
             typedef unsigned __int16 UInt16;
             typedef          __int32 SInt32;
@@ -56,9 +54,7 @@ namespace CF
             typedef unsigned __int64 UInt64;
             
             #else
-            
-            typedef int8_t   SInt8;
-            typedef uint8_t  UInt8;
+        
             typedef int16_t  SInt16;
             typedef uint16_t UInt16;
             typedef int32_t  SInt32;
@@ -72,42 +68,42 @@ namespace CF
             Number( const AutoPointer & value );
             Number( CFTypeRef cfObject );
             Number( CFNumberRef cfObject );
-            Number( const AutoPointer & value, SInt8 defaultValueIfNULL );
+            Number( const AutoPointer & value, signed char defaultValueIfNULL );
             Number( const AutoPointer & value, SInt16 defaultValueIfNULL );
             Number( const AutoPointer & value, SInt32 defaultValueIfNULL );
             Number( const AutoPointer & value, SInt64 defaultValueIfNULL );
-            Number( const AutoPointer & value, UInt8 defaultValueIfNULL );
+            Number( const AutoPointer & value, unsigned char defaultValueIfNULL );
             Number( const AutoPointer & value, UInt16 defaultValueIfNULL );
             Number( const AutoPointer & value, UInt32 defaultValueIfNULL );
             Number( const AutoPointer & value, UInt64 defaultValueIfNULL );
-            Number( CFTypeRef cfObject, SInt8 defaultValueIfNULL );
             Number( const AutoPointer & value, float defaultValueIfNULL );
             Number( const AutoPointer & value, double defaultValueIfNULL );
+            Number( CFTypeRef cfObject, signed char defaultValueIfNULL );
             Number( CFTypeRef cfObject, SInt16 defaultValueIfNULL );
             Number( CFTypeRef cfObject, SInt32 defaultValueIfNULL );
             Number( CFTypeRef cfObject, SInt64 defaultValueIfNULL );
-            Number( CFTypeRef cfObject, UInt8 defaultValueIfNULL );
+            Number( CFTypeRef cfObject, unsigned char defaultValueIfNULL );
             Number( CFTypeRef cfObject, UInt16 defaultValueIfNULL );
             Number( CFTypeRef cfObject, UInt32 defaultValueIfNULL );
             Number( CFTypeRef cfObject, UInt64 defaultValueIfNULL );
-            Number( CFNumberRef cfObject, SInt8 defaultValueIfNULL );
             Number( CFTypeRef cfObject, float defaultValueIfNULL );
             Number( CFTypeRef cfObject, double defaultValueIfNULL );
+            Number( CFNumberRef cfObject, signed char defaultValueIfNULL );
             Number( CFNumberRef cfObject, SInt16 defaultValueIfNULL );
             Number( CFNumberRef cfObject, SInt32 defaultValueIfNULL );
             Number( CFNumberRef cfObject, SInt64 defaultValueIfNULL );
-            Number( CFNumberRef cfObject, UInt8 defaultValueIfNULL );
+            Number( CFNumberRef cfObject, unsigned char defaultValueIfNULL );
             Number( CFNumberRef cfObject, UInt16 defaultValueIfNULL );
             Number( CFNumberRef cfObject, UInt32 defaultValueIfNULL );
             Number( CFNumberRef cfObject, UInt64 defaultValueIfNULL );
             Number( CFNumberRef cfObject, float defaultValueIfNULL );
             Number( CFNumberRef cfObject, double defaultValueIfNULL );
             Number( const Number & value );
-            Number( SInt8 value );
+            Number( signed char value );
             Number( SInt16 value );
             Number( SInt32 value );
             Number( SInt64 value );
-            Number( UInt8 value );
+            Number( unsigned char value );
             Number( UInt16 value );
             Number( UInt32 value );
             Number( UInt64 value );
@@ -124,11 +120,11 @@ namespace CF
             Number & operator = ( const AutoPointer & value );
             Number & operator = ( CFTypeRef value );
             Number & operator = ( CFNumberRef value );
-            Number & operator = ( SInt8 value );
+            Number & operator = ( signed char value );
             Number & operator = ( SInt16 value );
             Number & operator = ( SInt32 value );
             Number & operator = ( SInt64 value );
-            Number & operator = ( UInt8 value );
+            Number & operator = ( unsigned char value );
             Number & operator = ( UInt16 value );
             Number & operator = ( UInt32 value );
             Number & operator = ( UInt64 value );
@@ -138,11 +134,11 @@ namespace CF
             bool operator == ( const Number & value ) const;
             bool operator == ( CFTypeRef value ) const;
             bool operator == ( CFNumberRef value ) const;
-            bool operator == ( SInt8 value ) const;
+            bool operator == ( signed char value ) const;
             bool operator == ( SInt16 value ) const;
             bool operator == ( SInt32 value ) const;
             bool operator == ( SInt64 value ) const;
-            bool operator == ( UInt8 value ) const;
+            bool operator == ( unsigned char value ) const;
             bool operator == ( UInt16 value ) const;
             bool operator == ( UInt32 value ) const;
             bool operator == ( UInt64 value ) const;
@@ -152,11 +148,11 @@ namespace CF
             bool operator != ( const Number & value ) const;
             bool operator != ( CFTypeRef value ) const;
             bool operator != ( CFNumberRef value ) const;
-            bool operator != ( SInt8 value ) const;
+            bool operator != ( signed char value ) const;
             bool operator != ( SInt16 value ) const;
             bool operator != ( SInt32 value ) const;
             bool operator != ( SInt64 value ) const;
-            bool operator != ( UInt8 value ) const;
+            bool operator != ( unsigned char value ) const;
             bool operator != ( UInt16 value ) const;
             bool operator != ( UInt32 value ) const;
             bool operator != ( UInt64 value ) const;
@@ -166,11 +162,11 @@ namespace CF
             bool operator >= ( const Number & value ) const;
             bool operator >= ( CFTypeRef value ) const;
             bool operator >= ( CFNumberRef value ) const;
-            bool operator >= ( SInt8 value ) const;
+            bool operator >= ( signed char value ) const;
             bool operator >= ( SInt16 value ) const;
             bool operator >= ( SInt32 value ) const;
             bool operator >= ( SInt64 value ) const;
-            bool operator >= ( UInt8 value ) const;
+            bool operator >= ( unsigned char value ) const;
             bool operator >= ( UInt16 value ) const;
             bool operator >= ( UInt32 value ) const;
             bool operator >= ( UInt64 value ) const;
@@ -180,11 +176,11 @@ namespace CF
             bool operator <= ( const Number & value ) const;
             bool operator <= ( CFTypeRef value ) const;
             bool operator <= ( CFNumberRef value ) const;
-            bool operator <= ( SInt8 value ) const;
+            bool operator <= ( signed char value ) const;
             bool operator <= ( SInt16 value ) const;
             bool operator <= ( SInt32 value ) const;
             bool operator <= ( SInt64 value ) const;
-            bool operator <= ( UInt8 value ) const;
+            bool operator <= ( unsigned char value ) const;
             bool operator <= ( UInt16 value ) const;
             bool operator <= ( UInt32 value ) const;
             bool operator <= ( UInt64 value ) const;
@@ -194,11 +190,11 @@ namespace CF
             bool operator > ( const Number & value ) const;
             bool operator > ( CFTypeRef value ) const;
             bool operator > ( CFNumberRef value ) const;
-            bool operator > ( SInt8 value ) const;
+            bool operator > ( signed char value ) const;
             bool operator > ( SInt16 value ) const;
             bool operator > ( SInt32 value ) const;
             bool operator > ( SInt64 value ) const;
-            bool operator > ( UInt8 value ) const;
+            bool operator > ( unsigned char value ) const;
             bool operator > ( UInt16 value ) const;
             bool operator > ( UInt32 value ) const;
             bool operator > ( UInt64 value ) const;
@@ -208,11 +204,11 @@ namespace CF
             bool operator < ( const Number & value ) const;
             bool operator < ( CFTypeRef value ) const;
             bool operator < ( CFNumberRef value ) const;
-            bool operator < ( SInt8 value ) const;
+            bool operator < ( signed char value ) const;
             bool operator < ( SInt16 value ) const;
             bool operator < ( SInt32 value ) const;
             bool operator < ( SInt64 value ) const;
-            bool operator < ( UInt8 value ) const;
+            bool operator < ( unsigned char value ) const;
             bool operator < ( UInt16 value ) const;
             bool operator < ( UInt32 value ) const;
             bool operator < ( UInt64 value ) const;
@@ -222,11 +218,11 @@ namespace CF
             bool operator && ( const Number & value ) const;
             bool operator && ( CFTypeRef value ) const;
             bool operator && ( CFNumberRef value ) const;
-            bool operator && ( SInt8 value ) const;
+            bool operator && ( signed char value ) const;
             bool operator && ( SInt16 value ) const;
             bool operator && ( SInt32 value ) const;
             bool operator && ( SInt64 value ) const;
-            bool operator && ( UInt8 value ) const;
+            bool operator && ( unsigned char value ) const;
             bool operator && ( UInt16 value ) const;
             bool operator && ( UInt32 value ) const;
             bool operator && ( UInt64 value ) const;
@@ -236,11 +232,11 @@ namespace CF
             bool operator || ( const Number & value ) const;
             bool operator || ( CFTypeRef value ) const;
             bool operator || ( CFNumberRef value ) const;
-            bool operator || ( SInt8 value ) const;
+            bool operator || ( signed char value ) const;
             bool operator || ( SInt16 value ) const;
             bool operator || ( SInt32 value ) const;
             bool operator || ( SInt64 value ) const;
-            bool operator || ( UInt8 value ) const;
+            bool operator || ( unsigned char value ) const;
             bool operator || ( UInt16 value ) const;
             bool operator || ( UInt32 value ) const;
             bool operator || ( UInt64 value ) const;
@@ -256,11 +252,11 @@ namespace CF
             
             Number & operator += ( const Number & value );
             Number & operator += ( CFNumberRef value );
-            Number & operator += ( SInt8 value );
+            Number & operator += ( signed char value );
             Number & operator += ( SInt16 value );
             Number & operator += ( SInt32 value );
             Number & operator += ( SInt64 value );
-            Number & operator += ( UInt8 value );
+            Number & operator += ( unsigned char value );
             Number & operator += ( UInt16 value );
             Number & operator += ( UInt32 value );
             Number & operator += ( UInt64 value );
@@ -269,11 +265,11 @@ namespace CF
             
             Number & operator -= ( const Number & value );
             Number & operator -= ( CFNumberRef value );
-            Number & operator -= ( SInt8 value );
+            Number & operator -= ( signed char value );
             Number & operator -= ( SInt16 value );
             Number & operator -= ( SInt32 value );
             Number & operator -= ( SInt64 value );
-            Number & operator -= ( UInt8 value );
+            Number & operator -= ( unsigned char value );
             Number & operator -= ( UInt16 value );
             Number & operator -= ( UInt32 value );
             Number & operator -= ( UInt64 value );
@@ -282,11 +278,11 @@ namespace CF
             
             Number & operator *= ( const Number & value );
             Number & operator *= ( CFNumberRef value );
-            Number & operator *= ( SInt8 value );
+            Number & operator *= ( signed char value );
             Number & operator *= ( SInt16 value );
             Number & operator *= ( SInt32 value );
             Number & operator *= ( SInt64 value );
-            Number & operator *= ( UInt8 value );
+            Number & operator *= ( unsigned char value );
             Number & operator *= ( UInt16 value );
             Number & operator *= ( UInt32 value );
             Number & operator *= ( UInt64 value );
@@ -295,11 +291,11 @@ namespace CF
             
             Number & operator /= ( const Number & value );
             Number & operator /= ( CFNumberRef value );
-            Number & operator /= ( SInt8 value );
+            Number & operator /= ( signed char value );
             Number & operator /= ( SInt16 value );
             Number & operator /= ( SInt32 value );
             Number & operator /= ( SInt64 value );
-            Number & operator /= ( UInt8 value );
+            Number & operator /= ( unsigned char value );
             Number & operator /= ( UInt16 value );
             Number & operator /= ( UInt32 value );
             Number & operator /= ( UInt64 value );
@@ -308,77 +304,77 @@ namespace CF
             
             Number & operator |= ( const Number & value );
             Number & operator |= ( CFNumberRef value );
-            Number & operator |= ( SInt8 value );
+            Number & operator |= ( signed char value );
             Number & operator |= ( SInt16 value );
             Number & operator |= ( SInt32 value );
             Number & operator |= ( SInt64 value );
-            Number & operator |= ( UInt8 value );
+            Number & operator |= ( unsigned char value );
             Number & operator |= ( UInt16 value );
             Number & operator |= ( UInt32 value );
             Number & operator |= ( UInt64 value );
             
             Number & operator &= ( const Number & value );
             Number & operator &= ( CFNumberRef value );
-            Number & operator &= ( SInt8 value );
+            Number & operator &= ( signed char value );
             Number & operator &= ( SInt16 value );
             Number & operator &= ( SInt32 value );
             Number & operator &= ( SInt64 value );
-            Number & operator &= ( UInt8 value );
+            Number & operator &= ( unsigned char value );
             Number & operator &= ( UInt16 value );
             Number & operator &= ( UInt32 value );
             Number & operator &= ( UInt64 value );
             
             Number & operator %= ( const Number & value );
             Number & operator %= ( CFNumberRef value );
-            Number & operator %= ( SInt8 value );
+            Number & operator %= ( signed char value );
             Number & operator %= ( SInt16 value );
             Number & operator %= ( SInt32 value );
             Number & operator %= ( SInt64 value );
-            Number & operator %= ( UInt8 value );
+            Number & operator %= ( unsigned char value );
             Number & operator %= ( UInt16 value );
             Number & operator %= ( UInt32 value );
             Number & operator %= ( UInt64 value );
             
             Number & operator ^= ( const Number & value );
             Number & operator ^= ( CFNumberRef value );
-            Number & operator ^= ( SInt8 value );
+            Number & operator ^= ( signed char value );
             Number & operator ^= ( SInt16 value );
             Number & operator ^= ( SInt32 value );
             Number & operator ^= ( SInt64 value );
-            Number & operator ^= ( UInt8 value );
+            Number & operator ^= ( unsigned char value );
             Number & operator ^= ( UInt16 value );
             Number & operator ^= ( UInt32 value );
             Number & operator ^= ( UInt64 value );
             
             Number & operator <<= ( const Number & value );
             Number & operator <<= ( CFNumberRef value );
-            Number & operator <<= ( SInt8 value );
+            Number & operator <<= ( signed char value );
             Number & operator <<= ( SInt16 value );
             Number & operator <<= ( SInt32 value );
             Number & operator <<= ( SInt64 value );
-            Number & operator <<= ( UInt8 value );
+            Number & operator <<= ( unsigned char value );
             Number & operator <<= ( UInt16 value );
             Number & operator <<= ( UInt32 value );
             Number & operator <<= ( UInt64 value );
             
             Number & operator >>= ( const Number & value );
             Number & operator >>= ( CFNumberRef value );
-            Number & operator >>= ( SInt8 value );
+            Number & operator >>= ( signed char value );
             Number & operator >>= ( SInt16 value );
             Number & operator >>= ( SInt32 value );
             Number & operator >>= ( SInt64 value );
-            Number & operator >>= ( UInt8 value );
+            Number & operator >>= ( unsigned char value );
             Number & operator >>= ( UInt16 value );
             Number & operator >>= ( UInt32 value );
             Number & operator >>= ( UInt64 value );
             
             Number operator + ( const Number & value );
             Number operator + ( CFNumberRef value );
-            Number operator + ( SInt8 value );
+            Number operator + ( signed char value );
             Number operator + ( SInt16 value );
             Number operator + ( SInt32 value );
             Number operator + ( SInt64 value );
-            Number operator + ( UInt8 value );
+            Number operator + ( unsigned char value );
             Number operator + ( UInt16 value );
             Number operator + ( UInt32 value );
             Number operator + ( UInt64 value );
@@ -387,11 +383,11 @@ namespace CF
             
             Number operator - ( const Number & value );
             Number operator - ( CFNumberRef value );
-            Number operator - ( SInt8 value );
+            Number operator - ( signed char value );
             Number operator - ( SInt16 value );
             Number operator - ( SInt32 value );
             Number operator - ( SInt64 value );
-            Number operator - ( UInt8 value );
+            Number operator - ( unsigned char value );
             Number operator - ( UInt16 value );
             Number operator - ( UInt32 value );
             Number operator - ( UInt64 value );
@@ -400,11 +396,11 @@ namespace CF
             
             Number operator * ( const Number & value );
             Number operator * ( CFNumberRef value );
-            Number operator * ( SInt8 value );
+            Number operator * ( signed char value );
             Number operator * ( SInt16 value );
             Number operator * ( SInt32 value );
             Number operator * ( SInt64 value );
-            Number operator * ( UInt8 value );
+            Number operator * ( unsigned char value );
             Number operator * ( UInt16 value );
             Number operator * ( UInt32 value );
             Number operator * ( UInt64 value );
@@ -413,11 +409,11 @@ namespace CF
             
             Number operator / ( const Number & value );
             Number operator / ( CFNumberRef value );
-            Number operator / ( SInt8 value );
+            Number operator / ( signed char value );
             Number operator / ( SInt16 value );
             Number operator / ( SInt32 value );
             Number operator / ( SInt64 value );
-            Number operator / ( UInt8 value );
+            Number operator / ( unsigned char value );
             Number operator / ( UInt16 value );
             Number operator / ( UInt32 value );
             Number operator / ( UInt64 value );
@@ -426,75 +422,75 @@ namespace CF
             
             Number operator % ( const Number & value );
             Number operator % ( CFNumberRef value );
-            Number operator % ( SInt8 value );
+            Number operator % ( signed char value );
             Number operator % ( SInt16 value );
             Number operator % ( SInt32 value );
             Number operator % ( SInt64 value );
-            Number operator % ( UInt8 value );
+            Number operator % ( unsigned char value );
             Number operator % ( UInt16 value );
             Number operator % ( UInt32 value );
             Number operator % ( UInt64 value );
             
             Number operator & ( const Number & value );
             Number operator & ( CFNumberRef value );
-            Number operator & ( SInt8 value );
+            Number operator & ( signed char value );
             Number operator & ( SInt16 value );
             Number operator & ( SInt32 value );
             Number operator & ( SInt64 value );
-            Number operator & ( UInt8 value );
+            Number operator & ( unsigned char value );
             Number operator & ( UInt16 value );
             Number operator & ( UInt32 value );
             Number operator & ( UInt64 value );
             
             Number operator | ( const Number & value );
             Number operator | ( CFNumberRef value );
-            Number operator | ( SInt8 value );
+            Number operator | ( signed char value );
             Number operator | ( SInt16 value );
             Number operator | ( SInt32 value );
             Number operator | ( SInt64 value );
-            Number operator | ( UInt8 value );
+            Number operator | ( unsigned char value );
             Number operator | ( UInt16 value );
             Number operator | ( UInt32 value );
             Number operator | ( UInt64 value );
             
             Number operator ^ ( const Number & value );
             Number operator ^ ( CFNumberRef value );
-            Number operator ^ ( SInt8 value );
+            Number operator ^ ( signed char value );
             Number operator ^ ( SInt16 value );
             Number operator ^ ( SInt32 value );
             Number operator ^ ( SInt64 value );
-            Number operator ^ ( UInt8 value );
+            Number operator ^ ( unsigned char value );
             Number operator ^ ( UInt16 value );
             Number operator ^ ( UInt32 value );
             Number operator ^ ( UInt64 value );
             
             Number operator << ( const Number & value );
             Number operator << ( CFNumberRef value );
-            Number operator << ( SInt8 value );
+            Number operator << ( signed char value );
             Number operator << ( SInt16 value );
             Number operator << ( SInt32 value );
             Number operator << ( SInt64 value );
-            Number operator << ( UInt8 value );
+            Number operator << ( unsigned char value );
             Number operator << ( UInt16 value );
             Number operator << ( UInt32 value );
             Number operator << ( UInt64 value );
             
             Number operator >> ( const Number & value );
             Number operator >> ( CFNumberRef value );
-            Number operator >> ( SInt8 value );
+            Number operator >> ( signed char value );
             Number operator >> ( SInt16 value );
             Number operator >> ( SInt32 value );
             Number operator >> ( SInt64 value );
-            Number operator >> ( UInt8 value );
+            Number operator >> ( unsigned char value );
             Number operator >> ( UInt16 value );
             Number operator >> ( UInt32 value );
             Number operator >> ( UInt64 value );
             
-            operator SInt8   () const;
+            operator signed char   () const;
             operator SInt16  () const;
             operator SInt32  () const;
             operator SInt64  () const;
-            operator UInt8   () const;
+            operator unsigned char   () const;
             operator UInt16  () const;
             operator UInt32  () const;
             operator UInt64  () const;
@@ -506,21 +502,21 @@ namespace CF
             
             bool IsFloatType( void ) const;
             
-            SInt8   GetSInt8Value( void ) const;
+            signed char   GetSignedCharValue( void ) const;
             SInt16  GetSInt16Value( void ) const;
             SInt32  GetSInt32Value( void ) const;
             SInt64  GetSInt64Value( void ) const;
-            UInt8   GetUInt8Value( void ) const;
+            unsigned char   GetUnsignedCharValue( void ) const;
             UInt16  GetUInt16Value( void ) const;
             UInt32  GetUInt32Value( void ) const;
             UInt64  GetUInt64Value( void ) const;
-            void    SetSInt8Value( SInt8 value );
             float GetFloatValue( void ) const;
             double GetDoubleValue( void ) const;
+            void    SetSignedCharValue( signed char value );
             void    SetSInt16Value( SInt16 value );
             void    SetSInt32Value( SInt32 value );
             void    SetSInt64Value( SInt64 value );
-            void    SetUInt8Value( UInt8 value );
+            void    SetUnsignedCharValue( unsigned char value );
             void    SetUInt16Value( UInt16 value );
             void    SetUInt32Value( UInt32 value );
             void    SetUInt64Value( UInt64 value );
