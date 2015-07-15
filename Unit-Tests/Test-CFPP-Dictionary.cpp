@@ -39,10 +39,23 @@
 using namespace testing;
 
 TEST( CFPP_Dictionary, CTOR )
-{}
+{
+    CF::Dictionary d;
+    
+    ASSERT_TRUE( d.IsValid() );
+    ASSERT_EQ( d.GetCount(), 0 );
+}
 
 TEST( CFPP_Dictionary, CTOR_AutoPointer )
-{}
+{
+    CF::Dictionary d1( CF::AutoPointer( CFDictionaryCreateMutable( NULL, 10, NULL, NULL ) ) );
+    CF::Dictionary d2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::Dictionary d3( CF::AutoPointer( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Dictionary, CTOR_CFType )
 {}
@@ -59,7 +72,23 @@ TEST( CFPP_Dictionary, MCTOR )
 #endif
 
 TEST( CFPP_Dictionary, OperatorAssignDictionary )
-{}
+{
+    CF::Dictionary d1( static_cast< CFTypeRef >( NULL ) );
+    CF::Dictionary d2;
+    CF::Dictionary d3;
+    
+    ASSERT_FALSE( d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    
+    d1 = CF::AutoPointer( CFDictionaryCreateMutable( NULL, 0, NULL, NULL ) );
+    d2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    d3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Dictionary, OperatorAssignAutoPointer )
 {}
@@ -119,4 +148,18 @@ TEST( CFPP_Dictionary, SetValue )
 {}
 
 TEST( CFPP_Dictionary, Swap )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2;
+    
+    d1 << CF::Pair( "hello", "world" );
+    d1 << CF::Pair( "foo",   "bar" );
+    
+    ASSERT_EQ( d1.GetCount(), 2 );
+    ASSERT_EQ( d2.GetCount(), 0 );
+    
+    swap( d1, d2 );
+    
+    ASSERT_EQ( d1.GetCount(), 0 );
+    ASSERT_EQ( d2.GetCount(), 2 );
+}
