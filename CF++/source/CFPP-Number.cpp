@@ -136,6 +136,20 @@ namespace CF
         }
     }
     
+    Number::Number( const AutoPointer & value, signed long long defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetSignedLongLongValue( defaultValueIfNULL );
+        }
+    }
+    
     Number::Number( const AutoPointer & value, unsigned char defaultValueIfNULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
@@ -189,6 +203,20 @@ namespace CF
             this->_cfObject = NULL;
             
             this->SetUnsignedLongValue( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, unsigned long long defaultValueIfNULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetUnsignedLongLongValue( defaultValueIfNULL );
         }
     }
     
@@ -276,6 +304,20 @@ namespace CF
         }
     }
     
+    Number::Number( CFTypeRef cfObject, signed long long defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetSignedLongLongValue( defaultValueIfNULL );
+        }
+    }
+    
     Number::Number( CFTypeRef cfObject, unsigned char defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
@@ -329,6 +371,20 @@ namespace CF
             this->_cfObject = NULL;
             
             this->SetUnsignedLongValue( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, unsigned long long defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetUnsignedLongLongValue( defaultValueIfNULL );
         }
     }
     
@@ -416,6 +472,20 @@ namespace CF
         }
     }
     
+    Number::Number( CFNumberRef cfObject, signed long long defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetSignedLongLongValue( defaultValueIfNULL );
+        }
+    }
+    
     Number::Number( CFNumberRef cfObject, unsigned char defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
@@ -469,6 +539,20 @@ namespace CF
             this->_cfObject = NULL;
             
             this->SetUnsignedLongValue( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject, unsigned long long defaultValueIfNULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
+        }
+        else
+        {
+            this->_cfObject = NULL;
+            
+            this->SetUnsignedLongLongValue( defaultValueIfNULL );
         }
     }
     
@@ -540,6 +624,13 @@ namespace CF
         this->SetSignedLongValue( value );
     }
     
+    Number::Number( signed long long value )
+    {
+        this->_cfObject = NULL;
+        
+        this->SetSignedLongLongValue( value );
+    }
+    
     Number::Number( unsigned char value )
     {
         this->_cfObject = NULL;
@@ -566,6 +657,13 @@ namespace CF
         this->_cfObject = NULL;
         
         this->SetUnsignedLongValue( value );
+    }
+    
+    Number::Number( unsigned long long value )
+    {
+        this->_cfObject = NULL;
+        
+        this->SetUnsignedLongLongValue( value );
     }
     
     Number::Number( float value )
@@ -678,6 +776,13 @@ namespace CF
         return *( this );
     }
     
+    Number & Number::operator = ( signed long long value )
+    {
+        this->SetSignedLongLongValue( value );
+        
+        return *( this );
+    }
+    
     Number & Number::operator = ( unsigned char value )
     {
         this->SetUnsignedCharValue( value );
@@ -702,6 +807,13 @@ namespace CF
     Number & Number::operator = ( unsigned long value )
     {
         this->SetUnsignedLongValue( value );
+        
+        return *( this );
+    }
+    
+    Number & Number::operator = ( unsigned long long value )
+    {
+        this->SetUnsignedLongLongValue( value );
         
         return *( this );
     }
@@ -784,6 +896,15 @@ namespace CF
         return *( this ) == num;
     }
     
+    bool Number::operator == ( signed long long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) == num;
+    }
+    
     bool Number::operator == ( unsigned char value ) const
     {
         Number num;
@@ -812,6 +933,15 @@ namespace CF
     }
     
     bool Number::operator == ( unsigned long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) == num;
+    }
+    
+    bool Number::operator == ( unsigned long long value ) const
     {
         Number num;
         
@@ -873,6 +1003,11 @@ namespace CF
         return !( *( this ) == value );
     }
     
+    bool Number::operator != ( signed long long value ) const
+    {
+        return !( *( this ) == value );
+    }
+    
     bool Number::operator != ( unsigned char value ) const
     {
         return !( *( this ) == value );
@@ -889,6 +1024,11 @@ namespace CF
     }
     
     bool Number::operator != ( unsigned long value ) const
+    {
+        return !( *( this ) == value );
+    }
+    
+    bool Number::operator != ( unsigned long long value ) const
     {
         return !( *( this ) == value );
     }
@@ -967,6 +1107,15 @@ namespace CF
         return *( this ) >= num;
     }
     
+    bool Number::operator >= ( signed long long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >= num;
+    }
+    
     bool Number::operator >= ( unsigned char value ) const
     {
         Number num;
@@ -995,6 +1144,15 @@ namespace CF
     }
     
     bool Number::operator >= ( unsigned long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >= num;
+    }
+    
+    bool Number::operator >= ( unsigned long long value ) const
     {
         Number num;
         
@@ -1085,6 +1243,15 @@ namespace CF
         return *( this ) <= num;
     }
     
+    bool Number::operator <= ( signed long long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <= num;
+    }
+    
     bool Number::operator <= ( unsigned char value ) const
     {
         Number num;
@@ -1113,6 +1280,15 @@ namespace CF
     }
     
     bool Number::operator <= ( unsigned long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <= num;
+    }
+    
+    bool Number::operator <= ( unsigned long long value ) const
     {
         Number num;
         
@@ -1203,6 +1379,15 @@ namespace CF
         return *( this ) > num;
     }
     
+    bool Number::operator > ( signed long long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) > num;
+    }
+    
     bool Number::operator > ( unsigned char value ) const
     {
         Number num;
@@ -1231,6 +1416,15 @@ namespace CF
     }
     
     bool Number::operator > ( unsigned long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) > num;
+    }
+    
+    bool Number::operator > ( unsigned long long value ) const
     {
         Number num;
         
@@ -1321,6 +1515,15 @@ namespace CF
         return *( this ) < num;
     }
     
+    bool Number::operator < ( signed long long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) < num;
+    }
+    
     bool Number::operator < ( unsigned char value ) const
     {
         Number num;
@@ -1349,6 +1552,15 @@ namespace CF
     }
     
     bool Number::operator < ( unsigned long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) < num;
+    }
+    
+    bool Number::operator < ( unsigned long long value ) const
     {
         Number num;
         
@@ -1434,6 +1646,15 @@ namespace CF
         return *( this ) && num;
     }
     
+    bool Number::operator && ( signed long long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) && num;
+    }
+    
     bool Number::operator && ( unsigned char value ) const
     {
         Number num;
@@ -1462,6 +1683,15 @@ namespace CF
     }
     
     bool Number::operator && ( unsigned long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) && num;
+    }
+    
+    bool Number::operator && ( unsigned long long value ) const
     {
         Number num;
         
@@ -1547,6 +1777,15 @@ namespace CF
         return *( this ) || num;
     }
     
+    bool Number::operator || ( signed long long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) || num;
+    }
+    
     bool Number::operator || ( unsigned char value ) const
     {
         Number num;
@@ -1575,6 +1814,15 @@ namespace CF
     }
     
     bool Number::operator || ( unsigned long value ) const
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) || num;
+    }
+    
+    bool Number::operator || ( unsigned long long value ) const
     {
         Number num;
         
@@ -1623,7 +1871,7 @@ namespace CF
         }
         else
         {
-            this->SetSignedLongValue( this->GetSignedLongValue() + static_cast< signed long >( 1 ) );
+            this->SetSignedLongLongValue( this->GetSignedLongLongValue() + static_cast< signed long long >( 1 ) );
         }
         
         return *( this );
@@ -1646,7 +1894,7 @@ namespace CF
         }
         else
         {
-            this->SetSignedLongValue( this->GetSignedLongValue() - static_cast< signed long >( 1 ) );
+            this->SetSignedLongLongValue( this->GetSignedLongLongValue() - static_cast< signed long long >( 1 ) );
         }
         
         return *( this );
@@ -1669,7 +1917,7 @@ namespace CF
         }
         else
         {
-            this->SetSignedLongValue( this->GetSignedLongValue() + value.GetSignedLongValue() );
+            this->SetSignedLongLongValue( this->GetSignedLongLongValue() + value.GetSignedLongLongValue() );
         }
         
         return *( this );
@@ -1720,6 +1968,15 @@ namespace CF
         return *( this ) += num;
     }
     
+    Number & Number::operator += ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) += num;
+    }
+    
     Number & Number::operator += ( unsigned char value )
     {
         Number num;
@@ -1748,6 +2005,15 @@ namespace CF
     }
     
     Number & Number::operator += ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) += num;
+    }
+    
+    Number & Number::operator += ( unsigned long long value )
     {
         Number num;
         
@@ -1833,6 +2099,15 @@ namespace CF
         return *( this ) -= num;
     }
     
+    Number & Number::operator -= ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) -= num;
+    }
+    
     Number & Number::operator -= ( unsigned char value )
     {
         Number num;
@@ -1861,6 +2136,15 @@ namespace CF
     }
     
     Number & Number::operator -= ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) -= num;
+    }
+    
+    Number & Number::operator -= ( unsigned long long value )
     {
         Number num;
         
@@ -1946,6 +2230,15 @@ namespace CF
         return *( this ) *= num;
     }
     
+    Number & Number::operator *= ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) *= num;
+    }
+    
     Number & Number::operator *= ( unsigned char value )
     {
         Number num;
@@ -1974,6 +2267,15 @@ namespace CF
     }
     
     Number & Number::operator *= ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) *= num;
+    }
+    
+    Number & Number::operator *= ( unsigned long long value )
     {
         Number num;
         
@@ -2057,6 +2359,15 @@ namespace CF
         return *( this ) /= num;
     }
     
+    Number & Number::operator /= ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) /= num;
+    }
+    
     Number & Number::operator /= ( unsigned char value )
     {
         Number num;
@@ -2085,6 +2396,15 @@ namespace CF
     }
     
     Number & Number::operator /= ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) /= num;
+    }
+    
+    Number & Number::operator /= ( unsigned long long value )
     {
         Number num;
         
@@ -2163,6 +2483,15 @@ namespace CF
         return *( this ) |= num;
     }
     
+    Number & Number::operator |= ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) |= num;
+    }
+    
     Number & Number::operator |= ( unsigned char value )
     {
         Number num;
@@ -2191,6 +2520,15 @@ namespace CF
     }
     
     Number & Number::operator |= ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) |= num;
+    }
+    
+    Number & Number::operator |= ( unsigned long long value )
     {
         Number num;
         
@@ -2251,6 +2589,15 @@ namespace CF
         return *( this ) &= num;
     }
     
+    Number & Number::operator &= ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) &= num;
+    }
+    
     Number & Number::operator &= ( unsigned char value )
     {
         Number num;
@@ -2279,6 +2626,15 @@ namespace CF
     }
     
     Number & Number::operator &= ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) &= num;
+    }
+    
+    Number & Number::operator &= ( unsigned long long value )
     {
         Number num;
         
@@ -2344,6 +2700,15 @@ namespace CF
         return *( this ) %= num;
     }
     
+    Number & Number::operator %= ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) %= num;
+    }
+    
     Number & Number::operator %= ( unsigned char value )
     {
         Number num;
@@ -2372,6 +2737,15 @@ namespace CF
     }
     
     Number & Number::operator %= ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) %= num;
+    }
+    
+    Number & Number::operator %= ( unsigned long long value )
     {
         Number num;
         
@@ -2432,6 +2806,15 @@ namespace CF
         return *( this ) ^= num;
     }
     
+    Number & Number::operator ^= ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^= num;
+    }
+    
     Number & Number::operator ^= ( unsigned char value )
     {
         Number num;
@@ -2460,6 +2843,15 @@ namespace CF
     }
     
     Number & Number::operator ^= ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^= num;
+    }
+    
+    Number & Number::operator ^= ( unsigned long long value )
     {
         Number num;
         
@@ -2520,6 +2912,15 @@ namespace CF
         return *( this ) <<= num;
     }
     
+    Number & Number::operator <<= ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <<= num;
+    }
+    
     Number & Number::operator <<= ( unsigned char value )
     {
         Number num;
@@ -2548,6 +2949,15 @@ namespace CF
     }
     
     Number & Number::operator <<= ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) <<= num;
+    }
+    
+    Number & Number::operator <<= ( unsigned long long value )
     {
         Number num;
         
@@ -2608,6 +3018,15 @@ namespace CF
         return *( this ) >>= num;
     }
     
+    Number & Number::operator >>= ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >>= num;
+    }
+    
     Number & Number::operator >>= ( unsigned char value )
     {
         Number num;
@@ -2636,6 +3055,15 @@ namespace CF
     }
     
     Number & Number::operator >>= ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >>= num;
+    }
+    
+    Number & Number::operator >>= ( unsigned long long value )
     {
         Number num;
         
@@ -2698,6 +3126,15 @@ namespace CF
         return *( this ) + num;
     }
     
+    Number Number::operator + ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) + num;
+    }
+    
     Number Number::operator + ( unsigned char value )
     {
         Number num;
@@ -2726,6 +3163,15 @@ namespace CF
     }
     
     Number Number::operator + ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) + num;
+    }
+    
+    Number Number::operator + ( unsigned long long value )
     {
         Number num;
         
@@ -2806,6 +3252,15 @@ namespace CF
         return *( this ) - num;
     }
     
+    Number Number::operator - ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) - num;
+    }
+    
     Number Number::operator - ( unsigned char value )
     {
         Number num;
@@ -2834,6 +3289,15 @@ namespace CF
     }
     
     Number Number::operator - ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) - num;
+    }
+    
+    Number Number::operator - ( unsigned long long value )
     {
         Number num;
         
@@ -2914,6 +3378,15 @@ namespace CF
         return *( this ) * num;
     }
     
+    Number Number::operator * ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) * num;
+    }
+    
     Number Number::operator * ( unsigned char value )
     {
         Number num;
@@ -2942,6 +3415,15 @@ namespace CF
     }
     
     Number Number::operator * ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) * num;
+    }
+    
+    Number Number::operator * ( unsigned long long value )
     {
         Number num;
         
@@ -3022,6 +3504,15 @@ namespace CF
         return *( this ) / num;
     }
     
+    Number Number::operator / ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) / num;
+    }
+    
     Number Number::operator / ( unsigned char value )
     {
         Number num;
@@ -3050,6 +3541,15 @@ namespace CF
     }
     
     Number Number::operator / ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) / num;
+    }
+    
+    Number Number::operator / ( unsigned long long value )
     {
         Number num;
         
@@ -3130,6 +3630,15 @@ namespace CF
         return *( this ) % num;
     }
     
+    Number Number::operator % ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) % num;
+    }
+    
     Number Number::operator % ( unsigned char value )
     {
         Number num;
@@ -3158,6 +3667,15 @@ namespace CF
     }
     
     Number Number::operator % ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) % num;
+    }
+    
+    Number Number::operator % ( unsigned long long value )
     {
         Number num;
         
@@ -3220,6 +3738,15 @@ namespace CF
         return *( this ) & num;
     }
     
+    Number Number::operator & ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) & num;
+    }
+    
     Number Number::operator & ( unsigned char value )
     {
         Number num;
@@ -3248,6 +3775,15 @@ namespace CF
     }
     
     Number Number::operator & ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) & num;
+    }
+    
+    Number Number::operator & ( unsigned long long value )
     {
         Number num;
         
@@ -3310,6 +3846,15 @@ namespace CF
         return *( this ) | num;
     }
     
+    Number Number::operator | ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) | num;
+    }
+    
     Number Number::operator | ( unsigned char value )
     {
         Number num;
@@ -3338,6 +3883,15 @@ namespace CF
     }
     
     Number Number::operator | ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) | num;
+    }
+    
+    Number Number::operator | ( unsigned long long value )
     {
         Number num;
         
@@ -3400,6 +3954,15 @@ namespace CF
         return *( this ) ^ num;
     }
     
+    Number Number::operator ^ ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^ num;
+    }
+    
     Number Number::operator ^ ( unsigned char value )
     {
         Number num;
@@ -3428,6 +3991,15 @@ namespace CF
     }
     
     Number Number::operator ^ ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) ^ num;
+    }
+    
+    Number Number::operator ^ ( unsigned long long value )
     {
         Number num;
         
@@ -3490,6 +4062,15 @@ namespace CF
         return *( this ) << num;
     }
     
+    Number Number::operator << ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) << num;
+    }
+    
     Number Number::operator << ( unsigned char value )
     {
         Number num;
@@ -3518,6 +4099,15 @@ namespace CF
     }
     
     Number Number::operator << ( unsigned long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) << num;
+    }
+    
+    Number Number::operator << ( unsigned long long value )
     {
         Number num;
         
@@ -3580,6 +4170,15 @@ namespace CF
         return *( this ) >> num;
     }
     
+    Number Number::operator >> ( signed long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >> num;
+    }
+    
     Number Number::operator >> ( unsigned char value )
     {
         Number num;
@@ -3615,7 +4214,16 @@ namespace CF
         
         return *( this ) >> num;
     }
-            
+      
+    Number Number::operator >> ( unsigned long long value )
+    {
+        Number num;
+        
+        num = value;
+        
+        return *( this ) >> num;
+    }
+           
     Number::operator signed char () const
     {
         return this->GetSignedCharValue();
@@ -3630,12 +4238,17 @@ namespace CF
     {
         return this->GetSignedIntValue();
     }
-    
+
     Number::operator signed long () const
     {
         return this->GetSignedLongValue();
     }
-            
+
+    Number::operator signed long long () const
+    {
+        return this->GetSignedLongLongValue();
+    }
+
     Number::operator unsigned char () const
     {
         return this->GetUnsignedCharValue();
@@ -3650,10 +4263,15 @@ namespace CF
     {
         return this->GetUnsignedIntValue();
     }
-    
+
     Number::operator unsigned long () const
     {
         return this->GetUnsignedLongValue();
+    }
+    
+    Number::operator unsigned long long () const
+    {
+        return this->GetUnsignedLongLongValue();
     }
     
     Number::operator float () const
@@ -3742,6 +4360,20 @@ namespace CF
         return value;
     }
     
+    signed long long Number::GetSignedLongLongValue( void ) const
+    {
+        signed long value;
+        
+        if( this->_cfObject == NULL )
+        {
+            return static_cast< signed long long >( 0 );
+        }
+        
+        CFNumberGetValue( this->_cfObject, kCFNumberLongLongType, &value );
+        
+        return value;
+    }
+    
     unsigned char Number::GetUnsignedCharValue( void ) const
     {
         return static_cast< unsigned char >( this->GetSignedCharValue() );
@@ -3760,6 +4392,11 @@ namespace CF
     unsigned long Number::GetUnsignedLongValue( void ) const
     {
         return static_cast< unsigned long >( this->GetSignedLongValue() );
+    }
+    
+    unsigned long long Number::GetUnsignedLongLongValue( void ) const
+    {
+        return static_cast< unsigned long long >( this->GetSignedLongLongValue() );
     }
     
     float Number::GetFloatValue( void ) const
@@ -3830,6 +4467,16 @@ namespace CF
         this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberLongType, &value );
     }
     
+    void Number::SetSignedLongLongValue( signed long long value )
+    {
+        if( this->_cfObject != NULL )
+        {
+            CFRelease( this->_cfObject );
+        }
+        
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberLongLongType, &value );
+    }
+    
     void Number::SetUnsignedCharValue( unsigned char value )
     {
         this->SetSignedCharValue( static_cast< signed char >( value ) );
@@ -3848,6 +4495,11 @@ namespace CF
     void Number::SetUnsignedLongValue( unsigned long value )
     {
         this->SetSignedLongValue( static_cast< signed long >( value ) );
+    }
+    
+    void Number::SetUnsignedLongLongValue( unsigned long long value )
+    {
+        this->SetSignedLongLongValue( static_cast< signed long >( value ) );
     }
     
     void Number::SetFloatValue( float value )
