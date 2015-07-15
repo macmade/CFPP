@@ -192,7 +192,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, Float64 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, double defaultValueIfNULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -202,11 +202,11 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetFloat64Value( defaultValueIfNULL );
+            this->SetDoubleValue( defaultValueIfNULL );
         }
     }
     
-    Number::Number( const AutoPointer & value, Float32 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, float defaultValueIfNULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -216,7 +216,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetFloat32Value( defaultValueIfNULL );
+            this->SetFloatValue( defaultValueIfNULL );
         }
     }
     
@@ -332,7 +332,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, Float32 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, float defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -342,11 +342,11 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetFloat32Value( defaultValueIfNULL );
+            this->SetFloatValue( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, Float64 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, double defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -356,7 +356,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetFloat64Value( defaultValueIfNULL );
+            this->SetDoubleValue( defaultValueIfNULL );
         }
     }
     
@@ -472,7 +472,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, Float32 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, float defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -482,11 +482,11 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetFloat32Value( defaultValueIfNULL );
+            this->SetFloatValue( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, Float64 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, double defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -496,7 +496,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetFloat64Value( defaultValueIfNULL );
+            this->SetDoubleValue( defaultValueIfNULL );
         }
     }
     
@@ -568,18 +568,18 @@ namespace CF
         this->SetUInt64Value( value );
     }
     
-    Number::Number( Float32 value )
+    Number::Number( float value )
     {
         this->_cfObject = NULL;
         
-        this->SetFloat32Value( value );
+        this->SetFloatValue( value );
     }
     
-    Number::Number( Float64 value )
+    Number::Number( double value )
     {
         this->_cfObject = NULL;
         
-        this->SetFloat64Value( value );
+        this->SetDoubleValue( value );
     }
     
     #ifdef CFPP_HAS_CPP11
@@ -706,16 +706,16 @@ namespace CF
         return *( this );
     }
     
-    Number & Number::operator = ( Float32 value )
+    Number & Number::operator = ( float value )
     {
-        this->SetFloat32Value( value );
+        this->SetFloatValue( value );
         
         return *( this );
     }
     
-    Number & Number::operator = ( Float64 value )
+    Number & Number::operator = ( double value )
     {
-        this->SetFloat64Value( value );
+        this->SetDoubleValue( value );
         
         return *( this );
     }
@@ -724,7 +724,7 @@ namespace CF
     {
         if( this->IsFloatType() || value.IsFloatType() )
         {
-            return fabs( this->GetFloat64Value() - value.GetFloat64Value() ) < DBL_EPSILON;
+            return fabs( this->GetDoubleValue() - value.GetDoubleValue() ) < DBL_EPSILON;
         }
         
         return this->GetSInt64Value() == value.GetSInt64Value();
@@ -820,7 +820,7 @@ namespace CF
         return *( this ) == num;
     }
     
-    bool Number::operator == ( Float32 value ) const
+    bool Number::operator == ( float value ) const
     {
         Number num;
         
@@ -829,7 +829,7 @@ namespace CF
         return *( this ) == num;
     }
     
-    bool Number::operator == ( Float64 value ) const
+    bool Number::operator == ( double value ) const
     {
         Number num;
         
@@ -893,12 +893,12 @@ namespace CF
         return !( *( this ) == value );
     }
     
-    bool Number::operator != ( Float32 value ) const
+    bool Number::operator != ( float value ) const
     {
         return !( *( this ) == value );
     }
     
-    bool Number::operator != ( Float64 value ) const
+    bool Number::operator != ( double value ) const
     {
         return !( *( this ) == value );
     }
@@ -907,7 +907,7 @@ namespace CF
     {
         if( this->IsFloatType() || value.IsFloatType() )
         {
-            return this->GetFloat64Value() >= value.GetFloat64Value();
+            return this->GetDoubleValue() >= value.GetDoubleValue();
         }
         
         return this->GetSInt64Value() >= value.GetSInt64Value();
@@ -1003,7 +1003,7 @@ namespace CF
         return *( this ) >= num;
     }
     
-    bool Number::operator >= ( Float32 value ) const
+    bool Number::operator >= ( float value ) const
     {
         Number num;
         
@@ -1012,7 +1012,7 @@ namespace CF
         return *( this ) >= num;
     }
     
-    bool Number::operator >= ( Float64 value ) const
+    bool Number::operator >= ( double value ) const
     {
         Number num;
         
@@ -1025,7 +1025,7 @@ namespace CF
     {
         if( this->IsFloatType() || value.IsFloatType() )
         {
-            return this->GetFloat64Value() <= value.GetFloat64Value();
+            return this->GetDoubleValue() <= value.GetDoubleValue();
         }
         
         return this->GetSInt64Value() <= value.GetSInt64Value();
@@ -1121,7 +1121,7 @@ namespace CF
         return *( this ) <= num;
     }
     
-    bool Number::operator <= ( Float32 value ) const
+    bool Number::operator <= ( float value ) const
     {
         Number num;
         
@@ -1130,7 +1130,7 @@ namespace CF
         return *( this ) <= num;
     }
     
-    bool Number::operator <= ( Float64 value ) const
+    bool Number::operator <= ( double value ) const
     {
         Number num;
         
@@ -1143,7 +1143,7 @@ namespace CF
     {
         if( this->IsFloatType() || value.IsFloatType() )
         {
-            return this->GetFloat64Value() > value.GetFloat64Value();
+            return this->GetDoubleValue() > value.GetDoubleValue();
         }
         
         return this->GetSInt64Value() > value.GetSInt64Value();
@@ -1239,7 +1239,7 @@ namespace CF
         return *( this ) > num;
     }
     
-    bool Number::operator > ( Float32 value ) const
+    bool Number::operator > ( float value ) const
     {
         Number num;
         
@@ -1248,7 +1248,7 @@ namespace CF
         return *( this ) > num;
     }
     
-    bool Number::operator > ( Float64 value ) const
+    bool Number::operator > ( double value ) const
     {
         Number num;
         
@@ -1261,7 +1261,7 @@ namespace CF
     {
         if( this->IsFloatType() || value.IsFloatType() )
         {
-            return this->GetFloat64Value() < value.GetFloat64Value();
+            return this->GetDoubleValue() < value.GetDoubleValue();
         }
         
         return this->GetSInt64Value() < value.GetSInt64Value();
@@ -1357,7 +1357,7 @@ namespace CF
         return *( this ) < num;
     }
     
-    bool Number::operator < ( Float32 value ) const
+    bool Number::operator < ( float value ) const
     {
         Number num;
         
@@ -1366,7 +1366,7 @@ namespace CF
         return *( this ) < num;
     }
     
-    bool Number::operator < ( Float64 value ) const
+    bool Number::operator < ( double value ) const
     {
         Number num;
         
@@ -1470,7 +1470,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Float32 value ) const
+    bool Number::operator && ( float value ) const
     {
         Number num;
         
@@ -1479,7 +1479,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Float64 value ) const
+    bool Number::operator && ( double value ) const
     {
         Number num;
         
@@ -1583,7 +1583,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Float32 value ) const
+    bool Number::operator || ( float value ) const
     {
         Number num;
         
@@ -1592,7 +1592,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Float64 value ) const
+    bool Number::operator || ( double value ) const
     {
         Number num;
         
@@ -1619,7 +1619,7 @@ namespace CF
     {
         if( this->IsFloatType() )
         {
-            this->SetFloat64Value( this->GetFloat64Value() + static_cast< Float64 >( 1 ) );
+            this->SetDoubleValue( this->GetDoubleValue() + static_cast< double >( 1 ) );
         }
         else
         {
@@ -1642,7 +1642,7 @@ namespace CF
     {
         if( this->IsFloatType() )
         {
-            this->SetFloat64Value( this->GetFloat64Value() - static_cast< Float64 >( 1 ) );
+            this->SetDoubleValue( this->GetDoubleValue() - static_cast< double >( 1 ) );
         }
         else
         {
@@ -1665,7 +1665,7 @@ namespace CF
     {
         if( this->IsFloatType() || value.IsFloatType() )
         {
-            this->SetFloat64Value( this->GetFloat64Value() + value.GetFloat64Value() );
+            this->SetDoubleValue( this->GetDoubleValue() + value.GetDoubleValue() );
         }
         else
         {
@@ -1756,7 +1756,7 @@ namespace CF
         return *( this ) += num;
     }
     
-    Number & Number::operator += ( Float32 value )
+    Number & Number::operator += ( float value )
     {
         Number num;
         
@@ -1765,7 +1765,7 @@ namespace CF
         return *( this ) += num;
     }
     
-    Number & Number::operator += ( Float64 value )
+    Number & Number::operator += ( double value )
     {
         Number num;
         
@@ -1778,7 +1778,7 @@ namespace CF
     {
         if( this->IsFloatType() || value.IsFloatType() )
         {
-            this->SetFloat64Value( this->GetFloat64Value() - value.GetFloat64Value() );
+            this->SetDoubleValue( this->GetDoubleValue() - value.GetDoubleValue() );
         }
         else
         {
@@ -1869,7 +1869,7 @@ namespace CF
         return *( this ) -= num;
     }
     
-    Number & Number::operator -= ( Float32 value )
+    Number & Number::operator -= ( float value )
     {
         Number num;
         
@@ -1878,7 +1878,7 @@ namespace CF
         return *( this ) -= num;
     }
     
-    Number & Number::operator -= ( Float64 value )
+    Number & Number::operator -= ( double value )
     {
         Number num;
         
@@ -1891,7 +1891,7 @@ namespace CF
     {
         if( this->IsFloatType() || value.IsFloatType() )
         {
-            this->SetFloat64Value( this->GetFloat64Value() * value.GetFloat64Value() );
+            this->SetDoubleValue( this->GetDoubleValue() * value.GetDoubleValue() );
         }
         else
         {
@@ -1982,7 +1982,7 @@ namespace CF
         return *( this ) *= num;
     }
     
-    Number & Number::operator *= ( Float32 value )
+    Number & Number::operator *= ( float value )
     {
         Number num;
         
@@ -1991,7 +1991,7 @@ namespace CF
         return *( this ) *= num;
     }
     
-    Number & Number::operator *= ( Float64 value )
+    Number & Number::operator *= ( double value )
     {
         Number num;
         
@@ -2002,12 +2002,12 @@ namespace CF
     
     Number & Number::operator /= ( const Number & value )
     {
-        if( fabs( value.GetFloat64Value() ) < DBL_EPSILON )
+        if( fabs( value.GetDoubleValue() ) < DBL_EPSILON )
         {
             throw std::runtime_error( "Division by zero" );
         }
         
-        this->SetFloat64Value( this->GetFloat64Value() / value.GetFloat64Value() );
+        this->SetDoubleValue( this->GetDoubleValue() / value.GetDoubleValue() );
         
         return *( this );
     }
@@ -2093,7 +2093,7 @@ namespace CF
         return *( this ) /= num;
     }
     
-    Number & Number::operator /= ( Float32 value )
+    Number & Number::operator /= ( float value )
     {
         Number num;
         
@@ -2102,7 +2102,7 @@ namespace CF
         return *( this ) /= num;
     }
     
-    Number & Number::operator /= ( Float64 value )
+    Number & Number::operator /= ( double value )
     {
         Number num;
         
@@ -2734,7 +2734,7 @@ namespace CF
         return *( this ) + num;
     }
     
-    Number Number::operator + ( Float32 value )
+    Number Number::operator + ( float value )
     {
         Number num;
         
@@ -2743,7 +2743,7 @@ namespace CF
         return *( this ) + num;
     }
     
-    Number Number::operator + ( Float64 value )
+    Number Number::operator + ( double value )
     {
         Number num;
         
@@ -2842,7 +2842,7 @@ namespace CF
         return *( this ) - num;
     }
     
-    Number Number::operator - ( Float32 value )
+    Number Number::operator - ( float value )
     {
         Number num;
         
@@ -2851,7 +2851,7 @@ namespace CF
         return *( this ) - num;
     }
     
-    Number Number::operator - ( Float64 value )
+    Number Number::operator - ( double value )
     {
         Number num;
         
@@ -2950,7 +2950,7 @@ namespace CF
         return *( this ) * num;
     }
     
-    Number Number::operator * ( Float32 value )
+    Number Number::operator * ( float value )
     {
         Number num;
         
@@ -2959,7 +2959,7 @@ namespace CF
         return *( this ) * num;
     }
     
-    Number Number::operator * ( Float64 value )
+    Number Number::operator * ( double value )
     {
         Number num;
         
@@ -3058,7 +3058,7 @@ namespace CF
         return *( this ) / num;
     }
     
-    Number Number::operator / ( Float32 value )
+    Number Number::operator / ( float value )
     {
         Number num;
         
@@ -3067,7 +3067,7 @@ namespace CF
         return *( this ) / num;
     }
     
-    Number Number::operator / ( Float64 value )
+    Number Number::operator / ( double value )
     {
         Number num;
         
@@ -3656,14 +3656,14 @@ namespace CF
         return this->GetUInt64Value();
     }
     
-    Number::operator Float32 () const
+    Number::operator float () const
     {
-        return this->GetFloat32Value();
+        return this->GetFloatValue();
     }
     
-    Number::operator Float64 () const
+    Number::operator double () const
     {
-        return this->GetFloat64Value();
+        return this->GetDoubleValue();
     }
     
     CFTypeID Number::GetTypeID( void ) const
@@ -3762,30 +3762,30 @@ namespace CF
         return static_cast< Number::UInt64 >( this->GetSInt64Value() );
     }
     
-    Number::Float32 Number::GetFloat32Value( void ) const
+    float Number::GetFloatValue( void ) const
     {
-        Float32 value;
+        float value;
         
         if( this->_cfObject == NULL )
         {
-            return static_cast< Float32 >( 0 );
+            return static_cast< float >( 0 );
         }
         
-        CFNumberGetValue( this->_cfObject, kCFNumberFloat32Type, &value );
+        CFNumberGetValue( this->_cfObject, kCFNumberFloatType, &value );
         
         return value;
     }
     
-    Number::Float64 Number::GetFloat64Value( void ) const
+    double Number::GetDoubleValue( void ) const
     {
-        Float64 value;
+        double value;
         
         if( this->_cfObject == NULL )
         {
-            return static_cast< Float64 >( 0 );
+            return static_cast< double >( 0 );
         }
         
-        CFNumberGetValue( this->_cfObject, kCFNumberFloat64Type, &value );
+        CFNumberGetValue( this->_cfObject, kCFNumberDoubleType, &value );
         
         return value;
     }
@@ -3850,24 +3850,24 @@ namespace CF
         this->SetSInt64Value( static_cast< Number::SInt64 >( value ) );
     }
     
-    void Number::SetFloat32Value( Number::Float32 value )
+    void Number::SetFloatValue( float value )
     {
         if( this->_cfObject != NULL )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberFloat32Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberFloatType, &value );
     }
     
-    void Number::SetFloat64Value( Number::Float64 value )
+    void Number::SetDoubleValue( double value )
     {
         if( this->_cfObject != NULL )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberFloat64Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberDoubleType, &value );
     }
     
     void swap( Number & v1, Number & v2 )

@@ -68,9 +68,6 @@ namespace CF
             
             #endif
             
-            typedef float   Float32;
-            typedef double  Float64;
-            
             Number( void );
             Number( const AutoPointer & value );
             Number( CFTypeRef cfObject );
@@ -83,9 +80,9 @@ namespace CF
             Number( const AutoPointer & value, UInt16 defaultValueIfNULL );
             Number( const AutoPointer & value, UInt32 defaultValueIfNULL );
             Number( const AutoPointer & value, UInt64 defaultValueIfNULL );
-            Number( const AutoPointer & value, Float32 defaultValueIfNULL );
-            Number( const AutoPointer & value, Float64 defaultValueIfNULL );
             Number( CFTypeRef cfObject, SInt8 defaultValueIfNULL );
+            Number( const AutoPointer & value, float defaultValueIfNULL );
+            Number( const AutoPointer & value, double defaultValueIfNULL );
             Number( CFTypeRef cfObject, SInt16 defaultValueIfNULL );
             Number( CFTypeRef cfObject, SInt32 defaultValueIfNULL );
             Number( CFTypeRef cfObject, SInt64 defaultValueIfNULL );
@@ -93,9 +90,9 @@ namespace CF
             Number( CFTypeRef cfObject, UInt16 defaultValueIfNULL );
             Number( CFTypeRef cfObject, UInt32 defaultValueIfNULL );
             Number( CFTypeRef cfObject, UInt64 defaultValueIfNULL );
-            Number( CFTypeRef cfObject, Float32 defaultValueIfNULL );
-            Number( CFTypeRef cfObject, Float64 defaultValueIfNULL );
             Number( CFNumberRef cfObject, SInt8 defaultValueIfNULL );
+            Number( CFTypeRef cfObject, float defaultValueIfNULL );
+            Number( CFTypeRef cfObject, double defaultValueIfNULL );
             Number( CFNumberRef cfObject, SInt16 defaultValueIfNULL );
             Number( CFNumberRef cfObject, SInt32 defaultValueIfNULL );
             Number( CFNumberRef cfObject, SInt64 defaultValueIfNULL );
@@ -103,8 +100,8 @@ namespace CF
             Number( CFNumberRef cfObject, UInt16 defaultValueIfNULL );
             Number( CFNumberRef cfObject, UInt32 defaultValueIfNULL );
             Number( CFNumberRef cfObject, UInt64 defaultValueIfNULL );
-            Number( CFNumberRef cfObject, Float32 defaultValueIfNULL );
-            Number( CFNumberRef cfObject, Float64 defaultValueIfNULL );
+            Number( CFNumberRef cfObject, float defaultValueIfNULL );
+            Number( CFNumberRef cfObject, double defaultValueIfNULL );
             Number( const Number & value );
             Number( SInt8 value );
             Number( SInt16 value );
@@ -114,8 +111,8 @@ namespace CF
             Number( UInt16 value );
             Number( UInt32 value );
             Number( UInt64 value );
-            Number( Float32 value );
-            Number( Float64 value );
+            Number( float value );
+            Number( double value );
             
             #ifdef CFPP_HAS_CPP11
             Number( Number && value );
@@ -135,8 +132,8 @@ namespace CF
             Number & operator = ( UInt16 value );
             Number & operator = ( UInt32 value );
             Number & operator = ( UInt64 value );
-            Number & operator = ( Float32 value );
-            Number & operator = ( Float64 value );
+            Number & operator = ( float value );
+            Number & operator = ( double value );
             
             bool operator == ( const Number & value ) const;
             bool operator == ( CFTypeRef value ) const;
@@ -149,8 +146,8 @@ namespace CF
             bool operator == ( UInt16 value ) const;
             bool operator == ( UInt32 value ) const;
             bool operator == ( UInt64 value ) const;
-            bool operator == ( Float32 value ) const;
-            bool operator == ( Float64 value ) const;
+            bool operator == ( float value ) const;
+            bool operator == ( double value ) const;
             
             bool operator != ( const Number & value ) const;
             bool operator != ( CFTypeRef value ) const;
@@ -163,8 +160,8 @@ namespace CF
             bool operator != ( UInt16 value ) const;
             bool operator != ( UInt32 value ) const;
             bool operator != ( UInt64 value ) const;
-            bool operator != ( Float32 value ) const;
-            bool operator != ( Float64 value ) const;
+            bool operator != ( float value ) const;
+            bool operator != ( double value ) const;
             
             bool operator >= ( const Number & value ) const;
             bool operator >= ( CFTypeRef value ) const;
@@ -177,8 +174,8 @@ namespace CF
             bool operator >= ( UInt16 value ) const;
             bool operator >= ( UInt32 value ) const;
             bool operator >= ( UInt64 value ) const;
-            bool operator >= ( Float32 value ) const;
-            bool operator >= ( Float64 value ) const;
+            bool operator >= ( float value ) const;
+            bool operator >= ( double value ) const;
             
             bool operator <= ( const Number & value ) const;
             bool operator <= ( CFTypeRef value ) const;
@@ -191,8 +188,8 @@ namespace CF
             bool operator <= ( UInt16 value ) const;
             bool operator <= ( UInt32 value ) const;
             bool operator <= ( UInt64 value ) const;
-            bool operator <= ( Float32 value ) const;
-            bool operator <= ( Float64 value ) const;
+            bool operator <= ( float value ) const;
+            bool operator <= ( double value ) const;
             
             bool operator > ( const Number & value ) const;
             bool operator > ( CFTypeRef value ) const;
@@ -205,8 +202,8 @@ namespace CF
             bool operator > ( UInt16 value ) const;
             bool operator > ( UInt32 value ) const;
             bool operator > ( UInt64 value ) const;
-            bool operator > ( Float32 value ) const;
-            bool operator > ( Float64 value ) const;
+            bool operator > ( float value ) const;
+            bool operator > ( double value ) const;
             
             bool operator < ( const Number & value ) const;
             bool operator < ( CFTypeRef value ) const;
@@ -219,8 +216,8 @@ namespace CF
             bool operator < ( UInt16 value ) const;
             bool operator < ( UInt32 value ) const;
             bool operator < ( UInt64 value ) const;
-            bool operator < ( Float32 value ) const;
-            bool operator < ( Float64 value ) const;
+            bool operator < ( float value ) const;
+            bool operator < ( double value ) const;
             
             bool operator && ( const Number & value ) const;
             bool operator && ( CFTypeRef value ) const;
@@ -233,8 +230,8 @@ namespace CF
             bool operator && ( UInt16 value ) const;
             bool operator && ( UInt32 value ) const;
             bool operator && ( UInt64 value ) const;
-            bool operator && ( Float32 value ) const;
-            bool operator && ( Float64 value ) const;
+            bool operator && ( float value ) const;
+            bool operator && ( double value ) const;
             
             bool operator || ( const Number & value ) const;
             bool operator || ( CFTypeRef value ) const;
@@ -247,8 +244,8 @@ namespace CF
             bool operator || ( UInt16 value ) const;
             bool operator || ( UInt32 value ) const;
             bool operator || ( UInt64 value ) const;
-            bool operator || ( Float32 value ) const;
-            bool operator || ( Float64 value ) const;
+            bool operator || ( float value ) const;
+            bool operator || ( double value ) const;
             
             Number & operator ~ ( void );
             Number & operator ! ( void );
@@ -267,8 +264,8 @@ namespace CF
             Number & operator += ( UInt16 value );
             Number & operator += ( UInt32 value );
             Number & operator += ( UInt64 value );
-            Number & operator += ( Float32 value );
-            Number & operator += ( Float64 value );
+            Number & operator += ( float value );
+            Number & operator += ( double value );
             
             Number & operator -= ( const Number & value );
             Number & operator -= ( CFNumberRef value );
@@ -280,8 +277,8 @@ namespace CF
             Number & operator -= ( UInt16 value );
             Number & operator -= ( UInt32 value );
             Number & operator -= ( UInt64 value );
-            Number & operator -= ( Float32 value );
-            Number & operator -= ( Float64 value );
+            Number & operator -= ( float value );
+            Number & operator -= ( double value );
             
             Number & operator *= ( const Number & value );
             Number & operator *= ( CFNumberRef value );
@@ -293,8 +290,8 @@ namespace CF
             Number & operator *= ( UInt16 value );
             Number & operator *= ( UInt32 value );
             Number & operator *= ( UInt64 value );
-            Number & operator *= ( Float32 value );
-            Number & operator *= ( Float64 value );
+            Number & operator *= ( float value );
+            Number & operator *= ( double value );
             
             Number & operator /= ( const Number & value );
             Number & operator /= ( CFNumberRef value );
@@ -306,8 +303,8 @@ namespace CF
             Number & operator /= ( UInt16 value );
             Number & operator /= ( UInt32 value );
             Number & operator /= ( UInt64 value );
-            Number & operator /= ( Float32 value );
-            Number & operator /= ( Float64 value );
+            Number & operator /= ( float value );
+            Number & operator /= ( double value );
             
             Number & operator |= ( const Number & value );
             Number & operator |= ( CFNumberRef value );
@@ -385,8 +382,8 @@ namespace CF
             Number operator + ( UInt16 value );
             Number operator + ( UInt32 value );
             Number operator + ( UInt64 value );
-            Number operator + ( Float32 value );
-            Number operator + ( Float64 value );
+            Number operator + ( float value );
+            Number operator + ( double value );
             
             Number operator - ( const Number & value );
             Number operator - ( CFNumberRef value );
@@ -398,8 +395,8 @@ namespace CF
             Number operator - ( UInt16 value );
             Number operator - ( UInt32 value );
             Number operator - ( UInt64 value );
-            Number operator - ( Float32 value );
-            Number operator - ( Float64 value );
+            Number operator - ( float value );
+            Number operator - ( double value );
             
             Number operator * ( const Number & value );
             Number operator * ( CFNumberRef value );
@@ -411,8 +408,8 @@ namespace CF
             Number operator * ( UInt16 value );
             Number operator * ( UInt32 value );
             Number operator * ( UInt64 value );
-            Number operator * ( Float32 value );
-            Number operator * ( Float64 value );
+            Number operator * ( float value );
+            Number operator * ( double value );
             
             Number operator / ( const Number & value );
             Number operator / ( CFNumberRef value );
@@ -424,8 +421,8 @@ namespace CF
             Number operator / ( UInt16 value );
             Number operator / ( UInt32 value );
             Number operator / ( UInt64 value );
-            Number operator / ( Float32 value );
-            Number operator / ( Float64 value );
+            Number operator / ( float value );
+            Number operator / ( double value );
             
             Number operator % ( const Number & value );
             Number operator % ( CFNumberRef value );
@@ -501,8 +498,8 @@ namespace CF
             operator UInt16  () const;
             operator UInt32  () const;
             operator UInt64  () const;
-            operator Float32 () const;
-            operator Float64 () const;
+            operator float () const;
+            operator double () const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
@@ -517,9 +514,9 @@ namespace CF
             UInt16  GetUInt16Value( void ) const;
             UInt32  GetUInt32Value( void ) const;
             UInt64  GetUInt64Value( void ) const;
-            Float32 GetFloat32Value( void ) const;
-            Float64 GetFloat64Value( void ) const;
             void    SetSInt8Value( SInt8 value );
+            float GetFloatValue( void ) const;
+            double GetDoubleValue( void ) const;
             void    SetSInt16Value( SInt16 value );
             void    SetSInt32Value( SInt32 value );
             void    SetSInt64Value( SInt64 value );
@@ -527,8 +524,8 @@ namespace CF
             void    SetUInt16Value( UInt16 value );
             void    SetUInt32Value( UInt32 value );
             void    SetUInt64Value( UInt64 value );
-            void    SetFloat32Value( Float32 value );
-            void    SetFloat64Value( Float64 value );
+            void    SetFloatValue( float value );
+            void    SetDoubleValue( double value );
             
             friend void swap( Number & v1, Number & v2 );
             
