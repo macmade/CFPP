@@ -41,7 +41,7 @@ namespace CF
     {
         this->_cfObject = NULL;
         
-        this->SetSInt32Value( 0 );
+        this->SetSignedIntValue( 0 );
     }
     
     Number::Number( const AutoPointer & value )
@@ -108,7 +108,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, SInt32 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, signed int defaultValueIfNULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -118,7 +118,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetSInt32Value( defaultValueIfNULL );
+            this->SetSignedIntValue( defaultValueIfNULL );
         }
     }
     
@@ -164,7 +164,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, UInt32 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, unsigned int defaultValueIfNULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -174,7 +174,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetUInt32Value( defaultValueIfNULL );
+            this->SetUnsignedIntValue( defaultValueIfNULL );
         }
     }
     
@@ -248,7 +248,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, SInt32 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, signed int defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -258,7 +258,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetSInt32Value( defaultValueIfNULL );
+            this->SetSignedIntValue( defaultValueIfNULL );
         }
     }
     
@@ -304,7 +304,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, UInt32 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, unsigned int defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -314,7 +314,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetUInt32Value( defaultValueIfNULL );
+            this->SetUnsignedIntValue( defaultValueIfNULL );
         }
     }
     
@@ -388,7 +388,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, SInt32 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, signed int defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -398,7 +398,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetSInt32Value( defaultValueIfNULL );
+            this->SetSignedIntValue( defaultValueIfNULL );
         }
     }
     
@@ -444,7 +444,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, UInt32 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, unsigned int defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -454,7 +454,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetUInt32Value( defaultValueIfNULL );
+            this->SetUnsignedIntValue( defaultValueIfNULL );
         }
     }
     
@@ -526,11 +526,11 @@ namespace CF
         this->SetSignedShortValue( value );
     }
     
-    Number::Number( Number::SInt32 value )
+    Number::Number( signed int value )
     {
         this->_cfObject = NULL;
         
-        this->SetSInt32Value( value );
+        this->SetSignedIntValue( value );
     }
     
     Number::Number( Number::SInt64 value )
@@ -554,11 +554,11 @@ namespace CF
         this->SetUnsignedShortValue( value );
     }
     
-    Number::Number( Number::UInt32 value )
+    Number::Number( unsigned int value )
     {
         this->_cfObject = NULL;
         
-        this->SetUInt32Value( value );
+        this->SetUnsignedIntValue( value );
     }
     
     Number::Number( Number::UInt64 value )
@@ -664,9 +664,9 @@ namespace CF
         return *( this );
     }
     
-    Number & Number::operator = ( Number::SInt32 value )
+    Number & Number::operator = ( signed int value )
     {
-        this->SetSInt32Value( value );
+        this->SetSignedIntValue( value );
         
         return *( this );
     }
@@ -692,9 +692,9 @@ namespace CF
         return *( this );
     }
     
-    Number & Number::operator = ( Number::UInt32 value )
+    Number & Number::operator = ( unsigned int value )
     {
-        this->SetUInt32Value( value );
+        this->SetUnsignedIntValue( value );
         
         return *( this );
     }
@@ -766,7 +766,7 @@ namespace CF
         return *( this ) == num;
     }
     
-    bool Number::operator == ( Number::SInt32 value ) const
+    bool Number::operator == ( signed int value ) const
     {
         Number num;
         
@@ -802,7 +802,7 @@ namespace CF
         return *( this ) == num;
     }
     
-    bool Number::operator == ( Number::UInt32 value ) const
+    bool Number::operator == ( unsigned int value ) const
     {
         Number num;
         
@@ -863,7 +863,7 @@ namespace CF
         return !( *( this ) == value );
     }
     
-    bool Number::operator != ( Number::SInt32 value ) const
+    bool Number::operator != ( signed int value ) const
     {
         return !( *( this ) == value );
     }
@@ -883,7 +883,7 @@ namespace CF
         return !( *( this ) == value );
     }
     
-    bool Number::operator != ( Number::UInt32 value ) const
+    bool Number::operator != ( unsigned int value ) const
     {
         return !( *( this ) == value );
     }
@@ -949,7 +949,7 @@ namespace CF
         return *( this ) >= num;
     }
     
-    bool Number::operator >= ( Number::SInt32 value ) const
+    bool Number::operator >= ( signed int value ) const
     {
         Number num;
         
@@ -985,7 +985,7 @@ namespace CF
         return *( this ) >= num;
     }
     
-    bool Number::operator >= ( Number::UInt32 value ) const
+    bool Number::operator >= ( unsigned int value ) const
     {
         Number num;
         
@@ -1067,7 +1067,7 @@ namespace CF
         return *( this ) <= num;
     }
     
-    bool Number::operator <= ( Number::SInt32 value ) const
+    bool Number::operator <= ( signed int value ) const
     {
         Number num;
         
@@ -1103,7 +1103,7 @@ namespace CF
         return *( this ) <= num;
     }
     
-    bool Number::operator <= ( Number::UInt32 value ) const
+    bool Number::operator <= ( unsigned int value ) const
     {
         Number num;
         
@@ -1185,7 +1185,7 @@ namespace CF
         return *( this ) > num;
     }
     
-    bool Number::operator > ( Number::SInt32 value ) const
+    bool Number::operator > ( signed int value ) const
     {
         Number num;
         
@@ -1221,7 +1221,7 @@ namespace CF
         return *( this ) > num;
     }
     
-    bool Number::operator > ( Number::UInt32 value ) const
+    bool Number::operator > ( unsigned int value ) const
     {
         Number num;
         
@@ -1303,7 +1303,7 @@ namespace CF
         return *( this ) < num;
     }
     
-    bool Number::operator < ( Number::SInt32 value ) const
+    bool Number::operator < ( signed int value ) const
     {
         Number num;
         
@@ -1339,7 +1339,7 @@ namespace CF
         return *( this ) < num;
     }
     
-    bool Number::operator < ( Number::UInt32 value ) const
+    bool Number::operator < ( unsigned int value ) const
     {
         Number num;
         
@@ -1416,7 +1416,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::SInt32 value ) const
+    bool Number::operator && ( signed int value ) const
     {
         Number num;
         
@@ -1452,7 +1452,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::UInt32 value ) const
+    bool Number::operator && ( unsigned int value ) const
     {
         Number num;
         
@@ -1529,7 +1529,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::SInt32 value ) const
+    bool Number::operator || ( signed int value ) const
     {
         Number num;
         
@@ -1565,7 +1565,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::UInt32 value ) const
+    bool Number::operator || ( unsigned int value ) const
     {
         Number num;
         
@@ -1702,7 +1702,7 @@ namespace CF
         return *( this ) += num;
     }
     
-    Number & Number::operator += ( Number::SInt32 value )
+    Number & Number::operator += ( signed int value )
     {
         Number num;
         
@@ -1738,7 +1738,7 @@ namespace CF
         return *( this ) += num;
     }
     
-    Number & Number::operator += ( Number::UInt32 value )
+    Number & Number::operator += ( unsigned int value )
     {
         Number num;
         
@@ -1815,7 +1815,7 @@ namespace CF
         return *( this ) -= num;
     }
     
-    Number & Number::operator -= ( Number::SInt32 value )
+    Number & Number::operator -= ( signed int value )
     {
         Number num;
         
@@ -1851,7 +1851,7 @@ namespace CF
         return *( this ) -= num;
     }
     
-    Number & Number::operator -= ( Number::UInt32 value )
+    Number & Number::operator -= ( unsigned int value )
     {
         Number num;
         
@@ -1928,7 +1928,7 @@ namespace CF
         return *( this ) *= num;
     }
     
-    Number & Number::operator *= ( Number::SInt32 value )
+    Number & Number::operator *= ( signed int value )
     {
         Number num;
         
@@ -1964,7 +1964,7 @@ namespace CF
         return *( this ) *= num;
     }
     
-    Number & Number::operator *= ( Number::UInt32 value )
+    Number & Number::operator *= ( unsigned int value )
     {
         Number num;
         
@@ -2039,7 +2039,7 @@ namespace CF
         return *( this ) /= num;
     }
     
-    Number & Number::operator /= ( Number::SInt32 value )
+    Number & Number::operator /= ( signed int value )
     {
         Number num;
         
@@ -2075,7 +2075,7 @@ namespace CF
         return *( this ) /= num;
     }
     
-    Number & Number::operator /= ( Number::UInt32 value )
+    Number & Number::operator /= ( unsigned int value )
     {
         Number num;
         
@@ -2145,7 +2145,7 @@ namespace CF
         return *( this ) |= num;
     }
     
-    Number & Number::operator |= ( Number::SInt32 value )
+    Number & Number::operator |= ( signed int value )
     {
         Number num;
         
@@ -2181,7 +2181,7 @@ namespace CF
         return *( this ) |= num;
     }
     
-    Number & Number::operator |= ( Number::UInt32 value )
+    Number & Number::operator |= ( unsigned int value )
     {
         Number num;
         
@@ -2233,7 +2233,7 @@ namespace CF
         return *( this ) &= num;
     }
     
-    Number & Number::operator &= ( Number::SInt32 value )
+    Number & Number::operator &= ( signed int value )
     {
         Number num;
         
@@ -2269,7 +2269,7 @@ namespace CF
         return *( this ) &= num;
     }
     
-    Number & Number::operator &= ( Number::UInt32 value )
+    Number & Number::operator &= ( unsigned int value )
     {
         Number num;
         
@@ -2326,7 +2326,7 @@ namespace CF
         return *( this ) %= num;
     }
     
-    Number & Number::operator %= ( Number::SInt32 value )
+    Number & Number::operator %= ( signed int value )
     {
         Number num;
         
@@ -2362,7 +2362,7 @@ namespace CF
         return *( this ) %= num;
     }
     
-    Number & Number::operator %= ( Number::UInt32 value )
+    Number & Number::operator %= ( unsigned int value )
     {
         Number num;
         
@@ -2414,7 +2414,7 @@ namespace CF
         return *( this ) ^= num;
     }
     
-    Number & Number::operator ^= ( Number::SInt32 value )
+    Number & Number::operator ^= ( signed int value )
     {
         Number num;
         
@@ -2450,7 +2450,7 @@ namespace CF
         return *( this ) ^= num;
     }
     
-    Number & Number::operator ^= ( Number::UInt32 value )
+    Number & Number::operator ^= ( unsigned int value )
     {
         Number num;
         
@@ -2502,7 +2502,7 @@ namespace CF
         return *( this ) <<= num;
     }
     
-    Number & Number::operator <<= ( Number::SInt32 value )
+    Number & Number::operator <<= ( signed int value )
     {
         Number num;
         
@@ -2538,7 +2538,7 @@ namespace CF
         return *( this ) <<= num;
     }
     
-    Number & Number::operator <<= ( Number::UInt32 value )
+    Number & Number::operator <<= ( unsigned int value )
     {
         Number num;
         
@@ -2590,7 +2590,7 @@ namespace CF
         return *( this ) >>= num;
     }
     
-    Number & Number::operator >>= ( Number::SInt32 value )
+    Number & Number::operator >>= ( signed int value )
     {
         Number num;
         
@@ -2626,7 +2626,7 @@ namespace CF
         return *( this ) >>= num;
     }
     
-    Number & Number::operator >>= ( Number::UInt32 value )
+    Number & Number::operator >>= ( unsigned int value )
     {
         Number num;
         
@@ -2680,7 +2680,7 @@ namespace CF
         return *( this ) + num;
     }
     
-    Number Number::operator + ( Number::SInt32 value )
+    Number Number::operator + ( signed int value )
     {
         Number num;
         
@@ -2716,7 +2716,7 @@ namespace CF
         return *( this ) + num;
     }
     
-    Number Number::operator + ( Number::UInt32 value )
+    Number Number::operator + ( unsigned int value )
     {
         Number num;
         
@@ -2788,7 +2788,7 @@ namespace CF
         return *( this ) - num;
     }
     
-    Number Number::operator - ( Number::SInt32 value )
+    Number Number::operator - ( signed int value )
     {
         Number num;
         
@@ -2824,7 +2824,7 @@ namespace CF
         return *( this ) - num;
     }
     
-    Number Number::operator - ( Number::UInt32 value )
+    Number Number::operator - ( unsigned int value )
     {
         Number num;
         
@@ -2896,7 +2896,7 @@ namespace CF
         return *( this ) * num;
     }
     
-    Number Number::operator * ( Number::SInt32 value )
+    Number Number::operator * ( signed int value )
     {
         Number num;
         
@@ -2932,7 +2932,7 @@ namespace CF
         return *( this ) * num;
     }
     
-    Number Number::operator * ( Number::UInt32 value )
+    Number Number::operator * ( unsigned int value )
     {
         Number num;
         
@@ -3004,7 +3004,7 @@ namespace CF
         return *( this ) / num;
     }
     
-    Number Number::operator / ( Number::SInt32 value )
+    Number Number::operator / ( signed int value )
     {
         Number num;
         
@@ -3040,7 +3040,7 @@ namespace CF
         return *( this ) / num;
     }
     
-    Number Number::operator / ( Number::UInt32 value )
+    Number Number::operator / ( unsigned int value )
     {
         Number num;
         
@@ -3112,7 +3112,7 @@ namespace CF
         return *( this ) % num;
     }
     
-    Number Number::operator % ( Number::SInt32 value )
+    Number Number::operator % ( signed int value )
     {
         Number num;
         
@@ -3148,7 +3148,7 @@ namespace CF
         return *( this ) % num;
     }
     
-    Number Number::operator % ( Number::UInt32 value )
+    Number Number::operator % ( unsigned int value )
     {
         Number num;
         
@@ -3202,7 +3202,7 @@ namespace CF
         return *( this ) & num;
     }
     
-    Number Number::operator & ( Number::SInt32 value )
+    Number Number::operator & ( signed int value )
     {
         Number num;
         
@@ -3238,7 +3238,7 @@ namespace CF
         return *( this ) & num;
     }
     
-    Number Number::operator & ( Number::UInt32 value )
+    Number Number::operator & ( unsigned int value )
     {
         Number num;
         
@@ -3292,7 +3292,7 @@ namespace CF
         return *( this ) | num;
     }
     
-    Number Number::operator | ( Number::SInt32 value )
+    Number Number::operator | ( signed int value )
     {
         Number num;
         
@@ -3328,7 +3328,7 @@ namespace CF
         return *( this ) | num;
     }
     
-    Number Number::operator | ( Number::UInt32 value )
+    Number Number::operator | ( unsigned int value )
     {
         Number num;
         
@@ -3382,7 +3382,7 @@ namespace CF
         return *( this ) ^ num;
     }
     
-    Number Number::operator ^ ( Number::SInt32 value )
+    Number Number::operator ^ ( signed int value )
     {
         Number num;
         
@@ -3418,7 +3418,7 @@ namespace CF
         return *( this ) ^ num;
     }
     
-    Number Number::operator ^ ( Number::UInt32 value )
+    Number Number::operator ^ ( unsigned int value )
     {
         Number num;
         
@@ -3472,7 +3472,7 @@ namespace CF
         return *( this ) << num;
     }
     
-    Number Number::operator << ( Number::SInt32 value )
+    Number Number::operator << ( signed int value )
     {
         Number num;
         
@@ -3508,7 +3508,7 @@ namespace CF
         return *( this ) << num;
     }
     
-    Number Number::operator << ( Number::UInt32 value )
+    Number Number::operator << ( unsigned int value )
     {
         Number num;
         
@@ -3562,7 +3562,7 @@ namespace CF
         return *( this ) >> num;
     }
     
-    Number Number::operator >> ( Number::SInt32 value )
+    Number Number::operator >> ( signed int value )
     {
         Number num;
         
@@ -3598,7 +3598,7 @@ namespace CF
         return *( this ) >> num;
     }
     
-    Number Number::operator >> ( Number::UInt32 value )
+    Number Number::operator >> ( unsigned int value )
     {
         Number num;
         
@@ -3626,9 +3626,9 @@ namespace CF
         return this->GetSignedShortValue();
     }
     
-    Number::operator Number::SInt32 () const
+    Number::operator signed int () const
     {
-        return this->GetSInt32Value();
+        return this->GetSignedIntValue();
     }
     
     Number::operator Number::SInt64 () const
@@ -3646,9 +3646,9 @@ namespace CF
         return this->GetUnsignedShortValue();
     }
     
-    Number::operator Number::UInt32 () const
+    Number::operator unsigned int () const
     {
-        return this->GetUInt32Value();
+        return this->GetUnsignedIntValue();
     }
     
     Number::operator Number::UInt64 () const
@@ -3714,16 +3714,16 @@ namespace CF
         return value;
     }
     
-    Number::SInt32 Number::GetSInt32Value( void ) const
+    signed int Number::GetSignedIntValue( void ) const
     {
-        Number::SInt32 value;
+        signed int value;
         
         if( this->_cfObject == NULL )
         {
-            return static_cast< Number::SInt32 >( 0 );
+            return static_cast< signed int >( 0 );
         }
         
-        CFNumberGetValue( this->_cfObject, kCFNumberSInt32Type, &value );
+        CFNumberGetValue( this->_cfObject, kCFNumberIntType, &value );
         
         return value;
     }
@@ -3752,9 +3752,9 @@ namespace CF
         return static_cast< unsigned short >( this->GetSignedShortValue() );
     }
     
-    Number::UInt32 Number::GetUInt32Value( void ) const
+    unsigned int Number::GetUnsignedIntValue( void ) const
     {
-        return static_cast< Number::UInt32 >( this->GetSInt32Value() );
+        return static_cast< unsigned int >( this->GetSignedIntValue() );
     }
     
     Number::UInt64 Number::GetUInt64Value( void ) const
@@ -3810,14 +3810,14 @@ namespace CF
         this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberShortType, &value );
     }
     
-    void Number::SetSInt32Value( Number::SInt32 value )
+    void Number::SetSignedIntValue( signed int value )
     {
         if( this->_cfObject != NULL )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberSInt32Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberIntType, &value );
     }
     
     void Number::SetSInt64Value( Number::SInt64 value )
@@ -3840,9 +3840,9 @@ namespace CF
         this->SetSignedShortValue( static_cast< signed short >( value ) );
     }
     
-    void Number::SetUInt32Value( Number::UInt32 value )
+    void Number::SetUnsignedIntValue( unsigned int value )
     {
-        this->SetSInt32Value( static_cast< Number::SInt32 >( value ) );
+        this->SetSignedIntValue( static_cast< signed int >( value ) );
     }
     
     void Number::SetUInt64Value( Number::UInt64 value )
