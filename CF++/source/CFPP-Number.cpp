@@ -94,7 +94,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, SInt16 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, signed short defaultValueIfNULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -104,7 +104,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetSInt16Value( defaultValueIfNULL );
+            this->SetSignedShortValue( defaultValueIfNULL );
         }
     }
     
@@ -150,7 +150,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, UInt16 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, unsigned short defaultValueIfNULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -160,7 +160,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetUInt16Value( defaultValueIfNULL );
+            this->SetUnsignedShortValue( defaultValueIfNULL );
         }
     }
     
@@ -234,7 +234,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, SInt16 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, signed short defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -244,7 +244,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetSInt16Value( defaultValueIfNULL );
+            this->SetSignedShortValue( defaultValueIfNULL );
         }
     }
     
@@ -290,7 +290,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, UInt16 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, unsigned short defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -300,7 +300,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetUInt16Value( defaultValueIfNULL );
+            this->SetUnsignedShortValue( defaultValueIfNULL );
         }
     }
     
@@ -374,7 +374,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, SInt16 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, signed short defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -384,7 +384,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetSInt16Value( defaultValueIfNULL );
+            this->SetSignedShortValue( defaultValueIfNULL );
         }
     }
     
@@ -430,7 +430,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, UInt16 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, unsigned short defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -440,7 +440,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetUInt16Value( defaultValueIfNULL );
+            this->SetUnsignedShortValue( defaultValueIfNULL );
         }
     }
     
@@ -519,11 +519,11 @@ namespace CF
         this->SetSignedCharValue( value );
     }
     
-    Number::Number( Number::SInt16 value )
+    Number::Number( signed short value )
     {
         this->_cfObject = NULL;
         
-        this->SetSInt16Value( value );
+        this->SetSignedShortValue( value );
     }
     
     Number::Number( Number::SInt32 value )
@@ -547,11 +547,11 @@ namespace CF
         this->SetUnsignedCharValue( value );
     }
     
-    Number::Number( Number::UInt16 value )
+    Number::Number( unsigned short value )
     {
         this->_cfObject = NULL;
         
-        this->SetUInt16Value( value );
+        this->SetUnsignedShortValue( value );
     }
     
     Number::Number( Number::UInt32 value )
@@ -657,9 +657,9 @@ namespace CF
         return *( this );
     }
     
-    Number & Number::operator = ( Number::SInt16 value )
+    Number & Number::operator = ( signed short value )
     {
-        this->SetSInt16Value( value );
+        this->SetSignedShortValue( value );
         
         return *( this );
     }
@@ -685,9 +685,9 @@ namespace CF
         return *( this );
     }
     
-    Number & Number::operator = ( Number::UInt16 value )
+    Number & Number::operator = ( unsigned short value )
     {
-        this->SetUInt16Value( value );
+        this->SetUnsignedShortValue( value );
         
         return *( this );
     }
@@ -757,7 +757,7 @@ namespace CF
         return *( this ) == num;
     }
     
-    bool Number::operator == ( Number::SInt16 value ) const
+    bool Number::operator == ( signed short value ) const
     {
         Number num;
         
@@ -793,7 +793,7 @@ namespace CF
         return *( this ) == num;
     }
     
-    bool Number::operator == ( Number::UInt16 value ) const
+    bool Number::operator == ( unsigned short value ) const
     {
         Number num;
         
@@ -858,7 +858,7 @@ namespace CF
         return !( *( this ) == value );
     }
     
-    bool Number::operator != ( Number::SInt16 value ) const
+    bool Number::operator != ( signed short value ) const
     {
         return !( *( this ) == value );
     }
@@ -878,7 +878,7 @@ namespace CF
         return !( *( this ) == value );
     }
     
-    bool Number::operator != ( Number::UInt16 value ) const
+    bool Number::operator != ( unsigned short value ) const
     {
         return !( *( this ) == value );
     }
@@ -940,7 +940,7 @@ namespace CF
         return *( this ) >= num;
     }
     
-    bool Number::operator >= ( Number::SInt16 value ) const
+    bool Number::operator >= ( signed short value ) const
     {
         Number num;
         
@@ -976,7 +976,7 @@ namespace CF
         return *( this ) >= num;
     }
     
-    bool Number::operator >= ( Number::UInt16 value ) const
+    bool Number::operator >= ( unsigned short value ) const
     {
         Number num;
         
@@ -1058,7 +1058,7 @@ namespace CF
         return *( this ) <= num;
     }
     
-    bool Number::operator <= ( Number::SInt16 value ) const
+    bool Number::operator <= ( signed short value ) const
     {
         Number num;
         
@@ -1094,7 +1094,7 @@ namespace CF
         return *( this ) <= num;
     }
     
-    bool Number::operator <= ( Number::UInt16 value ) const
+    bool Number::operator <= ( unsigned short value ) const
     {
         Number num;
         
@@ -1176,7 +1176,7 @@ namespace CF
         return *( this ) > num;
     }
     
-    bool Number::operator > ( Number::SInt16 value ) const
+    bool Number::operator > ( signed short value ) const
     {
         Number num;
         
@@ -1212,7 +1212,7 @@ namespace CF
         return *( this ) > num;
     }
     
-    bool Number::operator > ( Number::UInt16 value ) const
+    bool Number::operator > ( unsigned short value ) const
     {
         Number num;
         
@@ -1294,7 +1294,7 @@ namespace CF
         return *( this ) < num;
     }
     
-    bool Number::operator < ( Number::SInt16 value ) const
+    bool Number::operator < ( signed short value ) const
     {
         Number num;
         
@@ -1330,7 +1330,7 @@ namespace CF
         return *( this ) < num;
     }
     
-    bool Number::operator < ( Number::UInt16 value ) const
+    bool Number::operator < ( unsigned short value ) const
     {
         Number num;
         
@@ -1407,7 +1407,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::SInt16 value ) const
+    bool Number::operator && ( signed short value ) const
     {
         Number num;
         
@@ -1443,7 +1443,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::UInt16 value ) const
+    bool Number::operator && ( unsigned short value ) const
     {
         Number num;
         
@@ -1520,7 +1520,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::SInt16 value ) const
+    bool Number::operator || ( signed short value ) const
     {
         Number num;
         
@@ -1556,7 +1556,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::UInt16 value ) const
+    bool Number::operator || ( unsigned short value ) const
     {
         Number num;
         
@@ -1693,7 +1693,7 @@ namespace CF
         return *( this ) += num;
     }
     
-    Number & Number::operator += ( Number::SInt16 value )
+    Number & Number::operator += ( signed short value )
     {
         Number num;
         
@@ -1729,7 +1729,7 @@ namespace CF
         return *( this ) += num;
     }
     
-    Number & Number::operator += ( Number::UInt16 value )
+    Number & Number::operator += ( unsigned short value )
     {
         Number num;
         
@@ -1806,7 +1806,7 @@ namespace CF
         return *( this ) -= num;
     }
     
-    Number & Number::operator -= ( Number::SInt16 value )
+    Number & Number::operator -= ( signed short value )
     {
         Number num;
         
@@ -1842,7 +1842,7 @@ namespace CF
         return *( this ) -= num;
     }
     
-    Number & Number::operator -= ( Number::UInt16 value )
+    Number & Number::operator -= ( unsigned short value )
     {
         Number num;
         
@@ -1919,7 +1919,7 @@ namespace CF
         return *( this ) *= num;
     }
     
-    Number & Number::operator *= ( Number::SInt16 value )
+    Number & Number::operator *= ( signed short value )
     {
         Number num;
         
@@ -1955,7 +1955,7 @@ namespace CF
         return *( this ) *= num;
     }
     
-    Number & Number::operator *= ( Number::UInt16 value )
+    Number & Number::operator *= ( unsigned short value )
     {
         Number num;
         
@@ -2030,7 +2030,7 @@ namespace CF
         return *( this ) /= num;
     }
     
-    Number & Number::operator /= ( Number::SInt16 value )
+    Number & Number::operator /= ( signed short value )
     {
         Number num;
         
@@ -2066,7 +2066,7 @@ namespace CF
         return *( this ) /= num;
     }
     
-    Number & Number::operator /= ( Number::UInt16 value )
+    Number & Number::operator /= ( unsigned short value )
     {
         Number num;
         
@@ -2136,7 +2136,7 @@ namespace CF
         return *( this ) |= num;
     }
     
-    Number & Number::operator |= ( Number::SInt16 value )
+    Number & Number::operator |= ( signed short value )
     {
         Number num;
         
@@ -2172,7 +2172,7 @@ namespace CF
         return *( this ) |= num;
     }
     
-    Number & Number::operator |= ( Number::UInt16 value )
+    Number & Number::operator |= ( unsigned short value )
     {
         Number num;
         
@@ -2224,7 +2224,7 @@ namespace CF
         return *( this ) &= num;
     }
     
-    Number & Number::operator &= ( Number::SInt16 value )
+    Number & Number::operator &= ( signed short value )
     {
         Number num;
         
@@ -2260,7 +2260,7 @@ namespace CF
         return *( this ) &= num;
     }
     
-    Number & Number::operator &= ( Number::UInt16 value )
+    Number & Number::operator &= ( unsigned short value )
     {
         Number num;
         
@@ -2317,7 +2317,7 @@ namespace CF
         return *( this ) %= num;
     }
     
-    Number & Number::operator %= ( Number::SInt16 value )
+    Number & Number::operator %= ( signed short value )
     {
         Number num;
         
@@ -2353,7 +2353,7 @@ namespace CF
         return *( this ) %= num;
     }
     
-    Number & Number::operator %= ( Number::UInt16 value )
+    Number & Number::operator %= ( unsigned short value )
     {
         Number num;
         
@@ -2405,7 +2405,7 @@ namespace CF
         return *( this ) ^= num;
     }
     
-    Number & Number::operator ^= ( Number::SInt16 value )
+    Number & Number::operator ^= ( signed short value )
     {
         Number num;
         
@@ -2441,7 +2441,7 @@ namespace CF
         return *( this ) ^= num;
     }
     
-    Number & Number::operator ^= ( Number::UInt16 value )
+    Number & Number::operator ^= ( unsigned short value )
     {
         Number num;
         
@@ -2493,7 +2493,7 @@ namespace CF
         return *( this ) <<= num;
     }
     
-    Number & Number::operator <<= ( Number::SInt16 value )
+    Number & Number::operator <<= ( signed short value )
     {
         Number num;
         
@@ -2529,7 +2529,7 @@ namespace CF
         return *( this ) <<= num;
     }
     
-    Number & Number::operator <<= ( Number::UInt16 value )
+    Number & Number::operator <<= ( unsigned short value )
     {
         Number num;
         
@@ -2581,7 +2581,7 @@ namespace CF
         return *( this ) >>= num;
     }
     
-    Number & Number::operator >>= ( Number::SInt16 value )
+    Number & Number::operator >>= ( signed short value )
     {
         Number num;
         
@@ -2617,7 +2617,7 @@ namespace CF
         return *( this ) >>= num;
     }
     
-    Number & Number::operator >>= ( Number::UInt16 value )
+    Number & Number::operator >>= ( unsigned short value )
     {
         Number num;
         
@@ -2671,7 +2671,7 @@ namespace CF
         return *( this ) + num;
     }
     
-    Number Number::operator + ( Number::SInt16 value )
+    Number Number::operator + ( signed short value )
     {
         Number num;
         
@@ -2707,7 +2707,7 @@ namespace CF
         return *( this ) + num;
     }
     
-    Number Number::operator + ( Number::UInt16 value )
+    Number Number::operator + ( unsigned short value )
     {
         Number num;
         
@@ -2779,7 +2779,7 @@ namespace CF
         return *( this ) - num;
     }
     
-    Number Number::operator - ( Number::SInt16 value )
+    Number Number::operator - ( signed short value )
     {
         Number num;
         
@@ -2815,7 +2815,7 @@ namespace CF
         return *( this ) - num;
     }
     
-    Number Number::operator - ( Number::UInt16 value )
+    Number Number::operator - ( unsigned short value )
     {
         Number num;
         
@@ -2887,7 +2887,7 @@ namespace CF
         return *( this ) * num;
     }
     
-    Number Number::operator * ( Number::SInt16 value )
+    Number Number::operator * ( signed short value )
     {
         Number num;
         
@@ -2923,7 +2923,7 @@ namespace CF
         return *( this ) * num;
     }
     
-    Number Number::operator * ( Number::UInt16 value )
+    Number Number::operator * ( unsigned short value )
     {
         Number num;
         
@@ -2995,7 +2995,7 @@ namespace CF
         return *( this ) / num;
     }
     
-    Number Number::operator / ( Number::SInt16 value )
+    Number Number::operator / ( signed short value )
     {
         Number num;
         
@@ -3031,7 +3031,7 @@ namespace CF
         return *( this ) / num;
     }
     
-    Number Number::operator / ( Number::UInt16 value )
+    Number Number::operator / ( unsigned short value )
     {
         Number num;
         
@@ -3103,7 +3103,7 @@ namespace CF
         return *( this ) % num;
     }
     
-    Number Number::operator % ( Number::SInt16 value )
+    Number Number::operator % ( signed short value )
     {
         Number num;
         
@@ -3139,7 +3139,7 @@ namespace CF
         return *( this ) % num;
     }
     
-    Number Number::operator % ( Number::UInt16 value )
+    Number Number::operator % ( unsigned short value )
     {
         Number num;
         
@@ -3193,7 +3193,7 @@ namespace CF
         return *( this ) & num;
     }
     
-    Number Number::operator & ( Number::SInt16 value )
+    Number Number::operator & ( signed short value )
     {
         Number num;
         
@@ -3229,7 +3229,7 @@ namespace CF
         return *( this ) & num;
     }
     
-    Number Number::operator & ( Number::UInt16 value )
+    Number Number::operator & ( unsigned short value )
     {
         Number num;
         
@@ -3283,7 +3283,7 @@ namespace CF
         return *( this ) | num;
     }
     
-    Number Number::operator | ( Number::SInt16 value )
+    Number Number::operator | ( signed short value )
     {
         Number num;
         
@@ -3319,7 +3319,7 @@ namespace CF
         return *( this ) | num;
     }
     
-    Number Number::operator | ( Number::UInt16 value )
+    Number Number::operator | ( unsigned short value )
     {
         Number num;
         
@@ -3373,7 +3373,7 @@ namespace CF
         return *( this ) ^ num;
     }
     
-    Number Number::operator ^ ( Number::SInt16 value )
+    Number Number::operator ^ ( signed short value )
     {
         Number num;
         
@@ -3409,7 +3409,7 @@ namespace CF
         return *( this ) ^ num;
     }
     
-    Number Number::operator ^ ( Number::UInt16 value )
+    Number Number::operator ^ ( unsigned short value )
     {
         Number num;
         
@@ -3463,7 +3463,7 @@ namespace CF
         return *( this ) << num;
     }
     
-    Number Number::operator << ( Number::SInt16 value )
+    Number Number::operator << ( signed short value )
     {
         Number num;
         
@@ -3499,7 +3499,7 @@ namespace CF
         return *( this ) << num;
     }
     
-    Number Number::operator << ( Number::UInt16 value )
+    Number Number::operator << ( unsigned short value )
     {
         Number num;
         
@@ -3553,7 +3553,7 @@ namespace CF
         return *( this ) >> num;
     }
     
-    Number Number::operator >> ( Number::SInt16 value )
+    Number Number::operator >> ( signed short value )
     {
         Number num;
         
@@ -3589,7 +3589,7 @@ namespace CF
         return *( this ) >> num;
     }
     
-    Number Number::operator >> ( Number::UInt16 value )
+    Number Number::operator >> ( unsigned short value )
     {
         Number num;
         
@@ -3621,9 +3621,9 @@ namespace CF
         return this->GetSignedCharValue();
     }
     
-    Number::operator Number::SInt16 () const
+    Number::operator signed short () const
     {
-        return this->GetSInt16Value();
+        return this->GetSignedShortValue();
     }
     
     Number::operator Number::SInt32 () const
@@ -3641,9 +3641,9 @@ namespace CF
         return this->GetUnsignedCharValue();
     }
     
-    Number::operator Number::UInt16 () const
+    Number::operator unsigned short () const
     {
-        return this->GetUInt16Value();
+        return this->GetUnsignedShortValue();
     }
     
     Number::operator Number::UInt32 () const
@@ -3700,16 +3700,16 @@ namespace CF
         return value;
     }
     
-    Number::SInt16 Number::GetSInt16Value( void ) const
+    signed short Number::GetSignedShortValue( void ) const
     {
-        Number::SInt16 value;
+        signed short value;
         
         if( this->_cfObject == NULL )
         {
-            return static_cast< Number::SInt16 >( 0 );
+            return static_cast< signed short >( 0 );
         }
         
-        CFNumberGetValue( this->_cfObject, kCFNumberSInt16Type, &value );
+        CFNumberGetValue( this->_cfObject, kCFNumberShortType, &value );
         
         return value;
     }
@@ -3747,9 +3747,9 @@ namespace CF
         return static_cast< unsigned char >( this->GetSignedCharValue() );
     }
     
-    Number::UInt16 Number::GetUInt16Value( void ) const
+    unsigned short Number::GetUnsignedShortValue( void ) const
     {
-        return static_cast< Number::UInt16 >( this->GetSInt16Value() );
+        return static_cast< unsigned short >( this->GetSignedShortValue() );
     }
     
     Number::UInt32 Number::GetUInt32Value( void ) const
@@ -3800,14 +3800,14 @@ namespace CF
         this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberCharType, &value );
     }
     
-    void Number::SetSInt16Value( Number::SInt16 value )
+    void Number::SetSignedShortValue( signed short value )
     {
         if( this->_cfObject != NULL )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberSInt16Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberShortType, &value );
     }
     
     void Number::SetSInt32Value( Number::SInt32 value )
@@ -3835,9 +3835,9 @@ namespace CF
         this->SetSignedCharValue( static_cast< signed char >( value ) );
     }
     
-    void Number::SetUInt16Value( Number::UInt16 value )
+    void Number::SetUnsignedShortValue( unsigned short value )
     {
-        this->SetSInt16Value( static_cast< Number::SInt16 >( value ) );
+        this->SetSignedShortValue( static_cast< signed short >( value ) );
     }
     
     void Number::SetUInt32Value( Number::UInt32 value )
