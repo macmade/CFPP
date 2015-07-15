@@ -40,21 +40,12 @@ namespace CF
     WriteStream::WriteStream( void ): _cfObject( NULL )
     {}
     
-    WriteStream::WriteStream( URL url )
+    WriteStream::WriteStream( URL url ): _cfObject( NULL )
     {
         this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
     }
     
-    WriteStream::WriteStream( std::string path )
-    {
-        URL url;
-        
-        url = URL::FileSystemURL( path );
-        
-        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
-    }
-    
-    WriteStream::WriteStream( const char * path )
+    WriteStream::WriteStream( std::string path ): _cfObject( NULL )
     {
         URL url;
         
@@ -63,51 +54,44 @@ namespace CF
         this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
     }
     
-    WriteStream::WriteStream( const WriteStream & value )
+    WriteStream::WriteStream( const char * path ): _cfObject( NULL )
+    {
+        URL url;
+        
+        url = URL::FileSystemURL( path );
+        
+        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+    }
+    
+    WriteStream::WriteStream( const WriteStream & value ): _cfObject( NULL )
     {
         if( value._cfObject != NULL )
         {
             this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value._cfObject ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    WriteStream::WriteStream( const AutoPointer & value )
+    WriteStream::WriteStream( const AutoPointer & value ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    WriteStream::WriteStream( CFTypeRef value )
+    WriteStream::WriteStream( CFTypeRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    WriteStream::WriteStream( CFWriteStreamRef value )
+    WriteStream::WriteStream( CFWriteStreamRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value ) ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
         }
     }
     

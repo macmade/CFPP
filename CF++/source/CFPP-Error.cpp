@@ -37,60 +37,42 @@
 
 namespace CF
 {
-    Error::Error( void )
-    {
-        this->_cfObject = NULL;
-    }
+    Error::Error( void ): _cfObject( NULL )
+    {}
     
-    Error::Error( const Error & value )
+    Error::Error( const Error & value ): _cfObject( NULL )
     {
         if( value._cfObject != NULL )
         {
             this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value._cfObject ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Error::Error( const AutoPointer & value )
+    Error::Error( const AutoPointer & value ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFErrorRef >( const_cast< void * >( CFRetain( value ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Error::Error( CFTypeRef value )
+    Error::Error( CFTypeRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Error::Error( CFErrorRef value )
+    Error::Error( CFErrorRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Error::Error( String domain, Number code )
+    Error::Error( String domain, Number code ): _cfObject( NULL )
     {
         this->_cfObject = CFErrorCreate
         (
@@ -101,7 +83,7 @@ namespace CF
         );
     }
     
-    Error::Error( String domain, Number code, Dictionary userInfo )
+    Error::Error( String domain, Number code, Dictionary userInfo ): _cfObject( NULL )
     {
         this->_cfObject = CFErrorCreate
         (
@@ -112,7 +94,7 @@ namespace CF
         );
     }
     
-    Error::Error( CFStringRef domain, CFIndex code )
+    Error::Error( CFStringRef domain, CFIndex code ): _cfObject( NULL )
     {
         this->_cfObject = CFErrorCreate
         (
@@ -123,7 +105,7 @@ namespace CF
         );
     }
     
-    Error::Error( CFStringRef domain, CFIndex code, CFDictionaryRef userInfo )
+    Error::Error( CFStringRef domain, CFIndex code, CFDictionaryRef userInfo ): _cfObject( NULL )
     {
         this->_cfObject = CFErrorCreate
         (
@@ -134,7 +116,7 @@ namespace CF
         );
     }
     
-    Error::Error( std::string domain, CFIndex code )
+    Error::Error( std::string domain, CFIndex code ): _cfObject( NULL )
     {
         String s;
         
@@ -149,7 +131,7 @@ namespace CF
         );
     }
     
-    Error::Error( std::string domain, CFIndex code, Dictionary userInfo )
+    Error::Error( std::string domain, CFIndex code, Dictionary userInfo ): _cfObject( NULL )
     {
         String s;
         
@@ -164,7 +146,7 @@ namespace CF
         );
     }
     
-    Error::Error( const char * domain, CFIndex code )
+    Error::Error( const char * domain, CFIndex code ): _cfObject( NULL )
     {
         String s;
         
@@ -179,7 +161,7 @@ namespace CF
         );
     }
     
-    Error::Error( const char * domain, CFIndex code, Dictionary userInfo )
+    Error::Error( const char * domain, CFIndex code, Dictionary userInfo ): _cfObject( NULL )
     {
         String s;
         

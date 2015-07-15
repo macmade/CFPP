@@ -125,7 +125,7 @@ static void __createCallbacks( void )
 
 namespace CF
 {
-    Array::Array( void )
+    Array::Array( void ): _cfObject( NULL )
     {
         __createCallbacks();
         
@@ -137,7 +137,7 @@ namespace CF
         );
     }
     
-    Array::Array( const Array & value )
+    Array::Array( const Array & value ): _cfObject( NULL )
     {
         __createCallbacks();
         
@@ -150,13 +150,9 @@ namespace CF
                 value._cfObject
             );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Array::Array( const AutoPointer & value )
+    Array::Array( const AutoPointer & value ): _cfObject( NULL )
     {
         __createCallbacks();
         
@@ -169,13 +165,9 @@ namespace CF
                 value
             );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Array::Array( CFTypeRef value )
+    Array::Array( CFTypeRef value ): _cfObject( NULL )
     {
         __createCallbacks();
         
@@ -188,13 +180,9 @@ namespace CF
                 static_cast< CFArrayRef >( value )
             );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Array::Array( CFArrayRef value )
+    Array::Array( CFArrayRef value ): _cfObject( NULL )
     {
         __createCallbacks();
         
@@ -206,10 +194,6 @@ namespace CF
                 CFArrayGetCount( value ),
                 value
             );
-        }
-        else
-        {
-            this->_cfObject = NULL;
         }
     }
     

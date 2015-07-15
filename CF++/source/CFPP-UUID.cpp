@@ -37,56 +37,40 @@
 
 namespace CF
 {
-    UUID::UUID( void )
+    UUID::UUID( void ): _cfObject( NULL )
     {
         this->_cfObject = CFUUIDCreate( static_cast< CFAllocatorRef >( NULL ) );
     }
     
-    UUID::UUID( const UUID & value )
+    UUID::UUID( const UUID & value ): _cfObject( NULL )
     {
         if( value._cfObject != NULL )
         {
             this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value._cfObject ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    UUID::UUID( const AutoPointer & value )
+    UUID::UUID( const AutoPointer & value ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFUUIDRef >( const_cast< void * >( CFRetain( value ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    UUID::UUID( CFTypeRef value )
+    UUID::UUID( CFTypeRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    UUID::UUID( CFUUIDRef value )
+    UUID::UUID( CFUUIDRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
         }
     }
     

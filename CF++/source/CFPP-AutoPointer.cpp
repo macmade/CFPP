@@ -40,7 +40,7 @@ namespace CF
     AutoPointer::AutoPointer( void ): _cfObject( NULL )
     {}
     
-    AutoPointer::AutoPointer( const AutoPointer & value )
+    AutoPointer::AutoPointer( const AutoPointer & value ): _cfObject( NULL )
     {
         if( value._cfObject != NULL )
         {
@@ -50,7 +50,7 @@ namespace CF
         this->_cfObject = value._cfObject;
     }
     
-    AutoPointer::AutoPointer( CFTypeRef value )
+    AutoPointer::AutoPointer( CFTypeRef value ): _cfObject( NULL )
     {
         this->_cfObject = value;
     }

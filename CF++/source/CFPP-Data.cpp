@@ -37,60 +37,44 @@
 
 namespace CF
 {
-    Data::Data( void )
+    Data::Data( void ): _cfObject( NULL )
     {
         this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
     }
     
-    Data::Data( const Data & value )
+    Data::Data( const Data & value ): _cfObject( NULL )
     {
         if( value._cfObject != NULL )
         {
             this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, value._cfObject );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Data::Data( const AutoPointer & value )
+    Data::Data( const AutoPointer & value ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
             this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, static_cast< CFDataRef >( value ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Data::Data( CFTypeRef value )
+    Data::Data( CFTypeRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, static_cast< CFDataRef >( value ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Data::Data( CFDataRef value )
+    Data::Data( CFDataRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, static_cast< CFDataRef >( value ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Data::Data( CFStringRef value )
+    Data::Data( CFStringRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
         {
@@ -98,20 +82,16 @@ namespace CF
             
             CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ) ), CFStringGetLength( value ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Data::Data( std::string value )
+    Data::Data( std::string value ): _cfObject( NULL )
     {
         this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
         
         CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( value.c_str() ), static_cast< CFIndex >( value.length() ) );
     }
     
-    Data::Data( Byte * value, CFIndex length )
+    Data::Data( Byte * value, CFIndex length ): _cfObject( NULL )
     {
         this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
         

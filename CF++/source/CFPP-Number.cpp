@@ -37,14 +37,36 @@
 
 namespace CF
 {
-    Number::Number( void )
+    Number::Number( void ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetSInt32Value( 0 );
     }
     
-    Number::Number( const AutoPointer & value )
+    Number::Number( const AutoPointer & value ): _cfObject( NULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject ): _cfObject( NULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
+        }
+    }
+    
+    Number::Number( CFNumberRef cfObject ): _cfObject( NULL )
+    {
+        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
+        }
+    }
+    
+    Number::Number( const AutoPointer & value, SInt8 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -52,49 +74,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-        }
-    }
-    
-    Number::Number( CFTypeRef cfObject )
-    {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-    }
-    
-    Number::Number( CFNumberRef cfObject )
-    {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-    }
-    
-    Number::Number( const AutoPointer & value, SInt8 defaultValueIfNULL )
-    {
-        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-            
             this->SetSInt8Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( const AutoPointer & value, SInt16 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, SInt16 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -102,13 +86,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt16Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( const AutoPointer & value, SInt32 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, SInt32 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -116,13 +98,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt32Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( const AutoPointer & value, SInt64 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, SInt64 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -130,13 +110,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt64Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( const AutoPointer & value, UInt8 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, UInt8 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -144,13 +122,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt8Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( const AutoPointer & value, UInt16 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, UInt16 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -158,13 +134,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt16Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( const AutoPointer & value, UInt32 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, UInt32 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -172,13 +146,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt32Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( const AutoPointer & value, UInt64 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, UInt64 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -186,13 +158,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt64Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( const AutoPointer & value, Float64 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, Float32 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -200,27 +170,23 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
-            this->SetFloat64Value( defaultValueIfNULL );
-        }
-    }
-    
-    Number::Number( const AutoPointer & value, Float32 defaultValueIfNULL )
-    {
-        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-            
             this->SetFloat32Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, SInt8 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, Float64 defaultValueIfNULL ): _cfObject( NULL )
+    {
+        if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
+        {
+            this->_cfObject = static_cast< CFNumberRef >( const_cast< void * >( CFRetain( value ) ) );
+        }
+        else
+        {
+            this->SetFloat64Value( defaultValueIfNULL );
+        }
+    }
+    
+    Number::Number( CFTypeRef cfObject, SInt8 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -228,13 +194,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt8Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, SInt16 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, SInt16 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -242,13 +206,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt16Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, SInt32 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, SInt32 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -256,13 +218,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt32Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, SInt64 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, SInt64 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -270,13 +230,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt64Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, UInt8 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, UInt8 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -284,13 +242,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt8Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, UInt16 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, UInt16 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -298,13 +254,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt16Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, UInt32 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, UInt32 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -312,13 +266,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt32Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, UInt64 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, UInt64 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -326,13 +278,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt64Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, Float32 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, Float32 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -340,13 +290,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetFloat32Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFTypeRef cfObject, Float64 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, Float64 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -354,13 +302,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetFloat64Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, SInt8 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, SInt8 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -368,13 +314,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt8Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, SInt16 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, SInt16 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -382,13 +326,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt16Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, SInt32 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, SInt32 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -396,13 +338,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt32Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, SInt64 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, SInt64 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -410,13 +350,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetSInt64Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, UInt8 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, UInt8 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -424,13 +362,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt8Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, UInt16 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, UInt16 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -438,13 +374,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt16Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, UInt32 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, UInt32 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -452,13 +386,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt32Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, UInt64 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, UInt64 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -466,13 +398,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetUInt64Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, Float32 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, Float32 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -480,13 +410,11 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetFloat32Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( CFNumberRef cfObject, Float64 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, Float64 defaultValueIfNULL ): _cfObject( NULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -494,91 +422,65 @@ namespace CF
         }
         else
         {
-            this->_cfObject = NULL;
-            
             this->SetFloat64Value( defaultValueIfNULL );
         }
     }
     
-    Number::Number( const Number & value )
+    Number::Number( const Number & value ): _cfObject( NULL )
     {
         if( value._cfObject != NULL )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( value._cfObject ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Number::Number( Number::SInt8 value )
+    Number::Number( Number::SInt8 value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetSInt8Value( value );
     }
     
-    Number::Number( Number::SInt16 value )
+    Number::Number( Number::SInt16 value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetSInt16Value( value );
     }
     
-    Number::Number( Number::SInt32 value )
+    Number::Number( Number::SInt32 value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetSInt32Value( value );
     }
     
-    Number::Number( Number::SInt64 value )
+    Number::Number( Number::SInt64 value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetSInt64Value( value );
     }
     
-    Number::Number( Number::UInt8 value )
+    Number::Number( Number::UInt8 value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetUInt8Value( value );
     }
     
-    Number::Number( Number::UInt16 value )
+    Number::Number( Number::UInt16 value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetUInt16Value( value );
     }
     
-    Number::Number( Number::UInt32 value )
+    Number::Number( Number::UInt32 value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetUInt32Value( value );
     }
     
-    Number::Number( Number::UInt64 value )
+    Number::Number( Number::UInt64 value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetUInt64Value( value );
     }
     
-    Number::Number( Float32 value )
+    Number::Number( Float32 value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetFloat32Value( value );
     }
     
-    Number::Number( Float64 value )
+    Number::Number( Float64 value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetFloat64Value( value );
     }
     

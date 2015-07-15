@@ -91,60 +91,42 @@ namespace CF
         return URL::FileSystemURL( str.GetValue(), isDir );
     }
     
-    URL::URL( void )
-    {
-        this->_cfObject = NULL;
-    }
+    URL::URL( void ): _cfObject( NULL )
+    {}
     
-    URL::URL( const URL & value )
+    URL::URL( const URL & value ): _cfObject( NULL )
     {
         if( value._cfObject != NULL )
         {
             this->_cfObject = static_cast< CFURLRef >( CFRetain( value._cfObject ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    URL::URL( CFTypeRef value )
+    URL::URL( CFTypeRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFURLRef >( CFRetain( value ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    URL::URL( const AutoPointer & value )
+    URL::URL( const AutoPointer & value ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFURLRef >( const_cast< void * >( CFRetain( value ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    URL::URL( CFURLRef value )
+    URL::URL( CFURLRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFURLRef >( CFRetain( value ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    URL::URL( CFStringRef value )
+    URL::URL( CFStringRef value ): _cfObject( NULL )
     {
         String s;
         
@@ -154,13 +136,9 @@ namespace CF
         {
             this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    URL::URL( std::string value )
+    URL::URL( std::string value ): _cfObject( NULL )
     {
         String s;
         
@@ -170,13 +148,9 @@ namespace CF
         {
             this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    URL::URL( const char * value )
+    URL::URL( const char * value ): _cfObject( NULL )
     {
         String s;
         
@@ -185,10 +159,6 @@ namespace CF
         if( s.GetLength() > 0 )
         {
             this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
-        }
-        else
-        {
-            this->_cfObject = NULL;
         }
     }
     

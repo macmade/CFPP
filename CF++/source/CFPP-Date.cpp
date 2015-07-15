@@ -44,65 +44,45 @@ namespace CF
         return date;
     }
     
-    Date::Date( void )
+    Date::Date( void ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetValue( CFAbsoluteTimeGetCurrent() );
     }
     
-    Date::Date( const Date & value )
+    Date::Date( const Date & value ): _cfObject( NULL )
     {
         if( value._cfObject != NULL )
         {
             this->_cfObject = static_cast< CFDateRef >( CFRetain( value._cfObject ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Date::Date( const AutoPointer & value )
+    Date::Date( const AutoPointer & value ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFDateRef >( const_cast< void * >( CFRetain( value ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Date::Date( CFTypeRef value )
+    Date::Date( CFTypeRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFDateRef >( CFRetain( value ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Date::Date( CFDateRef value )
+    Date::Date( CFDateRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFDateRef >( CFRetain( value ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Date::Date( CFAbsoluteTime value )
+    Date::Date( CFAbsoluteTime value ): _cfObject( NULL )
     {
-        this->_cfObject = NULL;
-        
         this->SetValue( value );
     }
     

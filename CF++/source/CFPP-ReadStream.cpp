@@ -40,21 +40,12 @@ namespace CF
     ReadStream::ReadStream( void ): _cfObject( NULL )
     {}
     
-    ReadStream::ReadStream( URL url )
+    ReadStream::ReadStream( URL url ): _cfObject( NULL )
     {
         this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
     }
     
-    ReadStream::ReadStream( std::string path )
-    {
-        URL url;
-        
-        url = URL::FileSystemURL( path );
-        
-        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
-    }
-    
-    ReadStream::ReadStream( const char * path )
+    ReadStream::ReadStream( std::string path ): _cfObject( NULL )
     {
         URL url;
         
@@ -63,51 +54,44 @@ namespace CF
         this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
     }
     
-    ReadStream::ReadStream( const ReadStream & value )
+    ReadStream::ReadStream( const char * path ): _cfObject( NULL )
+    {
+        URL url;
+        
+        url = URL::FileSystemURL( path );
+        
+        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+    }
+    
+    ReadStream::ReadStream( const ReadStream & value ): _cfObject( NULL )
     {
         if( value._cfObject != NULL )
         {
             this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value._cfObject ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    ReadStream::ReadStream( const AutoPointer & value )
+    ReadStream::ReadStream( const AutoPointer & value ): _cfObject( NULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    ReadStream::ReadStream( CFTypeRef value )
+    ReadStream::ReadStream( CFTypeRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value ) ) );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    ReadStream::ReadStream( CFReadStreamRef value )
+    ReadStream::ReadStream( CFReadStreamRef value ): _cfObject( NULL )
     {
         if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value ) ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
         }
     }
     

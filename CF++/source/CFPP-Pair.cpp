@@ -38,108 +38,83 @@
 
 namespace CF
 {    
-    Pair::Pair( CFTypeRef key, CFTypeRef value )
+    Pair::Pair( CFTypeRef key, CFTypeRef value ): _key( NULL ), _value( NULL )
     {
-        this->_key   = NULL;
-        this->_value = NULL;
-        
         this->SetKey( key );
         this->SetValue( value );
     }
     
-    Pair::Pair( const Pair & value )
+    Pair::Pair( const Pair & value ): _key( NULL ), _value( NULL )
     {
-        this->_key   = NULL;
-        this->_value = NULL;
-        
         this->SetKey( value._key );
         this->SetValue( value._value );
     }
     
-    Pair::Pair( const char * key, CFTypeRef value )
+    Pair::Pair( const char * key, CFTypeRef value ): _key( NULL ), _value( NULL )
     {
         String s;
         
-        this->_key   = NULL;
-        this->_value = NULL;
-        s            = key;
+        s = key;
         
         this->SetKey( s );
         this->SetValue( value );
     }
     
-    Pair::Pair( String key, CFTypeRef value )
+    Pair::Pair( String key, CFTypeRef value ): _key( NULL ), _value( NULL )
     {
-        this->_key   = NULL;
-        this->_value = NULL;
-        
         this->SetKey( key );
         this->SetValue( value );
     }
     
-    Pair::Pair( String key, String value )
+    Pair::Pair( String key, String value ): _key( NULL ), _value( NULL )
     {
-        this->_key   = NULL;
-        this->_value = NULL;
-        
         this->SetKey( key );
         this->SetValue( value );
     }
     
-    Pair::Pair( const char * key, String value )
+    Pair::Pair( const char * key, String value ): _key( NULL ), _value( NULL )
     {
         String s;
         
-        this->_key   = NULL;
-        this->_value = NULL;
-        s            = key;
+        s = key;
         
         this->SetKey( s );
         this->SetValue( value );
     }
     
-    Pair::Pair( String key, const char * value )
+    Pair::Pair( String key, const char * value ): _key( NULL ), _value( NULL )
     {
         String s;
         
-        this->_key   = NULL;
-        this->_value = NULL;
-        s            = value;
+        s = value;
         
         this->SetKey( key );
         this->SetValue( s );
     }
     
-    Pair::Pair( const char * key, const char * value )
+    Pair::Pair( const char * key, const char * value ): _key( NULL ), _value( NULL )
     {
         String s1;
         String s2;
         
-        this->_key   = NULL;
-        this->_value = NULL;
-        s1           = key;
-        s2           = value;
+        s1 = key;
+        s2 = value;
         
         this->SetKey( s1 );
         this->SetValue( s2 );
     }
     
-    Pair::Pair( String key, Number value )
+    Pair::Pair( String key, Number value ): _key( NULL ), _value( NULL )
     {
-        this->_key   = NULL;
-        this->_value = NULL;
-        
         this->SetKey( key );
         this->SetValue( value );
     }
     
-    Pair::Pair( const char * key, Number value )
+    Pair::Pair( const char * key, Number value ): _key( NULL ), _value( NULL )
     {
         String s;
         
-        this->_key   = NULL;
-        this->_value = NULL;
-        s            = key;
+        s = key;
         
         this->SetKey( s );
         this->SetValue( value );

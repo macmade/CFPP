@@ -145,7 +145,7 @@ static void __createCallbacks( void )
 
 namespace CF
 {
-    Dictionary::Dictionary( void )
+    Dictionary::Dictionary( void ): _cfObject( NULL )
     {
         __createCallbacks();
         
@@ -158,7 +158,7 @@ namespace CF
         );
     }
     
-    Dictionary::Dictionary( const Dictionary & value )
+    Dictionary::Dictionary( const Dictionary & value ): _cfObject( NULL )
     {
         __createCallbacks();
         
@@ -171,13 +171,9 @@ namespace CF
                 value._cfObject
             );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Dictionary::Dictionary( const AutoPointer & value )
+    Dictionary::Dictionary( const AutoPointer & value ): _cfObject( NULL )
     {
         __createCallbacks();
         
@@ -190,13 +186,9 @@ namespace CF
                 value
             );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Dictionary::Dictionary( CFTypeRef cfObject )
+    Dictionary::Dictionary( CFTypeRef cfObject ): _cfObject( NULL )
     {
         __createCallbacks();
         
@@ -209,13 +201,9 @@ namespace CF
                 static_cast< CFDictionaryRef >( cfObject )
             );
         }
-        else
-        {
-            this->_cfObject = NULL;
-        }
     }
     
-    Dictionary::Dictionary( CFDictionaryRef cfObject )
+    Dictionary::Dictionary( CFDictionaryRef cfObject ): _cfObject( NULL )
     {
         __createCallbacks();
         
@@ -227,10 +215,6 @@ namespace CF
                 CFDictionaryGetCount( cfObject ),
                 cfObject
             );
-        }
-        else
-        {
-            this->_cfObject = NULL;
         }
     }
     
