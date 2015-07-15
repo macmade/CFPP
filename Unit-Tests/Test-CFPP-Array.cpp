@@ -47,7 +47,15 @@ TEST( CFPP_Array, CTOR )
 }
 
 TEST( CFPP_Array, CTOR_AutoPointer )
-{}
+{
+    CF::Array a1( CF::AutoPointer( CFArrayCreateMutable( NULL, 10, NULL ) ) );
+    CF::Array a2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
+    CF::Array a3( CF::AutoPointer( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_FALSE( a3.IsValid() );
+}
 
 TEST( CFPP_Array, CTOR_CFType )
 {}
@@ -100,7 +108,23 @@ TEST( CFPP_Array, OperatorAssignArray )
 {}
 
 TEST( CFPP_Array, OperatorAssignAutoPointer )
-{}
+{
+    CF::Array a1( static_cast< CFTypeRef >( NULL ) );
+    CF::Array a2;
+    CF::Array a3;
+    
+    ASSERT_FALSE( a1.IsValid() );
+    ASSERT_TRUE(  a2.IsValid() );
+    ASSERT_TRUE(  a3.IsValid() );
+    
+    a1 = CF::AutoPointer( CFArrayCreateMutable( NULL, 0, NULL ) );
+    a2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
+    a3 = CF::AutoPointer( NULL );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_FALSE( a3.IsValid() );
+}
 
 TEST( CFPP_Array, OperatorAssignCFType )
 {}
