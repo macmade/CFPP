@@ -96,7 +96,7 @@ namespace CF
         (
             static_cast< CFAllocatorRef >( NULL ),
             domain,
-            static_cast< CFIndex >( code.GetSInt64Value() ),
+            static_cast< CFIndex >( code.GetSignedLongValue() ),
             NULL
         );
     }
@@ -107,7 +107,7 @@ namespace CF
         (
             static_cast< CFAllocatorRef >( NULL ),
             domain,
-            static_cast< CFIndex >( code.GetSInt64Value() ),
+            static_cast< CFIndex >( code.GetSignedLongValue() ),
             userInfo
         );
     }
@@ -298,7 +298,7 @@ namespace CF
             return n;
         }
         
-        n.SetSInt64Value( static_cast< SInt64 >( CFErrorGetCode( this->_cfObject ) ) );
+        n.SetSignedLongValue( static_cast< SInt64 >( CFErrorGetCode( this->_cfObject ) ) );
         
         return n;
     }

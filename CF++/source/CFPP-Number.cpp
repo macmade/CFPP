@@ -122,7 +122,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, SInt64 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, signed long defaultValueIfNULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -132,7 +132,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetSInt64Value( defaultValueIfNULL );
+            this->SetSignedLongValue( defaultValueIfNULL );
         }
     }
     
@@ -178,7 +178,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, UInt64 defaultValueIfNULL )
+    Number::Number( const AutoPointer & value, unsigned long defaultValueIfNULL )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -188,7 +188,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetUInt64Value( defaultValueIfNULL );
+            this->SetUnsignedLongValue( defaultValueIfNULL );
         }
     }
     
@@ -262,7 +262,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, SInt64 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, signed long defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -272,7 +272,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetSInt64Value( defaultValueIfNULL );
+            this->SetSignedLongValue( defaultValueIfNULL );
         }
     }
     
@@ -318,7 +318,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, UInt64 defaultValueIfNULL )
+    Number::Number( CFTypeRef cfObject, unsigned long defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -328,7 +328,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetUInt64Value( defaultValueIfNULL );
+            this->SetUnsignedLongValue( defaultValueIfNULL );
         }
     }
     
@@ -402,7 +402,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, SInt64 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, signed long defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -412,7 +412,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetSInt64Value( defaultValueIfNULL );
+            this->SetSignedLongValue( defaultValueIfNULL );
         }
     }
     
@@ -458,7 +458,7 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, UInt64 defaultValueIfNULL )
+    Number::Number( CFNumberRef cfObject, unsigned long defaultValueIfNULL )
     {
         if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
@@ -468,7 +468,7 @@ namespace CF
         {
             this->_cfObject = NULL;
             
-            this->SetUInt64Value( defaultValueIfNULL );
+            this->SetUnsignedLongValue( defaultValueIfNULL );
         }
     }
     
@@ -533,11 +533,11 @@ namespace CF
         this->SetSignedIntValue( value );
     }
     
-    Number::Number( Number::SInt64 value )
+    Number::Number( signed long value )
     {
         this->_cfObject = NULL;
         
-        this->SetSInt64Value( value );
+        this->SetSignedLongValue( value );
     }
     
     Number::Number( unsigned char value )
@@ -561,11 +561,11 @@ namespace CF
         this->SetUnsignedIntValue( value );
     }
     
-    Number::Number( Number::UInt64 value )
+    Number::Number( unsigned long value )
     {
         this->_cfObject = NULL;
         
-        this->SetUInt64Value( value );
+        this->SetUnsignedLongValue( value );
     }
     
     Number::Number( float value )
@@ -671,9 +671,9 @@ namespace CF
         return *( this );
     }
     
-    Number & Number::operator = ( Number::SInt64 value )
+    Number & Number::operator = ( signed long value )
     {
-        this->SetSInt64Value( value );
+        this->SetSignedLongValue( value );
         
         return *( this );
     }
@@ -699,9 +699,9 @@ namespace CF
         return *( this );
     }
     
-    Number & Number::operator = ( Number::UInt64 value )
+    Number & Number::operator = ( unsigned long value )
     {
-        this->SetUInt64Value( value );
+        this->SetUnsignedLongValue( value );
         
         return *( this );
     }
@@ -727,7 +727,7 @@ namespace CF
             return fabs( this->GetDoubleValue() - value.GetDoubleValue() ) < DBL_EPSILON;
         }
         
-        return this->GetSInt64Value() == value.GetSInt64Value();
+        return this->GetSignedLongValue() == value.GetSignedLongValue();
     }
     
     bool Number::operator == ( CFTypeRef value ) const
@@ -775,7 +775,7 @@ namespace CF
         return *( this ) == num;
     }
     
-    bool Number::operator == ( Number::SInt64 value ) const
+    bool Number::operator == ( signed long value ) const
     {
         Number num;
         
@@ -811,7 +811,7 @@ namespace CF
         return *( this ) == num;
     }
     
-    bool Number::operator == ( Number::UInt64 value ) const
+    bool Number::operator == ( unsigned long value ) const
     {
         Number num;
         
@@ -868,7 +868,7 @@ namespace CF
         return !( *( this ) == value );
     }
     
-    bool Number::operator != ( Number::SInt64 value ) const
+    bool Number::operator != ( signed long value ) const
     {
         return !( *( this ) == value );
     }
@@ -888,7 +888,7 @@ namespace CF
         return !( *( this ) == value );
     }
     
-    bool Number::operator != ( Number::UInt64 value ) const
+    bool Number::operator != ( unsigned long value ) const
     {
         return !( *( this ) == value );
     }
@@ -910,7 +910,7 @@ namespace CF
             return this->GetDoubleValue() >= value.GetDoubleValue();
         }
         
-        return this->GetSInt64Value() >= value.GetSInt64Value();
+        return this->GetSignedLongValue() >= value.GetSignedLongValue();
     }
     
     bool Number::operator >= ( CFTypeRef value ) const
@@ -958,7 +958,7 @@ namespace CF
         return *( this ) >= num;
     }
     
-    bool Number::operator >= ( Number::SInt64 value ) const
+    bool Number::operator >= ( signed long value ) const
     {
         Number num;
         
@@ -994,7 +994,7 @@ namespace CF
         return *( this ) >= num;
     }
     
-    bool Number::operator >= ( Number::UInt64 value ) const
+    bool Number::operator >= ( unsigned long value ) const
     {
         Number num;
         
@@ -1028,7 +1028,7 @@ namespace CF
             return this->GetDoubleValue() <= value.GetDoubleValue();
         }
         
-        return this->GetSInt64Value() <= value.GetSInt64Value();
+        return this->GetSignedLongValue() <= value.GetSignedLongValue();
     }
     
     bool Number::operator <= ( CFTypeRef value ) const
@@ -1076,7 +1076,7 @@ namespace CF
         return *( this ) <= num;
     }
     
-    bool Number::operator <= ( Number::SInt64 value ) const
+    bool Number::operator <= ( signed long value ) const
     {
         Number num;
         
@@ -1112,7 +1112,7 @@ namespace CF
         return *( this ) <= num;
     }
     
-    bool Number::operator <= ( Number::UInt64 value ) const
+    bool Number::operator <= ( unsigned long value ) const
     {
         Number num;
         
@@ -1146,7 +1146,7 @@ namespace CF
             return this->GetDoubleValue() > value.GetDoubleValue();
         }
         
-        return this->GetSInt64Value() > value.GetSInt64Value();
+        return this->GetSignedLongValue() > value.GetSignedLongValue();
     }
     
     bool Number::operator > ( CFTypeRef value ) const
@@ -1194,7 +1194,7 @@ namespace CF
         return *( this ) > num;
     }
     
-    bool Number::operator > ( Number::SInt64 value ) const
+    bool Number::operator > ( signed long value ) const
     {
         Number num;
         
@@ -1230,7 +1230,7 @@ namespace CF
         return *( this ) > num;
     }
     
-    bool Number::operator > ( Number::UInt64 value ) const
+    bool Number::operator > ( unsigned long value ) const
     {
         Number num;
         
@@ -1264,7 +1264,7 @@ namespace CF
             return this->GetDoubleValue() < value.GetDoubleValue();
         }
         
-        return this->GetSInt64Value() < value.GetSInt64Value();
+        return this->GetSignedLongValue() < value.GetSignedLongValue();
     }
     
     bool Number::operator < ( CFTypeRef value ) const
@@ -1312,7 +1312,7 @@ namespace CF
         return *( this ) < num;
     }
     
-    bool Number::operator < ( Number::SInt64 value ) const
+    bool Number::operator < ( signed long value ) const
     {
         Number num;
         
@@ -1348,7 +1348,7 @@ namespace CF
         return *( this ) < num;
     }
     
-    bool Number::operator < ( Number::UInt64 value ) const
+    bool Number::operator < ( unsigned long value ) const
     {
         Number num;
         
@@ -1377,7 +1377,7 @@ namespace CF
     
     bool Number::operator && ( const Number & value ) const
     {
-        return this->GetSInt64Value() && value.GetSInt64Value();
+        return this->GetSignedLongValue() && value.GetSignedLongValue();
     }
     
     bool Number::operator && ( CFTypeRef value ) const
@@ -1425,7 +1425,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::SInt64 value ) const
+    bool Number::operator && ( signed long value ) const
     {
         Number num;
         
@@ -1461,7 +1461,7 @@ namespace CF
         return *( this ) && num;
     }
     
-    bool Number::operator && ( Number::UInt64 value ) const
+    bool Number::operator && ( unsigned long value ) const
     {
         Number num;
         
@@ -1490,7 +1490,7 @@ namespace CF
     
     bool Number::operator || ( const Number & value ) const
     {
-        return this->GetSInt64Value() || value.GetSInt64Value();
+        return this->GetSignedLongValue() || value.GetSignedLongValue();
     }
     
     bool Number::operator || ( CFTypeRef value ) const
@@ -1538,7 +1538,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::SInt64 value ) const
+    bool Number::operator || ( signed long value ) const
     {
         Number num;
         
@@ -1574,7 +1574,7 @@ namespace CF
         return *( this ) || num;
     }
     
-    bool Number::operator || ( Number::UInt64 value ) const
+    bool Number::operator || ( unsigned long value ) const
     {
         Number num;
         
@@ -1603,14 +1603,14 @@ namespace CF
     
     Number & Number::operator ~ ( void )
     {
-        this->SetSInt64Value( ~( this->GetSInt64Value() ) );
+        this->SetSignedLongValue( ~( this->GetSignedLongValue() ) );
         
         return *( this );
     }
     
     Number & Number::operator ! ( void )
     {
-        this->SetSInt64Value( !( this->GetSInt64Value() ) );
+        this->SetSignedLongValue( !( this->GetSignedLongValue() ) );
         
         return *( this );
     }
@@ -1623,7 +1623,7 @@ namespace CF
         }
         else
         {
-            this->SetSInt64Value( this->GetSInt64Value() + static_cast< Number::SInt64 >( 1 ) );
+            this->SetSignedLongValue( this->GetSignedLongValue() + static_cast< signed long >( 1 ) );
         }
         
         return *( this );
@@ -1646,7 +1646,7 @@ namespace CF
         }
         else
         {
-            this->SetSInt64Value( this->GetSInt64Value() - static_cast< Number::SInt64 >( 1 ) );
+            this->SetSignedLongValue( this->GetSignedLongValue() - static_cast< signed long >( 1 ) );
         }
         
         return *( this );
@@ -1669,7 +1669,7 @@ namespace CF
         }
         else
         {
-            this->SetSInt64Value( this->GetSInt64Value() + value.GetSInt64Value() );
+            this->SetSignedLongValue( this->GetSignedLongValue() + value.GetSignedLongValue() );
         }
         
         return *( this );
@@ -1711,7 +1711,7 @@ namespace CF
         return *( this ) += num;
     }
     
-    Number & Number::operator += ( Number::SInt64 value )
+    Number & Number::operator += ( signed long value )
     {
         Number num;
         
@@ -1747,7 +1747,7 @@ namespace CF
         return *( this ) += num;
     }
     
-    Number & Number::operator += ( Number::UInt64 value )
+    Number & Number::operator += ( unsigned long value )
     {
         Number num;
         
@@ -1782,7 +1782,7 @@ namespace CF
         }
         else
         {
-            this->SetSInt64Value( this->GetSInt64Value() - value.GetSInt64Value() );
+            this->SetSignedLongValue( this->GetSignedLongValue() - value.GetSignedLongValue() );
         }
         
         return *( this );
@@ -1824,7 +1824,7 @@ namespace CF
         return *( this ) -= num;
     }
     
-    Number & Number::operator -= ( Number::SInt64 value )
+    Number & Number::operator -= ( signed long value )
     {
         Number num;
         
@@ -1860,7 +1860,7 @@ namespace CF
         return *( this ) -= num;
     }
     
-    Number & Number::operator -= ( Number::UInt64 value )
+    Number & Number::operator -= ( unsigned long value )
     {
         Number num;
         
@@ -1895,7 +1895,7 @@ namespace CF
         }
         else
         {
-            this->SetSInt64Value( this->GetSInt64Value() * value.GetSInt64Value() );
+            this->SetSignedLongValue( this->GetSignedLongValue() * value.GetSignedLongValue() );
         }
         
         return *( this );
@@ -1937,7 +1937,7 @@ namespace CF
         return *( this ) *= num;
     }
     
-    Number & Number::operator *= ( Number::SInt64 value )
+    Number & Number::operator *= ( signed long value )
     {
         Number num;
         
@@ -1973,7 +1973,7 @@ namespace CF
         return *( this ) *= num;
     }
     
-    Number & Number::operator *= ( Number::UInt64 value )
+    Number & Number::operator *= ( unsigned long value )
     {
         Number num;
         
@@ -2048,7 +2048,7 @@ namespace CF
         return *( this ) /= num;
     }
     
-    Number & Number::operator /= ( Number::SInt64 value )
+    Number & Number::operator /= ( signed long value )
     {
         Number num;
         
@@ -2084,7 +2084,7 @@ namespace CF
         return *( this ) /= num;
     }
     
-    Number & Number::operator /= ( Number::UInt64 value )
+    Number & Number::operator /= ( unsigned long value )
     {
         Number num;
         
@@ -2113,7 +2113,7 @@ namespace CF
     
     Number & Number::operator |= ( const Number & value )
     {
-        this->SetSInt64Value( this->GetSInt64Value() | value.GetSInt64Value() );
+        this->SetSignedLongValue( this->GetSignedLongValue() | value.GetSignedLongValue() );
         
         return *( this );
     }
@@ -2154,7 +2154,7 @@ namespace CF
         return *( this ) |= num;
     }
     
-    Number & Number::operator |= ( Number::SInt64 value )
+    Number & Number::operator |= ( signed long value )
     {
         Number num;
         
@@ -2190,7 +2190,7 @@ namespace CF
         return *( this ) |= num;
     }
     
-    Number & Number::operator |= ( Number::UInt64 value )
+    Number & Number::operator |= ( unsigned long value )
     {
         Number num;
         
@@ -2201,7 +2201,7 @@ namespace CF
     
     Number & Number::operator &= ( const Number & value )
     {
-        this->SetSInt64Value( this->GetSInt64Value() & value.GetSInt64Value() );
+        this->SetSignedLongValue( this->GetSignedLongValue() & value.GetSignedLongValue() );
         
         return *( this );
     }
@@ -2242,7 +2242,7 @@ namespace CF
         return *( this ) &= num;
     }
     
-    Number & Number::operator &= ( Number::SInt64 value )
+    Number & Number::operator &= ( signed long value )
     {
         Number num;
         
@@ -2278,7 +2278,7 @@ namespace CF
         return *( this ) &= num;
     }
     
-    Number & Number::operator &= ( Number::UInt64 value )
+    Number & Number::operator &= ( unsigned long value )
     {
         Number num;
         
@@ -2289,12 +2289,12 @@ namespace CF
     
     Number & Number::operator %= ( const Number & value )
     {
-        if( value.GetSInt64Value() == 0 )
+        if( value.GetSignedLongValue() == 0 )
         {
             throw std::runtime_error( "Division by zero" );
         }
         
-        this->SetSInt64Value( this->GetSInt64Value() % value.GetSInt64Value() );
+        this->SetSignedLongValue( this->GetSignedLongValue() % value.GetSignedLongValue() );
         
         return *( this );
     }
@@ -2335,7 +2335,7 @@ namespace CF
         return *( this ) %= num;
     }
     
-    Number & Number::operator %= ( Number::SInt64 value )
+    Number & Number::operator %= ( signed long value )
     {
         Number num;
         
@@ -2371,7 +2371,7 @@ namespace CF
         return *( this ) %= num;
     }
     
-    Number & Number::operator %= ( Number::UInt64 value )
+    Number & Number::operator %= ( unsigned long value )
     {
         Number num;
         
@@ -2382,7 +2382,7 @@ namespace CF
     
     Number & Number::operator ^= ( const Number & value )
     {
-        this->SetSInt64Value( this->GetSInt64Value() ^ value.GetSInt64Value() );
+        this->SetSignedLongValue( this->GetSignedLongValue() ^ value.GetSignedLongValue() );
         
         return *( this );
     }
@@ -2423,7 +2423,7 @@ namespace CF
         return *( this ) ^= num;
     }
     
-    Number & Number::operator ^= ( Number::SInt64 value )
+    Number & Number::operator ^= ( signed long value )
     {
         Number num;
         
@@ -2459,7 +2459,7 @@ namespace CF
         return *( this ) ^= num;
     }
     
-    Number & Number::operator ^= ( Number::UInt64 value )
+    Number & Number::operator ^= ( unsigned long value )
     {
         Number num;
         
@@ -2470,7 +2470,7 @@ namespace CF
     
     Number & Number::operator <<= ( const Number & value )
     {
-        this->SetSInt64Value( this->GetSInt64Value() << value.GetSInt64Value() );
+        this->SetSignedLongValue( this->GetSignedLongValue() << value.GetSignedLongValue() );
         
         return *( this );
     }
@@ -2511,7 +2511,7 @@ namespace CF
         return *( this ) <<= num;
     }
     
-    Number & Number::operator <<= ( Number::SInt64 value )
+    Number & Number::operator <<= ( signed long value )
     {
         Number num;
         
@@ -2547,7 +2547,7 @@ namespace CF
         return *( this ) <<= num;
     }
     
-    Number & Number::operator <<= ( Number::UInt64 value )
+    Number & Number::operator <<= ( unsigned long value )
     {
         Number num;
         
@@ -2558,7 +2558,7 @@ namespace CF
     
     Number & Number::operator >>= ( const Number & value )
     {
-        this->SetSInt64Value( this->GetSInt64Value() >> value.GetSInt64Value() );
+        this->SetSignedLongValue( this->GetSignedLongValue() >> value.GetSignedLongValue() );
         
         return *( this );
     }
@@ -2599,7 +2599,7 @@ namespace CF
         return *( this ) >>= num;
     }
     
-    Number & Number::operator >>= ( Number::SInt64 value )
+    Number & Number::operator >>= ( signed long value )
     {
         Number num;
         
@@ -2635,7 +2635,7 @@ namespace CF
         return *( this ) >>= num;
     }
     
-    Number & Number::operator >>= ( Number::UInt64 value )
+    Number & Number::operator >>= ( unsigned long value )
     {
         Number num;
         
@@ -2689,7 +2689,7 @@ namespace CF
         return *( this ) + num;
     }
     
-    Number Number::operator + ( Number::SInt64 value )
+    Number Number::operator + ( signed long value )
     {
         Number num;
         
@@ -2725,7 +2725,7 @@ namespace CF
         return *( this ) + num;
     }
     
-    Number Number::operator + ( Number::UInt64 value )
+    Number Number::operator + ( unsigned long value )
     {
         Number num;
         
@@ -2797,7 +2797,7 @@ namespace CF
         return *( this ) - num;
     }
     
-    Number Number::operator - ( Number::SInt64 value )
+    Number Number::operator - ( signed long value )
     {
         Number num;
         
@@ -2833,7 +2833,7 @@ namespace CF
         return *( this ) - num;
     }
     
-    Number Number::operator - ( Number::UInt64 value )
+    Number Number::operator - ( unsigned long value )
     {
         Number num;
         
@@ -2905,7 +2905,7 @@ namespace CF
         return *( this ) * num;
     }
     
-    Number Number::operator * ( Number::SInt64 value )
+    Number Number::operator * ( signed long value )
     {
         Number num;
         
@@ -2941,7 +2941,7 @@ namespace CF
         return *( this ) * num;
     }
     
-    Number Number::operator * ( Number::UInt64 value )
+    Number Number::operator * ( unsigned long value )
     {
         Number num;
         
@@ -3013,7 +3013,7 @@ namespace CF
         return *( this ) / num;
     }
     
-    Number Number::operator / ( Number::SInt64 value )
+    Number Number::operator / ( signed long value )
     {
         Number num;
         
@@ -3049,7 +3049,7 @@ namespace CF
         return *( this ) / num;
     }
     
-    Number Number::operator / ( Number::UInt64 value )
+    Number Number::operator / ( unsigned long value )
     {
         Number num;
         
@@ -3121,7 +3121,7 @@ namespace CF
         return *( this ) % num;
     }
     
-    Number Number::operator % ( Number::SInt64 value )
+    Number Number::operator % ( signed long value )
     {
         Number num;
         
@@ -3157,7 +3157,7 @@ namespace CF
         return *( this ) % num;
     }
     
-    Number Number::operator % ( Number::UInt64 value )
+    Number Number::operator % ( unsigned long value )
     {
         Number num;
         
@@ -3211,7 +3211,7 @@ namespace CF
         return *( this ) & num;
     }
     
-    Number Number::operator & ( Number::SInt64 value )
+    Number Number::operator & ( signed long value )
     {
         Number num;
         
@@ -3247,7 +3247,7 @@ namespace CF
         return *( this ) & num;
     }
     
-    Number Number::operator & ( Number::UInt64 value )
+    Number Number::operator & ( unsigned long value )
     {
         Number num;
         
@@ -3301,7 +3301,7 @@ namespace CF
         return *( this ) | num;
     }
     
-    Number Number::operator | ( Number::SInt64 value )
+    Number Number::operator | ( signed long value )
     {
         Number num;
         
@@ -3337,7 +3337,7 @@ namespace CF
         return *( this ) | num;
     }
     
-    Number Number::operator | ( Number::UInt64 value )
+    Number Number::operator | ( unsigned long value )
     {
         Number num;
         
@@ -3391,7 +3391,7 @@ namespace CF
         return *( this ) ^ num;
     }
     
-    Number Number::operator ^ ( Number::SInt64 value )
+    Number Number::operator ^ ( signed long value )
     {
         Number num;
         
@@ -3427,7 +3427,7 @@ namespace CF
         return *( this ) ^ num;
     }
     
-    Number Number::operator ^ ( Number::UInt64 value )
+    Number Number::operator ^ ( unsigned long value )
     {
         Number num;
         
@@ -3481,7 +3481,7 @@ namespace CF
         return *( this ) << num;
     }
     
-    Number Number::operator << ( Number::SInt64 value )
+    Number Number::operator << ( signed long value )
     {
         Number num;
         
@@ -3517,7 +3517,7 @@ namespace CF
         return *( this ) << num;
     }
     
-    Number Number::operator << ( Number::UInt64 value )
+    Number Number::operator << ( unsigned long value )
     {
         Number num;
         
@@ -3571,7 +3571,7 @@ namespace CF
         return *( this ) >> num;
     }
     
-    Number Number::operator >> ( Number::SInt64 value )
+    Number Number::operator >> ( signed long value )
     {
         Number num;
         
@@ -3607,7 +3607,7 @@ namespace CF
         return *( this ) >> num;
     }
     
-    Number Number::operator >> ( Number::UInt64 value )
+    Number Number::operator >> ( unsigned long value )
     {
         Number num;
         
@@ -3631,9 +3631,9 @@ namespace CF
         return this->GetSignedIntValue();
     }
     
-    Number::operator Number::SInt64 () const
+    Number::operator signed long () const
     {
-        return this->GetSInt64Value();
+        return this->GetSignedLongValue();
     }
             
     Number::operator unsigned char () const
@@ -3651,9 +3651,9 @@ namespace CF
         return this->GetUnsignedIntValue();
     }
     
-    Number::operator Number::UInt64 () const
+    Number::operator unsigned long () const
     {
-        return this->GetUInt64Value();
+        return this->GetUnsignedLongValue();
     }
     
     Number::operator float () const
@@ -3728,16 +3728,16 @@ namespace CF
         return value;
     }
     
-    Number::SInt64 Number::GetSInt64Value( void ) const
+    signed long Number::GetSignedLongValue( void ) const
     {
-        Number::SInt64 value;
+        signed long value;
         
         if( this->_cfObject == NULL )
         {
-            return static_cast< Number::SInt64 >( 0 );
+            return static_cast< signed long >( 0 );
         }
         
-        CFNumberGetValue( this->_cfObject, kCFNumberSInt64Type, &value );
+        CFNumberGetValue( this->_cfObject, kCFNumberLongType, &value );
         
         return value;
     }
@@ -3757,9 +3757,9 @@ namespace CF
         return static_cast< unsigned int >( this->GetSignedIntValue() );
     }
     
-    Number::UInt64 Number::GetUInt64Value( void ) const
+    unsigned long Number::GetUnsignedLongValue( void ) const
     {
-        return static_cast< Number::UInt64 >( this->GetSInt64Value() );
+        return static_cast< unsigned long >( this->GetSignedLongValue() );
     }
     
     float Number::GetFloatValue( void ) const
@@ -3820,14 +3820,14 @@ namespace CF
         this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberIntType, &value );
     }
     
-    void Number::SetSInt64Value( Number::SInt64 value )
+    void Number::SetSignedLongValue( signed long value )
     {
         if( this->_cfObject != NULL )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberSInt64Type, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberLongType, &value );
     }
     
     void Number::SetUnsignedCharValue( unsigned char value )
@@ -3845,9 +3845,9 @@ namespace CF
         this->SetSignedIntValue( static_cast< signed int >( value ) );
     }
     
-    void Number::SetUInt64Value( Number::UInt64 value )
+    void Number::SetUnsignedLongValue( unsigned long value )
     {
-        this->SetSInt64Value( static_cast< Number::SInt64 >( value ) );
+        this->SetSignedLongValue( static_cast< signed long >( value ) );
     }
     
     void Number::SetFloatValue( float value )
