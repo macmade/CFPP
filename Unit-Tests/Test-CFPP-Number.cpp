@@ -38,15 +38,15 @@
 
 using namespace testing;
 
-static bool FloatIsEqual( CF::Number::Float32 x, CF::Number::Float32 y );
-static bool FloatIsEqual( CF::Number::Float64 x, CF::Number::Float64 y );
+static bool FloatIsEqual( Float32 x, Float32 y );
+static bool FloatIsEqual( Float64 x, Float64 y );
 
-static bool FloatIsEqual( CF::Number::Float32 x, CF::Number::Float32 y )
+static bool FloatIsEqual( Float32 x, Float32 y )
 {
     return fabsf( x - y ) < FLT_EPSILON;
 }
 
-static bool FloatIsEqual( CF::Number::Float64 x, CF::Number::Float64 y )
+static bool FloatIsEqual( Float64 x, Float64 y )
 {
     return fabs( x - y ) < DBL_EPSILON;
 }
@@ -128,16 +128,16 @@ void TMPL_CFPP_Number_CTOR_AutoPointer_T( void )
 
 TEST( CFPP_Number, CTOR_AutoPointer_T )
 {
-    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_CTOR_AutoPointer_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< SInt8 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< SInt16 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< SInt32 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< SInt64 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< UInt8 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< UInt16 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< UInt32 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< UInt64 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< Float32 >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< Float64 >();
 }
 
 template< typename T >
@@ -155,16 +155,16 @@ void TMPL_CFPP_Number_CTOR_CFType_T( void )
 
 TEST( CFPP_Number, CTOR_CFType_T )
 {
-    TMPL_CFPP_Number_CTOR_CFType_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_CTOR_CFType_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_CTOR_CFType_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_CTOR_CFType_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_CTOR_CFType_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_CTOR_CFType_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_CTOR_CFType_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_CTOR_CFType_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_CTOR_CFType_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_CTOR_CFType_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_CTOR_CFType_T< SInt8 >();
+    TMPL_CFPP_Number_CTOR_CFType_T< SInt16 >();
+    TMPL_CFPP_Number_CTOR_CFType_T< SInt32 >();
+    TMPL_CFPP_Number_CTOR_CFType_T< SInt64 >();
+    TMPL_CFPP_Number_CTOR_CFType_T< UInt8 >();
+    TMPL_CFPP_Number_CTOR_CFType_T< UInt16 >();
+    TMPL_CFPP_Number_CTOR_CFType_T< UInt32 >();
+    TMPL_CFPP_Number_CTOR_CFType_T< UInt64 >();
+    TMPL_CFPP_Number_CTOR_CFType_T< Float32 >();
+    TMPL_CFPP_Number_CTOR_CFType_T< Float64 >();
 }
 
 template< typename T >
@@ -182,16 +182,16 @@ void TMPL_CFPP_Number_CTOR_CFNumber_T( void )
 
 TEST( CFPP_Number, CTOR_CFNumber_T )
 {
-    TMPL_CFPP_Number_CTOR_CFNumber_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_CTOR_CFNumber_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_CTOR_CFNumber_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_CTOR_CFNumber_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_CTOR_CFNumber_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_CTOR_CFNumber_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_CTOR_CFNumber_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_CTOR_CFNumber_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_CTOR_CFNumber_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_CTOR_CFNumber_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< SInt8 >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< SInt16 >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< SInt32 >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< SInt64 >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< UInt8 >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< UInt16 >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< UInt32 >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< UInt64 >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< Float32 >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< Float64 >();
 }
 
 template< typename T >
@@ -204,16 +204,16 @@ void TMPL_CFPP_Number_CTOR_T( void )
 
 TEST( CFPP_Number, CTOR_T )
 {
-    TMPL_CFPP_Number_CTOR_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_CTOR_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_CTOR_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_CTOR_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_CTOR_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_CTOR_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_CTOR_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_CTOR_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_CTOR_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_CTOR_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_CTOR_T< SInt8 >();
+    TMPL_CFPP_Number_CTOR_T< SInt16 >();
+    TMPL_CFPP_Number_CTOR_T< SInt32 >();
+    TMPL_CFPP_Number_CTOR_T< SInt64 >();
+    TMPL_CFPP_Number_CTOR_T< UInt8 >();
+    TMPL_CFPP_Number_CTOR_T< UInt16 >();
+    TMPL_CFPP_Number_CTOR_T< UInt32 >();
+    TMPL_CFPP_Number_CTOR_T< UInt64 >();
+    TMPL_CFPP_Number_CTOR_T< Float32 >();
+    TMPL_CFPP_Number_CTOR_T< Float64 >();
 }
 
 TEST( CFPP_Number, CCTOR )
@@ -350,16 +350,16 @@ void TMPL_CFPP_Number_OperatorAssign_T( void )
 
 TEST( CFPP_Number, OperatorAssign_T )
 {
-    TMPL_CFPP_Number_OperatorAssign_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorAssign_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorAssign_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorAssign_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorAssign_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorAssign_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorAssign_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorAssign_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorAssign_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorAssign_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorAssign_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorAssign_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorAssign_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorAssign_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorAssign_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorAssign_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorAssign_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorAssign_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorAssign_T< Float32 >();
+    TMPL_CFPP_Number_OperatorAssign_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorEqualNumber )
@@ -481,16 +481,16 @@ void TMPL_CFPP_Number_OperatorEqual_T( void )
 
 TEST( CFPP_Number, OperatorEqual_T )
 {
-    TMPL_CFPP_Number_OperatorEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorEqual_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorEqual_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorEqual_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorEqual_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorEqual_T< Float32 >();
+    TMPL_CFPP_Number_OperatorEqual_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorNotEqualNumber )
@@ -612,16 +612,16 @@ void TMPL_CFPP_Number_OperatorNotEqual_T( void )
 
 TEST( CFPP_Number, OperatorNotEqual_T )
 {
-    TMPL_CFPP_Number_OperatorNotEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorNotEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorNotEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorNotEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorNotEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorNotEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorNotEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorNotEqual_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorNotEqual_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorNotEqual_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< Float32 >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorGreaterOrEqualNumber )
@@ -755,16 +755,16 @@ void TMPL_CFPP_Number_OperatorGreaterOrEqual_T( void )
 
 TEST( CFPP_Number, OperatorGreaterOrEqual_T )
 {
-    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< Float32 >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorLesserOrEqualNumber )
@@ -898,16 +898,16 @@ void TMPL_CFPP_Number_OperatorLesserOrEqual_T( void )
 
 TEST( CFPP_Number, OperatorLesserOrEqual_T )
 {
-    TMPL_CFPP_Number_OperatorLesserOrEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorLesserOrEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorLesserOrEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorLesserOrEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorLesserOrEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorLesserOrEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorLesserOrEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorLesserOrEqual_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorLesserOrEqual_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorLesserOrEqual_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< Float32 >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorGreaterNumber )
@@ -1033,16 +1033,16 @@ void TMPL_CFPP_Number_OperatorGreater_T( void )
 
 TEST( CFPP_Number, OperatorGreater_T )
 {
-    TMPL_CFPP_Number_OperatorGreater_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorGreater_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorGreater_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorGreater_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorGreater_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorGreater_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorGreater_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorGreater_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorGreater_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorGreater_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorGreater_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorGreater_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorGreater_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorGreater_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorGreater_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorGreater_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorGreater_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorGreater_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorGreater_T< Float32 >();
+    TMPL_CFPP_Number_OperatorGreater_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorLesserNumber )
@@ -1168,16 +1168,16 @@ void TMPL_CFPP_Number_OperatorLesser_T( void )
 
 TEST( CFPP_Number, OperatorLesser_T )
 {
-    TMPL_CFPP_Number_OperatorLesser_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorLesser_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorLesser_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorLesser_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorLesser_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorLesser_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorLesser_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorLesser_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorLesser_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorLesser_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorLesser_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorLesser_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorLesser_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorLesser_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorLesser_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorLesser_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorLesser_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorLesser_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorLesser_T< Float32 >();
+    TMPL_CFPP_Number_OperatorLesser_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorAndNumber )
@@ -1299,16 +1299,16 @@ void TMPL_CFPP_Number_OperatorAnd_T( void )
 
 TEST( CFPP_Number, OperatorAnd_T )
 {
-    TMPL_CFPP_Number_OperatorAnd_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorAnd_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorAnd_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorAnd_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorAnd_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorAnd_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorAnd_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorAnd_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorAnd_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorAnd_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorAnd_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorAnd_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorAnd_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorAnd_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorAnd_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorAnd_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorAnd_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorAnd_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorAnd_T< Float32 >();
+    TMPL_CFPP_Number_OperatorAnd_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorOrNumber )
@@ -1430,16 +1430,16 @@ void TMPL_CFPP_Number_OperatorOr_T( void )
 
 TEST( CFPP_Number, OperatorOr_T )
 {
-    TMPL_CFPP_Number_OperatorOr_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorOr_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorOr_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorOr_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorOr_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorOr_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorOr_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorOr_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorOr_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorOr_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorOr_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorOr_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorOr_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorOr_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorOr_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorOr_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorOr_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorOr_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorOr_T< Float32 >();
+    TMPL_CFPP_Number_OperatorOr_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorBitwiseNot )
@@ -1675,16 +1675,16 @@ void TMPL_CFPP_Number_OperatorPlusEqual_T( void )
 
 TEST( CFPP_Number, OperatorPlusEqual_T )
 {
-    TMPL_CFPP_Number_OperatorPlusEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorPlusEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorPlusEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorPlusEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorPlusEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorPlusEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorPlusEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorPlusEqual_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorPlusEqual_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorPlusEqual_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< Float32 >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorMinusEqualNumber )
@@ -1826,16 +1826,16 @@ void TMPL_CFPP_Number_OperatorMinusEqual_T( void )
 
 TEST( CFPP_Number, OperatorMinusEqual_T )
 {
-    TMPL_CFPP_Number_OperatorMinusEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorMinusEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorMinusEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorMinusEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorMinusEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorMinusEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorMinusEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorMinusEqual_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorMinusEqual_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorMinusEqual_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< Float32 >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorMultiplyEqualNumber )
@@ -1977,16 +1977,16 @@ void TMPL_CFPP_Number_OperatorMultiplyEqual_T( void )
 
 TEST( CFPP_Number, OperatorMultiplyEqual_T )
 {
-    TMPL_CFPP_Number_OperatorMultiplyEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorMultiplyEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorMultiplyEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorMultiplyEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorMultiplyEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorMultiplyEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorMultiplyEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorMultiplyEqual_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorMultiplyEqual_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorMultiplyEqual_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< Float32 >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorDivideEqualNumber )
@@ -2076,16 +2076,16 @@ void TMPL_CFPP_Number_OperatorDivideEqual_T( void )
 
 TEST( CFPP_Number, OperatorDivideEqual_T )
 {
-    TMPL_CFPP_Number_OperatorDivideEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorDivideEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorDivideEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorDivideEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorDivideEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorDivideEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorDivideEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorDivideEqual_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorDivideEqual_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorDivideEqual_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< Float32 >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorOrEqualNumber )
@@ -2227,14 +2227,14 @@ void TMPL_CFPP_Number_OperatorOrEqual_T( void )
 
 TEST( CFPP_Number, OperatorOrEqual_T )
 {
-    TMPL_CFPP_Number_OperatorOrEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorOrEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorOrEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorOrEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorOrEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorOrEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorOrEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorOrEqual_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorAndEqualNumber )
@@ -2376,14 +2376,14 @@ void TMPL_CFPP_Number_OperatorAndEqual_T( void )
 
 TEST( CFPP_Number, OperatorAndEqual_T )
 {
-    TMPL_CFPP_Number_OperatorAndEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorAndEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorAndEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorAndEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorAndEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorAndEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorAndEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorAndEqual_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorModEqualNumber )
@@ -2473,14 +2473,14 @@ void TMPL_CFPP_Number_OperatorModEqual_T( void )
 
 TEST( CFPP_Number, OperatorModEqual_T )
 {
-    TMPL_CFPP_Number_OperatorModEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorModEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorModEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorModEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorModEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorModEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorModEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorModEqual_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorModEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorModEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorModEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorModEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorModEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorModEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorModEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorModEqual_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorXorEqualNumber )
@@ -2622,14 +2622,14 @@ void TMPL_CFPP_Number_OperatorXorEqual_T( void )
 
 TEST( CFPP_Number, OperatorXorEqual_T )
 {
-    TMPL_CFPP_Number_OperatorXorEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorXorEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorXorEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorXorEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorXorEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorXorEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorXorEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorXorEqual_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorLeftShiftEqualNumber )
@@ -2771,14 +2771,14 @@ void TMPL_CFPP_Number_OperatorLeftShiftEqual_T( void )
 
 TEST( CFPP_Number, OperatorLeftShiftEqual_T )
 {
-    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorRightShiftEqualNumber )
@@ -2920,14 +2920,14 @@ void TMPL_CFPP_Number_OperatorRightShiftEqual_T( void )
 
 TEST( CFPP_Number, OperatorRightShiftEqual_T )
 {
-    TMPL_CFPP_Number_OperatorRightShiftEqual_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorRightShiftEqual_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorRightShiftEqual_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorRightShiftEqual_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorRightShiftEqual_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorRightShiftEqual_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorRightShiftEqual_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorRightShiftEqual_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorPlusNumber )
@@ -2997,16 +2997,16 @@ void TMPL_CFPP_Number_OperatorPlus_T( void )
 
 TEST( CFPP_Number, OperatorPlus_T )
 {
-    TMPL_CFPP_Number_OperatorPlus_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorPlus_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorPlus_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorPlus_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorPlus_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorPlus_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorPlus_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorPlus_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorPlus_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorPlus_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorPlus_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorPlus_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorPlus_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorPlus_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorPlus_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorPlus_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorPlus_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorPlus_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorPlus_T< Float32 >();
+    TMPL_CFPP_Number_OperatorPlus_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorMinusNumber )
@@ -3076,16 +3076,16 @@ void TMPL_CFPP_Number_OperatorMinus_T( void )
 
 TEST( CFPP_Number, OperatorMinus_T )
 {
-    TMPL_CFPP_Number_OperatorMinus_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorMinus_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorMinus_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorMinus_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorMinus_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorMinus_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorMinus_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorMinus_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorMinus_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorMinus_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorMinus_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorMinus_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorMinus_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorMinus_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorMinus_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorMinus_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorMinus_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorMinus_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorMinus_T< Float32 >();
+    TMPL_CFPP_Number_OperatorMinus_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorMultiplyNumber )
@@ -3155,16 +3155,16 @@ void TMPL_CFPP_Number_OperatorMultiply_T( void )
 
 TEST( CFPP_Number, OperatorMultiply_T )
 {
-    TMPL_CFPP_Number_OperatorMultiply_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorMultiply_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorMultiply_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorMultiply_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorMultiply_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorMultiply_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorMultiply_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorMultiply_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorMultiply_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorMultiply_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorMultiply_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorMultiply_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorMultiply_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorMultiply_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorMultiply_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorMultiply_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorMultiply_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorMultiply_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorMultiply_T< Float32 >();
+    TMPL_CFPP_Number_OperatorMultiply_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorDivideNumber )
@@ -3238,16 +3238,16 @@ void TMPL_CFPP_Number_OperatorDivide_T( void )
 
 TEST( CFPP_Number, OperatorDivide_T )
 {
-    TMPL_CFPP_Number_OperatorDivide_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorDivide_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorDivide_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorDivide_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorDivide_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorDivide_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorDivide_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorDivide_T< CF::Number::UInt64 >();
-    TMPL_CFPP_Number_OperatorDivide_T< CF::Number::Float32 >();
-    TMPL_CFPP_Number_OperatorDivide_T< CF::Number::Float64 >();
+    TMPL_CFPP_Number_OperatorDivide_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorDivide_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorDivide_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorDivide_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorDivide_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorDivide_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorDivide_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorDivide_T< UInt64 >();
+    TMPL_CFPP_Number_OperatorDivide_T< Float32 >();
+    TMPL_CFPP_Number_OperatorDivide_T< Float64 >();
 }
 
 TEST( CFPP_Number, OperatorModNumber )
@@ -3321,14 +3321,14 @@ void TMPL_CFPP_Number_OperatorMod_T( void )
 
 TEST( CFPP_Number, OperatorMod_T )
 {
-    TMPL_CFPP_Number_OperatorMod_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorMod_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorMod_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorMod_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorMod_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorMod_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorMod_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorMod_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorMod_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorMod_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorMod_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorMod_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorMod_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorMod_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorMod_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorMod_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorBitwiseAndNumber )
@@ -3398,14 +3398,14 @@ void TMPL_CFPP_Number_OperatorBiwiseAnd_T( void )
 
 TEST( CFPP_Number, OperatorBitwiseAnd_T )
 {
-    TMPL_CFPP_Number_OperatorBiwiseAnd_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorBiwiseAnd_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorBiwiseAnd_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorBiwiseAnd_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorBiwiseAnd_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorBiwiseAnd_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorBiwiseAnd_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorBiwiseAnd_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorBitwiseOrNumber )
@@ -3475,14 +3475,14 @@ void TMPL_CFPP_Number_OperatorBiwiseOr_T( void )
 
 TEST( CFPP_Number, OperatorBitwiseOr_T )
 {
-    TMPL_CFPP_Number_OperatorBiwiseOr_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorBiwiseOr_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorBiwiseOr_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorBiwiseOr_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorBiwiseOr_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorBiwiseOr_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorBiwiseOr_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorBiwiseOr_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorXorNumber )
@@ -3552,14 +3552,14 @@ void TMPL_CFPP_Number_OperatorXor_T( void )
 
 TEST( CFPP_Number, OperatorXor_T )
 {
-    TMPL_CFPP_Number_OperatorXor_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorXor_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorXor_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorXor_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorXor_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorXor_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorXor_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorXor_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorXor_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorXor_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorXor_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorXor_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorXor_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorXor_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorXor_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorXor_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorLeftShiftNumber )
@@ -3629,14 +3629,14 @@ void TMPL_CFPP_Number_OperatorLeftShift_T( void )
 
 TEST( CFPP_Number, OperatorLeftShift_T )
 {
-    TMPL_CFPP_Number_OperatorLeftShift_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorLeftShift_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorLeftShift_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorLeftShift_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorLeftShift_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorLeftShift_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorLeftShift_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorLeftShift_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< UInt64 >();
 }
 
 TEST( CFPP_Number, OperatorRightShiftNumber )
@@ -3706,14 +3706,14 @@ void TMPL_CFPP_Number_OperatorRightShift_T( void )
 
 TEST( CFPP_Number, OperatorRightShift_T )
 {
-    TMPL_CFPP_Number_OperatorRightShift_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_OperatorRightShift_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_OperatorRightShift_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_OperatorRightShift_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_OperatorRightShift_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_OperatorRightShift_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_OperatorRightShift_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_OperatorRightShift_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_OperatorRightShift_T< SInt8 >();
+    TMPL_CFPP_Number_OperatorRightShift_T< SInt16 >();
+    TMPL_CFPP_Number_OperatorRightShift_T< SInt32 >();
+    TMPL_CFPP_Number_OperatorRightShift_T< SInt64 >();
+    TMPL_CFPP_Number_OperatorRightShift_T< UInt8 >();
+    TMPL_CFPP_Number_OperatorRightShift_T< UInt16 >();
+    TMPL_CFPP_Number_OperatorRightShift_T< UInt32 >();
+    TMPL_CFPP_Number_OperatorRightShift_T< UInt64 >();
 }
 
 template< typename T >
@@ -3730,14 +3730,14 @@ void TMPL_CFPP_Number_CastTo_T( void )
 
 TEST( CFPP_Number, CastTo_T )
 {
-    TMPL_CFPP_Number_CastTo_T< CF::Number::SInt8 >();
-    TMPL_CFPP_Number_CastTo_T< CF::Number::SInt16 >();
-    TMPL_CFPP_Number_CastTo_T< CF::Number::SInt32 >();
-    TMPL_CFPP_Number_CastTo_T< CF::Number::SInt64 >();
-    TMPL_CFPP_Number_CastTo_T< CF::Number::UInt8 >();
-    TMPL_CFPP_Number_CastTo_T< CF::Number::UInt16 >();
-    TMPL_CFPP_Number_CastTo_T< CF::Number::UInt32 >();
-    TMPL_CFPP_Number_CastTo_T< CF::Number::UInt64 >();
+    TMPL_CFPP_Number_CastTo_T< SInt8 >();
+    TMPL_CFPP_Number_CastTo_T< SInt16 >();
+    TMPL_CFPP_Number_CastTo_T< SInt32 >();
+    TMPL_CFPP_Number_CastTo_T< SInt64 >();
+    TMPL_CFPP_Number_CastTo_T< UInt8 >();
+    TMPL_CFPP_Number_CastTo_T< UInt16 >();
+    TMPL_CFPP_Number_CastTo_T< UInt32 >();
+    TMPL_CFPP_Number_CastTo_T< UInt64 >();
 }
 
 TEST( CFPP_Number, CastToFloat32 )
@@ -3746,9 +3746,9 @@ TEST( CFPP_Number, CastToFloat32 )
     CF::Number n2( 42 );
     CF::Number n3( static_cast< CFNumberRef >( NULL ) );
     
-    ASSERT_TRUE( FloatIsEqual( static_cast< CF::Number::Float32 >( n1 ),  0 ) );
-    ASSERT_TRUE( FloatIsEqual( static_cast< CF::Number::Float32 >( n2 ), 42 ) );
-    ASSERT_TRUE( FloatIsEqual( static_cast< CF::Number::Float32 >( n3 ),  0 ) );
+    ASSERT_TRUE( FloatIsEqual( static_cast< Float32 >( n1 ),  0 ) );
+    ASSERT_TRUE( FloatIsEqual( static_cast< Float32 >( n2 ), 42 ) );
+    ASSERT_TRUE( FloatIsEqual( static_cast< Float32 >( n3 ),  0 ) );
 }
 
 TEST( CFPP_Number, CastToFloat64 )
@@ -3757,9 +3757,9 @@ TEST( CFPP_Number, CastToFloat64 )
     CF::Number n2( 42 );
     CF::Number n3( static_cast< CFNumberRef >( NULL ) );
     
-    ASSERT_TRUE( FloatIsEqual( static_cast< CF::Number::Float64 >( n1 ),  0 ) );
-    ASSERT_TRUE( FloatIsEqual( static_cast< CF::Number::Float64 >( n2 ), 42 ) );
-    ASSERT_TRUE( FloatIsEqual( static_cast< CF::Number::Float64 >( n3 ),  0 ) );
+    ASSERT_TRUE( FloatIsEqual( static_cast< Float64 >( n1 ),  0 ) );
+    ASSERT_TRUE( FloatIsEqual( static_cast< Float64 >( n2 ), 42 ) );
+    ASSERT_TRUE( FloatIsEqual( static_cast< Float64 >( n3 ),  0 ) );
 }
 
 TEST( CFPP_Number, GetTypeID )
@@ -3785,8 +3785,8 @@ TEST( CFPP_Number, GetCFObject )
 TEST( CFPP_Number, IsFloatType )
 {
     CF::Number n1;
-    CF::Number n2( static_cast< CF::Number::UInt8 >( 42 ) );
-    CF::Number n3( static_cast< CF::Number::Float32 >( 42 ) );
+    CF::Number n2( static_cast< UInt8 >( 42 ) );
+    CF::Number n3( static_cast< Float32 >( 42 ) );
     CF::Number n4( static_cast< CFNumberRef >( NULL ) );
     
     ASSERT_FALSE( n1.IsFloatType() );
@@ -3795,214 +3795,256 @@ TEST( CFPP_Number, IsFloatType )
     ASSERT_FALSE( n4.IsFloatType() );
 }
 
-TEST( CFPP_Number, GetSInt8Value )
+TEST( CFPP_Number, GetSignedCharValue )
 {
     CF::Number n( 42 );
     
-    ASSERT_EQ( n.GetSInt8Value(), static_cast< CF::Number::SInt8 >( 42 ) );
+    ASSERT_EQ( n.GetSignedCharValue(), static_cast< char >( 42 ) );
     
     n = static_cast< CFNumberRef >( NULL );
     
     ASSERT_FALSE( n.IsValid() );
-    ASSERT_EQ( n.GetSInt8Value(), static_cast< CF::Number::SInt8 >( 0 ) );
+    ASSERT_EQ( n.GetSignedCharValue(), static_cast< char >( 0 ) );
 }
 
-TEST( CFPP_Number, GetSInt16Value )
+TEST( CFPP_Number, GetSignedShortValue )
 {
     CF::Number n( 42 );
     
-    ASSERT_EQ( n.GetSInt16Value(), static_cast< CF::Number::SInt16 >( 42 ) );
+    ASSERT_EQ( n.GetSignedShortValue(), static_cast< short >( 42 ) );
     
     n = static_cast< CFNumberRef >( NULL );
     
     ASSERT_FALSE( n.IsValid() );
-    ASSERT_EQ( n.GetSInt16Value(), static_cast< CF::Number::SInt16 >( 0 ) );
+    ASSERT_EQ( n.GetSignedShortValue(), static_cast< short >( 0 ) );
 }
 
-TEST( CFPP_Number, GetSInt32Value )
+TEST( CFPP_Number, GetSignedIntValue )
 {
     CF::Number n( 42 );
     
-    ASSERT_EQ( n.GetSInt32Value(), static_cast< CF::Number::SInt32 >( 42 ) );
+    ASSERT_EQ( n.GetSignedIntValue(), static_cast< int >( 42 ) );
     
     n = static_cast< CFNumberRef >( NULL );
     
     ASSERT_FALSE( n.IsValid() );
-    ASSERT_EQ( n.GetSInt32Value(), static_cast< CF::Number::SInt32 >( 0 ) );
+    ASSERT_EQ( n.GetSignedIntValue(), static_cast< int >( 0 ) );
 }
 
-TEST( CFPP_Number, GetSInt64Value )
+TEST( CFPP_Number, GetSignedLongValue )
 {
     CF::Number n( 42 );
     
-    ASSERT_EQ( n.GetSInt64Value(), static_cast< CF::Number::SInt64 >( 42 ) );
+    ASSERT_EQ( n.GetSignedLongValue(), static_cast< long >( 42 ) );
     
     n = static_cast< CFNumberRef >( NULL );
     
     ASSERT_FALSE( n.IsValid() );
-    ASSERT_EQ( n.GetSInt64Value(), static_cast< CF::Number::SInt64 >( 0 ) );
+    ASSERT_EQ( n.GetSignedLongValue(), static_cast< long >( 0 ) );
 }
 
-TEST( CFPP_Number, GetUInt8Value )
+TEST( CFPP_Number, GetSignedLongLongValue )
+{
+	CF::Number n( 42 );
+
+	ASSERT_EQ( n.GetSignedLongLongValue(), static_cast< long long >( 42 ) );
+
+	n = static_cast< CFNumberRef >( NULL );
+
+	ASSERT_FALSE( n.IsValid() );
+	ASSERT_EQ( n.GetSignedLongLongValue(), static_cast< long long >( 0 ) );
+}
+
+TEST( CFPP_Number, GetUnsignedCharValue )
 {
     CF::Number n( 42 );
     
-    ASSERT_EQ( n.GetUInt8Value(), static_cast< CF::Number::UInt8 >( 42 ) );
+    ASSERT_EQ( n.GetUnsignedCharValue(), static_cast< unsigned char >( 42 ) );
     
     n = static_cast< CFNumberRef >( NULL );
     
     ASSERT_FALSE( n.IsValid() );
-    ASSERT_EQ( n.GetUInt8Value(), static_cast< CF::Number::UInt8 >( 0 ) );
+    ASSERT_EQ( n.GetUnsignedCharValue(), static_cast< unsigned char >( 0 ) );
 }
 
-TEST( CFPP_Number, GetUInt16Value )
+TEST( CFPP_Number, GetUnsignedShortValue )
 {
     CF::Number n( 42 );
     
-    ASSERT_EQ( n.GetUInt16Value(), static_cast< CF::Number::UInt16 >( 42 ) );
+    ASSERT_EQ( n.GetUnsignedShortValue(), static_cast< unsigned short >( 42 ) );
     
     n = static_cast< CFNumberRef >( NULL );
     
     ASSERT_FALSE( n.IsValid() );
-    ASSERT_EQ( n.GetUInt16Value(), static_cast< CF::Number::UInt16 >( 0 ) );
+    ASSERT_EQ( n.GetUnsignedShortValue(), static_cast< unsigned short >( 0 ) );
 }
 
-TEST( CFPP_Number, GetUInt32Value )
+TEST( CFPP_Number, GetUnsignedIntValue )
 {
     CF::Number n( 42 );
     
-    ASSERT_EQ( n.GetUInt32Value(), static_cast< CF::Number::UInt32 >( 42 ) );
+    ASSERT_EQ( n.GetUnsignedIntValue(), static_cast< unsigned int >( 42 ) );
     
     n = static_cast< CFNumberRef >( NULL );
     
     ASSERT_FALSE( n.IsValid() );
-    ASSERT_EQ( n.GetUInt32Value(), static_cast< CF::Number::UInt32 >( 0 ) );
+    ASSERT_EQ( n.GetUnsignedIntValue(), static_cast< unsigned int >( 0 ) );
 }
 
-TEST( CFPP_Number, GetUInt64Value )
+TEST( CFPP_Number, GetUnsignedLongValue )
 {
     CF::Number n( 42 );
     
-    ASSERT_EQ( n.GetUInt64Value(), static_cast< CF::Number::UInt64 >( 42 ) );
+    ASSERT_EQ( n.GetUnsignedLongValue(), static_cast< unsigned long >( 42 ) );
     
     n = static_cast< CFNumberRef >( NULL );
     
     ASSERT_FALSE( n.IsValid() );
-    ASSERT_EQ( n.GetUInt64Value(), static_cast< CF::Number::UInt64 >( 0 ) );
+    ASSERT_EQ( n.GetUnsignedLongValue(), static_cast< unsigned long >( 0 ) );
 }
 
-TEST( CFPP_Number, GetFloat32Value )
+TEST( CFPP_Number, GetUnsignedLongLongValue )
+{
+	CF::Number n( 42 );
+
+	ASSERT_EQ( n.GetUnsignedLongLongValue(), static_cast< unsigned long long >( 42 ) );
+
+	n = static_cast< CFNumberRef >( NULL );
+
+	ASSERT_FALSE( n.IsValid() );
+	ASSERT_EQ( n.GetUnsignedLongLongValue(), static_cast< unsigned long long >( 0 ) );
+}
+
+TEST( CFPP_Number, GetFloatValue )
 {
     CF::Number n( 42 );
     
-    ASSERT_TRUE( FloatIsEqual( n.GetFloat32Value(), 42 ) );
+    ASSERT_TRUE( FloatIsEqual( n.GetFloatValue(), 42 ) );
     
     n = static_cast< CFNumberRef >( NULL );
     
     ASSERT_FALSE( n.IsValid() );
-    ASSERT_TRUE( FloatIsEqual( n.GetFloat32Value(), 0 ) );
+    ASSERT_TRUE( FloatIsEqual( n.GetFloatValue(), 0 ) );
 }
 
-TEST( CFPP_Number, GetFloat64Value )
+TEST( CFPP_Number, GetDoubleValue )
 {
     CF::Number n( 42 );
     
-    ASSERT_TRUE( FloatIsEqual( n.GetFloat64Value(), 42 ) );
+    ASSERT_TRUE( FloatIsEqual( n.GetDoubleValue(), 42 ) );
     
     n = static_cast< CFNumberRef >( NULL );
     
     ASSERT_FALSE( n.IsValid() );
-    ASSERT_TRUE( FloatIsEqual( n.GetFloat64Value(), 0 ) );
+    ASSERT_TRUE( FloatIsEqual( n.GetDoubleValue(), 0 ) );
 }
 
-TEST( CFPP_Number, SetSInt8Value )
+TEST( CFPP_Number, SetSignedCharValue )
 {
     CF::Number n;
     
-    n.SetSInt8Value( 42 );
+    n.SetSignedCharValue( 42 );
     
-    ASSERT_EQ( n.GetSInt8Value(), static_cast< CF::Number::SInt8 >( 42 ) );
+    ASSERT_EQ( n.GetSignedCharValue(), static_cast< signed char >( 42 ) );
 }
 
-TEST( CFPP_Number, SetSInt16Value )
+TEST( CFPP_Number, SetSignedShortValue )
 {
     CF::Number n;
     
-    n.SetSInt16Value( 42 );
+    n.SetSignedShortValue( 42 );
     
-    ASSERT_EQ( n.GetSInt16Value(), static_cast< CF::Number::SInt16 >( 42 ) );
+    ASSERT_EQ( n.GetSignedShortValue(), static_cast< signed short >( 42 ) );
 }
 
-TEST( CFPP_Number, SetSInt32Value )
+TEST( CFPP_Number, SetSignedIntValue )
 {
     CF::Number n;
     
-    n.SetSInt32Value( 42 );
+    n.SetSignedIntValue( 42 );
     
-    ASSERT_EQ( n.GetSInt32Value(), static_cast< CF::Number::SInt32 >( 42 ) );
+    ASSERT_EQ( n.GetSignedIntValue(), static_cast< signed int >( 42 ) );
 }
 
-TEST( CFPP_Number, SetSInt64Value )
+TEST( CFPP_Number, SetSignedLongValue )
 {
     CF::Number n;
     
-    n.SetSInt64Value( 42 );
+    n.SetSignedLongValue( 42 );
     
-    ASSERT_EQ( n.GetSInt64Value(), static_cast< CF::Number::SInt64 >( 42 ) );
+    ASSERT_EQ( n.GetSignedLongValue(), static_cast< signed long >( 42 ) );
 }
 
-TEST( CFPP_Number, SetUInt8Value )
+TEST( CFPP_Number, SetSignedLongLongValue )
+{
+	CF::Number n;
+
+	n.SetSignedLongLongValue( 42 );
+
+	ASSERT_EQ( n.GetSignedLongLongValue(), static_cast< signed long long >( 42 ) );
+}
+
+TEST( CFPP_Number, SetUnsignedCharValue )
 {
     CF::Number n;
     
-    n.SetUInt8Value( 42 );
+    n.SetUnsignedCharValue( 42 );
     
-    ASSERT_EQ( n.GetUInt8Value(), static_cast< CF::Number::UInt8 >( 42 ) );
+    ASSERT_EQ( n.GetUnsignedCharValue(), static_cast< unsigned char >( 42 ) );
 }
 
-TEST( CFPP_Number, SetUInt16Value )
+TEST( CFPP_Number, SetUnsignedShortValue )
 {
     CF::Number n;
     
-    n.SetUInt16Value( 42 );
+    n.SetUnsignedShortValue( 42 );
     
-    ASSERT_EQ( n.GetUInt16Value(), static_cast< CF::Number::UInt16 >( 42 ) );
+    ASSERT_EQ( n.GetUnsignedShortValue(), static_cast< unsigned short >( 42 ) );
 }
 
-TEST( CFPP_Number, SetUInt32Value )
+TEST( CFPP_Number, SetUnsignedIntValue )
 {
     CF::Number n;
     
-    n.SetUInt32Value( 42 );
+    n.SetUnsignedIntValue( 42 );
     
-    ASSERT_EQ( n.GetUInt32Value(), static_cast< CF::Number::UInt32 >( 42 ) );
+    ASSERT_EQ( n.GetUnsignedIntValue(), static_cast< unsigned int >( 42 ) );
 }
 
-TEST( CFPP_Number, SetUInt64Value )
+TEST( CFPP_Number, SetUnsignedLongValue )
 {
     CF::Number n;
     
-    n.SetUInt64Value( 42 );
+    n.SetUnsignedLongValue( 42 );
     
-    ASSERT_EQ( n.GetUInt64Value(), static_cast< CF::Number::UInt64 >( 42 ) );
+    ASSERT_EQ( n.GetUnsignedLongValue(), static_cast< unsigned long >( 42 ) );
 }
 
-TEST( CFPP_Number, SetFloat32Value )
+TEST( CFPP_Number, SetUnsignedLongLongValue )
+{
+	CF::Number n;
+
+	n.SetUnsignedLongLongValue( 42 );
+
+	ASSERT_EQ( n.GetUnsignedLongLongValue(), static_cast< unsigned long long >( 42 ) );
+}
+
+TEST( CFPP_Number, SetFloatValue )
 {
     CF::Number n;
     
-    n.SetFloat32Value( 42 );
+    n.SetFloatValue( 42 );
     
-    ASSERT_TRUE( FloatIsEqual( n.GetFloat32Value(), 42 ) );
+    ASSERT_TRUE( FloatIsEqual( n.GetFloatValue(), 42 ) );
 }
 
-TEST( CFPP_Number, SetFloat64Value )
+TEST( CFPP_Number, SetDoubleValue )
 {
     CF::Number n;
     
-    n.SetFloat64Value( 42 );
+    n.SetDoubleValue( 42 );
     
-    ASSERT_TRUE( FloatIsEqual( n.GetFloat64Value(), 42 ) );
+    ASSERT_TRUE( FloatIsEqual( n.GetDoubleValue(), 42 ) );
 }
 
 TEST( CFPP_Number, Swap )
