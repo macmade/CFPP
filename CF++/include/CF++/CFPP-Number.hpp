@@ -38,6 +38,11 @@
 
 #include <stdint.h>
 
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++11-long-long" /* Do not warn about long long in C++98 */
+#endif
+
 namespace CF
 {
     class CFPP_EXPORT Number: public PropertyListType< Number >
@@ -583,5 +588,9 @@ namespace CF
             CFNumberRef _cfObject;
     };
 }
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 
 #endif /* CFPP_NUMBER_H */

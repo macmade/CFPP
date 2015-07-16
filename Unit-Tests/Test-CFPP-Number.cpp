@@ -36,6 +36,10 @@
 #include <CF++.hpp>
 #include <GoogleMock/GoogleMock.h>
 
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wc++11-long-long" /* Do not warn about long long in C++98 */
+#endif
+
 using namespace testing;
 
 static bool FloatIsEqual( Float32 x, Float32 y );

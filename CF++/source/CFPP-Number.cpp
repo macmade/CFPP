@@ -35,6 +35,10 @@
 
 #include <CF++.hpp>
 
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wc++11-long-long" /* Do not warn about long long in C++98 */
+#endif
+
 namespace CF
 {
     Number::Number( void ): _cfObject( NULL )
