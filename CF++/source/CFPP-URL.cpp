@@ -665,7 +665,7 @@ namespace CF
         
         if( this->_cfObject != NULL )
         {
-            n.SetSInt32Value( CFURLGetPortNumber( this->_cfObject ) );
+            n.SetSignedIntValue( CFURLGetPortNumber( this->_cfObject ) );
         }
         
         return n;
