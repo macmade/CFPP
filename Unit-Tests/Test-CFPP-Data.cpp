@@ -38,6 +38,8 @@
 
 using namespace testing;
 
+static CF::Data::Byte __bytes[] = { 0xDE, 0xAD, 0xBE, 0xEF };
+
 TEST( CFPP_Data, CTOR )
 {
     CF::Data d;
@@ -58,30 +60,106 @@ TEST( CFPP_Data, CTOR_AutoPointer )
 }
 
 TEST( CFPP_Data, CTOR_CFType )
-{}
+{
+    CF::Data d1( static_cast< CFTypeRef >( CF::Data().GetCFObject() ) );
+    CF::Data d2( static_cast< CFTypeRef >( NULL ) );
+    CF::Data d3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Data, CTOR_CFData )
-{}
+{
+    CF::Data d1( static_cast< CFDataRef >( CF::Data().GetCFObject() ) );
+    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( CF::Boolean().GetCFObject() ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Data, CTOR_CFString )
-{}
+{
+    CF::Data d1( static_cast< CFStringRef >( CFSTR( "hello, world" ) ) );
+    CF::Data d2( static_cast< CFStringRef >( NULL ) );
+    CF::Data d3( static_cast< CFStringRef >( CF::Boolean().GetCFObject() ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Data, CTOR_STDString )
-{}
+{
+    CF::Data d1( std::string( "hello, world" ) );
+    CF::Data d2( std::string( "" ) );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+}
 
 TEST( CFPP_Data, CTOR_BytePtr )
-{}
+{
+    CF::Data d1( __bytes, sizeof( __bytes ) );
+    CF::Data d2( NULL,    sizeof( __bytes ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+}
 
 TEST( CFPP_Data, CCTOR )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( d1 );
+    CF::Data d4( d2 );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_FALSE( d4.IsValid() );
+}
 
 #ifdef CFPP_HAS_CPP11
 TEST( CFPP_Data, MCTOR )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( std::move( d1 ) );
+    CF::Data d4( std::move( d2 ) );
+    
+    ASSERT_FALSE( d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_FALSE( d4.IsValid() );
+}
 #endif
 
 TEST( CFPP_Data, OperatorAssignData )
-{}
+{
+    CF::Data d1( __bytes, sizeof( __bytes ) );
+    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3;
+    CF::Data d4;
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_TRUE(  d4.IsValid() );
+    
+    ASSERT_TRUE( d1.GetLength() == sizeof( __bytes ) );
+    
+    d3 = d1;
+    d4 = d2;
+    
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_FALSE( d4.IsValid() );
+    
+    ASSERT_TRUE( d3.GetLength() == sizeof( __bytes ) );
+}
 
 TEST( CFPP_Data, OperatorAssignAutoPointer )
 {

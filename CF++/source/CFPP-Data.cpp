@@ -93,9 +93,12 @@ namespace CF
     
     Data::Data( Byte * value, CFIndex length ): _cfObject( NULL )
     {
-        this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
-        
-        CFDataAppendBytes( this->_cfObject, value, length );
+        if( value != NULL )
+        {
+            this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
+            
+            CFDataAppendBytes( this->_cfObject, value, length );
+        }
     }
     
     #ifdef CFPP_HAS_CPP11
