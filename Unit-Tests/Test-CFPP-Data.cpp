@@ -448,19 +448,105 @@ TEST( CFPP_Data, GetCFObject )
 }
 
 TEST( CFPP_Data, GetLength )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1.GetLength() == 0 );
+    ASSERT_TRUE( d2.GetLength() == sizeof( __bytes ) );
+    ASSERT_TRUE( d3.GetLength() == 0 );
+}
 
 TEST( CFPP_Data, SetLength )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1.GetLength() == 0 );
+    ASSERT_TRUE( d2.GetLength() == sizeof( __bytes ) );
+    ASSERT_TRUE( d3.GetLength() == 0 );
+    
+    d1.SetLength( 10 );
+    d2.SetLength( 10 );
+    d3.SetLength( 10 );
+    
+    ASSERT_TRUE( d1.GetLength() == 10 );
+    ASSERT_TRUE( d2.GetLength() == 10 );
+    ASSERT_TRUE( d3.GetLength() ==  0 );
+}
 
 TEST( CFPP_Data, IncreaseLength )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1.GetLength() == 0 );
+    ASSERT_TRUE( d2.GetLength() == sizeof( __bytes ) );
+    ASSERT_TRUE( d3.GetLength() == 0 );
+    
+    d1.IncreaseLength( 10 );
+    d2.IncreaseLength( 10 );
+    d3.IncreaseLength( 10 );
+    
+    ASSERT_TRUE( d1.GetLength() == 10 );
+    ASSERT_TRUE( d2.GetLength() == sizeof( __bytes ) + 10 );
+    ASSERT_TRUE( d3.GetLength() ==  0 );
+}
 
 TEST( CFPP_Data, GetBytePtr )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1.GetBytePtr() != NULL );
+    ASSERT_TRUE( d2.GetBytePtr() != NULL );
+    ASSERT_TRUE( d3.GetBytePtr() == NULL );
+    
+    ASSERT_TRUE( d2.GetBytePtr()[ 0 ] == 0xDE );
+    ASSERT_TRUE( d2.GetBytePtr()[ 1 ] == 0xAD );
+    ASSERT_TRUE( d2.GetBytePtr()[ 2 ] == 0xBE );
+    ASSERT_TRUE( d2.GetBytePtr()[ 3 ] == 0xEF );
+}
 
 TEST( CFPP_Data, GetMutableBytePtr )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1.GetMutableBytePtr() != NULL );
+    ASSERT_TRUE( d2.GetMutableBytePtr() != NULL );
+    ASSERT_TRUE( d3.GetMutableBytePtr() == NULL );
+    
+    ASSERT_TRUE( d2.GetMutableBytePtr()[ 0 ] == 0xDE );
+    ASSERT_TRUE( d2.GetMutableBytePtr()[ 1 ] == 0xAD );
+    ASSERT_TRUE( d2.GetMutableBytePtr()[ 2 ] == 0xBE );
+    ASSERT_TRUE( d2.GetMutableBytePtr()[ 3 ] == 0xEF );
+}
 
 TEST( CFPP_Data, GetBytes )
 {}
