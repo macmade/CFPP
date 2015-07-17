@@ -549,16 +549,131 @@ TEST( CFPP_Data, GetMutableBytePtr )
 }
 
 TEST( CFPP_Data, GetBytes )
-{}
+{
+    CF::Data       d1( __bytes, sizeof( __bytes ) );
+    CF::Data       d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data::Byte bytes[ 2 ];
+    
+    memset( bytes, 0x00, sizeof( bytes ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    d2.GetBytes( CFRangeMake( 0, 2 ), bytes );
+    
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_TRUE( bytes[ 0 ] == 0x00 );
+    ASSERT_TRUE( bytes[ 1 ] == 0x00 );
+    
+    d1.GetBytes( CFRangeMake( 0, 2 ), bytes );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( bytes[ 0 ] == 0xDE );
+    ASSERT_TRUE( bytes[ 1 ] == 0xAD );
+}
 
 TEST( CFPP_Data, AppendBytes )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1.AppendBytes( __bytes, sizeof( __bytes ) );
+    d2.AppendBytes( __bytes, sizeof( __bytes ) );
+    d3.AppendBytes( __bytes, sizeof( __bytes ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1.GetBytePtr() != NULL );
+    ASSERT_TRUE( d2.GetBytePtr() != NULL );
+    ASSERT_TRUE( d3.GetBytePtr() == NULL );
+    
+    ASSERT_TRUE( d1.GetBytePtr()[ 0 ] == 0xDE );
+    ASSERT_TRUE( d1.GetBytePtr()[ 1 ] == 0xAD );
+    ASSERT_TRUE( d1.GetBytePtr()[ 2 ] == 0xBE );
+    ASSERT_TRUE( d2.GetBytePtr()[ 3 ] == 0xEF );
+    
+    ASSERT_TRUE( d2.GetBytePtr()[ 0 ] == 0xDE );
+    ASSERT_TRUE( d2.GetBytePtr()[ 1 ] == 0xAD );
+    ASSERT_TRUE( d2.GetBytePtr()[ 2 ] == 0xBE );
+    ASSERT_TRUE( d2.GetBytePtr()[ 3 ] == 0xEF );
+    ASSERT_TRUE( d2.GetBytePtr()[ 4 ] == 0xDE );
+    ASSERT_TRUE( d2.GetBytePtr()[ 5 ] == 0xAD );
+    ASSERT_TRUE( d2.GetBytePtr()[ 6 ] == 0xBE );
+    ASSERT_TRUE( d2.GetBytePtr()[ 7 ] == 0xEF );
+}
 
 TEST( CFPP_Data, ReplaceBytes )
-{}
+{
+    CF::Data       d1;
+    CF::Data       d2( __bytes, sizeof( __bytes ) );
+    CF::Data       d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data::Byte bytes[ 3 ];
+    
+    memset( bytes, 0xFF, sizeof( bytes ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1.ReplaceBytes( CFRangeMake( 0, 2 ), bytes, 2 );
+    d2.ReplaceBytes( CFRangeMake( 0, 2 ), bytes, 2 );
+    d3.ReplaceBytes( CFRangeMake( 0, 2 ), bytes, 2 );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1.GetBytePtr() != NULL );
+    ASSERT_TRUE( d2.GetBytePtr() != NULL );
+    ASSERT_TRUE( d3.GetBytePtr() == NULL );
+    
+    ASSERT_TRUE( d1.GetBytePtr()[ 0 ] == 0xFF );
+    ASSERT_TRUE( d1.GetBytePtr()[ 1 ] == 0xFF );
+    
+    ASSERT_TRUE( d2.GetBytePtr()[ 0 ] == 0xFF );
+    ASSERT_TRUE( d2.GetBytePtr()[ 1 ] == 0xFF );
+    ASSERT_TRUE( d2.GetBytePtr()[ 2 ] == 0xBE );
+    ASSERT_TRUE( d2.GetBytePtr()[ 3 ] == 0xEF );
+    
+    d2.ReplaceBytes( CFRangeMake( 0, 2 ), bytes, 3 );
+    
+    ASSERT_TRUE( d2.GetBytePtr()[ 0 ] == 0xFF );
+    ASSERT_TRUE( d2.GetBytePtr()[ 1 ] == 0xFF );
+    ASSERT_TRUE( d2.GetBytePtr()[ 2 ] == 0xFF );
+    ASSERT_TRUE( d2.GetBytePtr()[ 3 ] == 0xBE );
+    ASSERT_TRUE( d2.GetBytePtr()[ 4 ] == 0xEF );
+    
+    d2.ReplaceBytes( CFRangeMake( 0, 3 ), bytes, 1 );
+    
+    ASSERT_TRUE( d2.GetBytePtr()[ 0 ] == 0xFF );
+    ASSERT_TRUE( d2.GetBytePtr()[ 1 ] == 0xBE );
+    ASSERT_TRUE( d2.GetBytePtr()[ 2 ] == 0xEF );
+}
 
 TEST( CFPP_Data, DeleteBytes )
-{}
+{
+    CF::Data d1( __bytes, sizeof( __bytes ) );
+    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    d1.DeleteBytes( CFRangeMake( 1, 2 ) );
+    d2.DeleteBytes( CFRangeMake( 1, 2 ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    ASSERT_TRUE( d1.GetBytePtr()[ 0 ] == 0xDE );
+    ASSERT_TRUE( d1.GetBytePtr()[ 1 ] == 0xEF );
+}
 
 TEST( CFPP_Data, Swap )
 {
