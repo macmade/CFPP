@@ -142,6 +142,19 @@ TEST( CFPP_Number, CTOR_AutoPointer_T )
     TMPL_CFPP_Number_CTOR_AutoPointer_T< UInt64 >();
     TMPL_CFPP_Number_CTOR_AutoPointer_T< Float32 >();
     TMPL_CFPP_Number_CTOR_AutoPointer_T< Float64 >();
+    
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< signed char >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< signed short >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< signed int >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< signed long >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< signed long long >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< unsigned char >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< unsigned short >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< unsigned int >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< unsigned long >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< unsigned long long >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< float >();
+    TMPL_CFPP_Number_CTOR_AutoPointer_T< double >();
 }
 
 template< typename T >
@@ -169,6 +182,19 @@ TEST( CFPP_Number, CTOR_CFType_T )
     TMPL_CFPP_Number_CTOR_CFType_T< UInt64 >();
     TMPL_CFPP_Number_CTOR_CFType_T< Float32 >();
     TMPL_CFPP_Number_CTOR_CFType_T< Float64 >();
+    
+    TMPL_CFPP_Number_CTOR_CFType_T< signed char >();
+    TMPL_CFPP_Number_CTOR_CFType_T< signed short >();
+    TMPL_CFPP_Number_CTOR_CFType_T< signed int >();
+    TMPL_CFPP_Number_CTOR_CFType_T< signed long >();
+    TMPL_CFPP_Number_CTOR_CFType_T< signed long long >();
+    TMPL_CFPP_Number_CTOR_CFType_T< unsigned char >();
+    TMPL_CFPP_Number_CTOR_CFType_T< unsigned short >();
+    TMPL_CFPP_Number_CTOR_CFType_T< unsigned int >();
+    TMPL_CFPP_Number_CTOR_CFType_T< unsigned long >();
+    TMPL_CFPP_Number_CTOR_CFType_T< unsigned long long >();
+    TMPL_CFPP_Number_CTOR_CFType_T< float >();
+    TMPL_CFPP_Number_CTOR_CFType_T< double >();
 }
 
 template< typename T >
@@ -196,6 +222,19 @@ TEST( CFPP_Number, CTOR_CFNumber_T )
     TMPL_CFPP_Number_CTOR_CFNumber_T< UInt64 >();
     TMPL_CFPP_Number_CTOR_CFNumber_T< Float32 >();
     TMPL_CFPP_Number_CTOR_CFNumber_T< Float64 >();
+    
+    TMPL_CFPP_Number_CTOR_CFNumber_T< signed char >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< signed short >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< signed int >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< signed long >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< signed long long >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< unsigned char >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< unsigned short >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< unsigned int >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< unsigned long >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< unsigned long long >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< float >();
+    TMPL_CFPP_Number_CTOR_CFNumber_T< double >();
 }
 
 template< typename T >
@@ -218,6 +257,19 @@ TEST( CFPP_Number, CTOR_T )
     TMPL_CFPP_Number_CTOR_T< UInt64 >();
     TMPL_CFPP_Number_CTOR_T< Float32 >();
     TMPL_CFPP_Number_CTOR_T< Float64 >();
+    
+    TMPL_CFPP_Number_CTOR_T< signed char >();
+    TMPL_CFPP_Number_CTOR_T< signed short >();
+    TMPL_CFPP_Number_CTOR_T< signed int >();
+    TMPL_CFPP_Number_CTOR_T< signed long >();
+    TMPL_CFPP_Number_CTOR_T< signed long long >();
+    TMPL_CFPP_Number_CTOR_T< unsigned char >();
+    TMPL_CFPP_Number_CTOR_T< unsigned short >();
+    TMPL_CFPP_Number_CTOR_T< unsigned int >();
+    TMPL_CFPP_Number_CTOR_T< unsigned long >();
+    TMPL_CFPP_Number_CTOR_T< unsigned long long >();
+    TMPL_CFPP_Number_CTOR_T< float >();
+    TMPL_CFPP_Number_CTOR_T< double >();
 }
 
 TEST( CFPP_Number, CCTOR )
@@ -364,6 +416,19 @@ TEST( CFPP_Number, OperatorAssign_T )
     TMPL_CFPP_Number_OperatorAssign_T< SInt64 >();
     TMPL_CFPP_Number_OperatorAssign_T< Float32 >();
     TMPL_CFPP_Number_OperatorAssign_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorAssign_T< signed char >();
+    TMPL_CFPP_Number_OperatorAssign_T< signed short >();
+    TMPL_CFPP_Number_OperatorAssign_T< signed int >();
+    TMPL_CFPP_Number_OperatorAssign_T< signed long >();
+    TMPL_CFPP_Number_OperatorAssign_T< signed long long >();
+    TMPL_CFPP_Number_OperatorAssign_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorAssign_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorAssign_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorAssign_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorAssign_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorAssign_T< float >();
+    TMPL_CFPP_Number_OperatorAssign_T< double >();
 }
 
 TEST( CFPP_Number, OperatorEqualNumber )
@@ -495,6 +560,19 @@ TEST( CFPP_Number, OperatorEqual_T )
     TMPL_CFPP_Number_OperatorEqual_T< UInt64 >();
     TMPL_CFPP_Number_OperatorEqual_T< Float32 >();
     TMPL_CFPP_Number_OperatorEqual_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorEqual_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorEqual_T< float >();
+    TMPL_CFPP_Number_OperatorEqual_T< double >();
 }
 
 TEST( CFPP_Number, OperatorNotEqualNumber )
@@ -626,6 +704,19 @@ TEST( CFPP_Number, OperatorNotEqual_T )
     TMPL_CFPP_Number_OperatorNotEqual_T< UInt64 >();
     TMPL_CFPP_Number_OperatorNotEqual_T< Float32 >();
     TMPL_CFPP_Number_OperatorNotEqual_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorNotEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< float >();
+    TMPL_CFPP_Number_OperatorNotEqual_T< double >();
 }
 
 TEST( CFPP_Number, OperatorGreaterOrEqualNumber )
@@ -769,6 +860,19 @@ TEST( CFPP_Number, OperatorGreaterOrEqual_T )
     TMPL_CFPP_Number_OperatorGreaterOrEqual_T< UInt64 >();
     TMPL_CFPP_Number_OperatorGreaterOrEqual_T< Float32 >();
     TMPL_CFPP_Number_OperatorGreaterOrEqual_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< float >();
+    TMPL_CFPP_Number_OperatorGreaterOrEqual_T< double >();
 }
 
 TEST( CFPP_Number, OperatorLesserOrEqualNumber )
@@ -912,6 +1016,19 @@ TEST( CFPP_Number, OperatorLesserOrEqual_T )
     TMPL_CFPP_Number_OperatorLesserOrEqual_T< UInt64 >();
     TMPL_CFPP_Number_OperatorLesserOrEqual_T< Float32 >();
     TMPL_CFPP_Number_OperatorLesserOrEqual_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< float >();
+    TMPL_CFPP_Number_OperatorLesserOrEqual_T< double >();
 }
 
 TEST( CFPP_Number, OperatorGreaterNumber )
@@ -1047,6 +1164,19 @@ TEST( CFPP_Number, OperatorGreater_T )
     TMPL_CFPP_Number_OperatorGreater_T< UInt64 >();
     TMPL_CFPP_Number_OperatorGreater_T< Float32 >();
     TMPL_CFPP_Number_OperatorGreater_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorGreater_T< signed char >();
+    TMPL_CFPP_Number_OperatorGreater_T< signed short >();
+    TMPL_CFPP_Number_OperatorGreater_T< signed int >();
+    TMPL_CFPP_Number_OperatorGreater_T< signed long >();
+    TMPL_CFPP_Number_OperatorGreater_T< signed long long >();
+    TMPL_CFPP_Number_OperatorGreater_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorGreater_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorGreater_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorGreater_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorGreater_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorGreater_T< float >();
+    TMPL_CFPP_Number_OperatorGreater_T< double >();
 }
 
 TEST( CFPP_Number, OperatorLesserNumber )
@@ -1182,6 +1312,19 @@ TEST( CFPP_Number, OperatorLesser_T )
     TMPL_CFPP_Number_OperatorLesser_T< UInt64 >();
     TMPL_CFPP_Number_OperatorLesser_T< Float32 >();
     TMPL_CFPP_Number_OperatorLesser_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorLesser_T< signed char >();
+    TMPL_CFPP_Number_OperatorLesser_T< signed short >();
+    TMPL_CFPP_Number_OperatorLesser_T< signed int >();
+    TMPL_CFPP_Number_OperatorLesser_T< signed long >();
+    TMPL_CFPP_Number_OperatorLesser_T< signed long long >();
+    TMPL_CFPP_Number_OperatorLesser_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorLesser_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorLesser_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorLesser_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorLesser_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorLesser_T< float >();
+    TMPL_CFPP_Number_OperatorLesser_T< double >();
 }
 
 TEST( CFPP_Number, OperatorAndNumber )
@@ -1313,6 +1456,19 @@ TEST( CFPP_Number, OperatorAnd_T )
     TMPL_CFPP_Number_OperatorAnd_T< UInt64 >();
     TMPL_CFPP_Number_OperatorAnd_T< Float32 >();
     TMPL_CFPP_Number_OperatorAnd_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorAnd_T< signed char >();
+    TMPL_CFPP_Number_OperatorAnd_T< signed short >();
+    TMPL_CFPP_Number_OperatorAnd_T< signed int >();
+    TMPL_CFPP_Number_OperatorAnd_T< signed long >();
+    TMPL_CFPP_Number_OperatorAnd_T< signed long long >();
+    TMPL_CFPP_Number_OperatorAnd_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorAnd_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorAnd_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorAnd_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorAnd_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorAnd_T< float >();
+    TMPL_CFPP_Number_OperatorAnd_T< double >();
 }
 
 TEST( CFPP_Number, OperatorOrNumber )
@@ -1444,6 +1600,19 @@ TEST( CFPP_Number, OperatorOr_T )
     TMPL_CFPP_Number_OperatorOr_T< UInt64 >();
     TMPL_CFPP_Number_OperatorOr_T< Float32 >();
     TMPL_CFPP_Number_OperatorOr_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorOr_T< signed char >();
+    TMPL_CFPP_Number_OperatorOr_T< signed short >();
+    TMPL_CFPP_Number_OperatorOr_T< signed int >();
+    TMPL_CFPP_Number_OperatorOr_T< signed long >();
+    TMPL_CFPP_Number_OperatorOr_T< signed long long >();
+    TMPL_CFPP_Number_OperatorOr_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorOr_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorOr_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorOr_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorOr_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorOr_T< float >();
+    TMPL_CFPP_Number_OperatorOr_T< double >();
 }
 
 TEST( CFPP_Number, OperatorBitwiseNot )
@@ -1689,6 +1858,19 @@ TEST( CFPP_Number, OperatorPlusEqual_T )
     TMPL_CFPP_Number_OperatorPlusEqual_T< UInt64 >();
     TMPL_CFPP_Number_OperatorPlusEqual_T< Float32 >();
     TMPL_CFPP_Number_OperatorPlusEqual_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorPlusEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< float >();
+    TMPL_CFPP_Number_OperatorPlusEqual_T< double >();
 }
 
 TEST( CFPP_Number, OperatorMinusEqualNumber )
@@ -1840,6 +2022,19 @@ TEST( CFPP_Number, OperatorMinusEqual_T )
     TMPL_CFPP_Number_OperatorMinusEqual_T< UInt64 >();
     TMPL_CFPP_Number_OperatorMinusEqual_T< Float32 >();
     TMPL_CFPP_Number_OperatorMinusEqual_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorMinusEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< float >();
+    TMPL_CFPP_Number_OperatorMinusEqual_T< double >();
 }
 
 TEST( CFPP_Number, OperatorMultiplyEqualNumber )
@@ -1991,6 +2186,19 @@ TEST( CFPP_Number, OperatorMultiplyEqual_T )
     TMPL_CFPP_Number_OperatorMultiplyEqual_T< UInt64 >();
     TMPL_CFPP_Number_OperatorMultiplyEqual_T< Float32 >();
     TMPL_CFPP_Number_OperatorMultiplyEqual_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< float >();
+    TMPL_CFPP_Number_OperatorMultiplyEqual_T< double >();
 }
 
 TEST( CFPP_Number, OperatorDivideEqualNumber )
@@ -2090,6 +2298,19 @@ TEST( CFPP_Number, OperatorDivideEqual_T )
     TMPL_CFPP_Number_OperatorDivideEqual_T< UInt64 >();
     TMPL_CFPP_Number_OperatorDivideEqual_T< Float32 >();
     TMPL_CFPP_Number_OperatorDivideEqual_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorDivideEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< float >();
+    TMPL_CFPP_Number_OperatorDivideEqual_T< double >();
 }
 
 TEST( CFPP_Number, OperatorOrEqualNumber )
@@ -2239,6 +2460,17 @@ TEST( CFPP_Number, OperatorOrEqual_T )
     TMPL_CFPP_Number_OperatorOrEqual_T< UInt16 >();
     TMPL_CFPP_Number_OperatorOrEqual_T< UInt32 >();
     TMPL_CFPP_Number_OperatorOrEqual_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorOrEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorOrEqual_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorAndEqualNumber )
@@ -2388,6 +2620,17 @@ TEST( CFPP_Number, OperatorAndEqual_T )
     TMPL_CFPP_Number_OperatorAndEqual_T< UInt16 >();
     TMPL_CFPP_Number_OperatorAndEqual_T< UInt32 >();
     TMPL_CFPP_Number_OperatorAndEqual_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorAndEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorAndEqual_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorModEqualNumber )
@@ -2485,6 +2728,17 @@ TEST( CFPP_Number, OperatorModEqual_T )
     TMPL_CFPP_Number_OperatorModEqual_T< UInt16 >();
     TMPL_CFPP_Number_OperatorModEqual_T< UInt32 >();
     TMPL_CFPP_Number_OperatorModEqual_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorModEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorModEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorModEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorModEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorModEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorModEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorModEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorModEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorModEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorModEqual_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorXorEqualNumber )
@@ -2634,6 +2888,17 @@ TEST( CFPP_Number, OperatorXorEqual_T )
     TMPL_CFPP_Number_OperatorXorEqual_T< UInt16 >();
     TMPL_CFPP_Number_OperatorXorEqual_T< UInt32 >();
     TMPL_CFPP_Number_OperatorXorEqual_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorXorEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorXorEqual_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorLeftShiftEqualNumber )
@@ -2783,6 +3048,17 @@ TEST( CFPP_Number, OperatorLeftShiftEqual_T )
     TMPL_CFPP_Number_OperatorLeftShiftEqual_T< UInt16 >();
     TMPL_CFPP_Number_OperatorLeftShiftEqual_T< UInt32 >();
     TMPL_CFPP_Number_OperatorLeftShiftEqual_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorLeftShiftEqual_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorRightShiftEqualNumber )
@@ -2932,6 +3208,17 @@ TEST( CFPP_Number, OperatorRightShiftEqual_T )
     TMPL_CFPP_Number_OperatorRightShiftEqual_T< UInt16 >();
     TMPL_CFPP_Number_OperatorRightShiftEqual_T< UInt32 >();
     TMPL_CFPP_Number_OperatorRightShiftEqual_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< signed char >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< signed short >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< signed int >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< signed long >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< signed long long >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorRightShiftEqual_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorPlusNumber )
@@ -3011,6 +3298,19 @@ TEST( CFPP_Number, OperatorPlus_T )
     TMPL_CFPP_Number_OperatorPlus_T< UInt64 >();
     TMPL_CFPP_Number_OperatorPlus_T< Float32 >();
     TMPL_CFPP_Number_OperatorPlus_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorPlus_T< signed char >();
+    TMPL_CFPP_Number_OperatorPlus_T< signed short >();
+    TMPL_CFPP_Number_OperatorPlus_T< signed int >();
+    TMPL_CFPP_Number_OperatorPlus_T< signed long >();
+    TMPL_CFPP_Number_OperatorPlus_T< signed long long >();
+    TMPL_CFPP_Number_OperatorPlus_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorPlus_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorPlus_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorPlus_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorPlus_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorPlus_T< float >();
+    TMPL_CFPP_Number_OperatorPlus_T< double >();
 }
 
 TEST( CFPP_Number, OperatorMinusNumber )
@@ -3090,6 +3390,19 @@ TEST( CFPP_Number, OperatorMinus_T )
     TMPL_CFPP_Number_OperatorMinus_T< UInt64 >();
     TMPL_CFPP_Number_OperatorMinus_T< Float32 >();
     TMPL_CFPP_Number_OperatorMinus_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorMinus_T< signed char >();
+    TMPL_CFPP_Number_OperatorMinus_T< signed short >();
+    TMPL_CFPP_Number_OperatorMinus_T< signed int >();
+    TMPL_CFPP_Number_OperatorMinus_T< signed long >();
+    TMPL_CFPP_Number_OperatorMinus_T< signed long long >();
+    TMPL_CFPP_Number_OperatorMinus_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorMinus_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorMinus_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorMinus_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorMinus_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorMinus_T< float >();
+    TMPL_CFPP_Number_OperatorMinus_T< double >();
 }
 
 TEST( CFPP_Number, OperatorMultiplyNumber )
@@ -3169,6 +3482,19 @@ TEST( CFPP_Number, OperatorMultiply_T )
     TMPL_CFPP_Number_OperatorMultiply_T< UInt64 >();
     TMPL_CFPP_Number_OperatorMultiply_T< Float32 >();
     TMPL_CFPP_Number_OperatorMultiply_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorMultiply_T< signed char >();
+    TMPL_CFPP_Number_OperatorMultiply_T< signed short >();
+    TMPL_CFPP_Number_OperatorMultiply_T< signed int >();
+    TMPL_CFPP_Number_OperatorMultiply_T< signed long >();
+    TMPL_CFPP_Number_OperatorMultiply_T< signed long long >();
+    TMPL_CFPP_Number_OperatorMultiply_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorMultiply_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorMultiply_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorMultiply_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorMultiply_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorMultiply_T< float >();
+    TMPL_CFPP_Number_OperatorMultiply_T< double >();
 }
 
 TEST( CFPP_Number, OperatorDivideNumber )
@@ -3252,6 +3578,19 @@ TEST( CFPP_Number, OperatorDivide_T )
     TMPL_CFPP_Number_OperatorDivide_T< UInt64 >();
     TMPL_CFPP_Number_OperatorDivide_T< Float32 >();
     TMPL_CFPP_Number_OperatorDivide_T< Float64 >();
+    
+    TMPL_CFPP_Number_OperatorDivide_T< signed char >();
+    TMPL_CFPP_Number_OperatorDivide_T< signed short >();
+    TMPL_CFPP_Number_OperatorDivide_T< signed int >();
+    TMPL_CFPP_Number_OperatorDivide_T< signed long >();
+    TMPL_CFPP_Number_OperatorDivide_T< signed long long >();
+    TMPL_CFPP_Number_OperatorDivide_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorDivide_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorDivide_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorDivide_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorDivide_T< unsigned long long >();
+    TMPL_CFPP_Number_OperatorDivide_T< float >();
+    TMPL_CFPP_Number_OperatorDivide_T< double >();
 }
 
 TEST( CFPP_Number, OperatorModNumber )
@@ -3333,6 +3672,17 @@ TEST( CFPP_Number, OperatorMod_T )
     TMPL_CFPP_Number_OperatorMod_T< UInt16 >();
     TMPL_CFPP_Number_OperatorMod_T< UInt32 >();
     TMPL_CFPP_Number_OperatorMod_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorMod_T< signed char >();
+    TMPL_CFPP_Number_OperatorMod_T< signed short >();
+    TMPL_CFPP_Number_OperatorMod_T< signed int >();
+    TMPL_CFPP_Number_OperatorMod_T< signed long >();
+    TMPL_CFPP_Number_OperatorMod_T< signed long long >();
+    TMPL_CFPP_Number_OperatorMod_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorMod_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorMod_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorMod_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorMod_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorBitwiseAndNumber )
@@ -3410,6 +3760,17 @@ TEST( CFPP_Number, OperatorBitwiseAnd_T )
     TMPL_CFPP_Number_OperatorBiwiseAnd_T< UInt16 >();
     TMPL_CFPP_Number_OperatorBiwiseAnd_T< UInt32 >();
     TMPL_CFPP_Number_OperatorBiwiseAnd_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< signed char >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< signed short >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< signed int >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< signed long >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< signed long long >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorBiwiseAnd_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorBitwiseOrNumber )
@@ -3487,6 +3848,17 @@ TEST( CFPP_Number, OperatorBitwiseOr_T )
     TMPL_CFPP_Number_OperatorBiwiseOr_T< UInt16 >();
     TMPL_CFPP_Number_OperatorBiwiseOr_T< UInt32 >();
     TMPL_CFPP_Number_OperatorBiwiseOr_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< signed char >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< signed short >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< signed int >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< signed long >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< signed long long >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorBiwiseOr_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorXorNumber )
@@ -3564,6 +3936,17 @@ TEST( CFPP_Number, OperatorXor_T )
     TMPL_CFPP_Number_OperatorXor_T< UInt16 >();
     TMPL_CFPP_Number_OperatorXor_T< UInt32 >();
     TMPL_CFPP_Number_OperatorXor_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorXor_T< signed char >();
+    TMPL_CFPP_Number_OperatorXor_T< signed short >();
+    TMPL_CFPP_Number_OperatorXor_T< signed int >();
+    TMPL_CFPP_Number_OperatorXor_T< signed long >();
+    TMPL_CFPP_Number_OperatorXor_T< signed long long >();
+    TMPL_CFPP_Number_OperatorXor_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorXor_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorXor_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorXor_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorXor_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorLeftShiftNumber )
@@ -3641,6 +4024,17 @@ TEST( CFPP_Number, OperatorLeftShift_T )
     TMPL_CFPP_Number_OperatorLeftShift_T< UInt16 >();
     TMPL_CFPP_Number_OperatorLeftShift_T< UInt32 >();
     TMPL_CFPP_Number_OperatorLeftShift_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorLeftShift_T< signed char >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< signed short >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< signed int >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< signed long >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< signed long long >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorLeftShift_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, OperatorRightShiftNumber )
@@ -3718,6 +4112,17 @@ TEST( CFPP_Number, OperatorRightShift_T )
     TMPL_CFPP_Number_OperatorRightShift_T< UInt16 >();
     TMPL_CFPP_Number_OperatorRightShift_T< UInt32 >();
     TMPL_CFPP_Number_OperatorRightShift_T< UInt64 >();
+    
+    TMPL_CFPP_Number_OperatorRightShift_T< signed char >();
+    TMPL_CFPP_Number_OperatorRightShift_T< signed short >();
+    TMPL_CFPP_Number_OperatorRightShift_T< signed int >();
+    TMPL_CFPP_Number_OperatorRightShift_T< signed long >();
+    TMPL_CFPP_Number_OperatorRightShift_T< signed long long >();
+    TMPL_CFPP_Number_OperatorRightShift_T< unsigned char >();
+    TMPL_CFPP_Number_OperatorRightShift_T< unsigned short >();
+    TMPL_CFPP_Number_OperatorRightShift_T< unsigned int >();
+    TMPL_CFPP_Number_OperatorRightShift_T< unsigned long >();
+    TMPL_CFPP_Number_OperatorRightShift_T< unsigned long long >();
 }
 
 template< typename T >
@@ -3742,6 +4147,17 @@ TEST( CFPP_Number, CastTo_T )
     TMPL_CFPP_Number_CastTo_T< UInt16 >();
     TMPL_CFPP_Number_CastTo_T< UInt32 >();
     TMPL_CFPP_Number_CastTo_T< UInt64 >();
+    
+    TMPL_CFPP_Number_CastTo_T< signed char >();
+    TMPL_CFPP_Number_CastTo_T< signed short >();
+    TMPL_CFPP_Number_CastTo_T< signed int >();
+    TMPL_CFPP_Number_CastTo_T< signed long >();
+    TMPL_CFPP_Number_CastTo_T< signed long long >();
+    TMPL_CFPP_Number_CastTo_T< unsigned char >();
+    TMPL_CFPP_Number_CastTo_T< unsigned short >();
+    TMPL_CFPP_Number_CastTo_T< unsigned int >();
+    TMPL_CFPP_Number_CastTo_T< unsigned long >();
+    TMPL_CFPP_Number_CastTo_T< unsigned long long >();
 }
 
 TEST( CFPP_Number, CastToFloat32 )
