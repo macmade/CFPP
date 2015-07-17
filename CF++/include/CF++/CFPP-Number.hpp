@@ -538,48 +538,49 @@ namespace CF
             Number operator >> ( unsigned long value );
 			Number operator >> ( unsigned long long value );
             
-            operator signed char   () const;
-            operator signed short  () const;
-            operator signed int  () const;
-            operator signed long  () const;
-			operator signed long long  () const;
-            operator unsigned char   () const;
-            operator unsigned short  () const;
-            operator unsigned int  () const;
-            operator unsigned long  () const;
+            operator signed char        () const;
+            operator signed short       () const;
+            operator signed int         () const;
+            operator signed long        () const;
+			operator signed long long   () const;
+            operator unsigned char      () const;
+            operator unsigned short     () const;
+            operator unsigned int       () const;
+            operator unsigned long      () const;
             operator unsigned long long () const;
-            operator float () const;
-            operator double () const;
+            operator float              () const;
+            operator double             () const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
             bool IsFloatType( void ) const;
             
-            signed char   GetSignedCharValue( void ) const;
-            signed short  GetSignedShortValue( void ) const;
-            signed int  GetSignedIntValue( void ) const;
-            signed long  GetSignedLongValue( void ) const;
-            signed long long  GetSignedLongLongValue( void ) const;
-            unsigned char   GetUnsignedCharValue( void ) const;
-            unsigned short  GetUnsignedShortValue( void ) const;
-            unsigned int  GetUnsignedIntValue( void ) const;
-            unsigned long  GetUnsignedLongValue( void ) const;
+            signed char         GetSignedCharValue( void ) const;
+            signed short        GetSignedShortValue( void ) const;
+            signed int          GetSignedIntValue( void ) const;
+            signed long         GetSignedLongValue( void ) const;
+            signed long long    GetSignedLongLongValue( void ) const;
+            unsigned char       GetUnsignedCharValue( void ) const;
+            unsigned short      GetUnsignedShortValue( void ) const;
+            unsigned int        GetUnsignedIntValue( void ) const;
+            unsigned long       GetUnsignedLongValue( void ) const;
             unsigned long long  GetUnsignedLongLongValue( void ) const;
-            float GetFloatValue( void ) const;
-            double GetDoubleValue( void ) const;
-            void    SetSignedCharValue( signed char value );
-            void    SetSignedShortValue( signed short value );
-            void    SetSignedIntValue( signed int value );
-            void    SetSignedLongValue( signed long value );
-            void    SetSignedLongLongValue( signed long long value );
-            void    SetUnsignedCharValue( unsigned char value );
-            void    SetUnsignedShortValue( unsigned short value );
-            void    SetUnsignedIntValue( unsigned int value );
-            void    SetUnsignedLongValue( unsigned long value );
-            void    SetUnsignedLongLongValue( unsigned long long value );
-            void    SetFloatValue( float value );
-            void    SetDoubleValue( double value );
+            float               GetFloatValue( void ) const;
+            double              GetDoubleValue( void ) const;
+            
+            void SetSignedCharValue( signed char value );
+            void SetSignedShortValue( signed short value );
+            void SetSignedIntValue( signed int value );
+            void SetSignedLongValue( signed long value );
+            void SetSignedLongLongValue( signed long long value );
+            void SetUnsignedCharValue( unsigned char value );
+            void SetUnsignedShortValue( unsigned short value );
+            void SetUnsignedIntValue( unsigned int value );
+            void SetUnsignedLongValue( unsigned long value );
+            void SetUnsignedLongLongValue( unsigned long long value );
+            void SetFloatValue( float value );
+            void SetDoubleValue( double value );
             
             friend void swap( Number & v1, Number & v2 );
             
