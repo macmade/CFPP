@@ -320,16 +320,114 @@ TEST( CFPP_Data, OperatorSubscript )
 }
 
 TEST( CFPP_Data, OperatorPlusEqualByte )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 += 0xFF;
+    d2 += 0xFF;
+    d3 += 0xFF;
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1[ 0 ] == 0xFF );
+    ASSERT_TRUE( d2[ 4 ] == 0xFF );
+}
 
 TEST( CFPP_Data, OperatorPlusEqualCFString )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 += CFSTR( "hello, world" );
+    d2 += CFSTR( "hello, world" );
+    d3 += CFSTR( "hello, world" );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1[ 0 ] == 'h' );
+    ASSERT_TRUE( d2[ 4 ] == 'h' );
+}
 
 TEST( CFPP_Data, OperatorPlusEqualCFData )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 += static_cast< CFDataRef >( d2 );
+    d2 += static_cast< CFDataRef >( d2 );
+    d3 += static_cast< CFDataRef >( d2 );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1[ 0 ] == 0xDE );
+    ASSERT_TRUE( d2[ 4 ] == 0xDE );
+}
+
+TEST( CFPP_Data, OperatorPlusEqualData )
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 += d2;
+    d2 += d2;
+    d3 += d2;
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1[ 0 ] == 0xDE );
+    ASSERT_TRUE( d2[ 4 ] == 0xDE );
+}
 
 TEST( CFPP_Data, OperatorPlusEqualSTDString )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 += std::string( "hello, world" );
+    d2 += std::string( "hello, world" );
+    d3 += std::string( "hello, world" );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1[ 0 ] == 'h' );
+    ASSERT_TRUE( d2[ 4 ] == 'h' );
+}
 
 TEST( CFPP_Data, GetTypeID )
 {

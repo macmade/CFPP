@@ -272,6 +272,11 @@ namespace CF
         return *( this );
     }
     
+    Data & Data::operator += ( const Data & value )
+    {
+        return operator += ( value._cfObject );
+    }
+    
     Data & Data::operator += ( std::string value )
     {
         if( this->_cfObject != NULL )

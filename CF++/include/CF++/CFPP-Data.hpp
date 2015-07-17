@@ -82,6 +82,7 @@ namespace CF
             Data & operator += ( Byte value );
             Data & operator += ( CFStringRef value );
             Data & operator += ( CFDataRef value );
+            Data & operator += ( const Data & value );
             Data & operator += ( std::string value );
             
             virtual CFTypeID  GetTypeID( void ) const;
