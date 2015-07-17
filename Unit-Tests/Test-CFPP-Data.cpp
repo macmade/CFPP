@@ -181,25 +181,143 @@ TEST( CFPP_Data, OperatorAssignAutoPointer )
 }
 
 TEST( CFPP_Data, OperatorAssignCFType )
-{}
+{
+    CF::Data d1( __bytes, sizeof( __bytes ) );
+    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3;
+    CF::Data d4;
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_TRUE(  d4.IsValid() );
+    
+    ASSERT_TRUE( d1.GetLength() == sizeof( __bytes ) );
+    
+    d3 = static_cast< CFTypeRef >( d1.GetCFObject() );
+    d4 = static_cast< CFTypeRef >( d2.GetCFObject() );
+    
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_FALSE( d4.IsValid() );
+    
+    ASSERT_TRUE( d3.GetLength() == sizeof( __bytes ) );
+}
 
 TEST( CFPP_Data, OperatorAssignCFData )
-{}
+{
+    CF::Data d1( __bytes, sizeof( __bytes ) );
+    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3;
+    CF::Data d4;
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_TRUE(  d4.IsValid() );
+    
+    ASSERT_TRUE( d1.GetLength() == sizeof( __bytes ) );
+    
+    d3 = static_cast< CFDataRef >( d1.GetCFObject() );
+    d4 = static_cast< CFDataRef >( d2.GetCFObject() );
+    
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_FALSE( d4.IsValid() );
+    
+    ASSERT_TRUE( d3.GetLength() == sizeof( __bytes ) );
+}
 
 TEST( CFPP_Data, OperatorAssignCFString )
-{}
+{
+    CF::Data d1;
+    CF::Data d2;
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    
+    d1 = static_cast< CFStringRef >( CFSTR( "hello, world" ) );
+    d2 = static_cast< CFStringRef >( NULL );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    ASSERT_TRUE( d1.GetLength() > 0 );
+}
 
 TEST( CFPP_Data, OperatorAssignSTDString )
-{}
+{
+    CF::Data d1;
+    CF::Data d2;
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    
+    d1 = std::string( "hello, world" );
+    d2 = std::string( "" );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    
+    ASSERT_TRUE( d1.GetLength() >  0 );
+    ASSERT_TRUE( d2.GetLength() == 0 );
+}
 
 TEST( CFPP_Data, CastToBytePtr )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d1 ) != NULL );
+    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d2 ) != NULL );
+    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d3 ) == NULL );
+    
+    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d2 )[ 0 ] == 0xDE );
+    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d2 )[ 1 ] == 0xAD );
+    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d2 )[ 2 ] == 0xBE );
+    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d2 )[ 3 ] == 0xEF );
+}
 
 TEST( CFPP_Data, CastToSTDString )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( std::string( "hello, world" ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( static_cast< std::string >( d1 ) == "" );
+    ASSERT_TRUE( static_cast< std::string >( d2 ) == "hello, world" );
+    ASSERT_TRUE( static_cast< std::string >( d3 ) == "" );
+}
 
 TEST( CFPP_Data, OperatorSubscript )
-{}
+{
+    CF::Data d1;
+    CF::Data d2( __bytes, sizeof( __bytes ) );
+    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    ASSERT_TRUE( d1[  0 ] == 0x00 );
+    ASSERT_TRUE( d1[ -1 ] == 0x00 );
+    ASSERT_TRUE( d1[  1 ] == 0x00 );
+    
+    ASSERT_TRUE( d2[  0 ] == 0xDE );
+    ASSERT_TRUE( d2[ -1 ] == 0x00 );
+    ASSERT_TRUE( d2[  1 ] == 0xAD );
+    
+    ASSERT_TRUE( d3[  0 ] == 0x00 );
+    ASSERT_TRUE( d3[ -1 ] == 0x00 );
+    ASSERT_TRUE( d3[  1 ] == 0x00 );
+}
 
 TEST( CFPP_Data, OperatorPlusEqualByte )
 {}

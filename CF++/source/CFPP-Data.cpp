@@ -232,7 +232,7 @@ namespace CF
     {
         const Byte * bytes;
         
-        if( index >= this->GetLength() )
+        if( index < 0 || index >= this->GetLength() )
         {
             return 0;
         }
