@@ -98,7 +98,7 @@ TEST( CFPP_Error, CTOR_CFError )
 
 TEST( CFPP_Error, CTOR_StringDomain_NumberCode )
 {
-    CF::Error e( "com.xs-labs", 42 );
+    CF::Error e( CF::String( "com.xs-labs" ), CF::Number( 42 ) );
     
     ASSERT_EQ( e.GetDomain(), "com.xs-labs" );
     ASSERT_EQ( e.GetCode(), 42 );
@@ -111,7 +111,7 @@ TEST( CFPP_Error, CTOR_StringDomain_NumberCode_DictionaryInfo )
     info << CF::Pair( "hello", "hello, world" );
     
     {
-        CF::Error e( "com.xs-labs", 42, info );
+        CF::Error e( CF::String( "com.xs-labs" ), CF::Number( 42 ), info );
         
         ASSERT_EQ( e.GetDomain(), "com.xs-labs" );
         ASSERT_EQ( e.GetCode(), 42 );
