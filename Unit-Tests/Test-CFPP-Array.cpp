@@ -517,10 +517,65 @@ TEST( CFPP_Array, GetValueAtIndex )
 }
 
 TEST( CFPP_Array, SetValueAtIndex )
-{}
+{
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_TRUE(  a1.GetCount() == 0 );
+    
+    ASSERT_NO_FATAL_FAILURE( a1.SetValueAtIndex( CF::String( "hello, world" ), 1 ) );
+    ASSERT_NO_FATAL_FAILURE( a2.SetValueAtIndex( CF::String( "hello, world" ), 0 ) );
+    ASSERT_NO_THROW( a1.SetValueAtIndex( CF::String( "hello, world" ), 1 ) );
+    ASSERT_NO_THROW( a2.SetValueAtIndex( CF::String( "hello, world" ), 0 ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_TRUE(  a1.GetCount() == 0 );
+    
+    a1.SetValueAtIndex( CF::String( "hello, world" ), 0 );
+    
+    ASSERT_TRUE( a1.GetCount() == 1 );
+    
+    a1.SetValueAtIndex( CF::String( "hello, universe" ), 0 );
+    a1.SetValueAtIndex( CF::String( "hello, world" ), 1 );
+    
+    ASSERT_TRUE( a1.GetCount() == 2 );
+    
+    ASSERT_TRUE( CF::String( a1[ 0 ] ) == "hello, universe" );
+    ASSERT_TRUE( CF::String( a1[ 1 ] ) == "hello, world" );
+}
 
 TEST( CFPP_Array, InsertValueAtIndex )
-{}
+{
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_TRUE(  a1.GetCount() == 0 );
+    
+    ASSERT_NO_FATAL_FAILURE( a1.InsertValueAtIndex( CF::String( "hello, world" ), 1 ) );
+    ASSERT_NO_FATAL_FAILURE( a2.InsertValueAtIndex( CF::String( "hello, world" ), 0 ) );
+    ASSERT_NO_THROW( a1.InsertValueAtIndex( CF::String( "hello, world" ), 1 ) );
+    ASSERT_NO_THROW( a2.InsertValueAtIndex( CF::String( "hello, world" ), 0 ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_TRUE(  a1.GetCount() == 0 );
+    
+    a1.InsertValueAtIndex( CF::String( "hello, world" ), 0 );
+    
+    ASSERT_TRUE( a1.GetCount() == 1 );
+    
+    a1.InsertValueAtIndex( CF::String( "hello, universe" ), 0 );
+    
+    ASSERT_TRUE( a1.GetCount() == 2 );
+    
+    ASSERT_TRUE( CF::String( a1[ 0 ] ) == "hello, universe" );
+    ASSERT_TRUE( CF::String( a1[ 1 ] ) == "hello, world" );
+}
 
 TEST( CFPP_Array, AppendValue )
 {
@@ -539,7 +594,39 @@ TEST( CFPP_Array, AppendValue )
 }
 
 TEST( CFPP_Array, RemoveValueAtIndex )
-{}
+{
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_TRUE(  a1.GetCount() == 0 );
+    
+    a1 << "hello, world";
+    a1 << "hello, universe";
+    
+    ASSERT_TRUE( a1.GetCount() == 2 );
+    
+    ASSERT_NO_FATAL_FAILURE( a1.RemoveValueAtIndex( 42 ) );
+    ASSERT_NO_FATAL_FAILURE( a2.RemoveValueAtIndex( 0 ) );
+    ASSERT_NO_THROW( a1.RemoveValueAtIndex( 42 ) );
+    ASSERT_NO_THROW( a2.RemoveValueAtIndex( 0 ) );
+    
+    ASSERT_TRUE( a1.GetCount() == 2 );
+    
+    a1.RemoveValueAtIndex( 1 );
+    
+    ASSERT_TRUE( a1.GetCount() == 1 );
+    
+    a1.RemoveValueAtIndex( 0 );
+    
+    ASSERT_TRUE( a1.GetCount() == 0 );
+    
+    ASSERT_NO_FATAL_FAILURE( a1.RemoveValueAtIndex( 0 ) );
+    ASSERT_NO_THROW( a1.RemoveValueAtIndex( 0 ) );
+    
+    ASSERT_TRUE( a1.GetCount() == 0 );
+}
 
 TEST( CFPP_Array, AppendArray )
 {
@@ -575,7 +662,37 @@ TEST( CFPP_Array, AppendArray )
 }
 
 TEST( CFPP_Array, ExchangeValuesAtIndices )
-{}
+{
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_TRUE(  a1.GetCount() == 0 );
+    
+    a1 << "hello, world";
+    a1 << "hello, universe";
+    
+    ASSERT_TRUE( a1.GetCount() == 2 );
+    
+    ASSERT_TRUE( CF::String( a1[ 0 ] ) == "hello, world" );
+    ASSERT_TRUE( CF::String( a1[ 1 ] ) == "hello, universe" );
+    
+    a1.ExchangeValuesAtIndices( 0, 1 );
+    
+    ASSERT_TRUE( CF::String( a1[ 0 ] ) == "hello, universe" );
+    ASSERT_TRUE( CF::String( a1[ 1 ] ) == "hello, world" );
+    
+    ASSERT_NO_FATAL_FAILURE( a1.ExchangeValuesAtIndices( 42, 43 ) );
+    ASSERT_NO_FATAL_FAILURE( a1.ExchangeValuesAtIndices(  0,  2 ) );
+    ASSERT_NO_FATAL_FAILURE( a2.ExchangeValuesAtIndices(  0,  1 ) );
+    ASSERT_NO_THROW( a1.ExchangeValuesAtIndices( 42, 43 ) );
+    ASSERT_NO_THROW( a1.ExchangeValuesAtIndices(  0,  2 ) );
+    ASSERT_NO_THROW( a2.ExchangeValuesAtIndices(  0,  1 ) );
+    
+    ASSERT_TRUE( CF::String( a1[ 0 ] ) == "hello, universe" );
+    ASSERT_TRUE( CF::String( a1[ 1 ] ) == "hello, world" );
+}
 
 TEST( CFPP_Array, Swap )
 {

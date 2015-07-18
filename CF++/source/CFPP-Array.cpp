@@ -383,7 +383,7 @@ namespace CF
     
     void Array::SetValueAtIndex( CFTypeRef value, CFIndex index ) const
     {
-        if( this->_cfObject == NULL || index >= this->GetCount() || value == NULL )
+        if( this->_cfObject == NULL || index > this->GetCount() || value == NULL )
         {
             return;
         }
@@ -393,7 +393,7 @@ namespace CF
     
     void Array::InsertValueAtIndex( CFTypeRef value, CFIndex index ) const
     {
-        if( this->_cfObject == NULL || index >= this->GetCount() || value == NULL )
+        if( this->_cfObject == NULL || index > this->GetCount() || value == NULL )
         {
             return;
         }
