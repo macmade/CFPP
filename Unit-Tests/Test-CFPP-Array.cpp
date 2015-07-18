@@ -371,8 +371,8 @@ TEST( CFPP_Array, OperatorSubscript )
     
     a1 << CF::String( "hello, world" );
     
-    ASSERT_TRUE(  a1.GetCount() == 1 );
-    ASSERT_TRUE(  a2.GetCount() == 0 );
+    ASSERT_TRUE( a1.GetCount() == 1 );
+    ASSERT_TRUE( a2.GetCount() == 0 );
     
     ASSERT_NO_FATAL_FAILURE( a2[ 0 ] );
     ASSERT_NO_FATAL_FAILURE( a3[ 0 ] );

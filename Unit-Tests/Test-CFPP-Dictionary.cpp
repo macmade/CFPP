@@ -203,13 +203,88 @@ TEST( CFPP_Dictionary, OperatorLeftShiftEqual )
 {}
 
 TEST( CFPP_Dictionary, OperatorSubscriptCFType )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2;
+    CF::Dictionary d3( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 << CF::Pair( "foo", "hello, world" );
+    
+    ASSERT_TRUE( d1.GetCount() == 1 );
+    ASSERT_TRUE( d2.GetCount() == 0 );
+    
+    ASSERT_NO_FATAL_FAILURE( d2[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] );
+    ASSERT_NO_FATAL_FAILURE( d3[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] );
+    ASSERT_NO_THROW( d2[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] );
+    ASSERT_NO_THROW( d3[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] );
+    
+    ASSERT_TRUE( d1[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] != NULL );
+    ASSERT_TRUE( d1[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] == NULL );
+    ASSERT_TRUE( d2[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] == NULL );
+    ASSERT_TRUE( d3[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] == NULL );
+    
+    ASSERT_EQ( CFGetTypeID( d1[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] ), CFStringGetTypeID() );
+}
 
 TEST( CFPP_Dictionary, OperatorSubscriptCChar )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2;
+    CF::Dictionary d3( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 << CF::Pair( "foo", "hello, world" );
+    
+    ASSERT_TRUE(  d1.GetCount() == 1 );
+    ASSERT_TRUE(  d2.GetCount() == 0 );
+    
+    ASSERT_NO_FATAL_FAILURE( d2[ "bar" ] );
+    ASSERT_NO_FATAL_FAILURE( d3[ "bar" ] );
+    ASSERT_NO_THROW( d2[ "bar" ] );
+    ASSERT_NO_THROW( d3[ "bar" ] );
+    
+    ASSERT_TRUE( d1[ "foo" ] != NULL );
+    ASSERT_TRUE( d1[ "bar" ] == NULL );
+    ASSERT_TRUE( d2[ "foo" ] == NULL );
+    ASSERT_TRUE( d3[ "foo" ] == NULL );
+    
+    ASSERT_EQ( CFGetTypeID( d1[ "foo" ] ), CFStringGetTypeID() );
+}
 
 TEST( CFPP_Dictionary, OperatorSubscriptString )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2;
+    CF::Dictionary d3( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 << CF::Pair( "foo", "hello, world" );
+    
+    ASSERT_TRUE(  d1.GetCount() == 1 );
+    ASSERT_TRUE(  d2.GetCount() == 0 );
+    
+    ASSERT_NO_FATAL_FAILURE( d2[ CF::String( "bar" ) ] );
+    ASSERT_NO_FATAL_FAILURE( d3[ CF::String( "bar" ) ] );
+    ASSERT_NO_THROW( d2[ CF::String( "bar" ) ] );
+    ASSERT_NO_THROW( d3[ CF::String( "bar" ) ] );
+    
+    ASSERT_TRUE( d1[ CF::String( "foo" ) ] != NULL );
+    ASSERT_TRUE( d1[ CF::String( "bar" ) ] == NULL );
+    ASSERT_TRUE( d2[ CF::String( "foo" ) ] == NULL );
+    ASSERT_TRUE( d3[ CF::String( "foo" ) ] == NULL );
+    
+    ASSERT_EQ( CFGetTypeID( d1[ CF::String( "foo" ) ] ), CFStringGetTypeID() );
+}
 
 TEST( CFPP_Dictionary, GetTypeID )
 {
