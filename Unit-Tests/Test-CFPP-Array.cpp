@@ -122,10 +122,10 @@ TEST( CFPP_Array, MCTOR )
 
 TEST( CFPP_Array, OperatorAssignArray )
 {
-    CF::Data a1;
-    CF::Data a2( static_cast< CFArrayRef >( NULL ) );
-    CF::Data a3( static_cast< CFArrayRef >( NULL ) );
-    CF::Data a4;
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a4;
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
