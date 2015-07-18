@@ -59,24 +59,24 @@ TEST( CFPP_Array, CTOR_AutoPointer )
 
 TEST( CFPP_Array, CTOR_CFType )
 {
-    CF::Array d1( static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
-    CF::Array d2( static_cast< CFTypeRef >( NULL ) );
-    CF::Array d3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
+    CF::Array a1( static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
+    CF::Array a2( static_cast< CFTypeRef >( NULL ) );
+    CF::Array a3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
     
-    ASSERT_TRUE(  d1.IsValid() );
-    ASSERT_FALSE( d2.IsValid() );
-    ASSERT_FALSE( d3.IsValid() );
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_FALSE( a3.IsValid() );
 }
 
 TEST( CFPP_Array, CTOR_CFArray )
 {
-    CF::Array d1( static_cast< CFArrayRef >( CF::Array().GetCFObject() ) );
-    CF::Array d2( static_cast< CFArrayRef >( NULL ) );
-    CF::Array d3( static_cast< CFArrayRef >( CF::Boolean().GetCFObject() ) );
+    CF::Array a1( static_cast< CFArrayRef >( CF::Array().GetCFObject() ) );
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a3( static_cast< CFArrayRef >( CF::Boolean().GetCFObject() ) );
     
-    ASSERT_TRUE(  d1.IsValid() );
-    ASSERT_FALSE( d2.IsValid() );
-    ASSERT_FALSE( d3.IsValid() );
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_FALSE( a3.IsValid() );
 }
 
 TEST( CFPP_Array, CCTOR )
