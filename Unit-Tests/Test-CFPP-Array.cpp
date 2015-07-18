@@ -405,16 +405,116 @@ TEST( CFPP_Array, GetCFObject )
 }
 
 TEST( CFPP_Array, GetCount )
-{}
+{
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    
+    ASSERT_TRUE( a1.GetCount() == 0 );
+    ASSERT_TRUE( a2.GetCount() == 0 );
+    
+    a1 << CF::String( "hello, world" );
+    a2 << CF::String( "hello, world" );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    
+    ASSERT_TRUE( a1.GetCount() == 1 );
+    ASSERT_TRUE( a2.GetCount() == 0 );
+    
+    a1.RemoveAllValues();
+    a2.RemoveAllValues();
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    
+    ASSERT_TRUE( a1.GetCount() == 0 );
+    ASSERT_TRUE( a2.GetCount() == 0 );
+}
 
 TEST( CFPP_Array, ContainsValue )
-{}
+{
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    
+    a1 << CF::String( "hello, world" );
+    a1 << CF::Number( 42 );
+    
+    ASSERT_TRUE(  a1.ContainsValue( CF::String( "hello, world" ) ) );
+    ASSERT_TRUE(  a1.ContainsValue( CF::Number( 42 ) ) );
+    ASSERT_FALSE( a2.ContainsValue( CF::String( "hello, world" ) ) );
+    ASSERT_FALSE( a2.ContainsValue( CF::Number( 42 ) ) );
+    ASSERT_FALSE( a1.ContainsValue( CF::String( "hello, universe" ) ) );
+    ASSERT_FALSE( a1.ContainsValue( CF::Number( 43 ) ) );
+}
 
 TEST( CFPP_Array, RemoveAllValues )
-{}
+{
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    
+    a1 << CF::String( "hello, world" );
+    a1 << CF::Number( 42 );
+    a1 << CF::String( "hello, universe" );
+    
+    a2 << CF::String( "hello, world" );
+    a2 << CF::Number( 42 );
+    a2 << CF::String( "hello, universe" );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_TRUE(  a1.GetCount() == 3 );
+    
+    a1.RemoveAllValues();
+    a2.RemoveAllValues();
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_TRUE(  a1.GetCount() == 0 );
+    
+    a1.RemoveAllValues();
+    a2.RemoveAllValues();
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_TRUE(  a1.GetCount() == 0 );
+}
 
 TEST( CFPP_Array, GetValueAtIndex )
-{}
+{
+    CF::Array a1;
+    CF::Array a2;
+    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_TRUE(  a2.IsValid() );
+    ASSERT_FALSE( a3.IsValid() );
+    
+    a1 << CF::String( "hello, world" );
+    
+    ASSERT_TRUE(  a1.GetCount() == 1 );
+    ASSERT_TRUE(  a2.GetCount() == 0 );
+    
+    ASSERT_NO_FATAL_FAILURE( a2.GetValueAtIndex( 0 ) );
+    ASSERT_NO_FATAL_FAILURE( a3.GetValueAtIndex( 0 ) );
+    ASSERT_NO_THROW( a2.GetValueAtIndex( 0 ) );
+    ASSERT_NO_THROW( a3.GetValueAtIndex( 0 ) );
+    
+    ASSERT_TRUE( a1.GetValueAtIndex( 0 ) != NULL );
+    ASSERT_TRUE( a1.GetValueAtIndex( 1 ) == NULL );
+    ASSERT_TRUE( a2.GetValueAtIndex( 0 ) == NULL );
+    ASSERT_TRUE( a3.GetValueAtIndex( 0 ) == NULL );
+    
+    ASSERT_EQ( CFGetTypeID( a1.GetValueAtIndex( 0 ) ), CFStringGetTypeID() );
+}
 
 TEST( CFPP_Array, SetValueAtIndex )
 {}
@@ -423,13 +523,56 @@ TEST( CFPP_Array, InsertValueAtIndex )
 {}
 
 TEST( CFPP_Array, AppendValue )
-{}
+{
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_FALSE( a2.IsValid() );
+    ASSERT_TRUE(  a1.GetCount() == 0 );
+    
+    a1.AppendValue( static_cast< CFTypeRef >( CF::String( "hello, world" ).GetCFObject() ) );
+    a2.AppendValue( static_cast< CFTypeRef >( CF::String( "hello, world" ).GetCFObject() ) );
+    
+    ASSERT_TRUE(  a1.GetCount() == 1 );
+    ASSERT_FALSE( a2.IsValid() );
+}
 
 TEST( CFPP_Array, RemoveValueAtIndex )
 {}
 
 TEST( CFPP_Array, AppendArray )
-{}
+{
+    CF::Array a1;
+    CF::Array a2;
+    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  a1.IsValid() );
+    ASSERT_TRUE(  a2.IsValid() );
+    ASSERT_FALSE( a3.IsValid() );
+    
+    a1 << CF::String( "hello, world" );
+    
+    ASSERT_TRUE( a1.GetCount() == 1 );
+    ASSERT_TRUE( a2.GetCount() == 0 );
+    
+    a1.AppendArray( a2 );
+    
+    ASSERT_TRUE( a1.GetCount() == 1 );
+    ASSERT_TRUE( a2.GetCount() == 0 );
+    
+    a1.AppendArray( a1 );
+    
+    ASSERT_TRUE( a1.GetCount() == 2 );
+    
+    a1.AppendArray( a3 );
+    
+    ASSERT_TRUE( a1.GetCount() == 2 );
+    
+    a3.AppendArray( a1 );
+    
+    ASSERT_FALSE( a3.IsValid() );
+}
 
 TEST( CFPP_Array, ExchangeValuesAtIndices )
 {}
