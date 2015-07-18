@@ -58,20 +58,88 @@ TEST( CFPP_Dictionary, CTOR_AutoPointer )
 }
 
 TEST( CFPP_Dictionary, CTOR_CFType )
-{}
+{
+    CF::Dictionary d1( static_cast< CFTypeRef >( CF::Dictionary().GetCFObject() ) );
+    CF::Dictionary d2( static_cast< CFTypeRef >( NULL ) );
+    CF::Dictionary d3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Dictionary, CTOR_CFDictionary )
-{}
+{
+    CF::Dictionary d1( static_cast< CFDictionaryRef >( CF::Dictionary().GetCFObject() ) );
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d3( static_cast< CFDictionaryRef >( CF::Boolean().GetCFObject() ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+}
 
 TEST( CFPP_Dictionary, CCTOR )
-{}
+{
+    CF::Dictionary d1;
+    
+    d1 << CF::Pair( "foo", "bar" );
+    d1 << CF::Pair( "bar", "foo" );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_EQ( d1.GetCount(), 2 );
+    
+    {
+        CF::Dictionary d2( d1 );
+        
+        ASSERT_TRUE( d1.IsValid() );
+        ASSERT_TRUE( d2.IsValid() );
+        ASSERT_EQ( d1.GetCount(), 2 );
+        ASSERT_EQ( d2.GetCount(), 2 );
+    }
+}
 
 #ifdef CFPP_HAS_CPP11
 TEST( CFPP_Dictionary, MCTOR )
-{}
+{
+    CF::Dictionary d1;
+    
+    d1 << CF::Pair( "foo", "bar" );
+    d1 << CF::Pair( "bar", "foo" );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_EQ( d1.GetCount(), 2 );
+    
+    {
+        CF::Dictionary d2( std::move( d1 ) );
+        
+        ASSERT_FALSE( d1.IsValid() );
+        ASSERT_TRUE(  d2.IsValid() );
+        ASSERT_EQ( d2.GetCount(), 2 );
+    }
+}
 #endif
 
 TEST( CFPP_Dictionary, OperatorAssignDictionary )
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d3( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d4;
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    ASSERT_TRUE(  d4.IsValid() );
+    
+    d3 = d1;
+    d4 = d2;
+    
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_FALSE( d4.IsValid() );
+}
+
+TEST( CFPP_Dictionary, OperatorAssignAutoPointer )
 {
     CF::Dictionary d1( static_cast< CFTypeRef >( NULL ) );
     CF::Dictionary d2;
@@ -90,14 +158,43 @@ TEST( CFPP_Dictionary, OperatorAssignDictionary )
     ASSERT_FALSE( d3.IsValid() );
 }
 
-TEST( CFPP_Dictionary, OperatorAssignAutoPointer )
-{}
-
 TEST( CFPP_Dictionary, OperatorAssignCFType )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d3( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d4;
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    ASSERT_TRUE(  d4.IsValid() );
+    
+    d3 = static_cast< CFTypeRef >( d1 );
+    d4 = static_cast< CFTypeRef >( d2 );
+    
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_FALSE( d4.IsValid() );
+}
 
 TEST( CFPP_Dictionary, OperatorAssignCFDictionary )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d3( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d4;
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    ASSERT_TRUE(  d4.IsValid() );
+    
+    d3 = static_cast< CFDictionaryRef >( d1 );
+    d4 = static_cast< CFDictionaryRef >( d2 );
+    
+    ASSERT_TRUE(  d3.IsValid() );
+    ASSERT_FALSE( d4.IsValid() );
+}
 
 TEST( CFPP_Dictionary, OperatorPlusEqual )
 {}
@@ -115,10 +212,21 @@ TEST( CFPP_Dictionary, OperatorSubscriptString )
 {}
 
 TEST( CFPP_Dictionary, GetTypeID )
-{}
+{
+    CF::Dictionary d;
+    
+    ASSERT_EQ( d.GetTypeID(), CFDictionaryGetTypeID() );
+}
 
 TEST( CFPP_Dictionary, GetCFObject )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
+    
+    ASSERT_TRUE( d1.GetCFObject() != NULL );
+    ASSERT_TRUE( d2.GetCFObject() == NULL );
+    ASSERT_EQ( CFGetTypeID( d1.GetCFObject() ), CFDictionaryGetTypeID() );
+}
 
 TEST( CFPP_Dictionary, ContainsKey )
 {}
