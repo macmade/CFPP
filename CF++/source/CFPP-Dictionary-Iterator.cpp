@@ -257,7 +257,7 @@ namespace CF
         return CFDictionaryGetValue( this->_cfObject, key );
     }
     
-    void swap( Dictionary::Iterator::Iterator & v1, Dictionary::Iterator::Iterator & v2 )
+    void swap( Dictionary::Iterator & v1, Dictionary::Iterator & v2 )
     {
         using std::swap;
         
