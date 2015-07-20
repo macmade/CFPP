@@ -290,9 +290,14 @@ TEST( CFPP_String_Iterator, OperatorEqual )
     ASSERT_TRUE( i1 == i2 );
     
     s2 += ", world";
+    i1  = s1.begin();
+    i2  = s2.begin();
     
-    i1 = s1.begin();
-    i2 = s2.begin();
+    ASSERT_FALSE( i1 == i2 );
+        
+    i1  = s1.begin();
+    s1 += ", universe";
+    i2  = s1.begin();
     
     ASSERT_FALSE( i1 == i2 );
 }
@@ -322,9 +327,14 @@ TEST( CFPP_String_Iterator, OperatorNotEqual )
     ASSERT_FALSE( i1 != i2 );
     
     s2 += ", world";
+    i1  = s1.begin();
+    i2  = s2.begin();
     
-    i1 = s1.begin();
-    i2 = s2.begin();
+    ASSERT_TRUE( i1 != i2 );
+        
+    i1  = s1.begin();
+    s1 += ", universe";
+    i2  = s1.begin();
     
     ASSERT_TRUE( i1 != i2 );
 }
