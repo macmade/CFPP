@@ -39,20 +39,93 @@
 using namespace testing;
 
 TEST( CFPP_Array_Iterator, ArrayBegin )
-{}
+{
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a3;
+    
+    a3 << CF::String( "hello, world" );
+    
+    ASSERT_TRUE( *( a1.begin() ) == NULL );
+    ASSERT_TRUE( *( a2.begin() ) == NULL );
+    ASSERT_TRUE( *( a3.begin() ) != NULL );
+    
+    ASSERT_TRUE( CF::String( *( a3.begin() ) ) == "hello, world" );
+    
+    ASSERT_TRUE( a1.begin() == a1.end() );
+    ASSERT_TRUE( a2.begin() == a2.end() );
+    ASSERT_TRUE( a3.begin() != a3.end() );
+}
 
 TEST( CFPP_Array_Iterator, ArrayEnd )
-{}
+{
+    CF::Array a1;
+    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a3;
+    
+    a3 << CF::String( "hello, world" );
+    
+    ASSERT_TRUE( *( a1.end() ) == NULL );
+    ASSERT_TRUE( *( a2.end() ) == NULL );
+    ASSERT_TRUE( *( a3.end() ) == NULL );
+    
+    ASSERT_TRUE( CF::String( *( a3.begin() ) ) == "hello, world" );
+    
+    ASSERT_TRUE( a1.begin() == a1.end() );
+    ASSERT_TRUE( a2.begin() == a2.end() );
+    ASSERT_TRUE( a3.begin() != a3.end() );
+}
 
 TEST( CFPP_Array_Iterator, CTOR )
-{}
+{
+    CF::Array::Iterator i;
+    
+    ASSERT_TRUE( *( i ) == NULL );
+}
 
 TEST( CFPP_Array_Iterator, CCTOR )
-{}
+{
+    CF::Array a;
+    
+    a << CF::String( "hello, world" );
+    
+    {
+        CF::Array::Iterator i1;
+        CF::Array::Iterator i2( i1 );
+        CF::Array::Iterator i3( a.begin() );
+        CF::Array::Iterator i4( i3 );
+        
+        ASSERT_TRUE( *( i1 ) == NULL );
+        ASSERT_TRUE( *( i2 ) == NULL );
+        ASSERT_TRUE( *( i3 ) != NULL );
+        ASSERT_TRUE( *( i4 ) != NULL );
+        
+        ASSERT_TRUE( CF::String( *( i3 ) ) == "hello, world" );
+        ASSERT_TRUE( CF::String( *( i4 ) ) == "hello, world" );
+    }
+}
 
 #ifdef CFPP_HAS_CPP11
 TEST( CFPP_Array_Iterator, MCTOR )
-{}
+{
+    CF::Array a;
+    
+    a << CF::String( "hello, world" );
+    
+    {
+        CF::Array::Iterator i1;
+        CF::Array::Iterator i2( std::move( i1 ) );
+        CF::Array::Iterator i3( a.begin() );
+        CF::Array::Iterator i4( std::move( i3 ) );
+        
+        ASSERT_TRUE( *( i1 ) == NULL );
+        ASSERT_TRUE( *( i2 ) == NULL );
+        ASSERT_TRUE( *( i3 ) == NULL );
+        ASSERT_TRUE( *( i4 ) != NULL );
+        
+        ASSERT_TRUE( CF::String( *( i4 ) ) == "hello, world" );
+    }
+}
 #endif
 
 TEST( CFPP_Array_Iterator, OperatorAssign )
