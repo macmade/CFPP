@@ -48,6 +48,7 @@
  * Eg: std::shared_ptr
  */
 #ifdef _WIN32
+#pragma warning( push )
 #pragma warning( disable: 4251 )
 #endif
 
@@ -82,5 +83,9 @@
 #include <CF++/CFPP-ReadStream.hpp>
 #include <CF++/CFPP-WriteStream.hpp>
 #include <CF++/CFPP-PropertyListType-Definition.hpp>
+
+#ifdef _WIN32
+#pragma warning( pop )
+#endif
 
 #endif /* CFPP */
