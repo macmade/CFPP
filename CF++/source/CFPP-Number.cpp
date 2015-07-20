@@ -4252,7 +4252,7 @@ namespace CF
     
     signed long long Number::GetSignedLongLongValue( void ) const
     {
-        signed long value;
+        signed long long value;
         
         if( this->_cfObject == NULL )
         {
