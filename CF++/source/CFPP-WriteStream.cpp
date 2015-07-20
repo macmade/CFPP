@@ -288,7 +288,7 @@ namespace CF
             return false;
         }
         
-        return CFWriteStreamSetProperty( this->_cfObject, name, value );
+        return ( CFWriteStreamSetProperty( this->_cfObject, name, value ) ) ? true : false;
     }
     
     bool WriteStream::SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context )
@@ -298,7 +298,7 @@ namespace CF
             return false;
         }
         
-        return CFWriteStreamSetClient( this->_cfObject, events, callback, context );
+        return ( CFWriteStreamSetClient( this->_cfObject, events, callback, context ) ) ? true : false;
     }
     
     void WriteStream::ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode )
