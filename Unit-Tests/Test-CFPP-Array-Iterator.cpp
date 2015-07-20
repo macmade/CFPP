@@ -416,6 +416,14 @@ TEST( CFPP_Array_Iterator, OperatorEqual )
         i2 = a2.begin();
         
         ASSERT_FALSE( i1 == i2 );
+        
+        i1 = a1.begin();
+        
+        a1 << CF::String( "foobar" );
+        
+        i2 = a1.begin();
+        
+        ASSERT_FALSE( i1 == i2 );
     }
 }
 
@@ -454,6 +462,14 @@ TEST( CFPP_Array_Iterator, OperatorNotEqual )
         
         i1 = a1.begin();
         i2 = a2.begin();
+        
+        ASSERT_TRUE( i1 != i2 );
+        
+        i1 = a1.begin();
+        
+        a1 << CF::String( "foobar" );
+        
+        i2 = a1.begin();
         
         ASSERT_TRUE( i1 != i2 );
     }
