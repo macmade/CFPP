@@ -218,35 +218,6 @@ namespace CF
         return CF::Pair( this->GetKey(), this->GetValue() );
     }
     
-    CF::Pair Dictionary::Iterator::operator -> ( void ) const
-    {
-        return operator*();
-    }
-    
-    Dictionary::Iterator::operator CFTypeRef () const
-    {
-        return this->GetCFObject();
-    }
-    
-    CFTypeID Dictionary::Iterator::GetTypeID( void ) const
-    {
-        CFTypeRef o;
-        
-        o = this->GetCFObject();
-        
-        if( o != NULL )
-        {
-            return CFGetTypeID( o );
-        }
-        
-        return 0;
-    }
-    
-    CFTypeRef Dictionary::Iterator::GetCFObject( void ) const
-    {
-        return this->GetKey();
-    }
-    
     CFTypeRef Dictionary::Iterator::GetKey( void ) const
     {
         if( this->_cfObject == NULL )
