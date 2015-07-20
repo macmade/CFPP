@@ -41,6 +41,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <algorithm>
 
 /*
  * Disable warnings about class members not having DLL-interface.
