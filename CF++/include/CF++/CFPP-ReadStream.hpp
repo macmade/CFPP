@@ -113,8 +113,7 @@ namespace CF
                     bool operator == ( const Iterator & value ) const;
                     bool operator != ( const Iterator & value ) const;
                     
-                    Data operator *  ( void ) const;
-                    Data operator -> ( void ) const;
+                    Data operator * ( void ) const;
                     
                     operator Data () const;
                     

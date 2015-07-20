@@ -140,11 +140,6 @@ namespace CF
         return this->_data;
     }
     
-    Data ReadStream::Iterator::operator -> ( void ) const
-    {
-        return this->_data;
-    }
-
     ReadStream::Iterator::operator Data () const
     {
         return this->_data;
