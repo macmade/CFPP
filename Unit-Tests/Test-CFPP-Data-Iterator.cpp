@@ -295,6 +295,12 @@ TEST( CFPP_Data_Iterator, OperatorEqual )
     i2 = d2.begin();
     
     ASSERT_FALSE( i1 == i2 );
+        
+    i1  = d1.begin();
+    d1 += 0xFF;
+    i2  = d1.begin();
+    
+    ASSERT_FALSE( i1 == i2 );
 }
 
 TEST( CFPP_Data_Iterator, OperatorNotEqual )
@@ -323,6 +329,12 @@ TEST( CFPP_Data_Iterator, OperatorNotEqual )
     
     i1 = d1.begin();
     i2 = d2.begin();
+    
+    ASSERT_TRUE( i1 != i2 );
+        
+    i1  = d1.begin();
+    d1 += 0xFF;
+    i2  = d1.begin();
     
     ASSERT_TRUE( i1 != i2 );
 }

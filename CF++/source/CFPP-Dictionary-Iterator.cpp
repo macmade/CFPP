@@ -61,19 +61,15 @@ namespace CF
         _count( count ),
         _pos( pos )
     {
-        CF::Array   keys;
         CFTypeRef * cfKeys;
         CFIndex     i;
-        
-        if( this->_cfObject != NULL )
-        {
-            CFRetain( this->_cfObject );
-        }
         
         if( this->_cfObject == NULL )
         {
             return;
         }
+        
+        CFRetain( this->_cfObject );
         
         if( count == 0 )
         {
@@ -82,18 +78,18 @@ namespace CF
         
         cfKeys = new CFTypeRef[ static_cast< size_t >( count ) ];
         
-        memset( cfKeys, 0, static_cast< size_t >( count ) );
-        
         if( cfKeys == NULL )
         {
             return;
         }
         
+        memset( cfKeys, 0, static_cast< size_t >( count ) );
+        
         CFDictionaryGetKeysAndValues( this->_cfObject, reinterpret_cast< const void ** >( cfKeys ), NULL );
         
         for( i = 0; i < count; i++ )
         {
-            keys << cfKeys[ i ];
+            _keys << cfKeys[ i ];
         }
         
         delete [] cfKeys;
@@ -220,35 +216,6 @@ namespace CF
     CF::Pair Dictionary::Iterator::operator * ( void ) const
     {
         return CF::Pair( this->GetKey(), this->GetValue() );
-    }
-    
-    CF::Pair Dictionary::Iterator::operator -> ( void ) const
-    {
-        return operator*();
-    }
-    
-    Dictionary::Iterator::operator CFTypeRef () const
-    {
-        return this->GetCFObject();
-    }
-    
-    CFTypeID Dictionary::Iterator::GetTypeID( void ) const
-    {
-        CFTypeRef o;
-        
-        o = this->GetCFObject();
-        
-        if( o != NULL )
-        {
-            return CFGetTypeID( o );
-        }
-        
-        return 0;
-    }
-    
-    CFTypeRef Dictionary::Iterator::GetCFObject( void ) const
-    {
-        return this->GetKey();
     }
     
     CFTypeRef Dictionary::Iterator::GetKey( void ) const

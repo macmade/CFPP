@@ -116,8 +116,7 @@ namespace CF
                     bool operator == ( const Iterator & value ) const;
                     bool operator != ( const Iterator & value ) const;
                     
-                    CFTypeRef operator *  ( void ) const;
-                    CFTypeRef operator -> ( void ) const;
+                    CFTypeRef operator * ( void ) const;
                     
                     operator CFTypeRef () const;
                     
