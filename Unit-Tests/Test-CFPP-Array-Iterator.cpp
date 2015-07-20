@@ -129,7 +129,31 @@ TEST( CFPP_Array_Iterator, MCTOR )
 #endif
 
 TEST( CFPP_Array_Iterator, OperatorAssign )
-{}
+{
+    CF::Array a;
+    
+    a << CF::String( "hello, world" );
+    
+    {
+        CF::Array::Iterator i1;
+        CF::Array::Iterator i2;
+        CF::Array::Iterator i3( a.begin() );
+        CF::Array::Iterator i4;
+        
+        ASSERT_TRUE( *( i1 ) == NULL );
+        ASSERT_TRUE( *( i3 ) != NULL );
+        
+        ASSERT_TRUE( CF::String( *( i3 ) ) == "hello, world" );
+        
+        i2 = i1;
+        i4 = i3;
+        
+        ASSERT_TRUE( *( i2 ) == NULL );
+        ASSERT_TRUE( *( i4 ) != NULL );
+        
+        ASSERT_TRUE( CF::String( *( i4 ) ) == "hello, world" );
+    }
+}
 
 TEST( CFPP_Array_Iterator, OperatorPrefixIncrement )
 {}
