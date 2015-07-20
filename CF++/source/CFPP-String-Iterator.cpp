@@ -270,7 +270,7 @@ namespace CF
         return operator*();
     }
     
-    void swap( String::Iterator::Iterator & v1, String::Iterator::Iterator & v2 )
+    void swap( String::Iterator & v1, String::Iterator & v2 )
     {
         using std::swap;
         

@@ -230,7 +230,7 @@ namespace CF
         return CFArrayGetValueAtIndex( this->_cfObject, this->_pos );
     }
     
-    void swap( Array::Iterator::Iterator & v1, Array::Iterator::Iterator & v2 )
+    void swap( Array::Iterator & v1, Array::Iterator & v2 )
     {
         using std::swap;
         

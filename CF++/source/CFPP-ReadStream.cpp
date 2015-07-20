@@ -334,7 +334,7 @@ namespace CF
             return false;
         }
         
-        return CFReadStreamSetProperty( this->_cfObject, name, value );
+        return ( CFReadStreamSetProperty( this->_cfObject, name, value ) ) ? true : false;
     }
     
     bool ReadStream::SetClient( CFOptionFlags events, CFReadStreamClientCallBack callback, CFStreamClientContext * context )
@@ -344,7 +344,7 @@ namespace CF
             return false;
         }
         
-        return CFReadStreamSetClient( this->_cfObject, events, callback, context );
+        return ( CFReadStreamSetClient( this->_cfObject, events, callback, context ) ) ? true : false;
     }
     
     void ReadStream::ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode )

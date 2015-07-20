@@ -40,6 +40,16 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <memory>
+#include <algorithm>
+
+/*
+ * Disable warnings about class members not having DLL-interface.
+ * Eg: std::shared_ptr
+ */
+#ifdef _WIN32
+#pragma warning( disable: 4251 )
+#endif
 
 #if defined( __cplusplus ) && ( __cplusplus > 199711L || ( defined( _MSC_VER ) && _MSC_VER >= 1800 ) )
 #define CFPP_HAS_CPP11  1
