@@ -156,7 +156,37 @@ TEST( CFPP_Dictionary_Iterator, MCTOR )
 #endif
 
 TEST( CFPP_Dictionary_Iterator, OperatorAssign )
-{}
+{
+    CF::Dictionary d;
+    
+    d << CF::Pair( "foo", "hello, world" );
+    
+    {
+        CF::Dictionary::Iterator i1;
+        CF::Dictionary::Iterator i2;
+        CF::Dictionary::Iterator i3( d.begin() );
+        CF::Dictionary::Iterator i4;
+        
+        ASSERT_TRUE( i1.GetKey()   == NULL );
+        ASSERT_TRUE( i1.GetValue() == NULL );
+        ASSERT_TRUE( i3.GetKey()   != NULL );
+        ASSERT_TRUE( i3.GetValue() != NULL );
+        
+        ASSERT_TRUE( CF::String( i3.GetKey() )   == "foo" );
+        ASSERT_TRUE( CF::String( i3.GetValue() ) == "hello, world" );
+        
+        i2 = i1;
+        i4 = i3;
+        
+        ASSERT_TRUE( i2.GetKey()   == NULL );
+        ASSERT_TRUE( i2.GetValue() == NULL );
+        ASSERT_TRUE( i4.GetKey()   != NULL );
+        ASSERT_TRUE( i4.GetValue() != NULL );
+        
+        ASSERT_TRUE( CF::String( i4.GetKey() )   == "foo" );
+        ASSERT_TRUE( CF::String( i4.GetValue() ) == "hello, world" );
+    }
+}
 
 TEST( CFPP_Dictionary_Iterator, OperatorPrefixIncrement )
 {}
