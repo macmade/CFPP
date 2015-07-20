@@ -367,6 +367,20 @@ namespace CF
         CFReadStreamUnscheduleFromRunLoop( this->_cfObject, runLoop, mode );
     }
     
+    ReadStream::Iterator ReadStream::begin( CFIndex bytesToRead ) const
+    {
+        return Iterator( this->_cfObject, bytesToRead );
+    }
+    
+    ReadStream::Iterator ReadStream::end( void ) const
+    {
+        Iterator i( this->_cfObject, 0 );
+        
+        i._end = true;
+        
+        return i;
+    }
+    
     void swap( ReadStream & v1, ReadStream & v2 )
     {
         using std::swap;
