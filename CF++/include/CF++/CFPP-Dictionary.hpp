@@ -83,7 +83,7 @@ namespace CF
             
             friend void swap( Dictionary & v1, Dictionary & v2 );
             
-            class CFPP_EXPORT Iterator: public Type, public std::iterator< std::bidirectional_iterator_tag, CF::Pair >
+            class CFPP_EXPORT Iterator: public std::iterator< std::bidirectional_iterator_tag, CF::Pair >
             {
                 public:
                     
@@ -111,13 +111,8 @@ namespace CF
                     bool operator == ( const Iterator & value ) const;
                     bool operator != ( const Iterator & value ) const;
                     
-                    CF::Pair operator *  ( void ) const;
-                    CF::Pair operator -> ( void ) const;
+                    CF::Pair operator * ( void ) const;
                     
-                    operator CFTypeRef () const;
-                    
-                    CFTypeID  GetTypeID( void ) const;
-                    CFTypeRef GetCFObject( void ) const;
                     CFTypeRef GetKey( void ) const;
                     CFTypeRef GetValue( void ) const;
                     

@@ -197,19 +197,128 @@ TEST( CFPP_Dictionary, OperatorAssignCFDictionary )
 }
 
 TEST( CFPP_Dictionary, OperatorPlusEqual )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    ASSERT_NO_FATAL_FAILURE( d2.AddValue( CF::String( "foo" ), CF::String( "hello, world" ) ) );
+    ASSERT_NO_THROW( d2.AddValue( CF::String( "foo" ), CF::String( "hello, world" ) ) );
+    
+    d1 += CF::Pair( CF::String( "foo" ), CF::String( "hello, world" ) );
+    
+    ASSERT_TRUE( CF::String( d1[ "foo" ] ) == "hello, world" );
+    
+    d1 += CF::Pair( CF::String( "foo" ) , CF::String( "hello, universe" ) );
+    
+    ASSERT_TRUE( CF::String( d1[ "foo" ] ) == "hello, world" );
+}
 
-TEST( CFPP_Dictionary, OperatorLeftShiftEqual )
-{}
+TEST( CFPP_Dictionary, OperatorLeftShift )
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    ASSERT_NO_FATAL_FAILURE( d2.SetValue( CF::String( "foo" ), CF::String( "hello, world" ) ) );
+    ASSERT_NO_THROW( d2.SetValue( CF::String( "foo" ), CF::String( "hello, world" ) ) );
+    
+    d1 << CF::Pair( CF::String( "foo" ), CF::String( "hello, world" ) );
+    
+    ASSERT_TRUE( CF::String( d1[ "foo" ] ) == "hello, world" );
+    
+    d1 << CF::Pair( CF::String( "foo" ) , CF::String( "hello, universe" ) );
+    
+    ASSERT_TRUE( CF::String( d1[ "foo" ] ) == "hello, universe" );
+}
 
 TEST( CFPP_Dictionary, OperatorSubscriptCFType )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2;
+    CF::Dictionary d3( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 << CF::Pair( "foo", "hello, world" );
+    
+    ASSERT_TRUE( d1.GetCount() == 1 );
+    ASSERT_TRUE( d2.GetCount() == 0 );
+    
+    ASSERT_NO_FATAL_FAILURE( d2[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] );
+    ASSERT_NO_FATAL_FAILURE( d3[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] );
+    ASSERT_NO_THROW( d2[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] );
+    ASSERT_NO_THROW( d3[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] );
+    
+    ASSERT_TRUE( d1[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] != NULL );
+    ASSERT_TRUE( d1[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] == NULL );
+    ASSERT_TRUE( d2[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] == NULL );
+    ASSERT_TRUE( d3[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] == NULL );
+    
+    ASSERT_EQ( CFGetTypeID( d1[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] ), CFStringGetTypeID() );
+}
 
 TEST( CFPP_Dictionary, OperatorSubscriptCChar )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2;
+    CF::Dictionary d3( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 << CF::Pair( "foo", "hello, world" );
+    
+    ASSERT_TRUE(  d1.GetCount() == 1 );
+    ASSERT_TRUE(  d2.GetCount() == 0 );
+    
+    ASSERT_NO_FATAL_FAILURE( d2[ "bar" ] );
+    ASSERT_NO_FATAL_FAILURE( d3[ "bar" ] );
+    ASSERT_NO_THROW( d2[ "bar" ] );
+    ASSERT_NO_THROW( d3[ "bar" ] );
+    
+    ASSERT_TRUE( d1[ "foo" ] != NULL );
+    ASSERT_TRUE( d1[ "bar" ] == NULL );
+    ASSERT_TRUE( d2[ "foo" ] == NULL );
+    ASSERT_TRUE( d3[ "foo" ] == NULL );
+    
+    ASSERT_EQ( CFGetTypeID( d1[ "foo" ] ), CFStringGetTypeID() );
+}
 
 TEST( CFPP_Dictionary, OperatorSubscriptString )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2;
+    CF::Dictionary d3( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_TRUE(  d2.IsValid() );
+    ASSERT_FALSE( d3.IsValid() );
+    
+    d1 << CF::Pair( "foo", "hello, world" );
+    
+    ASSERT_TRUE(  d1.GetCount() == 1 );
+    ASSERT_TRUE(  d2.GetCount() == 0 );
+    
+    ASSERT_NO_FATAL_FAILURE( d2[ CF::String( "bar" ) ] );
+    ASSERT_NO_FATAL_FAILURE( d3[ CF::String( "bar" ) ] );
+    ASSERT_NO_THROW( d2[ CF::String( "bar" ) ] );
+    ASSERT_NO_THROW( d3[ CF::String( "bar" ) ] );
+    
+    ASSERT_TRUE( d1[ CF::String( "foo" ) ] != NULL );
+    ASSERT_TRUE( d1[ CF::String( "bar" ) ] == NULL );
+    ASSERT_TRUE( d2[ CF::String( "foo" ) ] == NULL );
+    ASSERT_TRUE( d3[ CF::String( "foo" ) ] == NULL );
+    
+    ASSERT_EQ( CFGetTypeID( d1[ CF::String( "foo" ) ] ), CFStringGetTypeID() );
+}
 
 TEST( CFPP_Dictionary, GetTypeID )
 {
@@ -313,7 +422,7 @@ TEST( CFPP_Dictionary, GetCount )
     ASSERT_TRUE( d2.GetCount() == 0 );
     
     d1 << CF::Pair( "foo", "hello, world" );
-    d2 << CF::Pair( "bar", "hello, world" );
+    d2 << CF::Pair( "foo", "hello, world" );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -332,19 +441,108 @@ TEST( CFPP_Dictionary, GetCount )
 }
 
 TEST( CFPP_Dictionary, GetValue )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    ASSERT_TRUE( d1.GetValue( CF::String( "foo" ) ) == NULL );
+    ASSERT_TRUE( d2.GetValue( CF::String( "foo" ) ) == NULL );
+    
+    d1 << CF::Pair( CF::String( "foo" ), CF::String( "hello, world" ) );
+    d1 << CF::Pair( CF::String( "bar" ), CF::String( "hello, world" ) );
+    d1 << CF::Pair( CF::Number( 42 ),    CF::String( "hello, world" ) );
+    
+    ASSERT_TRUE( d1.GetValue( CF::String( "foo" ) ) != NULL );
+    ASSERT_TRUE( d1.GetValue( CF::String( "bar" ) ) != NULL );
+    ASSERT_TRUE( d1.GetValue( CF::Number( 42 ) )    != NULL );
+}
 
 TEST( CFPP_Dictionary, AddValue )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    ASSERT_NO_FATAL_FAILURE( d2.AddValue( CF::String( "foo" ), CF::String( "hello, world" ) ) );
+    ASSERT_NO_THROW( d2.AddValue( CF::String( "foo" ), CF::String( "hello, world" ) ) );
+    
+    d1.AddValue( CF::String( "foo" ), CF::String( "hello, world" ) );
+    
+    ASSERT_TRUE( CF::String( d1[ "foo" ] ) == "hello, world" );
+    
+    d1.AddValue( CF::String( "foo" ) , CF::String( "hello, universe" ) );
+    
+    ASSERT_TRUE( CF::String( d1[ "foo" ] ) == "hello, world" );
+}
 
 TEST( CFPP_Dictionary, RemoveValue )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    d1 << CF::Pair( "foo", "hello, world" );
+    
+    ASSERT_TRUE( d1[ "foo" ] != NULL );
+    
+    d1.RemoveValue( CF::String( "foo" ) );
+    
+    ASSERT_TRUE( d1[ "foo" ] == NULL );
+    
+    ASSERT_NO_FATAL_FAILURE( d1.RemoveValue( CF::String( "foo" ) ) );
+    ASSERT_NO_FATAL_FAILURE( d2.RemoveValue( CF::String( "foo" ) ) );
+    ASSERT_NO_THROW( d1.RemoveValue( CF::String( "foo" ) ) );
+    ASSERT_NO_THROW( d2.RemoveValue( CF::String( "foo" ) ) );
+}
 
 TEST( CFPP_Dictionary, ReplaceValue )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    d1 << CF::Pair( "foo", "hello, world" );
+    
+    ASSERT_TRUE( CF::String( d1[ "foo" ] ) == "hello, world" );
+    
+    d1.ReplaceValue( CF::String( "foo" ) , CF::String( "hello, universe" ) );
+    
+    ASSERT_TRUE( CF::String( d1[ "foo" ] ) == "hello, universe" );
+    
+    ASSERT_NO_FATAL_FAILURE( d1.ReplaceValue( CF::String( "foo" ), CF::String( "bar" ) ) );
+    ASSERT_NO_FATAL_FAILURE( d2.ReplaceValue( CF::String( "foo" ), CF::String( "bar" ) ) );
+    ASSERT_NO_THROW( d1.ReplaceValue( CF::String( "foo" ), CF::String( "bar" ) ) );
+    ASSERT_NO_THROW( d2.ReplaceValue( CF::String( "foo" ), CF::String( "bar" ) ) );
+}
 
 TEST( CFPP_Dictionary, SetValue )
-{}
+{
+    CF::Dictionary d1;
+    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    
+    ASSERT_TRUE(  d1.IsValid() );
+    ASSERT_FALSE( d2.IsValid() );
+    
+    ASSERT_NO_FATAL_FAILURE( d2.SetValue( CF::String( "foo" ), CF::String( "hello, world" ) ) );
+    ASSERT_NO_THROW( d2.SetValue( CF::String( "foo" ), CF::String( "hello, world" ) ) );
+    
+    d1.SetValue( CF::String( "foo" ), CF::String( "hello, world" ) );
+    
+    ASSERT_TRUE( CF::String( d1[ "foo" ] ) == "hello, world" );
+    
+    d1.SetValue( CF::String( "foo" ) , CF::String( "hello, universe" ) );
+    
+    ASSERT_TRUE( CF::String( d1[ "foo" ] ) == "hello, universe" );
+}
 
 TEST( CFPP_Dictionary, Swap )
 {

@@ -186,11 +186,6 @@ namespace CF
         return this->GetCFObject();
     }
     
-    CFTypeRef Array::Iterator::operator -> ( void ) const
-    {
-        return operator*();
-    }
-    
     Array::Iterator::operator CFTypeRef () const
     {
         return this->GetCFObject();
