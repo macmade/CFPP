@@ -393,41 +393,21 @@ namespace CF
     
     char String::operator [] ( int index ) const
     {
-        const char * s;
-        CFIndex      cfIndex;
+        std::string s;
         
-        cfIndex = static_cast< CFIndex >( index );
+        s = this->GetValue();
         
-        if( this->_cfObject == NULL )
+        if( index < 0 )
+        {
+            index = static_cast< int >( s.length() ) + index;
+        }
+        
+        if( static_cast< std::size_t >( index ) >= s.length() )
         {
             return 0;
         }
         
-        if( cfIndex >= 0 )
-        {
-            if( cfIndex >= this->GetLength() )
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            cfIndex = this->GetLength() + cfIndex;
-            
-            if( cfIndex < 0 || cfIndex >= this->GetLength() )
-            {
-                return 0;
-            }
-        }
-        
-        s = CFStringGetCStringPtr( this->_cfObject, kCFStringEncodingUTF8 );
-        
-        if( s == NULL )
-        {
-            return 0;
-        }
-        
-        return s[ static_cast< unsigned >( cfIndex ) ];
+        return s.at( static_cast< std::size_t >( index ) );
     }
     
     String::operator std::string () const
