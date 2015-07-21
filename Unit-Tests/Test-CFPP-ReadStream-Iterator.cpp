@@ -249,7 +249,32 @@ TEST( CFPP_ReadStream_Iterator, OperatorCastToData )
 {}
 
 TEST( CFPP_ReadStream_Iterator, Swap )
-{}
+{
+    CF::ReadStream           s;
+    CF::ReadStream::Iterator i1;
+    CF::ReadStream::Iterator i2;
+    
+    s.Open( "/etc/hosts" );
+    
+    i1 = s.begin();
+    i2 = s.end();
+    
+    ASSERT_TRUE( i1 != s.end() );
+    ASSERT_TRUE( i2 == s.end() );
+    
+    ASSERT_TRUE(  ( *( i1 ) ).IsValid() );
+    ASSERT_FALSE( ( *( i2 ) ).IsValid() );
+    
+    swap( i1, i2 );
+    
+    ASSERT_TRUE( i1 == s.end() );
+    ASSERT_TRUE( i2 != s.end() );
+    
+    ASSERT_FALSE( ( *( i1 ) ).IsValid() );
+    ASSERT_TRUE(  ( *( i2 ) ).IsValid() );
+    
+    s.Close();
+}
 
 TEST( CFPP_ReadStream_Iterator, TestIterate )
 {}
