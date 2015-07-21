@@ -369,16 +369,12 @@ namespace CF
     
     ReadStream::Iterator ReadStream::begin( CFIndex bytesToRead ) const
     {
-        return Iterator( this->_cfObject, bytesToRead );
+        return Iterator( this->_cfObject, bytesToRead, false );
     }
     
     ReadStream::Iterator ReadStream::end( void ) const
     {
-        Iterator i( this->_cfObject, 0 );
-        
-        i._end = true;
-        
-        return i;
+        return Iterator( this->_cfObject, 0, true );
     }
     
     void swap( ReadStream & v1, ReadStream & v2 )

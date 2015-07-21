@@ -113,9 +113,9 @@ namespace CF
                     bool operator == ( const Iterator & value ) const;
                     bool operator != ( const Iterator & value ) const;
                     
-                    Data operator * ( void ) const;
+                    Data operator * ( void );
                     
-                    operator Data () const;
+                    operator Data ();
                     
                     friend void swap( Iterator & v1, Iterator & v2 );
                     
@@ -123,10 +123,13 @@ namespace CF
                     
                     friend class ReadStream;
                     
-                    Iterator( CFReadStreamRef stream, CFIndex bytesToRead );
+                    Iterator( CFReadStreamRef stream, CFIndex bytesToRead, bool end );
+                    
+                    void _Read( void );
                     
                     CFReadStreamRef _cfObject;
                     CFIndex         _bytesToRead;
+                    CFIndex         _i;
                     Data            _data;
                     bool            _end;
             };

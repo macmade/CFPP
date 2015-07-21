@@ -40,25 +40,34 @@ namespace CF
     ReadStream::Iterator::Iterator( void ):
         _cfObject( NULL ),
         _bytesToRead( 0 ),
+        _i( 0 ),
         _data( static_cast< CFDataRef >( NULL ) ),
         _end( false )
     {}
     
-    ReadStream::Iterator::Iterator( CFReadStreamRef stream, CFIndex bytesToRead ):
+    ReadStream::Iterator::Iterator( CFReadStreamRef stream, CFIndex bytesToRead, bool end ):
         _cfObject( stream ),
-        _bytesToRead( bytesToRead ),
+        _bytesToRead( ( bytesToRead > 0 ) ? bytesToRead : 4096 ),
+        _i( 0 ),
         _data( static_cast< CFDataRef >( NULL ) ),
-        _end( false )
+        _end( end )
     {
         if( this->_cfObject != NULL )
         {
             CFRetain( this->_cfObject );
+            
+            this->_Read();
+        }
+        else
+        {
+            this->_end = true;
         }
     }
     
     ReadStream::Iterator::Iterator( const Iterator & value ):
         _cfObject( value._cfObject ),
         _bytesToRead( value._bytesToRead ),
+        _i( value._i ),
         _data( value._data ),
         _end( value._end )
     {
@@ -75,6 +84,8 @@ namespace CF
         value._cfObject     = NULL;
         this->_bytesToRead  = value._bytesToRead;
         value._bytesToRead  = 0;
+        this->_i            = value._i;
+        value._i            = 0;
         this->_end          = value._end;
         value._end          = false;
         
@@ -99,12 +110,21 @@ namespace CF
     
     ReadStream::Iterator & ReadStream::Iterator::operator ++( void )
     {
+        this->_data = static_cast< CFDataRef >( NULL );
+        this->_i   += 1;
+        
+        this->_Read();
+        
         return *( this );
     }
     
     ReadStream::Iterator ReadStream::Iterator::operator ++( int )
     {
-        return *( this );
+        Iterator it( *( this ) );
+        
+        operator++();
+        
+        return it;
     }
 
     ReadStream::Iterator & ReadStream::Iterator::operator += ( CFIndex value )
@@ -116,33 +136,113 @@ namespace CF
 
     ReadStream::Iterator ReadStream::Iterator::operator + ( CFIndex value )
     {
-        ( void )value;
+        Iterator i;
         
-        return *( this );
+        i = *( this );
+        
+        return i += value;
     }
 
     bool ReadStream::Iterator::operator == ( const Iterator & value ) const
     {
-        ( void )value;
+        if( this->_cfObject != value._cfObject )
+        {
+            return false;
+        }
         
-        return false;
+        if( this->_end == true && value._end == true )
+        {
+            return true;
+        }
+        
+        if( this->_bytesToRead != value._bytesToRead )
+        {
+            return false;
+        }
+        
+        if( this->_i != value._i )
+        {
+            return false;
+        }
+        
+        if( this->_end != value._end )
+        {
+            return false;
+        }
+        
+        return true;
     }
     
     bool ReadStream::Iterator::operator != ( const Iterator & value ) const
     {
-        ( void )value;
-        
-        return false;
+        return !( *( this ) == value );
     }
 
-    Data ReadStream::Iterator::operator * ( void ) const
+    Data ReadStream::Iterator::operator * ( void )
     {
         return this->_data;
     }
     
-    ReadStream::Iterator::operator Data () const
+    ReadStream::Iterator::operator Data ()
     {
-        return this->_data;
+        return operator *();
+    }
+    
+    void ReadStream::Iterator::_Read( void )
+    {
+        UInt8        * buf;
+        CFIndex        i;
+        CFStreamStatus status;
+        
+        if( this->_cfObject == NULL )
+        {
+            return;
+        }
+        
+        if( this->_end == true )
+        {
+            return;
+        }
+        
+        if( this->_data.IsValid() )
+        {
+            return;
+        }
+        
+        if( CFReadStreamHasBytesAvailable( this->_cfObject ) == false )
+        {
+            this->_end = true;
+            
+            return;
+        }
+        
+        status = CFReadStreamGetStatus( this->_cfObject );
+        
+        if
+        (
+               status == kCFStreamStatusNotOpen
+            || status == kCFStreamStatusAtEnd
+            || status == kCFStreamStatusClosed
+            || status == kCFStreamStatusError
+        )
+        {
+            this->_end = true;
+            
+            return;
+        }
+        
+        buf = new UInt8[ this->_bytesToRead ];
+        
+        if( buf == NULL )
+        {
+            return;
+        }
+        
+        i = CFReadStreamRead( this->_cfObject, buf, this->_bytesToRead );
+        
+        this->_data = CF::Data( buf, i );
+        
+        delete buf;
     }
 
     void swap( ReadStream::Iterator & v1, ReadStream::Iterator & v2 )
@@ -151,6 +251,7 @@ namespace CF
         
         swap( v1._cfObject,    v2._cfObject );
         swap( v1._bytesToRead, v2._bytesToRead );
+        swap( v1._i,           v2._i );
         swap( v1._data,        v2._data );
         swap( v1._end,         v2._end );
     }

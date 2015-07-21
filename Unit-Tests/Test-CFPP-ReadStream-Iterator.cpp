@@ -39,13 +39,93 @@
 using namespace testing;
 
 TEST( CFPP_ReadStream_Iterator, ReadStreamBegin )
-{}
+{
+    {
+        CF::ReadStream s1;
+        CF::ReadStream s2( static_cast< CFReadStreamRef >( NULL ) );
+        CF::ReadStream s3;
+        
+        s1.Open( "/etc/hosts" );
+        
+        ASSERT_TRUE(  ( *( s1.begin() ) ).IsValid() );
+        ASSERT_FALSE( ( *( s2.begin() ) ).IsValid() );
+        ASSERT_FALSE( ( *( s3.begin() ) ).IsValid() );
+        
+        s1.Close();
+    }
+    
+    {
+        CF::ReadStream s1;
+        
+        s1.Open( "/etc/hosts" );
+        
+        ASSERT_GT( ( *( s1.begin() ) ).GetLength(), 0 );
+        
+        s1.Close();
+    }
+    
+    {
+        CF::ReadStream s1;
+        CF::ReadStream s2( static_cast< CFReadStreamRef >( NULL ) );
+        CF::ReadStream s3;
+        
+        s1.Open( "/etc/hosts" );
+        
+        ASSERT_TRUE( s1.begin() != s1.end() );
+        ASSERT_TRUE( s2.begin() == s2.end() );
+        ASSERT_TRUE( s3.begin() == s3.end() );
+        
+        s1.Close();
+    }
+}
 
 TEST( CFPP_ReadStream_Iterator, ReadStreamEnd )
-{}
+{
+    {
+        CF::ReadStream s1;
+        CF::ReadStream s2( static_cast< CFReadStreamRef >( NULL ) );
+        CF::ReadStream s3;
+        
+        s1.Open( "/etc/hosts" );
+        
+        ASSERT_FALSE( ( *( s1.end() ) ).IsValid() );
+        ASSERT_FALSE( ( *( s2.end() ) ).IsValid() );
+        ASSERT_FALSE( ( *( s3.end() ) ).IsValid() );
+        
+        s1.Close();
+    }
+    
+    {
+        CF::ReadStream s1;
+        
+        s1.Open( "/etc/hosts" );
+        
+        ASSERT_EQ( ( *( s1.end() ) ).GetLength(), 0 );
+        
+        s1.Close();
+    }
+    
+    {
+        CF::ReadStream s1;
+        CF::ReadStream s2( static_cast< CFReadStreamRef >( NULL ) );
+        CF::ReadStream s3;
+        
+        s1.Open( "/etc/hosts" );
+        
+        ASSERT_TRUE( s1.begin() != s1.end() );
+        ASSERT_TRUE( s2.begin() == s2.end() );
+        ASSERT_TRUE( s3.begin() == s3.end() );
+        
+        s1.Close();
+    }
+}
 
 TEST( CFPP_ReadStream_Iterator, CTOR )
-{}
+{
+    CF::ReadStream::Iterator i;
+    
+    ASSERT_FALSE( ( *( i ) ).IsValid() );
+}
 
 TEST( CFPP_ReadStream_Iterator, CCTOR )
 {}
