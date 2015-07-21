@@ -88,8 +88,8 @@ namespace CF
         value._i            = 0;
         this->_end          = value._end;
         value._end          = false;
-        
-        swap( this->_data, value._data );
+        this->_data         = value._data;
+        value._data         = static_cast< CFDataRef >( NULL );
     }
     #endif
 
