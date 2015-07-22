@@ -232,10 +232,62 @@ TEST( CFPP_ReadStream_Iterator, OperatorAssign )
 }
 
 TEST( CFPP_ReadStream_Iterator, OperatorPrefixIncrement )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2;
+    
+    s1.Open( "/etc/hosts" );
+    
+    {
+        CF::ReadStream::Iterator i1;
+        CF::ReadStream::Iterator i2;
+        CF::ReadStream::Iterator i3;
+        CF::ReadStream::Iterator i4;
+        
+        i1 = s1.begin( 10 );
+        i2 = ++i1;
+        i3 = s2.begin( 10 );
+        i4 = ++i3;
+        
+        ASSERT_TRUE(  ( *( i1 ) ).IsValid() );
+        ASSERT_TRUE(  ( *( i2 ) ).IsValid() );
+        ASSERT_FALSE( ( *( i3 ) ).IsValid() );
+        ASSERT_FALSE( ( *( i4 ) ).IsValid() );
+        
+        ASSERT_EQ( i1, i2 );
+    }
+    
+    s1.Close();
+}
 
 TEST( CFPP_ReadStream_Iterator, OperatorPostfixIncrement )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2;
+    
+    s1.Open( "/etc/hosts" );
+    
+    {
+        CF::ReadStream::Iterator i1;
+        CF::ReadStream::Iterator i2;
+        CF::ReadStream::Iterator i3;
+        CF::ReadStream::Iterator i4;
+        
+        i1 = s1.begin( 10 );
+        i2 = i1++;
+        i3 = s2.begin( 10 );
+        i4 = i3++;
+        
+        ASSERT_TRUE(  ( *( i1 ) ).IsValid() );
+        ASSERT_TRUE(  ( *( i2 ) ).IsValid() );
+        ASSERT_FALSE( ( *( i3 ) ).IsValid() );
+        ASSERT_FALSE( ( *( i4 ) ).IsValid() );
+        
+        ASSERT_NE( i1, i2 );
+    }
+    
+    s1.Close();
+}
 
 TEST( CFPP_ReadStream_Iterator, OperatorPlusEqual )
 {}
