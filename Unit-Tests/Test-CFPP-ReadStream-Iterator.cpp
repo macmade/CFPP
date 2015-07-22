@@ -64,6 +64,16 @@ TEST( CFPP_ReadStream_Iterator, ReadStreamBegin )
     
     {
         CF::ReadStream s1;
+        
+        s1.Open( "/etc/hosts" );
+        
+        ASSERT_EQ( ( *( s1.begin( 10 ) ) ).GetLength(), 10 );
+        
+        s1.Close();
+    }
+    
+    {
+        CF::ReadStream s1;
         CF::ReadStream s2;
         
         s1.Open( "/etc/hosts" );
@@ -240,13 +250,40 @@ TEST( CFPP_ReadStream_Iterator, OperatorNotEqual )
 {}
 
 TEST( CFPP_ReadStream_Iterator, OperatorDereference )
-{}
-
-TEST( CFPP_ReadStream_Iterator, OperatorMemberAccess )
-{}
+{
+    CF::ReadStream           s1;
+    CF::ReadStream           s2;
+    CF::ReadStream::Iterator i1;
+    CF::ReadStream::Iterator i2;
+    
+    s1.Open( "/etc/hosts" );
+    
+    i1 = s1.begin();
+    i2 = s2.begin();
+    
+    ASSERT_TRUE(  ( *( i1 ) ).IsValid() );
+    ASSERT_FALSE( ( *( i2 ) ).IsValid() );
+    
+    s1.Close();
+}
 
 TEST( CFPP_ReadStream_Iterator, OperatorCastToData )
-{}
+{
+    CF::ReadStream           s1;
+    CF::ReadStream           s2;
+    CF::ReadStream::Iterator i1;
+    CF::ReadStream::Iterator i2;
+    
+    s1.Open( "/etc/hosts" );
+    
+    i1 = s1.begin();
+    i2 = s2.begin();
+    
+    ASSERT_TRUE(  static_cast< CF::Data >( i1 ).IsValid() );
+    ASSERT_FALSE( static_cast< CF::Data >( i2 ).IsValid() );
+    
+    s1.Close();
+}
 
 TEST( CFPP_ReadStream_Iterator, Swap )
 {
@@ -277,14 +314,113 @@ TEST( CFPP_ReadStream_Iterator, Swap )
 }
 
 TEST( CFPP_ReadStream_Iterator, TestIterate )
-{}
+{
+    CF::ReadStream           s1;
+    CF::ReadStream           s2;
+    CF::ReadStream::Iterator it;
+    CFIndex                  i;
+    
+    s1.Open( "/etc/hosts" );
+    
+    {
+        i = 0;
+        
+        for( it = s1.begin( 10 ); it != s1.end(); ++it )
+        {
+            ASSERT_TRUE( ( *( it ) ).IsValid() );
+            
+            i++;
+        }
+        
+        ASSERT_GT( i, 0 );
+    }
+    
+    {
+        i = 0;
+        
+        for( it = s2.begin( 10 ); it != s2.end(); ++it )
+        {
+            i++;
+        }
+        
+        ASSERT_EQ( i, 0 );
+    }
+    
+    s1.Close();
+}
 
 #ifdef CFPP_HAS_CPP11
 TEST( CFPP_ReadStream_Iterator, TestIterateSTD )
-{}
+{
+    CF::ReadStream           s1;
+    CF::ReadStream           s2;
+    CF::ReadStream::Iterator it;
+    CFIndex                  i;
+    
+    s1.Open( "/etc/hosts" );
+    
+    {
+        i = 0;
+        
+        for( it = std::begin( s1 ); it != std::end( s1 ); ++it )
+        {
+            ASSERT_TRUE( ( *( it ) ).IsValid() );
+            
+            i++;
+        }
+        
+        ASSERT_GT( i, 0 );
+    }
+    
+    {
+        i = 0;
+        
+        for( it = std::begin( s2 ); it != std::end( s2 ); ++it )
+        {
+            i++;
+        }
+        
+        ASSERT_EQ( i, 0 );
+    }
+    
+    s1.Close();
+}
 #endif
 
 #ifdef CFPP_HAS_CPP11
 TEST( CFPP_ReadStream_Iterator, TestIterateCPP11 )
-{}
+{
+    CF::ReadStream           s1;
+    CF::ReadStream           s2;
+    CF::ReadStream::Iterator it;
+    CFIndex                  i;
+    
+    s1.Open( "/etc/hosts" );
+    
+    {
+        i = 0;
+        
+        for( CF::Data d: s1 )
+        {
+            ASSERT_TRUE( d.IsValid() );
+            
+            i++;
+        }
+        
+        ASSERT_GT( i, 0 );
+    }
+    
+    {
+        i = 0;
+        
+        for( CF::Data d: s2 )
+        {
+            i++;
+        }
+        
+        ASSERT_EQ( i, 0 );
+    }
+    
+    s1.Close();
+}
 #endif
