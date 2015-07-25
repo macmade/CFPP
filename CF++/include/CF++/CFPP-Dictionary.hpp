@@ -45,6 +45,7 @@ namespace CF
         public:
             
             Dictionary( void );
+            Dictionary( CFIndex capacity );
             Dictionary( const Dictionary & value );
             Dictionary( const AutoPointer & value );
             Dictionary( CFTypeRef cfObject );

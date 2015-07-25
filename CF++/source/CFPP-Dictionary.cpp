@@ -158,6 +158,19 @@ namespace CF
         );
     }
     
+    Dictionary::Dictionary( CFIndex capacity ): _cfObject( NULL )
+    {
+        __createCallbacks();
+        
+        this->_cfObject = CFDictionaryCreateMutable
+        (
+            static_cast< CFAllocatorRef >( NULL ),
+            capacity,
+            &__keyCallbacks,
+            &__valueCallbacks
+        );
+    }
+    
     Dictionary::Dictionary( const Dictionary & value ): _cfObject( NULL )
     {
         __createCallbacks();
