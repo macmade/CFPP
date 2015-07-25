@@ -46,6 +46,14 @@ TEST( CFPP_Dictionary, CTOR )
     ASSERT_EQ( d.GetCount(), 0 );
 }
 
+TEST( CFPP_Dictionary, CTOR_CFIndex )
+{
+    CF::Dictionary d( 100 );
+    
+    ASSERT_TRUE( d.IsValid() );
+    ASSERT_EQ( d.GetCount(), 0 );
+}
+
 TEST( CFPP_Dictionary, CTOR_AutoPointer )
 {
     CF::Dictionary d1( CF::AutoPointer( CFDictionaryCreateMutable( NULL, 10, NULL, NULL ) ) );
