@@ -46,6 +46,14 @@ TEST( CFPP_Array, CTOR )
     ASSERT_EQ( a.GetCount(), 0 );
 }
 
+TEST( CFPP_Array, CTOR_CFIndex )
+{
+    CF::Array a( 100 );
+    
+    ASSERT_TRUE( a.IsValid() );
+    ASSERT_EQ( a.GetCount(), 0 );
+}
+
 TEST( CFPP_Array, CTOR_AutoPointer )
 {
     CF::Array a1( CF::AutoPointer( CFArrayCreateMutable( NULL, 10, NULL ) ) );

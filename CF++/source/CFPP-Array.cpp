@@ -137,6 +137,18 @@ namespace CF
         );
     }
     
+    Array::Array( CFIndex capacity ): _cfObject( NULL )
+    {
+        __createCallbacks();
+        
+        this->_cfObject = CFArrayCreateMutable
+        (
+            static_cast< CFAllocatorRef >( NULL ),
+            capacity,
+            &__callbacks
+        );
+    }
+    
     Array::Array( const Array & value ): _cfObject( NULL )
     {
         __createCallbacks();
