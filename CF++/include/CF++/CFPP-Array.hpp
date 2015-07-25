@@ -45,6 +45,7 @@ namespace CF
         public:
             
             Array( void );
+            Array( CFIndex capacity );
             Array( const Array & value );
             Array( const AutoPointer & value );
             Array( CFTypeRef value );
