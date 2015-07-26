@@ -99,7 +99,7 @@ namespace CF
     WriteStream::WriteStream( WriteStream && value )
     {
         this->_cfObject = value._cfObject;
-        value._cfObject = NULL;
+        value._cfObject = nullptr;
     }
     #endif
     

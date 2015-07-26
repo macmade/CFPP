@@ -457,7 +457,7 @@ TEST( CFPP_Data_Iterator, TestIterate )
 TEST( CFPP_Data_Iterator, TestIterateSTD )
 {
     CF::Data           d1;
-    CF::Data           d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data           d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data           d3( __bytes, sizeof( __bytes ) );
     CF::Data::Iterator it;
     CFIndex            i;
@@ -509,7 +509,7 @@ TEST( CFPP_Data_Iterator, TestIterateSTD )
 TEST( CFPP_Data_Iterator, TestIterateCPP11 )
 {
     CF::Data d1;
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data d3( __bytes, sizeof( __bytes ) );
     CFIndex  i;
     

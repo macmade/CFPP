@@ -99,7 +99,7 @@ namespace CF
     Dictionary::Iterator::Iterator( Iterator && value )
     {
         this->_cfObject = value._cfObject;
-        value._cfObject = NULL;
+        value._cfObject = nullptr;
         this->_count    = value._count;
         value._count    = 0;
         this->_pos      = value._pos;

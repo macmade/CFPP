@@ -90,7 +90,7 @@ namespace CF
     Date::Date( Date && value )
     {
         this->_cfObject = value._cfObject;
-        value._cfObject = NULL;
+        value._cfObject = nullptr;
     }
     #endif
     

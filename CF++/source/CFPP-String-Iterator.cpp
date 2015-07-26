@@ -93,7 +93,7 @@ namespace CF
                 
                 this->_cp = std::shared_ptr< char >( new char[ size + 1 ] );
                 
-                if( this->_cp != NULL )
+                if( this->_cp != nullptr )
                 {
                     memset( this->_cp.get(), 0, size + 1 );
                     CFStringGetCString( this->_cfObject, this->_cp.get(), static_cast< CFIndex >( length + 1 ), encoding );
@@ -118,13 +118,13 @@ namespace CF
     String::Iterator::Iterator( Iterator && value )
     {
         this->_cfObject = value._cfObject;
-        value._cfObject = NULL;
+        value._cfObject = nullptr;
         this->_length   = value._length;
         value._length   = 0;
         this->_pos      = value._pos;
         value._pos      = 0;
         this->_cp       = value._cp;
-        value._cp       = NULL;
+        value._cp       = nullptr;
     }
     #endif
     

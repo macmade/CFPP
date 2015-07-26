@@ -143,10 +143,10 @@ TEST( CFPP_Pair, MCTOR )
     CF::Pair p1( "hello", "world" );
     CF::Pair p2( std::move( p1 ) );
     
-    ASSERT_TRUE(  p1.GetKey()   == NULL );
-    ASSERT_TRUE(  p1.GetValue() == NULL );
-    ASSERT_FALSE( p2.GetKey()   == NULL );
-    ASSERT_FALSE( p2.GetValue() == NULL );
+    ASSERT_TRUE(  p1.GetKey()   == nullptr );
+    ASSERT_TRUE(  p1.GetValue() == nullptr );
+    ASSERT_FALSE( p2.GetKey()   == nullptr );
+    ASSERT_FALSE( p2.GetValue() == nullptr );
 }
 #endif
 

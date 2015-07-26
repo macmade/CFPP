@@ -99,7 +99,7 @@ namespace CF
     ReadStream::ReadStream( ReadStream && value )
     {
         this->_cfObject = value._cfObject;
-        value._cfObject = NULL;
+        value._cfObject = nullptr;
     }
     #endif
     

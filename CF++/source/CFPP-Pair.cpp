@@ -124,9 +124,9 @@ namespace CF
     Pair::Pair( Pair && value )
     {
         this->_key   = value._key;
-        value._key   = NULL;
+        value._key   = nullptr;
         this->_value = value._value;
-        value._value = NULL;
+        value._value = nullptr;
     }
     #endif
     

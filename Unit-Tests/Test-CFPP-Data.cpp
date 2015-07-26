@@ -150,7 +150,7 @@ TEST( CFPP_Data, CCTOR )
 TEST( CFPP_Data, MCTOR )
 {
     CF::Data d1;
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data d3( std::move( d1 ) );
     CF::Data d4( std::move( d2 ) );
     

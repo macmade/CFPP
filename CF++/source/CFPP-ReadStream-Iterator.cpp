@@ -81,7 +81,7 @@ namespace CF
     ReadStream::Iterator::Iterator( Iterator && value )
     {
         this->_cfObject     = value._cfObject;
-        value._cfObject     = NULL;
+        value._cfObject     = nullptr;
         this->_bytesToRead  = value._bytesToRead;
         value._bytesToRead  = 0;
         this->_i            = value._i;
@@ -89,7 +89,7 @@ namespace CF
         this->_end          = value._end;
         value._end          = false;
         this->_data         = value._data;
-        value._data         = static_cast< CFDataRef >( NULL );
+        value._data         = static_cast< CFDataRef >( nullptr );
     }
     #endif
 
