@@ -48,6 +48,14 @@ TEST( CFPP_Data, CTOR )
     ASSERT_EQ( d.GetLength(), 0 );
 }
 
+TEST( CFPP_Data, CTOR_CFIndex )
+{
+    CF::Data d( 100 );
+    
+    ASSERT_TRUE( d.IsValid() );
+    ASSERT_EQ( d.GetLength(), 0 );
+}
+
 TEST( CFPP_Data, CTOR_AutoPointer )
 {
     CF::Data d1( CF::AutoPointer( CFDataCreateMutable( NULL, 10 ) ) );
