@@ -129,7 +129,17 @@ namespace CF
 
     ReadStream::Iterator & ReadStream::Iterator::operator += ( CFIndex value )
     {
-        ( void )value;
+        if( this->_cfObject != NULL )
+        {
+            this->_data = static_cast< CFDataRef >( NULL );
+            
+            if( CFReadStreamSetProperty( this->_cfObject, kCFStreamPropertyFileCurrentOffset, CF::Number( this->_bytesToRead * ( this->_i + value ) ) ) )
+            {
+                this->_i += value;
+                
+                this->_Read();
+            }
+        }
         
         return *( this );
     }

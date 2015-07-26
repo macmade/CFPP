@@ -235,8 +235,21 @@ TEST( CFPP_ReadStream_Iterator, OperatorPrefixIncrement )
 {
     CF::ReadStream s1;
     CF::ReadStream s2;
+    CF::ReadStream s3;
+    CF::Data       d1;
+    CF::Data       d2;
     
     s1.Open( "/etc/hosts" );
+    s3.Open( "/etc/hosts" );
+    
+    d1 = s3.Read( 10 );
+    d2 = s3.Read( 10 );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    
+    ASSERT_GT( d1.GetLength(), 0 );
+    ASSERT_GT( d2.GetLength(), 0 );
     
     {
         CF::ReadStream::Iterator i1;
@@ -254,18 +267,37 @@ TEST( CFPP_ReadStream_Iterator, OperatorPrefixIncrement )
         ASSERT_FALSE( ( *( i3 ) ).IsValid() );
         ASSERT_FALSE( ( *( i4 ) ).IsValid() );
         
+        ASSERT_GT( ( *( i1 ) ).GetLength(), 0 );
+        ASSERT_GT( ( *( i2 ) ).GetLength(), 0 );
+        
         ASSERT_EQ( i1, i2 );
+        ASSERT_EQ( *( i1 ), d2 );
+        ASSERT_EQ( *( i2 ), d2 );
     }
     
     s1.Close();
+    s3.Close();
 }
 
 TEST( CFPP_ReadStream_Iterator, OperatorPostfixIncrement )
 {
     CF::ReadStream s1;
     CF::ReadStream s2;
+    CF::ReadStream s3;
+    CF::Data       d1;
+    CF::Data       d2;
     
     s1.Open( "/etc/hosts" );
+    s3.Open( "/etc/hosts" );
+    
+    d1 = s3.Read( 10 );
+    d2 = s3.Read( 10 );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    
+    ASSERT_GT( d1.GetLength(), 0 );
+    ASSERT_GT( d2.GetLength(), 0 );
     
     {
         CF::ReadStream::Iterator i1;
@@ -283,23 +315,206 @@ TEST( CFPP_ReadStream_Iterator, OperatorPostfixIncrement )
         ASSERT_FALSE( ( *( i3 ) ).IsValid() );
         ASSERT_FALSE( ( *( i4 ) ).IsValid() );
         
+        ASSERT_GT( ( *( i1 ) ).GetLength(), 0 );
+        ASSERT_GT( ( *( i2 ) ).GetLength(), 0 );
+        
         ASSERT_NE( i1, i2 );
+        ASSERT_EQ( *( i1 ), d2 );
+        ASSERT_EQ( *( i2 ), d1 );
     }
     
     s1.Close();
+    s3.Close();
 }
 
 TEST( CFPP_ReadStream_Iterator, OperatorPlusEqual )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2;
+    CF::ReadStream s3;
+    CF::Data       d1;
+    CF::Data       d2;
+    CF::Data       d3;
+    
+    s1.Open( "/etc/hosts" );
+    s3.Open( "/etc/hosts" );
+    
+    d1 = s3.Read( 10 );
+    d2 = s3.Read( 10 );
+    d3 = s3.Read( 10 );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    ASSERT_TRUE( d3.IsValid() );
+    
+    ASSERT_GT( d1.GetLength(), 0 );
+    ASSERT_GT( d2.GetLength(), 0 );
+    ASSERT_GT( d3.GetLength(), 0 );
+    
+    {
+        CF::ReadStream::Iterator i1;
+        CF::ReadStream::Iterator i2;
+        
+        i1  = s1.begin( 10 );
+        i1 += 2;
+        i2  = s2.begin( 10 );
+        i2 += 2;
+        
+        ASSERT_TRUE(  ( *( i1 ) ).IsValid() );
+        ASSERT_FALSE( ( *( i2 ) ).IsValid() );
+        
+        ASSERT_GT( ( *( i1 ) ).GetLength(), 0 );
+        
+        ASSERT_EQ( *( i1 ), d3 );
+    }
+    
+    s1.Close();
+    s3.Close();
+}
 
 TEST( CFPP_ReadStream_Iterator, OperatorPlus )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2;
+    CF::ReadStream s3;
+    CF::Data       d1;
+    CF::Data       d2;
+    CF::Data       d3;
+    
+    s1.Open( "/etc/hosts" );
+    s3.Open( "/etc/hosts" );
+    
+    d1 = s3.Read( 10 );
+    d2 = s3.Read( 10 );
+    d3 = s3.Read( 10 );
+    
+    ASSERT_TRUE( d1.IsValid() );
+    ASSERT_TRUE( d2.IsValid() );
+    ASSERT_TRUE( d3.IsValid() );
+    
+    ASSERT_GT( d1.GetLength(), 0 );
+    ASSERT_GT( d2.GetLength(), 0 );
+    ASSERT_GT( d3.GetLength(), 0 );
+    
+    {
+        CF::ReadStream::Iterator i1;
+        CF::ReadStream::Iterator i2;
+        CF::ReadStream::Iterator i3;
+        CF::ReadStream::Iterator i4;
+        
+        i1 = s1.begin( 10 );
+        i2 = i1 + 2;
+        i3 = s2.begin( 10 );
+        i4 = i3 + 2;
+        
+        ASSERT_TRUE(  ( *( i1 ) ).IsValid() );
+        ASSERT_TRUE(  ( *( i2 ) ).IsValid() );
+        ASSERT_FALSE( ( *( i3 ) ).IsValid() );
+        ASSERT_FALSE( ( *( i4 ) ).IsValid() );
+        
+        ASSERT_GT( ( *( i1 ) ).GetLength(), 0 );
+        ASSERT_GT( ( *( i2 ) ).GetLength(), 0 );
+        
+        ASSERT_NE( i1, i2 );
+        ASSERT_EQ( *( i1 ), d1 );
+        ASSERT_EQ( *( i2 ), d3 );
+    }
+    
+    s1.Close();
+    s3.Close();
+}
 
 TEST( CFPP_ReadStream_Iterator, OperatorEqual )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2;
+    CF::ReadStream s3;
+    
+    s1.Open( "/etc/hosts" );
+    s3.Open( "/etc/hosts" );
+    
+    {
+        CF::ReadStream::Iterator i1;
+        CF::ReadStream::Iterator i2;
+        CF::ReadStream::Iterator i3;
+        CF::ReadStream::Iterator i4;
+        CF::ReadStream::Iterator i5;
+        CF::ReadStream::Iterator i6;
+        
+        ASSERT_TRUE( i1 == i2 );
+        
+        i1 = s1.begin();
+        i2 = s1.end();
+        i3 = s2.begin();
+        i4 = s2.end();
+        i5 = s3.begin();
+        i6 = s3.end();
+        
+        ASSERT_FALSE( i1 == i2 );
+        ASSERT_TRUE(  i3 == i4 );
+        ASSERT_FALSE( i5 == i6 );
+        
+        ASSERT_FALSE( i1 == i5 );
+        ASSERT_FALSE( i2 == i6 );
+        
+        i2 = i1;
+        
+        ASSERT_TRUE( i1 == i2 );
+        
+        i2 = i1 + 1;
+        
+        ASSERT_FALSE( i1 == i2 );
+    }
+    
+    s1.Close();
+    s3.Close();
+}
 
 TEST( CFPP_ReadStream_Iterator, OperatorNotEqual )
-{}
+{
+    CF::ReadStream s1;
+    CF::ReadStream s2;
+    CF::ReadStream s3;
+    
+    s1.Open( "/etc/hosts" );
+    s3.Open( "/etc/hosts" );
+    
+    {
+        CF::ReadStream::Iterator i1;
+        CF::ReadStream::Iterator i2;
+        CF::ReadStream::Iterator i3;
+        CF::ReadStream::Iterator i4;
+        CF::ReadStream::Iterator i5;
+        CF::ReadStream::Iterator i6;
+        
+        ASSERT_FALSE( i1 != i2 );
+        
+        i1 = s1.begin();
+        i2 = s1.end();
+        i3 = s2.begin();
+        i4 = s2.end();
+        i5 = s3.begin();
+        i6 = s3.end();
+        
+        ASSERT_TRUE(  i1 != i2 );
+        ASSERT_FALSE( i3 != i4 );
+        ASSERT_TRUE(  i5 != i6 );
+        
+        ASSERT_TRUE( i1 != i5 );
+        ASSERT_TRUE( i2 != i6 );
+        
+        i2 = i1;
+        
+        ASSERT_FALSE( i1 != i2 );
+        
+        i2 = i1 + 1;
+        
+        ASSERT_TRUE( i1 != i2 );
+    }
+    
+    s1.Close();
+    s3.Close();
+}
 
 TEST( CFPP_ReadStream_Iterator, OperatorDereference )
 {
