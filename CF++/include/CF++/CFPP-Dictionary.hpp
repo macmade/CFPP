@@ -52,6 +52,7 @@ namespace CF
             Dictionary( CFDictionaryRef cfObject );
             
             #ifdef CFPP_HAS_CPP11
+            Dictionary( std::initializer_list< Pair > value );
             Dictionary( Dictionary && value );
             #endif
             
