@@ -87,6 +87,25 @@ TEST( CFPP_Dictionary, CTOR_CFDictionary )
     ASSERT_FALSE( d3.IsValid() );
 }
 
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_Dictionary, CTOR_STDInitializerList )
+{
+    CF::Dictionary d
+    (
+        {
+            CF::Pair( "foo", "bar" ),
+            CF::Pair( "bar", "foo" )
+        }
+    );
+    
+    ASSERT_TRUE( d.IsValid() );
+    ASSERT_EQ( d.GetCount(), 2 );
+    
+    ASSERT_TRUE( CF::String( d[ "foo" ] ) == "bar" );
+    ASSERT_TRUE( CF::String( d[ "bar" ] ) == "foo" );
+}
+#endif
+
 TEST( CFPP_Dictionary, CCTOR )
 {
     CF::Dictionary d1;

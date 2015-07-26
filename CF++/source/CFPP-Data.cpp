@@ -107,11 +107,21 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
+    
+    Data::Data( std::initializer_list< Byte > value ): Data( static_cast< CFIndex >( value.size() ) )
+    {
+        for( Byte b: value )
+        {
+            CFDataAppendBytes( this->_cfObject, &b, 1 );
+        }
+    }
+    
     Data::Data( Data && value )
     {
         this->_cfObject = value._cfObject;
         value._cfObject = NULL;
     }
+    
     #endif
     
     Data::~Data( void )

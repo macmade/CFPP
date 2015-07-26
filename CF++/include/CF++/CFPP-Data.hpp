@@ -63,6 +63,7 @@ namespace CF
             Data( Byte * value, CFIndex length );
             
             #ifdef CFPP_HAS_CPP11
+            Data( std::initializer_list< Byte > value );
             Data( Data && value );
             #endif
             
