@@ -242,7 +242,7 @@ namespace CF
         
         this->_data = CF::Data( buf, i );
         
-        delete buf;
+        delete[] buf;
     }
 
     void swap( ReadStream::Iterator & v1, ReadStream::Iterator & v2 )
