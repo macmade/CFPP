@@ -42,6 +42,11 @@ namespace CF
         this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
     }
     
+    Data::Data( CFIndex capacity ): _cfObject( NULL )
+    {
+        this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), capacity );
+    }
+    
     Data::Data( const Data & value ): _cfObject( NULL )
     {
         if( value._cfObject != NULL )

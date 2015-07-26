@@ -53,6 +53,7 @@ namespace CF
             #endif
             
             Data( void );
+            Data( CFIndex capacity );
             Data( const Data & value );
             Data( const AutoPointer & value );
             Data( CFTypeRef value );
