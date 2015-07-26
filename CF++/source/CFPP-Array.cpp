@@ -210,11 +210,24 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
+    
+    Array::Array( std::initializer_list< CFTypeRef > value ): Array( static_cast< CFIndex >( value.size() ) )
+    {
+        for( CFTypeRef o: value )
+        {
+            if( o != nullptr )
+            {
+                CFArrayAppendValue( this->_cfObject, o );
+            }
+        }
+    }
+    
     Array::Array( Array && value )
     {
         this->_cfObject = value._cfObject;
         value._cfObject = NULL;
     }
+    
     #endif
     
     Array::~Array( void )
