@@ -61,7 +61,7 @@ namespace CF
             virtual CFTypeRef GetCFObject( void ) const;
             
             template< typename T >
-            T As( void )
+            T As( void ) const
             {
                 return static_cast< T >( const_cast< void * >( this->GetCFObject() ) );
             }
