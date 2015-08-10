@@ -48,7 +48,7 @@ About CoreFoundation++
 
 CoreFoundation++ (CFPP) is a C++ wrapper for Apple's CoreFoundation API.
 
-CoreFoundation is an powerfull C API, allowing object-oriented style coding in C, reference counting memory management, and providing a lot of useful classes.  
+CoreFoundation is a powerful C API which allows object-oriented style coding and reference counting memory management in C and provides a lot of useful classes.  
 CoreFoundation is intensively used in Apple's low-level frameworks, and is also used as a base for some classes of the Foundation (Objective-C) framework.
 
 That being said, programming with CoreFoundation can sometimes be a real pain.  
