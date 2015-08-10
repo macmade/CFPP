@@ -280,7 +280,7 @@ namespace CF
             return n;
         }
         
-        n.SetSignedLongValue( static_cast< SInt64 >( CFErrorGetCode( this->_cfObject ) ) );
+        n = CFErrorGetCode( this->_cfObject );
         
         return n;
     }
