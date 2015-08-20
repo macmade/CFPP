@@ -35,6 +35,33 @@
 
 #include <CF++.hpp>
 
+#ifdef _WIN32
+
+#include <Windows.h>
+
+static bool        __hasCFStreamProperties             = false;
+static CFStringRef __cfStreamPropertyFileCurrentOffset = NULL;
+
+static void __loadCFStreamProperties( void )
+{
+	HMODULE cfModule;
+
+	if( __hasCFStreamProperties == true )
+	{
+		return;
+	}
+
+	cfModule = GetModuleHandle( L"CoreFoundation.dll" );
+
+	if( cfModule != NULL )
+	{
+		__hasCFStreamProperties             = true;
+		__cfStreamPropertyFileCurrentOffset = *( ( CFStringRef * )GetProcAddress( cfModule, "kCFStreamPropertyFileCurrentOffset" ) );
+	}
+}
+
+#endif
+
 namespace CF
 {
     ReadStream::Iterator::Iterator( void ):
@@ -132,9 +159,19 @@ namespace CF
         if( this->_cfObject != NULL )
         {
             this->_data = static_cast< CFDataRef >( NULL );
+
+			#ifdef _WIN32
+
+			__loadCFStreamProperties();
+
+		    if( CFReadStreamSetProperty( this->_cfObject, __cfStreamPropertyFileCurrentOffset, CF::Number( this->_bytesToRead * ( this->_i + value ) ) ) )
+			
+			#else
             
-            if( CFReadStreamSetProperty( this->_cfObject, kCFStreamPropertyFileCurrentOffset, CF::Number( this->_bytesToRead * ( this->_i + value ) ) ) )
-            {
+			if( CFReadStreamSetProperty( this->_cfObject, kCFStreamPropertyFileCurrentOffset, CF::Number( this->_bytesToRead * ( this->_i + value ) ) ) )
+			
+			#endif
+			{
                 this->_i += value;
                 
                 this->_Read();
