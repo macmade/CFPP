@@ -79,6 +79,25 @@ TEST( CFPP_PropertyListType, FromPropertyListString )
     d = CF::Dictionary::FromPropertyListString( "" );
     
     ASSERT_FALSE( d.IsValid() );
+    
+    {
+        CF::ReadStream stream;
+        CF::Data       data;
+        
+        stream.Open( "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/Resources/Info.plist" );
+        
+        data = stream.Read();
+        
+        stream.Close();
+        
+        ASSERT_TRUE( data.IsValid() );
+        ASSERT_TRUE( data.GetLength() > 0 );
+        
+        d = CF::Dictionary::FromPropertyListString( data );
+        
+        ASSERT_TRUE( d.IsValid() );
+        ASSERT_TRUE( d.GetCount() > 0 );
+    }
 }
 
 TEST( CFPP_PropertyListType, ToPropertyList_STDString_PropertyListFormat )
