@@ -238,7 +238,7 @@ namespace CF
             return s;
         }
         
-        s = std::string( reinterpret_cast< const char * >( CFDataGetBytePtr( this->_cfObject ) ) );
+        s = std::string( reinterpret_cast< const char * >( CFDataGetBytePtr( this->_cfObject ) ), static_cast< std::string::size_type >( CFDataGetLength( this->_cfObject ) ) );
         
         return s;
     }
