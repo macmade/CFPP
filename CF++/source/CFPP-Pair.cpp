@@ -159,6 +159,18 @@ namespace CF
     {
         return this->_value;
     }
+
+	CFTypeID Pair::GetKeyTypeID(void) const
+	{
+		if (_key != NULL) return CFGetTypeID(_key);
+		else return 0;	// _kCFRuntimeNotATypeID
+	}
+
+	CFTypeID Pair::GetValueTypeID(void) const
+	{
+		if (_value != NULL) return CFGetTypeID(_value);
+		else return 0;	// _kCFRuntimeNotATypeID
+	}
             
     void Pair::SetKey( CFTypeRef key )
     {
