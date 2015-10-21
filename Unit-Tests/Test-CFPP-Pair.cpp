@@ -178,6 +178,28 @@ TEST( CFPP_Pair, GetValue )
     ASSERT_TRUE( p1.GetValue() != NULL );
 }
 
+TEST( CFPP_Pair, GetKeyTypeID )
+{
+    CF::Pair p1( "hello",                          static_cast< CFTypeRef >( NULL ) );
+    CF::Pair p2( CF::Number( 0 ),                  static_cast< CFTypeRef >( NULL ) );
+    CF::Pair p3( static_cast< CFTypeRef >( NULL ), static_cast< CFTypeRef >( NULL ) );
+    
+    ASSERT_TRUE( p1.GetKeyTypeID() == CFStringGetTypeID() );
+    ASSERT_TRUE( p2.GetKeyTypeID() == CFNumberGetTypeID() );
+    ASSERT_TRUE( p3.GetKeyTypeID() == 0 );
+}
+
+TEST( CFPP_Pair, GetValueTypeID )
+{
+    CF::Pair p1( "hello", "world" );
+    CF::Pair p2( "hello", CF::Number( 0 ) );
+    CF::Pair p3( "hello", static_cast< CFTypeRef >( NULL ) );
+    
+    ASSERT_TRUE( p1.GetValueTypeID() == CFStringGetTypeID() );
+    ASSERT_TRUE( p2.GetValueTypeID() == CFNumberGetTypeID() );
+    ASSERT_TRUE( p3.GetValueTypeID() == 0 );
+}
+
 TEST( CFPP_Pair, SetKey )
 {
     CF::Pair p1( "hello", "world" );

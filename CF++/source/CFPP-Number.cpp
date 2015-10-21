@@ -4389,7 +4389,7 @@ namespace CF
     
     void Number::SetUnsignedLongLongValue( unsigned long long value )
     {
-        this->SetSignedLongLongValue( static_cast< signed long >( value ) );
+        this->SetSignedLongLongValue( static_cast< signed long long >( value ) );
     }
     
     void Number::SetFloatValue( float value )

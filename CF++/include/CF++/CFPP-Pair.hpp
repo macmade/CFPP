@@ -63,6 +63,8 @@ namespace CF
             
             CFTypeRef GetKey( void ) const;
             CFTypeRef GetValue( void ) const;
+            CFTypeID  GetKeyTypeID( void ) const;
+            CFTypeID  GetValueTypeID( void ) const;
             void      SetKey( CFTypeRef key );
             void      SetValue( CFTypeRef value );
             
