@@ -10,6 +10,9 @@ Icon?
 .Spotlight-V100
 .Trashes
 
+# Windows
+Thumbs.db
+
 # Xcode
 *.pbxuser
 *.mode1v3
@@ -22,3 +25,12 @@ Icon?
 !default.mode2v3
 !default.perspectivev3
 xcuserdata
+
+# VisualStudio
+*.suo
+*.sdf
+*.opensdf
+*.vcxproj.user
+*.csproj.user
+ipch
+
