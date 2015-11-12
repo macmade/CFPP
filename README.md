@@ -61,7 +61,7 @@ CoreFoundation++ uses the good parts of the C++ language to wrap the most used C
 Availability / Platforms
 ------------------------
 
-CoreFoundation++ is available for **MacOS X and iOS**, and is completely compatible with **Windows** environments (assuming you have the CoreFoundation DLLs), and can be compiled for **32 bits or 64 bits** systems.
+CoreFoundation++ is available for **MacOS X, iOS and Windows** (Windows builds assume the CoreFoundation DLLs are available), and can be compiled for **32 bits or 64 bits** systems.
   
 A complete Xcode project is available, providing the following targets:
 
@@ -69,6 +69,13 @@ A complete Xcode project is available, providing the following targets:
     - A Mac OS X dynamic library
     - A Mac OS X framework
     - An iOS static library
+
+On Windows, a VisualStudio solution is provided with the following configurations:
+
+    - DLL - VC120_XP
+    - DLL - VC140_XP
+    - Static library - VC120_XP
+    - Static library - VC140_XP
 
 <a name="4"></a>
 Available / Wrapped classes

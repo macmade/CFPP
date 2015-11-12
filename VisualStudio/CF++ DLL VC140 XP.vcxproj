@@ -19,77 +19,77 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-Array.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-AutoPointer.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-Boolean.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-Data.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-Date.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-Dictionary.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-Error.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-Number.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-Pair.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-PropertyListType-Definition.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-PropertyListType.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-ReadStream.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-String.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-Type.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-URL.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-UUID.hpp" />
-    <ClInclude Include="..\..\..\Submodules\CFPP\CF++\include\CF++\CFPP-WriteStream.hpp" />
+    <ClInclude Include="..\CF++\include\CF++.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-Array.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-AutoPointer.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-Boolean.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-Data.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-Date.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-Dictionary.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-Error.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-Number.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-Pair.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-PropertyListType-Definition.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-PropertyListType.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-ReadStream.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-String.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-Type.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-URL.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-UUID.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-WriteStream.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Array-Iterator.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Array.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-AutoPointer.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Boolean.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Data-Iterator.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Data.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Date.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Dictionary-Iterator.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Dictionary.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Error.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Number.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Pair.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-ReadStream.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-String-Iterator.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-String.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-Type.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-URL.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-UUID.cpp" />
-    <ClCompile Include="..\..\..\Submodules\CFPP\CF++\source\CFPP-WriteStream.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Array-Iterator.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Array.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-AutoPointer.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Boolean.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Data-Iterator.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Data.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Date.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Dictionary-Iterator.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Dictionary.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Error.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Number.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Pair.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-ReadStream.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-String-Iterator.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-String.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-Type.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-URL.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-UUID.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-WriteStream.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F13AD617-6E12-4A08-8730-C4CE926CD2F8}</ProjectGuid>
+    <ProjectGuid>{B40AE694-6B8F-46E0-8107-DA8A91F61557}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CF</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>CF++ Static VC120 XP</ProjectName>
+    <ProjectName>CF++ DLL VC140 XP</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -112,22 +112,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(SolutionDir)Build\32\$(Configuration)\Temp\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)Build\32\$(Configuration)\</OutDir>
-    <TargetName>CF++</TargetName>
+    <TargetName>CFPP_V140XP</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Build\64\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\64\$(Configuration)\Temp\$(ProjectName)\</IntDir>
-    <TargetName>CF++</TargetName>
+    <TargetName>CFPP_V140XP</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(SolutionDir)Build\32\$(Configuration)\Temp\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)Build\32\$(Configuration)\</OutDir>
-    <TargetName>CF++</TargetName>
+    <TargetName>CFPP_V140XP</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Build\64\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\64\$(Configuration)\Temp\$(ProjectName)\</IntDir>
-    <TargetName>CF++</TargetName>
+    <TargetName>CFPP_V140XP</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -140,6 +140,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../Apple/lib/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CoreFoundation.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -153,6 +155,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../Apple/lib/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CoreFoundation.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -170,6 +174,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>../Apple/lib/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CoreFoundation.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -187,6 +193,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>../Apple/lib/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CoreFoundation.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
