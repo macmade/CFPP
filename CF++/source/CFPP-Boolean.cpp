@@ -176,7 +176,7 @@ namespace CF
     Boolean::Boolean( Boolean && value )
     {
         this->_cfObject = value._cfObject;
-        value._cfObject = NULL;
+        value._cfObject = nullptr;
     }
     #endif
     

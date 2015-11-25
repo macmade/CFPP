@@ -458,7 +458,7 @@ TEST( CFPP_String_Iterator, TestIterate )
 TEST( CFPP_String_Iterator, TestIterateSTD )
 {
     CF::String           s1;
-    CF::String           s2( static_cast< CFStringRef >( NULL ) );
+    CF::String           s2( static_cast< CFStringRef >( nullptr ) );
     CF::String           s3( "hello" );
     CF::String::Iterator it;
     CFIndex              i;
@@ -511,7 +511,7 @@ TEST( CFPP_String_Iterator, TestIterateSTD )
 TEST( CFPP_String_Iterator, TestIterateCPP11 )
 {
     CF::String s1;
-    CF::String s2( static_cast< CFStringRef >( NULL ) );
+    CF::String s2( static_cast< CFStringRef >( nullptr ) );
     CF::String s3( "hello" );
     CFIndex    i;
     

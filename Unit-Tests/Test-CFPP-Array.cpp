@@ -87,6 +87,34 @@ TEST( CFPP_Array, CTOR_CFArray )
     ASSERT_FALSE( a3.IsValid() );
 }
 
+#ifdef CFPP_HAS_CPP11
+TEST( CFPP_Array, CTOR_STDInitializerList )
+{
+    CF::Array a
+    (
+        {
+            CF::String( "hello" ),
+            CF::String( "world" ),
+            CF::Number( 42 ),
+            CF::AutoPointer( CFStringCreateWithCString( nullptr, "hello, universe", kCFStringEncodingASCII ) )
+        }
+    );
+    
+    ASSERT_TRUE( a.IsValid() );
+    ASSERT_EQ( a.GetCount(), 4 );
+    
+    ASSERT_TRUE( CF::String( a[ 0 ] ).IsValid() );
+    ASSERT_TRUE( CF::String( a[ 1 ] ).IsValid() );
+    ASSERT_TRUE( CF::Number( a[ 2 ] ).IsValid() );
+    ASSERT_TRUE( CF::String( a[ 3 ] ).IsValid() );
+    
+    ASSERT_TRUE( CF::String( a[ 0 ] ) == "hello" );
+    ASSERT_TRUE( CF::String( a[ 1 ] ) == "world" );
+    ASSERT_TRUE( CF::Number( a[ 2 ] ) == 42 );
+    ASSERT_TRUE( CF::String( a[ 3 ] ) == "hello, universe" );
+}
+#endif
+
 TEST( CFPP_Array, CCTOR )
 {
     CF::Array a1;

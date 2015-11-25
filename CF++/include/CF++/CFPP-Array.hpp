@@ -52,6 +52,7 @@ namespace CF
             Array( CFArrayRef value );
             
             #ifdef CFPP_HAS_CPP11
+            Array( std::initializer_list< CFTypeRef > value );
             Array( Array && value );
             #endif
             

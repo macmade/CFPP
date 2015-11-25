@@ -137,14 +137,14 @@ TEST( CFPP_Dictionary_Iterator, MCTOR )
         CF::Dictionary::Iterator i3( d.begin() );
         CF::Dictionary::Iterator i4( std::move( i3 ) );
         
-        ASSERT_TRUE( i1.GetKey()   == NULL );
-        ASSERT_TRUE( i1.GetValue() == NULL );
-        ASSERT_TRUE( i2.GetKey()   == NULL );
-        ASSERT_TRUE( i2.GetValue() == NULL );
-        ASSERT_TRUE( i3.GetKey()   == NULL );
-        ASSERT_TRUE( i3.GetValue() == NULL );
-        ASSERT_TRUE( i4.GetKey()   != NULL );
-        ASSERT_TRUE( i4.GetValue() != NULL );
+        ASSERT_TRUE( i1.GetKey()   == nullptr );
+        ASSERT_TRUE( i1.GetValue() == nullptr );
+        ASSERT_TRUE( i2.GetKey()   == nullptr );
+        ASSERT_TRUE( i2.GetValue() == nullptr );
+        ASSERT_TRUE( i3.GetKey()   == nullptr );
+        ASSERT_TRUE( i3.GetValue() == nullptr );
+        ASSERT_TRUE( i4.GetKey()   != nullptr );
+        ASSERT_TRUE( i4.GetValue() != nullptr );
         
         ASSERT_TRUE( CF::String( i4.GetKey() )   == "foo" );
         ASSERT_TRUE( CF::String( i4.GetValue() ) == "hello, world" );
@@ -732,7 +732,7 @@ TEST( CFPP_Dictionary_Iterator, TestIterate )
 TEST( CFPP_Dictionary_Iterator, TestIterateSTD )
 {
     CF::Dictionary           d1;
-    CF::Dictionary           d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary           d2( static_cast< CFDictionaryRef >( nullptr ) );
     CF::Dictionary           d3;
     CF::Dictionary::Iterator it;
     CFIndex                  i;
@@ -781,7 +781,7 @@ TEST( CFPP_Dictionary_Iterator, TestIterateSTD )
 TEST( CFPP_Dictionary_Iterator, TestIterateCPP11 )
 {
     CF::Dictionary           d1;
-    CF::Dictionary           d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary           d2( static_cast< CFDictionaryRef >( nullptr ) );
     CF::Dictionary           d3;
     CF::Dictionary::Iterator it;
     CFIndex                  i;

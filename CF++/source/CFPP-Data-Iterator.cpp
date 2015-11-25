@@ -74,13 +74,13 @@ namespace CF
     Data::Iterator::Iterator( Iterator && value )
     {
         this->_cfObject = value._cfObject;
-        value._cfObject = NULL;
+        value._cfObject = nullptr;
         this->_length   = value._length;
         value._length   = 0;
         this->_pos      = value._pos;
         value._pos      = 0;
         this->_bp       = value._bp;
-        value._bp       = NULL;
+        value._bp       = nullptr;
     }
     #endif
     

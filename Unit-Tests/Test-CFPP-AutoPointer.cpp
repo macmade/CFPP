@@ -80,13 +80,13 @@ TEST( CFPP_AutoPointer, MCTOR )
     CFStringRef s;
     CFIndex     i;
     
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     i = CFGetRetainCount( s );
     
     CF::AutoPointer p1( s );
     CF::AutoPointer p2( std::move( p1 ) );
     
-    ASSERT_EQ( p1.GetCFObject(), static_cast< CFTypeRef >( NULL ) );
+    ASSERT_EQ( p1.GetCFObject(), static_cast< CFTypeRef >( nullptr ) );
     ASSERT_EQ( p2.GetRetainCount(), i );
 }
 #endif

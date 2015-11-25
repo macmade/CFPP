@@ -99,7 +99,7 @@ namespace CF
     ReadStream::ReadStream( ReadStream && value )
     {
         this->_cfObject = value._cfObject;
-        value._cfObject = NULL;
+        value._cfObject = nullptr;
     }
     #endif
     
@@ -365,6 +365,16 @@ namespace CF
         }
         
         CFReadStreamUnscheduleFromRunLoop( this->_cfObject, runLoop, mode );
+    }
+    
+    ReadStream::Iterator ReadStream::begin( CFIndex bytesToRead ) const
+    {
+        return Iterator( this->_cfObject, bytesToRead, false );
+    }
+    
+    ReadStream::Iterator ReadStream::end( void ) const
+    {
+        return Iterator( this->_cfObject, 0, true );
     }
     
     void swap( ReadStream & v1, ReadStream & v2 )

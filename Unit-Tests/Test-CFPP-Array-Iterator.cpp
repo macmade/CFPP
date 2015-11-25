@@ -118,10 +118,10 @@ TEST( CFPP_Array_Iterator, MCTOR )
         CF::Array::Iterator i3( a.begin() );
         CF::Array::Iterator i4( std::move( i3 ) );
         
-        ASSERT_TRUE( *( i1 ) == NULL );
-        ASSERT_TRUE( *( i2 ) == NULL );
-        ASSERT_TRUE( *( i3 ) == NULL );
-        ASSERT_TRUE( *( i4 ) != NULL );
+        ASSERT_TRUE( *( i1 ) == nullptr );
+        ASSERT_TRUE( *( i2 ) == nullptr );
+        ASSERT_TRUE( *( i3 ) == nullptr );
+        ASSERT_TRUE( *( i4 ) != nullptr );
         
         ASSERT_TRUE( CF::String( *( i4 ) ) == "hello, world" );
     }
@@ -680,7 +680,7 @@ TEST( CFPP_Array_Iterator, TestIterate )
 TEST( CFPP_Array_Iterator, TestIterateSTD )
 {
     CF::Array           a1;
-    CF::Array           a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array           a2( static_cast< CFArrayRef >( nullptr ) );
     CF::Array           a3;
     CF::Array::Iterator it;
     CFIndex              i;
@@ -737,7 +737,7 @@ TEST( CFPP_Array_Iterator, TestIterateSTD )
 TEST( CFPP_Array_Iterator, TestIterateCPP11 )
 {
     CF::Array           a1;
-    CF::Array           a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array           a2( static_cast< CFArrayRef >( nullptr ) );
     CF::Array           a3;
     CF::Array::Iterator it;
     CFIndex              i;

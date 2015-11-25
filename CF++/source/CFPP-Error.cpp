@@ -180,7 +180,7 @@ namespace CF
     Error::Error( Error && value )
     {
         this->_cfObject = value._cfObject;
-        value._cfObject = NULL;
+        value._cfObject = nullptr;
     }
     #endif
     

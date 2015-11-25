@@ -574,7 +574,7 @@ namespace CF
     Number::Number( Number && value )
     {
         this->_cfObject = value._cfObject;
-        value._cfObject = NULL;
+        value._cfObject = nullptr;
     }
     #endif
     

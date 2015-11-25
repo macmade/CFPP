@@ -84,6 +84,63 @@ namespace CF
             
             friend void swap( ReadStream & v1, ReadStream & v2 );
             
+            #ifdef __clang__
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Wpadded"
+            #endif
+            
+            class CFPP_EXPORT Iterator: public std::iterator< std::forward_iterator_tag, Data >
+            {
+                public:
+                    
+                    Iterator( void );
+                    Iterator( const Iterator & value );
+                    
+                    #ifdef CFPP_HAS_CPP11
+                    Iterator( Iterator && value );
+                    #endif
+                    
+                    virtual ~Iterator( void );
+                    
+                    Iterator & operator = ( Iterator value );
+                    Iterator & operator ++( void );
+                    Iterator   operator ++( int );
+                    
+                    Iterator & operator += ( CFIndex value );
+                    
+                    Iterator operator + ( CFIndex value );
+                    
+                    bool operator == ( const Iterator & value ) const;
+                    bool operator != ( const Iterator & value ) const;
+                    
+                    Data operator * ( void );
+                    
+                    operator Data ();
+                    
+                    friend void swap( Iterator & v1, Iterator & v2 );
+                    
+                private:
+                    
+                    friend class ReadStream;
+                    
+                    Iterator( CFReadStreamRef stream, CFIndex bytesToRead, bool end );
+                    
+                    void _Read( void );
+                    
+                    CFReadStreamRef _cfObject;
+                    CFIndex         _bytesToRead;
+                    CFIndex         _i;
+                    Data            _data;
+                    bool            _end;
+            };
+            
+            #ifdef __clang__
+            #pragma clang diagnostic pop
+            #endif
+            
+            Iterator begin( CFIndex bytesToRead = 0 ) const;
+            Iterator end( void ) const;
+            
         private:
             
             CFReadStreamRef _cfObject;
