@@ -124,5 +124,8 @@
     <ClCompile Include="..\CF++\source\CFPP-WriteStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\CF++\source\CFPP-ReadStream-Iterator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
