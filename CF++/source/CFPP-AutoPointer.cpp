@@ -82,14 +82,7 @@ namespace CF
     
     AutoPointer & AutoPointer::operator = ( CFTypeRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        this->_cfObject = value;
-        
-        return *( this );
+        return operator =( AutoPointer( value ) );
     }
     
     CFTypeID AutoPointer::GetTypeID( void ) const

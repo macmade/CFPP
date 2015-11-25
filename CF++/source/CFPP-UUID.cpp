@@ -101,45 +101,17 @@ namespace CF
     
     UUID & UUID::operator = ( const AutoPointer & value )
     {
-        return operator =( value.GetCFObject() );
+        return operator =( UUID( value ) );
     }
     
     UUID & UUID::operator = ( CFTypeRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( UUID( value ) );
     }
     
     UUID & UUID::operator = ( CFUUIDRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFUUIDRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( UUID( value ) );
     }
     
     bool UUID::operator == ( const UUID & value ) const
@@ -149,20 +121,12 @@ namespace CF
     
     bool UUID::operator == ( CFTypeRef value ) const
     {
-        UUID u;
-        
-        u = value;
-        
-        return *( this ) == u;
+        return operator ==( UUID( value ) );
     }
     
     bool UUID::operator == ( CFUUIDRef value ) const
     {
-        UUID u;
-        
-        u = value;
-        
-        return *( this ) == u;
+        return operator ==( UUID( value ) );
     }
     
     bool UUID::operator == ( std::string value ) const
@@ -172,22 +136,22 @@ namespace CF
     
     bool UUID::operator != ( const UUID & value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool UUID::operator != ( CFTypeRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool UUID::operator != ( CFUUIDRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool UUID::operator != ( std::string value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     UUID::operator std::string () const

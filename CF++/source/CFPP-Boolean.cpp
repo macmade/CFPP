@@ -199,50 +199,22 @@ namespace CF
     
     Boolean & Boolean::operator = ( const AutoPointer & value )
     {
-        return operator =( value.GetCFObject() );
+        return operator =( Boolean( value ) );
     }
     
     Boolean & Boolean::operator = ( CFTypeRef value )
     {
-        bool b;
-
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            b = ( CFBooleanGetValue( static_cast< CFBooleanRef >( value ) ) ) ? true : false;
-        }
-        else
-        {
-            b = false;
-        }
-
-        this->SetValue( b );
-        
-        return *( this );
+        return operator =( Boolean( value ) );
     }
     
     Boolean & Boolean::operator = ( CFBooleanRef value )
     {
-        bool b;
-
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            b = ( CFBooleanGetValue( value ) ) ? true : false;
-        }
-        else
-        {
-            b = false;
-        }
-
-        this->SetValue( b );
-
-        return *( this );
+        return operator =( Boolean( value ) );
     }
     
     Boolean & Boolean::operator = ( bool value )
     {
-        this->SetValue( value );
-        
-        return *( this );
+        return operator =( Boolean( value ) );
     }
     
     bool Boolean::operator == ( const Boolean & value ) const
@@ -252,7 +224,7 @@ namespace CF
     
     bool Boolean::operator == ( bool value ) const
     {
-        return this->GetValue() == value;
+        return operator ==( Boolean( value ) );
     }
     
     bool Boolean::operator == ( CFTypeRef value ) const
@@ -271,36 +243,27 @@ namespace CF
     
     bool Boolean::operator == ( CFBooleanRef value ) const
     {
-        bool b;
-
-        if( value == NULL || CFGetTypeID( value ) != this->GetTypeID() )
-        {
-            return false;
-        }
-
-        b = ( CFBooleanGetValue( value ) ) ? true : false;
-        
-        return this->GetValue() == b;
+        return operator ==( static_cast< CFTypeRef >( value ) );
     }
             
     bool Boolean::operator != ( const Boolean & value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Boolean::operator != ( bool value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Boolean::operator != ( CFTypeRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Boolean::operator != ( CFBooleanRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     Boolean::operator bool () const

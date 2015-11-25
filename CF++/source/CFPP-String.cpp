@@ -162,80 +162,32 @@ namespace CF
     
     String & String::operator = ( const AutoPointer & value )
     {
-        return operator =( value.GetCFObject() );
+        return operator =( String( value ) );
     }
     
     String & String::operator = ( CFTypeRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFStringRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( String( value ) );
     }
     
     String & String::operator = ( CFStringRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFStringRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( String( value ) );
     }
     
     String & String::operator = ( std::string value )
     {
-        this->SetValue( value );
-        
-        return *( this );
+        return operator =( String( value ) );
     }
     
     String & String::operator = ( char * value )
     {
-        if( value == NULL )
-        {
-            this->SetValue( "" );
-        }
-        else
-        {
-            this->SetValue( value );
-        }
-        
-        return *( this );
+        return operator =( String( value ) );
     }
     
     String & String::operator = ( const char * value )
     {
-        if( value == NULL )
-        {
-            this->SetValue( "" );
-        }
-        else
-        {
-            this->SetValue( value );
-        }
-        
-        return *( this );
+        return operator =( String( value ) );
     }
     
     bool String::operator == ( const String & value ) const
@@ -250,77 +202,57 @@ namespace CF
     
     bool String::operator == ( CFTypeRef value ) const
     {
-        String s;
-        
-        s = value;
-        
-        return *( this ) == s;
+        return operator ==( String( value ) );
     }
     
     bool String::operator == ( CFStringRef value ) const
     {
-        String s;
-        
-        s = value;
-        
-        return *( this ) == s;
+        return operator ==( String( value ) );
     }
     
     bool String::operator == ( std::string value ) const
     {
-        String s;
-        
-        s = value;
-        
-        return *( this ) == s;
+        return operator ==( String( value ) );
     }
     
     bool String::operator == ( char * value ) const
     {
-        String s;
-        
-        s = value;
-        
-        return *( this ) == s;
+        return operator ==( String( value ) );
     }
     
     bool String::operator == ( const char * value ) const
     {
-        String s;
-        
-        s = value;
-        
-        return *( this ) == s;
+        return operator ==( String( value ) );
     }
             
     bool String::operator != ( const String & value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool String::operator != ( CFTypeRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool String::operator != ( CFStringRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool String::operator != ( std::string value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool String::operator != ( char * value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool String::operator != ( const char * value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
             
     String & String::operator += ( const String & value )
@@ -353,42 +285,22 @@ namespace CF
     
     String & String::operator += ( CFStringRef value )
     {
-        String s;
-        
-        s          = value;
-        *( this ) += s;
-        
-        return *( this );
+        return operator +=( String( value ) );
     }
     
     String & String::operator += ( std::string value )
     {
-        String s;
-        
-        s          = value;
-        *( this ) += s;
-        
-        return *( this );
+        return operator +=( String( value ) );
     }
     
     String & String::operator += ( char * value )
     {
-        String s;
-        
-        s          = value;
-        *( this ) += s;
-        
-        return *( this );
+        return operator +=( String( value ) );
     }
     
     String & String::operator += ( const char * value )
     {
-        String s;
-        
-        s          = value;
-        *( this ) += s;
-        
-        return *( this );
+        return operator +=( String( value ) );
     }
     
     char String::operator [] ( int index ) const

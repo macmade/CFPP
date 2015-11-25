@@ -597,129 +597,77 @@ namespace CF
     
     Number & Number::operator = ( const AutoPointer & value )
     {
-        return operator =( value.GetCFObject() );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( CFTypeRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFNumberRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( CFNumberRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFNumberRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( signed char value )
     {
-        this->SetSignedCharValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( signed short value )
     {
-        this->SetSignedShortValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( signed int value )
     {
-        this->SetSignedIntValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( signed long value )
     {
-        this->SetSignedLongValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( signed long long value )
     {
-        this->SetSignedLongLongValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( unsigned char value )
     {
-        this->SetUnsignedCharValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( unsigned short value )
     {
-        this->SetUnsignedShortValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( unsigned int value )
     {
-        this->SetUnsignedIntValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( unsigned long value )
     {
-        this->SetUnsignedLongValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( unsigned long long value )
     {
-        this->SetUnsignedLongLongValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( float value )
     {
-        this->SetFloatValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     Number & Number::operator = ( double value )
     {
-        this->SetDoubleValue( value );
-        
-        return *( this );
+        return operator =( Number( value ) );
     }
     
     bool Number::operator == ( const Number & value ) const
@@ -734,203 +682,147 @@ namespace CF
     
     bool Number::operator == ( CFTypeRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( CFNumberRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( signed char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( signed short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( signed int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( signed long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( signed long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( unsigned char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( unsigned short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( unsigned int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( unsigned long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( unsigned long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( float value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
     
     bool Number::operator == ( double value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) == num;
+        return operator ==( Number( value ) );
     }
             
     bool Number::operator != ( const Number & value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( CFTypeRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( CFNumberRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( signed char value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( signed short value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( signed int value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( signed long value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( signed long long value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( unsigned char value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( unsigned short value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( unsigned int value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( unsigned long value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( unsigned long long value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( float value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Number::operator != ( double value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
             
     bool Number::operator >= ( const Number & value ) const
@@ -945,128 +837,72 @@ namespace CF
     
     bool Number::operator >= ( CFTypeRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( CFNumberRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( signed char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( signed short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( signed int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( signed long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( signed long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( unsigned char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( unsigned short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( unsigned int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( unsigned long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( unsigned long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( float value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator >= ( double value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >= num;
+        return operator >=( Number( value ) );
     }
     
     bool Number::operator <= ( const Number & value ) const
@@ -1081,128 +917,72 @@ namespace CF
     
     bool Number::operator <= ( CFTypeRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( CFNumberRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( signed char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( signed short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( signed int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( signed long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( signed long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( unsigned char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( unsigned short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( unsigned int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( unsigned long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( unsigned long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( float value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
     
     bool Number::operator <= ( double value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <= num;
+        return operator <=( Number( value ) );
     }
             
     bool Number::operator > ( const Number & value ) const
@@ -1217,128 +997,72 @@ namespace CF
     
     bool Number::operator > ( CFTypeRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( CFNumberRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( signed char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( signed short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( signed int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( signed long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( signed long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( unsigned char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( unsigned short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( unsigned int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( unsigned long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( unsigned long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( float value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator > ( double value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) > num;
+        return operator >( Number( value ) );
     }
     
     bool Number::operator < ( const Number & value ) const
@@ -1353,128 +1077,72 @@ namespace CF
     
     bool Number::operator < ( CFTypeRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( CFNumberRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( signed char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( signed short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( signed int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( signed long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( signed long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( unsigned char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( unsigned short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( unsigned int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( unsigned long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( unsigned long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( float value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator < ( double value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) < num;
+        return operator <( Number( value ) );
     }
     
     bool Number::operator && ( const Number & value ) const
@@ -1484,128 +1152,72 @@ namespace CF
     
     bool Number::operator && ( CFTypeRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( CFNumberRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( signed char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( signed short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( signed int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( signed long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( signed long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( unsigned char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( unsigned short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( unsigned int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( unsigned long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( unsigned long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( float value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator && ( double value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) && num;
+        return operator &&( Number( value ) );
     }
     
     bool Number::operator || ( const Number & value ) const
@@ -1615,128 +1227,72 @@ namespace CF
     
     bool Number::operator || ( CFTypeRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( CFNumberRef value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( signed char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( signed short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( signed int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( signed long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( signed long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( unsigned char value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( unsigned short value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( unsigned int value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( unsigned long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( unsigned long long value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( float value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     bool Number::operator || ( double value ) const
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) || num;
+        return operator ||( Number( value ) );
     }
     
     Number & Number::operator ~ ( void )
@@ -1815,119 +1371,67 @@ namespace CF
     
     Number & Number::operator += ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( float value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator += ( double value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) += num;
+        return operator +=( Number( value ) );
     }
     
     Number & Number::operator -= ( const Number & value )
@@ -1946,119 +1450,67 @@ namespace CF
     
     Number & Number::operator -= ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( float value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator -= ( double value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) -= num;
+        return operator -=( Number( value ) );
     }
     
     Number & Number::operator *= ( const Number & value )
@@ -2077,119 +1529,67 @@ namespace CF
     
     Number & Number::operator *= ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( float value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator *= ( double value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) *= num;
+        return operator *=( Number( value ) );
     }
     
     Number & Number::operator /= ( const Number & value )
@@ -2206,119 +1606,67 @@ namespace CF
     
     Number & Number::operator /= ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( float value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator /= ( double value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) /= num;
+        return operator /=( Number( value ) );
     }
     
     Number & Number::operator |= ( const Number & value )
@@ -2330,101 +1678,57 @@ namespace CF
     
     Number & Number::operator |= ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator |= ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator |= ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator |= ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator |= ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator |= ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator |= ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator |= ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator |= ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator |= ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator |= ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) |= num;
+        return operator |=( Number( value ) );
     }
     
     Number & Number::operator &= ( const Number & value )
@@ -2436,101 +1740,57 @@ namespace CF
     
     Number & Number::operator &= ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator &= ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator &= ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator &= ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator &= ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator &= ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator &= ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator &= ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator &= ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator &= ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator &= ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) &= num;
+        return operator &=( Number( value ) );
     }
     
     Number & Number::operator %= ( const Number & value )
@@ -2547,101 +1807,57 @@ namespace CF
     
     Number & Number::operator %= ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator %= ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator %= ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator %= ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator %= ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator %= ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator %= ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator %= ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator %= ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator %= ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator %= ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) %= num;
+        return operator %=( Number( value ) );
     }
     
     Number & Number::operator ^= ( const Number & value )
@@ -2653,101 +1869,57 @@ namespace CF
     
     Number & Number::operator ^= ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator ^= ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator ^= ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator ^= ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator ^= ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator ^= ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator ^= ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator ^= ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator ^= ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator ^= ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator ^= ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^= num;
+        return operator ^=( Number( value ) );
     }
     
     Number & Number::operator <<= ( const Number & value )
@@ -2759,101 +1931,57 @@ namespace CF
     
     Number & Number::operator <<= ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator <<= ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator <<= ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator <<= ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator <<= ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator <<= ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator <<= ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator <<= ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator <<= ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator <<= ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator <<= ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) <<= num;
+        return operator <<=( Number( value ) );
     }
     
     Number & Number::operator >>= ( const Number & value )
@@ -2865,1253 +1993,697 @@ namespace CF
     
     Number & Number::operator >>= ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number & Number::operator >>= ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number & Number::operator >>= ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number & Number::operator >>= ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number & Number::operator >>= ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number & Number::operator >>= ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number & Number::operator >>= ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number & Number::operator >>= ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number & Number::operator >>= ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number & Number::operator >>= ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number & Number::operator >>= ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >>= num;
+        return operator >>=( Number( value ) );
     }
     
     Number Number::operator + ( const Number & value )
     {
-        Number num;
-        
-        num = *( this );
-        
-        return num += value;
+        return Number( *( this ) ) += value;
     }
     
     Number Number::operator + ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( float value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator + ( double value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) + num;
+        return operator +( Number( value ) );
     }
     
     Number Number::operator - ( const Number & value )
     {
-        Number num;
-        
-        num = *( this );
-        
-        return num -= value;
+        return Number( *( this ) ) -= value;
     }
     
     Number Number::operator - ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( float value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator - ( double value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) - num;
+        return operator -( Number( value ) );
     }
     
     Number Number::operator * ( const Number & value )
     {
-        Number num;
-        
-        num = *( this );
-        
-        return num *= value;
+        return Number( *( this ) ) *= value;
     }
     
     Number Number::operator * ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( float value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator * ( double value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) * num;
+        return operator *( Number( value ) );
     }
     
     Number Number::operator / ( const Number & value )
     {
-        Number num;
-        
-        num = *( this );
-        
-        return num /= value;
+        return Number( *( this ) ) /= value;
     }
     
     Number Number::operator / ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( float value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator / ( double value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) / num;
+        return operator /( Number( value ) );
     }
     
     Number Number::operator % ( const Number & value )
     {
-        Number num;
-        
-        num = *( this );
-        
-        return num %= value;
+        return Number( *( this ) ) %= value;
     }
     
     Number Number::operator % ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator % ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator % ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator % ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator % ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator % ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator % ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator % ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator % ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator % ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator % ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) % num;
+        return operator %( Number( value ) );
     }
     
     Number Number::operator & ( const Number & value )
     {
-        Number num;
-        
-        num = *( this );
-        
-        return num &= value;
+        return Number( *( this ) ) &= value;
     }
     
     Number Number::operator & ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator & ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator & ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator & ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator & ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator & ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator & ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator & ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator & ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator & ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator & ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) & num;
+        return operator &( Number( value ) );
     }
     
     Number Number::operator | ( const Number & value )
     {
-        Number num;
-        
-        num = *( this );
-        
-        return num |= value;
+        return Number( *( this ) ) |= value;
     }
     
     Number Number::operator | ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator | ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator | ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator | ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator | ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator | ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator | ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator | ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator | ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator | ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator | ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) | num;
+        return operator |( Number( value ) );
     }
     
     Number Number::operator ^ ( const Number & value )
     {
-        Number num;
-        
-        num = *( this );
-        
-        return num ^= value;
+        return Number( *( this ) ) ^= value;
     }
     
     Number Number::operator ^ ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator ^ ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator ^ ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator ^ ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator ^ ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator ^ ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator ^ ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator ^ ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator ^ ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator ^ ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator ^ ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) ^ num;
+        return operator ^( Number( value ) );
     }
     
     Number Number::operator << ( const Number & value )
     {
-        Number num;
-        
-        num = *( this );
-        
-        return num <<= value;
+        return Number( *( this ) ) <<= value;
     }
     
     Number Number::operator << ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator << ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator << ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator << ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator << ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator << ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator << ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator << ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator << ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator << ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator << ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) << num;
+        return operator <<( Number( value ) );
     }
     
     Number Number::operator >> ( const Number & value )
     {
-        Number num;
-        
-        num = *( this );
-        
-        return num >>= value;
+        return Number( *( this ) ) >>= value;
     }
     
     Number Number::operator >> ( CFNumberRef value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
     
     Number Number::operator >> ( signed char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
     
     Number Number::operator >> ( signed short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
     
     Number Number::operator >> ( signed int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
     
     Number Number::operator >> ( signed long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
     
     Number Number::operator >> ( signed long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
     
     Number Number::operator >> ( unsigned char value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
     
     Number Number::operator >> ( unsigned short value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
     
     Number Number::operator >> ( unsigned int value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
     
     Number Number::operator >> ( unsigned long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
       
     Number Number::operator >> ( unsigned long long value )
     {
-        Number num;
-        
-        num = value;
-        
-        return *( this ) >> num;
+        return operator >>( Number( value ) );
     }
            
     Number::operator signed char () const
