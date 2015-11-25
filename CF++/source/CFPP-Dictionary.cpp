@@ -273,55 +273,17 @@ namespace CF
     
     Dictionary & Dictionary::operator = ( const AutoPointer & value )
     {
-        return operator =( value.GetCFObject() );
+        return operator =( Dictionary( value ) );
     }
     
     Dictionary & Dictionary::operator = ( CFTypeRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = CFDictionaryCreateMutableCopy
-            (
-                static_cast< CFAllocatorRef >( NULL ),
-                CFDictionaryGetCount( static_cast< CFDictionaryRef >( value ) ),
-                static_cast< CFDictionaryRef >( value )
-            );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Dictionary( value ) );
     }
     
     Dictionary & Dictionary::operator = ( CFDictionaryRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = CFDictionaryCreateMutableCopy
-            (
-                static_cast< CFAllocatorRef >( NULL ),
-                CFDictionaryGetCount( value ),
-                value
-            );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Dictionary( value ) );
     }
             
     Dictionary & Dictionary::operator += ( Pair pair )
@@ -345,11 +307,7 @@ namespace CF
     
     CFTypeRef Dictionary::operator [] ( const char * key ) const
     {
-        String s;
-        
-        s = key;
-        
-        return this->GetValue( s );
+        return operator []( String( key ) );
     }
     
     CFTypeRef Dictionary::operator [] ( String key ) const

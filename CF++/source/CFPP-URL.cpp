@@ -189,114 +189,32 @@ namespace CF
     
     URL & URL::operator = ( const AutoPointer & value )
     {
-        return operator =( value.GetCFObject() );
+        return operator =( URL( value ) );
     }
     
     URL & URL::operator = ( CFTypeRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFURLRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( URL( value ) );
     }
     
     URL & URL::operator = ( CFURLRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFURLRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( URL( value ) );
     }
     
     URL & URL::operator = ( CFStringRef value )
     {
-        String s;
-        
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        s = value;
-        
-        if( s.GetLength() > 0 )
-        {    
-            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( URL( value ) );
     }
     
     URL & URL::operator = ( std::string value )
     {
-        String s;
-        
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        s = value;
-        
-        if( s.GetLength() > 0 )
-        {    
-            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( URL( value ) );
     }
     
     URL & URL::operator = ( const char * value )
     {
-        String s;
-        
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        s = value;
-        
-        if( s.GetLength() > 0 )
-        {    
-            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( NULL ), static_cast< CFStringRef >( s ), NULL );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( URL( value ) );
     }
     
     std::string URL::operator [] ( Part part ) const
@@ -343,77 +261,57 @@ namespace CF
     
     bool URL::operator == ( CFTypeRef value ) const
     {
-        URL url;
-        
-        url = value;
-        
-        return *( this ) == url;
+        return operator ==( URL( value ) );
     }
     
     bool URL::operator == ( CFURLRef value ) const
     {
-        URL url;
-        
-        url = value;
-        
-        return *( this ) == url;
+        return operator ==( URL( value ) );
     }
     
     bool URL::operator == ( CFStringRef value ) const
     {
-        URL url;
-        
-        url = value;
-        
-        return *( this ) == url;
+        return operator ==( URL( value ) );
     }
     
     bool URL::operator == ( std::string value ) const
     {
-        URL url;
-        
-        url = value;
-        
-        return *( this ) == url;
+        return operator ==( URL( value ) );
     }
     
     bool URL::operator == ( const char * value ) const
     {
-        URL url;
-        
-        url = value;
-        
-        return *( this ) == url;
+        return operator ==( URL( value ) );
     }
     
     bool URL::operator != ( const URL & value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool URL::operator != ( CFTypeRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool URL::operator != ( CFURLRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool URL::operator != ( CFStringRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool URL::operator != ( std::string value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool URL::operator != ( const char * value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     URL & URL::operator /= ( CFStringRef value )

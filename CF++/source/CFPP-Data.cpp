@@ -143,80 +143,27 @@ namespace CF
     
     Data & Data::operator = ( const AutoPointer & value )
     {
-        return operator =( value.GetCFObject() );
+        return operator =( Data( value ) );
     }
     
     Data & Data::operator = ( CFTypeRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, static_cast< CFDataRef >( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Data( value ) );
     }
     
     Data & Data::operator = ( CFDataRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = CFDataCreateMutableCopy( static_cast< CFAllocatorRef >( NULL ), 0, value );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Data( value ) );
     }
     
     Data & Data::operator = ( CFStringRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == CFStringGetTypeID() )
-        {
-            this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
-            
-            CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( CFStringGetCStringPtr( value, kCFStringEncodingUTF8 ) ), CFStringGetLength( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Data( value ) );
     }
     
     Data & Data::operator = ( std::string value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
-        
-        CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( value.c_str() ), static_cast< CFIndex >( value.length() ) );
-        
-        return *( this );
+        return operator =( Data( value ) );
     }
     
     Data::operator const Byte * () const

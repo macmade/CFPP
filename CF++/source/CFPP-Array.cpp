@@ -249,55 +249,17 @@ namespace CF
     
     Array & Array::operator = ( const AutoPointer & value )
     {
-        return operator =( value.GetCFObject() );
+        return operator =( Array( value ) );
     }
     
     Array & Array::operator = ( CFTypeRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = CFArrayCreateMutableCopy
-            (
-                static_cast< CFAllocatorRef >( NULL ),
-                CFArrayGetCount( static_cast< CFArrayRef >( value ) ),
-                static_cast< CFArrayRef >( value )
-            );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Array( value ) );
     }
     
     Array & Array::operator = ( CFArrayRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = CFArrayCreateMutableCopy
-            (
-                static_cast< CFAllocatorRef >( NULL ),
-                CFArrayGetCount( value ),
-                value
-            );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Array( value ) );
     }
     
     Array & Array::operator += ( const Array & value )
@@ -309,16 +271,12 @@ namespace CF
     
     Array & Array::operator += ( CFTypeRef value )
     {
-        this->AppendArray( static_cast< CFArrayRef >( value ) );
-        
-        return *( this );
+        return operator +=( Array( value ) );
     }
     
     Array & Array::operator += ( CFArrayRef value )
     {
-        this->AppendArray( value );
-        
-        return *( this );
+        return operator +=( Array( value ) );
     }
     
     Array & Array::operator << ( CFTypeRef value )
@@ -330,27 +288,17 @@ namespace CF
     
     Array & Array::operator << ( const char * value )
     {
-        String s;
-        
-        s = value;
-        
-        this->AppendValue( s );
-        
-        return *( this );
+        return operator <<( String( value ) );
     }
     
     Array & Array::operator << ( String value )
     {
-        this->AppendValue( value );
-        
-        return *( this );
+        return operator <<( value.GetCFObject() );
     }
     
     Array & Array::operator << ( Number value )
     {
-        this->AppendValue( value );
-        
-        return *( this );
+        return operator <<( value.GetCFObject() );
     }
             
     CFTypeRef Array::operator [] ( int index ) const

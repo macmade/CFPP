@@ -113,52 +113,22 @@ namespace CF
     
     Date & Date::operator = ( const AutoPointer & value )
     {
-        return operator =( value.GetCFObject() );
+        return operator =( Date( value ) );
     }
     
     Date & Date::operator = ( CFTypeRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFDateRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Date( value ) );
     }
     
     Date & Date::operator = ( CFDateRef value )
     {
-        if( this->_cfObject != NULL )
-        {
-            CFRelease( this->_cfObject );
-        }
-        
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
-        {
-            this->_cfObject = static_cast< CFDateRef >( CFRetain( value ) );
-        }
-        else
-        {
-            this->_cfObject = NULL;
-        }
-        
-        return *( this );
+        return operator =( Date( value ) );
     }
     
     Date & Date::operator = ( CFAbsoluteTime value )
     {
-        this->SetValue( value );
-        
-        return *( this );
+        return operator =( Date( value ) );
     }
     
     bool Date::operator == ( const Date & value ) const
@@ -173,49 +143,37 @@ namespace CF
     
     bool Date::operator == ( CFTypeRef value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) == date;
+        return operator ==( Date( value ) );
     }
     
     bool Date::operator == ( CFDateRef value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) == date;
+        return operator ==( Date( value ) );
     }
     
     bool Date::operator == ( CFAbsoluteTime value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) == date;
+        return operator ==( Date( value ) );
     }
     
     bool Date::operator != ( const Date & value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Date::operator != ( CFTypeRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Date::operator != ( CFDateRef value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Date::operator != ( CFAbsoluteTime value ) const
     {
-        return !( *( this ) == value );
+        return !operator ==( value );
     }
     
     bool Date::operator >= ( const Date & value ) const
@@ -234,20 +192,12 @@ namespace CF
     
     bool Date::operator >= ( CFDateRef value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) >= date;
+        return operator >=( Date( value ) );
     }
     
     bool Date::operator >= ( CFAbsoluteTime value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) >= date;
+        return operator >=( Date( value ) );
     }
     
     bool Date::operator <= ( const Date & value ) const
@@ -266,20 +216,12 @@ namespace CF
     
     bool Date::operator <= ( CFDateRef value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) <= date;
+        return operator <=( Date( value ) );
     }
     
     bool Date::operator <= ( CFAbsoluteTime value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) <= date;
+        return operator <=( Date( value ) );
     }
     
     bool Date::operator > ( const Date & value ) const
@@ -294,20 +236,12 @@ namespace CF
     
     bool Date::operator > ( CFDateRef value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) > date;
+        return operator >( Date( value ) );
     }
     
     bool Date::operator > ( CFAbsoluteTime value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) > date;
+        return operator >( Date( value ) );
     }
     
     bool Date::operator < ( const Date & value ) const
@@ -322,20 +256,12 @@ namespace CF
     
     bool Date::operator < ( CFDateRef value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) < date;
+        return operator <( Date( value ) );
     }
     
     bool Date::operator < ( CFAbsoluteTime value ) const
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) < date;
+        return operator <( Date( value ) );
     }
     
     Date & Date::operator += ( const Date & value )
@@ -347,20 +273,12 @@ namespace CF
     
     Date & Date::operator += ( CFDateRef value )
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) += date;
+        return operator +=( Date( value ) );
     }
     
     Date & Date::operator += ( CFAbsoluteTime value )
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) += date;
+        return operator +=( Date( value ) );
     }
     
     Date & Date::operator -= ( const Date & value )
@@ -372,74 +290,42 @@ namespace CF
     
     Date & Date::operator -= ( CFDateRef value )
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) -= date;
+        return operator -=( Date( value ) );
     }
     
     Date & Date::operator -= ( CFAbsoluteTime value )
     {
-        Date date;
-        
-        date = value;
-        
-        return *( this ) -= date;
+        return operator -=( Date( value ) );
     }
     
     Date Date::operator + ( const Date & value )
     {
-        Date num;
-        
-        num = *( this );
-        
-        return num += value;
+        return Date( *( this ) ) += value;
     }
     
     Date Date::operator + ( CFDateRef value )
     {
-        Date num;
-        
-        num = *( this );
-        
-        return num += value;
+        return operator +( Date( value ) );
     }
     
     Date Date::operator + ( CFAbsoluteTime value )
     {
-        Date num;
-        
-        num = *( this );
-        
-        return num += value;
+        return operator +( Date( value ) );
     }
     
     Date Date::operator - ( const Date & value )
     {
-        Date num;
-        
-        num = *( this );
-        
-        return num -= value;
+        return Date( *( this ) ) -= value;
     }
     
     Date Date::operator - ( CFDateRef value )
     {
-        Date num;
-        
-        num = *( this );
-        
-        return num -= value;
+        return operator -( Date( value ) );
     }
     
     Date Date::operator - ( CFAbsoluteTime value )
     {
-        Date num;
-        
-        num = *( this );
-        
-        return num -= value;
+        return operator -( Date( value ) );
     }
     
     Date & Date::operator ++ ( void )
