@@ -63,12 +63,12 @@ namespace CF
             Dictionary & operator = ( CFTypeRef value );
             Dictionary & operator = ( CFDictionaryRef value );
             
-            Dictionary & operator += ( Pair pair );
-            Dictionary & operator << ( Pair pair );
+            Dictionary & operator += ( const Pair & pair );
+            Dictionary & operator << ( const Pair & pair );
             
             CFTypeRef operator [] ( CFTypeRef key ) const;
             CFTypeRef operator [] ( const char * key ) const;
-            CFTypeRef operator [] ( String key ) const;
+            CFTypeRef operator [] ( const String & key ) const;
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

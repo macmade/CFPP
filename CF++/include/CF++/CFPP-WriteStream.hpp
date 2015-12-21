@@ -43,7 +43,7 @@ namespace CF
         public:
             
             WriteStream( void );
-            WriteStream( std::string path );
+            WriteStream( const std::string & path );
             WriteStream( const char * path );
             WriteStream( URL url );
             WriteStream( const WriteStream & value );
@@ -66,17 +66,17 @@ namespace CF
             virtual CFTypeRef GetCFObject( void ) const;
             
             bool               Open( void ) const;
-            bool               Open( std::string path );
+            bool               Open( const std::string & path );
             bool               Open( const char * path );
-            bool               Open( URL url );
+            bool               Open( const URL & url );
             void               Close( void ) const;
             bool               CanAcceptBytes( void ) const;
             CFStreamStatus     GetStatus( void ) const;
             Error              GetError( void ) const;
             CFIndex            Write( const Data::Byte * buffer, CFIndex length ) const;
-            CFIndex            Write( Data data ) const;
-            AutoPointer        GetProperty( String name );
-            bool               SetProperty( String name, CFTypeRef value );
+            CFIndex            Write( const Data & data ) const;
+            AutoPointer        GetProperty( const String & name );
+            bool               SetProperty( const String & name, CFTypeRef value );
             bool               SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context );
             void               ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode );
             void               UnscheduleFromRunLoop( CFRunLoopRef runLoop, CF::String mode );

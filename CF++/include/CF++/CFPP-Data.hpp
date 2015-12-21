@@ -59,8 +59,8 @@ namespace CF
             Data( CFTypeRef value );
             Data( CFDataRef value );
             Data( CFStringRef value );
-            Data( std::string value );
-            Data( Byte * value, CFIndex length );
+            Data( const std::string & value );
+            Data( const Byte * value, CFIndex length );
             
             #ifdef CFPP_HAS_CPP11
             Data( std::initializer_list< Byte > value );
@@ -74,7 +74,7 @@ namespace CF
             Data & operator = ( CFTypeRef value );
             Data & operator = ( CFDataRef value );
             Data & operator = ( CFStringRef value );
-            Data & operator = ( std::string value );
+            Data & operator = ( const std::string & value );
             
             operator const Byte * () const;
             operator std::string  () const;
@@ -85,7 +85,7 @@ namespace CF
             Data & operator += ( CFStringRef value );
             Data & operator += ( CFDataRef value );
             Data & operator += ( const Data & value );
-            Data & operator += ( std::string value );
+            Data & operator += ( const std::string & value );
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

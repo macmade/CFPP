@@ -89,14 +89,14 @@ namespace CF
         }
     }
     
-    Data::Data( std::string value ): _cfObject( NULL )
+    Data::Data( const std::string & value ): _cfObject( NULL )
     {
         this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( NULL ), 0 );
         
         CFDataAppendBytes( this->_cfObject, reinterpret_cast< const UInt8 * >( value.c_str() ), static_cast< CFIndex >( value.length() ) );
     }
     
-    Data::Data( Byte * value, CFIndex length ): _cfObject( NULL )
+    Data::Data( const Byte * value, CFIndex length ): _cfObject( NULL )
     {
         if( value != NULL )
         {
@@ -161,7 +161,7 @@ namespace CF
         return operator =( Data( value ) );
     }
     
-    Data & Data::operator = ( std::string value )
+    Data & Data::operator = ( const std::string & value )
     {
         return operator =( Data( value ) );
     }
@@ -239,7 +239,7 @@ namespace CF
         return operator += ( value._cfObject );
     }
     
-    Data & Data::operator += ( std::string value )
+    Data & Data::operator += ( const std::string & value )
     {
         if( this->_cfObject != NULL )
         {

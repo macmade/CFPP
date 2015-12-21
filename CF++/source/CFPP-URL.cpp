@@ -37,7 +37,7 @@
 
 namespace CF
 {
-    URL URL::FileSystemURL( std::string path, bool isDir )
+    URL URL::FileSystemURL( const std::string & path, bool isDir )
     {
         AutoPointer url;
         String     str;
@@ -138,7 +138,7 @@ namespace CF
         }
     }
     
-    URL::URL( std::string value ): _cfObject( NULL )
+    URL::URL( const std::string & value ): _cfObject( NULL )
     {
         String s;
         
@@ -207,7 +207,7 @@ namespace CF
         return operator =( URL( value ) );
     }
     
-    URL & URL::operator = ( std::string value )
+    URL & URL::operator = ( const std::string & value )
     {
         return operator =( URL( value ) );
     }
@@ -274,7 +274,7 @@ namespace CF
         return operator ==( URL( value ) );
     }
     
-    bool URL::operator == ( std::string value ) const
+    bool URL::operator == ( const std::string & value ) const
     {
         return operator ==( URL( value ) );
     }
@@ -304,7 +304,7 @@ namespace CF
         return !operator ==( value );
     }
     
-    bool URL::operator != ( std::string value ) const
+    bool URL::operator != ( const std::string & value ) const
     {
         return !operator ==( value );
     }
@@ -321,7 +321,7 @@ namespace CF
         return *( this );
     }
     
-    URL & URL::operator /= ( std::string value )
+    URL & URL::operator /= ( const std::string & value )
     {
         this->AppendPathComponent( value );
         
@@ -600,7 +600,7 @@ namespace CF
         CFRelease( url );
     }
     
-    void URL::AppendPathComponent( std::string component, bool isDirectory )
+    void URL::AppendPathComponent( const std::string & component, bool isDirectory )
     {
         String s;
         
@@ -638,7 +638,7 @@ namespace CF
         CFRelease( url );
     }
     
-    void URL::AppendPathExtension( std::string extension )
+    void URL::AppendPathExtension( const std::string & extension )
     {
         String s;
         

@@ -72,7 +72,7 @@ namespace CF
         }
     }
     
-    Error::Error( String domain, Number code ): _cfObject( NULL )
+    Error::Error( const String & domain, const Number & code ): _cfObject( NULL )
     {
         this->_cfObject = CFErrorCreate
         (
@@ -83,7 +83,7 @@ namespace CF
         );
     }
     
-    Error::Error( String domain, Number code, Dictionary userInfo ): _cfObject( NULL )
+    Error::Error( const String & domain, const Number & code, const Dictionary & userInfo ): _cfObject( NULL )
     {
         this->_cfObject = CFErrorCreate
         (
@@ -116,7 +116,7 @@ namespace CF
         );
     }
     
-    Error::Error( std::string domain, CFIndex code ): _cfObject( NULL )
+    Error::Error( const std::string & domain, CFIndex code ): _cfObject( NULL )
     {
         String s;
         
@@ -131,7 +131,7 @@ namespace CF
         );
     }
     
-    Error::Error( std::string domain, CFIndex code, Dictionary userInfo ): _cfObject( NULL )
+    Error::Error( const std::string & domain, CFIndex code, const Dictionary & userInfo ): _cfObject( NULL )
     {
         String s;
         
@@ -161,7 +161,7 @@ namespace CF
         );
     }
     
-    Error::Error( const char * domain, CFIndex code, Dictionary userInfo ): _cfObject( NULL )
+    Error::Error( const char * domain, CFIndex code, const Dictionary & userInfo ): _cfObject( NULL )
     {
         String s;
         

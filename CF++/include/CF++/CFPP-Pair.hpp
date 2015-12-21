@@ -44,14 +44,14 @@ namespace CF
             
             Pair( CFTypeRef key, CFTypeRef value );
             Pair( const Pair & value );
-            Pair( String key, CFTypeRef value );
+            Pair( const String & key, CFTypeRef value );
             Pair( const char * key, CFTypeRef value );
-            Pair( String key, String value );
-            Pair( const char * key, String value );
-            Pair( String key, const char * value );
+            Pair( const String & key, const String & value );
+            Pair( const char * key, const String & value );
+            Pair( const String & key, const char * value );
             Pair( const char * key, const char * value );
-            Pair( String key, Number value );
-            Pair( const char * key, Number value );
+            Pair( const String & key, const Number & value );
+            Pair( const char * key, const Number & value );
             
             #ifdef CFPP_HAS_CPP11
             Pair( Pair && value );

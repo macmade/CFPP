@@ -49,7 +49,7 @@ namespace CF
             String( const AutoPointer & value, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( CFTypeRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( CFStringRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
-            String( std::string value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
+            String( const std::string & value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( char * value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( const char * value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( const String & value );
@@ -64,27 +64,27 @@ namespace CF
             String & operator = ( const AutoPointer & value );
             String & operator = ( CFTypeRef value );
             String & operator = ( CFStringRef value );
-            String & operator = ( std::string value );
+            String & operator = ( const std::string & value );
             String & operator = ( char * value );
             String & operator = ( const char * value );
             
             bool operator == ( const String & value ) const;
             bool operator == ( CFTypeRef value ) const;
             bool operator == ( CFStringRef value ) const;
-            bool operator == ( std::string value ) const;
+            bool operator == ( const std::string & value ) const;
             bool operator == ( char * value ) const;
             bool operator == ( const char * value ) const;
             
             bool operator != ( const String & value ) const;
             bool operator != ( CFTypeRef value ) const;
             bool operator != ( CFStringRef value ) const;
-            bool operator != ( std::string value ) const;
+            bool operator != ( const std::string & value ) const;
             bool operator != ( char * value ) const;
             bool operator != ( const char * value ) const;
             
             String & operator += ( const String & value );
             String & operator += ( CFStringRef value );
-            String & operator += ( std::string value );
+            String & operator += ( const std::string & value );
             String & operator += ( char * value );
             String & operator += ( const char * value );
             
@@ -95,18 +95,18 @@ namespace CF
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            bool HasPrefix( String value ) const;
+            bool HasPrefix( const String & value ) const;
             bool HasPrefix( CFStringRef value ) const;
-            bool HasPrefix( std::string value ) const;
-            bool HasSuffix( String value ) const;
+            bool HasPrefix( const std::string & value ) const;
+            bool HasSuffix( const String & value ) const;
             bool HasSuffix( CFStringRef value ) const;
-            bool HasSuffix( std::string value ) const;
+            bool HasSuffix( const std::string & value ) const;
             
             CFIndex GetLength( void ) const;
             
             std::string  GetValue( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;
             const char * GetCStringValue( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;
-            void         SetValue( std::string value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
+            void         SetValue( const std::string & value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             
             friend void swap( String & v1, String & v2 );
             

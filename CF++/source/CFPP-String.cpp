@@ -102,7 +102,7 @@ namespace CF
         }
     }
     
-    String::String( std::string value, CFStringEncoding encoding ): _cfObject( NULL )
+    String::String( const std::string & value, CFStringEncoding encoding ): _cfObject( NULL )
     {
         this->SetValue( value, encoding );
     }
@@ -175,7 +175,7 @@ namespace CF
         return operator =( String( value ) );
     }
     
-    String & String::operator = ( std::string value )
+    String & String::operator = ( const std::string & value )
     {
         return operator =( String( value ) );
     }
@@ -210,7 +210,7 @@ namespace CF
         return operator ==( String( value ) );
     }
     
-    bool String::operator == ( std::string value ) const
+    bool String::operator == ( const std::string & value ) const
     {
         return operator ==( String( value ) );
     }
@@ -240,7 +240,7 @@ namespace CF
         return !operator ==( value );
     }
     
-    bool String::operator != ( std::string value ) const
+    bool String::operator != ( const std::string & value ) const
     {
         return !operator ==( value );
     }
@@ -288,7 +288,7 @@ namespace CF
         return operator +=( String( value ) );
     }
     
-    String & String::operator += ( std::string value )
+    String & String::operator += ( const std::string & value )
     {
         return operator +=( String( value ) );
     }
@@ -337,7 +337,7 @@ namespace CF
         return static_cast< CFTypeRef >( this->_cfObject );
     }
             
-    bool String::HasPrefix( String value ) const
+    bool String::HasPrefix( const String & value ) const
     {
         if( this->_cfObject == NULL || value._cfObject == NULL )
         {
@@ -356,7 +356,7 @@ namespace CF
         return this->HasPrefix( s );
     }
     
-    bool String::HasPrefix( std::string value ) const
+    bool String::HasPrefix( const std::string & value ) const
     {
         String s;
         
@@ -365,7 +365,7 @@ namespace CF
         return this->HasPrefix( s );
     }
     
-    bool String::HasSuffix( String value ) const
+    bool String::HasSuffix( const String & value ) const
     {
         if( this->_cfObject == NULL || value._cfObject == NULL )
         {
@@ -384,7 +384,7 @@ namespace CF
         return this->HasSuffix( s );
     }
     
-    bool String::HasSuffix( std::string value ) const
+    bool String::HasSuffix( const std::string & value ) const
     {
         String s;
         
@@ -447,7 +447,7 @@ namespace CF
         return NULL;
     }
     
-    void String::SetValue( std::string value, CFStringEncoding encoding )
+    void String::SetValue( const std::string & value, CFStringEncoding encoding )
     {
         if( this->_cfObject != NULL )
         {

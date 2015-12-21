@@ -47,14 +47,14 @@ namespace CF
             Error( const AutoPointer & value );
             Error( CFTypeRef value );
             Error( CFErrorRef value );
-            Error( String domain, Number code );
-            Error( String domain, Number code, Dictionary userInfo );
+            Error( const String & domain, const Number & code );
+            Error( const String & domain, const Number & code, const Dictionary & userInfo );
             Error( CFStringRef domain, CFIndex code );
             Error( CFStringRef domain, CFIndex code, CFDictionaryRef userInfo );
-            Error( std::string domain, CFIndex code );
-            Error( std::string domain, CFIndex code, Dictionary userInfo );
+            Error( const std::string & domain, CFIndex code );
+            Error( const std::string & domain, CFIndex code, const Dictionary & userInfo );
             Error( const char * domain, CFIndex code );
-            Error( const char * domain, CFIndex code, Dictionary userInfo );
+            Error( const char * domain, CFIndex code, const Dictionary & userInfo );
             
             #ifdef CFPP_HAS_CPP11
             Error( Error && value );

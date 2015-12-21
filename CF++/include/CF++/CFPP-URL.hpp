@@ -69,7 +69,7 @@ namespace CF
             }
             PathStyle;
             
-            static URL FileSystemURL( std::string path, bool isDir = false );
+            static URL FileSystemURL( const std::string & path, bool isDir = false );
             static URL FileSystemURL( const char * path, bool isDir = false );
             static URL FileSystemURL( CFTypeRef path, bool isDir = false );
             static URL FileSystemURL( CFStringRef path, bool isDir = false );
@@ -80,7 +80,7 @@ namespace CF
             URL( CFTypeRef value );
             URL( CFURLRef value );
             URL( CFStringRef value );
-            URL( std::string value );
+            URL( const std::string & value );
             URL( const char * value );
             
             #ifdef CFPP_HAS_CPP11
@@ -94,25 +94,25 @@ namespace CF
             URL & operator = ( CFTypeRef value );
             URL & operator = ( CFURLRef value );
             URL & operator = ( CFStringRef value );
-            URL & operator = ( std::string value );
+            URL & operator = ( const std::string & value );
             URL & operator = ( const char * value );
             
             bool operator == ( const URL & value ) const;
             bool operator == ( CFTypeRef value ) const;
             bool operator == ( CFURLRef value ) const;
             bool operator == ( CFStringRef value ) const;
-            bool operator == ( std::string value ) const;
+            bool operator == ( const std::string & value ) const;
             bool operator == ( const char * value ) const;
             
             bool operator != ( const URL & value ) const;
             bool operator != ( CFTypeRef value ) const;
             bool operator != ( CFURLRef value ) const;
             bool operator != ( CFStringRef value ) const;
-            bool operator != ( std::string value ) const;
+            bool operator != ( const std::string & value ) const;
             bool operator != ( const char * value ) const;
             
             URL & operator /= ( CFStringRef value );
-            URL & operator /= ( std::string value );
+            URL & operator /= ( const std::string & value );
             URL & operator /= ( const char * value );
             
             std::string operator [] ( Part part ) const;
@@ -139,10 +139,10 @@ namespace CF
             Number GetPortNumber( void ) const;
             bool   HasDirectoryPath( void ) const;
             void   AppendPathComponent( CFStringRef component, bool isDirectory = false );
-            void   AppendPathComponent( std::string component, bool isDirectory = false );
+            void   AppendPathComponent( const std::string & component, bool isDirectory = false );
             void   AppendPathComponent( const char * component, bool isDirectory = false );
             void   AppendPathExtension( CFStringRef extension );
-            void   AppendPathExtension( std::string extension );
+            void   AppendPathExtension( const std::string & extension );
             void   AppendPathExtension( const char * extension );
             void   DeleteLastPathComponent( void );
             void   DeletePathExtension( void );

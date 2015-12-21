@@ -62,12 +62,12 @@ namespace CF
             bool operator == ( const UUID & value ) const;
             bool operator == ( CFTypeRef value ) const;
             bool operator == ( CFUUIDRef value ) const;
-            bool operator == ( std::string value ) const;
+            bool operator == ( const std::string & value ) const;
             
             bool operator != ( const UUID & value ) const;
             bool operator != ( CFTypeRef value ) const;
             bool operator != ( CFUUIDRef value ) const;
-            bool operator != ( std::string value ) const;
+            bool operator != ( const std::string & value ) const;
             
             operator std::string () const;
             

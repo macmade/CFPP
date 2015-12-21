@@ -69,8 +69,8 @@ namespace CF
             
             Array & operator << ( CFTypeRef value );
             Array & operator << ( const char * value );
-            Array & operator << ( String value );
-            Array & operator << ( Number value );
+            Array & operator << ( const String & value );
+            Array & operator << ( const Number & value );
             
             CFTypeRef operator [] ( int index ) const;
             

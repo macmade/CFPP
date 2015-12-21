@@ -286,14 +286,14 @@ namespace CF
         return operator =( Dictionary( value ) );
     }
             
-    Dictionary & Dictionary::operator += ( Pair pair )
+    Dictionary & Dictionary::operator += ( const Pair & pair )
     {
         this->AddValue( pair.GetKey(), pair.GetValue() );
         
         return *( this );
     }
     
-    Dictionary & Dictionary::operator << ( Pair pair )
+    Dictionary & Dictionary::operator << ( const Pair & pair )
     {
         this->SetValue( pair.GetKey(), pair.GetValue() );
         
@@ -310,7 +310,7 @@ namespace CF
         return operator []( String( key ) );
     }
     
-    CFTypeRef Dictionary::operator [] ( String key ) const
+    CFTypeRef Dictionary::operator [] ( const String & key ) const
     {
         return this->GetValue( key );
     }

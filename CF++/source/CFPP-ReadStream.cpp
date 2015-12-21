@@ -45,7 +45,7 @@ namespace CF
         this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
     }
     
-    ReadStream::ReadStream( std::string path ): _cfObject( NULL )
+    ReadStream::ReadStream( const  std::string & path ): _cfObject( NULL )
     {
         URL url;
         
@@ -155,7 +155,7 @@ namespace CF
         return ( CFReadStreamOpen( this->_cfObject ) ) ? true : false;
     }
     
-    bool ReadStream::Open( std::string path )
+    bool ReadStream::Open( const std::string & path )
     {
         return this->Open( URL::FileSystemURL( path ) );
     }
@@ -165,7 +165,7 @@ namespace CF
         return this->Open( URL::FileSystemURL( path ) );
     }
     
-    bool ReadStream::Open( URL url )
+    bool ReadStream::Open( const URL & url )
     {
         if( this->_cfObject != NULL )
         {
@@ -289,7 +289,7 @@ namespace CF
         return CFReadStreamGetBuffer( this->_cfObject, maxBytesToRead, numBytesRead );
     }
     
-    AutoPointer ReadStream::GetProperty( String name )
+    AutoPointer ReadStream::GetProperty( const String & name )
     {
         if( this->_cfObject == NULL )
         {
@@ -299,7 +299,7 @@ namespace CF
         return CFReadStreamCopyProperty( this->_cfObject, name );
     }
     
-    bool ReadStream::SetProperty( String name, CFTypeRef value )
+    bool ReadStream::SetProperty( const String & name, CFTypeRef value )
     {
         if( this->_cfObject == NULL )
         {

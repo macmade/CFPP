@@ -291,12 +291,12 @@ namespace CF
         return operator <<( String( value ) );
     }
     
-    Array & Array::operator << ( String value )
+    Array & Array::operator << ( const String & value )
     {
         return operator <<( value.GetCFObject() );
     }
     
-    Array & Array::operator << ( Number value )
+    Array & Array::operator << ( const Number & value )
     {
         return operator <<( value.GetCFObject() );
     }

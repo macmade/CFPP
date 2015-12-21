@@ -43,7 +43,7 @@ namespace CF
         public:
             
             ReadStream( void );
-            ReadStream( std::string path );
+            ReadStream( const std::string & path );
             ReadStream( const char * path );
             ReadStream( URL url );
             ReadStream( const ReadStream & value );
@@ -66,9 +66,9 @@ namespace CF
             virtual CFTypeRef GetCFObject( void ) const;
             
             bool               Open( void ) const;
-            bool               Open( std::string path );
+            bool               Open( const std::string & path );
             bool               Open( const char * path );
-            bool               Open( URL url );
+            bool               Open( const URL & url );
             void               Close( void ) const;
             bool               HasBytesAvailable( void ) const;
             CFStreamStatus     GetStatus( void ) const;
@@ -76,8 +76,8 @@ namespace CF
             CFIndex            Read( Data::Byte * buffer, CFIndex length ) const;
             Data               Read( CFIndex length = 0 ) const;
             const Data::Byte * GetBuffer( CFIndex maxBytesToRead, CFIndex * numBytesRead ) const;
-            AutoPointer        GetProperty( String name );
-            bool               SetProperty( String name, CFTypeRef value );
+            AutoPointer        GetProperty( const String & name );
+            bool               SetProperty( const String & name, CFTypeRef value );
             bool               SetClient( CFOptionFlags events, CFReadStreamClientCallBack callback, CFStreamClientContext * context );
             void               ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode );
             void               UnscheduleFromRunLoop( CFRunLoopRef runLoop, CF::String mode );

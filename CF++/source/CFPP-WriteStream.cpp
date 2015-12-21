@@ -45,7 +45,7 @@ namespace CF
         this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
     }
     
-    WriteStream::WriteStream( std::string path ): _cfObject( NULL )
+    WriteStream::WriteStream( const std::string & path ): _cfObject( NULL )
     {
         URL url;
         
@@ -155,7 +155,7 @@ namespace CF
         return ( CFWriteStreamOpen( this->_cfObject ) ) ? true : false;
     }
     
-    bool WriteStream::Open( std::string path )
+    bool WriteStream::Open( const std::string & path )
     {
         return this->Open( URL::FileSystemURL( path ) );
     }
@@ -165,7 +165,7 @@ namespace CF
         return this->Open( URL::FileSystemURL( path ) );
     }
     
-    bool WriteStream::Open( URL url )
+    bool WriteStream::Open( const URL & url )
     {
         if( this->_cfObject != NULL )
         {
@@ -238,12 +238,12 @@ namespace CF
         return CFWriteStreamWrite( this->_cfObject, buffer, length );
     }
     
-    CFIndex WriteStream::Write( Data data ) const
+    CFIndex WriteStream::Write( const Data & data ) const
     {
         return this->Write( data.GetBytePtr(), data.GetLength() );
     }
     
-    AutoPointer WriteStream::GetProperty( String name )
+    AutoPointer WriteStream::GetProperty( const String & name )
     {
         if( this->_cfObject == NULL )
         {
@@ -253,7 +253,7 @@ namespace CF
         return CFWriteStreamCopyProperty( this->_cfObject, name );
     }
     
-    bool WriteStream::SetProperty( String name, CFTypeRef value )
+    bool WriteStream::SetProperty( const String & name, CFTypeRef value )
     {
         if( this->_cfObject == NULL )
         {

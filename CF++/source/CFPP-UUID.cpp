@@ -129,7 +129,7 @@ namespace CF
         return operator ==( UUID( value ) );
     }
     
-    bool UUID::operator == ( std::string value ) const
+    bool UUID::operator == ( const std::string & value ) const
     {
         return this->GetString() == value;
     }
@@ -149,7 +149,7 @@ namespace CF
         return !operator ==( value );
     }
     
-    bool UUID::operator != ( std::string value ) const
+    bool UUID::operator != ( const std::string & value ) const
     {
         return !operator ==( value );
     }
