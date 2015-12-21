@@ -100,6 +100,40 @@ TEST( CFPP_PropertyListType, FromPropertyListString )
     }
 }
 
+TEST( CFPP_PropertyListType, FromPropertyListData )
+{
+    CF::Dictionary d;
+    
+    d = CF::Dictionary::FromPropertyListData( std::string( __plist ) );
+    
+    ASSERT_TRUE( d.IsValid() );
+    ASSERT_EQ( d.GetCount(), 1 );
+    ASSERT_EQ( CF::String( d[ "hello" ] ), "world" );
+    
+    d = CF::Dictionary::FromPropertyListData( std::string( "" ) );
+    
+    ASSERT_FALSE( d.IsValid() );
+    
+    {
+        CF::ReadStream stream;
+        CF::Data       data;
+        
+        stream.Open( "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/Resources/Info.plist" );
+        
+        data = stream.Read();
+        
+        stream.Close();
+        
+        ASSERT_TRUE( data.IsValid() );
+        ASSERT_TRUE( data.GetLength() > 0 );
+        
+        d = CF::Dictionary::FromPropertyListData( data );
+        
+        ASSERT_TRUE( d.IsValid() );
+        ASSERT_TRUE( d.GetCount() > 0 );
+    }
+}
+
 TEST( CFPP_PropertyListType, ToPropertyList_STDString_PropertyListFormat )
 {
     CF::Dictionary d1;

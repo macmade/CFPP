@@ -67,16 +67,25 @@ namespace CF
     template < class T >
     T PropertyListType< T >::FromPropertyListString( const std::string & plist )
     {
-        AutoPointer ap;
-        Data        data;
-        
         if( plist.length() == 0 )
         {
             return static_cast< CFTypeRef >( NULL );
         }
         
-        data = CF::Data( plist );
-        ap   = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), data, 0, NULL, NULL );
+        return FromPropertyListData( Data( plist ) );
+    }
+    
+    template < class T >
+    T PropertyListType< T >::FromPropertyListData( const Data & plist )
+    {
+        AutoPointer ap;
+        
+        if( plist.GetLength() == 0 )
+        {
+            return static_cast< CFTypeRef >( NULL );
+        }
+        
+        ap = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), plist, 0, NULL, NULL );
         
         return ap.As< T >();
     }
