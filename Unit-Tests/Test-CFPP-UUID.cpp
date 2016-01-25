@@ -83,6 +83,44 @@ TEST( CFPP_UUID, CTOR_CFUUID )
     ASSERT_EQ( u1, u2 );
 }
 
+TEST( CFPP_UUID, CTOR_STDString )
+{
+    CF::UUID u1( std::string( "" ) );
+    CF::UUID u2( std::string( "ABCDEFG" ) );
+    CF::UUID u3( std::string( "ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGA" ) );
+    CF::UUID u4( std::string( "ABCDEFAB-ABCD-ABCD-ABCD-ABCDEFABCDEF" ) );
+    
+    ASSERT_FALSE( u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_TRUE(  u3.IsValid() );
+    ASSERT_TRUE(  u4.IsValid() );
+    
+    ASSERT_TRUE( u2 == std::string( "ABCDEF00-0000-0000-0000-000000000000" ) );
+    ASSERT_TRUE( u3 == std::string( "ABCDEF00-CDEF-ABCD-00AB-DE00ABCDEF00" ) );
+    ASSERT_TRUE( u4 == std::string( "ABCDEFAB-ABCD-ABCD-ABCD-ABCDEFABCDEF" ) );
+}
+
+TEST( CFPP_UUID, CTOR_Data )
+{
+    CF::UUID d1( static_cast< CFDataRef >( NULL ) );
+    CF::UUID d2( std::string( "ABCDEFG" ) );
+    CF::UUID d3( std::string( "ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGA" ) );
+    CF::UUID d4( std::string( "ABCDEFAB-ABCD-ABCD-ABCD-ABCDEFABCDEF" ) );
+    CF::UUID u1( d1 );
+    CF::UUID u2( d2 );
+    CF::UUID u3( d3 );
+    CF::UUID u4( d4 );
+    
+    ASSERT_FALSE( u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_TRUE(  u3.IsValid() );
+    ASSERT_TRUE(  u4.IsValid() );
+    
+    ASSERT_TRUE( u2 == std::string( "ABCDEF00-0000-0000-0000-000000000000" ) );
+    ASSERT_TRUE( u3 == std::string( "ABCDEF00-CDEF-ABCD-00AB-DE00ABCDEF00" ) );
+    ASSERT_TRUE( u4 == std::string( "ABCDEFAB-ABCD-ABCD-ABCD-ABCDEFABCDEF" ) );
+}
+
 TEST( CFPP_UUID, CCTOR )
 {
     CF::UUID u1;
@@ -189,6 +227,64 @@ TEST( CFPP_UUID, OperatorAssignCFUUID )
     ASSERT_FALSE( u1.IsValid() );
 }
 
+TEST( CFPP_UUID, OperatorAssignSTDString )
+{
+    CF::UUID u1( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u2( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u3( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_FALSE( u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+    ASSERT_FALSE( u4.IsValid() );
+    
+    u1 = std::string( "" );
+    u2 = std::string( "ABCDEFG" );
+    u3 = std::string( "ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGA" );
+    u4 = std::string( "ABCDEFAB-ABCD-ABCD-ABCD-ABCDEFABCDEF" );
+    
+    ASSERT_FALSE( u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_TRUE(  u3.IsValid() );
+    ASSERT_TRUE(  u4.IsValid() );
+    
+    ASSERT_TRUE( u2 == std::string( "ABCDEF00-0000-0000-0000-000000000000" ) );
+    ASSERT_TRUE( u3 == std::string( "ABCDEF00-CDEF-ABCD-00AB-DE00ABCDEF00" ) );
+    ASSERT_TRUE( u4 == std::string( "ABCDEFAB-ABCD-ABCD-ABCD-ABCDEFABCDEF" ) );
+}
+
+TEST( CFPP_UUID, OperatorAssignData )
+{
+    CF::UUID d1( static_cast< CFDataRef >( NULL ) );
+    CF::UUID d2( std::string( "ABCDEFG" ) );
+    CF::UUID d3( std::string( "ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGA" ) );
+    CF::UUID d4( std::string( "ABCDEFAB-ABCD-ABCD-ABCD-ABCDEFABCDEF" ) );
+    CF::UUID u1( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u2( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u3( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_FALSE( u1.IsValid() );
+    ASSERT_FALSE( u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+    ASSERT_FALSE( u4.IsValid() );
+    
+    u1 = d1;
+    u2 = d2;
+    u3 = d3;
+    u4 = d4;
+    
+    ASSERT_FALSE( u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_TRUE(  u3.IsValid() );
+    ASSERT_TRUE(  u4.IsValid() );
+    
+    ASSERT_TRUE( u2 == std::string( "ABCDEF00-0000-0000-0000-000000000000" ) );
+    ASSERT_TRUE( u3 == std::string( "ABCDEF00-CDEF-ABCD-00AB-DE00ABCDEF00" ) );
+    ASSERT_TRUE( u4 == std::string( "ABCDEFAB-ABCD-ABCD-ABCD-ABCDEFABCDEF" ) );
+}
+
 TEST( CFPP_UUID, OperatorEqualUUID )
 {
     CF::UUID u1;
@@ -241,6 +337,19 @@ TEST( CFPP_UUID, OperatorEqualSTDString )
     ASSERT_FALSE( u1 == static_cast< std::string >( u3.GetString() ) );
     ASSERT_FALSE( u4 == static_cast< std::string >( u1.GetString() ) );
     ASSERT_FALSE( u4 == static_cast< std::string >( u4.GetString() ) );
+}
+
+TEST( CFPP_UUID, OperatorEqualData )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    CF::UUID u3;
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_TRUE(  u1 == static_cast< std::string >( u2.GetData() ) );
+    ASSERT_FALSE( u1 == static_cast< std::string >( u3.GetData() ) );
+    ASSERT_FALSE( u4 == static_cast< std::string >( u1.GetData() ) );
+    ASSERT_FALSE( u4 == static_cast< std::string >( u4.GetData() ) );
 }
 
 TEST( CFPP_UUID, OperatorNotEqualUUID )
@@ -297,6 +406,19 @@ TEST( CFPP_UUID, OperatorNotEqualSTDString )
     ASSERT_TRUE(  u4 != static_cast< std::string >( u4.GetString() ) );
 }
 
+TEST( CFPP_UUID, OperatorNotEqualData )
+{
+    CF::UUID u1;
+    CF::UUID u2( u1 );
+    CF::UUID u3;
+    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    
+    ASSERT_FALSE( u1 != static_cast< std::string >( u2.GetData() ) );
+    ASSERT_TRUE(  u1 != static_cast< std::string >( u3.GetData() ) );
+    ASSERT_TRUE(  u4 != static_cast< std::string >( u1.GetData() ) );
+    ASSERT_TRUE(  u4 != static_cast< std::string >( u4.GetData() ) );
+}
+
 TEST( CFPP_UUID, CastToSTDString )
 {
     CF::UUID    u;
@@ -333,6 +455,18 @@ TEST( CFPP_UUID, GetString )
     
     ASSERT_FALSE( u.IsValid() );
     ASSERT_EQ( u.GetString().GetLength(), 0 );
+}
+
+TEST( CFPP_UUID, GetData )
+{
+    CF::UUID u;
+    
+    ASSERT_EQ( u.GetData().GetLength(), 36 );
+    
+    u = static_cast< CFUUIDRef >( NULL );
+    
+    ASSERT_FALSE( u.IsValid() );
+    ASSERT_EQ( u.GetData().GetLength(), 0 );
 }
 
 TEST( CFPP_UUID, Swap )

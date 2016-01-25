@@ -47,6 +47,8 @@ namespace CF
             UUID( const AutoPointer & value );
             UUID( CFTypeRef value );
             UUID( CFUUIDRef value );
+            UUID( const std::string & value );
+            UUID( const Data & value );
             
             #ifdef CFPP_HAS_CPP11
             UUID( UUID && value );
@@ -58,16 +60,20 @@ namespace CF
             UUID & operator = ( const AutoPointer & value );
             UUID & operator = ( CFTypeRef value );
             UUID & operator = ( CFUUIDRef value );
+            UUID & operator = ( const std::string & value );
+            UUID & operator = ( const Data & value );
             
             bool operator == ( const UUID & value ) const;
             bool operator == ( CFTypeRef value ) const;
             bool operator == ( CFUUIDRef value ) const;
             bool operator == ( const std::string & value ) const;
+            bool operator == ( const Data & value ) const;
             
             bool operator != ( const UUID & value ) const;
             bool operator != ( CFTypeRef value ) const;
             bool operator != ( CFUUIDRef value ) const;
             bool operator != ( const std::string & value ) const;
+            bool operator != ( const Data & value ) const;
             
             operator std::string () const;
             
@@ -75,6 +81,7 @@ namespace CF
             virtual CFTypeRef GetCFObject( void ) const;
             
             String GetString( void ) const;
+            Data   GetData( void ) const;
             
             friend void swap( UUID & v1, UUID & v2 );
             

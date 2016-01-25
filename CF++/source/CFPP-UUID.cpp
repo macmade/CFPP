@@ -74,6 +74,36 @@ namespace CF
         }
     }
     
+    UUID::UUID( const std::string & value ): _cfObject( NULL )
+    {
+        this->_cfObject = CFUUIDCreateFromString( static_cast< CFAllocatorRef >( NULL ), CF::String( value ) );
+    }
+    
+    UUID::UUID( const Data & value ): _cfObject( NULL )
+    {
+        CFUUIDBytes bytes;
+        
+        memset( &bytes, 0, sizeof( CFUUIDBytes ) );
+        
+        bytes.byte0     = value[  0 ];
+        bytes.byte1     = value[  1 ];
+        bytes.byte2     = value[  2 ];
+        bytes.byte3     = value[  3 ];
+        bytes.byte4     = value[  4 ];
+        bytes.byte5     = value[  5 ];
+        bytes.byte6     = value[  6 ];
+        bytes.byte7     = value[  7 ];
+        bytes.byte8     = value[  8 ];
+        bytes.byte9     = value[  9 ];
+        bytes.byte10    = value[ 10 ];
+        bytes.byte11    = value[ 11 ];
+        bytes.byte12    = value[ 12 ];
+        bytes.byte13    = value[ 13 ];
+        bytes.byte14    = value[ 14 ];
+        bytes.byte15    = value[ 15 ];
+        this->_cfObject = CFUUIDCreateFromUUIDBytes( static_cast< CFAllocatorRef >( NULL ), bytes );
+    }
+    
     #ifdef CFPP_HAS_CPP11
     UUID::UUID( UUID && value )
     {
@@ -114,6 +144,16 @@ namespace CF
         return operator =( UUID( value ) );
     }
     
+    UUID & UUID::operator = ( const std::string & value )
+    {
+        return operator =( UUID( value ) );
+    }
+    
+    UUID & UUID::operator = ( const Data & value )
+    {
+        return operator =( UUID( value ) );
+    }
+    
     bool UUID::operator == ( const UUID & value ) const
     {
         return this->GetString() == value.GetString();
@@ -132,6 +172,11 @@ namespace CF
     bool UUID::operator == ( const std::string & value ) const
     {
         return this->GetString() == value;
+    }
+    
+    bool UUID::operator == ( const Data & value ) const
+    {
+        return this->GetData() == value;
     }
     
     bool UUID::operator != ( const UUID & value ) const
@@ -154,13 +199,14 @@ namespace CF
         return !operator ==( value );
     }
     
+    bool UUID::operator != ( const Data & value ) const
+    {
+        return !operator ==( value );
+    }
+    
     UUID::operator std::string () const
     {
-        String s;
-        
-        s = this->GetString();
-        
-        return s.GetValue();
+        return this->GetString();
     }
     
     CFTypeID UUID::GetTypeID( void ) const
@@ -185,6 +231,11 @@ namespace CF
         s = CFUUIDCreateString( static_cast< CFAllocatorRef >( NULL ), this->_cfObject );
         
         return s.As< CFStringRef >();
+    }
+    
+    Data UUID::GetData( void ) const
+    {
+        return Data( static_cast< CFStringRef >( this->GetString() ) );
     }
     
     void swap( UUID & v1, UUID & v2 )
