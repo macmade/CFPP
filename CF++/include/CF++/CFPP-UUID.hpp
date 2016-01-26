@@ -48,6 +48,7 @@ namespace CF
             UUID( CFTypeRef value );
             UUID( CFUUIDRef value );
             UUID( const std::string & value );
+            UUID( const Data & value );
             
             #ifdef CFPP_HAS_CPP11
             UUID( UUID && value );
@@ -60,16 +61,19 @@ namespace CF
             UUID & operator = ( CFTypeRef value );
             UUID & operator = ( CFUUIDRef value );
             UUID & operator = ( const std::string & value );
+            UUID & operator = ( const Data & value );
             
             bool operator == ( const UUID & value ) const;
             bool operator == ( CFTypeRef value ) const;
             bool operator == ( CFUUIDRef value ) const;
             bool operator == ( const std::string & value ) const;
+            bool operator == ( const Data & value ) const;
             
             bool operator != ( const UUID & value ) const;
             bool operator != ( CFTypeRef value ) const;
             bool operator != ( CFUUIDRef value ) const;
             bool operator != ( const std::string & value ) const;
+            bool operator != ( const Data & value ) const;
             
             operator std::string () const;
             
