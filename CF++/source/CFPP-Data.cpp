@@ -319,7 +319,7 @@ namespace CF
         CFDataGetBytes( this->_cfObject, range, bytes );
     }
     
-    void Data::AppendBytes( Byte * bytes, CFIndex length ) const
+    void Data::AppendBytes( const Byte * bytes, CFIndex length ) const
     {
         if( this->_cfObject == NULL || bytes == NULL )
         {
@@ -329,7 +329,7 @@ namespace CF
         CFDataAppendBytes( this->_cfObject, bytes, length );
     }
     
-    void Data::ReplaceBytes( CFRange range, Byte * newBytes, CFIndex newLength ) const
+    void Data::ReplaceBytes( CFRange range, const Byte * newBytes, CFIndex newLength ) const
     {
         if( this->_cfObject == NULL || newBytes == NULL )
         {

@@ -96,8 +96,8 @@ namespace CF
             const Byte * GetBytePtr( void ) const;
             Byte       * GetMutableBytePtr( void ) const;
             void         GetBytes( CFRange range, Byte * bytes ) const;
-            void         AppendBytes( Byte * bytes, CFIndex length ) const;
-            void         ReplaceBytes( CFRange range, Byte * newBytes, CFIndex newLength ) const;
+            void         AppendBytes( const Byte * bytes, CFIndex length ) const;
+            void         ReplaceBytes( CFRange range, const Byte * newBytes, CFIndex newLength ) const;
             void         DeleteBytes( CFRange range ) const;
             
             friend void swap( Data & v1, Data & v2 );
