@@ -698,6 +698,32 @@ TEST( CFPP_Data, DeleteBytes )
     ASSERT_TRUE( d1.GetBytePtr()[ 1 ] == 0xEF );
 }
 
+TEST( CFPP_Data, Find )
+{
+    CFRange  r;
+    CF::Data d1( std::string( "hello, world" ) );
+    CF::Data d2( std::string( "foo" ) );
+    CF::Data d3;
+    CF::Data d4( static_cast< CFDataRef >( nullptr ) );
+    
+    r = d1.Find( std::string( ", " ), CFRangeMake( 0, d1.GetLength() ), 0 );
+    
+    ASSERT_TRUE( r.location == 5 );
+    ASSERT_TRUE( r.length   == 2 );
+    
+    r = d2.Find( std::string( ", " ), CFRangeMake( 0, d2.GetLength() ), 0 );
+    
+    ASSERT_TRUE( r.location == kCFNotFound );
+    
+    r = d3.Find( std::string( ", " ), CFRangeMake( 0, d3.GetLength() ), 0 );
+    
+    ASSERT_TRUE( r.location == kCFNotFound );
+    
+    r = d4.Find( std::string( ", " ), CFRangeMake( 0, d4.GetLength() ), 0 );
+    
+    ASSERT_TRUE( r.location == kCFNotFound );
+}
+
 TEST( CFPP_Data, Swap )
 {
     CF::Data d1;

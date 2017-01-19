@@ -4,22 +4,36 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5F4838C7A83B1ADE0F5BF4DE9B5E20ECCA89600B" : 9223372036854775807,
     "A59B79241FF48B87B8A2D6239F13C873F14163E3" : 0,
-    "B1764083CD350F39D0754DBF900B411F37563D7B" : 0
+    "B1764083CD350F39D0754DBF900B411F37563D7B" : 0,
+    "ADCA9195A868291B07F204C2B3711DB7BA58BF77" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0F11F6D1-5DBA-4A16-BB09-9B71B34927A5",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "A59B79241FF48B87B8A2D6239F13C873F14163E3" : "CFPPSubmodules\/gmock-xcode",
-    "B1764083CD350F39D0754DBF900B411F37563D7B" : "CFPP"
+    "5F4838C7A83B1ADE0F5BF4DE9B5E20ECCA89600B" : "..\/..",
+    "A59B79241FF48B87B8A2D6239F13C873F14163E3" : "CFPP\/Submodules\/gmock-xcode\/",
+    "B1764083CD350F39D0754DBF900B411F37563D7B" : "CFPP\/",
+    "ADCA9195A868291B07F204C2B3711DB7BA58BF77" : ".."
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "CoreFoundation++",
-  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CoreFoundation++.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:DigiDNA\/iMazing-Mac.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5F4838C7A83B1ADE0F5BF4DE9B5E20ECCA89600B"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/macmade\/gmock-xcode.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A59B79241FF48B87B8A2D6239F13C873F14163E3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/DigiDNA\/DDNAToolKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ADCA9195A868291B07F204C2B3711DB7BA58BF77"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:macmade\/CFPP.git",
