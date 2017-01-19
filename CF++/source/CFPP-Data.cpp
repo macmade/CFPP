@@ -349,6 +349,21 @@ namespace CF
         CFDataDeleteBytes( this->_cfObject, range );
     }
     
+    CFRange Data::Find( Data data, CFRange range, CFDataSearchFlags flags )
+    {
+        CFRange r;
+        
+        r.location = kCFNotFound;
+        r.length   = 0;
+        
+        if( this->_cfObject == NULL )
+        {
+            return r;
+        }
+        
+        return CFDataFind( this->_cfObject, data, range, flags );
+    }
+    
     Data::Iterator Data::begin( void ) const
     {
         return Iterator( this->_cfObject, this->GetLength() );
