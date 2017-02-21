@@ -74,14 +74,26 @@ namespace CF
             virtual CFTypeRef GetCFObject( void ) const;
             
             bool      ContainsKey( CFTypeRef key ) const;
+            bool      ContainsKey( const char * key ) const;
+            bool      ContainsKey( const String & key ) const;
             bool      ContainsValue( CFTypeRef value ) const;
             void      RemoveAllValues( void ) const;
             CFIndex   GetCount( void ) const;
             CFTypeRef GetValue( CFTypeRef key ) const;
+            CFTypeRef GetValue( const char * key ) const;
+            CFTypeRef GetValue( const String & key ) const;
             void      AddValue( CFTypeRef key, CFTypeRef value ) const;
+            void      AddValue( const char * key, CFTypeRef value ) const;
+            void      AddValue( const String & key, CFTypeRef value ) const;
             void      RemoveValue( CFTypeRef key ) const;
+            void      RemoveValue( const char * key ) const;
+            void      RemoveValue( const String & key ) const;
             void      ReplaceValue( CFTypeRef key, CFTypeRef value ) const;
+            void      ReplaceValue( const char * key, CFTypeRef value ) const;
+            void      ReplaceValue( const String & key, CFTypeRef value ) const;
             void      SetValue( CFTypeRef key, CFTypeRef value ) const;
+            void      SetValue( const char * key, CFTypeRef value ) const;
+            void      SetValue( const String & key, CFTypeRef value ) const;
             
             friend void swap( Dictionary & v1, Dictionary & v2 );
             

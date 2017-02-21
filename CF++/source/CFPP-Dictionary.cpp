@@ -335,6 +335,16 @@ namespace CF
         return ( CFDictionaryContainsKey( this->_cfObject, key ) ) ? true : false;
     }
     
+    bool Dictionary::ContainsKey( const char * key ) const
+    {
+        return this->ContainsKey( String( key ) );
+    }
+    
+    bool Dictionary::ContainsKey( const String & key ) const
+    {
+        return this->ContainsKey( key.GetCFObject() );
+    }
+    
     bool Dictionary::ContainsValue( CFTypeRef value ) const
     {
         if( this->_cfObject == NULL || value == NULL )
@@ -370,6 +380,16 @@ namespace CF
         return CFDictionaryGetValue( this->_cfObject, key );
     }
     
+    CFTypeRef Dictionary::GetValue( const char * key ) const
+    {
+        return this->GetValue( String( key ) );
+    }
+    
+    CFTypeRef Dictionary::GetValue( const String & key ) const
+    {
+        return this->GetValue( key.GetCFObject() );
+    }
+    
     void Dictionary::AddValue( CFTypeRef key, CFTypeRef value ) const
     {
         if( this->_cfObject == NULL || key == NULL || value == NULL )
@@ -377,7 +397,17 @@ namespace CF
             return;
         }
         
-        return CFDictionaryAddValue( this->_cfObject, key, value );
+        CFDictionaryAddValue( this->_cfObject, key, value );
+    }
+    
+    void Dictionary::AddValue( const char * key, CFTypeRef value ) const
+    {
+        this->AddValue( String( key ), value );
+    }
+    
+    void Dictionary::AddValue( const String & key, CFTypeRef value ) const
+    {
+        this->AddValue( key.GetCFObject(), value );
     }
     
     void Dictionary::RemoveValue( CFTypeRef key ) const
@@ -387,7 +417,17 @@ namespace CF
             return;
         }
         
-        return CFDictionaryRemoveValue( this->_cfObject, key );
+        CFDictionaryRemoveValue( this->_cfObject, key );
+    }
+    
+    void Dictionary::RemoveValue( const char * key ) const
+    {
+        this->RemoveValue( String( key ) );
+    }
+    
+    void Dictionary::RemoveValue( const String & key ) const
+    {
+        this->RemoveValue( key.GetCFObject() );
     }
     
     void Dictionary::ReplaceValue( CFTypeRef key, CFTypeRef value ) const
@@ -397,7 +437,17 @@ namespace CF
             return;
         }
         
-        return CFDictionaryReplaceValue( this->_cfObject, key, value );
+        CFDictionaryReplaceValue( this->_cfObject, key, value );
+    }
+    
+    void Dictionary::ReplaceValue( const char * key, CFTypeRef value ) const
+    {
+        this->ReplaceValue( String( key ), value );
+    }
+    
+    void Dictionary::ReplaceValue( const String & key, CFTypeRef value ) const
+    {
+        this->ReplaceValue( key.GetCFObject(), value );
     }
     
     void Dictionary::SetValue( CFTypeRef key, CFTypeRef value ) const
@@ -407,7 +457,17 @@ namespace CF
             return;
         }
         
-        return CFDictionarySetValue( this->_cfObject, key, value );
+        CFDictionarySetValue( this->_cfObject, key, value );
+    }
+    
+    void Dictionary::SetValue( const char * key, CFTypeRef value ) const
+    {
+        this->SetValue( String( key ), value );
+    }
+    
+    void Dictionary::SetValue( const String & key, CFTypeRef value ) const
+    {
+        this->SetValue( key.GetCFObject(), value );
     }
     
     Dictionary::Iterator Dictionary::begin( void ) const
