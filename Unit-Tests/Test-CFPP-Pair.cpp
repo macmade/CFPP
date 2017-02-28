@@ -108,26 +108,6 @@ TEST( CFPP_Pair, CTOR_CChar_CChar )
     ASSERT_TRUE( CF::String( p.GetValue() ) == s2 );
 }
 
-TEST( CFPP_Pair, CTOR_String_Number )
-{
-    CF::String s( "hello" );
-    CF::Number n( 42 );
-    CF::Pair   p( s, n );
-    
-    ASSERT_TRUE( p.GetKey()   == s.GetCFObject() );
-    ASSERT_TRUE( p.GetValue() == n.GetCFObject() );
-}
-
-TEST( CFPP_Pair, CTOR_CChar_Number )
-{
-    const char * s = "hello";
-    CF::Number   n( 42 );
-    CF::Pair     p( s, n );
-    
-    ASSERT_TRUE( CF::String( p.GetKey() ) == s );
-    ASSERT_TRUE( p.GetValue() == n.GetCFObject() );
-}
-
 TEST( CFPP_Pair, CCTOR )
 {
     CF::Pair p1( "hello", "world" );
