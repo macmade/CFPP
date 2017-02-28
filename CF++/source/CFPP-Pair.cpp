@@ -104,22 +104,6 @@ namespace CF
         this->SetValue( s2 );
     }
     
-    Pair::Pair( const String & key, const Number & value ): _key( NULL ), _value( NULL )
-    {
-        this->SetKey( key );
-        this->SetValue( value );
-    }
-    
-    Pair::Pair( const char * key, const Number & value ): _key( NULL ), _value( NULL )
-    {
-        String s;
-        
-        s = key;
-        
-        this->SetKey( s );
-        this->SetValue( value );
-    }
-    
     #ifdef CFPP_HAS_CPP11
     Pair::Pair( Pair && value )
     {
