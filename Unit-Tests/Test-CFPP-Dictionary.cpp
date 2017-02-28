@@ -424,7 +424,7 @@ TEST( CFPP_Dictionary, ContainsValue )
     ASSERT_FALSE( d2.IsValid() );
     
     d1 << CF::Pair( "foo", "hello, world" );
-    d1 << CF::Pair( "bar", 42 );
+    d1 << CF::Pair( "bar", CF::Number( 42 ) );
     
     ASSERT_TRUE(  d1.ContainsValue( CF::String( "hello, world" ) ) );
     ASSERT_TRUE(  d1.ContainsValue( CF::Number( 42 ) ) );
