@@ -1,11 +1,8 @@
 language: objective-c
-osx_image: xcode8.1
 script:
 - xctool -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library (C++98)" build test
 - xctool -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library (C++11)" build test
 before_install:
-- rvm get head
-- rvm reload
 - bash Scripts/travis-before.sh
 after_success:
 - bash Scripts/travis-after.sh
