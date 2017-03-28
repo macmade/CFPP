@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "052B35781B4EB810009D98A4"
+               BlueprintIdentifier = "056C881118C8B85F006260B3"
                BuildableName = "libCF++.a"
-               BlueprintName = "CF++ Mac Static Library (C++98)"
+               BlueprintName = "CF++ Mac Static Library"
                ReferencedContainer = "container:CoreFoundation++.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "052B36151B4EB828009D98A4"
-               BuildableName = "CF++ Tests (C++98).xctest"
-               BlueprintName = "CF++ Tests (C++98)"
+               BlueprintIdentifier = "056C58BE1B1898FF00C6214A"
+               BuildableName = "CF++ Tests.xctest"
+               BlueprintName = "CF++ Tests"
                ReferencedContainer = "container:CoreFoundation++.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,9 +43,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "052B35781B4EB810009D98A4"
+            BlueprintIdentifier = "056C881118C8B85F006260B3"
             BuildableName = "libCF++.a"
-            BlueprintName = "CF++ Mac Static Library (C++98)"
+            BlueprintName = "CF++ Mac Static Library"
             ReferencedContainer = "container:CoreFoundation++.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,9 +66,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "052B35781B4EB810009D98A4"
+            BlueprintIdentifier = "056C881118C8B85F006260B3"
             BuildableName = "libCF++.a"
-            BlueprintName = "CF++ Mac Static Library (C++98)"
+            BlueprintName = "CF++ Mac Static Library"
             ReferencedContainer = "container:CoreFoundation++.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,9 +84,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "052B35781B4EB810009D98A4"
+            BlueprintIdentifier = "056C881118C8B85F006260B3"
             BuildableName = "libCF++.a"
-            BlueprintName = "CF++ Mac Static Library (C++98)"
+            BlueprintName = "CF++ Mac Static Library"
             ReferencedContainer = "container:CoreFoundation++.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

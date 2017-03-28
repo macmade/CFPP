@@ -16,7 +16,35 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "056C884918C8C547006260B3"
                BuildableName = "libCF++.dylib"
-               BlueprintName = "CF++ Mac Dynamic Library (C++11)"
+               BlueprintName = "CF++ Mac Dynamic Library"
+               ReferencedContainer = "container:CoreFoundation++.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "056C885E18C8C76B006260B3"
+               BuildableName = "CF++.framework"
+               BlueprintName = "CF++ Mac Framework"
+               ReferencedContainer = "container:CoreFoundation++.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "056C881118C8B85F006260B3"
+               BuildableName = "libCF++.a"
+               BlueprintName = "CF++ Mac Static Library"
                ReferencedContainer = "container:CoreFoundation++.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +62,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "056C58BE1B1898FF00C6214A"
-               BuildableName = "CF++ Tests (C++11).xctest"
-               BlueprintName = "CF++ Tests (C++11)"
+               BuildableName = "CF++ Tests.xctest"
+               BlueprintName = "CF++ Tests"
                ReferencedContainer = "container:CoreFoundation++.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -45,7 +73,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "056C884918C8C547006260B3"
             BuildableName = "libCF++.dylib"
-            BlueprintName = "CF++ Mac Dynamic Library (C++11)"
+            BlueprintName = "CF++ Mac Dynamic Library"
             ReferencedContainer = "container:CoreFoundation++.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,7 +95,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "056C884918C8C547006260B3"
             BuildableName = "libCF++.dylib"
-            BlueprintName = "CF++ Mac Dynamic Library (C++11)"
+            BlueprintName = "CF++ Mac Dynamic Library"
             ReferencedContainer = "container:CoreFoundation++.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -85,7 +113,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "056C884918C8C547006260B3"
             BuildableName = "libCF++.dylib"
-            BlueprintName = "CF++ Mac Dynamic Library (C++11)"
+            BlueprintName = "CF++ Mac Dynamic Library"
             ReferencedContainer = "container:CoreFoundation++.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
