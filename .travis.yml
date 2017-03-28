@@ -1,7 +1,6 @@
 language: objective-c
-osx_image: xcode8.2
 script:
-- xctool -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library (C++98)" build test
+#- xctool -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library (C++98)" build test
 - xctool -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library (C++11)" build test
 before_install:
 - bash Scripts/travis-before.sh
