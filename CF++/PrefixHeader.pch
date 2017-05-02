@@ -36,10 +36,6 @@
 #ifndef CFPP_PREFIX_H
 #define CFPP_PREFIX_H
 
-#include <CoreFoundation/CoreFoundation.h>
-#include <string>
-#include <iostream>
-
 #include "../Submodules/SeriousCode/clang-warnings.h"
 
 #endif /* CFPP_PREFIX_H */

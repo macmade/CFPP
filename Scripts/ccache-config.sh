@@ -107,7 +107,7 @@ export CCACHE_LIMIT_MULTIPLE=0.8
 
 # If set to a file path, ccache will write information on what it is doing
 # to the specified file. This is useful for tracking down problems.
-export CCACHE_LOGFILE=/Users/macmade/Desktop/ccache-log.txt
+export CCACHE_LOGFILE=
 
 # This option specifies the maximum number of files to keep in the cache.
 # Use 0 for no limit (which is the default).
