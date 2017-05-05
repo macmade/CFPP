@@ -34,7 +34,7 @@ export CCACHE_COMPILERCHECK=mtime
 # retrieved from the cache; compressed and uncompressed results will still
 # be usable regardless of this setting. The default is false.
 # export CACHE_COMPRESS
-export CCACHE_NOCOMPRESS
+export CCACHE_NOCOMPRESS=1
 
 # This setting determines the level at which ccache will compress object
 # files. It only has effect if compression is enabled. The value defaults
@@ -55,8 +55,8 @@ export CCACHE_DIRECT
 
 # When true, ccache will just call the real compiler, bypassing the cache
 # completely. The default is false.
-export CCACHE_DISABLE
-# export CCACHE_NODISABLE
+#export CCACHE_DISABLE
+export CCACHE_NODISABLE=1
 
 # This setting is a list of paths to files that ccache will include in the
 # the hash sum that identifies the build. The list separator is semicolon
@@ -71,7 +71,7 @@ export CCACHE_EXTRAFILES=
 # this corrupts the cached object file as well. Hard links are never made
 # for compressed cache files. This means that you should not enable
 # compression if you want to use hard links. The default is false.
-export CCACHE_HARDLINK
+export CCACHE_HARDLINK=1
 # export CCACHE_NOHARDLINK
 
 # If true (which is the default), ccache will include the current working
@@ -86,7 +86,7 @@ export CCACHE_HARDLINK
 # You can disable this setting to get cache hits when compiling the same
 # source code in different directories if you don’t mind that CWD in the
 # debug info might be incorrect.
-export CCACHE_HASHDIR
+export CCACHE_HASHDIR=1
 # export CCACHE_NOHASHDIR
 
 # This setting is a list of paths to files (or directories with headers)
@@ -98,7 +98,7 @@ export CCACHE_IGNOREHEADERS=
 
 # If true, ccache will not discard the comments before hashing preprocessor
 # output. This can be used to check documentation with -Wdocumentation.
-export CCACHE_COMMENTS
+export CCACHE_COMMENTS=1
 # export CCACHE_NOCOMMENTS
 
 # Sets the limit when cleaning up. Files are deleted (in LRU order) until
@@ -138,18 +138,18 @@ export CCACHE_PREFIX_CPP=
 # because your ccache directory is read-only, then you need to set
 # temporary_dir as otherwise ccache will fail to create temporary files.
 # export CCACHE_READONLY
-export CCACHE_NOREADONLY
+export CCACHE_NOREADONLY=1
 
 # Just like read_only except that ccache will only try to retrieve results
 # from the cache using the direct mode, not the preprocessor mode. See
 # documentation for read_only regarding using a read-only ccache directory.
 # export CCACHE_READONLY_DIRECT
-export CCACHE_NOREADONLY_DIRECT
+export CCACHE_NOREADONLY_DIRECT=1
 
 # If true, ccache will not use any previously stored result. New results
 # will still be cached, possibly overwriting any pre-existing results.
 # export CCACHE_RECACHE
-export CCACHE_NORECACHE
+export CCACHE_NORECACHE=1
 
 # If true, ccache will first run the preprocessor to preprocess the source
 # code (see THE PREPROCESSOR MODE) and then on a cache miss run the compiler
@@ -160,7 +160,7 @@ export CCACHE_NORECACHE
 # faster since the source code only has to be preprocessed once. The
 # downside is that some compilers won’t produce the same result (for
 # instance diagnostics warnings) when compiling preprocessed source code.
-export CCACHE_CPP2
+export CCACHE_CPP2=1
 # export CCACHE_NOCPP2
 
 # By default, ccache tries to give as few false cache hits as possible.
@@ -172,7 +172,7 @@ export CCACHE_SLOPPINESS=file_macro,time_macros,include_file_mtime,include_file_
 
 # If true, ccache will update the statistics counters on each compilation.
 # The default is true.
-export CCACHE_STATS
+export CCACHE_STATS=1
 # export CCACHE_NOSTATS
 
 # This setting specifies where ccache will put temporary files.
@@ -197,4 +197,4 @@ export CCACHE_UMASK=002
 # macro. Also note that enabling the unifier implies turning off the
 # direct mode.
 # export CCACHE_UNIFY
-export CCACHE_NOUNIFY
+export CCACHE_NOUNIFY=1
