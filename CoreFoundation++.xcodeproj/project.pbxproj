@@ -246,7 +246,6 @@
 		056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GoogleMock.xcodeproj; path = "Submodules/gmock-xcode/GoogleMock.xcodeproj"; sourceTree = "<group>"; };
 		056C58BF1B1898FF00C6214A /* CF++ Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CF++ Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C590E1B18A15A00C6214A /* travis-after.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "travis-after.sh"; sourceTree = "<group>"; };
-		056C590F1B18A15A00C6214A /* travis-before.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "travis-before.sh"; sourceTree = "<group>"; };
 		056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		056C881218C8B85F006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C884A18C8C547006260B3 /* libCF++.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libCF++.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,7 +272,6 @@
 		05BDE01618CDB2450028F339 /* CFPP-URL.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "CFPP-URL.hpp"; sourceTree = "<group>"; };
 		05BDE01718CDB2450028F339 /* CF++.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "CF++.hpp"; sourceTree = "<group>"; };
 		05BDE01818CDB2450028F339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05BDE01918CDB2450028F339 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		05BDE01B18CDB2450028F339 /* CFPP-Array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Array.cpp"; sourceTree = "<group>"; };
 		05BDE01C18CDB2450028F339 /* CFPP-Boolean.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Boolean.cpp"; sourceTree = "<group>"; };
 		05BDE01D18CDB2450028F339 /* CFPP-Data.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-Data.cpp"; sourceTree = "<group>"; };
@@ -379,7 +377,6 @@
 			isa = PBXGroup;
 			children = (
 				056C590E1B18A15A00C6214A /* travis-after.sh */,
-				056C590F1B18A15A00C6214A /* travis-before.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -424,7 +421,6 @@
 			children = (
 				05BDE00B18CDB2450028F339 /* include */,
 				05BDE01818CDB2450028F339 /* Info.plist */,
-				05BDE01918CDB2450028F339 /* PrefixHeader.pch */,
 				05BDE01A18CDB2450028F339 /* source */,
 			);
 			path = "CF++";
@@ -927,7 +923,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"CF++/include",
 				);
 				INFOPLIST_FILE = "Unit-Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -949,7 +944,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"CF++/include",
 				);
 				INFOPLIST_FILE = "Unit-Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -1065,6 +1059,10 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					Submodules/SeriousCode/,
+					"CF++/include/",
+				);
 				LLVM_LTO = YES_THIN;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1079,12 +1077,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				PRODUCT_NAME = "CF++";
 				SKIP_INSTALL = YES;
 			};
@@ -1095,12 +1087,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				PRODUCT_NAME = "CF++";
 			};
 			name = GCov;
@@ -1112,12 +1098,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				INFOPLIST_FILE = "CF++/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
@@ -1129,12 +1109,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CF__.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "CF++";
@@ -1157,7 +1131,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"CF++/include",
 				);
 				INFOPLIST_FILE = "Unit-Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -1274,6 +1247,10 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					Submodules/SeriousCode/,
+					"CF++/include/",
+				);
 				LLVM_LTO = YES_THIN;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1386,6 +1363,10 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					Submodules/SeriousCode/,
+					"CF++/include/",
+				);
 				LLVM_LTO = YES_THIN;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1400,12 +1381,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				PRODUCT_NAME = "CF++";
 				SKIP_INSTALL = YES;
 			};
@@ -1416,12 +1391,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				PRODUCT_NAME = "CF++";
 				SKIP_INSTALL = YES;
 			};
@@ -1432,12 +1401,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				PRODUCT_NAME = "CF++";
 			};
 			name = Debug;
@@ -1447,12 +1410,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				PRODUCT_NAME = "CF++";
 			};
 			name = Release;
@@ -1464,12 +1421,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				INFOPLIST_FILE = "CF++/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
@@ -1484,12 +1435,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				INFOPLIST_FILE = "CF++/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
@@ -1501,12 +1446,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CF__.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "CF++";
@@ -1520,12 +1459,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CF__.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CF++/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"CF++/include",
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "CF++";

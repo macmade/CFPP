@@ -43,6 +43,10 @@
 #include <memory>
 #include <algorithm>
 
+#ifdef __clang__
+#include <clang-warnings.h>
+#endif
+
 /*
  * Disable warnings about class members not having DLL-interface.
  * Eg: std::shared_ptr
