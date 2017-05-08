@@ -36,6 +36,10 @@
 #include <CF++.hpp>
 #include <GoogleMock/GoogleMock.h>
 
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wc++98-compat-local-type-template-args"
+#endif3
+
 using namespace testing;
 
 TEST( CFPP_WriteStream, CTOR )
