@@ -10,7 +10,7 @@ script:
 - set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library" build analyze test | xcpretty
 - set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Dynamic Library" build analyze test | xcpretty
 - set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Framework" build analyze test | xcpretty
-- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ iOS Static Library" build analyze test | xcpretty
+- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ iOS Static Library" -destination generic/platform=iOS build analyze | xcpretty
 before_script:
 - ccache -s
 after_script:
