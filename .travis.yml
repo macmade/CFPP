@@ -1,7 +1,24 @@
 language: objective-c
+cache:
+    directories:
+    - $HOME/.ccache
+install:
+- gem install xcpretty
+- brew install ccache
+- PATH=$PATH:/usr/local/opt/ccache/libexec
 script:
-- xctool -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library" build test
+- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library" build analyze test | xcpretty
+- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Dynamic Library" build analyze test | xcpretty
+- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Framework" build analyze test | xcpretty
+- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ iOS Static Library" build analyze test | xcpretty
+before_script:
+- ccache -s
+after_script:
+- ccache -s
+- ccache -z
 before_install:
 - bash Scripts/travis-before.sh
 after_success:
 - bash Scripts/travis-after.sh
+notifications:
+    slack: xs-labs:FXh1yLXNkpcVxKZhZU6icdhI
