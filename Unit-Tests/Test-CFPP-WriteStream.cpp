@@ -38,7 +38,7 @@
 
 #ifdef __clang__
 #pragma clang diagnostic ignored "-Wc++98-compat-local-type-template-args"
-#endif3
+#endif
 
 using namespace testing;
 
