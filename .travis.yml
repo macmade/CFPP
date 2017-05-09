@@ -8,10 +8,14 @@ install:
 - PATH=$PATH:/usr/local/opt/ccache/libexec
 - brew install macmade/tap/xcode-coveralls
 script:
-- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library" build analyze test | xcpretty
-- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Dynamic Library" build analyze test | xcpretty
-- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Framework" build analyze test | xcpretty
-- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ iOS Static Library" -destination generic/platform=iOS build analyze | xcpretty
+- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library" build test | xcpretty
+- set -o pipefail && scan-build --status-bugs xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Static Library" analyze | xcpretty
+- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Dynamic Library" build test | xcpretty
+- set -o pipefail && scan-build --status-bugs xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Dynamic Library" analyze | xcpretty
+- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Framework" build test | xcpretty
+- set -o pipefail && scan-build --status-bugs xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ Mac Framework" analyze | xcpretty
+- set -o pipefail && xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ iOS Static Library" -destination generic/platform=iOS build | xcpretty
+- set -o pipefail && scan-build --status-bugs xcodebuild -project "CoreFoundation++.xcodeproj" -scheme "CF++ iOS Static Library" -destination generic/platform=iOS analyze | xcpretty
 before_script:
 - ccache -s
 - ccache -z
