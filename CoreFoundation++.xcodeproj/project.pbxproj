@@ -1077,6 +1077,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "CF++";
 				SKIP_INSTALL = YES;
 			};
@@ -1087,6 +1091,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "CF++";
 			};
 			name = GCov;
@@ -1098,6 +1106,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "CF++/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
@@ -1109,6 +1121,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CF__.dst;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "CF++";
@@ -1381,6 +1397,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "CF++";
 				SKIP_INSTALL = YES;
 			};
@@ -1391,6 +1411,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "CF++";
 				SKIP_INSTALL = YES;
 			};
@@ -1401,6 +1425,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "CF++";
 			};
 			name = Debug;
@@ -1410,6 +1438,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "CF++";
 			};
 			name = Release;
@@ -1421,6 +1453,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "CF++/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
@@ -1435,6 +1471,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "CF++/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
@@ -1446,6 +1486,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CF__.dst;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "CF++";
@@ -1459,6 +1503,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CF__.dst;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					CFPP_BUILD,
+					"$(inherited)",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "CF++";

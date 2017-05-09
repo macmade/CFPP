@@ -43,7 +43,7 @@
 #include <memory>
 #include <algorithm>
 
-#ifdef __clang__
+#if defined( CFPP_BUILD ) && defined( __clang__ )
 #include <clang-warnings.h>
 #endif
 
