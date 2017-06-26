@@ -227,12 +227,12 @@ namespace CF
     {
         if( this->_cfObject == NULL )
         {
-            return 0;
+            return -1;
         }
         
         if( buffer == NULL || length <= 0 )
         {
-            return 0;
+            return -1;
         }
         
         return CFWriteStreamWrite( this->_cfObject, buffer, length );
@@ -241,6 +241,52 @@ namespace CF
     CFIndex WriteStream::Write( const Data & data ) const
     {
         return this->Write( data.GetBytePtr(), data.GetLength() );
+    }
+    
+    bool WriteStream::WriteAll( const Data::Byte * buffer, CFIndex length ) const
+    {
+        CFIndex written;
+        
+        if( this->_cfObject == NULL )
+        {
+            return false;
+        }
+        
+        if( buffer == NULL || length <= 0 )
+        {
+            return false;
+        }
+        
+        while( 1 )
+        {
+            written = CFWriteStreamWrite( this->_cfObject, buffer, length );
+            
+            if( written < 0 )
+            {
+                return false;
+            }
+            else if( written == 0 )
+            {
+                return this->GetStatus() == kCFStreamStatusAtEnd;
+            }
+            else if( written == length )
+            {
+                return true;
+            }
+            
+            length -= written;
+            buffer += written;
+            
+            if( length < 0 )
+            {
+                return false;
+            }
+        }
+    }
+    
+    bool WriteStream::WriteAll( const Data & data ) const
+    {
+        return this->WriteAll( data.GetBytePtr(), data.GetLength() );
     }
     
     AutoPointer WriteStream::GetProperty( const String & name )

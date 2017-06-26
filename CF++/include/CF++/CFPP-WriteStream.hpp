@@ -75,6 +75,8 @@ namespace CF
             Error              GetError( void ) const;
             CFIndex            Write( const Data::Byte * buffer, CFIndex length ) const;
             CFIndex            Write( const Data & data ) const;
+            bool               WriteAll( const Data::Byte * buffer, CFIndex length ) const;
+            bool               WriteAll( const Data & data ) const;
             AutoPointer        GetProperty( const String & name );
             bool               SetProperty( const String & name, CFTypeRef value );
             bool               SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context );
