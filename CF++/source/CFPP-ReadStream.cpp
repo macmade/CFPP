@@ -227,12 +227,12 @@ namespace CF
     {
         if( this->_cfObject == NULL )
         {
-            return 0;
+            return -1;
         }
         
         if( buffer == NULL || length <= 0 )
         {
-            return 0;
+            return -1;
         }
         
         return CFReadStreamRead( this->_cfObject, buffer, length );
@@ -240,9 +240,9 @@ namespace CF
     
     Data ReadStream::Read( CFIndex length ) const
     {
-        Data         data;
-        Data::Byte * bytes;
-        CFIndex      read;
+        Data                          data;
+        std::shared_ptr< Data::Byte > bytes;
+        CFIndex                       read;
         
         if( this->_cfObject == NULL )
         {
@@ -251,30 +251,43 @@ namespace CF
         
         if( length > 0 )
         {
-            bytes = new Data::Byte[ length ];
-            read  = this->Read( bytes, length );
+            bytes = std::shared_ptr< Data::Byte >( new Data::Byte[ length ], std::default_delete< Data::Byte[] >() );
             
-            if( read > 0 )
+            do
             {
-                data.AppendBytes( bytes, read );
+                read    = this->Read( bytes.get(), length );
+                length -= read;
+                
+                if( read == -1 || length < 0 )
+                {
+                    return {};
+                }
+                else if( read > 0 )
+                {
+                    data.AppendBytes( bytes.get(), read );
+                }
             }
+            while( length > 0 );
         }
         else
         {
-            bytes = new Data::Byte[ 4096 ];
+            bytes = std::shared_ptr< Data::Byte >( new Data::Byte[ 4096 ], std::default_delete< Data::Byte[] >() );
             
-            while( this->HasBytesAvailable() )
+            do
             {
-                read = this->Read( bytes, 4096 );
+                read = this->Read( bytes.get(), 4096 );
                 
-                if( read > 0 )
+                if( read == -1 )
                 {
-                    data.AppendBytes( bytes, read );
+                    return {};
+                }
+                else if( read > 0 )
+                {
+                    data.AppendBytes( bytes.get(), read );
                 }
             }
+            while( read > 0 );
         }
-        
-        delete[] bytes;
         
         return data;
     }
