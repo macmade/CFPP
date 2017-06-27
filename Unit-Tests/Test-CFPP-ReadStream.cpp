@@ -386,12 +386,12 @@ TEST( CFPP_ReadStream, Read_BytePtr_CFIndex )
     ASSERT_NO_THROW( s2.Read( NULL, 10 ) );
     ASSERT_NO_THROW( s3.Read( NULL, 10 ) );
     
-    ASSERT_EQ( s1.Read( NULL, 10 ), 0 );
-    ASSERT_EQ( s2.Read( NULL, 10 ), 0 );
-    ASSERT_EQ( s3.Read( NULL, 10 ), 0 );
+    ASSERT_EQ( s1.Read( NULL, 10 ), -1 );
+    ASSERT_EQ( s2.Read( NULL, 10 ), -1 );
+    ASSERT_EQ( s3.Read( NULL, 10 ), -1 );
     
-    ASSERT_EQ( s1.Read( buf, 10 ),  0 );
-    ASSERT_EQ( s2.Read( buf, 10 ), 10 );
+    ASSERT_EQ( s1.Read( buf, 10 ), -1 );
+    ASSERT_GE( s2.Read( buf, 10 ),  0 );
     ASSERT_EQ( s3.Read( buf, 10 ), -1 );
     
     while( s2.HasBytesAvailable() )
@@ -405,7 +405,7 @@ TEST( CFPP_ReadStream, Read_BytePtr_CFIndex )
     s2.Close();
     s3.Close();
     
-    ASSERT_EQ( s1.Read( buf, 10 ),  0 );
+    ASSERT_EQ( s1.Read( buf, 10 ), -1 );
     ASSERT_EQ( s2.Read( buf, 10 ), -1 );
     ASSERT_EQ( s3.Read( buf, 10 ), -1 );
 }
