@@ -61,6 +61,8 @@ namespace CF
         data = stream.Read();
         ap   = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), data, 0, NULL, NULL );
         
+        stream.Close();
+        
         return ap.As< T >();
     }
     
@@ -96,6 +98,7 @@ namespace CF
         URL         url;
         Data        d;
         WriteStream stream;
+        bool        ret;
         
         if( this->IsValid() == false )
         {
@@ -115,7 +118,11 @@ namespace CF
             return false;
         }
         
-        return stream.Write( d ) == d.GetLength();
+        ret = stream.WriteAll( d );
+        
+        stream.Close();
+        
+        return ret;
     }
     
     template < class T >
