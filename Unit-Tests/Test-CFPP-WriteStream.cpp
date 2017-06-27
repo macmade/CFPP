@@ -47,8 +47,6 @@ TEST( CFPP_WriteStream, CTOR )
     CF::WriteStream s;
     
     ASSERT_FALSE( s.IsValid() );
-    
-    s.Close();
 }
 
 TEST( CFPP_WriteStream, CTOR_STDString )
@@ -58,9 +56,6 @@ TEST( CFPP_WriteStream, CTOR_STDString )
     
     ASSERT_TRUE( s1.IsValid() );
     ASSERT_TRUE( s2.IsValid() );
-    
-    s1.Close();
-    s2.Close();
 }
 
 TEST( CFPP_WriteStream, CTOR_CChar )
@@ -70,9 +65,6 @@ TEST( CFPP_WriteStream, CTOR_CChar )
     
     ASSERT_TRUE( s1.IsValid() );
     ASSERT_TRUE( s2.IsValid() );
-    
-    s1.Close();
-    s2.Close();
 }
 
 TEST( CFPP_WriteStream, CTOR_URL )
@@ -82,9 +74,6 @@ TEST( CFPP_WriteStream, CTOR_URL )
     
     ASSERT_TRUE( s1.IsValid() );
     ASSERT_TRUE( s2.IsValid() );
-    
-    s1.Close();
-    s2.Close();
 }
 
 TEST( CFPP_WriteStream, CTOR_AutoPointer )
@@ -96,10 +85,6 @@ TEST( CFPP_WriteStream, CTOR_AutoPointer )
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_FALSE( s2.IsValid() );
     ASSERT_FALSE( s3.IsValid() );
-    
-    s1.Close();
-    s2.Close();
-    s3.Close();
 }
 
 TEST( CFPP_WriteStream, CTOR_CFType )
@@ -111,10 +96,6 @@ TEST( CFPP_WriteStream, CTOR_CFType )
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_TRUE(  s2.IsValid() );
     ASSERT_FALSE( s3.IsValid() );
-    
-    s1.Close();
-    s2.Close();
-    s3.Close();
 }
 
 TEST( CFPP_WriteStream, CTOR_CFWriteStream )
@@ -126,10 +107,6 @@ TEST( CFPP_WriteStream, CTOR_CFWriteStream )
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_TRUE(  s2.IsValid() );
     ASSERT_FALSE( s3.IsValid() );
-    
-    s1.Close();
-    s2.Close();
-    s3.Close();
 }
 
 TEST( CFPP_WriteStream, CCTOR )
@@ -139,9 +116,6 @@ TEST( CFPP_WriteStream, CCTOR )
     
     ASSERT_TRUE( s1.IsValid() );
     ASSERT_TRUE( s2.IsValid() );
-    
-    s1.Close();
-    s2.Close();
 }
 
 #ifdef CFPP_HAS_CPP11
@@ -152,9 +126,6 @@ TEST( CFPP_WriteStream, MCTOR )
     
     ASSERT_FALSE( s1.IsValid() );
     ASSERT_TRUE(  s2.IsValid() );
-    
-    s1.Close();
-    s2.Close();
 }
 #endif
 
@@ -175,10 +146,6 @@ TEST( CFPP_WriteStream, OperatorAssignWriteStream )
     s2 = s3;
     
     ASSERT_FALSE( s2.IsValid() );
-    
-    s1.Close();
-    s2.Close();
-    s3.Close();
 }
 
 TEST( CFPP_WriteStream, OperatorAssignAutoPointer )
@@ -198,10 +165,6 @@ TEST( CFPP_WriteStream, OperatorAssignAutoPointer )
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_FALSE( s2.IsValid() );
     ASSERT_FALSE( s3.IsValid() );
-    
-    s1.Close();
-    s2.Close();
-    s3.Close();
 }
 
 TEST( CFPP_WriteStream, OperatorAssignCFType )
@@ -219,9 +182,6 @@ TEST( CFPP_WriteStream, OperatorAssignCFType )
     s2 = static_cast< CFTypeRef >( NULL );
     
     ASSERT_FALSE( s2.IsValid() );
-    
-    s1.Close();
-    s2.Close();
 }
 
 TEST( CFPP_WriteStream, OperatorAssignCFWriteStream )
@@ -239,9 +199,6 @@ TEST( CFPP_WriteStream, OperatorAssignCFWriteStream )
     s2 = static_cast< CFWriteStreamRef >( NULL );
     
     ASSERT_FALSE( s2.IsValid() );
-    
-    s1.Close();
-    s2.Close();
 }
 
 TEST( CFPP_WriteStream, GetTypeID )
@@ -249,8 +206,6 @@ TEST( CFPP_WriteStream, GetTypeID )
     CF::WriteStream s;
     
     ASSERT_EQ( s.GetTypeID(), CFWriteStreamGetTypeID() );
-    
-    s.Close();
 }
 
 TEST( CFPP_WriteStream, GetCFObject )
@@ -263,10 +218,6 @@ TEST( CFPP_WriteStream, GetCFObject )
     ASSERT_TRUE( s2.GetCFObject() != NULL );
     ASSERT_TRUE( s3.GetCFObject() == NULL );
     ASSERT_EQ( CFGetTypeID( s2.GetCFObject() ), CFWriteStreamGetTypeID() );
-    
-    s1.Close();
-    s2.Close();
-    s3.Close();
 }
 
 TEST( CFPP_WriteStream, Open )
