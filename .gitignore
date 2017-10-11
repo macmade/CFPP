@@ -33,4 +33,5 @@ xcuserdata
 *.vcxproj.user
 *.csproj.user
 ipch
+.vs
 
