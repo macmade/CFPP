@@ -1076,7 +1076,6 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
@@ -1095,7 +1094,6 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
@@ -1111,7 +1109,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0579A96E2006A6F000400B61 /* Debug - ccache.xcconfig */;
 			buildSettings = {
-				CLANG_STATIC_ANALYZER_MODE = shallow;
 				HEADER_SEARCH_PATHS = (
 					Submodules/SeriousCode/,
 					"CF++/include/",
@@ -1124,7 +1121,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0579A96C2006A6F000400B61 /* Release - ccache.xcconfig */;
 			buildSettings = {
-				CLANG_STATIC_ANALYZER_MODE = shallow;
 				HEADER_SEARCH_PATHS = (
 					Submodules/SeriousCode/,
 					"CF++/include/",
