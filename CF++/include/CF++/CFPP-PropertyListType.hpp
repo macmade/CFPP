@@ -40,23 +40,14 @@ namespace CF
 {
     class Data;
     
-    typedef enum
-    {
-        PropertyListFormatXML       = 0x00,
-        PropertyListFormatBinary    = 0x01
-    }
-    PropertyListFormat;
-    
     template < class T >
-    class CFPP_EXPORT PropertyListType: public Type
+    class CFPP_EXPORT PropertyListType: public PropertyListBase
     {
         public:
             
             static T FromPropertyList( const std::string & path );
             static T FromPropertyListString( const std::string & plist );
             static T FromPropertyListData( const Data & plist );
-            bool ToPropertyList( const std::string & path, PropertyListFormat format = PropertyListFormatXML ) const;
-            Data ToPropertyList( PropertyListFormat format = PropertyListFormatXML ) const;
     };
 }
 

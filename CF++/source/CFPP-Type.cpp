@@ -211,6 +211,20 @@ namespace CF
         return ( this->GetCFObject() != NULL ) ? true : false;
     }
     
+    bool Type::IsValidPropertyList( PropertyListFormat format ) const
+    {
+        CFPropertyListFormat cfFormat;
+        
+        cfFormat = kCFPropertyListXMLFormat_v1_0;
+        
+        if( format == PropertyListFormatBinary )
+        {
+            cfFormat = kCFPropertyListBinaryFormat_v1_0;
+        }
+        
+        return this->IsValid() && CFPropertyListIsValid( this->GetCFObject(), cfFormat );
+    }
+    
     bool Type::IsBoolean( void ) const
     {
         return this->GetTypeID() == CFBooleanGetTypeID();

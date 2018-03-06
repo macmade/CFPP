@@ -28,69 +28,70 @@
  ******************************************************************************/
 
 /*!
- * @header      CF++.h
+ * @file        CFPP-PropertyListBase.cpp
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
- * @abstract    CoreFoundation++ main header file
+ * @abstract    CoreFoundation++ CFNumberRef wrapper
  */
 
-#ifndef CFPP
-#define CFPP
+#include <CF++.hpp>
 
-#include <CoreFoundation/CoreFoundation.h>
-#include <string>
-#include <iostream>
-#include <vector>
-#include <memory>
-#include <algorithm>
-
-#if defined( CFPP_BUILD ) && defined( __clang__ )
-#include <clang-warnings.h>
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wc++11-long-long" /* Do not warn about long long in C++98 */
 #endif
 
-/*
- * Disable warnings about class members not having DLL-interface.
- * Eg: std::shared_ptr
- */
-#ifdef _WIN32
-#pragma warning( push )
-#pragma warning( disable: 4251 )
-#endif
-
-#if defined( __cplusplus ) && ( __cplusplus > 199711L || ( defined( _MSC_VER ) && _MSC_VER >= 1800 ) )
-#define CFPP_HAS_CPP11  1
-#endif
-
-#ifdef _WIN32
-#ifdef CFPP_DLL_BUILD
-#define CFPP_EXPORT __declspec( dllexport )
-#else
-#define CFPP_EXPORT __declspec( dllimport )
-#endif
-#else
-#define CFPP_EXPORT     
-#endif
-
-#include <CF++/CFPP-Type.hpp>
-#include <CF++/CFPP-PropertyListBase.hpp>
-#include <CF++/CFPP-PropertyListType.hpp>
-#include <CF++/CFPP-AutoPointer.hpp>
-#include <CF++/CFPP-Boolean.hpp>
-#include <CF++/CFPP-Number.hpp>
-#include <CF++/CFPP-String.hpp>
-#include <CF++/CFPP-URL.hpp>
-#include <CF++/CFPP-Data.hpp>
-#include <CF++/CFPP-Date.hpp>
-#include <CF++/CFPP-Array.hpp>
-#include <CF++/CFPP-Pair.hpp>
-#include <CF++/CFPP-Dictionary.hpp>
-#include <CF++/CFPP-Error.hpp>
-#include <CF++/CFPP-UUID.hpp>
-#include <CF++/CFPP-ReadStream.hpp>
-#include <CF++/CFPP-WriteStream.hpp>
-#include <CF++/CFPP-PropertyListType-Definition.hpp>
-
-#ifdef _WIN32
-#pragma warning( pop )
-#endif
-
-#endif /* CFPP */
+namespace CF
+{
+    bool PropertyListBase::ToPropertyList( const std::string & path, PropertyListFormat format ) const
+    {
+        URL         url;
+        Data        d;
+        WriteStream stream;
+        bool        ret;
+        
+        if( this->IsValid() == false )
+        {
+            return false;
+        }
+        
+        url = URL::FileSystemURL( path );
+        d   = this->ToPropertyList( format );
+        
+        if( d.GetLength() == 0 )
+        {
+            return false;
+        }
+        
+        if( stream.Open( url ) == false )
+        {
+            return false;
+        }
+        
+        ret = stream.WriteAll( d );
+        
+        stream.Close();
+        
+        return ret;
+    }
+    
+    Data PropertyListBase::ToPropertyList( PropertyListFormat format ) const
+    {
+        AutoPointer          data;
+        CFPropertyListFormat cfFormat;
+        
+        if( this->IsValid() == false )
+        {
+            return static_cast< CFDataRef >( NULL );
+        }
+        
+        cfFormat = kCFPropertyListXMLFormat_v1_0;
+        
+        if( format == PropertyListFormatBinary )
+        {
+            cfFormat = kCFPropertyListBinaryFormat_v1_0;
+        }
+        
+        data = CFPropertyListCreateData( static_cast< CFAllocatorRef >( NULL ), this->GetCFObject(), cfFormat, 0, NULL );
+        
+        return data.As< CFDataRef >();
+    }
+}
