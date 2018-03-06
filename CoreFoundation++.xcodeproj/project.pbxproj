@@ -16,6 +16,8 @@
 		052B1AE61B45CC0100B97CB9 /* Test-CFPP-String-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1AD41B45C99E00B97CB9 /* Test-CFPP-String-Iterator.cpp */; };
 		0534BD16204F05E9008AF9D2 /* CFPP-PropertyListBase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD12204F05E9008AF9D2 /* CFPP-PropertyListBase.hpp */; };
 		0534BD18204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
+		0534BD21204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD1D204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp */; };
+		0534BD23204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */; };
 		054702AD1B1D8FD10036259D /* Test-CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029C1B1D8FA00036259D /* Test-CFPP-Array.cpp */; };
 		054702AE1B1D8FD10036259D /* Test-CFPP-AutoPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029D1B1D8FA00036259D /* Test-CFPP-AutoPointer.cpp */; };
 		054702AF1B1D8FD10036259D /* Test-CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029E1B1D8FA00036259D /* Test-CFPP-Boolean.cpp */; };
@@ -222,6 +224,8 @@
 		052B1ADB1B45C9E000B97CB9 /* Test-CFPP-Dictionary-Iterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-Dictionary-Iterator.cpp"; sourceTree = "<group>"; };
 		0534BD12204F05E9008AF9D2 /* CFPP-PropertyListBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "CFPP-PropertyListBase.hpp"; sourceTree = "<group>"; };
 		0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-PropertyListBase.cpp"; sourceTree = "<group>"; };
+		0534BD1D204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "CFPP-AnyPropertyListType.hpp"; sourceTree = "<group>"; };
+		0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-AnyPropertyListType.cpp"; sourceTree = "<group>"; };
 		0547029C1B1D8FA00036259D /* Test-CFPP-Array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-Array.cpp"; sourceTree = "<group>"; };
 		0547029D1B1D8FA00036259D /* Test-CFPP-AutoPointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-AutoPointer.cpp"; sourceTree = "<group>"; };
 		0547029E1B1D8FA00036259D /* Test-CFPP-Boolean.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-Boolean.cpp"; sourceTree = "<group>"; };
@@ -583,6 +587,7 @@
 		05BDE00C18CDB2450028F339 /* CF++ */ = {
 			isa = PBXGroup;
 			children = (
+				0534BD1D204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp */,
 				05BDE00D18CDB2450028F339 /* CFPP-Array.hpp */,
 				056C585A1B1706BB00C6214A /* CFPP-AutoPointer.hpp */,
 				05BDE00E18CDB2450028F339 /* CFPP-Boolean.hpp */,
@@ -608,6 +613,7 @@
 		05BDE01A18CDB2450028F339 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */,
 				054D7D301B46CC1D006AFF67 /* CFPP-Array-Iterator.cpp */,
 				05BDE01B18CDB2450028F339 /* CFPP-Array.cpp */,
 				056C585B1B1707EE00C6214A /* CFPP-AutoPointer.cpp */,
@@ -641,6 +647,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0534BD16204F05E9008AF9D2 /* CFPP-PropertyListBase.hpp in Headers */,
+				0534BD21204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -966,6 +973,7 @@
 				05BDE02C18CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
 				059DBCC31B14DC5C0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
 				05BDE02B18CDB2540028F339 /* CFPP-Date.cpp in Sources */,
+				0534BD23204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */,
 				05A604171B5D509E00C71A24 /* CFPP-ReadStream-Iterator.cpp in Sources */,
 				05BDE02E18CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
 				05632F9018ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */,
@@ -1117,10 +1125,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0579A96E2006A6F000400B61 /* Debug - ccache.xcconfig */;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					Submodules/SeriousCode/,
-					"CF++/include/",
-				);
+				HEADER_SEARCH_PATHS = "CF++/include/";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 			};
 			name = Debug;
@@ -1129,10 +1134,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0579A96C2006A6F000400B61 /* Release - ccache.xcconfig */;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					Submodules/SeriousCode/,
-					"CF++/include/",
-				);
+				HEADER_SEARCH_PATHS = "CF++/include/";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 			};
 			name = Release;
@@ -1141,10 +1143,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					CFPP_BUILD,
-					"$(inherited)",
-				);
 				PRODUCT_NAME = "CF++";
 				SKIP_INSTALL = YES;
 			};
@@ -1154,10 +1152,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					CFPP_BUILD,
-					"$(inherited)",
-				);
 				PRODUCT_NAME = "CF++";
 				SKIP_INSTALL = YES;
 			};
@@ -1167,10 +1161,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					CFPP_BUILD,
-					"$(inherited)",
-				);
 				PRODUCT_NAME = "CF++";
 			};
 			name = Debug;
@@ -1179,10 +1169,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					CFPP_BUILD,
-					"$(inherited)",
-				);
 				PRODUCT_NAME = "CF++";
 			};
 			name = Release;
@@ -1193,10 +1179,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					CFPP_BUILD,
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = "CF++/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
@@ -1210,10 +1192,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					CFPP_BUILD,
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = "CF++/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CFPP";
 				PRODUCT_NAME = "CF++";
@@ -1225,10 +1203,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CF__.dst;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					CFPP_BUILD,
-					"$(inherited)",
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "CF++";
@@ -1243,10 +1217,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CF__.dst;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					CFPP_BUILD,
-					"$(inherited)",
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "CF++";
