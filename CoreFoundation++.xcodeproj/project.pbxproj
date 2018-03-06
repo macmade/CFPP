@@ -18,6 +18,12 @@
 		0534BD18204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
 		0534BD21204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD1D204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp */; };
 		0534BD23204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */; };
+		0534BD28204F1FA6008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */; };
+		0534BD29204F1FA7008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */; };
+		0534BD2A204F1FA9008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */; };
+		0534BD2B204F1FAD008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
+		0534BD2C204F1FAD008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
+		0534BD2D204F1FAE008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
 		054702AD1B1D8FD10036259D /* Test-CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029C1B1D8FA00036259D /* Test-CFPP-Array.cpp */; };
 		054702AE1B1D8FD10036259D /* Test-CFPP-AutoPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029D1B1D8FA00036259D /* Test-CFPP-AutoPointer.cpp */; };
 		054702AF1B1D8FD10036259D /* Test-CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029E1B1D8FA00036259D /* Test-CFPP-Boolean.cpp */; };
@@ -996,11 +1002,13 @@
 				056C585D1B1708D800C6214A /* CFPP-AutoPointer.cpp in Sources */,
 				059DBCBC1B14DC5B0014D9A1 /* CFPP-ReadStream.cpp in Sources */,
 				05BDE03A18CDB2540028F339 /* CFPP-Type.cpp in Sources */,
+				0534BD2B204F1FAD008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */,
 				054D7D3B1B46CC25006AFF67 /* CFPP-Array-Iterator.cpp in Sources */,
 				05BDE03B18CDB2540028F339 /* CFPP-URL.cpp in Sources */,
 				05BDE03218CDB2540028F339 /* CFPP-Array.cpp in Sources */,
 				05BDE03618CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
 				059DBCBD1B14DC5B0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
+				0534BD28204F1FA6008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */,
 				05BDE03518CDB2540028F339 /* CFPP-Date.cpp in Sources */,
 				05A604191B5D509E00C71A24 /* CFPP-ReadStream-Iterator.cpp in Sources */,
 				05BDE03818CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
@@ -1023,11 +1031,13 @@
 				056C585E1B1708D900C6214A /* CFPP-AutoPointer.cpp in Sources */,
 				059DBCBE1B14DC5B0014D9A1 /* CFPP-ReadStream.cpp in Sources */,
 				05BDE03D18CDB2540028F339 /* CFPP-Boolean.cpp in Sources */,
+				0534BD2C204F1FAD008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */,
 				054D7D3F1B46CC26006AFF67 /* CFPP-Array-Iterator.cpp in Sources */,
 				05BDE03E18CDB2540028F339 /* CFPP-Data.cpp in Sources */,
 				05BDE03F18CDB2540028F339 /* CFPP-Date.cpp in Sources */,
 				05BDE04018CDB2540028F339 /* CFPP-Dictionary.cpp in Sources */,
 				059DBCBF1B14DC5B0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
+				0534BD29204F1FA7008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */,
 				05BDE04118CDB2540028F339 /* CFPP-Number.cpp in Sources */,
 				05A6041B1B5D509E00C71A24 /* CFPP-ReadStream-Iterator.cpp in Sources */,
 				05BDE04218CDB2540028F339 /* CFPP-Pair.cpp in Sources */,
@@ -1050,11 +1060,13 @@
 				056C585F1B1708D900C6214A /* CFPP-AutoPointer.cpp in Sources */,
 				059DBCC01B14DC5C0014D9A1 /* CFPP-ReadStream.cpp in Sources */,
 				05BDE04E18CDB2550028F339 /* CFPP-Type.cpp in Sources */,
+				0534BD2D204F1FAE008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */,
 				054D7D431B46CC26006AFF67 /* CFPP-Array-Iterator.cpp in Sources */,
 				05BDE04F18CDB2550028F339 /* CFPP-URL.cpp in Sources */,
 				05BDE04618CDB2550028F339 /* CFPP-Array.cpp in Sources */,
 				05BDE04A18CDB2550028F339 /* CFPP-Dictionary.cpp in Sources */,
 				059DBCC11B14DC5C0014D9A1 /* CFPP-WriteStream.cpp in Sources */,
+				0534BD2A204F1FA9008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */,
 				05BDE04918CDB2550028F339 /* CFPP-Date.cpp in Sources */,
 				05A6041D1B5D509E00C71A24 /* CFPP-ReadStream-Iterator.cpp in Sources */,
 				05BDE04C18CDB2550028F339 /* CFPP-Pair.cpp in Sources */,

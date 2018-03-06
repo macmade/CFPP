@@ -366,6 +366,31 @@ TEST( CFPP_Type, IsValid )
     ASSERT_FALSE( t2.IsValid() );
 }
 
+TEST( CFPP_Type, IsValidPropertyList )
+{
+    CF::Data        o1;
+    CF::UUID        o2;
+    CF::Dictionary  o3;
+    CF::Array       o4;
+    
+    ASSERT_TRUE(  o1.IsValidPropertyList( CF::PropertyListFormatBinary ) );
+    ASSERT_FALSE( o2.IsValidPropertyList( CF::PropertyListFormatBinary ) );
+    ASSERT_TRUE(  o3.IsValidPropertyList( CF::PropertyListFormatBinary ) );
+    ASSERT_TRUE(  o4.IsValidPropertyList( CF::PropertyListFormatBinary ) );
+    
+    o3.SetValue( CF::String( "Foo" ), CF::String( "Bar" ) );
+    o4.AppendValue( CF::Number() );
+    
+    ASSERT_TRUE(  o3.IsValidPropertyList( CF::PropertyListFormatBinary ) );
+    ASSERT_TRUE(  o4.IsValidPropertyList( CF::PropertyListFormatBinary ) );
+    
+    o3.SetValue( CF::String( "Foo" ), CF::UUID() );
+    o4.AppendValue( CF::UUID() );
+    
+    ASSERT_FALSE(  o3.IsValidPropertyList( CF::PropertyListFormatBinary ) );
+    ASSERT_FALSE(  o4.IsValidPropertyList( CF::PropertyListFormatBinary ) );
+}
+
 TEST( CFPP_Type, IsBoolean )
 {
     CF::Boolean o1;
