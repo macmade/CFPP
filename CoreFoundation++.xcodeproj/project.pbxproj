@@ -10,6 +10,7 @@
 		050B83CB1EB904C70090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
 		050B83CF1EB904D40090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
 		050B83D01EB905440090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
+		051E8C9C204F268E0080893C /* Test-CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051E8C98204F268E0080893C /* Test-CFPP-AnyPropertyListType.cpp */; };
 		052B1AE31B45CC0100B97CB9 /* Test-CFPP-Array-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1AD91B45C9E000B97CB9 /* Test-CFPP-Array-Iterator.cpp */; };
 		052B1AE41B45CC0100B97CB9 /* Test-CFPP-Data-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1ADA1B45C9E000B97CB9 /* Test-CFPP-Data-Iterator.cpp */; };
 		052B1AE51B45CC0100B97CB9 /* Test-CFPP-Dictionary-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1ADB1B45C9E000B97CB9 /* Test-CFPP-Dictionary-Iterator.cpp */; };
@@ -223,6 +224,7 @@
 
 /* Begin PBXFileReference section */
 		050B83CA1EB904C70090EA12 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		051E8C98204F268E0080893C /* Test-CFPP-AnyPropertyListType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-AnyPropertyListType.cpp"; sourceTree = "<group>"; };
 		051F09651946EB70004B6E47 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		052B1AD41B45C99E00B97CB9 /* Test-CFPP-String-Iterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-String-Iterator.cpp"; sourceTree = "<group>"; };
 		052B1AD91B45C9E000B97CB9 /* Test-CFPP-Array-Iterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-Array-Iterator.cpp"; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				054702AC1B1D8FA00036259D /* Info.plist */,
+				051E8C98204F268E0080893C /* Test-CFPP-AnyPropertyListType.cpp */,
 				052B1AD91B45C9E000B97CB9 /* Test-CFPP-Array-Iterator.cpp */,
 				0547029C1B1D8FA00036259D /* Test-CFPP-Array.cpp */,
 				0547029D1B1D8FA00036259D /* Test-CFPP-AutoPointer.cpp */,
@@ -961,6 +964,7 @@
 				052B1AE31B45CC0100B97CB9 /* Test-CFPP-Array-Iterator.cpp in Sources */,
 				054702B41B1D8FD10036259D /* Test-CFPP-Number.cpp in Sources */,
 				054702B61B1D8FD10036259D /* Test-CFPP-PropertyListType.cpp in Sources */,
+				051E8C9C204F268E0080893C /* Test-CFPP-AnyPropertyListType.cpp in Sources */,
 				052B1AE61B45CC0100B97CB9 /* Test-CFPP-String-Iterator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

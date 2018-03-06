@@ -44,9 +44,9 @@ namespace CF
     {
         public:
             
-            AnyPropertyListType FromPropertyList( const std::string & path );
-            AnyPropertyListType FromPropertyListString( const std::string & plist );
-            AnyPropertyListType FromPropertyListData( const Data & plist );
+            static AnyPropertyListType FromPropertyList( const std::string & path );
+            static AnyPropertyListType FromPropertyListString( const std::string & plist );
+            static AnyPropertyListType FromPropertyListData( const Data & plist );
             
             AnyPropertyListType( PropertyListFormat format );
             AnyPropertyListType( const AnyPropertyListType & value );
@@ -62,7 +62,9 @@ namespace CF
             AnyPropertyListType & operator = ( AnyPropertyListType value );
             AnyPropertyListType & operator = ( const AutoPointer & value );
             AnyPropertyListType & operator = ( CFTypeRef value );
-                        
+            
+            bool IsValidPropertyList( void ) const;
+            
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             

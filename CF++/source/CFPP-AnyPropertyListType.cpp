@@ -165,6 +165,11 @@ namespace CF
         return operator =( AnyPropertyListType( value, this->_format ) );
     }
     
+    bool AnyPropertyListType::IsValidPropertyList( void ) const
+    {
+        return Type::IsValidPropertyList( this->_format );
+    }
+    
     CFTypeID AnyPropertyListType::GetTypeID( void ) const
     {
         if( this->_cfObject == NULL )
