@@ -38,6 +38,13 @@
 
 namespace CF
 {
+    typedef enum
+    {
+        PropertyListFormatXML       = 0x00,
+        PropertyListFormatBinary    = 0x01
+    }
+    PropertyListFormat;
+    
     class CFPP_EXPORT Type
     {
         public:
@@ -74,6 +81,7 @@ namespace CF
             CFIndex     GetRetainCount( void ) const;
             
             bool IsValid( void ) const;
+            bool IsValidPropertyList( PropertyListFormat format ) const;
             bool IsBoolean( void ) const;
             bool IsNumber( void ) const;
             bool IsDate( void ) const;

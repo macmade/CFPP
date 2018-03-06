@@ -91,62 +91,6 @@ namespace CF
         
         return ap.As< T >();
     }
-    
-    template < class T >
-    bool PropertyListType< T >::ToPropertyList( const std::string & path, PropertyListFormat format ) const
-    {
-        URL         url;
-        Data        d;
-        WriteStream stream;
-        bool        ret;
-        
-        if( this->IsValid() == false )
-        {
-            return false;
-        }
-        
-        url = URL::FileSystemURL( path );
-        d   = this->ToPropertyList( format );
-        
-        if( d.GetLength() == 0 )
-        {
-            return false;
-        }
-        
-        if( stream.Open( url ) == false )
-        {
-            return false;
-        }
-        
-        ret = stream.WriteAll( d );
-        
-        stream.Close();
-        
-        return ret;
-    }
-    
-    template < class T >
-    Data PropertyListType< T >::ToPropertyList( PropertyListFormat format ) const
-    {
-        AutoPointer          data;
-        CFPropertyListFormat cfFormat;
-        
-        if( this->IsValid() == false )
-        {
-            return static_cast< CFDataRef >( NULL );
-        }
-        
-        cfFormat = kCFPropertyListXMLFormat_v1_0;
-        
-        if( format == PropertyListFormatBinary )
-        {
-            cfFormat = kCFPropertyListBinaryFormat_v1_0;
-        }
-        
-        data = CFPropertyListCreateData( static_cast< CFAllocatorRef >( NULL ), this->GetCFObject(), cfFormat, 0, NULL );
-        
-        return data.As< CFDataRef >();
-    }
 }
 
 #endif /* CFPP_PROPERTY_LIST_TYPE_DEFINITION_H */

@@ -28,27 +28,55 @@
  ******************************************************************************/
 
 /*!
- * @header      CFPP-PropertyListType.h
+ * @header      CFPP-AnyPropertyListType.h
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
- * @abstract    CoreFoundation++ base class for property list compatible types
+ * @abstract    CoreFoundation++ generic wrapper for CF property list types
  */
 
-#ifndef CFPP_PROPERTY_LIST_TYPE_H
-#define CFPP_PROPERTY_LIST_TYPE_H
+#ifndef CFPP_ANY_PROPERTY_LIST_TYPE_H
+#define CFPP_ANY_PROPERTY_LIST_TYPE_H
 
 namespace CF
 {
     class Data;
     
-    template < class T >
-    class CFPP_EXPORT PropertyListType: public PropertyListBase
+    class CFPP_EXPORT AnyPropertyListType: public PropertyListBase
     {
         public:
             
-            static T FromPropertyList( const std::string & path );
-            static T FromPropertyListString( const std::string & plist );
-            static T FromPropertyListData( const Data & plist );
+            static AnyPropertyListType FromPropertyList( const std::string & path );
+            static AnyPropertyListType FromPropertyListString( const std::string & plist );
+            static AnyPropertyListType FromPropertyListData( const Data & plist );
+            
+            AnyPropertyListType( PropertyListFormat format );
+            AnyPropertyListType( const AnyPropertyListType & value );
+            AnyPropertyListType( const AutoPointer & value, PropertyListFormat format );
+            AnyPropertyListType( CFTypeRef value, PropertyListFormat format );
+            
+            #ifdef CFPP_HAS_CPP11
+            AnyPropertyListType( AnyPropertyListType && value );
+            #endif
+            
+            virtual ~AnyPropertyListType( void );
+            
+            AnyPropertyListType & operator = ( AnyPropertyListType value );
+            AnyPropertyListType & operator = ( const AutoPointer & value );
+            AnyPropertyListType & operator = ( CFTypeRef value );
+            
+            bool IsValidPropertyList( void ) const;
+            
+            virtual CFTypeID  GetTypeID( void ) const;
+            virtual CFTypeRef GetCFObject( void ) const;
+            
+            PropertyListFormat GetFormat( void ) const;
+            
+            friend void swap( AnyPropertyListType & v1, AnyPropertyListType & v2 );
+            
+        protected:
+            
+            CFTypeRef          _cfObject;
+            PropertyListFormat _format;
     };
 }
 
-#endif /* CFPP_PROPERTY_LIST_TYPE_H */
+#endif /* CFPP_ANY_PROPERTY_LIST_TYPE_H */
