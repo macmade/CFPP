@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\CF++\include\CF++.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-AnyPropertyListType.hpp" />
     <ClInclude Include="..\CF++\include\CF++\CFPP-Array.hpp" />
     <ClInclude Include="..\CF++\include\CF++\CFPP-AutoPointer.hpp" />
     <ClInclude Include="..\CF++\include\CF++\CFPP-Boolean.hpp" />
@@ -39,6 +40,7 @@
     <ClInclude Include="..\CF++\include\CF++\CFPP-WriteStream.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\CF++\source\CFPP-AnyPropertyListType.cpp" />
     <ClCompile Include="..\CF++\source\CFPP-Array-Iterator.cpp" />
     <ClCompile Include="..\CF++\source\CFPP-Array.cpp" />
     <ClCompile Include="..\CF++\source\CFPP-AutoPointer.cpp" />
