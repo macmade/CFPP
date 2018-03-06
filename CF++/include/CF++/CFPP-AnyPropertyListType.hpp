@@ -28,66 +28,53 @@
  ******************************************************************************/
 
 /*!
- * @header      CF++.h
+ * @header      CFPP-AnyPropertyListType.h
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
- * @abstract    CoreFoundation++ main header file
+ * @abstract    CoreFoundation++ generic wrapper for CF property list types
  */
 
-#ifndef CFPP
-#define CFPP
+#ifndef CFPP_ANY_PROPERTY_LIST_TYPE_H
+#define CFPP_ANY_PROPERTY_LIST_TYPE_H
 
-#include <CoreFoundation/CoreFoundation.h>
-#include <string>
-#include <iostream>
-#include <vector>
-#include <memory>
-#include <algorithm>
+namespace CF
+{
+    class Data;
+    
+    class CFPP_EXPORT AnyPropertyListType: public PropertyListBase
+    {
+        public:
+            
+            AnyPropertyListType FromPropertyList( const std::string & path );
+            AnyPropertyListType FromPropertyListString( const std::string & plist );
+            AnyPropertyListType FromPropertyListData( const Data & plist );
+            
+            AnyPropertyListType( PropertyListFormat format );
+            AnyPropertyListType( const AnyPropertyListType & value );
+            AnyPropertyListType( const AutoPointer & value, PropertyListFormat format );
+            AnyPropertyListType( CFTypeRef value, PropertyListFormat format );
+            
+            #ifdef CFPP_HAS_CPP11
+            AnyPropertyListType( AnyPropertyListType && value );
+            #endif
+            
+            virtual ~AnyPropertyListType( void );
+            
+            AnyPropertyListType & operator = ( AnyPropertyListType value );
+            AnyPropertyListType & operator = ( const AutoPointer & value );
+            AnyPropertyListType & operator = ( CFTypeRef value );
+                        
+            virtual CFTypeID  GetTypeID( void ) const;
+            virtual CFTypeRef GetCFObject( void ) const;
+            
+            PropertyListFormat GetFormat( void ) const;
+            
+            friend void swap( AnyPropertyListType & v1, AnyPropertyListType & v2 );
+            
+        protected:
+            
+            CFTypeRef          _cfObject;
+            PropertyListFormat _format;
+    };
+}
 
-/*
- * Disable warnings about class members not having DLL-interface.
- * Eg: std::shared_ptr
- */
-#ifdef _WIN32
-#pragma warning( push )
-#pragma warning( disable: 4251 )
-#endif
-
-#if defined( __cplusplus ) && ( __cplusplus > 199711L || ( defined( _MSC_VER ) && _MSC_VER >= 1800 ) )
-#define CFPP_HAS_CPP11  1
-#endif
-
-#ifdef _WIN32
-#ifdef CFPP_DLL_BUILD
-#define CFPP_EXPORT __declspec( dllexport )
-#else
-#define CFPP_EXPORT __declspec( dllimport )
-#endif
-#else
-#define CFPP_EXPORT     
-#endif
-
-#include <CF++/CFPP-Type.hpp>
-#include <CF++/CFPP-PropertyListBase.hpp>
-#include <CF++/CFPP-PropertyListType.hpp>
-#include <CF++/CFPP-AutoPointer.hpp>
-#include <CF++/CFPP-AnyPropertyListType.hpp>
-#include <CF++/CFPP-Boolean.hpp>
-#include <CF++/CFPP-Number.hpp>
-#include <CF++/CFPP-String.hpp>
-#include <CF++/CFPP-URL.hpp>
-#include <CF++/CFPP-Data.hpp>
-#include <CF++/CFPP-Date.hpp>
-#include <CF++/CFPP-Array.hpp>
-#include <CF++/CFPP-Pair.hpp>
-#include <CF++/CFPP-Dictionary.hpp>
-#include <CF++/CFPP-Error.hpp>
-#include <CF++/CFPP-UUID.hpp>
-#include <CF++/CFPP-ReadStream.hpp>
-#include <CF++/CFPP-WriteStream.hpp>
-#include <CF++/CFPP-PropertyListType-Definition.hpp>
-
-#ifdef _WIN32
-#pragma warning( pop )
-#endif
-
-#endif /* CFPP */
+#endif /* CFPP_ANY_PROPERTY_LIST_TYPE_H */
