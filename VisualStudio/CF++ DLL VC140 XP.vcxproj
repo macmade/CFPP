@@ -30,6 +30,7 @@
     <ClInclude Include="..\CF++\include\CF++\CFPP-Error.hpp" />
     <ClInclude Include="..\CF++\include\CF++\CFPP-Number.hpp" />
     <ClInclude Include="..\CF++\include\CF++\CFPP-Pair.hpp" />
+    <ClInclude Include="..\CF++\include\CF++\CFPP-PropertyListBase.hpp" />
     <ClInclude Include="..\CF++\include\CF++\CFPP-PropertyListType-Definition.hpp" />
     <ClInclude Include="..\CF++\include\CF++\CFPP-PropertyListType.hpp" />
     <ClInclude Include="..\CF++\include\CF++\CFPP-ReadStream.hpp" />
@@ -53,6 +54,7 @@
     <ClCompile Include="..\CF++\source\CFPP-Error.cpp" />
     <ClCompile Include="..\CF++\source\CFPP-Number.cpp" />
     <ClCompile Include="..\CF++\source\CFPP-Pair.cpp" />
+    <ClCompile Include="..\CF++\source\CFPP-PropertyListBase.cpp" />
     <ClCompile Include="..\CF++\source\CFPP-ReadStream-Iterator.cpp" />
     <ClCompile Include="..\CF++\source\CFPP-ReadStream.cpp" />
     <ClCompile Include="..\CF++\source\CFPP-String-Iterator.cpp" />
