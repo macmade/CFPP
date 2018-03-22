@@ -54,7 +54,7 @@ namespace CF
             AnyPropertyListType( CFTypeRef value, PropertyListFormat format );
             
             #ifdef CFPP_HAS_CPP11
-            AnyPropertyListType( AnyPropertyListType && value );
+            AnyPropertyListType( AnyPropertyListType && value ) noexcept;
             #endif
             
             virtual ~AnyPropertyListType( void );

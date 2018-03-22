@@ -56,7 +56,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    AutoPointer::AutoPointer( AutoPointer && value )
+    AutoPointer::AutoPointer( AutoPointer && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

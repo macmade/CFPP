@@ -52,7 +52,7 @@ namespace CF
             Pair( const char * key, const char * value );
             
             #ifdef CFPP_HAS_CPP11
-            Pair( Pair && value );
+            Pair( Pair && value ) noexcept;
             #endif
             
             virtual ~Pair( void );

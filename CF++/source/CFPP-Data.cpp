@@ -116,7 +116,7 @@ namespace CF
         }
     }
     
-    Data::Data( Data && value )
+    Data::Data( Data && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

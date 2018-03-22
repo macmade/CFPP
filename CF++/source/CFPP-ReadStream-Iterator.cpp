@@ -105,7 +105,7 @@ namespace CF
     }
 
     #ifdef CFPP_HAS_CPP11
-    ReadStream::Iterator::Iterator( Iterator && value )
+    ReadStream::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject     = value._cfObject;
         value._cfObject     = nullptr;

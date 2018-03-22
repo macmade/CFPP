@@ -57,7 +57,7 @@ namespace CF
             Error( const char * domain, CFIndex code, const Dictionary & userInfo );
             
             #ifdef CFPP_HAS_CPP11
-            Error( Error && value );
+            Error( Error && value ) noexcept;
             #endif
             
             virtual ~Error( void );

@@ -84,7 +84,7 @@ namespace CF
             URL( const char * value );
             
             #ifdef CFPP_HAS_CPP11
-            URL( URL && value );
+            URL( URL && value ) noexcept;
             #endif
             
             virtual ~URL( void );

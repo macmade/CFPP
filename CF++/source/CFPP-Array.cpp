@@ -222,7 +222,7 @@ namespace CF
         }
     }
     
-    Array::Array( Array && value )
+    Array::Array( Array && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

@@ -55,7 +55,7 @@ namespace CF
             String( const String & value );
             
             #ifdef CFPP_HAS_CPP11
-            String( String && value );
+            String( String && value ) noexcept;
             #endif
             
             virtual ~String( void );
@@ -118,7 +118,7 @@ namespace CF
                     Iterator( const Iterator & value );
                     
                     #ifdef CFPP_HAS_CPP11
-                    Iterator( Iterator && value );
+                    Iterator( Iterator && value ) noexcept;
                     #endif
                     
                     virtual ~Iterator( void );

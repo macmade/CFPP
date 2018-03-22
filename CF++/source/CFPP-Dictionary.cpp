@@ -246,7 +246,7 @@ namespace CF
         }
     }
     
-    Dictionary::Dictionary( Dictionary && value )
+    Dictionary::Dictionary( Dictionary && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

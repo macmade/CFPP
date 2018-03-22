@@ -104,7 +104,7 @@ namespace CF
             Number( double value );
             
             #ifdef CFPP_HAS_CPP11
-            Number( Number && value );
+            Number( Number && value ) noexcept;
             #endif
             
             virtual ~Number( void );

@@ -173,7 +173,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Boolean::Boolean( Boolean && value )
+    Boolean::Boolean( Boolean && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

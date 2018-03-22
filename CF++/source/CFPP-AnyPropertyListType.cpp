@@ -130,7 +130,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    AnyPropertyListType::AnyPropertyListType( AnyPropertyListType && value )
+    AnyPropertyListType::AnyPropertyListType( AnyPropertyListType && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         this->_format   = value._format;

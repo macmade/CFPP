@@ -105,7 +105,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    UUID::UUID( UUID && value )
+    UUID::UUID( UUID && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

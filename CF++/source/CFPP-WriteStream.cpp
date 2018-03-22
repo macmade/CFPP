@@ -96,7 +96,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    WriteStream::WriteStream( WriteStream && value )
+    WriteStream::WriteStream( WriteStream && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

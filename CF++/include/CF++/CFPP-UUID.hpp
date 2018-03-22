@@ -51,7 +51,7 @@ namespace CF
             UUID( const Data & value );
             
             #ifdef CFPP_HAS_CPP11
-            UUID( UUID && value );
+            UUID( UUID && value ) noexcept;
             #endif
             
             virtual ~UUID( void );

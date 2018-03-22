@@ -163,7 +163,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    URL::URL( URL && value )
+    URL::URL( URL && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

@@ -115,7 +115,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    String::Iterator::Iterator( Iterator && value )
+    String::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

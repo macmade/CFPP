@@ -53,7 +53,7 @@ namespace CF
             
             #ifdef CFPP_HAS_CPP11
             Dictionary( std::initializer_list< Pair > value );
-            Dictionary( Dictionary && value );
+            Dictionary( Dictionary && value ) noexcept;
             #endif
             
             virtual ~Dictionary( void );
@@ -105,7 +105,7 @@ namespace CF
                     Iterator( const Iterator & value );
                     
                     #ifdef CFPP_HAS_CPP11
-                    Iterator( Iterator && value );
+                    Iterator( Iterator && value ) noexcept;
                     #endif
                     
                     virtual ~Iterator( void );

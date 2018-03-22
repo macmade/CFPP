@@ -177,7 +177,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Error::Error( Error && value )
+    Error::Error( Error && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

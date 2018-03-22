@@ -105,7 +105,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Pair::Pair( Pair && value )
+    Pair::Pair( Pair && value ) noexcept
     {
         this->_key   = value._key;
         value._key   = nullptr;

@@ -52,7 +52,7 @@ namespace CF
             Boolean( bool value = false );
             
             #ifdef CFPP_HAS_CPP11
-            Boolean( Boolean && value );
+            Boolean( Boolean && value ) noexcept;
             #endif
             
             virtual ~Boolean( void );

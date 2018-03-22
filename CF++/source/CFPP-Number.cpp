@@ -571,7 +571,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Number::Number( Number && value )
+    Number::Number( Number && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;

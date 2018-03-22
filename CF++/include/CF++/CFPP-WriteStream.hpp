@@ -52,7 +52,7 @@ namespace CF
             WriteStream( CFWriteStreamRef value );
             
             #ifdef CFPP_HAS_CPP11
-            WriteStream( WriteStream && value );
+            WriteStream( WriteStream && value ) noexcept;
             #endif
             
             virtual ~WriteStream( void );
