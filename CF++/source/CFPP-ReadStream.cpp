@@ -362,7 +362,7 @@ namespace CF
         return Iterator( this->_cfObject, 0, true );
     }
     
-    void swap( ReadStream & v1, ReadStream & v2 )
+    void swap( ReadStream & v1, ReadStream & v2 ) noexcept
     {
         using std::swap;
         

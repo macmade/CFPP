@@ -95,7 +95,7 @@ namespace CF
             void      SetValue( const char * key, CFTypeRef value ) const;
             void      SetValue( const String & key, CFTypeRef value ) const;
             
-            friend void swap( Dictionary & v1, Dictionary & v2 );
+            friend void swap( Dictionary & v1, Dictionary & v2 ) noexcept;
             
             class CFPP_EXPORT Iterator: public std::iterator< std::bidirectional_iterator_tag, CF::Pair >
             {
@@ -130,7 +130,7 @@ namespace CF
                     CFTypeRef GetKey( void ) const;
                     CFTypeRef GetValue( void ) const;
                     
-                    friend void swap( Iterator & v1, Iterator & v2 );
+                    friend void swap( Iterator & v1, Iterator & v2 ) noexcept;
                     
                 private:
                     

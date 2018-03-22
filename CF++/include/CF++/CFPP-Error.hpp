@@ -77,7 +77,7 @@ namespace CF
             String     GetFailureReason( void ) const;
             String     GetRecoverySuggestion( void ) const;
             
-            friend void swap( Error & v1, Error & v2 );
+            friend void swap( Error & v1, Error & v2 ) noexcept;
             
         private:
             

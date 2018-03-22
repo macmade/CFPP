@@ -66,7 +66,7 @@ namespace CF
             void      SetKey( CFTypeRef key );
             void      SetValue( CFTypeRef value );
             
-            friend void swap( Pair & v1, Pair & v2 );
+            friend void swap( Pair & v1, Pair & v2 ) noexcept;
             
         protected:
             

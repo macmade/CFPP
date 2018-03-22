@@ -313,7 +313,7 @@ namespace CF
         return s.As< CFStringRef >();
     }
     
-    void swap( Error & v1, Error & v2 )
+    void swap( Error & v1, Error & v2 ) noexcept
     {
         using std::swap;
         

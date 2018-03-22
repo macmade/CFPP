@@ -2984,7 +2984,7 @@ namespace CF
         this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberDoubleType, &value );
     }
     
-    void swap( Number & v1, Number & v2 )
+    void swap( Number & v1, Number & v2 ) noexcept
     {
         using std::swap;
         

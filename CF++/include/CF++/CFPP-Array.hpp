@@ -88,7 +88,7 @@ namespace CF
             void      AppendArray( CFArrayRef array ) const;
             void      ExchangeValuesAtIndices( CFIndex index1, CFIndex index2 ) const;
                         
-            friend void swap( Array & v1, Array & v2 );
+            friend void swap( Array & v1, Array & v2 ) noexcept;
             
             class CFPP_EXPORT Iterator: public Type, public std::iterator< std::bidirectional_iterator_tag, CFTypeRef >
             {
@@ -125,7 +125,7 @@ namespace CF
                     CFTypeID  GetTypeID( void ) const;
                     CFTypeRef GetCFObject( void ) const;
                     
-                    friend void swap( Iterator & v1, Iterator & v2 );
+                    friend void swap( Iterator & v1, Iterator & v2 ) noexcept;
                     
                 private:
                     

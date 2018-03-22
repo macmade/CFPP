@@ -218,7 +218,7 @@ namespace CF
         return operator*();
     }
     
-    void swap( Data::Iterator & v1, Data::Iterator & v2 )
+    void swap( Data::Iterator & v1, Data::Iterator & v2 ) noexcept
     {
         using std::swap;
         

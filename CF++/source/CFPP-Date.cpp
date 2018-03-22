@@ -399,7 +399,7 @@ namespace CF
         this->_cfObject = CFDateCreate( static_cast< CFAllocatorRef >( NULL ), value );
     }
     
-    void swap( Date & v1, Date & v2 )
+    void swap( Date & v1, Date & v2 ) noexcept
     {
         using std::swap;
         

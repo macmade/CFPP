@@ -66,7 +66,7 @@ namespace CF
                 return static_cast< T >( const_cast< void * >( this->GetCFObject() ) );
             }
             
-            friend void swap( AutoPointer & v1, AutoPointer & v2 );
+            friend void swap( AutoPointer & v1, AutoPointer & v2 ) noexcept;
             
         protected:
             

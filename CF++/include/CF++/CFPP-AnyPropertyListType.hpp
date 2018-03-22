@@ -70,7 +70,7 @@ namespace CF
             
             PropertyListFormat GetFormat( void ) const;
             
-            friend void swap( AnyPropertyListType & v1, AnyPropertyListType & v2 );
+            friend void swap( AnyPropertyListType & v1, AnyPropertyListType & v2 ) noexcept;
             
         protected:
             

@@ -100,7 +100,7 @@ namespace CF
         return this->_cfObject;
     }
     
-    void swap( AutoPointer & v1, AutoPointer & v2 )
+    void swap( AutoPointer & v1, AutoPointer & v2 ) noexcept
     {
         using std::swap;
         

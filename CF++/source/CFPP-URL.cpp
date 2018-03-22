@@ -694,7 +694,7 @@ namespace CF
         CFRelease( url );
     }
     
-    void swap( URL & v1, URL & v2 )
+    void swap( URL & v1, URL & v2 ) noexcept
     {
         using std::swap;
         

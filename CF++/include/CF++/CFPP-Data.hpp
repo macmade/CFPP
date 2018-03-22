@@ -101,7 +101,7 @@ namespace CF
             void         DeleteBytes( CFRange range ) const;
             CFRange      Find( Data data, CFRange range, CFDataSearchFlags flags );
             
-            friend void swap( Data & v1, Data & v2 );
+            friend void swap( Data & v1, Data & v2 ) noexcept;
             
             class CFPP_EXPORT Iterator: public std::iterator< std::bidirectional_iterator_tag, Byte >
             {
@@ -135,7 +135,7 @@ namespace CF
                     
                     operator Byte () const;
                     
-                    friend void swap( Iterator & v1, Iterator & v2 );
+                    friend void swap( Iterator & v1, Iterator & v2 ) noexcept;
                     
                 private:
                     

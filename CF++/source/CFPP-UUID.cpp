@@ -238,7 +238,7 @@ namespace CF
         return Data( static_cast< CFStringRef >( this->GetString() ) );
     }
     
-    void swap( UUID & v1, UUID & v2 )
+    void swap( UUID & v1, UUID & v2 ) noexcept
     {
         using std::swap;
         

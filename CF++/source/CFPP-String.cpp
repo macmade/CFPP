@@ -467,7 +467,7 @@ namespace CF
         return Iterator( this->_cfObject, encoding, this->GetLength(), this->GetLength() );
     }
     
-    void swap( String & v1, String & v2 )
+    void swap( String & v1, String & v2 ) noexcept
     {
         using std::swap;
         

@@ -339,7 +339,7 @@ namespace CF
         CFWriteStreamUnscheduleFromRunLoop( this->_cfObject, runLoop, mode );
     }
     
-    void swap( WriteStream & v1, WriteStream & v2 )
+    void swap( WriteStream & v1, WriteStream & v2 ) noexcept
     {
         using std::swap;
         

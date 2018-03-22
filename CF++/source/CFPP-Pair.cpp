@@ -198,7 +198,7 @@ namespace CF
         }
     }
     
-    void swap( Pair & v1, Pair & v2 )
+    void swap( Pair & v1, Pair & v2 ) noexcept
     {
         using std::swap;
         

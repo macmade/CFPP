@@ -582,7 +582,7 @@ namespace CF
             void SetFloatValue( float value );
             void SetDoubleValue( double value );
             
-            friend void swap( Number & v1, Number & v2 );
+            friend void swap( Number & v1, Number & v2 ) noexcept;
             
         private:
             

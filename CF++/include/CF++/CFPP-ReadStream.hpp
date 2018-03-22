@@ -82,7 +82,7 @@ namespace CF
             void               ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode );
             void               UnscheduleFromRunLoop( CFRunLoopRef runLoop, CF::String mode );
             
-            friend void swap( ReadStream & v1, ReadStream & v2 );
+            friend void swap( ReadStream & v1, ReadStream & v2 ) noexcept;
             
             #ifdef __clang__
             #pragma clang diagnostic push
@@ -117,7 +117,7 @@ namespace CF
                     
                     operator Data ();
                     
-                    friend void swap( Iterator & v1, Iterator & v2 );
+                    friend void swap( Iterator & v1, Iterator & v2 ) noexcept;
                     
                 private:
                     

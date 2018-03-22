@@ -432,7 +432,7 @@ namespace CF
         return Iterator( this->_cfObject, this->GetCount(), this->GetCount() );
     }
         
-    void swap( Array & v1, Array & v2 )
+    void swap( Array & v1, Array & v2 ) noexcept
     {
         using std::swap;
         

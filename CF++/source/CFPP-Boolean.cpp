@@ -311,7 +311,7 @@ namespace CF
         #endif
     }
     
-    void swap( Boolean & v1, Boolean & v2 )
+    void swap( Boolean & v1, Boolean & v2 ) noexcept
     {
         using std::swap;
         

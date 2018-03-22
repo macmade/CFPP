@@ -83,7 +83,7 @@ namespace CF
             String GetString( void ) const;
             Data   GetData( void ) const;
             
-            friend void swap( UUID & v1, UUID & v2 );
+            friend void swap( UUID & v1, UUID & v2 ) noexcept;
             
         private:
             

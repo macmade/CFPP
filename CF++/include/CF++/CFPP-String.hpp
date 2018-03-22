@@ -108,7 +108,7 @@ namespace CF
             const char * GetCStringValue( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;
             void         SetValue( const std::string & value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             
-            friend void swap( String & v1, String & v2 );
+            friend void swap( String & v1, String & v2 ) noexcept;
             
             class CFPP_EXPORT Iterator: public std::iterator< std::bidirectional_iterator_tag, char >
             {
@@ -142,7 +142,7 @@ namespace CF
                     
                     operator char () const;
                     
-                    friend void swap( Iterator & v1, Iterator & v2 );
+                    friend void swap( Iterator & v1, Iterator & v2 ) noexcept;
                     
                 private:
                     

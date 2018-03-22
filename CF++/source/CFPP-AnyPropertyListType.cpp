@@ -190,7 +190,7 @@ namespace CF
         return this->_format;
     }
     
-    void swap( AnyPropertyListType & v1, AnyPropertyListType & v2 )
+    void swap( AnyPropertyListType & v1, AnyPropertyListType & v2 ) noexcept
     {
         using std::swap;
         

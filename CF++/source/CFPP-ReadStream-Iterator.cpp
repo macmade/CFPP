@@ -292,7 +292,7 @@ namespace CF
         delete[] buf;
     }
 
-    void swap( ReadStream::Iterator & v1, ReadStream::Iterator & v2 )
+    void swap( ReadStream::Iterator & v1, ReadStream::Iterator & v2 ) noexcept
     {
         using std::swap;
         
