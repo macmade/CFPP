@@ -34,7 +34,7 @@
 
 #include "Constants.hpp"
 
-#ifndef WIN32
+#ifndef _WIN32
 
 #define GET_CONST( _type_, _const_, _func_ )    \
  _type_ _func_( void )                          \
@@ -73,3 +73,4 @@ GET_CONST( CFBooleanRef, kCFBooleanFalse,                           GetCFBoolean
 GET_CONST( CFStringRef,  kCFErrorLocalizedDescriptionKey,           GetCFErrorLocalizedDescriptionKey )
 GET_CONST( CFStringRef,  kCFErrorLocalizedFailureReasonKey,         GetCFErrorLocalizedFailureReasonKey )
 GET_CONST( CFStringRef,  kCFErrorLocalizedRecoverySuggestionKey,    GetCFErrorLocalizedRecoverySuggestionKey )
+

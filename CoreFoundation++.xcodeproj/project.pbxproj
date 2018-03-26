@@ -25,6 +25,8 @@
 		0534BD2B204F1FAD008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
 		0534BD2C204F1FAD008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
 		0534BD2D204F1FAE008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
+		05356FD9206929F9002178E3 /* Constants.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05356FD7206929F9002178E3 /* Constants.hpp */; };
+		05356FDC20692B56002178E3 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05356FD3206929F9002178E3 /* Constants.cpp */; };
 		054702AD1B1D8FD10036259D /* Test-CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029C1B1D8FA00036259D /* Test-CFPP-Array.cpp */; };
 		054702AE1B1D8FD10036259D /* Test-CFPP-AutoPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029D1B1D8FA00036259D /* Test-CFPP-AutoPointer.cpp */; };
 		054702AF1B1D8FD10036259D /* Test-CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029E1B1D8FA00036259D /* Test-CFPP-Boolean.cpp */; };
@@ -234,6 +236,8 @@
 		0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-PropertyListBase.cpp"; sourceTree = "<group>"; };
 		0534BD1D204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "CFPP-AnyPropertyListType.hpp"; sourceTree = "<group>"; };
 		0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-AnyPropertyListType.cpp"; sourceTree = "<group>"; };
+		05356FD3206929F9002178E3 /* Constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
+		05356FD7206929F9002178E3 /* Constants.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Constants.hpp; sourceTree = "<group>"; };
 		0547029C1B1D8FA00036259D /* Test-CFPP-Array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-Array.cpp"; sourceTree = "<group>"; };
 		0547029D1B1D8FA00036259D /* Test-CFPP-AutoPointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-AutoPointer.cpp"; sourceTree = "<group>"; };
 		0547029E1B1D8FA00036259D /* Test-CFPP-Boolean.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-Boolean.cpp"; sourceTree = "<group>"; };
@@ -390,6 +394,8 @@
 		0547029B1B1D8FA00036259D /* Unit-Tests */ = {
 			isa = PBXGroup;
 			children = (
+				05356FD3206929F9002178E3 /* Constants.cpp */,
+				05356FD7206929F9002178E3 /* Constants.hpp */,
 				054702AC1B1D8FA00036259D /* Info.plist */,
 				051E8C98204F268E0080893C /* Test-CFPP-AnyPropertyListType.cpp */,
 				052B1AD91B45C9E000B97CB9 /* Test-CFPP-Array-Iterator.cpp */,
@@ -656,6 +662,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0534BD16204F05E9008AF9D2 /* CFPP-PropertyListBase.hpp in Headers */,
+				05356FD9206929F9002178E3 /* Constants.hpp in Headers */,
 				0534BD21204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -958,6 +965,7 @@
 				054702B21B1D8FD10036259D /* Test-CFPP-Dictionary.cpp in Sources */,
 				054702B11B1D8FD10036259D /* Test-CFPP-Date.cpp in Sources */,
 				054702B01B1D8FD10036259D /* Test-CFPP-Data.cpp in Sources */,
+				05356FDC20692B56002178E3 /* Constants.cpp in Sources */,
 				054702BB1B1D8FD10036259D /* Test-CFPP-UUID.cpp in Sources */,
 				054702AF1B1D8FD10036259D /* Test-CFPP-Boolean.cpp in Sources */,
 				054702B91B1D8FD10036259D /* Test-CFPP-Type.cpp in Sources */,
