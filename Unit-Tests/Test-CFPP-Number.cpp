@@ -34,7 +34,12 @@
  */
 
 #include <CF++.hpp>
+
+#ifdef _WIN32
+#include <gtest/gtest.h>
+#else
 #include <GoogleMock/GoogleMock.h>
+#endif
 
 #ifdef __clang__
 #pragma clang diagnostic ignored "-Wc++11-long-long" /* Do not warn about long long in C++98 */

@@ -34,7 +34,13 @@
  */
 
 #include <CF++.hpp>
+#include "Constants.hpp"
+
+#ifdef _WIN32
+#include <gtest/gtest.h>
+#else
 #include <GoogleMock/GoogleMock.h>
+#endif
 
 using namespace testing;
 
@@ -49,7 +55,7 @@ TEST( CFPP_Boolean, CTOR )
 
 TEST( CFPP_Boolean, CTOR_AutoPointer )
 {
-    CF::Boolean b1( CF::AutoPointer( CFRetain( kCFBooleanTrue ) ) );
+    CF::Boolean b1( CF::AutoPointer( CFRetain( GetCFBooleanTrue() ) ) );
     CF::Boolean b2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
     CF::Boolean b3( CF::AutoPointer( NULL ) );
     
@@ -67,7 +73,7 @@ TEST( CFPP_Boolean, CTOR_CFType )
     CFBooleanRef b;
     CFStringRef  s;
     
-    b = kCFBooleanTrue;
+    b = GetCFBooleanTrue();
     s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
     
     {
@@ -85,8 +91,8 @@ TEST( CFPP_Boolean, CTOR_CFType )
 
 TEST( CFPP_Boolean, CTOR_CFBoolean )
 {
-    CF::Boolean b1( kCFBooleanTrue );
-    CF::Boolean b2( kCFBooleanFalse );
+    CF::Boolean b1( GetCFBooleanTrue() );
+    CF::Boolean b2( GetCFBooleanFalse() );
     CF::Boolean b3( static_cast< CFBooleanRef >( NULL ) );
     
     ASSERT_TRUE(  b1.GetValue() );
@@ -96,7 +102,7 @@ TEST( CFPP_Boolean, CTOR_CFBoolean )
 
 TEST( CFPP_Boolean, CTOR_AutoPointer_DefaultValue )
 {
-    CF::Boolean b1( CF::AutoPointer( CFRetain( kCFBooleanTrue ) ), false );
+    CF::Boolean b1( CF::AutoPointer( CFRetain( GetCFBooleanTrue() ) ), false );
     CF::Boolean b2( CF::AutoPointer( CFUUIDCreate( NULL ) ), true );
     CF::Boolean b3( CF::AutoPointer( NULL ), true );
     
@@ -114,7 +120,7 @@ TEST( CFPP_Boolean, CTOR_CFType_DefaultValue )
     CFBooleanRef b;
     CFStringRef  s;
     
-    b = kCFBooleanTrue;
+    b = GetCFBooleanTrue();
     s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
     
     {
@@ -132,8 +138,8 @@ TEST( CFPP_Boolean, CTOR_CFType_DefaultValue )
 
 TEST( CFPP_Boolean, CTOR_CFBoolean_DefaultValue )
 {
-    CF::Boolean b1( kCFBooleanTrue, false );
-    CF::Boolean b2( kCFBooleanFalse, true );
+    CF::Boolean b1( GetCFBooleanTrue(), false );
+    CF::Boolean b2( GetCFBooleanFalse(), true );
     CF::Boolean b3( static_cast< CFBooleanRef >( NULL ), true );
     
     ASSERT_TRUE(  b1.GetValue() );
@@ -187,7 +193,7 @@ TEST( CFPP_Boolean, OperatorAssignAutoPointer )
     CF::Boolean b2;
     CF::Boolean b3;
     
-    b1 = CF::AutoPointer( CFRetain( kCFBooleanTrue ) );
+    b1 = CF::AutoPointer( CFRetain( GetCFBooleanTrue() ) );
     b2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
     b3 = CF::AutoPointer( NULL );
     
@@ -207,15 +213,15 @@ TEST( CFPP_Boolean, OperatorAssignCFType )
     
     ASSERT_FALSE( b1.GetValue() );
     
-    b1 = static_cast< CFTypeRef >( kCFBooleanTrue );
+    b1 = static_cast< CFTypeRef >( GetCFBooleanTrue() );
     
     ASSERT_TRUE( b1.GetValue() );
     
-    b1 = static_cast< CFTypeRef >( kCFBooleanFalse );
+    b1 = static_cast< CFTypeRef >( GetCFBooleanFalse() );
     
     ASSERT_FALSE( b1.GetValue() );
     
-    b1 = kCFBooleanTrue;
+    b1 = GetCFBooleanTrue();
     
     ASSERT_TRUE( b1.GetValue() );
     
@@ -231,15 +237,15 @@ TEST( CFPP_Boolean, OperatorAssignCFBoolean )
     
     ASSERT_FALSE( b1.GetValue() );
     
-    b1 = kCFBooleanTrue;
+    b1 = GetCFBooleanTrue();
     
     ASSERT_TRUE( b1.GetValue() );
     
-    b1 = kCFBooleanFalse;
+    b1 = GetCFBooleanFalse();
     
     ASSERT_FALSE( b1.GetValue() );
     
-    b1 = kCFBooleanTrue;
+    b1 = GetCFBooleanTrue();
     
     ASSERT_TRUE( b1.GetValue() );
     
@@ -280,11 +286,11 @@ TEST( CFPP_Boolean, OperatorEqualCFType )
     CF::Boolean b2( false );
     CF::String  s( "hello, world" );
     
-    ASSERT_TRUE(  b1 == static_cast< CFTypeRef >( kCFBooleanTrue ) );
-    ASSERT_FALSE( b1 == static_cast< CFTypeRef >( kCFBooleanFalse ) );
+    ASSERT_TRUE(  b1 == static_cast< CFTypeRef >( GetCFBooleanTrue() ) );
+    ASSERT_FALSE( b1 == static_cast< CFTypeRef >( GetCFBooleanFalse() ) );
     ASSERT_FALSE( b1 == static_cast< CFTypeRef >( s.GetCFObject() ) );
-    ASSERT_TRUE(  b2 == static_cast< CFTypeRef >( kCFBooleanFalse ) );
-    ASSERT_FALSE( b2 == static_cast< CFTypeRef >( kCFBooleanTrue ) );
+    ASSERT_TRUE(  b2 == static_cast< CFTypeRef >( GetCFBooleanFalse() ) );
+    ASSERT_FALSE( b2 == static_cast< CFTypeRef >( GetCFBooleanTrue() ) );
     ASSERT_FALSE( b2 == static_cast< CFTypeRef >( s.GetCFObject() ) );
 }
 
@@ -294,11 +300,11 @@ TEST( CFPP_Boolean, OperatorEqualCFBoolean )
     CF::Boolean b2( false );
     CF::String  s( "hello, world" );
     
-    ASSERT_TRUE(  b1 == kCFBooleanTrue );
-    ASSERT_FALSE( b1 == kCFBooleanFalse );
+    ASSERT_TRUE(  b1 == GetCFBooleanTrue() );
+    ASSERT_FALSE( b1 == GetCFBooleanFalse() );
     ASSERT_FALSE( b1 == static_cast< CFBooleanRef >( s.GetCFObject() ) );
-    ASSERT_TRUE(  b2 == kCFBooleanFalse );
-    ASSERT_FALSE( b2 == kCFBooleanTrue );
+    ASSERT_TRUE(  b2 == GetCFBooleanFalse() );
+    ASSERT_FALSE( b2 == GetCFBooleanTrue() );
     ASSERT_FALSE( b2 == static_cast< CFBooleanRef >( s.GetCFObject() ) );
 }
 
@@ -330,11 +336,11 @@ TEST( CFPP_Boolean, OperatorNotEqualCFType )
     CF::Boolean b2( false );
     CF::String  s( "hello, world" );
     
-    ASSERT_TRUE(  b1 != static_cast< CFTypeRef >( kCFBooleanFalse ) );
-    ASSERT_FALSE( b1 != static_cast< CFTypeRef >( kCFBooleanTrue ) );
+    ASSERT_TRUE(  b1 != static_cast< CFTypeRef >( GetCFBooleanFalse() ) );
+    ASSERT_FALSE( b1 != static_cast< CFTypeRef >( GetCFBooleanTrue() ) );
     ASSERT_TRUE(  b1 != static_cast< CFTypeRef >( s.GetCFObject() ) );
-    ASSERT_TRUE(  b2 != static_cast< CFTypeRef >( kCFBooleanTrue ) );
-    ASSERT_FALSE( b2 != static_cast< CFTypeRef >( kCFBooleanFalse ) );
+    ASSERT_TRUE(  b2 != static_cast< CFTypeRef >( GetCFBooleanTrue() ) );
+    ASSERT_FALSE( b2 != static_cast< CFTypeRef >( GetCFBooleanFalse() ) );
     ASSERT_TRUE(  b2 != static_cast< CFTypeRef >( s.GetCFObject() ) );
 }
 
@@ -344,11 +350,11 @@ TEST( CFPP_Boolean, OperatorNotEqualCFBoolean )
     CF::Boolean b2( false );
     CF::String  s( "hello, world" );
     
-    ASSERT_TRUE(  b1 != kCFBooleanFalse );
-    ASSERT_FALSE( b1 != kCFBooleanTrue );
+    ASSERT_TRUE(  b1 != GetCFBooleanFalse() );
+    ASSERT_FALSE( b1 != GetCFBooleanTrue() );
     ASSERT_TRUE(  b1 != static_cast< CFBooleanRef >( s.GetCFObject() ) );
-    ASSERT_TRUE(  b2 != kCFBooleanTrue );
-    ASSERT_FALSE( b2 != kCFBooleanFalse );
+    ASSERT_TRUE(  b2 != GetCFBooleanTrue() );
+    ASSERT_FALSE( b2 != GetCFBooleanFalse() );
     ASSERT_TRUE(  b2 != static_cast< CFBooleanRef >( s.GetCFObject() ) );
 }
 
@@ -386,8 +392,8 @@ TEST( CFPP_Boolean, GetCFObject )
     
     ASSERT_NE( b1.GetCFObject(), static_cast< CFTypeRef >( NULL ) );
     ASSERT_NE( b2.GetCFObject(), static_cast< CFTypeRef >( NULL ) );
-    ASSERT_EQ( b1.GetCFObject(), kCFBooleanTrue );
-    ASSERT_EQ( b2.GetCFObject(), kCFBooleanFalse );
+    ASSERT_EQ( b1.GetCFObject(), GetCFBooleanTrue() );
+    ASSERT_EQ( b2.GetCFObject(), GetCFBooleanFalse() );
 }
 
 TEST( CFPP_Boolean, GetValue )

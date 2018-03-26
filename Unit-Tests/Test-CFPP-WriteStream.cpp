@@ -34,7 +34,12 @@
  */
 
 #include <CF++.hpp>
+
+#ifdef _WIN32
+#include <gtest/gtest.h>
+#else
 #include <GoogleMock/GoogleMock.h>
+#endif
 
 #ifdef __clang__
 #pragma clang diagnostic ignored "-Wc++98-compat-local-type-template-args"
@@ -421,7 +426,7 @@ TEST( CFPP_WriteStream, Write_Data )
     CF::WriteStream s2( "/etc/hosts" );
     CF::WriteStream s3( "/tmp/com.xs-labs.cfpp" );
     CF::Data::Byte  buf[ 4 ];
-    CF::Data::Data  d;
+    CF::Data        d;
     
     buf[ 0 ] = 0xDE;
     buf[ 1 ] = 0xAD;
@@ -502,7 +507,7 @@ TEST( CFPP_WriteStream, WriteAll_Data )
     CF::WriteStream s2( "/etc/hosts" );
     CF::WriteStream s3( "/tmp/com.xs-labs.cfpp" );
     CF::Data::Byte  buf[ 4 ];
-    CF::Data::Data  d;
+    CF::Data        d;
     
     buf[ 0 ] = 0xDE;
     buf[ 1 ] = 0xAD;
