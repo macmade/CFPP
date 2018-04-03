@@ -34,7 +34,13 @@
  */
 
 #include <CF++.hpp>
+#include "Constants.hpp"
+
+#ifdef _WIN32
+#include <gtest/gtest.h>
+#else
 #include <GoogleMock/GoogleMock.h>
+#endif
 
 using namespace testing;
 
@@ -337,7 +343,7 @@ TEST( CFPP_Error, GetDescription )
 {
     CF::Dictionary info;
     
-    info << CF::Pair( CF::String( kCFErrorLocalizedDescriptionKey ), CF::String( "hello, world" ) );
+    info << CF::Pair( CF::String( GetCFErrorLocalizedDescriptionKey() ), CF::String( "hello, world" ) );
     
     {
         CF::Error e( "com.xs-labs", 42, info );
@@ -355,7 +361,7 @@ TEST( CFPP_Error, GetFailureReason )
 {
     CF::Dictionary info;
     
-    info << CF::Pair( CF::String( kCFErrorLocalizedFailureReasonKey ), CF::String( "hello, world" ) );
+    info << CF::Pair( CF::String( GetCFErrorLocalizedFailureReasonKey() ), CF::String( "hello, world" ) );
     
     {
         CF::Error e( "com.xs-labs", 42, info );
@@ -373,7 +379,7 @@ TEST( CFPP_Error, GetRecoverySuggestion )
 {
     CF::Dictionary info;
     
-    info << CF::Pair( CF::String( kCFErrorLocalizedRecoverySuggestionKey ), CF::String( "hello, world" ) );
+    info << CF::Pair( CF::String( GetCFErrorLocalizedRecoverySuggestionKey() ), CF::String( "hello, world" ) );
     
     {
         CF::Error e( "com.xs-labs", 42, info );
