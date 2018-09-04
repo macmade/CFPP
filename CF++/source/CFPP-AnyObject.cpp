@@ -65,7 +65,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    AnyObject::AnyObject( AnyObject && value )
+    AnyObject::AnyObject( AnyObject && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -114,7 +114,7 @@ namespace CF
         return this->_cfObject;
     }
     
-    void swap( AnyObject & v1, AnyObject & v2 )
+    void swap( AnyObject & v1, AnyObject & v2 ) noexcept
     {
         using std::swap;
         

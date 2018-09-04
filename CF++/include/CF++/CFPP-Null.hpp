@@ -49,7 +49,7 @@ namespace CF
             Null( CFTypeRef value );
             
             #ifdef CFPP_HAS_CPP11
-            Null( Null && value );
+            Null( Null && value ) noexcept;
             #endif
             
             virtual ~Null( void );
@@ -60,7 +60,7 @@ namespace CF
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;
             
-            friend void swap( Null & v1, Null & v2 );
+            friend void swap( Null & v1, Null & v2 ) noexcept;
             
         protected:
             

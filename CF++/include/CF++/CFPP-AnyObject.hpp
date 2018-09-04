@@ -50,7 +50,7 @@ namespace CF
             AnyObject( CFTypeRef value );
             
             #ifdef CFPP_HAS_CPP11
-            AnyObject( AnyObject && value );
+            AnyObject( AnyObject && value ) noexcept;
             #endif
             
             virtual ~AnyObject( void );
@@ -68,7 +68,7 @@ namespace CF
                 return static_cast< T >( const_cast< void * >( this->GetCFObject() ) );
             }
             
-            friend void swap( AnyObject & v1, AnyObject & v2 );
+            friend void swap( AnyObject & v1, AnyObject & v2 ) noexcept;
             
         protected:
             

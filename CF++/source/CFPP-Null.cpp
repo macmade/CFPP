@@ -91,7 +91,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Null::Null( Null && value )
+    Null::Null( Null && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -123,7 +123,7 @@ namespace CF
         return this->_cfObject;
     }
     
-    void swap( Null & v1, Null & v2 )
+    void swap( Null & v1, Null & v2 ) noexcept
     {
         using std::swap;
         
