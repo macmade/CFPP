@@ -28,68 +28,52 @@
  ******************************************************************************/
 
 /*!
- * @header      CF++.h
+ * @header      CFPP-AnyObject.hpp
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
- * @abstract    CoreFoundation++ main header file
+ * @abstract    CoreFoundation++ generic container for CF types
  */
 
-#ifndef CFPP
-#define CFPP
+#ifndef CFPP_ANY_OBJECT_H
+#define CFPP_ANY_OBJECT_H
 
-#include <CoreFoundation/CoreFoundation.h>
-#include <string>
-#include <iostream>
 #include <vector>
-#include <memory>
-#include <algorithm>
 
-/*
- * Disable warnings about class members not having DLL-interface.
- * Eg: std::shared_ptr
- */
-#ifdef _WIN32
-#pragma warning( push )
-#pragma warning( disable: 4251 )
-#endif
+namespace CF
+{
+    class CFPP_EXPORT AnyObject: public Type
+    {
+        public:
+            
+            AnyObject( void );
+            AnyObject( const AnyObject & value );
+            AnyObject( const AutoPointer & value );
+            AnyObject( CFTypeRef value );
+            
+            #ifdef CFPP_HAS_CPP11
+            AnyObject( AnyObject && value );
+            #endif
+            
+            virtual ~AnyObject( void );
+            
+            AnyObject & operator = ( AnyObject value );
+            AnyObject & operator = ( const AutoPointer & value );
+            AnyObject & operator = ( CFTypeRef value );
+                        
+            virtual CFTypeID  GetTypeID( void ) const;
+            virtual CFTypeRef GetCFObject( void ) const;
+            
+            template< typename T >
+            T As( void ) const
+            {
+                return static_cast< T >( const_cast< void * >( this->GetCFObject() ) );
+            }
+            
+            friend void swap( AnyObject & v1, AnyObject & v2 );
+            
+        protected:
+            
+            CFTypeRef _cfObject;
+    };
+}
 
-#if defined( __cplusplus ) && ( __cplusplus > 199711L || ( defined( _MSC_VER ) && _MSC_VER >= 1800 ) )
-#define CFPP_HAS_CPP11  1
-#endif
-
-#ifdef _WIN32
-#ifdef CFPP_DLL_BUILD
-#define CFPP_EXPORT __declspec( dllexport )
-#else
-#define CFPP_EXPORT __declspec( dllimport )
-#endif
-#else
-#define CFPP_EXPORT     
-#endif
-
-#include <CF++/CFPP-Type.hpp>
-#include <CF++/CFPP-PropertyListBase.hpp>
-#include <CF++/CFPP-PropertyListType.hpp>
-#include <CF++/CFPP-AutoPointer.hpp>
-#include <CF++/CFPP-AnyObject.hpp>
-#include <CF++/CFPP-AnyPropertyListType.hpp>
-#include <CF++/CFPP-Null.hpp>
-#include <CF++/CFPP-Boolean.hpp>
-#include <CF++/CFPP-Number.hpp>
-#include <CF++/CFPP-String.hpp>
-#include <CF++/CFPP-URL.hpp>
-#include <CF++/CFPP-Data.hpp>
-#include <CF++/CFPP-Date.hpp>
-#include <CF++/CFPP-Array.hpp>
-#include <CF++/CFPP-Pair.hpp>
-#include <CF++/CFPP-Dictionary.hpp>
-#include <CF++/CFPP-Error.hpp>
-#include <CF++/CFPP-UUID.hpp>
-#include <CF++/CFPP-ReadStream.hpp>
-#include <CF++/CFPP-WriteStream.hpp>
-#include <CF++/CFPP-PropertyListType-Definition.hpp>
-
-#ifdef _WIN32
-#pragma warning( pop )
-#endif
-
-#endif /* CFPP */
+#endif /* CFPP_ANY_OBJECT_H */

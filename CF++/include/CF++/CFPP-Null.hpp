@@ -28,68 +28,44 @@
  ******************************************************************************/
 
 /*!
- * @header      CF++.h
+ * @header      CFPP-Null.hpp
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com / www.digidna.net
- * @abstract    CoreFoundation++ main header file
+ * @abstract    CoreFoundation++ CFNullRef wrapper
  */
 
-#ifndef CFPP
-#define CFPP
+#ifndef CFPP_NULL_H
+#define CFPP_NULL_H
 
-#include <CoreFoundation/CoreFoundation.h>
-#include <string>
-#include <iostream>
 #include <vector>
-#include <memory>
-#include <algorithm>
 
-/*
- * Disable warnings about class members not having DLL-interface.
- * Eg: std::shared_ptr
- */
-#ifdef _WIN32
-#pragma warning( push )
-#pragma warning( disable: 4251 )
-#endif
+namespace CF
+{
+    class CFPP_EXPORT Null: public Type
+    {
+        public:
+            
+            Null( void );
+            Null( const Null & value );
+            Null( CFTypeRef value );
+            
+            #ifdef CFPP_HAS_CPP11
+            Null( Null && value );
+            #endif
+            
+            virtual ~Null( void );
+            
+            Null & operator = ( Null value );
+            Null & operator = ( CFTypeRef value );
+                        
+            virtual CFTypeID  GetTypeID( void ) const;
+            virtual CFTypeRef GetCFObject( void ) const;
+            
+            friend void swap( Null & v1, Null & v2 );
+            
+        protected:
+            
+            CFNullRef _cfObject;
+    };
+}
 
-#if defined( __cplusplus ) && ( __cplusplus > 199711L || ( defined( _MSC_VER ) && _MSC_VER >= 1800 ) )
-#define CFPP_HAS_CPP11  1
-#endif
-
-#ifdef _WIN32
-#ifdef CFPP_DLL_BUILD
-#define CFPP_EXPORT __declspec( dllexport )
-#else
-#define CFPP_EXPORT __declspec( dllimport )
-#endif
-#else
-#define CFPP_EXPORT     
-#endif
-
-#include <CF++/CFPP-Type.hpp>
-#include <CF++/CFPP-PropertyListBase.hpp>
-#include <CF++/CFPP-PropertyListType.hpp>
-#include <CF++/CFPP-AutoPointer.hpp>
-#include <CF++/CFPP-AnyObject.hpp>
-#include <CF++/CFPP-AnyPropertyListType.hpp>
-#include <CF++/CFPP-Null.hpp>
-#include <CF++/CFPP-Boolean.hpp>
-#include <CF++/CFPP-Number.hpp>
-#include <CF++/CFPP-String.hpp>
-#include <CF++/CFPP-URL.hpp>
-#include <CF++/CFPP-Data.hpp>
-#include <CF++/CFPP-Date.hpp>
-#include <CF++/CFPP-Array.hpp>
-#include <CF++/CFPP-Pair.hpp>
-#include <CF++/CFPP-Dictionary.hpp>
-#include <CF++/CFPP-Error.hpp>
-#include <CF++/CFPP-UUID.hpp>
-#include <CF++/CFPP-ReadStream.hpp>
-#include <CF++/CFPP-WriteStream.hpp>
-#include <CF++/CFPP-PropertyListType-Definition.hpp>
-
-#ifdef _WIN32
-#pragma warning( pop )
-#endif
-
-#endif /* CFPP */
+#endif /* CFPP_NULL_H */
