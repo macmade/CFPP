@@ -56,7 +56,7 @@ static void __loadCFNull( void )
     if( cfModule != NULL )
     {
         __hasCFNull = true;
-        __cfNull    = *( ( CFBooleanRef * )GetProcAddress( cfModule, "kCFNull" ) );
+        __cfNull    = *( ( CFNullRef * )GetProcAddress( cfModule, "kCFNull" ) );
     }
 }
 

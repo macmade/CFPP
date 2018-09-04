@@ -71,6 +71,12 @@
     <ClInclude Include="..\CF++\include\CF++\CFPP-PropertyListBase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\CF++\include\CF++\CFPP-AnyObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CF++\include\CF++\CFPP-Null.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\CF++\source\CFPP-Array-Iterator.cpp">
@@ -137,6 +143,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\CF++\source\CFPP-PropertyListBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CF++\source\CFPP-Null.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CF++\source\CFPP-AnyObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
