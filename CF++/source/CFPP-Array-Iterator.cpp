@@ -66,7 +66,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Array::Iterator::Iterator( Iterator && value )
+    Array::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -230,7 +230,7 @@ namespace CF
         return CFArrayGetValueAtIndex( this->_cfObject, this->_pos );
     }
     
-    void swap( Array::Iterator & v1, Array::Iterator & v2 )
+    void swap( Array::Iterator & v1, Array::Iterator & v2 ) noexcept
     {
         using std::swap;
         

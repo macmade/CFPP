@@ -52,7 +52,7 @@ namespace CF
             Date( CFAbsoluteTime value );
             
             #ifdef CFPP_HAS_CPP11
-            Date( Date && value );
+            Date( Date && value ) noexcept;
             #endif
             
             virtual ~Date( void );
@@ -118,7 +118,7 @@ namespace CF
             CFAbsoluteTime GetValue( void ) const;
             void           SetValue( CFAbsoluteTime value );
             
-            friend void swap( Date & v1, Date & v2 );
+            friend void swap( Date & v1, Date & v2 ) noexcept;
             
         protected:
             

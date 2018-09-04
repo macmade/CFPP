@@ -54,7 +54,7 @@ namespace CF
             AnyPropertyListType( CFTypeRef value, PropertyListFormat format );
             
             #ifdef CFPP_HAS_CPP11
-            AnyPropertyListType( AnyPropertyListType && value );
+            AnyPropertyListType( AnyPropertyListType && value ) noexcept;
             #endif
             
             virtual ~AnyPropertyListType( void );
@@ -70,7 +70,7 @@ namespace CF
             
             PropertyListFormat GetFormat( void ) const;
             
-            friend void swap( AnyPropertyListType & v1, AnyPropertyListType & v2 );
+            friend void swap( AnyPropertyListType & v1, AnyPropertyListType & v2 ) noexcept;
             
         protected:
             

@@ -96,7 +96,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Dictionary::Iterator::Iterator( Iterator && value )
+    Dictionary::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -257,7 +257,7 @@ namespace CF
         return CFDictionaryGetValue( this->_cfObject, key );
     }
     
-    void swap( Dictionary::Iterator & v1, Dictionary::Iterator & v2 )
+    void swap( Dictionary::Iterator & v1, Dictionary::Iterator & v2 ) noexcept
     {
         using std::swap;
         

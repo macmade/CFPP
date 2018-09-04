@@ -64,7 +64,7 @@ namespace CF
             
             #ifdef CFPP_HAS_CPP11
             Data( std::initializer_list< Byte > value );
-            Data( Data && value );
+            Data( Data && value ) noexcept;
             #endif
             
             virtual ~Data( void );
@@ -101,7 +101,7 @@ namespace CF
             void         DeleteBytes( CFRange range ) const;
             CFRange      Find( Data data, CFRange range, CFDataSearchFlags flags );
             
-            friend void swap( Data & v1, Data & v2 );
+            friend void swap( Data & v1, Data & v2 ) noexcept;
             
             class CFPP_EXPORT Iterator: public std::iterator< std::bidirectional_iterator_tag, Byte >
             {
@@ -111,7 +111,7 @@ namespace CF
                     Iterator( const Iterator & value );
                     
                     #ifdef CFPP_HAS_CPP11
-                    Iterator( Iterator && value );
+                    Iterator( Iterator && value ) noexcept;
                     #endif
                     
                     virtual ~Iterator( void );
@@ -135,7 +135,7 @@ namespace CF
                     
                     operator Byte () const;
                     
-                    friend void swap( Iterator & v1, Iterator & v2 );
+                    friend void swap( Iterator & v1, Iterator & v2 ) noexcept;
                     
                 private:
                     

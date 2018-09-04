@@ -53,7 +53,7 @@ namespace CF
             
             #ifdef CFPP_HAS_CPP11
             Dictionary( std::initializer_list< Pair > value );
-            Dictionary( Dictionary && value );
+            Dictionary( Dictionary && value ) noexcept;
             #endif
             
             virtual ~Dictionary( void );
@@ -95,7 +95,7 @@ namespace CF
             void      SetValue( const char * key, CFTypeRef value ) const;
             void      SetValue( const String & key, CFTypeRef value ) const;
             
-            friend void swap( Dictionary & v1, Dictionary & v2 );
+            friend void swap( Dictionary & v1, Dictionary & v2 ) noexcept;
             
             class CFPP_EXPORT Iterator: public std::iterator< std::bidirectional_iterator_tag, CF::Pair >
             {
@@ -105,7 +105,7 @@ namespace CF
                     Iterator( const Iterator & value );
                     
                     #ifdef CFPP_HAS_CPP11
-                    Iterator( Iterator && value );
+                    Iterator( Iterator && value ) noexcept;
                     #endif
                     
                     virtual ~Iterator( void );
@@ -130,7 +130,7 @@ namespace CF
                     CFTypeRef GetKey( void ) const;
                     CFTypeRef GetValue( void ) const;
                     
-                    friend void swap( Iterator & v1, Iterator & v2 );
+                    friend void swap( Iterator & v1, Iterator & v2 ) noexcept;
                     
                 private:
                     

@@ -246,7 +246,7 @@ namespace CF
         }
     }
     
-    Dictionary::Dictionary( Dictionary && value )
+    Dictionary::Dictionary( Dictionary && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -480,7 +480,7 @@ namespace CF
         return Iterator( this->_cfObject, this->GetCount(), this->GetCount() );
     }
     
-    void swap( Dictionary & v1, Dictionary & v2 )
+    void swap( Dictionary & v1, Dictionary & v2 ) noexcept
     {
         using std::swap;
         

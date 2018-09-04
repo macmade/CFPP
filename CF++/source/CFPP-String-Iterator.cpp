@@ -115,7 +115,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    String::Iterator::Iterator( Iterator && value )
+    String::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -270,7 +270,7 @@ namespace CF
         return operator*();
     }
     
-    void swap( String::Iterator & v1, String::Iterator & v2 )
+    void swap( String::Iterator & v1, String::Iterator & v2 ) noexcept
     {
         using std::swap;
         

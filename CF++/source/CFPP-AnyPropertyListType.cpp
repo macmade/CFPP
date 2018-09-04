@@ -130,7 +130,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    AnyPropertyListType::AnyPropertyListType( AnyPropertyListType && value )
+    AnyPropertyListType::AnyPropertyListType( AnyPropertyListType && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         this->_format   = value._format;
@@ -190,7 +190,7 @@ namespace CF
         return this->_format;
     }
     
-    void swap( AnyPropertyListType & v1, AnyPropertyListType & v2 )
+    void swap( AnyPropertyListType & v1, AnyPropertyListType & v2 ) noexcept
     {
         using std::swap;
         

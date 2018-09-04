@@ -52,7 +52,7 @@ namespace CF
             ReadStream( CFReadStreamRef value );
             
             #ifdef CFPP_HAS_CPP11
-            ReadStream( ReadStream && value );
+            ReadStream( ReadStream && value ) noexcept;
             #endif
             
             virtual ~ReadStream( void );
@@ -82,7 +82,7 @@ namespace CF
             void               ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode );
             void               UnscheduleFromRunLoop( CFRunLoopRef runLoop, CF::String mode );
             
-            friend void swap( ReadStream & v1, ReadStream & v2 );
+            friend void swap( ReadStream & v1, ReadStream & v2 ) noexcept;
             
             #ifdef __clang__
             #pragma clang diagnostic push
@@ -97,7 +97,7 @@ namespace CF
                     Iterator( const Iterator & value );
                     
                     #ifdef CFPP_HAS_CPP11
-                    Iterator( Iterator && value );
+                    Iterator( Iterator && value ) noexcept;
                     #endif
                     
                     virtual ~Iterator( void );
@@ -117,7 +117,7 @@ namespace CF
                     
                     operator Data ();
                     
-                    friend void swap( Iterator & v1, Iterator & v2 );
+                    friend void swap( Iterator & v1, Iterator & v2 ) noexcept;
                     
                 private:
                     

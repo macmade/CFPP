@@ -96,7 +96,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    WriteStream::WriteStream( WriteStream && value )
+    WriteStream::WriteStream( WriteStream && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -339,7 +339,7 @@ namespace CF
         CFWriteStreamUnscheduleFromRunLoop( this->_cfObject, runLoop, mode );
     }
     
-    void swap( WriteStream & v1, WriteStream & v2 )
+    void swap( WriteStream & v1, WriteStream & v2 ) noexcept
     {
         using std::swap;
         

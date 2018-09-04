@@ -52,7 +52,7 @@ namespace CF
             Boolean( bool value = false );
             
             #ifdef CFPP_HAS_CPP11
-            Boolean( Boolean && value );
+            Boolean( Boolean && value ) noexcept;
             #endif
             
             virtual ~Boolean( void );
@@ -81,7 +81,7 @@ namespace CF
             bool GetValue( void ) const;
             void SetValue( bool value );
             
-            friend void swap( Boolean & v1, Boolean & v2 );
+            friend void swap( Boolean & v1, Boolean & v2 ) noexcept;
             
         private:
             

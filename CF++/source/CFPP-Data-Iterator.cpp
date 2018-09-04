@@ -71,7 +71,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Data::Iterator::Iterator( Iterator && value )
+    Data::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -218,7 +218,7 @@ namespace CF
         return operator*();
     }
     
-    void swap( Data::Iterator & v1, Data::Iterator & v2 )
+    void swap( Data::Iterator & v1, Data::Iterator & v2 ) noexcept
     {
         using std::swap;
         

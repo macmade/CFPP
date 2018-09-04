@@ -104,7 +104,7 @@ namespace CF
             Number( double value );
             
             #ifdef CFPP_HAS_CPP11
-            Number( Number && value );
+            Number( Number && value ) noexcept;
             #endif
             
             virtual ~Number( void );
@@ -582,7 +582,7 @@ namespace CF
             void SetFloatValue( float value );
             void SetDoubleValue( double value );
             
-            friend void swap( Number & v1, Number & v2 );
+            friend void swap( Number & v1, Number & v2 ) noexcept;
             
         private:
             

@@ -49,7 +49,7 @@ namespace CF
             AutoPointer( CFTypeRef value );
             
             #ifdef CFPP_HAS_CPP11
-            AutoPointer( AutoPointer && value );
+            AutoPointer( AutoPointer && value ) noexcept;
             #endif
             
             virtual ~AutoPointer( void );
@@ -66,7 +66,7 @@ namespace CF
                 return static_cast< T >( const_cast< void * >( this->GetCFObject() ) );
             }
             
-            friend void swap( AutoPointer & v1, AutoPointer & v2 );
+            friend void swap( AutoPointer & v1, AutoPointer & v2 ) noexcept;
             
         protected:
             

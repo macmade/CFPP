@@ -52,7 +52,7 @@ namespace CF
             Pair( const char * key, const char * value );
             
             #ifdef CFPP_HAS_CPP11
-            Pair( Pair && value );
+            Pair( Pair && value ) noexcept;
             #endif
             
             virtual ~Pair( void );
@@ -66,7 +66,7 @@ namespace CF
             void      SetKey( CFTypeRef key );
             void      SetValue( CFTypeRef value );
             
-            friend void swap( Pair & v1, Pair & v2 );
+            friend void swap( Pair & v1, Pair & v2 ) noexcept;
             
         protected:
             

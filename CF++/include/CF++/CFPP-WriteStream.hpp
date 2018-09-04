@@ -52,7 +52,7 @@ namespace CF
             WriteStream( CFWriteStreamRef value );
             
             #ifdef CFPP_HAS_CPP11
-            WriteStream( WriteStream && value );
+            WriteStream( WriteStream && value ) noexcept;
             #endif
             
             virtual ~WriteStream( void );
@@ -83,7 +83,7 @@ namespace CF
             void               ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode );
             void               UnscheduleFromRunLoop( CFRunLoopRef runLoop, CF::String mode );
             
-            friend void swap( WriteStream & v1, WriteStream & v2 );
+            friend void swap( WriteStream & v1, WriteStream & v2 ) noexcept;
             
         private:
             

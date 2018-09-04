@@ -84,7 +84,7 @@ namespace CF
             URL( const char * value );
             
             #ifdef CFPP_HAS_CPP11
-            URL( URL && value );
+            URL( URL && value ) noexcept;
             #endif
             
             virtual ~URL( void );
@@ -147,7 +147,7 @@ namespace CF
             void   DeleteLastPathComponent( void );
             void   DeletePathExtension( void );
             
-            friend void swap( URL & v1, URL & v2 );
+            friend void swap( URL & v1, URL & v2 ) noexcept;
             
         private:
             

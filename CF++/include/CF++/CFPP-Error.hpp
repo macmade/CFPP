@@ -57,7 +57,7 @@ namespace CF
             Error( const char * domain, CFIndex code, const Dictionary & userInfo );
             
             #ifdef CFPP_HAS_CPP11
-            Error( Error && value );
+            Error( Error && value ) noexcept;
             #endif
             
             virtual ~Error( void );
@@ -77,7 +77,7 @@ namespace CF
             String     GetFailureReason( void ) const;
             String     GetRecoverySuggestion( void ) const;
             
-            friend void swap( Error & v1, Error & v2 );
+            friend void swap( Error & v1, Error & v2 ) noexcept;
             
         private:
             

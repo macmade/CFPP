@@ -173,7 +173,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Boolean::Boolean( Boolean && value )
+    Boolean::Boolean( Boolean && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -311,7 +311,7 @@ namespace CF
         #endif
     }
     
-    void swap( Boolean & v1, Boolean & v2 )
+    void swap( Boolean & v1, Boolean & v2 ) noexcept
     {
         using std::swap;
         

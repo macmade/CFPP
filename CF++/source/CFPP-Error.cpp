@@ -177,7 +177,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Error::Error( Error && value )
+    Error::Error( Error && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -313,7 +313,7 @@ namespace CF
         return s.As< CFStringRef >();
     }
     
-    void swap( Error & v1, Error & v2 )
+    void swap( Error & v1, Error & v2 ) noexcept
     {
         using std::swap;
         

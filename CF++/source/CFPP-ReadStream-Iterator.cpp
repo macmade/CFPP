@@ -105,7 +105,7 @@ namespace CF
     }
 
     #ifdef CFPP_HAS_CPP11
-    ReadStream::Iterator::Iterator( Iterator && value )
+    ReadStream::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject     = value._cfObject;
         value._cfObject     = nullptr;
@@ -292,7 +292,7 @@ namespace CF
         delete[] buf;
     }
 
-    void swap( ReadStream::Iterator & v1, ReadStream::Iterator & v2 )
+    void swap( ReadStream::Iterator & v1, ReadStream::Iterator & v2 ) noexcept
     {
         using std::swap;
         

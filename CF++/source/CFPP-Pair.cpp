@@ -105,7 +105,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Pair::Pair( Pair && value )
+    Pair::Pair( Pair && value ) noexcept
     {
         this->_key   = value._key;
         value._key   = nullptr;
@@ -198,7 +198,7 @@ namespace CF
         }
     }
     
-    void swap( Pair & v1, Pair & v2 )
+    void swap( Pair & v1, Pair & v2 ) noexcept
     {
         using std::swap;
         

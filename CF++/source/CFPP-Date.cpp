@@ -87,7 +87,7 @@ namespace CF
     }
     
     #ifdef CFPP_HAS_CPP11
-    Date::Date( Date && value )
+    Date::Date( Date && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
@@ -399,7 +399,7 @@ namespace CF
         this->_cfObject = CFDateCreate( static_cast< CFAllocatorRef >( NULL ), value );
     }
     
-    void swap( Date & v1, Date & v2 )
+    void swap( Date & v1, Date & v2 ) noexcept
     {
         using std::swap;
         
