@@ -80,7 +80,7 @@ namespace CF
         
         if( this->IsValid() == false )
         {
-            return static_cast< CFDataRef >( NULL );
+            return static_cast< CFDataRef >( nullptr );
         }
         
         cfFormat = kCFPropertyListXMLFormat_v1_0;
@@ -90,7 +90,7 @@ namespace CF
             cfFormat = kCFPropertyListBinaryFormat_v1_0;
         }
         
-        data = CFPropertyListCreateData( static_cast< CFAllocatorRef >( NULL ), this->GetCFObject(), cfFormat, 0, NULL );
+        data = CFPropertyListCreateData( static_cast< CFAllocatorRef >( nullptr ), this->GetCFObject(), cfFormat, 0, nullptr );
         
         return data.As< CFDataRef >();
     }

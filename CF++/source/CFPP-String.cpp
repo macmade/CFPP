@@ -37,12 +37,12 @@
 
 namespace CF
 {
-    String::String( void ): _cfObject( NULL )
+    String::String( void ): _cfObject( nullptr )
     {
         this->SetValue( "" );
     }
     
-    String::String( const AutoPointer & value ): _cfObject( NULL )
+    String::String( const AutoPointer & value ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -50,23 +50,23 @@ namespace CF
         }
     }
     
-    String::String( CFTypeRef cfObject ): _cfObject( NULL )
+    String::String( CFTypeRef cfObject ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFStringRef >( CFRetain( cfObject ) );
         }
     }
     
-    String::String( CFStringRef cfObject ): _cfObject( NULL )
+    String::String( CFStringRef cfObject ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFStringRef >( CFRetain( cfObject ) );
         }
     }
     
-    String::String( const AutoPointer & value, std::string defaultValueIfNULL, CFStringEncoding encoding ): _cfObject( NULL )
+    String::String( const AutoPointer & value, std::string defaultValueIfNULL, CFStringEncoding encoding ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -78,9 +78,9 @@ namespace CF
         }
     }
     
-    String::String( CFTypeRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding ): _cfObject( NULL )
+    String::String( CFTypeRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFStringRef >( CFRetain( cfObject ) );
         }
@@ -90,9 +90,9 @@ namespace CF
         }
     }
     
-    String::String( CFStringRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding ): _cfObject( NULL )
+    String::String( CFStringRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFStringRef >( CFRetain( cfObject ) );
         }
@@ -102,14 +102,14 @@ namespace CF
         }
     }
     
-    String::String( const std::string & value, CFStringEncoding encoding ): _cfObject( NULL )
+    String::String( const std::string & value, CFStringEncoding encoding ): _cfObject( nullptr )
     {
         this->SetValue( value, encoding );
     }
     
-    String::String( char * value, CFStringEncoding encoding ): _cfObject( NULL )
+    String::String( char * value, CFStringEncoding encoding ): _cfObject( nullptr )
     {
-        if( value == NULL )
+        if( value == nullptr )
         {
             value = const_cast< char * >( "" );
         }
@@ -117,9 +117,9 @@ namespace CF
         this->SetValue( value, encoding );
     }
     
-    String::String( const char * value, CFStringEncoding encoding ): _cfObject( NULL )
+    String::String( const char * value, CFStringEncoding encoding ): _cfObject( nullptr )
     {
-        if( value == NULL )
+        if( value == nullptr )
         {
             value = "";
         }
@@ -127,9 +127,9 @@ namespace CF
         this->SetValue( value, encoding );
     }
     
-    String::String( const String & value ): _cfObject( NULL )
+    String::String( const String & value ): _cfObject( nullptr )
     {
-        if( value._cfObject != NULL )
+        if( value._cfObject != nullptr )
         {
             this->_cfObject = static_cast< CFStringRef >( CFRetain( ( value._cfObject ) ) );
         }
@@ -143,11 +143,11 @@ namespace CF
     
     String::~String( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     }
     
@@ -190,7 +190,7 @@ namespace CF
     
     bool String::operator == ( const String & value ) const
     {
-        if( this->_cfObject == NULL || value._cfObject == NULL )
+        if( this->_cfObject == nullptr || value._cfObject == nullptr )
         {
             return false;
         }
@@ -259,20 +259,20 @@ namespace CF
         CFStringRef newString;
         CFStringRef strings[ 2 ];
         
-        if( value._cfObject == NULL )
+        if( value._cfObject == nullptr )
         {
             return *( this );
         }
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             this->SetValue( "" );
         }
         
         strings[ 0 ] = this->_cfObject;
         strings[ 1 ] = value._cfObject;
-        array        = CFArrayCreate( static_cast< CFAllocatorRef >( NULL ), reinterpret_cast< const void ** >( strings ), 2, NULL );
-        newString    = CFStringCreateByCombiningStrings( static_cast< CFAllocatorRef >( NULL ), array.As< CFArrayRef >(), CFSTR( "" ) );
+        array        = CFArrayCreate( static_cast< CFAllocatorRef >( nullptr ), reinterpret_cast< const void ** >( strings ), 2, nullptr );
+        newString    = CFStringCreateByCombiningStrings( static_cast< CFAllocatorRef >( nullptr ), array.As< CFArrayRef >(), CFSTR( "" ) );
         
         CFRelease( this->_cfObject );
         
@@ -337,7 +337,7 @@ namespace CF
             
     bool String::HasPrefix( const String & value ) const
     {
-        if( this->_cfObject == NULL || value._cfObject == NULL )
+        if( this->_cfObject == nullptr || value._cfObject == nullptr )
         {
             return false;
         }
@@ -365,7 +365,7 @@ namespace CF
     
     bool String::HasSuffix( const String & value ) const
     {
-        if( this->_cfObject == NULL || value._cfObject == NULL )
+        if( this->_cfObject == nullptr || value._cfObject == nullptr )
         {
             return false;
         }
@@ -393,7 +393,7 @@ namespace CF
     
     CFIndex String::GetLength( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return 0;
         }
@@ -408,14 +408,14 @@ namespace CF
         size_t       length;
         std::string  str;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return "";
         }
         
         s = this->GetCStringValue( encoding );
         
-        if( s == NULL )
+        if( s == nullptr )
         {
             length = static_cast< size_t >( CFStringGetMaximumSizeForEncoding( CFStringGetLength( this->_cfObject ), encoding ) );
             buf    = new char [ length + 1 ];
@@ -423,7 +423,7 @@ namespace CF
             memset( buf, 0, length + 1 );
             CFStringGetCString( this->_cfObject, buf, static_cast< CFIndex >( length + 1 ), encoding );
             
-            str = ( buf == NULL ) ? "" : buf;
+            str = ( buf == nullptr ) ? "" : buf;
             
             delete [] buf;
         }
@@ -437,22 +437,22 @@ namespace CF
     
     const char * String::GetCStringValue( CFStringEncoding encoding ) const
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             return CFStringGetCStringPtr( this->_cfObject, encoding );
         }
         
-        return NULL;
+        return nullptr;
     }
     
     void String::SetValue( const std::string & value, CFStringEncoding encoding )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFStringCreateWithCString( static_cast< CFAllocatorRef >( NULL ), value.c_str(), encoding );
+        this->_cfObject = CFStringCreateWithCString( static_cast< CFAllocatorRef >( nullptr ), value.c_str(), encoding );
     }
     
     String::Iterator String::begin( CFStringEncoding encoding ) const

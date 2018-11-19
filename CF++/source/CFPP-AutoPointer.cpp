@@ -37,12 +37,12 @@
 
 namespace CF
 {
-    AutoPointer::AutoPointer( void ): _cfObject( NULL )
+    AutoPointer::AutoPointer( void ): _cfObject( nullptr )
     {}
     
-    AutoPointer::AutoPointer( const AutoPointer & value ): _cfObject( NULL )
+    AutoPointer::AutoPointer( const AutoPointer & value ): _cfObject( nullptr )
     {
-        if( value._cfObject != NULL )
+        if( value._cfObject != nullptr )
         {
             CFRetain( value._cfObject );
         }
@@ -50,7 +50,7 @@ namespace CF
         this->_cfObject = value._cfObject;
     }
     
-    AutoPointer::AutoPointer( CFTypeRef value ): _cfObject( NULL )
+    AutoPointer::AutoPointer( CFTypeRef value ): _cfObject( nullptr )
     {
         this->_cfObject = value;
     }
@@ -63,11 +63,11 @@ namespace CF
     
     AutoPointer::~AutoPointer( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     }
     
@@ -85,7 +85,7 @@ namespace CF
     
     CFTypeID AutoPointer::GetTypeID( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return 0;
         }

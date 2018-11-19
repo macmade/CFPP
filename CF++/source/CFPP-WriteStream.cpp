@@ -37,41 +37,41 @@
 
 namespace CF
 {
-    WriteStream::WriteStream( void ): _cfObject( NULL )
+    WriteStream::WriteStream( void ): _cfObject( nullptr )
     {}
     
-    WriteStream::WriteStream( URL url ): _cfObject( NULL )
+    WriteStream::WriteStream( URL url ): _cfObject( nullptr )
     {
-        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( nullptr ), url );
     }
     
-    WriteStream::WriteStream( const std::string & path ): _cfObject( NULL )
+    WriteStream::WriteStream( const std::string & path ): _cfObject( nullptr )
     {
         URL url;
         
         url = URL::FileSystemURL( path );
         
-        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( nullptr ), url );
     }
     
-    WriteStream::WriteStream( const char * path ): _cfObject( NULL )
+    WriteStream::WriteStream( const char * path ): _cfObject( nullptr )
     {
         URL url;
         
         url = URL::FileSystemURL( path );
         
-        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( nullptr ), url );
     }
     
-    WriteStream::WriteStream( const WriteStream & value ): _cfObject( NULL )
+    WriteStream::WriteStream( const WriteStream & value ): _cfObject( nullptr )
     {
-        if( value._cfObject != NULL )
+        if( value._cfObject != nullptr )
         {
             this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value._cfObject ) ) );
         }
     }
     
-    WriteStream::WriteStream( const AutoPointer & value ): _cfObject( NULL )
+    WriteStream::WriteStream( const AutoPointer & value ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -79,17 +79,17 @@ namespace CF
         }
     }
     
-    WriteStream::WriteStream( CFTypeRef value ): _cfObject( NULL )
+    WriteStream::WriteStream( CFTypeRef value ): _cfObject( nullptr )
     {
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value ) ) );
         }
     }
     
-    WriteStream::WriteStream( CFWriteStreamRef value ): _cfObject( NULL )
+    WriteStream::WriteStream( CFWriteStreamRef value ): _cfObject( nullptr )
     {
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFWriteStreamRef >( const_cast< void * >( CFRetain( value ) ) );
         }
@@ -103,11 +103,11 @@ namespace CF
     
     WriteStream::~WriteStream( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     }
     
@@ -145,7 +145,7 @@ namespace CF
     
     bool WriteStream::Open( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
@@ -165,21 +165,21 @@ namespace CF
     
     bool WriteStream::Open( const URL & url )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             this->Close();
             
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        this->_cfObject = CFWriteStreamCreateWithFile( static_cast< CFAllocatorRef >( nullptr ), url );
         
         return this->Open();
     }
     
     void WriteStream::Close( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return;
         }
@@ -189,7 +189,7 @@ namespace CF
     
     bool WriteStream::CanAcceptBytes( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
@@ -199,7 +199,7 @@ namespace CF
     
     CFStreamStatus WriteStream::GetStatus( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return kCFStreamStatusError;
         }
@@ -211,7 +211,7 @@ namespace CF
     {
         AutoPointer e;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return e.As< CFErrorRef >();
         }
@@ -223,12 +223,12 @@ namespace CF
     
     CFIndex WriteStream::Write( const Data::Byte * buffer, CFIndex length ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return -1;
         }
         
-        if( buffer == NULL || length <= 0 )
+        if( buffer == nullptr || length <= 0 )
         {
             return -1;
         }
@@ -245,12 +245,12 @@ namespace CF
     {
         CFIndex written;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
         
-        if( buffer == NULL || length <= 0 )
+        if( buffer == nullptr || length <= 0 )
         {
             return false;
         }
@@ -289,9 +289,9 @@ namespace CF
     
     AutoPointer WriteStream::GetProperty( const String & name )
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
-            return NULL;
+            return nullptr;
         }
         
         return CFWriteStreamCopyProperty( this->_cfObject, name );
@@ -299,7 +299,7 @@ namespace CF
     
     bool WriteStream::SetProperty( const String & name, CFTypeRef value )
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
@@ -309,7 +309,7 @@ namespace CF
     
     bool WriteStream::SetClient( CFOptionFlags events, CFWriteStreamClientCallBack callback, CFStreamClientContext * context )
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
@@ -319,7 +319,7 @@ namespace CF
     
     void WriteStream::ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode )
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return;
         }
@@ -329,7 +329,7 @@ namespace CF
     
     void WriteStream::UnscheduleFromRunLoop( CFRunLoopRef runLoop, CF::String mode )
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return;
         }

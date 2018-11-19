@@ -38,7 +38,7 @@
 namespace CF
 {    
     Array::Iterator::Iterator( void ):
-        _cfObject( NULL ),
+        _cfObject( nullptr ),
         _count( 0 ),
         _pos( 0 )
     {}
@@ -48,7 +48,7 @@ namespace CF
         _count( value._count ),
         _pos( value._pos )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRetain( this->_cfObject );
         }
@@ -59,7 +59,7 @@ namespace CF
         _count( count ),
         _pos( pos )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRetain( this->_cfObject );
         }
@@ -77,7 +77,7 @@ namespace CF
     
     Array::Iterator::~Iterator( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
@@ -195,7 +195,7 @@ namespace CF
         
         o = this->GetCFObject();
         
-        if( o != NULL )
+        if( o != nullptr )
         {
             return CFGetTypeID( o );
         }
@@ -205,24 +205,24 @@ namespace CF
     
     CFTypeRef Array::Iterator::GetCFObject( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
-            return NULL;
+            return nullptr;
         }
         
         if( this->_count == 0 )
         {
-            return NULL;
+            return nullptr;
         }
         
         if( this->_pos >= this->_count )
         {
-            return NULL;
+            return nullptr;
         }
         
         if( this->_pos < 0 )
         {
-            return NULL;
+            return nullptr;
         }
         
         return CFArrayGetValueAtIndex( this->_cfObject, this->_pos );

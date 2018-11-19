@@ -38,19 +38,19 @@
 
 namespace CF
 {    
-    Pair::Pair( CFTypeRef key, CFTypeRef value ): _key( NULL ), _value( NULL )
+    Pair::Pair( CFTypeRef key, CFTypeRef value ): _key( nullptr ), _value( nullptr )
     {
         this->SetKey( key );
         this->SetValue( value );
     }
     
-    Pair::Pair( const Pair & value ): _key( NULL ), _value( NULL )
+    Pair::Pair( const Pair & value ): _key( nullptr ), _value( nullptr )
     {
         this->SetKey( value._key );
         this->SetValue( value._value );
     }
     
-    Pair::Pair( const char * key, CFTypeRef value ): _key( NULL ), _value( NULL )
+    Pair::Pair( const char * key, CFTypeRef value ): _key( nullptr ), _value( nullptr )
     {
         String s;
         
@@ -60,19 +60,19 @@ namespace CF
         this->SetValue( value );
     }
     
-    Pair::Pair( const String & key, CFTypeRef value ): _key( NULL ), _value( NULL )
+    Pair::Pair( const String & key, CFTypeRef value ): _key( nullptr ), _value( nullptr )
     {
         this->SetKey( key );
         this->SetValue( value );
     }
     
-    Pair::Pair( const String & key, const String & value ): _key( NULL ), _value( NULL )
+    Pair::Pair( const String & key, const String & value ): _key( nullptr ), _value( nullptr )
     {
         this->SetKey( key );
         this->SetValue( value );
     }
     
-    Pair::Pair( const char * key, const String & value ): _key( NULL ), _value( NULL )
+    Pair::Pair( const char * key, const String & value ): _key( nullptr ), _value( nullptr )
     {
         String s;
         
@@ -82,7 +82,7 @@ namespace CF
         this->SetValue( value );
     }
     
-    Pair::Pair( const String & key, const char * value ): _key( NULL ), _value( NULL )
+    Pair::Pair( const String & key, const char * value ): _key( nullptr ), _value( nullptr )
     {
         String s;
         
@@ -92,7 +92,7 @@ namespace CF
         this->SetValue( s );
     }
     
-    Pair::Pair( const char * key, const char * value ): _key( NULL ), _value( NULL )
+    Pair::Pair( const char * key, const char * value ): _key( nullptr ), _value( nullptr )
     {
         String s1;
         String s2;
@@ -114,12 +114,12 @@ namespace CF
     
     Pair::~Pair( void )
     {
-        if( this->_key != NULL )
+        if( this->_key != nullptr )
         {
             CFRelease( this->_key );
         }
         
-        if( this->_value != NULL )
+        if( this->_value != nullptr )
         {
             CFRelease( this->_value );
         }
@@ -144,7 +144,7 @@ namespace CF
 
 	CFTypeID Pair::GetKeyTypeID(void) const
 	{
-		if( this->_key != NULL )
+		if( this->_key != nullptr )
         {
             return CFGetTypeID( this->_key );
         }
@@ -154,7 +154,7 @@ namespace CF
 
 	CFTypeID Pair::GetValueTypeID(void) const
 	{
-		if( this->_value != NULL )
+		if( this->_value != nullptr )
         {
             return CFGetTypeID( this->_value );
         }
@@ -164,35 +164,35 @@ namespace CF
             
     void Pair::SetKey( CFTypeRef key )
     {
-        if( this->_key != NULL )
+        if( this->_key != nullptr )
         {
             CFRelease( this->_key );
         }
         
-        if( key != NULL )
+        if( key != nullptr )
         {
             this->_key = CFRetain( key );
         }
         else
         {
-            this->_key = NULL;
+            this->_key = nullptr;
         }
     }
     
     void Pair::SetValue( CFTypeRef value )
     {
-        if( this->_value != NULL )
+        if( this->_value != nullptr )
         {
             CFRelease( this->_value );
         }
         
-        if( value != NULL )
+        if( value != nullptr )
         {
             this->_value = CFRetain( value );
         }
         else
         {
-            this->_value = NULL;
+            this->_value = nullptr;
         }
     }
     

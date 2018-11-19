@@ -40,8 +40,8 @@
 #include <Windows.h>
 
 static bool         __hasCFBoolean   = false;
-static CFBooleanRef __cfBooleanTrue  = NULL;
-static CFBooleanRef __cfBooleanFalse = NULL;
+static CFBooleanRef __cfBooleanTrue  = nullptr;
+static CFBooleanRef __cfBooleanFalse = nullptr;
 
 static void __loadCFBoolean( void )
 {
@@ -54,7 +54,7 @@ static void __loadCFBoolean( void )
 
     cfModule = GetModuleHandle( L"CoreFoundation.dll" );
 
-    if( cfModule != NULL )
+    if( cfModule != nullptr )
     {
         __hasCFBoolean   = true;
         __cfBooleanTrue  = *( ( CFBooleanRef * )GetProcAddress( cfModule, "kCFBooleanTrue" ) );
@@ -66,7 +66,7 @@ static void __loadCFBoolean( void )
 
 namespace CF
 {
-    Boolean::Boolean( const AutoPointer & value ): _cfObject( NULL )
+    Boolean::Boolean( const AutoPointer & value ): _cfObject( nullptr )
     {
         bool b;
         
@@ -82,11 +82,11 @@ namespace CF
         this->SetValue( b );
     }
     
-    Boolean::Boolean( CFTypeRef cfObject ): _cfObject( NULL )
+    Boolean::Boolean( CFTypeRef cfObject ): _cfObject( nullptr )
     {
         bool b;
         
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID()  )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID()  )
         {
             b = ( CFBooleanGetValue( static_cast< CFBooleanRef >( cfObject ) ) ) ? true : false;
         }
@@ -98,11 +98,11 @@ namespace CF
         this->SetValue( b );
     }
     
-    Boolean::Boolean( CFBooleanRef cfObject ): _cfObject( NULL )
+    Boolean::Boolean( CFBooleanRef cfObject ): _cfObject( nullptr )
     {
         bool b;
         
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             b = ( CFBooleanGetValue( cfObject ) ) ? true : false;
         }
@@ -114,7 +114,7 @@ namespace CF
         this->SetValue( b );
     }
     
-    Boolean::Boolean( const AutoPointer & value, bool defaultValueIfNULL ): _cfObject( NULL )
+    Boolean::Boolean( const AutoPointer & value, bool defaultValueIfNULL ): _cfObject( nullptr )
     {
         bool b;
         
@@ -130,11 +130,11 @@ namespace CF
         this->SetValue( b );
     }
     
-    Boolean::Boolean( CFTypeRef cfObject, bool defaultValueIfNULL ): _cfObject( NULL )
+    Boolean::Boolean( CFTypeRef cfObject, bool defaultValueIfNULL ): _cfObject( nullptr )
     {
         bool b;
         
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             b = ( CFBooleanGetValue( static_cast< CFBooleanRef >( cfObject ) ) ) ? true : false;
         }
@@ -146,11 +146,11 @@ namespace CF
         this->SetValue( b );
     }
     
-    Boolean::Boolean( CFBooleanRef cfObject, bool defaultValueIfNULL ): _cfObject( NULL )
+    Boolean::Boolean( CFBooleanRef cfObject, bool defaultValueIfNULL ): _cfObject( nullptr )
     {
         bool b;
         
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             b = ( CFBooleanGetValue( cfObject ) ) ? true : false;
         }
@@ -162,12 +162,12 @@ namespace CF
         this->SetValue( b );
     }
     
-    Boolean::Boolean( bool value ): _cfObject( NULL )
+    Boolean::Boolean( bool value ): _cfObject( nullptr )
     {
         this->SetValue( value );
     }
     
-    Boolean::Boolean( const Boolean & value ): _cfObject( NULL )
+    Boolean::Boolean( const Boolean & value ): _cfObject( nullptr )
     {
         this->SetValue( value.GetValue() );
     }
@@ -180,11 +180,11 @@ namespace CF
     
     Boolean::~Boolean( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     }
     
@@ -229,7 +229,7 @@ namespace CF
     {
         bool b;
 
-        if( value == NULL || CFGetTypeID( value ) != this->GetTypeID() )
+        if( value == nullptr || CFGetTypeID( value ) != this->GetTypeID() )
         {
             return false;
         }
@@ -281,7 +281,7 @@ namespace CF
             
     bool Boolean::GetValue( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
@@ -291,7 +291,7 @@ namespace CF
     
     void Boolean::SetValue( bool value )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }

@@ -38,8 +38,8 @@
 namespace CF
 {
     Dictionary::Iterator::Iterator( void ):
-        _cfObject( NULL ),
-        _keys( static_cast< CFArrayRef >( NULL ) ),
+        _cfObject( nullptr ),
+        _keys( static_cast< CFArrayRef >( nullptr ) ),
         _count( 0 ),
         _pos( 0 )
     {}
@@ -50,7 +50,7 @@ namespace CF
         _count( value._count ),
         _pos( value._pos )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRetain( this->_cfObject );
         }
@@ -64,7 +64,7 @@ namespace CF
         CFTypeRef * cfKeys;
         CFIndex     i;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return;
         }
@@ -78,14 +78,14 @@ namespace CF
         
         cfKeys = new CFTypeRef[ static_cast< size_t >( count ) ];
         
-        if( cfKeys == NULL )
+        if( cfKeys == nullptr )
         {
             return;
         }
         
         memset( cfKeys, 0, static_cast< size_t >( count ) );
         
-        CFDictionaryGetKeysAndValues( this->_cfObject, reinterpret_cast< const void ** >( cfKeys ), NULL );
+        CFDictionaryGetKeysAndValues( this->_cfObject, reinterpret_cast< const void ** >( cfKeys ), nullptr );
         
         for( i = 0; i < count; i++ )
         {
@@ -109,7 +109,7 @@ namespace CF
     
     Dictionary::Iterator::~Iterator( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
@@ -218,24 +218,24 @@ namespace CF
     
     CFTypeRef Dictionary::Iterator::GetKey( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
-            return NULL;
+            return nullptr;
         }
         
         if( this->_count == 0 )
         {
-            return NULL;
+            return nullptr;
         }
         
         if( this->_pos >= this->_count )
         {
-            return NULL;
+            return nullptr;
         }
         
         if( this->_pos < 0 )
         {
-            return NULL;
+            return nullptr;
         }
         
         return this->_keys.GetValueAtIndex( this->_pos );
@@ -247,9 +247,9 @@ namespace CF
         
         key = this->GetKey();
         
-        if( key == NULL )
+        if( key == nullptr )
         {
-            return NULL;
+            return nullptr;
         }
         
         return CFDictionaryGetValue( this->_cfObject, key );

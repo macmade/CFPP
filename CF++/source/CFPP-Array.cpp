@@ -46,7 +46,7 @@ static const void *	__CFArrayRetainCallBack( CFAllocatorRef allocator, const voi
 {
     ( void )allocator;
     
-    if( value != NULL )
+    if( value != nullptr )
     {
         value = CFRetain( value );
     }
@@ -59,7 +59,7 @@ static void __CFArrayReleaseCallBack( CFAllocatorRef allocator, const void * val
 {
     ( void )allocator;
     
-    if( value != NULL )
+    if( value != nullptr )
     {
         CFRelease( value );
     }
@@ -68,9 +68,9 @@ static void __CFArrayReleaseCallBack( CFAllocatorRef allocator, const void * val
 static CFStringRef __CFArrayCopyDescriptionCallBack( const void * value );
 static CFStringRef __CFArrayCopyDescriptionCallBack( const void * value )
 {
-    if( value == NULL )
+    if( value == nullptr )
     {
-        return CFStringCreateWithCString( ( CFAllocatorRef )NULL, "(null)", kCFStringEncodingUTF8 );
+        return CFStringCreateWithCString( ( CFAllocatorRef )nullptr, "(null)", kCFStringEncodingUTF8 );
     }
     
     return CFCopyDescription( value );
@@ -84,7 +84,7 @@ static Boolean __CFArrayEqualCallBack( const void * value1, const void * value2 
         return true;
     }
     
-    if( value1 == NULL || value2 == NULL )
+    if( value1 == nullptr || value2 == nullptr )
     {
         return false;
     }
@@ -125,46 +125,46 @@ static void __createCallbacks( void )
 
 namespace CF
 {
-    Array::Array( void ): _cfObject( NULL )
+    Array::Array( void ): _cfObject( nullptr )
     {
         __createCallbacks();
         
         this->_cfObject = CFArrayCreateMutable
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             0,
             &__callbacks
         );
     }
     
-    Array::Array( CFIndex capacity ): _cfObject( NULL )
+    Array::Array( CFIndex capacity ): _cfObject( nullptr )
     {
         __createCallbacks();
         
         this->_cfObject = CFArrayCreateMutable
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             capacity,
             &__callbacks
         );
     }
     
-    Array::Array( const Array & value ): _cfObject( NULL )
+    Array::Array( const Array & value ): _cfObject( nullptr )
     {
         __createCallbacks();
         
-        if( value._cfObject != NULL )
+        if( value._cfObject != nullptr )
         {
             this->_cfObject = CFArrayCreateMutableCopy
             (
-                static_cast< CFAllocatorRef >( NULL ),
+                static_cast< CFAllocatorRef >( nullptr ),
                 CFArrayGetCount( value._cfObject ),
                 value._cfObject
             );
         }
     }
     
-    Array::Array( const AutoPointer & value ): _cfObject( NULL )
+    Array::Array( const AutoPointer & value ): _cfObject( nullptr )
     {
         __createCallbacks();
         
@@ -172,37 +172,37 @@ namespace CF
         {
             this->_cfObject = CFArrayCreateMutableCopy
             (
-                static_cast< CFAllocatorRef >( NULL ),
+                static_cast< CFAllocatorRef >( nullptr ),
                 CFArrayGetCount( value ),
                 value
             );
         }
     }
     
-    Array::Array( CFTypeRef value ): _cfObject( NULL )
+    Array::Array( CFTypeRef value ): _cfObject( nullptr )
     {
         __createCallbacks();
         
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = CFArrayCreateMutableCopy
             (
-                static_cast< CFAllocatorRef >( NULL ),
+                static_cast< CFAllocatorRef >( nullptr ),
                 CFArrayGetCount( static_cast< CFArrayRef >( value ) ),
                 static_cast< CFArrayRef >( value )
             );
         }
     }
     
-    Array::Array( CFArrayRef value ): _cfObject( NULL )
+    Array::Array( CFArrayRef value ): _cfObject( nullptr )
     {
         __createCallbacks();
         
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = CFArrayCreateMutableCopy
             (
-                static_cast< CFAllocatorRef >( NULL ),
+                static_cast< CFAllocatorRef >( nullptr ),
                 CFArrayGetCount( value ),
                 value
             );
@@ -228,11 +228,11 @@ namespace CF
     
     Array::~Array( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     }
     
@@ -314,12 +314,12 @@ namespace CF
     
     CFIndex Array::GetCount( void ) const
     {
-        return ( this->_cfObject == NULL ) ? 0 : CFArrayGetCount( this->_cfObject );
+        return ( this->_cfObject == nullptr ) ? 0 : CFArrayGetCount( this->_cfObject );
     }
     
     bool Array::ContainsValue( CFTypeRef value ) const
     {
-        if( this->_cfObject == NULL || value == NULL )
+        if( this->_cfObject == nullptr || value == nullptr )
         {
             return false;
         }
@@ -334,7 +334,7 @@ namespace CF
     
     void Array::RemoveAllValues( void ) const
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFArrayRemoveAllValues( this->_cfObject );
         }
@@ -342,9 +342,9 @@ namespace CF
     
     CFTypeRef Array::GetValueAtIndex( CFIndex index ) const
     {
-        if( this->_cfObject == NULL || index >= this->GetCount() )
+        if( this->_cfObject == nullptr || index >= this->GetCount() )
         {
-            return NULL;
+            return nullptr;
         }
         
         return CFArrayGetValueAtIndex( this->_cfObject, index );
@@ -352,7 +352,7 @@ namespace CF
     
     void Array::SetValueAtIndex( CFTypeRef value, CFIndex index ) const
     {
-        if( this->_cfObject == NULL || index > this->GetCount() || value == NULL )
+        if( this->_cfObject == nullptr || index > this->GetCount() || value == nullptr )
         {
             return;
         }
@@ -362,7 +362,7 @@ namespace CF
     
     void Array::InsertValueAtIndex( CFTypeRef value, CFIndex index ) const
     {
-        if( this->_cfObject == NULL || index > this->GetCount() || value == NULL )
+        if( this->_cfObject == nullptr || index > this->GetCount() || value == nullptr )
         {
             return;
         }
@@ -372,7 +372,7 @@ namespace CF
     
     void Array::AppendValue( CFTypeRef value ) const
     {
-        if( this->_cfObject == NULL || value == NULL )
+        if( this->_cfObject == nullptr || value == nullptr )
         {
             return;
         }
@@ -382,7 +382,7 @@ namespace CF
     
     void Array::RemoveValueAtIndex( CFIndex index ) const
     {
-        if( this->_cfObject == NULL || index >= this->GetCount() )
+        if( this->_cfObject == nullptr || index >= this->GetCount() )
         {
             return;
         }
@@ -392,12 +392,12 @@ namespace CF
     
     void Array::AppendArray( CFArrayRef array ) const
     {
-        if( array == NULL || CFGetTypeID( array ) != this->GetTypeID() )
+        if( array == nullptr || CFGetTypeID( array ) != this->GetTypeID() )
         {
             return;
         }
         
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFArrayAppendArray
             (
@@ -410,7 +410,7 @@ namespace CF
     
     void Array::ExchangeValuesAtIndices( CFIndex index1, CFIndex index2 ) const
     {
-        if( this->_cfObject == NULL || index1 >= this->GetCount() || index2 >= this->GetCount() )
+        if( this->_cfObject == nullptr || index1 >= this->GetCount() || index2 >= this->GetCount() )
         {
             return;
         }

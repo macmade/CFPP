@@ -42,12 +42,12 @@ namespace CF
     
     bool Type::operator == ( const Type & value ) const
     {
-        if( this->GetCFObject() == NULL )
+        if( this->GetCFObject() == nullptr )
         {
             return false;
         }
         
-        if( value.GetCFObject() == NULL )
+        if( value.GetCFObject() == nullptr )
         {
             return false;
         }
@@ -67,82 +67,82 @@ namespace CF
     
     Type::operator CFBooleanRef () const
     {
-        return ( this->IsBoolean() ) ? static_cast< CFBooleanRef >( this->GetCFObject() ) : NULL;
+        return ( this->IsBoolean() ) ? static_cast< CFBooleanRef >( this->GetCFObject() ) : nullptr;
     }
     
     Type::operator CFNumberRef () const
     {
-        return ( this->IsNumber() ) ? static_cast< CFNumberRef >( this->GetCFObject() ) : NULL;
+        return ( this->IsNumber() ) ? static_cast< CFNumberRef >( this->GetCFObject() ) : nullptr;
     }
     
     Type::operator CFDateRef () const
     {
-        return ( this->IsDate() ) ? static_cast< CFDateRef >( this->GetCFObject() ) : NULL;
+        return ( this->IsDate() ) ? static_cast< CFDateRef >( this->GetCFObject() ) : nullptr;
     }
     
     Type::operator CFStringRef () const
     {
-        return ( this->IsString() ) ? static_cast< CFStringRef >( this->GetCFObject() ) : NULL;
+        return ( this->IsString() ) ? static_cast< CFStringRef >( this->GetCFObject() ) : nullptr;
     }
     
     Type::operator CFMutableStringRef () const
     {
-        return ( this->IsString() ) ? static_cast< CFMutableStringRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsString() ) ? static_cast< CFMutableStringRef >( const_cast< void * >( this->GetCFObject() ) ) : nullptr;
     }
     
     Type::operator CFURLRef () const
     {
-        return ( this->IsURL() ) ? static_cast< CFURLRef >( this->GetCFObject() ) : NULL;
+        return ( this->IsURL() ) ? static_cast< CFURLRef >( this->GetCFObject() ) : nullptr;
     }
     
     Type::operator CFDataRef () const
     {
-        return ( this->IsData() ) ? static_cast< CFDataRef >( this->GetCFObject() ) : NULL;
+        return ( this->IsData() ) ? static_cast< CFDataRef >( this->GetCFObject() ) : nullptr;
     }
     
     Type::operator CFMutableDataRef () const
     {
-        return ( this->IsData() ) ? static_cast< CFMutableDataRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsData() ) ? static_cast< CFMutableDataRef >( const_cast< void * >( this->GetCFObject() ) ) : nullptr;
     }
     
     Type::operator CFArrayRef () const
     {
-        return ( this->IsArray() ) ? static_cast< CFArrayRef >( this->GetCFObject() ) : NULL;
+        return ( this->IsArray() ) ? static_cast< CFArrayRef >( this->GetCFObject() ) : nullptr;
     }
     
     Type::operator CFMutableArrayRef () const
     {
-        return ( this->IsArray() ) ? static_cast< CFMutableArrayRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsArray() ) ? static_cast< CFMutableArrayRef >( const_cast< void * >( this->GetCFObject() ) ) : nullptr;
     }
     
     Type::operator CFDictionaryRef () const
     {
-        return ( this->IsDictionary() ) ? static_cast< CFDictionaryRef >( this->GetCFObject() ) : NULL;
+        return ( this->IsDictionary() ) ? static_cast< CFDictionaryRef >( this->GetCFObject() ) : nullptr;
     }
     
     Type::operator CFMutableDictionaryRef () const
     {
-        return ( this->IsDictionary() ) ? static_cast< CFMutableDictionaryRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsDictionary() ) ? static_cast< CFMutableDictionaryRef >( const_cast< void * >( this->GetCFObject() ) ) : nullptr;
     }
     
     Type::operator CFUUIDRef () const
     {
-        return ( this->IsUUID() ) ? static_cast< CFUUIDRef >( this->GetCFObject() ) : NULL;
+        return ( this->IsUUID() ) ? static_cast< CFUUIDRef >( this->GetCFObject() ) : nullptr;
     }
     
     Type::operator CFErrorRef () const
     {
-        return ( this->IsError() ) ? static_cast< CFErrorRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsError() ) ? static_cast< CFErrorRef >( const_cast< void * >( this->GetCFObject() ) ) : nullptr;
     }
     
     Type::operator CFReadStreamRef () const
     {
-        return ( this->IsReadStream() ) ? static_cast< CFReadStreamRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsReadStream() ) ? static_cast< CFReadStreamRef >( const_cast< void * >( this->GetCFObject() ) ) : nullptr;
     }
     
     Type::operator CFWriteStreamRef () const
     {
-        return ( this->IsWriteStream() ) ? static_cast< CFWriteStreamRef >( const_cast< void * >( this->GetCFObject() ) ) : NULL;
+        return ( this->IsWriteStream() ) ? static_cast< CFWriteStreamRef >( const_cast< void * >( this->GetCFObject() ) ) : nullptr;
     }
     
     std::string Type::Description( void ) const
@@ -152,14 +152,14 @@ namespace CF
         char       * cStr;
         size_t       length;
         
-        if( this->GetCFObject() == NULL )
+        if( this->GetCFObject() == nullptr )
         {
             return "(null)";
         }
         
         cfDescription = CFCopyDescription( this->GetCFObject() );
         
-        if( cfDescription == NULL )
+        if( cfDescription == nullptr )
         {
             return "(null)";
         }
@@ -167,7 +167,7 @@ namespace CF
         length = static_cast< size_t >( CFStringGetMaximumSizeForEncoding( CFStringGetLength( cfDescription ), CFStringGetSystemEncoding() ) );
         cStr   = new char [ length + 1 ];
         
-        if( cStr == NULL )
+        if( cStr == nullptr )
         {
             CFRelease( cfDescription );
             
@@ -188,7 +188,7 @@ namespace CF
     
     CFHashCode Type::Hash( void ) const
     {
-        if( this->GetCFObject() == NULL )
+        if( this->GetCFObject() == nullptr )
         {
             return static_cast< CFHashCode >( 0 );
         }
@@ -198,7 +198,7 @@ namespace CF
     
     CFIndex Type::GetRetainCount( void ) const
     {
-        if( this->GetCFObject() == NULL )
+        if( this->GetCFObject() == nullptr )
         {
             return 0;
         }
@@ -208,7 +208,7 @@ namespace CF
     
     bool Type::IsValid( void ) const
     {
-        return ( this->GetCFObject() != NULL ) ? true : false;
+        return ( this->GetCFObject() != nullptr ) ? true : false;
     }
     
     bool Type::IsValidPropertyList( PropertyListFormat format ) const

@@ -37,41 +37,41 @@
 
 namespace CF
 {
-    ReadStream::ReadStream( void ): _cfObject( NULL )
+    ReadStream::ReadStream( void ): _cfObject( nullptr )
     {}
     
-    ReadStream::ReadStream( URL url ): _cfObject( NULL )
+    ReadStream::ReadStream( URL url ): _cfObject( nullptr )
     {
-        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( nullptr ), url );
     }
     
-    ReadStream::ReadStream( const  std::string & path ): _cfObject( NULL )
+    ReadStream::ReadStream( const  std::string & path ): _cfObject( nullptr )
     {
         URL url;
         
         url = URL::FileSystemURL( path );
         
-        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( nullptr ), url );
     }
     
-    ReadStream::ReadStream( const char * path ): _cfObject( NULL )
+    ReadStream::ReadStream( const char * path ): _cfObject( nullptr )
     {
         URL url;
         
         url = URL::FileSystemURL( path );
         
-        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( nullptr ), url );
     }
     
-    ReadStream::ReadStream( const ReadStream & value ): _cfObject( NULL )
+    ReadStream::ReadStream( const ReadStream & value ): _cfObject( nullptr )
     {
-        if( value._cfObject != NULL )
+        if( value._cfObject != nullptr )
         {
             this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value._cfObject ) ) );
         }
     }
     
-    ReadStream::ReadStream( const AutoPointer & value ): _cfObject( NULL )
+    ReadStream::ReadStream( const AutoPointer & value ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -79,17 +79,17 @@ namespace CF
         }
     }
     
-    ReadStream::ReadStream( CFTypeRef value ): _cfObject( NULL )
+    ReadStream::ReadStream( CFTypeRef value ): _cfObject( nullptr )
     {
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value ) ) );
         }
     }
     
-    ReadStream::ReadStream( CFReadStreamRef value ): _cfObject( NULL )
+    ReadStream::ReadStream( CFReadStreamRef value ): _cfObject( nullptr )
     {
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFReadStreamRef >( const_cast< void * >( CFRetain( value ) ) );
         }
@@ -103,11 +103,11 @@ namespace CF
     
     ReadStream::~ReadStream( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     }
     
@@ -145,7 +145,7 @@ namespace CF
     
     bool ReadStream::Open( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
@@ -165,21 +165,21 @@ namespace CF
     
     bool ReadStream::Open( const URL & url )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             this->Close();
             
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( NULL ), url );
+        this->_cfObject = CFReadStreamCreateWithFile( static_cast< CFAllocatorRef >( nullptr ), url );
         
         return this->Open();
     }
     
     void ReadStream::Close( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return;
         }
@@ -189,7 +189,7 @@ namespace CF
     
     bool ReadStream::HasBytesAvailable( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
@@ -199,7 +199,7 @@ namespace CF
     
     CFStreamStatus ReadStream::GetStatus( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return kCFStreamStatusError;
         }
@@ -211,7 +211,7 @@ namespace CF
     {
         AutoPointer e;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return e.As< CFErrorRef >();
         }
@@ -223,12 +223,12 @@ namespace CF
         
     CFIndex ReadStream::Read( Data::Byte * buffer, CFIndex length ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return -1;
         }
         
-        if( buffer == NULL || length <= 0 )
+        if( buffer == nullptr || length <= 0 )
         {
             return -1;
         }
@@ -242,7 +242,7 @@ namespace CF
         std::shared_ptr< Data::Byte > bytes;
         CFIndex                       read;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return data;
         }
@@ -292,9 +292,9 @@ namespace CF
     
     const Data::Byte * ReadStream::GetBuffer( CFIndex maxBytesToRead, CFIndex * numBytesRead ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
-            return NULL;
+            return nullptr;
         }
         
         return CFReadStreamGetBuffer( this->_cfObject, maxBytesToRead, numBytesRead );
@@ -302,9 +302,9 @@ namespace CF
     
     AutoPointer ReadStream::GetProperty( const String & name )
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
-            return NULL;
+            return nullptr;
         }
         
         return CFReadStreamCopyProperty( this->_cfObject, name );
@@ -312,7 +312,7 @@ namespace CF
     
     bool ReadStream::SetProperty( const String & name, CFTypeRef value )
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
@@ -322,7 +322,7 @@ namespace CF
     
     bool ReadStream::SetClient( CFOptionFlags events, CFReadStreamClientCallBack callback, CFStreamClientContext * context )
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
@@ -332,7 +332,7 @@ namespace CF
     
     void ReadStream::ScheduleWithRunLoop( CFRunLoopRef runLoop, CF::String mode )
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return;
         }
@@ -342,7 +342,7 @@ namespace CF
     
     void ReadStream::UnscheduleFromRunLoop( CFRunLoopRef runLoop, CF::String mode )
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return;
         }

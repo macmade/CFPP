@@ -40,7 +40,7 @@
 #include <Windows.h>
 
 static bool      __hasCFNull = false;
-static CFNullRef __cfNull    = NULL;
+static CFNullRef __cfNull    = nullptr;
 
 static void __loadCFNull( void )
 {
@@ -53,7 +53,7 @@ static void __loadCFNull( void )
 
     cfModule = GetModuleHandle( L"CoreFoundation.dll" );
 
-    if( cfModule != NULL )
+    if( cfModule != nullptr )
     {
         __hasCFNull = true;
         __cfNull    = *( ( CFNullRef * )GetProcAddress( cfModule, "kCFNull" ) );
@@ -64,7 +64,7 @@ static void __loadCFNull( void )
 
 namespace CF
 {
-    Null::Null( void ): _cfObject( NULL )
+    Null::Null( void ): _cfObject( nullptr )
     {
         #ifdef _WIN32
         
@@ -82,9 +82,9 @@ namespace CF
     Null::Null( const Null & value ): _cfObject( value._cfObject )
     {}
     
-    Null::Null( CFTypeRef value ): _cfObject( NULL )
+    Null::Null( CFTypeRef value ): _cfObject( nullptr )
     {
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             _cfObject = static_cast< CFNullRef >( value );
         }

@@ -37,18 +37,18 @@
 
 namespace CF
 {
-    Error::Error( void ): _cfObject( NULL )
+    Error::Error( void ): _cfObject( nullptr )
     {}
     
-    Error::Error( const Error & value ): _cfObject( NULL )
+    Error::Error( const Error & value ): _cfObject( nullptr )
     {
-        if( value._cfObject != NULL )
+        if( value._cfObject != nullptr )
         {
             this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value._cfObject ) ) );
         }
     }
     
-    Error::Error( const AutoPointer & value ): _cfObject( NULL )
+    Error::Error( const AutoPointer & value ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -56,67 +56,67 @@ namespace CF
         }
     }
     
-    Error::Error( CFTypeRef value ): _cfObject( NULL )
+    Error::Error( CFTypeRef value ): _cfObject( nullptr )
     {
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value ) ) );
         }
     }
     
-    Error::Error( CFErrorRef value ): _cfObject( NULL )
+    Error::Error( CFErrorRef value ): _cfObject( nullptr )
     {
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = reinterpret_cast< CFErrorRef >( const_cast< void * >( CFRetain( value ) ) );
         }
     }
     
-    Error::Error( const String & domain, const Number & code ): _cfObject( NULL )
+    Error::Error( const String & domain, const Number & code ): _cfObject( nullptr )
     {
         this->_cfObject = CFErrorCreate
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             domain,
             static_cast< CFIndex >( code.GetSignedLongValue() ),
-            NULL
+            nullptr
         );
     }
     
-    Error::Error( const String & domain, const Number & code, const Dictionary & userInfo ): _cfObject( NULL )
+    Error::Error( const String & domain, const Number & code, const Dictionary & userInfo ): _cfObject( nullptr )
     {
         this->_cfObject = CFErrorCreate
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             domain,
             static_cast< CFIndex >( code.GetSignedLongValue() ),
             userInfo
         );
     }
     
-    Error::Error( CFStringRef domain, CFIndex code ): _cfObject( NULL )
+    Error::Error( CFStringRef domain, CFIndex code ): _cfObject( nullptr )
     {
         this->_cfObject = CFErrorCreate
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             domain,
             code,
-            NULL
+            nullptr
         );
     }
     
-    Error::Error( CFStringRef domain, CFIndex code, CFDictionaryRef userInfo ): _cfObject( NULL )
+    Error::Error( CFStringRef domain, CFIndex code, CFDictionaryRef userInfo ): _cfObject( nullptr )
     {
         this->_cfObject = CFErrorCreate
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             domain,
             code,
             userInfo
         );
     }
     
-    Error::Error( const std::string & domain, CFIndex code ): _cfObject( NULL )
+    Error::Error( const std::string & domain, CFIndex code ): _cfObject( nullptr )
     {
         String s;
         
@@ -124,14 +124,14 @@ namespace CF
         
         this->_cfObject = CFErrorCreate
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             s,
             code,
-            NULL
+            nullptr
         );
     }
     
-    Error::Error( const std::string & domain, CFIndex code, const Dictionary & userInfo ): _cfObject( NULL )
+    Error::Error( const std::string & domain, CFIndex code, const Dictionary & userInfo ): _cfObject( nullptr )
     {
         String s;
         
@@ -139,14 +139,14 @@ namespace CF
         
         this->_cfObject = CFErrorCreate
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             s,
             code,
             userInfo
         );
     }
     
-    Error::Error( const char * domain, CFIndex code ): _cfObject( NULL )
+    Error::Error( const char * domain, CFIndex code ): _cfObject( nullptr )
     {
         String s;
         
@@ -154,14 +154,14 @@ namespace CF
         
         this->_cfObject = CFErrorCreate
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             s,
             code,
-            NULL
+            nullptr
         );
     }
     
-    Error::Error( const char * domain, CFIndex code, const Dictionary & userInfo ): _cfObject( NULL )
+    Error::Error( const char * domain, CFIndex code, const Dictionary & userInfo ): _cfObject( nullptr )
     {
         String s;
         
@@ -169,7 +169,7 @@ namespace CF
         
         this->_cfObject = CFErrorCreate
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             s,
             code,
             userInfo
@@ -184,11 +184,11 @@ namespace CF
     
     Error::~Error( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     
     }
@@ -230,7 +230,7 @@ namespace CF
         String      str;
         CFStringRef cfStr;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return str;
         }
@@ -245,7 +245,7 @@ namespace CF
     {
         Number n;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return n;
         }
@@ -259,7 +259,7 @@ namespace CF
     {
         AutoPointer d;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return CF::Dictionary();
         }
@@ -273,7 +273,7 @@ namespace CF
     {
         AutoPointer s;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return CF::String();
         }
@@ -287,7 +287,7 @@ namespace CF
     {
         AutoPointer s;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return CF::String();
         }
@@ -301,7 +301,7 @@ namespace CF
     {
         AutoPointer s;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return CF::String();
         }

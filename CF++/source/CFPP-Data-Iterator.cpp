@@ -38,10 +38,10 @@
 namespace CF
 {
     Data::Iterator::Iterator( void ):
-        _cfObject( NULL ),
+        _cfObject( nullptr ),
         _length( 0 ),
         _pos( 0 ),
-        _bp( NULL )
+        _bp( nullptr )
     {}
     
     Data::Iterator::Iterator( const Iterator & value ):
@@ -50,7 +50,7 @@ namespace CF
         _pos( value._pos ),
         _bp( value._bp )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRetain( this->_cfObject );
         }
@@ -60,9 +60,9 @@ namespace CF
         _cfObject( data ),
         _length( length ),
         _pos( pos ),
-        _bp( NULL )
+        _bp( nullptr )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRetain( this->_cfObject );
             
@@ -84,7 +84,7 @@ namespace CF
     
     Data::Iterator::~Iterator( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
@@ -188,12 +188,12 @@ namespace CF
     
     Data::Byte Data::Iterator::operator * ( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return 0;
         }
         
-        if( this->_bp == NULL )
+        if( this->_bp == nullptr )
         {
             return 0;
         }

@@ -40,7 +40,7 @@
 #include <Windows.h>
 
 static bool        __hasCFStreamProperties             = false;
-static CFStringRef __cfStreamPropertyFileCurrentOffset = NULL;
+static CFStringRef __cfStreamPropertyFileCurrentOffset = nullptr;
 
 static void __loadCFStreamProperties( void )
 {
@@ -53,7 +53,7 @@ static void __loadCFStreamProperties( void )
 
 	cfModule = GetModuleHandle( L"CoreFoundation.dll" );
 
-	if( cfModule != NULL )
+	if( cfModule != nullptr )
 	{
 		__hasCFStreamProperties             = true;
 		__cfStreamPropertyFileCurrentOffset = *( ( CFStringRef * )GetProcAddress( cfModule, "kCFStreamPropertyFileCurrentOffset" ) );
@@ -65,10 +65,10 @@ static void __loadCFStreamProperties( void )
 namespace CF
 {
     ReadStream::Iterator::Iterator( void ):
-        _cfObject( NULL ),
+        _cfObject( nullptr ),
         _bytesToRead( 0 ),
         _i( 0 ),
-        _data( static_cast< CFDataRef >( NULL ) ),
+        _data( static_cast< CFDataRef >( nullptr ) ),
         _end( false )
     {}
     
@@ -76,10 +76,10 @@ namespace CF
         _cfObject( stream ),
         _bytesToRead( ( bytesToRead > 0 ) ? bytesToRead : 4096 ),
         _i( 0 ),
-        _data( static_cast< CFDataRef >( NULL ) ),
+        _data( static_cast< CFDataRef >( nullptr ) ),
         _end( end )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRetain( this->_cfObject );
             
@@ -98,7 +98,7 @@ namespace CF
         _data( value._data ),
         _end( value._end )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRetain( this->_cfObject );
         }
@@ -120,7 +120,7 @@ namespace CF
 
     ReadStream::Iterator::~Iterator( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
@@ -135,7 +135,7 @@ namespace CF
     
     ReadStream::Iterator & ReadStream::Iterator::operator ++( void )
     {
-        this->_data = static_cast< CFDataRef >( NULL );
+        this->_data = static_cast< CFDataRef >( nullptr );
         this->_i   += 1;
         
         this->_Read();
@@ -154,9 +154,9 @@ namespace CF
 
     ReadStream::Iterator & ReadStream::Iterator::operator += ( CFIndex value )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
-            this->_data = static_cast< CFDataRef >( NULL );
+            this->_data = static_cast< CFDataRef >( nullptr );
 
 			#ifdef _WIN32
 
@@ -239,7 +239,7 @@ namespace CF
         CFIndex        i;
         CFStreamStatus status;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return;
         }
@@ -278,7 +278,7 @@ namespace CF
         
         buf = new UInt8[ this->_bytesToRead ];
         
-        if( buf == NULL )
+        if( buf == nullptr )
         {
             return;
         }

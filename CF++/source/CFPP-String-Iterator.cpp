@@ -38,10 +38,10 @@
 namespace CF
 {
     String::Iterator::Iterator( void ):
-        _cfObject( NULL ),
+        _cfObject( nullptr ),
         _length( 0 ),
         _pos( 0 ),
-        _cp( NULL )
+        _cp( nullptr )
     {}
     
     String::Iterator::Iterator( const Iterator & value ):
@@ -50,7 +50,7 @@ namespace CF
         _pos( value._pos ),
         _cp( value._cp )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRetain( this->_cfObject );
         }
@@ -60,9 +60,9 @@ namespace CF
         _cfObject( string ),
         _length( length ),
         _pos( pos ),
-        _cp( NULL )
+        _cp( nullptr )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRetain( this->_cfObject );
             
@@ -95,7 +95,7 @@ namespace CF
     
     String::Iterator::~Iterator( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
@@ -199,12 +199,12 @@ namespace CF
     
     char String::Iterator::operator * ( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return 0;
         }
         
-        if( this->_cp == NULL )
+        if( this->_cp == nullptr )
         {
             return 0;
         }

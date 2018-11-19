@@ -41,12 +41,12 @@
 
 namespace CF
 {
-    Number::Number( void ): _cfObject( NULL )
+    Number::Number( void ): _cfObject( nullptr )
     {
         this->SetSignedIntValue( 0 );
     }
     
-    Number::Number( const AutoPointer & value ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -54,23 +54,23 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
     }
     
-    Number::Number( CFNumberRef cfObject ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
     }
     
-    Number::Number( const AutoPointer & value, signed char defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, signed char defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -82,7 +82,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, signed short defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, signed short defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -94,7 +94,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, signed int defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, signed int defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -106,7 +106,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, signed long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, signed long defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -118,7 +118,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, signed long long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, signed long long defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -130,7 +130,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, unsigned char defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, unsigned char defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -142,7 +142,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, unsigned short defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, unsigned short defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -154,7 +154,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, unsigned int defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, unsigned int defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -166,7 +166,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, unsigned long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, unsigned long defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -178,7 +178,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, unsigned long long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, unsigned long long defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -190,7 +190,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, double defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, double defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -202,7 +202,7 @@ namespace CF
         }
     }
     
-    Number::Number( const AutoPointer & value, float defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( const AutoPointer & value, float defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -214,9 +214,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, signed char defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, signed char defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -226,9 +226,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, signed short defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, signed short defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -238,9 +238,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, signed int defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, signed int defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -250,9 +250,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, signed long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, signed long defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -262,9 +262,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, signed long long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, signed long long defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -274,9 +274,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, unsigned char defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, unsigned char defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -286,9 +286,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, unsigned short defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, unsigned short defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -298,9 +298,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, unsigned int defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, unsigned int defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -310,9 +310,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, unsigned long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, unsigned long defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -322,9 +322,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, unsigned long long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, unsigned long long defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -334,9 +334,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, float defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, float defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -346,9 +346,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFTypeRef cfObject, double defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFTypeRef cfObject, double defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -358,9 +358,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, signed char defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, signed char defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -370,9 +370,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, signed short defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, signed short defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -382,9 +382,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, signed int defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, signed int defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -394,9 +394,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, signed long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, signed long defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -406,9 +406,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, signed long long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, signed long long defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -418,9 +418,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, unsigned char defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, unsigned char defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -430,9 +430,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, unsigned short defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, unsigned short defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -442,9 +442,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, unsigned int defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, unsigned int defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -454,9 +454,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, unsigned long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, unsigned long defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -466,9 +466,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, unsigned long long defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, unsigned long long defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -478,9 +478,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, float defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, float defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -490,9 +490,9 @@ namespace CF
         }
     }
     
-    Number::Number( CFNumberRef cfObject, double defaultValueIfNULL ): _cfObject( NULL )
+    Number::Number( CFNumberRef cfObject, double defaultValueIfNULL ): _cfObject( nullptr )
     {
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( cfObject ) );
         }
@@ -502,70 +502,70 @@ namespace CF
         }
     }
     
-    Number::Number( const Number & value ): _cfObject( NULL )
+    Number::Number( const Number & value ): _cfObject( nullptr )
     {
-        if( value._cfObject != NULL )
+        if( value._cfObject != nullptr )
         {
             this->_cfObject = static_cast< CFNumberRef >( CFRetain( value._cfObject ) );
         }
     }
     
-    Number::Number( signed char value ): _cfObject( NULL )
+    Number::Number( signed char value ): _cfObject( nullptr )
     {
         this->SetSignedCharValue( value );
     }
     
-    Number::Number( signed short value ): _cfObject( NULL )
+    Number::Number( signed short value ): _cfObject( nullptr )
     {
         this->SetSignedShortValue( value );
     }
     
-    Number::Number( signed int value ): _cfObject( NULL )
+    Number::Number( signed int value ): _cfObject( nullptr )
     {
         this->SetSignedIntValue( value );
     }
     
-    Number::Number( signed long value ): _cfObject( NULL )
+    Number::Number( signed long value ): _cfObject( nullptr )
     {
         this->SetSignedLongValue( value );
     }
     
-    Number::Number( signed long long value ): _cfObject( NULL )
+    Number::Number( signed long long value ): _cfObject( nullptr )
     {
         this->SetSignedLongLongValue( value );
     }
     
-    Number::Number( unsigned char value ): _cfObject( NULL )
+    Number::Number( unsigned char value ): _cfObject( nullptr )
     {
         this->SetUnsignedCharValue( value );
     }
     
-    Number::Number( unsigned short value ): _cfObject( NULL )
+    Number::Number( unsigned short value ): _cfObject( nullptr )
     {
         this->SetUnsignedShortValue( value );
     }
     
-    Number::Number( unsigned int value ): _cfObject( NULL )
+    Number::Number( unsigned int value ): _cfObject( nullptr )
     {
         this->SetUnsignedIntValue( value );
     }
     
-    Number::Number( unsigned long value ): _cfObject( NULL )
+    Number::Number( unsigned long value ): _cfObject( nullptr )
     {
         this->SetUnsignedLongValue( value );
     }
     
-    Number::Number( unsigned long long value ): _cfObject( NULL )
+    Number::Number( unsigned long long value ): _cfObject( nullptr )
     {
         this->SetUnsignedLongLongValue( value );
     }
     
-    Number::Number( float value ): _cfObject( NULL )
+    Number::Number( float value ): _cfObject( nullptr )
     {
         this->SetFloatValue( value );
     }
     
-    Number::Number( double value ): _cfObject( NULL )
+    Number::Number( double value ): _cfObject( nullptr )
     {
         this->SetDoubleValue( value );
     }
@@ -578,11 +578,11 @@ namespace CF
     
     Number::~Number( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     }
     
@@ -2756,7 +2756,7 @@ namespace CF
     
     bool Number::IsFloatType( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return false;
         }
@@ -2768,7 +2768,7 @@ namespace CF
     {
         signed char value;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return static_cast< signed char >( 0 );
         }
@@ -2782,7 +2782,7 @@ namespace CF
     {
         signed short value;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return static_cast< signed short >( 0 );
         }
@@ -2796,7 +2796,7 @@ namespace CF
     {
         signed int value;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return static_cast< signed int >( 0 );
         }
@@ -2810,7 +2810,7 @@ namespace CF
     {
         signed long value;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return static_cast< signed long >( 0 );
         }
@@ -2824,7 +2824,7 @@ namespace CF
     {
         signed long long value;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return static_cast< signed long long >( 0 );
         }
@@ -2863,7 +2863,7 @@ namespace CF
     {
         float value;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return static_cast< float >( 0 );
         }
@@ -2877,7 +2877,7 @@ namespace CF
     {
         double value;
         
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return static_cast< double >( 0 );
         }
@@ -2889,52 +2889,52 @@ namespace CF
     
     void Number::SetSignedCharValue( signed char value )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberCharType, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( nullptr ), kCFNumberCharType, &value );
     }
     
     void Number::SetSignedShortValue( signed short value )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberShortType, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( nullptr ), kCFNumberShortType, &value );
     }
     
     void Number::SetSignedIntValue( signed int value )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberIntType, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( nullptr ), kCFNumberIntType, &value );
     }
     
     void Number::SetSignedLongValue( signed long value )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberLongType, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( nullptr ), kCFNumberLongType, &value );
     }
     
     void Number::SetSignedLongLongValue( signed long long value )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberLongLongType, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( nullptr ), kCFNumberLongLongType, &value );
     }
     
     void Number::SetUnsignedCharValue( unsigned char value )
@@ -2964,22 +2964,22 @@ namespace CF
     
     void Number::SetFloatValue( float value )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberFloatType, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( nullptr ), kCFNumberFloatType, &value );
     }
     
     void Number::SetDoubleValue( double value )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( NULL ), kCFNumberDoubleType, &value );
+        this->_cfObject = CFNumberCreate( static_cast< CFAllocatorRef >( nullptr ), kCFNumberDoubleType, &value );
     }
     
     void swap( Number & v1, Number & v2 ) noexcept

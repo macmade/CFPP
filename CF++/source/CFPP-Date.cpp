@@ -44,20 +44,20 @@ namespace CF
         return date;
     }
     
-    Date::Date( void ): _cfObject( NULL )
+    Date::Date( void ): _cfObject( nullptr )
     {
         this->SetValue( CFAbsoluteTimeGetCurrent() );
     }
     
-    Date::Date( const Date & value ): _cfObject( NULL )
+    Date::Date( const Date & value ): _cfObject( nullptr )
     {
-        if( value._cfObject != NULL )
+        if( value._cfObject != nullptr )
         {
             this->_cfObject = static_cast< CFDateRef >( CFRetain( value._cfObject ) );
         }
     }
     
-    Date::Date( const AutoPointer & value ): _cfObject( NULL )
+    Date::Date( const AutoPointer & value ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
         {
@@ -65,23 +65,23 @@ namespace CF
         }
     }
     
-    Date::Date( CFTypeRef value ): _cfObject( NULL )
+    Date::Date( CFTypeRef value ): _cfObject( nullptr )
     {
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFDateRef >( CFRetain( value ) );
         }
     }
     
-    Date::Date( CFDateRef value ): _cfObject( NULL )
+    Date::Date( CFDateRef value ): _cfObject( nullptr )
     {
-        if( value != NULL && CFGetTypeID( value ) == this->GetTypeID() )
+        if( value != nullptr && CFGetTypeID( value ) == this->GetTypeID() )
         {
             this->_cfObject = static_cast< CFDateRef >( CFRetain( value ) );
         }
     }
     
-    Date::Date( CFAbsoluteTime value ): _cfObject( NULL )
+    Date::Date( CFAbsoluteTime value ): _cfObject( nullptr )
     {
         this->SetValue( value );
     }
@@ -94,11 +94,11 @@ namespace CF
     
     Date::~Date( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     }
     
@@ -131,12 +131,12 @@ namespace CF
     
     bool Date::operator == ( const Date & value ) const
     {
-        if( this->_cfObject == NULL || value._cfObject == NULL )
+        if( this->_cfObject == nullptr || value._cfObject == nullptr )
         {
             return false;
         }
         
-        return CFDateCompare( this->_cfObject, value._cfObject, NULL ) == kCFCompareEqualTo;
+        return CFDateCompare( this->_cfObject, value._cfObject, nullptr ) == kCFCompareEqualTo;
     }
     
     bool Date::operator == ( CFTypeRef value ) const
@@ -178,12 +178,12 @@ namespace CF
     {
         CFComparisonResult r;
         
-        if( this->_cfObject == NULL || value._cfObject == NULL )
+        if( this->_cfObject == nullptr || value._cfObject == nullptr )
         {
             return false;
         }
         
-        r = CFDateCompare( this->_cfObject, value._cfObject, NULL );
+        r = CFDateCompare( this->_cfObject, value._cfObject, nullptr );
         
         return r == kCFCompareGreaterThan || r == kCFCompareEqualTo;
     }
@@ -202,12 +202,12 @@ namespace CF
     {
         CFComparisonResult r;
         
-        if( this->_cfObject == NULL || value._cfObject == NULL )
+        if( this->_cfObject == nullptr || value._cfObject == nullptr )
         {
             return false;
         }
         
-        r = CFDateCompare( this->_cfObject, value._cfObject, NULL );
+        r = CFDateCompare( this->_cfObject, value._cfObject, nullptr );
         
         return r == kCFCompareLessThan || r == kCFCompareEqualTo;
     }
@@ -224,12 +224,12 @@ namespace CF
     
     bool Date::operator > ( const Date & value ) const
     {
-        if( this->_cfObject == NULL || value._cfObject == NULL )
+        if( this->_cfObject == nullptr || value._cfObject == nullptr )
         {
             return false;
         }
         
-        return CFDateCompare( this->_cfObject, value._cfObject, NULL ) == kCFCompareGreaterThan;
+        return CFDateCompare( this->_cfObject, value._cfObject, nullptr ) == kCFCompareGreaterThan;
     }
     
     bool Date::operator > ( CFDateRef value ) const
@@ -244,12 +244,12 @@ namespace CF
     
     bool Date::operator < ( const Date & value ) const
     {
-        if( this->_cfObject == NULL || value._cfObject == NULL )
+        if( this->_cfObject == nullptr || value._cfObject == nullptr )
         {
             return false;
         }
         
-        return CFDateCompare( this->_cfObject, value._cfObject, NULL ) == kCFCompareLessThan;
+        return CFDateCompare( this->_cfObject, value._cfObject, nullptr ) == kCFCompareLessThan;
     }
     
     bool Date::operator < ( CFDateRef value ) const
@@ -379,7 +379,7 @@ namespace CF
     
     CFAbsoluteTime Date::GetValue( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return static_cast< CFAbsoluteTime >( 0 );
         }
@@ -389,12 +389,12 @@ namespace CF
     
     void Date::SetValue( CFAbsoluteTime value )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
         }
         
-        this->_cfObject = CFDateCreate( static_cast< CFAllocatorRef >( NULL ), value );
+        this->_cfObject = CFDateCreate( static_cast< CFAllocatorRef >( nullptr ), value );
     }
     
     void swap( Date & v1, Date & v2 ) noexcept

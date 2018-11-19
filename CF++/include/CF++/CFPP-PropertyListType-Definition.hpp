@@ -48,18 +48,18 @@ namespace CF
 
         if( path.length() == 0 )
         {
-            return static_cast< CFTypeRef >( NULL );
+            return static_cast< CFTypeRef >( nullptr );
         }
 
         url = URL::FileSystemURL( path );
         
         if( stream.Open( url ) == false )
         {
-            return static_cast< CFTypeRef >( NULL );
+            return static_cast< CFTypeRef >( nullptr );
         }
         
         data = stream.Read();
-        ap   = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), data, 0, NULL, NULL );
+        ap   = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( nullptr ), data, 0, nullptr, nullptr );
         
         stream.Close();
         
@@ -71,7 +71,7 @@ namespace CF
     {
         if( plist.length() == 0 )
         {
-            return static_cast< CFTypeRef >( NULL );
+            return static_cast< CFTypeRef >( nullptr );
         }
         
         return FromPropertyListData( Data( plist ) );
@@ -84,10 +84,10 @@ namespace CF
         
         if( plist.GetLength() == 0 )
         {
-            return static_cast< CFTypeRef >( NULL );
+            return static_cast< CFTypeRef >( nullptr );
         }
         
-        ap = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), plist, 0, NULL, NULL );
+        ap = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( nullptr ), plist, 0, nullptr, nullptr );
         
         return ap.As< T >();
     }

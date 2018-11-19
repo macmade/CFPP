@@ -47,18 +47,18 @@ namespace CF
 
         if( path.length() == 0 )
         {
-            return { static_cast< CFTypeRef >( NULL ), PropertyListFormatBinary };
+            return { static_cast< CFTypeRef >( nullptr ), PropertyListFormatBinary };
         }
 
         url = URL::FileSystemURL( path );
         
         if( stream.Open( url ) == false )
         {
-            return { static_cast< CFTypeRef >( NULL ), PropertyListFormatBinary };
+            return { static_cast< CFTypeRef >( nullptr ), PropertyListFormatBinary };
         }
         
         data = stream.Read();
-        ap   = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), data, 0, &f, NULL );
+        ap   = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( nullptr ), data, 0, &f, nullptr );
         
         stream.Close();
         
@@ -69,7 +69,7 @@ namespace CF
     {
         if( plist.length() == 0 )
         {
-            return { static_cast< CFTypeRef >( NULL ), PropertyListFormatBinary };
+            return { static_cast< CFTypeRef >( nullptr ), PropertyListFormatBinary };
         }
         
         return FromPropertyListData( Data( plist ) );
@@ -82,31 +82,31 @@ namespace CF
         
         if( plist.GetLength() == 0 )
         {
-            return { static_cast< CFTypeRef >( NULL ), PropertyListFormatBinary };
+            return { static_cast< CFTypeRef >( nullptr ), PropertyListFormatBinary };
         }
         
-        ap = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( NULL ), plist, 0, &f, NULL );
+        ap = CFPropertyListCreateWithData( static_cast< CFAllocatorRef >( nullptr ), plist, 0, &f, nullptr );
         
         return { ap, ( f == kCFPropertyListBinaryFormat_v1_0 ) ? PropertyListFormatBinary : PropertyListFormatXML };
     }
     
     AnyPropertyListType::AnyPropertyListType( PropertyListFormat format ):
-        _cfObject( NULL ),
+        _cfObject( nullptr ),
         _format( format )
     {}
     
     AnyPropertyListType::AnyPropertyListType( const AnyPropertyListType & value ):
-        _cfObject( NULL ),
+        _cfObject( nullptr ),
         _format( value._format )
     {
-        if( value._cfObject != NULL )
+        if( value._cfObject != nullptr )
         {
             this->_cfObject = CFRetain( value._cfObject );
         }
     }
     
     AnyPropertyListType::AnyPropertyListType( const AutoPointer & value, PropertyListFormat format ):
-        _cfObject( NULL ),
+        _cfObject( nullptr ),
         _format( format )
     {
         CFPropertyListFormat f( ( ( format == PropertyListFormatBinary ) ? kCFPropertyListBinaryFormat_v1_0 : kCFPropertyListXMLFormat_v1_0 ) );
@@ -118,12 +118,12 @@ namespace CF
     }
     
     AnyPropertyListType::AnyPropertyListType( CFTypeRef value, PropertyListFormat format ):
-        _cfObject( NULL ),
+        _cfObject( nullptr ),
         _format( format )
     {
         CFPropertyListFormat f( ( ( format == PropertyListFormatBinary ) ? kCFPropertyListBinaryFormat_v1_0 : kCFPropertyListXMLFormat_v1_0 ) );
         
-        if( value != NULL && CFPropertyListIsValid( value, f ) )
+        if( value != nullptr && CFPropertyListIsValid( value, f ) )
         {
             this->_cfObject = CFRetain( value );
         }
@@ -138,11 +138,11 @@ namespace CF
     
     AnyPropertyListType::~AnyPropertyListType( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     }
     
@@ -170,7 +170,7 @@ namespace CF
     
     CFTypeID AnyPropertyListType::GetTypeID( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return 0;
         }

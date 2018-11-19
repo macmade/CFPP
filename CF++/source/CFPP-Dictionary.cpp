@@ -47,7 +47,7 @@ static const void *	__CFDictionaryRetainCallBack( CFAllocatorRef allocator, cons
 {
     ( void )allocator;
     
-    if( value != NULL )
+    if( value != nullptr )
     {
         value = CFRetain( value );
     }
@@ -60,7 +60,7 @@ static void __CFDictionaryReleaseCallBack( CFAllocatorRef allocator, const void 
 {
     ( void )allocator;
     
-    if( value != NULL )
+    if( value != nullptr )
     {
         CFRelease( value );
     }
@@ -69,9 +69,9 @@ static void __CFDictionaryReleaseCallBack( CFAllocatorRef allocator, const void 
 static CFStringRef __CFDictionaryCopyDescriptionCallBack( const void * value );
 static CFStringRef __CFDictionaryCopyDescriptionCallBack( const void * value )
 {
-    if( value == NULL )
+    if( value == nullptr )
     {
-        return CFStringCreateWithCString( ( CFAllocatorRef )NULL, "(null)", kCFStringEncodingUTF8 );
+        return CFStringCreateWithCString( ( CFAllocatorRef )nullptr, "(null)", kCFStringEncodingUTF8 );
     }
     
     return CFCopyDescription( value );
@@ -85,7 +85,7 @@ static Boolean __CFDictionaryEqualCallBack( const void * value1, const void * va
         return true;
     }
     
-    if( value1 == NULL || value2 == NULL )
+    if( value1 == nullptr || value2 == nullptr )
     {
         return false;
     }
@@ -96,7 +96,7 @@ static Boolean __CFDictionaryEqualCallBack( const void * value1, const void * va
 static CFHashCode __CFDictionaryHashCallBack( const void * value );
 static CFHashCode __CFDictionaryHashCallBack( const void * value )
 {
-    if( value == NULL )
+    if( value == nullptr )
     {
         return 0;
     }
@@ -145,48 +145,48 @@ static void __createCallbacks( void )
 
 namespace CF
 {
-    Dictionary::Dictionary( void ): _cfObject( NULL )
+    Dictionary::Dictionary( void ): _cfObject( nullptr )
     {
         __createCallbacks();
         
         this->_cfObject = CFDictionaryCreateMutable
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             0,
             &__keyCallbacks,
             &__valueCallbacks
         );
     }
     
-    Dictionary::Dictionary( CFIndex capacity ): _cfObject( NULL )
+    Dictionary::Dictionary( CFIndex capacity ): _cfObject( nullptr )
     {
         __createCallbacks();
         
         this->_cfObject = CFDictionaryCreateMutable
         (
-            static_cast< CFAllocatorRef >( NULL ),
+            static_cast< CFAllocatorRef >( nullptr ),
             capacity,
             &__keyCallbacks,
             &__valueCallbacks
         );
     }
     
-    Dictionary::Dictionary( const Dictionary & value ): _cfObject( NULL )
+    Dictionary::Dictionary( const Dictionary & value ): _cfObject( nullptr )
     {
         __createCallbacks();
         
-        if( value._cfObject != NULL )
+        if( value._cfObject != nullptr )
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
             (
-                static_cast< CFAllocatorRef >( NULL ),
+                static_cast< CFAllocatorRef >( nullptr ),
                 CFDictionaryGetCount( value._cfObject ),
                 value._cfObject
             );
         }
     }
     
-    Dictionary::Dictionary( const AutoPointer & value ): _cfObject( NULL )
+    Dictionary::Dictionary( const AutoPointer & value ): _cfObject( nullptr )
     {
         __createCallbacks();
         
@@ -194,37 +194,37 @@ namespace CF
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
             (
-                static_cast< CFAllocatorRef >( NULL ),
+                static_cast< CFAllocatorRef >( nullptr ),
                 CFDictionaryGetCount( value ),
                 value
             );
         }
     }
     
-    Dictionary::Dictionary( CFTypeRef cfObject ): _cfObject( NULL )
+    Dictionary::Dictionary( CFTypeRef cfObject ): _cfObject( nullptr )
     {
         __createCallbacks();
         
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
             (
-                static_cast< CFAllocatorRef >( NULL ),
+                static_cast< CFAllocatorRef >( nullptr ),
                 CFDictionaryGetCount( static_cast< CFDictionaryRef >( cfObject ) ),
                 static_cast< CFDictionaryRef >( cfObject )
             );
         }
     }
     
-    Dictionary::Dictionary( CFDictionaryRef cfObject ): _cfObject( NULL )
+    Dictionary::Dictionary( CFDictionaryRef cfObject ): _cfObject( nullptr )
     {
         __createCallbacks();
         
-        if( cfObject != NULL && CFGetTypeID( cfObject ) == this->GetTypeID() )
+        if( cfObject != nullptr && CFGetTypeID( cfObject ) == this->GetTypeID() )
         {
             this->_cfObject = CFDictionaryCreateMutableCopy
             (
-                static_cast< CFAllocatorRef >( NULL ),
+                static_cast< CFAllocatorRef >( nullptr ),
                 CFDictionaryGetCount( cfObject ),
                 cfObject
             );
@@ -252,11 +252,11 @@ namespace CF
     
     Dictionary::~Dictionary( void )
     {
-        if( this->_cfObject != NULL )
+        if( this->_cfObject != nullptr )
         {
             CFRelease( this->_cfObject );
             
-            this->_cfObject = NULL;
+            this->_cfObject = nullptr;
         }
     }
     
@@ -323,7 +323,7 @@ namespace CF
     
     bool Dictionary::ContainsKey( CFTypeRef key ) const
     {
-        if( this->_cfObject == NULL || key == NULL )
+        if( this->_cfObject == nullptr || key == nullptr )
         {
             return false;
         }
@@ -343,7 +343,7 @@ namespace CF
     
     bool Dictionary::ContainsValue( CFTypeRef value ) const
     {
-        if( this->_cfObject == NULL || value == NULL )
+        if( this->_cfObject == nullptr || value == nullptr )
         {
             return false;
         }
@@ -353,7 +353,7 @@ namespace CF
     
     void Dictionary::RemoveAllValues( void ) const
     {
-        if( this->_cfObject == NULL )
+        if( this->_cfObject == nullptr )
         {
             return;
         }
@@ -363,14 +363,14 @@ namespace CF
     
     CFIndex Dictionary::GetCount( void ) const
     {
-        return ( this->_cfObject == NULL ) ? 0 : CFDictionaryGetCount( this->_cfObject );
+        return ( this->_cfObject == nullptr ) ? 0 : CFDictionaryGetCount( this->_cfObject );
     }
     
     CFTypeRef Dictionary::GetValue( CFTypeRef key ) const
     {
-        if( this->_cfObject == NULL || key == NULL )
+        if( this->_cfObject == nullptr || key == nullptr )
         {
-            return NULL;
+            return nullptr;
         }
         
         return CFDictionaryGetValue( this->_cfObject, key );
@@ -388,7 +388,7 @@ namespace CF
     
     void Dictionary::AddValue( CFTypeRef key, CFTypeRef value ) const
     {
-        if( this->_cfObject == NULL || key == NULL || value == NULL )
+        if( this->_cfObject == nullptr || key == nullptr || value == nullptr )
         {
             return;
         }
@@ -408,7 +408,7 @@ namespace CF
     
     void Dictionary::RemoveValue( CFTypeRef key ) const
     {
-        if( this->_cfObject == NULL || key == NULL )
+        if( this->_cfObject == nullptr || key == nullptr )
         {
             return;
         }
@@ -428,7 +428,7 @@ namespace CF
     
     void Dictionary::ReplaceValue( CFTypeRef key, CFTypeRef value ) const
     {
-        if( this->_cfObject == NULL || key == NULL || value == NULL )
+        if( this->_cfObject == nullptr || key == nullptr || value == nullptr )
         {
             return;
         }
@@ -448,7 +448,7 @@ namespace CF
     
     void Dictionary::SetValue( CFTypeRef key, CFTypeRef value ) const
     {
-        if( this->_cfObject == NULL || key == NULL || value == NULL )
+        if( this->_cfObject == nullptr || key == nullptr || value == nullptr )
         {
             return;
         }
