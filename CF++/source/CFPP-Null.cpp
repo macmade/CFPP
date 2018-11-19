@@ -90,13 +90,11 @@ namespace CF
         }
     }
     
-    #ifdef CFPP_HAS_CPP11
     Null::Null( Null && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
     }
-    #endif
     
     Null::~Null( void )
     {}

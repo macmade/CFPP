@@ -65,7 +65,6 @@ namespace CF
         }
     }
     
-    #ifdef CFPP_HAS_CPP11
     Array::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject = value._cfObject;
@@ -75,7 +74,6 @@ namespace CF
         this->_pos      = value._pos;
         value._pos      = 0;
     }
-    #endif
     
     Array::Iterator::~Iterator( void )
     {

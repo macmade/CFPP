@@ -50,11 +50,8 @@ namespace CF
             Array( const AutoPointer & value );
             Array( CFTypeRef value );
             Array( CFArrayRef value );
-            
-            #ifdef CFPP_HAS_CPP11
             Array( std::initializer_list< CFTypeRef > value );
             Array( Array && value ) noexcept;
-            #endif
             
             virtual ~Array( void );
             
@@ -96,10 +93,7 @@ namespace CF
                     
                     Iterator( void );
                     Iterator( const Iterator & value );
-                    
-                    #ifdef CFPP_HAS_CPP11
                     Iterator( Iterator && value ) noexcept;
-                    #endif
                     
                     virtual ~Iterator( void );
                     

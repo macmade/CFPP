@@ -49,10 +49,7 @@ namespace CF
             UUID( CFUUIDRef value );
             UUID( const std::string & value );
             UUID( const Data & value );
-            
-            #ifdef CFPP_HAS_CPP11
             UUID( UUID && value ) noexcept;
-            #endif
             
             virtual ~UUID( void );
             

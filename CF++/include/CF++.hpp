@@ -52,10 +52,6 @@
 #pragma warning( disable: 4251 )
 #endif
 
-#if defined( __cplusplus ) && ( __cplusplus > 199711L || ( defined( _MSC_VER ) && _MSC_VER >= 1800 ) )
-#define CFPP_HAS_CPP11  1
-#endif
-
 #ifdef _WIN32
 #ifdef CFPP_DLL_BUILD
 #define CFPP_EXPORT __declspec( dllexport )

@@ -61,11 +61,8 @@ namespace CF
             Data( CFStringRef value );
             Data( const std::string & value );
             Data( const Byte * value, CFIndex length );
-            
-            #ifdef CFPP_HAS_CPP11
             Data( std::initializer_list< Byte > value );
             Data( Data && value ) noexcept;
-            #endif
             
             virtual ~Data( void );
             
@@ -109,10 +106,7 @@ namespace CF
                     
                     Iterator( void );
                     Iterator( const Iterator & value );
-                    
-                    #ifdef CFPP_HAS_CPP11
                     Iterator( Iterator && value ) noexcept;
-                    #endif
                     
                     virtual ~Iterator( void );
                     

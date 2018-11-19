@@ -70,7 +70,6 @@ namespace CF
         }
     }
     
-    #ifdef CFPP_HAS_CPP11
     Data::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject = value._cfObject;
@@ -82,7 +81,6 @@ namespace CF
         this->_bp       = value._bp;
         value._bp       = nullptr;
     }
-    #endif
     
     Data::Iterator::~Iterator( void )
     {

@@ -104,7 +104,6 @@ namespace CF
         this->SetValue( s2 );
     }
     
-    #ifdef CFPP_HAS_CPP11
     Pair::Pair( Pair && value ) noexcept
     {
         this->_key   = value._key;
@@ -112,7 +111,6 @@ namespace CF
         this->_value = value._value;
         value._value = nullptr;
     }
-    #endif
     
     Pair::~Pair( void )
     {

@@ -52,10 +52,7 @@ namespace CF
             AnyPropertyListType( const AnyPropertyListType & value );
             AnyPropertyListType( const AutoPointer & value, PropertyListFormat format );
             AnyPropertyListType( CFTypeRef value, PropertyListFormat format );
-            
-            #ifdef CFPP_HAS_CPP11
             AnyPropertyListType( AnyPropertyListType && value ) noexcept;
-            #endif
             
             virtual ~AnyPropertyListType( void );
             

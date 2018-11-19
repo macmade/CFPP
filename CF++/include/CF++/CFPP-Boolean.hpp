@@ -50,10 +50,7 @@ namespace CF
             Boolean( CFTypeRef cfObject, bool defaultValueIfNULL );
             Boolean( CFBooleanRef cfObject, bool defaultValueIfNULL );
             Boolean( bool value = false );
-            
-            #ifdef CFPP_HAS_CPP11
             Boolean( Boolean && value ) noexcept;
-            #endif
             
             virtual ~Boolean( void );
             

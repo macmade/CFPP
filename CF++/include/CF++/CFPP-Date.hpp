@@ -50,10 +50,7 @@ namespace CF
             Date( CFTypeRef value );
             Date( CFDateRef value );
             Date( CFAbsoluteTime value );
-            
-            #ifdef CFPP_HAS_CPP11
             Date( Date && value ) noexcept;
-            #endif
             
             virtual ~Date( void );
             

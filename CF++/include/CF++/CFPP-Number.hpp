@@ -102,10 +102,7 @@ namespace CF
             Number( unsigned long long value );
             Number( float value );
             Number( double value );
-            
-            #ifdef CFPP_HAS_CPP11
             Number( Number && value ) noexcept;
-            #endif
             
             virtual ~Number( void );
             

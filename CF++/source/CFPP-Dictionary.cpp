@@ -231,8 +231,6 @@ namespace CF
         }
     }
     
-    #ifdef CFPP_HAS_CPP11
-    
     Dictionary::Dictionary( std::initializer_list< Pair > value ): Dictionary( static_cast< CFIndex >( value.size() ) )
     {
         for( Pair p: value )
@@ -251,8 +249,6 @@ namespace CF
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
     }
-    
-    #endif
     
     Dictionary::~Dictionary( void )
     {

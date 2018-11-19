@@ -47,10 +47,7 @@ namespace CF
             AutoPointer( void );
             AutoPointer( const AutoPointer & value );
             AutoPointer( CFTypeRef value );
-            
-            #ifdef CFPP_HAS_CPP11
             AutoPointer( AutoPointer && value ) noexcept;
-            #endif
             
             virtual ~AutoPointer( void );
             

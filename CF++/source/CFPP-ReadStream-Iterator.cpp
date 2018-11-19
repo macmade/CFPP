@@ -104,7 +104,6 @@ namespace CF
         }
     }
 
-    #ifdef CFPP_HAS_CPP11
     ReadStream::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject     = value._cfObject;
@@ -118,7 +117,6 @@ namespace CF
         this->_data         = value._data;
         value._data         = static_cast< CFDataRef >( nullptr );
     }
-    #endif
 
     ReadStream::Iterator::~Iterator( void )
     {

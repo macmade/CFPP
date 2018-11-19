@@ -95,7 +95,6 @@ namespace CF
         delete [] cfKeys;
     }
     
-    #ifdef CFPP_HAS_CPP11
     Dictionary::Iterator::Iterator( Iterator && value ) noexcept
     {
         this->_cfObject = value._cfObject;
@@ -107,7 +106,6 @@ namespace CF
         
         swap( this->_keys, value._keys );
     }
-    #endif
     
     Dictionary::Iterator::~Iterator( void )
     {

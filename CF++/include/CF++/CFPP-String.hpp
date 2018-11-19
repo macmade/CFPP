@@ -53,10 +53,7 @@ namespace CF
             String( char * value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( const char * value, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( const String & value );
-            
-            #ifdef CFPP_HAS_CPP11
             String( String && value ) noexcept;
-            #endif
             
             virtual ~String( void );
             
@@ -116,10 +113,7 @@ namespace CF
                     
                     Iterator( void );
                     Iterator( const Iterator & value );
-                    
-                    #ifdef CFPP_HAS_CPP11
                     Iterator( Iterator && value ) noexcept;
-                    #endif
                     
                     virtual ~Iterator( void );
                     
@@ -153,11 +147,7 @@ namespace CF
                     CFStringRef             _cfObject;
                     CFIndex                 _length;
                     CFIndex                 _pos;
-                    #ifdef CFPP_HAS_CPP11
                     std::shared_ptr< char > _cp;
-                    #else
-                    char                  * _cp;
-                    #endif
             };
             
             Iterator begin( CFStringEncoding encoding = kCFStringEncodingUTF8 ) const;

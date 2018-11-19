@@ -48,10 +48,7 @@ namespace CF
             AnyObject( const AnyObject & value );
             AnyObject( const AutoPointer & value );
             AnyObject( CFTypeRef value );
-            
-            #ifdef CFPP_HAS_CPP11
             AnyObject( AnyObject && value ) noexcept;
-            #endif
             
             virtual ~AnyObject( void );
             

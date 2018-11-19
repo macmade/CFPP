@@ -135,13 +135,11 @@ namespace CF
         }
     }
     
-    #ifdef CFPP_HAS_CPP11
     String::String( String && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
     }
-    #endif
     
     String::~String( void )
     {

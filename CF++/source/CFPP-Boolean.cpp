@@ -172,13 +172,11 @@ namespace CF
         this->SetValue( value.GetValue() );
     }
     
-    #ifdef CFPP_HAS_CPP11
     Boolean::Boolean( Boolean && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
     }
-    #endif
     
     Boolean::~Boolean( void )
     {

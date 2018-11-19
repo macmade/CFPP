@@ -104,13 +104,11 @@ namespace CF
         this->_cfObject = CFUUIDCreateFromUUIDBytes( static_cast< CFAllocatorRef >( NULL ), bytes );
     }
     
-    #ifdef CFPP_HAS_CPP11
     UUID::UUID( UUID && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
     }
-    #endif
     
     UUID::~UUID( void )
     {

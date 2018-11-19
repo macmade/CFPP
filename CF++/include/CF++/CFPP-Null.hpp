@@ -47,10 +47,7 @@ namespace CF
             Null( void );
             Null( const Null & value );
             Null( CFTypeRef value );
-            
-            #ifdef CFPP_HAS_CPP11
             Null( Null && value ) noexcept;
-            #endif
             
             virtual ~Null( void );
             

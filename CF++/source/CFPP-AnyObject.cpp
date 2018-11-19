@@ -64,13 +64,11 @@ namespace CF
         }
     }
     
-    #ifdef CFPP_HAS_CPP11
     AnyObject::AnyObject( AnyObject && value ) noexcept
     {
         this->_cfObject = value._cfObject;
         value._cfObject = nullptr;
     }
-    #endif
     
     AnyObject::~AnyObject( void )
     {
