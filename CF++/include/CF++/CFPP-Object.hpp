@@ -62,14 +62,6 @@ namespace CF
                 }
             }
             
-            Object( CFTypeRef value ): _cfObject( NULL )
-            {
-                if( value != NULL )
-                {
-                    this->_cfObject = reinterpret_cast< _T_ >( const_cast< void * >( CFRetain( value ) ) );
-                }
-            }
-            
             Object( _T_ value ): _cfObject( NULL )
             {
                 if( value != NULL )
@@ -104,11 +96,6 @@ namespace CF
             }
             
             Object< _T_ > & operator = ( const AutoPointer & value )
-            {
-                return operator =( Object< _T_ >( value ) );
-            }
-            
-            Object< _T_ > & operator = ( CFTypeRef value )
             {
                 return operator =( Object< _T_ >( value ) );
             }

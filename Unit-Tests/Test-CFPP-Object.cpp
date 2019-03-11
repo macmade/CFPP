@@ -60,23 +60,6 @@ TEST( CFPP_Object, CTOR_AutoPointer )
     ASSERT_FALSE( o2.IsValid() );
 }
 
-TEST( CFPP_Object, CTOR_CFType )
-{
-    CFBagRef cfB;
-    
-    cfB = CFBagCreate( NULL, NULL, 0, NULL );
-    
-    {
-        CF::Object< CFBagRef > o1( static_cast< CFTypeRef >( cfB ) );
-        CF::Object< CFBagRef > o2( static_cast< CFTypeRef >( NULL ) );
-        
-        ASSERT_TRUE(  o1.IsValid() );
-        ASSERT_FALSE( o2.IsValid() );
-    }
-    
-    CFRelease( cfB );
-}
-
 TEST( CFPP_Object, CTOR_CFBag )
 {
     CFBagRef cfB;
@@ -159,27 +142,6 @@ TEST( CFPP_Object, OperatorAssignAutoPointer )
     o1 = CF::AutoPointer( CFBagCreate( NULL, NULL, 0, NULL ) );
     
     ASSERT_TRUE(  o1.IsValid() );
-}
-
-TEST( CFPP_Object, OperatorAssignCFType )
-{
-    CFBagRef cfB;
-    
-    cfB = CFBagCreate( NULL, NULL, 0, NULL );
-    
-    {
-        CF::Object< CFBagRef > o1;
-        
-        o1 = static_cast< CFTypeRef >( cfB );
-        
-        ASSERT_TRUE( o1.IsValid() );
-        
-        o1 = static_cast< CFTypeRef >( NULL );
-        
-        ASSERT_FALSE( o1.IsValid() );
-    }
-    
-    CFRelease( cfB );
 }
 
 TEST( CFPP_Object, OperatorAssignCFBag )
