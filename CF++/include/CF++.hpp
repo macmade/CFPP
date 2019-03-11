@@ -87,6 +87,7 @@
 #include <CF++/CFPP-ReadStream.hpp>
 #include <CF++/CFPP-WriteStream.hpp>
 #include <CF++/CFPP-PropertyListType-Definition.hpp>
+#include <CF++/CFPP-Object.hpp>
 
 #ifdef _WIN32
 #pragma warning( pop )
