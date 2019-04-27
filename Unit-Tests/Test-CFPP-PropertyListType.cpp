@@ -35,13 +35,8 @@
 
 #include <CF++.hpp>
 
-#ifdef _WIN32
-#include <gtest/gtest.h>
-#else
-#include <GoogleMock/GoogleMock.h>
-#endif
-
-using namespace testing;
+#define XSTEST_GTEST_COMPAT
+#include <XSTest/XSTest.hpp>
 
 static const char * __plist = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                               "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n"
