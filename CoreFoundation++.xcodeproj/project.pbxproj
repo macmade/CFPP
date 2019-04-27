@@ -10,11 +10,6 @@
 		050B83CB1EB904C70090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
 		050B83CF1EB904D40090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
 		050B83D01EB905440090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
-		051E8C9C204F268E0080893C /* Test-CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051E8C98204F268E0080893C /* Test-CFPP-AnyPropertyListType.cpp */; };
-		052B1AE31B45CC0100B97CB9 /* Test-CFPP-Array-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1AD91B45C9E000B97CB9 /* Test-CFPP-Array-Iterator.cpp */; };
-		052B1AE41B45CC0100B97CB9 /* Test-CFPP-Data-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1ADA1B45C9E000B97CB9 /* Test-CFPP-Data-Iterator.cpp */; };
-		052B1AE51B45CC0100B97CB9 /* Test-CFPP-Dictionary-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1ADB1B45C9E000B97CB9 /* Test-CFPP-Dictionary-Iterator.cpp */; };
-		052B1AE61B45CC0100B97CB9 /* Test-CFPP-String-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1AD41B45C99E00B97CB9 /* Test-CFPP-String-Iterator.cpp */; };
 		0534BD18204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
 		0534BD23204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */; };
 		0534BD28204F1FA6008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */; };
@@ -25,21 +20,32 @@
 		0534BD2D204F1FAE008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
 		05356FD9206929F9002178E3 /* Constants.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05356FD7206929F9002178E3 /* Constants.hpp */; };
 		05356FDC20692B56002178E3 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05356FD3206929F9002178E3 /* Constants.cpp */; };
-		054702AD1B1D8FD10036259D /* Test-CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029C1B1D8FA00036259D /* Test-CFPP-Array.cpp */; };
-		054702AE1B1D8FD10036259D /* Test-CFPP-AutoPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029D1B1D8FA00036259D /* Test-CFPP-AutoPointer.cpp */; };
-		054702AF1B1D8FD10036259D /* Test-CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029E1B1D8FA00036259D /* Test-CFPP-Boolean.cpp */; };
-		054702B01B1D8FD10036259D /* Test-CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029F1B1D8FA00036259D /* Test-CFPP-Data.cpp */; };
-		054702B11B1D8FD10036259D /* Test-CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A01B1D8FA00036259D /* Test-CFPP-Date.cpp */; };
-		054702B21B1D8FD10036259D /* Test-CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A11B1D8FA00036259D /* Test-CFPP-Dictionary.cpp */; };
-		054702B31B1D8FD10036259D /* Test-CFPP-Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A21B1D8FA00036259D /* Test-CFPP-Error.cpp */; };
-		054702B41B1D8FD10036259D /* Test-CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A31B1D8FA00036259D /* Test-CFPP-Number.cpp */; };
-		054702B51B1D8FD10036259D /* Test-CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A41B1D8FA00036259D /* Test-CFPP-Pair.cpp */; };
-		054702B61B1D8FD10036259D /* Test-CFPP-PropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A51B1D8FA00036259D /* Test-CFPP-PropertyListType.cpp */; };
-		054702B71B1D8FD10036259D /* Test-CFPP-ReadStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A61B1D8FA00036259D /* Test-CFPP-ReadStream.cpp */; };
-		054702B81B1D8FD10036259D /* Test-CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A71B1D8FA00036259D /* Test-CFPP-String.cpp */; };
-		054702B91B1D8FD10036259D /* Test-CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A81B1D8FA00036259D /* Test-CFPP-Type.cpp */; };
-		054702BA1B1D8FD10036259D /* Test-CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A91B1D8FA00036259D /* Test-CFPP-URL.cpp */; };
-		054702BB1B1D8FD10036259D /* Test-CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702AA1B1D8FA00036259D /* Test-CFPP-UUID.cpp */; };
+		0544CC6822749DA8004A2499 /* Test-CFPP-AnyObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05DD0F04213EBB370050069A /* Test-CFPP-AnyObject.cpp */; };
+		0544CC6F22749F39004A2499 /* XSTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0544CC6E22749F32004A2499 /* XSTest.framework */; };
+		0544CC7322749F72004A2499 /* Test-CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 051E8C98204F268E0080893C /* Test-CFPP-AnyPropertyListType.cpp */; };
+		0544CC7422749F8C004A2499 /* Test-CFPP-Array-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1AD91B45C9E000B97CB9 /* Test-CFPP-Array-Iterator.cpp */; };
+		0544CC7522749F96004A2499 /* Test-CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029C1B1D8FA00036259D /* Test-CFPP-Array.cpp */; };
+		0544CC7622749FAC004A2499 /* Test-CFPP-AutoPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029D1B1D8FA00036259D /* Test-CFPP-AutoPointer.cpp */; };
+		0544CC7722749FB7004A2499 /* Test-CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029E1B1D8FA00036259D /* Test-CFPP-Boolean.cpp */; };
+		0544CC7822749FC5004A2499 /* Test-CFPP-Data-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1ADA1B45C9E000B97CB9 /* Test-CFPP-Data-Iterator.cpp */; };
+		0544CC7922749FD2004A2499 /* Test-CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0547029F1B1D8FA00036259D /* Test-CFPP-Data.cpp */; };
+		0544CC7A22749FE3004A2499 /* Test-CFPP-Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A01B1D8FA00036259D /* Test-CFPP-Date.cpp */; };
+		0544CC7B2274A04D004A2499 /* Test-CFPP-Dictionary-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1ADB1B45C9E000B97CB9 /* Test-CFPP-Dictionary-Iterator.cpp */; };
+		0544CC7C2274A04D004A2499 /* Test-CFPP-Dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A11B1D8FA00036259D /* Test-CFPP-Dictionary.cpp */; };
+		0544CC7D2274A04D004A2499 /* Test-CFPP-Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A21B1D8FA00036259D /* Test-CFPP-Error.cpp */; };
+		0544CC7E2274A04D004A2499 /* Test-CFPP-Null.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05DD0F06213EC0700050069A /* Test-CFPP-Null.cpp */; };
+		0544CC7F2274A04D004A2499 /* Test-CFPP-Number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A31B1D8FA00036259D /* Test-CFPP-Number.cpp */; };
+		0544CC802274A04D004A2499 /* Test-CFPP-Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05905DA22236974100C5F7E1 /* Test-CFPP-Object.cpp */; };
+		0544CC812274A04D004A2499 /* Test-CFPP-Pair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A41B1D8FA00036259D /* Test-CFPP-Pair.cpp */; };
+		0544CC822274A04D004A2499 /* Test-CFPP-PropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A51B1D8FA00036259D /* Test-CFPP-PropertyListType.cpp */; };
+		0544CC832274A04D004A2499 /* Test-CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A604221B5D513C00C71A24 /* Test-CFPP-ReadStream-Iterator.cpp */; };
+		0544CC842274A04D004A2499 /* Test-CFPP-ReadStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A61B1D8FA00036259D /* Test-CFPP-ReadStream.cpp */; };
+		0544CC852274A04D004A2499 /* Test-CFPP-String-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052B1AD41B45C99E00B97CB9 /* Test-CFPP-String-Iterator.cpp */; };
+		0544CC862274A04D004A2499 /* Test-CFPP-String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A71B1D8FA00036259D /* Test-CFPP-String.cpp */; };
+		0544CC872274A04D004A2499 /* Test-CFPP-Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A81B1D8FA00036259D /* Test-CFPP-Type.cpp */; };
+		0544CC882274A04D004A2499 /* Test-CFPP-URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702A91B1D8FA00036259D /* Test-CFPP-URL.cpp */; };
+		0544CC892274A04D004A2499 /* Test-CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702AA1B1D8FA00036259D /* Test-CFPP-UUID.cpp */; };
+		0544CC8A2274A04D004A2499 /* Test-CFPP-WriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702AB1B1D8FA00036259D /* Test-CFPP-WriteStream.cpp */; };
 		054D7D341B46CC1D006AFF67 /* CFPP-Array-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054D7D301B46CC1D006AFF67 /* CFPP-Array-Iterator.cpp */; };
 		054D7D351B46CC1D006AFF67 /* CFPP-Data-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054D7D311B46CC1D006AFF67 /* CFPP-Data-Iterator.cpp */; };
 		054D7D361B46CC1D006AFF67 /* CFPP-Dictionary-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054D7D321B46CC1D006AFF67 /* CFPP-Dictionary-Iterator.cpp */; };
@@ -56,7 +62,6 @@
 		054D7D441B46CC26006AFF67 /* CFPP-Data-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054D7D311B46CC1D006AFF67 /* CFPP-Data-Iterator.cpp */; };
 		054D7D451B46CC26006AFF67 /* CFPP-Dictionary-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054D7D321B46CC1D006AFF67 /* CFPP-Dictionary-Iterator.cpp */; };
 		054D7D461B46CC26006AFF67 /* CFPP-String-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054D7D331B46CC1D006AFF67 /* CFPP-String-Iterator.cpp */; };
-		0559FA831B518EFF00BF8E7B /* Test-CFPP-WriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054702AB1B1D8FA00036259D /* Test-CFPP-WriteStream.cpp */; };
 		05632F8D18ED5CAA00EB76D2 /* CFPP-UUID.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05632F8B18ED5CA300EB76D2 /* CFPP-UUID.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05632F8E18ED5CAA00EB76D2 /* CFPP-UUID.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05632F8B18ED5CA300EB76D2 /* CFPP-UUID.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05632F9018ED5E4900EB76D2 /* CFPP-UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */; };
@@ -71,11 +76,9 @@
 		056C58601B1708DC00C6214A /* CFPP-AutoPointer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 056C585A1B1706BB00C6214A /* CFPP-AutoPointer.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C58611B1708DD00C6214A /* CFPP-AutoPointer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 056C585A1B1706BB00C6214A /* CFPP-AutoPointer.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		056C58A91B17A3B700C6214A /* CFPP-PropertyListType-Definition.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
-		056C58D31B1899C700C6214A /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C58B31B18985500C6214A /* GoogleMock.framework */; };
 		056C5A0C1B19346D00C6214A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
 		056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */; };
-		05905DA32236974100C5F7E1 /* Test-CFPP-Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05905DA22236974100C5F7E1 /* Test-CFPP-Object.cpp */; };
 		059DBCB81B14DC500014D9A1 /* CFPP-ReadStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB41B14DB460014D9A1 /* CFPP-ReadStream.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		059DBCB91B14DC500014D9A1 /* CFPP-WriteStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB51B14DB460014D9A1 /* CFPP-WriteStream.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		059DBCBA1B14DC500014D9A1 /* CFPP-ReadStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 059DBCB41B14DB460014D9A1 /* CFPP-ReadStream.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -98,7 +101,6 @@
 		05A604191B5D509E00C71A24 /* CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A604161B5D509E00C71A24 /* CFPP-ReadStream-Iterator.cpp */; };
 		05A6041B1B5D509E00C71A24 /* CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A604161B5D509E00C71A24 /* CFPP-ReadStream-Iterator.cpp */; };
 		05A6041D1B5D509E00C71A24 /* CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A604161B5D509E00C71A24 /* CFPP-ReadStream-Iterator.cpp */; };
-		05A604231B5D513C00C71A24 /* Test-CFPP-ReadStream-Iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05A604221B5D513C00C71A24 /* Test-CFPP-ReadStream-Iterator.cpp */; };
 		05BDE02818CDB2540028F339 /* CFPP-Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01B18CDB2450028F339 /* CFPP-Array.cpp */; };
 		05BDE02918CDB2540028F339 /* CFPP-Boolean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01C18CDB2450028F339 /* CFPP-Boolean.cpp */; };
 		05BDE02A18CDB2540028F339 /* CFPP-Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BDE01D18CDB2450028F339 /* CFPP-Data.cpp */; };
@@ -177,41 +179,25 @@
 		05DD0F01213EB1760050069A /* CFPP-Null.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05DD0EE7213EB16B0050069A /* CFPP-Null.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05DD0F02213EB1760050069A /* CFPP-AnyPropertyListType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD1D204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05DD0F03213EB1760050069A /* CFPP-PropertyListBase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD12204F05E9008AF9D2 /* CFPP-PropertyListBase.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
-		05DD0F05213EBB370050069A /* Test-CFPP-AnyObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05DD0F04213EBB370050069A /* Test-CFPP-AnyObject.cpp */; };
-		05DD0F07213EC0700050069A /* Test-CFPP-Null.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05DD0F06213EC0700050069A /* Test-CFPP-Null.cpp */; };
 		05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		056C58B21B18985500C6214A /* PBXContainerItemProxy */ = {
+		0544CC6D22749F32004A2499 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
+			containerPortal = 0544CC6922749F32004A2499 /* XSTest.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 05818F861A685AEA0072A469;
-			remoteInfo = GoogleMock;
+			remoteGlobalIDString = 05D526E721A864BC0025CCEB;
+			remoteInfo = XSTest;
 		};
-		056C58B41B18985500C6214A /* PBXContainerItemProxy */ = {
+		0544CC7022749F41004A2499 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 05E96ABD1A68600C00204102;
-			remoteInfo = gmock;
-		};
-		056C58B61B18985500C6214A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 05E96B1F1A68634900204102;
-			remoteInfo = gtest;
-		};
-		056C58B81B18985500C6214A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 05818F901A685AEA0072A469;
-			remoteInfo = GoogleMockTests;
+			containerPortal = 0544CC6922749F32004A2499 /* XSTest.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 05D526E621A864BC0025CCEB;
+			remoteInfo = XSTest;
 		};
 		056C58C61B1898FF00C6214A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -219,13 +205,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 056C881118C8B85F006260B3;
 			remoteInfo = "CF++ Mac Static Library";
-		};
-		056C58D51B1899D000C6214A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 05818F851A685AEA0072A469;
-			remoteInfo = GoogleMock;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -255,6 +234,7 @@
 		0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-AnyPropertyListType.cpp"; sourceTree = "<group>"; };
 		05356FD3206929F9002178E3 /* Constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
 		05356FD7206929F9002178E3 /* Constants.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Constants.hpp; sourceTree = "<group>"; };
+		0544CC6922749F32004A2499 /* XSTest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XSTest.xcodeproj; path = Submodules/XSTest/XSTest.xcodeproj; sourceTree = "<group>"; };
 		0547029C1B1D8FA00036259D /* Test-CFPP-Array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-Array.cpp"; sourceTree = "<group>"; };
 		0547029D1B1D8FA00036259D /* Test-CFPP-AutoPointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-AutoPointer.cpp"; sourceTree = "<group>"; };
 		0547029E1B1D8FA00036259D /* Test-CFPP-Boolean.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Test-CFPP-Boolean.cpp"; sourceTree = "<group>"; };
@@ -280,7 +260,6 @@
 		05632F8F18ED5E4900EB76D2 /* CFPP-UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-UUID.cpp"; sourceTree = "<group>"; };
 		056C585A1B1706BB00C6214A /* CFPP-AutoPointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "CFPP-AutoPointer.hpp"; sourceTree = "<group>"; };
 		056C585B1B1707EE00C6214A /* CFPP-AutoPointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CFPP-AutoPointer.cpp"; sourceTree = "<group>"; };
-		056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GoogleMock.xcodeproj; path = "Submodules/gmock-xcode/GoogleMock.xcodeproj"; sourceTree = "<group>"; };
 		056C58BF1B1898FF00C6214A /* CF++ Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CF++ Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C87FD18C8B3B4006260B3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		056C881218C8B85F006260B3 /* libCF++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCF++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,7 +356,7 @@
 				050B83D01EB905440090EA12 /* libc++.tbd in Frameworks */,
 				056BC7B21B2379D300B21D46 /* libCF++.a in Frameworks */,
 				056C5A0C1B19346D00C6214A /* CoreFoundation.framework in Frameworks */,
-				056C58D31B1899C700C6214A /* GoogleMock.framework in Frameworks */,
+				0544CC6F22749F39004A2499 /* XSTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +395,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0544CC6A22749F32004A2499 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0544CC6E22749F32004A2499 /* XSTest.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0547029B1B1D8FA00036259D /* Unit-Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,22 +438,11 @@
 			path = "Unit-Tests";
 			sourceTree = "<group>";
 		};
-		056C58AC1B18985500C6214A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				056C58B31B18985500C6214A /* GoogleMock.framework */,
-				056C58B51B18985500C6214A /* gmock.framework */,
-				056C58B71B18985500C6214A /* gtest.framework */,
-				056C58B91B18985500C6214A /* GoogleMockTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		056C87C518C8B0F8006260B3 = {
 			isa = PBXGroup;
 			children = (
-				056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */,
 				051F09651946EB70004B6E47 /* README.md */,
+				0544CC6922749F32004A2499 /* XSTest.xcodeproj */,
 				05BDE00918CDB2450028F339 /* CF++ */,
 				0547029B1B1D8FA00036259D /* Unit-Tests */,
 				0579A96B2006A6F000400B61 /* xcconfig */,
@@ -772,7 +748,7 @@
 			);
 			dependencies = (
 				056C58C71B1898FF00C6214A /* PBXTargetDependency */,
-				056C58D61B1899D000C6214A /* PBXTargetDependency */,
+				0544CC7122749F41004A2499 /* PBXTargetDependency */,
 			);
 			name = "CF++ Tests";
 			productName = "CF++ Tests";
@@ -883,18 +859,19 @@
 			};
 			buildConfigurationList = 056C87C918C8B0F8006260B3 /* Build configuration list for PBXProject "CoreFoundation++" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 056C87C518C8B0F8006260B3;
 			productRefGroup = 056C87CF18C8B0F8006260B3 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 056C58AC1B18985500C6214A /* Products */;
-					ProjectRef = 056C58AB1B18985500C6214A /* GoogleMock.xcodeproj */;
+					ProductGroup = 0544CC6A22749F32004A2499 /* Products */;
+					ProjectRef = 0544CC6922749F32004A2499 /* XSTest.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -909,32 +886,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		056C58B31B18985500C6214A /* GoogleMock.framework */ = {
+		0544CC6E22749F32004A2499 /* XSTest.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = GoogleMock.framework;
-			remoteRef = 056C58B21B18985500C6214A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		056C58B51B18985500C6214A /* gmock.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = gmock.framework;
-			remoteRef = 056C58B41B18985500C6214A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		056C58B71B18985500C6214A /* gtest.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = gtest.framework;
-			remoteRef = 056C58B61B18985500C6214A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		056C58B91B18985500C6214A /* GoogleMockTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GoogleMockTests.xctest;
-			remoteRef = 056C58B81B18985500C6214A /* PBXContainerItemProxy */;
+			path = XSTest.framework;
+			remoteRef = 0544CC6D22749F32004A2499 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -990,32 +946,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				054702B51B1D8FD10036259D /* Test-CFPP-Pair.cpp in Sources */,
-				052B1AE51B45CC0100B97CB9 /* Test-CFPP-Dictionary-Iterator.cpp in Sources */,
-				05DD0F07213EC0700050069A /* Test-CFPP-Null.cpp in Sources */,
-				054702AD1B1D8FD10036259D /* Test-CFPP-Array.cpp in Sources */,
-				05A604231B5D513C00C71A24 /* Test-CFPP-ReadStream-Iterator.cpp in Sources */,
-				05905DA32236974100C5F7E1 /* Test-CFPP-Object.cpp in Sources */,
-				054702BA1B1D8FD10036259D /* Test-CFPP-URL.cpp in Sources */,
-				052B1AE41B45CC0100B97CB9 /* Test-CFPP-Data-Iterator.cpp in Sources */,
-				0559FA831B518EFF00BF8E7B /* Test-CFPP-WriteStream.cpp in Sources */,
-				054702AE1B1D8FD10036259D /* Test-CFPP-AutoPointer.cpp in Sources */,
-				054702B71B1D8FD10036259D /* Test-CFPP-ReadStream.cpp in Sources */,
-				054702B31B1D8FD10036259D /* Test-CFPP-Error.cpp in Sources */,
-				05DD0F05213EBB370050069A /* Test-CFPP-AnyObject.cpp in Sources */,
-				054702B81B1D8FD10036259D /* Test-CFPP-String.cpp in Sources */,
-				054702B21B1D8FD10036259D /* Test-CFPP-Dictionary.cpp in Sources */,
-				054702B11B1D8FD10036259D /* Test-CFPP-Date.cpp in Sources */,
-				054702B01B1D8FD10036259D /* Test-CFPP-Data.cpp in Sources */,
+				0544CC882274A04D004A2499 /* Test-CFPP-URL.cpp in Sources */,
+				0544CC7F2274A04D004A2499 /* Test-CFPP-Number.cpp in Sources */,
+				0544CC7822749FC5004A2499 /* Test-CFPP-Data-Iterator.cpp in Sources */,
+				0544CC7E2274A04D004A2499 /* Test-CFPP-Null.cpp in Sources */,
+				0544CC822274A04D004A2499 /* Test-CFPP-PropertyListType.cpp in Sources */,
+				0544CC7D2274A04D004A2499 /* Test-CFPP-Error.cpp in Sources */,
+				0544CC8A2274A04D004A2499 /* Test-CFPP-WriteStream.cpp in Sources */,
+				0544CC6822749DA8004A2499 /* Test-CFPP-AnyObject.cpp in Sources */,
+				0544CC7C2274A04D004A2499 /* Test-CFPP-Dictionary.cpp in Sources */,
+				0544CC832274A04D004A2499 /* Test-CFPP-ReadStream-Iterator.cpp in Sources */,
+				0544CC872274A04D004A2499 /* Test-CFPP-Type.cpp in Sources */,
+				0544CC892274A04D004A2499 /* Test-CFPP-UUID.cpp in Sources */,
+				0544CC7722749FB7004A2499 /* Test-CFPP-Boolean.cpp in Sources */,
+				0544CC862274A04D004A2499 /* Test-CFPP-String.cpp in Sources */,
+				0544CC7B2274A04D004A2499 /* Test-CFPP-Dictionary-Iterator.cpp in Sources */,
+				0544CC7622749FAC004A2499 /* Test-CFPP-AutoPointer.cpp in Sources */,
+				0544CC7522749F96004A2499 /* Test-CFPP-Array.cpp in Sources */,
+				0544CC7322749F72004A2499 /* Test-CFPP-AnyPropertyListType.cpp in Sources */,
+				0544CC7A22749FE3004A2499 /* Test-CFPP-Date.cpp in Sources */,
+				0544CC7922749FD2004A2499 /* Test-CFPP-Data.cpp in Sources */,
+				0544CC7422749F8C004A2499 /* Test-CFPP-Array-Iterator.cpp in Sources */,
+				0544CC852274A04D004A2499 /* Test-CFPP-String-Iterator.cpp in Sources */,
+				0544CC842274A04D004A2499 /* Test-CFPP-ReadStream.cpp in Sources */,
 				05356FDC20692B56002178E3 /* Constants.cpp in Sources */,
-				054702BB1B1D8FD10036259D /* Test-CFPP-UUID.cpp in Sources */,
-				054702AF1B1D8FD10036259D /* Test-CFPP-Boolean.cpp in Sources */,
-				054702B91B1D8FD10036259D /* Test-CFPP-Type.cpp in Sources */,
-				052B1AE31B45CC0100B97CB9 /* Test-CFPP-Array-Iterator.cpp in Sources */,
-				054702B41B1D8FD10036259D /* Test-CFPP-Number.cpp in Sources */,
-				054702B61B1D8FD10036259D /* Test-CFPP-PropertyListType.cpp in Sources */,
-				051E8C9C204F268E0080893C /* Test-CFPP-AnyPropertyListType.cpp in Sources */,
-				052B1AE61B45CC0100B97CB9 /* Test-CFPP-String-Iterator.cpp in Sources */,
+				0544CC802274A04D004A2499 /* Test-CFPP-Object.cpp in Sources */,
+				0544CC812274A04D004A2499 /* Test-CFPP-Pair.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1146,15 +1102,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0544CC7122749F41004A2499 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XSTest;
+			targetProxy = 0544CC7022749F41004A2499 /* PBXContainerItemProxy */;
+		};
 		056C58C71B1898FF00C6214A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 056C881118C8B85F006260B3 /* CF++ Mac Static Library */;
 			targetProxy = 056C58C61B1898FF00C6214A /* PBXContainerItemProxy */;
-		};
-		056C58D61B1899D000C6214A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GoogleMock;
-			targetProxy = 056C58D51B1899D000C6214A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

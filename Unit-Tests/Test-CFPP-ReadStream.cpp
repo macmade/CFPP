@@ -35,17 +35,8 @@
 
 #include <CF++.hpp>
 
-#ifdef _WIN32
-#include <gtest/gtest.h>
-#else
-#include <GoogleMock/GoogleMock.h>
-#endif
-
-#ifdef __clang__
-#pragma clang diagnostic ignored "-Wc++98-compat-local-type-template-args"
-#endif
-
-using namespace testing;
+#define XSTEST_GTEST_COMPAT
+#include <XSTest/XSTest.hpp>
 
 TEST( CFPP_ReadStream, CTOR )
 {

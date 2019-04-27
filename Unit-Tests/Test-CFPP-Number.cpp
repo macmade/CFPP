@@ -35,17 +35,8 @@
 
 #include <CF++.hpp>
 
-#ifdef _WIN32
-#include <gtest/gtest.h>
-#else
-#include <GoogleMock/GoogleMock.h>
-#endif
-
-#ifdef __clang__
-#pragma clang diagnostic ignored "-Wc++11-long-long" /* Do not warn about long long in C++98 */
-#endif
-
-using namespace testing;
+#define XSTEST_GTEST_COMPAT
+#include <XSTest/XSTest.hpp>
 
 static bool FloatIsEqual( Float32 x, Float32 y );
 static bool FloatIsEqual( Float64 x, Float64 y );

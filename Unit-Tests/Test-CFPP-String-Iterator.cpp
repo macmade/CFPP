@@ -35,13 +35,8 @@
 
 #include <CF++.hpp>
 
-#ifdef _WIN32
-#include <gtest/gtest.h>
-#else
-#include <GoogleMock/GoogleMock.h>
-#endif
-
-using namespace testing;
+#define XSTEST_GTEST_COMPAT
+#include <XSTest/XSTest.hpp>
 
 TEST( CFPP_String_Iterator, StringBegin )
 {

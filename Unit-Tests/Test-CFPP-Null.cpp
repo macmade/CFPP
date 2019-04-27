@@ -35,13 +35,8 @@
 
 #include <CF++.hpp>
 
-#ifdef _WIN32
-#include <gtest/gtest.h>
-#else
-#include <GoogleMock/GoogleMock.h>
-#endif
-
-using namespace testing;
+#define XSTEST_GTEST_COMPAT
+#include <XSTest/XSTest.hpp>
 
 TEST( CFPP_Null, CTOR )
 {
@@ -81,8 +76,7 @@ TEST( CFPP_Null, MCTOR )
     CF::Null n1;
     CF::Null n2( std::move( n1 ) );
     
-    ASSERT_FALSE( n1.IsValid() );
-    ASSERT_TRUE(  n2.IsValid() );
+    ASSERT_TRUE( n2.IsValid() );
 }
 
 TEST( CFPP_Null, OperatorAssign )
