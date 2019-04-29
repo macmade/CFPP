@@ -69,7 +69,12 @@
     <ClCompile Include="..\..\Unit-Tests\Test-CFPP-Dictionary-Iterator.cpp" />
     <ClCompile Include="..\..\Unit-Tests\Test-CFPP-Dictionary.cpp" />
     <ClCompile Include="..\..\Unit-Tests\Test-CFPP-Error.cpp" />
-    <ClCompile Include="..\..\Unit-Tests\Test-CFPP-Number.cpp" />
+    <ClCompile Include="..\..\Unit-Tests\Test-CFPP-Number.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\Unit-Tests\Test-CFPP-Pair.cpp" />
     <ClCompile Include="..\..\Unit-Tests\Test-CFPP-PropertyListType.cpp" />
     <ClCompile Include="..\..\Unit-Tests\Test-CFPP-ReadStream-Iterator.cpp" />
