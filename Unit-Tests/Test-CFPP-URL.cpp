@@ -38,6 +38,10 @@
 #define XSTEST_GTEST_COMPAT
 #include <XSTest/XSTest.hpp>
 
+#ifdef GetUserName
+#undef GetUserName
+#endif
+
 TEST( CFPP_URL, FileSystemURL_STDString )
 {
     CF::URL u1 = CF::URL::FileSystemURL( std::string( "/etc/hosts" ) );
