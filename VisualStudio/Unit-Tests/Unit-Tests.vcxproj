@@ -54,9 +54,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\Unit-Tests\Constants.cpp" />
     <ClCompile Include="..\..\Unit-Tests\Test-CFPP-AnyPropertyListType.cpp" />
     <ClCompile Include="..\..\Unit-Tests\Test-CFPP-Array-Iterator.cpp" />
