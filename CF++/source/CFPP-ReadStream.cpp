@@ -249,7 +249,7 @@ namespace CF
         
         if( length > 0 )
         {
-            bytes = std::shared_ptr< Data::Byte >( new Data::Byte[ length ], std::default_delete< Data::Byte[] >() );
+            bytes = std::shared_ptr< Data::Byte >( new Data::Byte[ static_cast< size_t >( length ) ], std::default_delete< Data::Byte[] >() );
             
             do
             {

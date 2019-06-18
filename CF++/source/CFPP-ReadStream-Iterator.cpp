@@ -276,7 +276,7 @@ namespace CF
             return;
         }
         
-        buf = new UInt8[ this->_bytesToRead ];
+        buf = new UInt8[ static_cast< size_t >( this->_bytesToRead ) ];
         
         if( buf == nullptr )
         {
