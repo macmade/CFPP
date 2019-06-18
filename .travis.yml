@@ -7,7 +7,7 @@ install:
 - gem install xcpretty
 - brew install ccache
 - PATH=$PATH:/usr/local/opt/ccache/libexec
-- brew install macmade/tap/xcode-coveralls
+- brew install --HEAD macmade/tap/xcode-coveralls
 - export PYTHONUSERBASE=~/.local
 - easy_install --user scan-build
 script:
