@@ -69,36 +69,36 @@
     <ClCompile Include="..\CF++\source\CFPP-WriteStream.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{23BBA300-C576-405E-9422-C7A702532E35}</ProjectGuid>
+    <ProjectGuid>{B40AE694-6B8F-46E0-8107-DA8A91F61557}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CF</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>CF++ DLL VC141</ProjectName>
+    <ProjectName>CF++ DLL VC140 XP</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -121,22 +121,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(SolutionDir)Build\32\$(Configuration)\Temp\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)Build\32\$(Configuration)\</OutDir>
-    <TargetName>CFPP_V141</TargetName>
+    <TargetName>CFPP_V140XP</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Build\64\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\64\$(Configuration)\Temp\$(ProjectName)\</IntDir>
-    <TargetName>CFPP_V141</TargetName>
+    <TargetName>CFPP_V140XP</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(SolutionDir)Build\32\$(Configuration)\Temp\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)Build\32\$(Configuration)\</OutDir>
-    <TargetName>CFPP_V141</TargetName>
+    <TargetName>CFPP_V140XP</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Build\64\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\64\$(Configuration)\Temp\$(ProjectName)\</IntDir>
-    <TargetName>CFPP_V141</TargetName>
+    <TargetName>CFPP_V140XP</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
