@@ -129,6 +129,10 @@ namespace CF
         }
     }
     
+    AnyPropertyListType::AnyPropertyListType( std::nullptr_t, PropertyListFormat format ):
+        AnyPropertyListType( format )
+    {}
+    
     AnyPropertyListType::AnyPropertyListType( AnyPropertyListType && value ) noexcept
     {
         this->_cfObject = value._cfObject;
@@ -161,6 +165,11 @@ namespace CF
     AnyPropertyListType & AnyPropertyListType::operator = ( CFTypeRef value )
     {
         return operator =( AnyPropertyListType( value, this->_format ) );
+    }
+    
+    AnyPropertyListType & AnyPropertyListType::operator = ( std::nullptr_t )
+    {
+        return operator =( AnyPropertyListType( nullptr, this->_format ) );
     }
     
     bool AnyPropertyListType::IsValidPropertyList( void ) const

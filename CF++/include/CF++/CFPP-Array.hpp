@@ -50,6 +50,7 @@ namespace CF
             Array( const AutoPointer & value );
             Array( CFTypeRef value );
             Array( CFArrayRef value );
+            Array( std::nullptr_t );
             Array( std::initializer_list< CFTypeRef > value );
             Array( Array && value ) noexcept;
             
@@ -59,6 +60,7 @@ namespace CF
             Array & operator = ( const AutoPointer & value );
             Array & operator = ( CFTypeRef value );
             Array & operator = ( CFArrayRef value );
+            Array & operator = ( std::nullptr_t );
             
             Array & operator += ( const Array & value );
             Array & operator += ( CFTypeRef value );

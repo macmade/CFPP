@@ -64,6 +64,9 @@ namespace CF
         }
     }
     
+    AnyObject::AnyObject( std::nullptr_t ): AnyObject()
+    {}
+    
     AnyObject::AnyObject( AnyObject && value ) noexcept
     {
         this->_cfObject = value._cfObject;
@@ -95,6 +98,11 @@ namespace CF
     AnyObject & AnyObject::operator = ( CFTypeRef value )
     {
         return operator =( AnyObject( value ) );
+    }
+    
+    AnyObject & AnyObject::operator = ( std::nullptr_t )
+    {
+        return operator =( AnyObject( nullptr ) );
     }
     
     CFTypeID AnyObject::GetTypeID( void ) const

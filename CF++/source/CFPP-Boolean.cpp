@@ -114,6 +114,9 @@ namespace CF
         this->SetValue( b );
     }
     
+    Boolean::Boolean( std::nullptr_t ): Boolean( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     Boolean::Boolean( const AutoPointer & value, bool defaultValueIfNULL ): _cfObject( nullptr )
     {
         bool b;
@@ -208,6 +211,11 @@ namespace CF
     Boolean & Boolean::operator = ( CFBooleanRef value )
     {
         return operator =( Boolean( value ) );
+    }
+    
+    Boolean & Boolean::operator = ( std::nullptr_t )
+    {
+        return operator =( Boolean( nullptr ) );
     }
     
     Boolean & Boolean::operator = ( bool value )

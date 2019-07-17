@@ -83,6 +83,13 @@ TEST( CFPP_UUID, CTOR_CFUUID )
     ASSERT_EQ( u1, u2 );
 }
 
+TEST( CFPP_UUID, CTOR_NullPointer )
+{
+    CF::UUID u( nullptr );
+    
+    ASSERT_FALSE( u.IsValid() );
+}
+
 TEST( CFPP_UUID, CTOR_STDString )
 {
     CF::UUID u1( std::string( "" ) );
@@ -228,6 +235,17 @@ TEST( CFPP_UUID, OperatorAssignCFUUID )
     u1 = static_cast< CFUUIDRef >( CF::Boolean().GetCFObject() );
     
     ASSERT_FALSE( u1.IsValid() );
+}
+
+TEST( CFPP_UUID, OperatorAssignNullPointer )
+{
+    CF::UUID u;
+    
+    ASSERT_TRUE( u.IsValid() );
+    
+    u = nullptr;
+    
+    ASSERT_FALSE( u.IsValid() );
 }
 
 TEST( CFPP_UUID, OperatorAssignSTDString )

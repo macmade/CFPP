@@ -87,6 +87,13 @@ TEST( CFPP_Array, CTOR_CFArray )
     ASSERT_FALSE( a3.IsValid() );
 }
 
+TEST( CFPP_Array, CTOR_NullPointer )
+{
+    CF::Array a( nullptr );
+    
+    ASSERT_FALSE( a.IsValid() );
+}
+
 TEST( CFPP_Array, CTOR_STDInitializerList )
 {
     CF::Array a
@@ -226,6 +233,17 @@ TEST( CFPP_Array, OperatorAssignCFArray )
     
     ASSERT_TRUE(  a3.IsValid() );
     ASSERT_FALSE( a4.IsValid() );
+}
+
+TEST( CFPP_Array, OperatorAssignNullPointer )
+{
+    CF::Array a;
+    
+    ASSERT_TRUE( a.IsValid() );
+    
+    a = nullptr;
+    
+    ASSERT_FALSE( a.IsValid() );
 }
 
 TEST( CFPP_Array, OperatorPlusEqualArray )

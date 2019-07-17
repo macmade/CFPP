@@ -74,6 +74,9 @@ namespace CF
         }
     }
     
+    UUID::UUID( std::nullptr_t ): UUID( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     UUID::UUID( const std::string & value ): _cfObject( nullptr )
     {
         this->_cfObject = CFUUIDCreateFromString( static_cast< CFAllocatorRef >( nullptr ), CF::String( value ) );
@@ -140,6 +143,11 @@ namespace CF
     UUID & UUID::operator = ( CFUUIDRef value )
     {
         return operator =( UUID( value ) );
+    }
+    
+    UUID & UUID::operator = ( std::nullptr_t )
+    {
+        return operator =( UUID( nullptr ) );
     }
     
     UUID & UUID::operator = ( const std::string & value )

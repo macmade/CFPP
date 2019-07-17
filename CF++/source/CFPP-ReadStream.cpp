@@ -95,6 +95,9 @@ namespace CF
         }
     }
     
+    ReadStream::ReadStream( std::nullptr_t ): ReadStream( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     ReadStream::ReadStream( ReadStream && value ) noexcept
     {
         this->_cfObject = value._cfObject;
@@ -131,6 +134,11 @@ namespace CF
     ReadStream & ReadStream::operator = ( CFReadStreamRef value )
     {
         return operator =( ReadStream( value ) );
+    }
+    
+    ReadStream & ReadStream::operator = ( std::nullptr_t )
+    {
+        return operator =( ReadStream( nullptr ) );
     }
     
     CFTypeID ReadStream::GetTypeID( void ) const

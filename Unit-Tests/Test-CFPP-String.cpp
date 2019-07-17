@@ -82,6 +82,13 @@ TEST( CFPP_String, CTOR_CFString )
     ASSERT_TRUE(  s1.GetValue() == "hello, world" );
 }
 
+TEST( CFPP_String, CTOR_NullPointer )
+{
+    CF::String s( nullptr );
+    
+    ASSERT_FALSE( s.IsValid() );
+}
+
 TEST( CFPP_String, CTOR_AutoPointer_DefaultValue_Encoding )
 {
     CF::String s1( CF::AutoPointer( CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII ) ), "hello, universe" );
@@ -235,6 +242,17 @@ TEST( CFPP_String, OperatorAssignCFString )
     ASSERT_TRUE( s == "" );
     
     s = static_cast< CFStringRef >( NULL );
+    
+    ASSERT_FALSE( s.IsValid() );
+}
+
+TEST( CFPP_String, OperatorAssignNullPointer )
+{
+    CF::String s;
+    
+    ASSERT_TRUE( s.IsValid() );
+    
+    s = nullptr;
     
     ASSERT_FALSE( s.IsValid() );
 }

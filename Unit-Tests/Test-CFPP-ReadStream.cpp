@@ -97,6 +97,13 @@ TEST( CFPP_ReadStream, CTOR_CFReadStream )
     ASSERT_FALSE( s3.IsValid() );
 }
 
+TEST( CFPP_ReadStream, CTOR_NullPointer )
+{
+    CF::ReadStream s( nullptr );
+    
+    ASSERT_FALSE( s.IsValid() );
+}
+
 TEST( CFPP_ReadStream, CTOR_URL )
 {
     CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
@@ -187,6 +194,17 @@ TEST( CFPP_ReadStream, OperatorAssignCFReadStream )
     s2 = static_cast< CFReadStreamRef >( NULL );
     
     ASSERT_FALSE( s2.IsValid() );
+}
+
+TEST( CFPP_ReadStream, OperatorAssignNullPointer )
+{
+    CF::ReadStream s( std::string( "/etc/hosts" ) );
+    
+    ASSERT_TRUE( s.IsValid() );
+    
+    s = nullptr;
+    
+    ASSERT_FALSE( s.IsValid() );
 }
 
 TEST( CFPP_ReadStream, GetTypeID )

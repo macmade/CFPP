@@ -110,6 +110,13 @@ TEST( CFPP_Date, CTOR_CFDate )
     ASSERT_TRUE( d1.GetValue() < t + 1 );
 }
 
+TEST( CFPP_Date, CTOR_NullPointer )
+{
+    CF::Date d( nullptr );
+    
+    ASSERT_FALSE( d.IsValid() );
+}
+
 TEST( CFPP_Date, CTOR_CFAbsoluteTime )
 {
     CFAbsoluteTime t;
@@ -239,6 +246,17 @@ TEST( CFPP_Date, OperatorAssignCFDate )
     d2 = static_cast< CFDateRef >( d3.GetCFObject() );
     
     ASSERT_FALSE( d2.IsValid() );
+}
+
+TEST( CFPP_Date, OperatorAssignNullPointer )
+{
+    CF::Date d;
+    
+    ASSERT_TRUE( d.IsValid() );
+    
+    d = nullptr;
+    
+    ASSERT_FALSE( d.IsValid() );
 }
 
 TEST( CFPP_Date, OperatorAssignCFAbsoluteTime )

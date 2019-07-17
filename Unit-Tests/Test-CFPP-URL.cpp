@@ -141,6 +141,13 @@ TEST( CFPP_URL, CTOR_CFString )
     ASSERT_FALSE( u3.IsValid() );
 }
 
+TEST( CFPP_URL, CTOR_NullPointer )
+{
+    CF::URL u( nullptr );
+    
+    ASSERT_FALSE( u.IsValid() );
+}
+
 TEST( CFPP_URL, CTOR_STDString )
 {
     CF::URL u1( std::string( "http://www.xs-labs.com/" ) );
@@ -274,6 +281,17 @@ TEST( CFPP_URL, OperatorAssignCFString )
     ASSERT_FALSE( u.IsValid() );
     
     u = static_cast< CFStringRef >( NULL );
+    
+    ASSERT_FALSE( u.IsValid() );
+}
+
+TEST( CFPP_URL, OperatorAssignNullPointer )
+{
+    CF::URL u( "http://www.xs-labs.com/" );
+    
+    ASSERT_TRUE( u.IsValid() );
+    
+    u = nullptr;
     
     ASSERT_FALSE( u.IsValid() );
 }

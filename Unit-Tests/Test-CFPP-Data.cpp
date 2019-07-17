@@ -100,6 +100,13 @@ TEST( CFPP_Data, CTOR_CFString )
     ASSERT_FALSE( d3.IsValid() );
 }
 
+TEST( CFPP_Data, CTOR_NullPointer )
+{
+    CF::Data d( nullptr );
+    
+    ASSERT_FALSE( d.IsValid() );
+}
+
 TEST( CFPP_Data, CTOR_STDString )
 {
     CF::Data d1( std::string( "hello, world" ) );
@@ -260,6 +267,17 @@ TEST( CFPP_Data, OperatorAssignCFString )
     ASSERT_FALSE( d2.IsValid() );
     
     ASSERT_TRUE( d1.GetLength() > 0 );
+}
+
+TEST( CFPP_Data, OperatorAssignNullPointer )
+{
+    CF::Data d;
+    
+    ASSERT_TRUE( d.IsValid() );
+    
+    d = nullptr;
+    
+    ASSERT_FALSE( d.IsValid() );
 }
 
 TEST( CFPP_Data, OperatorAssignSTDString )

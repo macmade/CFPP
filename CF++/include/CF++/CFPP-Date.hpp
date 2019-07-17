@@ -49,6 +49,7 @@ namespace CF
             Date( const AutoPointer & value );
             Date( CFTypeRef value );
             Date( CFDateRef value );
+            Date( std::nullptr_t );
             Date( CFAbsoluteTime value );
             Date( Date && value ) noexcept;
             
@@ -58,6 +59,7 @@ namespace CF
             Date & operator = ( const AutoPointer & value );
             Date & operator = ( CFTypeRef value );
             Date & operator = ( CFDateRef value );
+            Date & operator = ( std::nullptr_t );
             Date & operator = ( CFAbsoluteTime value );
             
             bool operator == ( const Date & value ) const;

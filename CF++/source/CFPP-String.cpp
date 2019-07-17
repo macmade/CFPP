@@ -66,6 +66,9 @@ namespace CF
         }
     }
     
+    String::String( std::nullptr_t ): String( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     String::String( const AutoPointer & value, std::string defaultValueIfNULL, CFStringEncoding encoding ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
@@ -171,6 +174,11 @@ namespace CF
     String & String::operator = ( CFStringRef value )
     {
         return operator =( String( value ) );
+    }
+    
+    String & String::operator = ( std::nullptr_t )
+    {
+        return operator =( String( nullptr ) );
     }
     
     String & String::operator = ( const std::string & value )

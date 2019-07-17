@@ -107,6 +107,13 @@ TEST( CFPP_WriteStream, CTOR_CFWriteStream )
     ASSERT_FALSE( s3.IsValid() );
 }
 
+TEST( CFPP_WriteStream, CTOR_NullPointer )
+{
+    CF::WriteStream s( nullptr );
+    
+    ASSERT_FALSE( s.IsValid() );
+}
+
 TEST( CFPP_WriteStream, CCTOR )
 {
     CF::WriteStream s1( CF::URL( "file:///etc/hosts" ) );
@@ -195,6 +202,17 @@ TEST( CFPP_WriteStream, OperatorAssignCFWriteStream )
     s2 = static_cast< CFWriteStreamRef >( NULL );
     
     ASSERT_FALSE( s2.IsValid() );
+}
+
+TEST( CFPP_WriteStream, OperatorAssignNullPointer )
+{
+    CF::WriteStream s( std::string( "/etc/hosts" ) );
+    
+    ASSERT_TRUE( s.IsValid() );
+    
+    s = nullptr;
+    
+    ASSERT_FALSE( s.IsValid() );
 }
 
 TEST( CFPP_WriteStream, GetTypeID )

@@ -89,6 +89,9 @@ namespace CF
         }
     }
     
+    Data::Data( std::nullptr_t ): Data( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     Data::Data( const std::string & value ): _cfObject( nullptr )
     {
         this->_cfObject = CFDataCreateMutable( static_cast< CFAllocatorRef >( nullptr ), 0 );
@@ -155,6 +158,11 @@ namespace CF
     Data & Data::operator = ( CFStringRef value )
     {
         return operator =( Data( value ) );
+    }
+    
+    Data & Data::operator = ( std::nullptr_t )
+    {
+        return operator =( Data( nullptr ) );
     }
     
     Data & Data::operator = ( const std::string & value )

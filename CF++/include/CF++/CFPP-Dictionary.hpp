@@ -50,6 +50,7 @@ namespace CF
             Dictionary( const AutoPointer & value );
             Dictionary( CFTypeRef cfObject );
             Dictionary( CFDictionaryRef cfObject );
+            Dictionary( std::nullptr_t );
             Dictionary( std::initializer_list< Pair > value );
             Dictionary( Dictionary && value ) noexcept;
             
@@ -59,6 +60,7 @@ namespace CF
             Dictionary & operator = ( const AutoPointer & value );
             Dictionary & operator = ( CFTypeRef value );
             Dictionary & operator = ( CFDictionaryRef value );
+            Dictionary & operator = ( std::nullptr_t );
             
             Dictionary & operator += ( const Pair & pair );
             Dictionary & operator << ( const Pair & pair );

@@ -67,6 +67,13 @@ TEST( CFPP_AnyObject, CTOR_CFType )
     ASSERT_EQ( o.GetRetainCount(), i + 1 );
 }
 
+TEST( CFPP_AnyObject, CTOR_NullPointer )
+{
+    CF::AnyObject o( nullptr );
+    
+    ASSERT_FALSE( o.IsValid() );
+}
+
 TEST( CFPP_AnyObject, CCTOR )
 {
     CF::String      s( "hello, world" );
@@ -158,6 +165,22 @@ TEST( CFPP_AnyObject, OperatorAssignCFType )
     ASSERT_TRUE( o.IsValid() );
     ASSERT_EQ( o.GetCFObject(), s.GetCFObject() );
     ASSERT_EQ( o.GetRetainCount(), i + 1 );
+}
+
+TEST( CFPP_AnyObject, OperatorAssignNullPointer )
+{
+    CF::String    s( "hello, world" );
+    CFIndex       i( s.GetRetainCount() );
+    CF::AnyObject o( s );
+    
+    ASSERT_TRUE( s.IsValid() );
+    ASSERT_TRUE( o.IsValid() );
+    
+    o = nullptr;
+    
+    ASSERT_TRUE(  s.IsValid() );
+    ASSERT_FALSE( o.IsValid() );
+    ASSERT_EQ( s.GetRetainCount(), i );
 }
 
 TEST( CFPP_AnyObject, GetTypeID )

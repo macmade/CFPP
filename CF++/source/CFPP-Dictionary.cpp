@@ -231,6 +231,9 @@ namespace CF
         }
     }
     
+    Dictionary::Dictionary( std::nullptr_t ): Dictionary( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     Dictionary::Dictionary( std::initializer_list< Pair > value ): Dictionary( static_cast< CFIndex >( value.size() ) )
     {
         for( Pair p: value )
@@ -281,7 +284,12 @@ namespace CF
     {
         return operator =( Dictionary( value ) );
     }
-            
+    
+    Dictionary & Dictionary::operator = ( std::nullptr_t )
+    {
+        return operator =( Dictionary( nullptr ) );
+    }
+    
     Dictionary & Dictionary::operator += ( const Pair & pair )
     {
         this->AddValue( pair.GetKey(), pair.GetValue() );

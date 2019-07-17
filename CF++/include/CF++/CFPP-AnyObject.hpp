@@ -48,6 +48,7 @@ namespace CF
             AnyObject( const AnyObject & value );
             AnyObject( const AutoPointer & value );
             AnyObject( CFTypeRef value );
+            AnyObject( std::nullptr_t );
             AnyObject( AnyObject && value ) noexcept;
             
             virtual ~AnyObject( void );
@@ -55,6 +56,7 @@ namespace CF
             AnyObject & operator = ( AnyObject value );
             AnyObject & operator = ( const AutoPointer & value );
             AnyObject & operator = ( CFTypeRef value );
+            AnyObject & operator = ( std::nullptr_t );
                         
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

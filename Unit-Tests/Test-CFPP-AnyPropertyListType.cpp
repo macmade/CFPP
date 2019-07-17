@@ -225,6 +225,14 @@ TEST( CFPP_AnyPropertyListType, CTOR_CFTypeRef )
     ASSERT_TRUE(  p3.GetTypeID() == 0 );
 }
 
+TEST( CFPP_AnyPropertyListType, CTOR_NullPointer )
+{
+    CF::AnyPropertyListType p( nullptr, CF::PropertyListFormatBinary );
+    
+    ASSERT_FALSE( p.IsValid() );
+    ASSERT_FALSE( p.IsValidPropertyList() );
+}
+
 TEST( CFPP_AnyPropertyListType, MCTOR )
 {
     CF::AnyPropertyListType p1( CF::Dictionary().GetCFObject(),      CF::PropertyListFormatXML );
@@ -342,6 +350,17 @@ TEST( CFPP_AnyPropertyListType, OperatorAssignCFTypeRef )
     ASSERT_FALSE( p3.IsValid() );
     ASSERT_FALSE( p3.IsValidPropertyList() );
     ASSERT_TRUE(  p3.GetTypeID() == 0 );
+}
+
+TEST( CFPP_AnyPropertyListType, OperatorAssignNullPointer )
+{
+    CF::AnyPropertyListType p( CF::String(), CF::PropertyListFormatBinary );
+    
+    ASSERT_TRUE( p.IsValidPropertyList() );
+    
+    p = nullptr;
+    
+    ASSERT_FALSE( p.IsValidPropertyList() );
 }
 
 TEST( CFPP_AnyPropertyListType, IsValidPropertyList )

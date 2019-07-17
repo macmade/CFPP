@@ -59,6 +59,7 @@ namespace CF
             Data( CFTypeRef value );
             Data( CFDataRef value );
             Data( CFStringRef value );
+            Data( std::nullptr_t );
             Data( const std::string & value );
             Data( const Byte * value, CFIndex length );
             Data( std::initializer_list< Byte > value );
@@ -71,6 +72,7 @@ namespace CF
             Data & operator = ( CFTypeRef value );
             Data & operator = ( CFDataRef value );
             Data & operator = ( CFStringRef value );
+            Data & operator = ( std::nullptr_t );
             Data & operator = ( const std::string & value );
             
             operator const Byte * () const;

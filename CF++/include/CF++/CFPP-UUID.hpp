@@ -47,6 +47,7 @@ namespace CF
             UUID( const AutoPointer & value );
             UUID( CFTypeRef value );
             UUID( CFUUIDRef value );
+            UUID( std::nullptr_t );
             UUID( const std::string & value );
             UUID( const Data & value );
             UUID( UUID && value ) noexcept;
@@ -57,6 +58,7 @@ namespace CF
             UUID & operator = ( const AutoPointer & value );
             UUID & operator = ( CFTypeRef value );
             UUID & operator = ( CFUUIDRef value );
+            UUID & operator = ( std::nullptr_t );
             UUID & operator = ( const std::string & value );
             UUID & operator = ( const Data & value );
             

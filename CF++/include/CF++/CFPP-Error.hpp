@@ -47,6 +47,7 @@ namespace CF
             Error( const AutoPointer & value );
             Error( CFTypeRef value );
             Error( CFErrorRef value );
+            Error( std::nullptr_t );
             Error( const String & domain, const Number & code );
             Error( const String & domain, const Number & code, const Dictionary & userInfo );
             Error( CFStringRef domain, CFIndex code );
@@ -63,6 +64,7 @@ namespace CF
             Error & operator = ( const AutoPointer & value );
             Error & operator = ( CFTypeRef value );
             Error & operator = ( CFErrorRef value );
+            Error & operator = ( std::nullptr_t );
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

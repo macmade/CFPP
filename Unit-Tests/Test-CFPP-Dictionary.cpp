@@ -87,6 +87,13 @@ TEST( CFPP_Dictionary, CTOR_CFDictionary )
     ASSERT_FALSE( d3.IsValid() );
 }
 
+TEST( CFPP_Dictionary, CTOR_NullPointer )
+{
+    CF::Dictionary d( nullptr );
+    
+    ASSERT_FALSE( d.IsValid() );
+}
+
 TEST( CFPP_Dictionary, CTOR_STDInitializerList )
 {
     CF::Dictionary d
@@ -217,6 +224,17 @@ TEST( CFPP_Dictionary, OperatorAssignCFDictionary )
     
     ASSERT_TRUE(  d3.IsValid() );
     ASSERT_FALSE( d4.IsValid() );
+}
+
+TEST( CFPP_Dictionary, OperatorAssignNullPointer )
+{
+    CF::Dictionary d;
+    
+    ASSERT_TRUE( d.IsValid() );
+    
+    d = nullptr;
+    
+    ASSERT_FALSE( d.IsValid() );
 }
 
 TEST( CFPP_Dictionary, OperatorPlusEqual )

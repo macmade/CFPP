@@ -97,6 +97,13 @@ TEST( CFPP_Error, CTOR_CFError )
     CFRelease( cfE );
 }
 
+TEST( CFPP_Error, CTOR_NullPointer )
+{
+    CF::Error e( nullptr );
+    
+    ASSERT_FALSE( e.IsValid() );
+}
+
 TEST( CFPP_Error, CTOR_StringDomain_NumberCode )
 {
     CF::Error e( CF::String( "com.xs-labs" ), CF::Number( 42 ) );
@@ -275,6 +282,17 @@ TEST( CFPP_Error, OperatorAssignCFError )
     e2 = static_cast< CFErrorRef >( NULL );
     
     ASSERT_FALSE( e2.IsValid() );
+}
+
+TEST( CFPP_Error, OperatorAssignNullPointer )
+{
+    CF::Error e( "com.xs-labs", 42 );
+    
+    ASSERT_TRUE( e.IsValid() );
+    
+    e = nullptr;
+    
+    ASSERT_FALSE( e.IsValid() );
 }
 
 TEST( CFPP_Error, GetTypeID )

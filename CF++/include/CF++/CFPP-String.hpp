@@ -46,6 +46,7 @@ namespace CF
             String( const AutoPointer & value );
             String( CFTypeRef cfObject );
             String( CFStringRef cfObject );
+            String( std::nullptr_t );
             String( const AutoPointer & value, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( CFTypeRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
             String( CFStringRef cfObject, std::string defaultValueIfNULL, CFStringEncoding encoding = kCFStringEncodingUTF8 );
@@ -61,6 +62,7 @@ namespace CF
             String & operator = ( const AutoPointer & value );
             String & operator = ( CFTypeRef value );
             String & operator = ( CFStringRef value );
+            String & operator = ( std::nullptr_t );
             String & operator = ( const std::string & value );
             String & operator = ( char * value );
             String & operator = ( const char * value );

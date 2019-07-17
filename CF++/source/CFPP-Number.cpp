@@ -70,6 +70,9 @@ namespace CF
         }
     }
     
+    Number::Number( std::nullptr_t ): Number( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     Number::Number( const AutoPointer & value, signed char defaultValueIfNULL ): _cfObject( nullptr )
     {
         if( value.IsValid() && value.GetTypeID() == this->GetTypeID() )
@@ -606,6 +609,11 @@ namespace CF
     Number & Number::operator = ( CFNumberRef value )
     {
         return operator =( Number( value ) );
+    }
+    
+    Number & Number::operator = ( std::nullptr_t )
+    {
+        return operator =( Number( nullptr ) );
     }
     
     Number & Number::operator = ( signed char value )

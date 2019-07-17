@@ -72,6 +72,9 @@ namespace CF
         }
     }
     
+    Error::Error( std::nullptr_t ): Error( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     Error::Error( const String & domain, const Number & code ): _cfObject( nullptr )
     {
         this->_cfObject = CFErrorCreate
@@ -213,6 +216,11 @@ namespace CF
     Error & Error::operator = ( CFErrorRef value )
     {
         return operator =( Error( value ) );
+    }
+    
+    Error & Error::operator = ( std::nullptr_t )
+    {
+        return operator =( Error( nullptr ) );
     }
     
     CFTypeID Error::GetTypeID( void ) const

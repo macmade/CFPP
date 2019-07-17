@@ -95,6 +95,9 @@ namespace CF
         }
     }
     
+    WriteStream::WriteStream( std::nullptr_t ): WriteStream( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     WriteStream::WriteStream( WriteStream && value ) noexcept
     {
         this->_cfObject = value._cfObject;
@@ -131,6 +134,11 @@ namespace CF
     WriteStream & WriteStream::operator = ( CFWriteStreamRef value )
     {
         return operator =( WriteStream( value ) );
+    }
+    
+    WriteStream & WriteStream::operator = ( std::nullptr_t )
+    {
+        return operator =( WriteStream( nullptr ) );
     }
     
     CFTypeID WriteStream::GetTypeID( void ) const

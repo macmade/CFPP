@@ -53,6 +53,7 @@ namespace CF
             Number( const AutoPointer & value );
             Number( CFTypeRef cfObject );
             Number( CFNumberRef cfObject );
+            Number( std::nullptr_t );
             Number( const AutoPointer & value, signed char defaultValueIfNULL );
             Number( const AutoPointer & value, signed short defaultValueIfNULL );
             Number( const AutoPointer & value, signed int defaultValueIfNULL );
@@ -110,6 +111,7 @@ namespace CF
             Number & operator = ( const AutoPointer & value );
             Number & operator = ( CFTypeRef value );
             Number & operator = ( CFNumberRef value );
+            Number & operator = ( std::nullptr_t value );
             Number & operator = ( signed char value );
             Number & operator = ( signed short value );
             Number & operator = ( signed int value );

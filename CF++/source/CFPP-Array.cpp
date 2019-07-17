@@ -209,6 +209,9 @@ namespace CF
         }
     }
     
+    Array::Array( std::nullptr_t ): Array( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     Array::Array( std::initializer_list< CFTypeRef > value ): Array( static_cast< CFIndex >( value.size() ) )
     {
         for( CFTypeRef o: value )
@@ -256,6 +259,11 @@ namespace CF
     Array & Array::operator = ( CFArrayRef value )
     {
         return operator =( Array( value ) );
+    }
+    
+    Array & Array::operator = ( std::nullptr_t )
+    {
+        return operator =( Array( nullptr ) );
     }
     
     Array & Array::operator += ( const Array & value )

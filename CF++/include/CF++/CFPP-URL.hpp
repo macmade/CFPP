@@ -80,6 +80,7 @@ namespace CF
             URL( CFTypeRef value );
             URL( CFURLRef value );
             URL( CFStringRef value );
+            URL( std::nullptr_t );
             URL( const std::string & value );
             URL( const char * value );
             URL( URL && value ) noexcept;
@@ -91,6 +92,7 @@ namespace CF
             URL & operator = ( CFTypeRef value );
             URL & operator = ( CFURLRef value );
             URL & operator = ( CFStringRef value );
+            URL & operator = ( std::nullptr_t );
             URL & operator = ( const std::string & value );
             URL & operator = ( const char * value );
             

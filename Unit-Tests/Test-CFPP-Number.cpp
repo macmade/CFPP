@@ -105,6 +105,13 @@ TEST( CFPP_Number, CTOR_CFNumber )
     ASSERT_TRUE( n2.GetCFObject() == NULL );
 }
 
+TEST( CFPP_Number, CTOR_NullPointer )
+{
+    CF::Number n( nullptr );
+    
+    ASSERT_FALSE( n.IsValid() );
+}
+
 template< typename T >
 void TMPL_CFPP_Number_CTOR_AutoPointer_T( void )
 {
@@ -384,6 +391,17 @@ TEST( CFPP_Number, OperatorAssignCFNumber )
     
     ASSERT_TRUE( n.IsValid() );
     ASSERT_TRUE( n == 1 );
+}
+
+TEST( CFPP_Number, OperatorAssignNullPointer )
+{
+    CF::Number n;
+    
+    ASSERT_TRUE( n.IsValid() );
+    
+    n = nullptr;
+    
+    ASSERT_FALSE( n.IsValid() );
 }
 
 template< typename T >

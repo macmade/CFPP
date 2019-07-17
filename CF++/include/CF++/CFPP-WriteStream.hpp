@@ -50,6 +50,7 @@ namespace CF
             WriteStream( const AutoPointer & value );
             WriteStream( CFTypeRef value );
             WriteStream( CFWriteStreamRef value );
+            WriteStream( std::nullptr_t );
             WriteStream( WriteStream && value ) noexcept;
             
             virtual ~WriteStream( void );
@@ -58,6 +59,7 @@ namespace CF
             WriteStream & operator = ( const AutoPointer & value );
             WriteStream & operator = ( CFTypeRef value );
             WriteStream & operator = ( CFWriteStreamRef value );
+            WriteStream & operator = ( std::nullptr_t );
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

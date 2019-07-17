@@ -81,6 +81,9 @@ namespace CF
         }
     }
     
+    Date::Date( std::nullptr_t ): Date( static_cast< CFTypeRef >( nullptr ) )
+    {}
+    
     Date::Date( CFAbsoluteTime value ): _cfObject( nullptr )
     {
         this->SetValue( value );
@@ -122,6 +125,11 @@ namespace CF
     Date & Date::operator = ( CFDateRef value )
     {
         return operator =( Date( value ) );
+    }
+    
+    Date & Date::operator = ( std::nullptr_t )
+    {
+        return operator =( Date( nullptr ) );
     }
     
     Date & Date::operator = ( CFAbsoluteTime value )

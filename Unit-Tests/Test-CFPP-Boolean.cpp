@@ -95,6 +95,14 @@ TEST( CFPP_Boolean, CTOR_CFBoolean )
     ASSERT_FALSE( b3.GetValue() );
 }
 
+TEST( CFPP_Boolean, CTOR_NullPointer )
+{
+    CF::Boolean b( nullptr );
+    
+    ASSERT_TRUE(  b.IsValid() );
+    ASSERT_FALSE( b.GetValue() );
+}
+
 TEST( CFPP_Boolean, CTOR_AutoPointer_DefaultValue )
 {
     CF::Boolean b1( CF::AutoPointer( CFRetain( GetCFBooleanTrue() ) ), false );
@@ -245,6 +253,19 @@ TEST( CFPP_Boolean, OperatorAssignCFBoolean )
     b1 = static_cast< CFBooleanRef >( s.GetCFObject() );
     
     ASSERT_FALSE( b1.GetValue() );
+}
+
+TEST( CFPP_Boolean, OperatorAssignNullPointer )
+{
+    CF::Boolean b( true );
+    
+    ASSERT_TRUE( b.IsValid() );
+    ASSERT_TRUE( b.GetValue() );
+    
+    b = nullptr;
+    
+    ASSERT_TRUE(  b.IsValid() );
+    ASSERT_FALSE( b.GetValue() );
 }
 
 TEST( CFPP_Boolean, OperatorAssignBool )

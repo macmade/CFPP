@@ -46,6 +46,7 @@ namespace CF
             Boolean( const AutoPointer & value );
             Boolean( CFTypeRef cfObject );
             Boolean( CFBooleanRef cfObject );
+            Boolean( std::nullptr_t );
             Boolean( const AutoPointer & value, bool defaultValueIfNULL );
             Boolean( CFTypeRef cfObject, bool defaultValueIfNULL );
             Boolean( CFBooleanRef cfObject, bool defaultValueIfNULL );
@@ -58,6 +59,7 @@ namespace CF
             Boolean & operator = ( const AutoPointer & value );
             Boolean & operator = ( CFTypeRef value );
             Boolean & operator = ( CFBooleanRef value );
+            Boolean & operator = ( std::nullptr_t );
             Boolean & operator = ( bool value );
             
             bool operator == ( const Boolean & value ) const;

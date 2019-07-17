@@ -50,6 +50,7 @@ namespace CF
             ReadStream( const AutoPointer & value );
             ReadStream( CFTypeRef value );
             ReadStream( CFReadStreamRef value );
+            ReadStream( std::nullptr_t );
             ReadStream( ReadStream && value ) noexcept;
             
             virtual ~ReadStream( void );
@@ -58,6 +59,7 @@ namespace CF
             ReadStream & operator = ( const AutoPointer & value );
             ReadStream & operator = ( CFTypeRef value );
             ReadStream & operator = ( CFReadStreamRef value );
+            ReadStream & operator = ( std::nullptr_t );
             
             virtual CFTypeID  GetTypeID( void ) const;
             virtual CFTypeRef GetCFObject( void ) const;

@@ -138,6 +138,9 @@ namespace CF
         }
     }
     
+    URL::URL( std::nullptr_t ): URL( static_cast< CFTypeRef>( nullptr ) )
+    {}
+    
     URL::URL( const std::string & value ): _cfObject( nullptr )
     {
         String s;
@@ -203,6 +206,11 @@ namespace CF
     URL & URL::operator = ( CFStringRef value )
     {
         return operator =( URL( value ) );
+    }
+    
+    URL & URL::operator = ( std::nullptr_t )
+    {
+        return operator =( URL( nullptr ) );
     }
     
     URL & URL::operator = ( const std::string & value )
