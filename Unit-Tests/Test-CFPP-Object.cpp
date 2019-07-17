@@ -89,7 +89,6 @@ TEST( CFPP_Object, CCTOR )
     CFRelease( cfB );
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Object, MCTOR )
 {
     CFBagRef cfB;
@@ -106,7 +105,6 @@ TEST( CFPP_Object, MCTOR )
     
     CFRelease( cfB );
 }
-#endif
 
 TEST( CFPP_Object, OperatorAssignBag )
 {

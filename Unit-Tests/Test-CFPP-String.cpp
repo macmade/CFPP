@@ -163,7 +163,6 @@ TEST( CFPP_String, CCTOR )
     ASSERT_TRUE( s2.GetValue() == "hello, world" );
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_String, MCTOR )
 {
     CF::String s1( "hello, world" );
@@ -173,7 +172,6 @@ TEST( CFPP_String, MCTOR )
     ASSERT_TRUE(  s2.IsValid() );
     ASSERT_TRUE(  s2.GetValue() == "hello, world" );
 }
-#endif
 
 TEST( CFPP_String, OperatorAssignString )
 {

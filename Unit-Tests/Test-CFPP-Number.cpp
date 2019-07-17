@@ -285,7 +285,6 @@ TEST( CFPP_Number, CCTOR )
     ASSERT_FALSE( n4.IsValid() );
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Number, MCTOR )
 {
     CF::Number n1( 42 );
@@ -296,7 +295,6 @@ TEST( CFPP_Number, MCTOR )
     
     ASSERT_TRUE( n2 == 42 );
 }
-#endif
 
 TEST( CFPP_Number, OperatorAssignNumber )
 {

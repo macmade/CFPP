@@ -141,7 +141,6 @@ TEST( CFPP_Date, CCTOR )
     ASSERT_TRUE( d2.GetValue() < d1.GetValue() + 1 );
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Date, MCTOR )
 {
     CF::Date d1;
@@ -150,7 +149,6 @@ TEST( CFPP_Date, MCTOR )
     ASSERT_FALSE( d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
 }
-#endif
 
 TEST( CFPP_Date, OperatorAssignDate )
 {

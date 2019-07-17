@@ -124,7 +124,6 @@ TEST( CFPP_Dictionary_Iterator, CCTOR )
     }
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Dictionary_Iterator, MCTOR )
 {
     CF::Dictionary d;
@@ -150,7 +149,6 @@ TEST( CFPP_Dictionary_Iterator, MCTOR )
         ASSERT_TRUE( CF::String( i4.GetValue() ) == "hello, world" );
     }
 }
-#endif
 
 TEST( CFPP_Dictionary_Iterator, OperatorAssign )
 {
@@ -728,7 +726,6 @@ TEST( CFPP_Dictionary_Iterator, TestIterate )
     }
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Dictionary_Iterator, TestIterateSTD )
 {
     CF::Dictionary           d1;
@@ -775,9 +772,7 @@ TEST( CFPP_Dictionary_Iterator, TestIterateSTD )
         ASSERT_EQ( i, 4 );
     }
 }
-#endif
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Dictionary_Iterator, TestIterateCPP11 )
 {
     CF::Dictionary           d1;
@@ -831,4 +826,3 @@ TEST( CFPP_Dictionary_Iterator, TestIterateCPP11 )
         ASSERT_EQ( i, 4 );
     }
 }
-#endif

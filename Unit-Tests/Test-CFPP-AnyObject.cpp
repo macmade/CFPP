@@ -80,7 +80,6 @@ TEST( CFPP_AnyObject, CCTOR )
     ASSERT_EQ( o2.GetRetainCount(), i + 2 );
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_AnyObject, MCTOR )
 {
     CF::String      s( "hello, world" );
@@ -93,7 +92,6 @@ TEST( CFPP_AnyObject, MCTOR )
     ASSERT_EQ( o2.GetCFObject(), s.GetCFObject() );
     ASSERT_EQ( o2.GetRetainCount(), i + 1 );
 }
-#endif
 
 TEST( CFPP_AnyObject, DTOR )
 {

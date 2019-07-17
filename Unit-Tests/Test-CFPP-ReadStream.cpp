@@ -34,6 +34,7 @@
  */
 
 #include <CF++.hpp>
+#include <thread>
 
 #define XSTEST_GTEST_COMPAT
 #include <XSTest/XSTest.hpp>
@@ -107,7 +108,6 @@ TEST( CFPP_ReadStream, CTOR_URL )
     ASSERT_TRUE( s3.IsValid() );
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_ReadStream, MCTOR )
 {
     CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
@@ -116,7 +116,6 @@ TEST( CFPP_ReadStream, MCTOR )
     ASSERT_FALSE( s1.IsValid() );
     ASSERT_TRUE(  s2.IsValid() );
 }
-#endif
 
 TEST( CFPP_ReadStream, OperatorAssignReadStream )
 {
@@ -628,10 +627,6 @@ void __ClientCallback( CFReadStreamRef stream, CFStreamEventType type, void * in
     }
 }
 
-#ifdef CFPP_HAS_CPP11
-#include <thread>
-#endif
-
 TEST( CFPP_ReadStream, SetClient )
 {
     CF::ReadStream        s1;
@@ -652,8 +647,6 @@ TEST( CFPP_ReadStream, SetClient )
     ASSERT_FALSE( s1.SetClient( kCFStreamEventOpenCompleted, __ClientCallback, &ctx1 ) );
     ASSERT_TRUE(  s2.SetClient( kCFStreamEventOpenCompleted, __ClientCallback, &ctx2 ) );
     ASSERT_TRUE(  s3.SetClient( kCFStreamEventOpenCompleted, __ClientCallback, &ctx3 ) );
-    
-    #ifdef CFPP_HAS_CPP11
     
     s1.ScheduleWithRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
     s2.ScheduleWithRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
@@ -692,8 +685,6 @@ TEST( CFPP_ReadStream, SetClient )
     s1.UnscheduleFromRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
     s2.UnscheduleFromRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
     s3.UnscheduleFromRunLoop( CFRunLoopGetCurrent(), kCFRunLoopDefaultMode );
-    
-    #endif
     
     s1.Close();
     s2.Close();

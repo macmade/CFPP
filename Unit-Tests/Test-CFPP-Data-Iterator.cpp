@@ -91,7 +91,6 @@ TEST( CFPP_Data_Iterator, CCTOR )
     ASSERT_EQ( *( i4 ), 0xDE );
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Data_Iterator, MCTOR )
 {
     CF::Data           d( __bytes, sizeof( __bytes ) );
@@ -105,7 +104,6 @@ TEST( CFPP_Data_Iterator, MCTOR )
     ASSERT_EQ( *( i3 ), 0x00 );
     ASSERT_EQ( *( i4 ), 0xDE );
 }
-#endif
 
 TEST( CFPP_Data_Iterator, OperatorAssign )
 {
@@ -453,7 +451,6 @@ TEST( CFPP_Data_Iterator, TestIterate )
     }
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Data_Iterator, TestIterateSTD )
 {
     CF::Data           d1;
@@ -503,9 +500,7 @@ TEST( CFPP_Data_Iterator, TestIterateSTD )
         ASSERT_EQ( i, 4 );
     }
 }
-#endif
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_Data_Iterator, TestIterateCPP11 )
 {
     CF::Data d1;
@@ -558,4 +553,3 @@ TEST( CFPP_Data_Iterator, TestIterateCPP11 )
         ASSERT_EQ( i, 4 );
     }
 }
-#endif

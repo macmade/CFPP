@@ -89,7 +89,6 @@ TEST( CFPP_String_Iterator, CCTOR )
     ASSERT_EQ( *( i4 ), 'h' );
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_String_Iterator, MCTOR )
 {
     CF::String           s( "hello" );
@@ -103,7 +102,6 @@ TEST( CFPP_String_Iterator, MCTOR )
     ASSERT_EQ( *( i3 ), 0 );
     ASSERT_EQ( *( i4 ), 'h' );
 }
-#endif
 
 TEST( CFPP_String_Iterator, OperatorAssign )
 {
@@ -454,7 +452,6 @@ TEST( CFPP_String_Iterator, TestIterate )
     }
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_String_Iterator, TestIterateSTD )
 {
     CF::String           s1;
@@ -505,9 +502,7 @@ TEST( CFPP_String_Iterator, TestIterateSTD )
         ASSERT_EQ( i, 5 );
     }
 }
-#endif
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_String_Iterator, TestIterateCPP11 )
 {
     CF::String s1;
@@ -561,4 +556,3 @@ TEST( CFPP_String_Iterator, TestIterateCPP11 )
         ASSERT_EQ( i, 5 );
     }
 }
-#endif

@@ -174,7 +174,6 @@ TEST( CFPP_URL, CCTOR )
     ASSERT_FALSE( u4.IsValid() );
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_URL, MCTOR )
 {
     CF::URL u1( "http://www.xs-labs.com/" );
@@ -183,7 +182,6 @@ TEST( CFPP_URL, MCTOR )
     ASSERT_FALSE( u1.IsValid() );
     ASSERT_TRUE(  u2.IsValid() );
 }
-#endif
 
 TEST( CFPP_URL, OperatorAssignURL )
 {

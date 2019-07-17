@@ -161,7 +161,6 @@ TEST( CFPP_ReadStream_Iterator, CCTOR )
     s1.Close();
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_ReadStream_Iterator, MCTOR )
 {
     CF::ReadStream s1;
@@ -189,7 +188,6 @@ TEST( CFPP_ReadStream_Iterator, MCTOR )
     
     s1.Close();
 }
-#endif
 
 TEST( CFPP_ReadStream_Iterator, OperatorAssign )
 {
@@ -616,7 +614,6 @@ TEST( CFPP_ReadStream_Iterator, TestIterate )
     s1.Close();
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_ReadStream_Iterator, TestIterateSTD )
 {
     CF::ReadStream           s1;
@@ -652,9 +649,7 @@ TEST( CFPP_ReadStream_Iterator, TestIterateSTD )
     
     s1.Close();
 }
-#endif
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_ReadStream_Iterator, TestIterateCPP11 )
 {
     CF::ReadStream           s1;
@@ -690,4 +685,3 @@ TEST( CFPP_ReadStream_Iterator, TestIterateCPP11 )
     
     s1.Close();
 }
-#endif

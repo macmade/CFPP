@@ -140,7 +140,6 @@ TEST( CFPP_UUID, CCTOR )
     ASSERT_FALSE( u4.IsValid() );
 }
 
-#ifdef CFPP_HAS_CPP11
 TEST( CFPP_UUID, MCTOR )
 {
     CF::UUID u1;
@@ -149,7 +148,6 @@ TEST( CFPP_UUID, MCTOR )
     ASSERT_TRUE(  u2.IsValid() );
     ASSERT_FALSE( u1.IsValid() );
 }
-#endif
 
 TEST( CFPP_UUID, OperatorAssignUUID )
 {
