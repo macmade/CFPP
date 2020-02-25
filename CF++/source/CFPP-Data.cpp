@@ -353,7 +353,7 @@ namespace CF
         CFDataDeleteBytes( this->_cfObject, range );
     }
     
-    CFRange Data::Find( Data data, CFRange range, CFDataSearchFlags flags )
+    CFRange Data::Find( const Data & data, CFRange range, CFDataSearchFlags flags ) const
     {
         CFRange r;
         

@@ -98,7 +98,7 @@ namespace CF
             void         AppendBytes( const Byte * bytes, CFIndex length ) const;
             void         ReplaceBytes( CFRange range, const Byte * newBytes, CFIndex newLength ) const;
             void         DeleteBytes( CFRange range ) const;
-            CFRange      Find( Data data, CFRange range, CFDataSearchFlags flags );
+            CFRange      Find( const Data & data, CFRange range, CFDataSearchFlags flags ) const;
             
             friend void swap( Data & v1, Data & v2 ) noexcept;
             
