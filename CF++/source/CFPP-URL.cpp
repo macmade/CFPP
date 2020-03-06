@@ -235,7 +235,6 @@ namespace CF
             case PartHostName:          s = this->GetHostName();                        break;
             case PartLastPathComponent: s = this->GetLastPathComponent();               break;
             case PartNetLocation:       s = this->GetNetLocation();                     break;
-            case PartParameterString:   s = this->GetParameterString();                 break;
             case PartPassword:          s = this->GetPassword();                        break;
             case PartPath:              s = this->GetPath();                            break;
             case PartPathExtension:     s = this->GetPathExtension();                   break;
@@ -433,20 +432,6 @@ namespace CF
         }
         
         str = CFURLCopyNetLocation( this->_cfObject );
-        
-        return str.As< CFStringRef >();
-    }
-    
-    String URL::GetParameterString( void ) const
-    {
-        AutoPointer str;
-        
-        if( this->_cfObject == nullptr )
-        {
-            return str.As< CFStringRef >();
-        }
-        
-        str = CFURLCopyParameterString( this->_cfObject, nullptr );
         
         return str.As< CFStringRef >();
     }

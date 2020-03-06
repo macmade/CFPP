@@ -50,7 +50,7 @@ namespace CF
                 PartHostName            = 0x03,
                 PartLastPathComponent   = 0x04,
                 PartNetLocation         = 0x05,
-                PartParameterString     = 0x06,
+                /* 0x06 was PartParameterString - Now deprecated */
                 PartPassword            = 0x07,
                 PartPath                = 0x08,
                 PartPathExtension       = 0x09,
@@ -126,7 +126,6 @@ namespace CF
             String GetHostName( void ) const;
             String GetLastPathComponent( void ) const;
             String GetNetLocation( void ) const;
-            String GetParameterString( void ) const;
             String GetPassword( void ) const;
             String GetPath( void ) const;
             String GetPathExtension( void ) const;

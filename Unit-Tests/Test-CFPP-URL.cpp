@@ -677,7 +677,7 @@ TEST( CFPP_URL, OperatorDivideCChar )
 TEST( CFPP_URL, OperatorSubscript )
 {
     CF::URL u1;
-    CF::URL u2( "http://macmade:1234@www.xs-labs.com/foo/bar.txt;foo=bar?foo=bar&bar=foo#foobar" );
+    CF::URL u2( "http://macmade:1234@www.xs-labs.com/foo/bar.txt?foo=bar&bar=foo#foobar" );
     
     ASSERT_EQ( u1[ CF::URL::PartAll ],               "" );
     ASSERT_EQ( u1[ CF::URL::PartFileSystemPath ],    "" );
@@ -685,7 +685,6 @@ TEST( CFPP_URL, OperatorSubscript )
     ASSERT_EQ( u1[ CF::URL::PartHostName ],          "" );
     ASSERT_EQ( u1[ CF::URL::PartLastPathComponent ], "" );
     ASSERT_EQ( u1[ CF::URL::PartNetLocation ],       "" );
-    ASSERT_EQ( u1[ CF::URL::PartParameterString ],   "" );
     ASSERT_EQ( u1[ CF::URL::PartPassword ],          "" );
     ASSERT_EQ( u1[ CF::URL::PartPath ],              "" );
     ASSERT_EQ( u1[ CF::URL::PartPathExtension ],     "" );
@@ -701,12 +700,11 @@ TEST( CFPP_URL, OperatorSubscript )
     ASSERT_EQ( u2[ CF::URL::PartHostName ],          "www.xs-labs.com" );
     ASSERT_EQ( u2[ CF::URL::PartLastPathComponent ], "bar.txt" );
     ASSERT_EQ( u2[ CF::URL::PartNetLocation ],       "macmade:1234@www.xs-labs.com" );
-    ASSERT_EQ( u2[ CF::URL::PartParameterString ],   "foo=bar" );
     ASSERT_EQ( u2[ CF::URL::PartPassword ],          "1234" );
     ASSERT_EQ( u2[ CF::URL::PartPath ],              "/foo/bar.txt" );
     ASSERT_EQ( u2[ CF::URL::PartPathExtension ],     "txt" );
     ASSERT_EQ( u2[ CF::URL::PartQueryString ],       "foo=bar&bar=foo" );
-    ASSERT_EQ( u2[ CF::URL::PartResourceSpecifier ], ";foo=bar?foo=bar&bar=foo#foobar" );
+    ASSERT_EQ( u2[ CF::URL::PartResourceSpecifier ], "?foo=bar&bar=foo#foobar" );
     ASSERT_EQ( u2[ CF::URL::PartScheme ],            "http" );
     ASSERT_EQ( u2[ CF::URL::PartStrictPath ],        "foo/bar.txt" );
     ASSERT_EQ( u2[ CF::URL::PartUserName ],          "macmade" );
@@ -801,19 +799,6 @@ TEST( CFPP_URL, GetNetLocation )
     
     ASSERT_EQ( u2.GetNetLocation(), "www.xs-labs.com" ); 
     ASSERT_EQ( u3.GetNetLocation(), "macmade:1234@www.xs-labs.com" ); 
-}
-
-TEST( CFPP_URL, GetParameterString )
-{
-    CF::URL u1;
-    CF::URL u2( "http://www.xs-labs.com/" );
-    CF::URL u3( "http://www.xs-labs.com/;foo=bar" );
-    
-    ASSERT_FALSE( u1.GetParameterString().IsValid() );
-    ASSERT_FALSE( u2.GetParameterString().IsValid() );
-    ASSERT_TRUE(  u3.GetParameterString().IsValid() );
-    
-    ASSERT_EQ( u3.GetParameterString(), "foo=bar" ); 
 }
 
 TEST( CFPP_URL, GetPassword )
