@@ -43,7 +43,7 @@ static CF::Data::Byte __bytes[] = { 0xDE, 0xAD, 0xBE, 0xEF };
 TEST( CFPP_Data_Iterator, DataBegin )
 {
     CF::Data d1;
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data d3( __bytes, sizeof( __bytes ) );
     
     ASSERT_EQ( *( d1.begin() ), 0x00 );
@@ -58,7 +58,7 @@ TEST( CFPP_Data_Iterator, DataBegin )
 TEST( CFPP_Data_Iterator, DataEnd )
 {
     CF::Data d1;
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data d3( __bytes, sizeof( __bytes ) );
     
     ASSERT_EQ( *( d1.end() ), 0x00 );
@@ -340,7 +340,7 @@ TEST( CFPP_Data_Iterator, OperatorNotEqual )
 TEST( CFPP_Data_Iterator, OperatorDereference )
 {
     CF::Data           d1( __bytes, sizeof( __bytes ) );
-    CF::Data           d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data           d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data::Iterator i1;
     CF::Data::Iterator i2;
     
@@ -363,7 +363,7 @@ TEST( CFPP_Data_Iterator, OperatorDereference )
 TEST( CFPP_Data_Iterator, OperatorCastToByte )
 {
     CF::Data           d1( __bytes, sizeof( __bytes ) );
-    CF::Data           d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data           d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data::Iterator i1;
     CF::Data::Iterator i2;
     
@@ -404,7 +404,7 @@ TEST( CFPP_Data_Iterator, Swap )
 TEST( CFPP_Data_Iterator, TestIterate )
 {
     CF::Data           d1;
-    CF::Data           d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data           d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data           d3( __bytes, sizeof( __bytes ) );
     CF::Data::Iterator it;
     CFIndex            i;

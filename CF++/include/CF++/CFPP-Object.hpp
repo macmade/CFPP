@@ -43,18 +43,18 @@ namespace CF
     {
         public:
             
-            Object( void ): _cfObject( NULL )
+            Object( void ): _cfObject( nullptr )
             {}
             
-            Object( const Object< _T_ > & value ): _cfObject( NULL )
+            Object( const Object< _T_ > & value ): _cfObject( nullptr )
             {
-                if( value._cfObject != NULL )
+                if( value._cfObject != nullptr )
                 {
                     this->_cfObject = reinterpret_cast< _T_ >( const_cast< void * >( CFRetain( value._cfObject ) ) );
                 }
             }
             
-            Object( const AutoPointer & value ): _cfObject( NULL )
+            Object( const AutoPointer & value ): _cfObject( nullptr )
             {
                 if( value.IsValid() )
                 {
@@ -62,9 +62,9 @@ namespace CF
                 }
             }
             
-            Object( _T_ value ): _cfObject( NULL )
+            Object( _T_ value ): _cfObject( nullptr )
             {
-                if( value != NULL )
+                if( value != nullptr )
                 {
                     this->_cfObject = reinterpret_cast< _T_ >( const_cast< void * >( CFRetain( value ) ) );
                 }
@@ -78,11 +78,11 @@ namespace CF
             
             virtual ~Object( void )
             {
-                if( this->_cfObject != NULL )
+                if( this->_cfObject != nullptr )
                 {
                     CFRelease( this->_cfObject );
                     
-                    this->_cfObject = NULL;
+                    this->_cfObject = nullptr;
                 }
             }
             
@@ -105,7 +105,7 @@ namespace CF
             
             virtual CFTypeID GetTypeID( void ) const
             {
-                if( this->_cfObject != NULL )
+                if( this->_cfObject != nullptr )
                 {
                     return CFGetTypeID( this->_cfObject );
                 }

@@ -146,21 +146,21 @@ TEST( CFPP_Pair, GetKey )
 {
     CF::Pair p1( "hello", "world" );
     
-    ASSERT_TRUE( p1.GetKey() != NULL );
+    ASSERT_TRUE( p1.GetKey() != nullptr );
 }
 
 TEST( CFPP_Pair, GetValue )
 {
     CF::Pair p1( "hello", "world" );
     
-    ASSERT_TRUE( p1.GetValue() != NULL );
+    ASSERT_TRUE( p1.GetValue() != nullptr );
 }
 
 TEST( CFPP_Pair, GetKeyTypeID )
 {
-    CF::Pair p1( "hello",                          static_cast< CFTypeRef >( NULL ) );
-    CF::Pair p2( CF::Number( 0 ),                  static_cast< CFTypeRef >( NULL ) );
-    CF::Pair p3( static_cast< CFTypeRef >( NULL ), static_cast< CFTypeRef >( NULL ) );
+    CF::Pair p1( "hello",                          static_cast< CFTypeRef >( nullptr ) );
+    CF::Pair p2( CF::Number( 0 ),                  static_cast< CFTypeRef >( nullptr ) );
+    CF::Pair p3( static_cast< CFTypeRef >( nullptr ), static_cast< CFTypeRef >( nullptr ) );
     
     ASSERT_TRUE( p1.GetKeyTypeID() == CFStringGetTypeID() );
     ASSERT_TRUE( p2.GetKeyTypeID() == CFNumberGetTypeID() );
@@ -171,7 +171,7 @@ TEST( CFPP_Pair, GetValueTypeID )
 {
     CF::Pair p1( "hello", "world" );
     CF::Pair p2( "hello", CF::Number( 0 ) );
-    CF::Pair p3( "hello", static_cast< CFTypeRef >( NULL ) );
+    CF::Pair p3( "hello", static_cast< CFTypeRef >( nullptr ) );
     
     ASSERT_TRUE( p1.GetValueTypeID() == CFStringGetTypeID() );
     ASSERT_TRUE( p2.GetValueTypeID() == CFNumberGetTypeID() );
@@ -186,9 +186,9 @@ TEST( CFPP_Pair, SetKey )
     
     ASSERT_EQ( CF::String( p1.GetKey() ), "hi" );
     
-    p1.SetKey( NULL );
+    p1.SetKey( nullptr );
     
-    ASSERT_TRUE( p1.GetKey() == NULL );
+    ASSERT_TRUE( p1.GetKey() == nullptr );
 }
 
 TEST( CFPP_Pair, SetValue )
@@ -199,9 +199,9 @@ TEST( CFPP_Pair, SetValue )
     
     ASSERT_EQ( CF::String( p1.GetValue() ), "universe" );
     
-    p1.SetValue( NULL );
+    p1.SetValue( nullptr );
     
-    ASSERT_TRUE( p1.GetValue() == NULL );
+    ASSERT_TRUE( p1.GetValue() == nullptr );
 }
 
 TEST( CFPP_Pair, Swap )

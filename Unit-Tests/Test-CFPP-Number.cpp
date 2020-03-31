@@ -38,6 +38,10 @@
 #define XSTEST_GTEST_COMPAT
 #include <XSTest/XSTest.hpp>
 
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wself-assign-overloaded"
+#endif
+
 static bool FloatIsEqual( Float32 x, Float32 y );
 static bool FloatIsEqual( Float64 x, Float64 y );
 
@@ -57,7 +61,7 @@ TEST( CFPP_Number, CTOR )
     
     ASSERT_TRUE( n.IsValid() );
     ASSERT_TRUE( n == 0 );
-    ASSERT_TRUE( n.GetCFObject() != NULL );
+    ASSERT_TRUE( n.GetCFObject() != nullptr );
 }
 
 TEST( CFPP_Number, CTOR_AutoPointer )
@@ -65,9 +69,9 @@ TEST( CFPP_Number, CTOR_AutoPointer )
     int i = 0;
     
     {
-        CF::Number n1( CF::AutoPointer( CFNumberCreate( NULL, kCFNumberIntType, &i ) ) );
-        CF::Number n2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-        CF::Number n3( CF::AutoPointer( NULL ) );
+        CF::Number n1( CF::AutoPointer( CFNumberCreate( nullptr, kCFNumberIntType, &i ) ) );
+        CF::Number n2( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+        CF::Number n3( CF::AutoPointer( nullptr ) );
         
         ASSERT_TRUE(  n1.IsValid() );
         ASSERT_FALSE( n2.IsValid() );
@@ -78,7 +82,7 @@ TEST( CFPP_Number, CTOR_AutoPointer )
 TEST( CFPP_Number, CTOR_CFType )
 {
     CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ) );
-    CF::Number n2( static_cast< CFTypeRef >( NULL ) );
+    CF::Number n2( static_cast< CFTypeRef >( nullptr ) );
     
     ASSERT_TRUE(  n1.IsValid() );
     ASSERT_FALSE( n2.IsValid() );
@@ -86,14 +90,14 @@ TEST( CFPP_Number, CTOR_CFType )
     ASSERT_TRUE( n1 == 42 );
     ASSERT_TRUE( n2 == 0 );
     
-    ASSERT_TRUE( n1.GetCFObject() != NULL );
-    ASSERT_TRUE( n2.GetCFObject() == NULL );
+    ASSERT_TRUE( n1.GetCFObject() != nullptr );
+    ASSERT_TRUE( n2.GetCFObject() == nullptr );
 }
 
 TEST( CFPP_Number, CTOR_CFNumber )
 {
     CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ) );
-    CF::Number n2( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n2( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE(  n1.IsValid() );
     ASSERT_FALSE( n2.IsValid() );
@@ -101,8 +105,8 @@ TEST( CFPP_Number, CTOR_CFNumber )
     ASSERT_TRUE( n1 == 42 );
     ASSERT_TRUE( n2 == 0 );
     
-    ASSERT_TRUE( n1.GetCFObject() != NULL );
-    ASSERT_TRUE( n2.GetCFObject() == NULL );
+    ASSERT_TRUE( n1.GetCFObject() != nullptr );
+    ASSERT_TRUE( n2.GetCFObject() == nullptr );
 }
 
 TEST( CFPP_Number, CTOR_NullPointer )
@@ -119,9 +123,9 @@ void TMPL_CFPP_Number_CTOR_AutoPointer_T( void )
     T   v = 42;
     
     {
-        CF::Number n1( CF::AutoPointer( CFNumberCreate( NULL, kCFNumberIntType, &i ) ), v );
-        CF::Number n2( CF::AutoPointer( CFUUIDCreate( NULL ) ), v );
-        CF::Number n3( CF::AutoPointer( NULL ), v );
+        CF::Number n1( CF::AutoPointer( CFNumberCreate( nullptr, kCFNumberIntType, &i ) ), v );
+        CF::Number n2( CF::AutoPointer( CFUUIDCreate( nullptr ) ), v );
+        CF::Number n3( CF::AutoPointer( nullptr ), v );
         
         ASSERT_TRUE( n1.IsValid() );
         ASSERT_TRUE( n2.IsValid() );
@@ -164,7 +168,7 @@ template< typename T >
 void TMPL_CFPP_Number_CTOR_CFType_T( void )
 {
     CF::Number n1( static_cast< CFTypeRef >( CF::Number( 42 ).GetCFObject() ), static_cast< T >( 43 ) );
-    CF::Number n2( static_cast< CFTypeRef >( NULL ),                           static_cast< T >( 43 ) );
+    CF::Number n2( static_cast< CFTypeRef >( nullptr ),                           static_cast< T >( 43 ) );
     
     ASSERT_TRUE( n1.IsValid() );
     ASSERT_TRUE( n2.IsValid() );
@@ -204,7 +208,7 @@ template< typename T >
 void TMPL_CFPP_Number_CTOR_CFNumber_T( void )
 {
     CF::Number n1( static_cast< CFNumberRef >( CF::Number( 42 ).GetCFObject() ), static_cast< T >( 43 ) );
-    CF::Number n2( static_cast< CFNumberRef >( NULL ),                           static_cast< T >( 43 ) );
+    CF::Number n2( static_cast< CFNumberRef >( nullptr ),                           static_cast< T >( 43 ) );
     
     ASSERT_TRUE( n1.IsValid() );
     ASSERT_TRUE( n2.IsValid() );
@@ -279,7 +283,7 @@ TEST( CFPP_Number, CCTOR )
 {
     CF::Number n1( 42 );
     CF::Number n2( n1 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     CF::Number n4( n3 );
     
     ASSERT_TRUE( n1.IsValid() );
@@ -307,7 +311,7 @@ TEST( CFPP_Number, OperatorAssignNumber )
 {
     CF::Number n1;
     CF::Number n2( 1 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE( n1 == 0 );
     ASSERT_TRUE( n2 == 1 );
@@ -333,7 +337,7 @@ TEST( CFPP_Number, OperatorAssignAutoPointer )
     int i = 0;
     
     {
-        CF::Number n1( static_cast< CFTypeRef >( NULL ) );
+        CF::Number n1( static_cast< CFTypeRef >( nullptr ) );
         CF::Number n2;
         CF::Number n3;
         
@@ -341,9 +345,9 @@ TEST( CFPP_Number, OperatorAssignAutoPointer )
         ASSERT_TRUE(  n2.IsValid() );
         ASSERT_TRUE(  n3.IsValid() );
         
-        n1 = CF::AutoPointer( CFNumberCreate( NULL, kCFNumberIntType, &i ) );
-        n2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-        n3 = CF::AutoPointer( NULL );
+        n1 = CF::AutoPointer( CFNumberCreate( nullptr, kCFNumberIntType, &i ) );
+        n2 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+        n3 = CF::AutoPointer( nullptr );
         
         ASSERT_TRUE(  n1.IsValid() );
         ASSERT_FALSE( n2.IsValid() );
@@ -361,7 +365,7 @@ TEST( CFPP_Number, OperatorAssignCFType )
     
     ASSERT_TRUE( n == 1 );
     
-    n = static_cast< CFTypeRef >( NULL );
+    n = static_cast< CFTypeRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_TRUE( n == 0 );
@@ -382,7 +386,7 @@ TEST( CFPP_Number, OperatorAssignCFNumber )
     
     ASSERT_TRUE( n == 1 );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_TRUE( n == 0 );
@@ -448,7 +452,7 @@ TEST( CFPP_Number, OperatorEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 == CF::Number(  1 ) );
         ASSERT_FALSE( n2 == CF::Number( 43 ) );
@@ -462,7 +466,7 @@ TEST( CFPP_Number, OperatorEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE(  n1 == n3 );
         ASSERT_FALSE( n2 == n3 );
@@ -475,7 +479,7 @@ TEST( CFPP_Number, OperatorEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 == static_cast< CFTypeRef >( CF::Number(  1 ).GetCFObject() ) );
         ASSERT_FALSE( n2 == static_cast< CFTypeRef >( CF::Number( 43 ).GetCFObject() ) );
@@ -489,7 +493,7 @@ TEST( CFPP_Number, OperatorEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE(  n1 == static_cast< CFTypeRef >( n3.GetCFObject() ) );
         ASSERT_FALSE( n2 == static_cast< CFTypeRef >( n3.GetCFObject() ) );
@@ -499,7 +503,7 @@ TEST( CFPP_Number, OperatorEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE(  n1 == static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
         ASSERT_FALSE( n2 == static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
@@ -512,7 +516,7 @@ TEST( CFPP_Number, OperatorEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 == static_cast< CFNumberRef >( CF::Number(  1 ).GetCFObject() ) );
         ASSERT_FALSE( n2 == static_cast< CFNumberRef >( CF::Number( 43 ).GetCFObject() ) );
@@ -526,7 +530,7 @@ TEST( CFPP_Number, OperatorEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE(  n1 == static_cast< CFNumberRef >( n3.GetCFObject() ) );
         ASSERT_FALSE( n2 == static_cast< CFNumberRef >( n3.GetCFObject() ) );
@@ -536,7 +540,7 @@ TEST( CFPP_Number, OperatorEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE(  n1 == static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
         ASSERT_FALSE( n2 == static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
@@ -549,7 +553,7 @@ void TMPL_CFPP_Number_OperatorEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_FALSE( n3 == static_cast< T >(  1 ) );
     ASSERT_FALSE( n2 == static_cast< T >( 43 ) );
@@ -592,7 +596,7 @@ TEST( CFPP_Number, OperatorNotEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 != CF::Number(  1 ) );
         ASSERT_TRUE( n2 != CF::Number( 43 ) );
@@ -606,7 +610,7 @@ TEST( CFPP_Number, OperatorNotEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 != n3 );
         ASSERT_TRUE(  n2 != n3 );
@@ -619,7 +623,7 @@ TEST( CFPP_Number, OperatorNotEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 != static_cast< CFTypeRef >( CF::Number(  1 ).GetCFObject() ) );
         ASSERT_TRUE( n2 != static_cast< CFTypeRef >( CF::Number( 43 ).GetCFObject() ) );
@@ -633,7 +637,7 @@ TEST( CFPP_Number, OperatorNotEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 != static_cast< CFTypeRef >( n3.GetCFObject() ) );
         ASSERT_TRUE(  n2 != static_cast< CFTypeRef >( n3.GetCFObject() ) );
@@ -643,7 +647,7 @@ TEST( CFPP_Number, OperatorNotEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 != static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
         ASSERT_TRUE(  n2 != static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
@@ -656,7 +660,7 @@ TEST( CFPP_Number, OperatorNotEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 != static_cast< CFNumberRef >( CF::Number(  1 ).GetCFObject() ) );
         ASSERT_TRUE( n2 != static_cast< CFNumberRef >( CF::Number( 43 ).GetCFObject() ) );
@@ -670,7 +674,7 @@ TEST( CFPP_Number, OperatorNotEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 != static_cast< CFNumberRef >( n3.GetCFObject() ) );
         ASSERT_TRUE(  n2 != static_cast< CFNumberRef >( n3.GetCFObject() ) );
@@ -680,7 +684,7 @@ TEST( CFPP_Number, OperatorNotEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 != static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
         ASSERT_TRUE(  n2 != static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
@@ -693,7 +697,7 @@ void TMPL_CFPP_Number_OperatorNotEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE( n3 != static_cast< T >(  1 ) );
     ASSERT_TRUE( n2 != static_cast< T >( 43 ) );
@@ -736,7 +740,7 @@ TEST( CFPP_Number, OperatorGreaterOrEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 >= CF::Number(  0 ) );
         ASSERT_TRUE( n1 >= CF::Number( -1 ) );
@@ -753,7 +757,7 @@ TEST( CFPP_Number, OperatorGreaterOrEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 >= n3 );
         ASSERT_TRUE( n2 >= n3 );
@@ -766,7 +770,7 @@ TEST( CFPP_Number, OperatorGreaterOrEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 >= static_cast< CFTypeRef >( CF::Number(  0 ).GetCFObject() ) );
         ASSERT_TRUE( n1 >= static_cast< CFTypeRef >( CF::Number( -1 ).GetCFObject() ) );
@@ -783,7 +787,7 @@ TEST( CFPP_Number, OperatorGreaterOrEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 >= static_cast< CFTypeRef >( n3.GetCFObject() ) );
         ASSERT_TRUE( n2 >= static_cast< CFTypeRef >( n3.GetCFObject() ) );
@@ -793,7 +797,7 @@ TEST( CFPP_Number, OperatorGreaterOrEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 >= static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
         ASSERT_TRUE( n2 >= static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
@@ -806,7 +810,7 @@ TEST( CFPP_Number, OperatorGreaterOrEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 >= static_cast< CFNumberRef >( CF::Number(  0 ).GetCFObject() ) );
         ASSERT_TRUE( n1 >= static_cast< CFNumberRef >( CF::Number( -1 ).GetCFObject() ) );
@@ -823,7 +827,7 @@ TEST( CFPP_Number, OperatorGreaterOrEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 >= static_cast< CFNumberRef >( n3.GetCFObject() ) );
         ASSERT_TRUE( n2 >= static_cast< CFNumberRef >( n3.GetCFObject() ) );
@@ -833,7 +837,7 @@ TEST( CFPP_Number, OperatorGreaterOrEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 >= static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
         ASSERT_TRUE( n2 >= static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
@@ -846,7 +850,7 @@ void TMPL_CFPP_Number_OperatorGreaterOrEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE( n1 >= static_cast< T >(  0 ) );
     ASSERT_TRUE( n1 >= static_cast< T >( -1 ) );
@@ -892,7 +896,7 @@ TEST( CFPP_Number, OperatorLesserOrEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 <= CF::Number(  0 ) );
         ASSERT_TRUE( n1 <= CF::Number(  1 ) );
@@ -909,7 +913,7 @@ TEST( CFPP_Number, OperatorLesserOrEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE(  n1 <= n3 );
         ASSERT_FALSE( n2 <= n3 );
@@ -922,7 +926,7 @@ TEST( CFPP_Number, OperatorLesserOrEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 <= static_cast< CFTypeRef >( CF::Number(  0 ).GetCFObject() ) );
         ASSERT_TRUE( n1 <= static_cast< CFTypeRef >( CF::Number(  1 ).GetCFObject() ) );
@@ -939,7 +943,7 @@ TEST( CFPP_Number, OperatorLesserOrEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE(  n1 <= static_cast< CFTypeRef >( n3.GetCFObject() ) );
         ASSERT_FALSE( n2 <= static_cast< CFTypeRef >( n3.GetCFObject() ) );
@@ -949,7 +953,7 @@ TEST( CFPP_Number, OperatorLesserOrEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE(  n1 <= static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
         ASSERT_FALSE( n2 <= static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
@@ -962,7 +966,7 @@ TEST( CFPP_Number, OperatorLesserOrEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE( n1 <= static_cast< CFNumberRef >( CF::Number(  0 ).GetCFObject() ) );
         ASSERT_TRUE( n1 <= static_cast< CFNumberRef >( CF::Number(  1 ).GetCFObject() ) );
@@ -979,7 +983,7 @@ TEST( CFPP_Number, OperatorLesserOrEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE(  n1 <= static_cast< CFNumberRef >( n3.GetCFObject() ) );
         ASSERT_FALSE( n2 <= static_cast< CFNumberRef >( n3.GetCFObject() ) );
@@ -989,7 +993,7 @@ TEST( CFPP_Number, OperatorLesserOrEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_TRUE(  n1 <= static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
         ASSERT_FALSE( n2 <= static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
@@ -1002,7 +1006,7 @@ void TMPL_CFPP_Number_OperatorLesserOrEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE( n1 <= static_cast< T >(  0 ) );
     ASSERT_TRUE( n1 <= static_cast< T >(  1 ) );
@@ -1048,7 +1052,7 @@ TEST( CFPP_Number, OperatorGreaterNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 > CF::Number( 100 ) );
         ASSERT_FALSE( n2 > CF::Number( 100 ) );
@@ -1063,7 +1067,7 @@ TEST( CFPP_Number, OperatorGreaterNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 > n3 );
         ASSERT_TRUE(  n2 > n3 );
@@ -1076,7 +1080,7 @@ TEST( CFPP_Number, OperatorGreaterCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 > static_cast< CFTypeRef >( CF::Number( 100 ).GetCFObject() ) );
         ASSERT_FALSE( n2 > static_cast< CFTypeRef >( CF::Number( 100 ).GetCFObject() ) );
@@ -1091,7 +1095,7 @@ TEST( CFPP_Number, OperatorGreaterCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 > static_cast< CFTypeRef >( n3.GetCFObject() ) );
         ASSERT_TRUE(  n2 > static_cast< CFTypeRef >( n3.GetCFObject() ) );
@@ -1101,7 +1105,7 @@ TEST( CFPP_Number, OperatorGreaterCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 > static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
         ASSERT_TRUE(  n2 > static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
@@ -1114,7 +1118,7 @@ TEST( CFPP_Number, OperatorGreaterCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 > static_cast< CFNumberRef >( CF::Number( 100 ).GetCFObject() ) );
         ASSERT_FALSE( n2 > static_cast< CFNumberRef >( CF::Number( 100 ).GetCFObject() ) );
@@ -1129,7 +1133,7 @@ TEST( CFPP_Number, OperatorGreaterCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 > static_cast< CFNumberRef >( n3.GetCFObject() ) );
         ASSERT_TRUE(  n2 > static_cast< CFNumberRef >( n3.GetCFObject() ) );
@@ -1139,7 +1143,7 @@ TEST( CFPP_Number, OperatorGreaterCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 > static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
         ASSERT_TRUE(  n2 > static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
@@ -1152,7 +1156,7 @@ void TMPL_CFPP_Number_OperatorGreater_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_FALSE( n1 > static_cast< T >( 100 ) );
     ASSERT_FALSE( n2 > static_cast< T >( 100 ) );
@@ -1196,7 +1200,7 @@ TEST( CFPP_Number, OperatorLesserNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 < CF::Number(  0 ) );
         ASSERT_FALSE( n2 < CF::Number(  0 ) );
@@ -1211,7 +1215,7 @@ TEST( CFPP_Number, OperatorLesserNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 < n3 );
         ASSERT_FALSE( n2 < n3 );
@@ -1224,7 +1228,7 @@ TEST( CFPP_Number, OperatorLesserCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 < static_cast< CFTypeRef >( CF::Number(  0 ).GetCFObject() ) );
         ASSERT_FALSE( n2 < static_cast< CFTypeRef >( CF::Number(  0 ).GetCFObject() ) );
@@ -1239,7 +1243,7 @@ TEST( CFPP_Number, OperatorLesserCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 < static_cast< CFTypeRef >( n3.GetCFObject() ) );
         ASSERT_FALSE( n2 < static_cast< CFTypeRef >( n3.GetCFObject() ) );
@@ -1249,7 +1253,7 @@ TEST( CFPP_Number, OperatorLesserCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 < static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
         ASSERT_FALSE( n2 < static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
@@ -1262,7 +1266,7 @@ TEST( CFPP_Number, OperatorLesserCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 < static_cast< CFNumberRef >( CF::Number(  0 ).GetCFObject() ) );
         ASSERT_FALSE( n2 < static_cast< CFNumberRef >( CF::Number(  0 ).GetCFObject() ) );
@@ -1277,7 +1281,7 @@ TEST( CFPP_Number, OperatorLesserCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 < static_cast< CFNumberRef >( n3.GetCFObject() ) );
         ASSERT_FALSE( n2 < static_cast< CFNumberRef >( n3.GetCFObject() ) );
@@ -1287,7 +1291,7 @@ TEST( CFPP_Number, OperatorLesserCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 < static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
         ASSERT_FALSE( n2 < static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
@@ -1300,7 +1304,7 @@ void TMPL_CFPP_Number_OperatorLesser_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_FALSE( n1 < static_cast< T >(  0 ) );
     ASSERT_FALSE( n2 < static_cast< T >(  0 ) );
@@ -1344,7 +1348,7 @@ TEST( CFPP_Number, OperatorAndNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 && CF::Number( 0 ) );
         ASSERT_FALSE( n2 && CF::Number( 0 ) );
@@ -1358,7 +1362,7 @@ TEST( CFPP_Number, OperatorAndNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 && n3 );
         ASSERT_FALSE( n2 && n3 );
@@ -1371,7 +1375,7 @@ TEST( CFPP_Number, OperatorAndCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 && static_cast< CFTypeRef >( CF::Number( 0 ).GetCFObject() ) );
         ASSERT_FALSE( n2 && static_cast< CFTypeRef >( CF::Number( 0 ).GetCFObject() ) );
@@ -1385,7 +1389,7 @@ TEST( CFPP_Number, OperatorAndCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 && static_cast< CFTypeRef >( n3.GetCFObject() ) );
         ASSERT_FALSE( n2 && static_cast< CFTypeRef >( n3.GetCFObject() ) );
@@ -1395,7 +1399,7 @@ TEST( CFPP_Number, OperatorAndCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 && static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
         ASSERT_FALSE( n2 && static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
@@ -1408,7 +1412,7 @@ TEST( CFPP_Number, OperatorAndCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 && static_cast< CFNumberRef >( CF::Number( 0 ).GetCFObject() ) );
         ASSERT_FALSE( n2 && static_cast< CFNumberRef >( CF::Number( 0 ).GetCFObject() ) );
@@ -1422,7 +1426,7 @@ TEST( CFPP_Number, OperatorAndCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 && static_cast< CFNumberRef >( n3.GetCFObject() ) );
         ASSERT_FALSE( n2 && static_cast< CFNumberRef >( n3.GetCFObject() ) );
@@ -1432,7 +1436,7 @@ TEST( CFPP_Number, OperatorAndCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 && static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
         ASSERT_FALSE( n2 && static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
@@ -1445,7 +1449,7 @@ void TMPL_CFPP_Number_OperatorAnd_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_FALSE( n1 && static_cast< T >( 0 ) );
     ASSERT_FALSE( n2 && static_cast< T >( 0 ) );
@@ -1488,7 +1492,7 @@ TEST( CFPP_Number, OperatorOrNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 || CF::Number( 0 ) );
         ASSERT_TRUE(  n2 || CF::Number( 0 ) );
@@ -1502,7 +1506,7 @@ TEST( CFPP_Number, OperatorOrNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 || n3 );
         ASSERT_TRUE(  n2 || n3 );
@@ -1515,7 +1519,7 @@ TEST( CFPP_Number, OperatorOrCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 || static_cast< CFTypeRef >( CF::Number( 0 ).GetCFObject() ) );
         ASSERT_TRUE(  n2 || static_cast< CFTypeRef >( CF::Number( 0 ).GetCFObject() ) );
@@ -1529,7 +1533,7 @@ TEST( CFPP_Number, OperatorOrCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 || static_cast< CFTypeRef >( n3.GetCFObject() ) );
         ASSERT_TRUE(  n2 || static_cast< CFTypeRef >( n3.GetCFObject() ) );
@@ -1539,7 +1543,7 @@ TEST( CFPP_Number, OperatorOrCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 || static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
         ASSERT_TRUE(  n2 || static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
@@ -1552,7 +1556,7 @@ TEST( CFPP_Number, OperatorOrCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 || static_cast< CFNumberRef >( CF::Number( 0 ).GetCFObject() ) );
         ASSERT_TRUE(  n2 || static_cast< CFNumberRef >( CF::Number( 0 ).GetCFObject() ) );
@@ -1566,7 +1570,7 @@ TEST( CFPP_Number, OperatorOrCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 || static_cast< CFNumberRef >( n3.GetCFObject() ) );
         ASSERT_TRUE(  n2 || static_cast< CFNumberRef >( n3.GetCFObject() ) );
@@ -1576,7 +1580,7 @@ TEST( CFPP_Number, OperatorOrCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         ASSERT_FALSE( n1 || static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
         ASSERT_TRUE(  n2 || static_cast< CFNumberRef >( CF::Array().GetCFObject() ) );
@@ -1589,7 +1593,7 @@ void TMPL_CFPP_Number_OperatorOr_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_FALSE( n1 || static_cast< T >( 0 ) );
     ASSERT_TRUE(  n2 || static_cast< T >( 0 ) );
@@ -1631,7 +1635,7 @@ TEST( CFPP_Number, OperatorBitwiseNot )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( ~n1,  -1 );
     ASSERT_EQ( ~n2, -43 );
@@ -1642,7 +1646,7 @@ TEST( CFPP_Number, OperatorLogicalNot )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( !n1, 1 );
     ASSERT_EQ( !n2, 0 );
@@ -1653,7 +1657,7 @@ TEST( CFPP_Number, OperatorPrefixIncrement )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     CF::Number n4( 42.0 );
     
     ASSERT_EQ( ++n1,  1 );
@@ -1671,7 +1675,7 @@ TEST( CFPP_Number, OperatorPosfixIncrement )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     CF::Number n4( 42.0 );
     
     ASSERT_EQ( n1++,  0 );
@@ -1689,7 +1693,7 @@ TEST( CFPP_Number, OperatorPrefixDecrement )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     CF::Number n4( 42.0 );
     
     ASSERT_EQ( --n1, -1 );
@@ -1707,7 +1711,7 @@ TEST( CFPP_Number, OperatorPostfixDecrement )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     CF::Number n4( 42.0 );
     
     ASSERT_EQ( n1--,  0 );
@@ -1726,7 +1730,7 @@ TEST( CFPP_Number, OperatorPlusEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 += CF::Number( 10 );
         n2 += CF::Number( 10 );
@@ -1740,7 +1744,7 @@ TEST( CFPP_Number, OperatorPlusEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 += n3;
         n2 += n3;
@@ -1757,7 +1761,7 @@ TEST( CFPP_Number, OperatorPlusEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 += static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
         n2 += static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
@@ -1771,7 +1775,7 @@ TEST( CFPP_Number, OperatorPlusEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 += static_cast< CFTypeRef >( n3.GetCFObject() );
         n2 += static_cast< CFTypeRef >( n3.GetCFObject() );
@@ -1785,7 +1789,7 @@ TEST( CFPP_Number, OperatorPlusEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 += static_cast< CFTypeRef >( CF::Array().GetCFObject() );
         n2 += static_cast< CFTypeRef >( CF::Array().GetCFObject() );
@@ -1802,7 +1806,7 @@ TEST( CFPP_Number, OperatorPlusEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 += static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
         n2 += static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
@@ -1816,7 +1820,7 @@ TEST( CFPP_Number, OperatorPlusEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 += static_cast< CFNumberRef >( n3.GetCFObject() );
         n2 += static_cast< CFNumberRef >( n3.GetCFObject() );
@@ -1830,7 +1834,7 @@ TEST( CFPP_Number, OperatorPlusEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 += static_cast< CFNumberRef >( CF::Array().GetCFObject() );
         n2 += static_cast< CFNumberRef >( CF::Array().GetCFObject() );
@@ -1847,7 +1851,7 @@ void TMPL_CFPP_Number_OperatorPlusEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 += static_cast< T >( 10 );
     n2 += static_cast< T >( 10 );
@@ -1890,7 +1894,7 @@ TEST( CFPP_Number, OperatorMinusEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 -= CF::Number( 10 );
         n2 -= CF::Number( 10 );
@@ -1904,7 +1908,7 @@ TEST( CFPP_Number, OperatorMinusEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 -= n3;
         n2 -= n3;
@@ -1921,7 +1925,7 @@ TEST( CFPP_Number, OperatorMinusEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 -= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
         n2 -= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
@@ -1935,7 +1939,7 @@ TEST( CFPP_Number, OperatorMinusEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 -= static_cast< CFTypeRef >( n3.GetCFObject() );
         n2 -= static_cast< CFTypeRef >( n3.GetCFObject() );
@@ -1949,7 +1953,7 @@ TEST( CFPP_Number, OperatorMinusEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 -= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
         n2 -= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
@@ -1966,7 +1970,7 @@ TEST( CFPP_Number, OperatorMinusEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 -= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
         n2 -= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
@@ -1980,7 +1984,7 @@ TEST( CFPP_Number, OperatorMinusEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 -= static_cast< CFNumberRef >( n3.GetCFObject() );
         n2 -= static_cast< CFNumberRef >( n3.GetCFObject() );
@@ -1994,7 +1998,7 @@ TEST( CFPP_Number, OperatorMinusEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 -= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
         n2 -= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
@@ -2011,7 +2015,7 @@ void TMPL_CFPP_Number_OperatorMinusEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 -= static_cast< T >( 10 );
     n2 -= static_cast< T >( 10 );
@@ -2054,7 +2058,7 @@ TEST( CFPP_Number, OperatorMultiplyEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 *= CF::Number( 10 );
         n2 *= CF::Number( 10 );
@@ -2068,7 +2072,7 @@ TEST( CFPP_Number, OperatorMultiplyEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 *= n3;
         n2 *= n3;
@@ -2085,7 +2089,7 @@ TEST( CFPP_Number, OperatorMultiplyEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 *= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
         n2 *= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
@@ -2099,7 +2103,7 @@ TEST( CFPP_Number, OperatorMultiplyEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 *= static_cast< CFTypeRef >( n3.GetCFObject() );
         n2 *= static_cast< CFTypeRef >( n3.GetCFObject() );
@@ -2113,7 +2117,7 @@ TEST( CFPP_Number, OperatorMultiplyEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 *= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
         n2 *= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
@@ -2130,7 +2134,7 @@ TEST( CFPP_Number, OperatorMultiplyEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 *= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
         n2 *= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
@@ -2144,7 +2148,7 @@ TEST( CFPP_Number, OperatorMultiplyEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 *= static_cast< CFNumberRef >( n3.GetCFObject() );
         n2 *= static_cast< CFNumberRef >( n3.GetCFObject() );
@@ -2158,7 +2162,7 @@ TEST( CFPP_Number, OperatorMultiplyEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 *= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
         n2 *= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
@@ -2175,7 +2179,7 @@ void TMPL_CFPP_Number_OperatorMultiplyEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 *= static_cast< T >( 10 );
     n2 *= static_cast< T >( 10 );
@@ -2217,7 +2221,7 @@ TEST( CFPP_Number, OperatorDivideEqualNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 /= CF::Number( 10 );
     n2 /= CF::Number( 10 );
@@ -2236,7 +2240,7 @@ TEST( CFPP_Number, OperatorDivideEqualCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 /= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
     n2 /= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
@@ -2259,7 +2263,7 @@ TEST( CFPP_Number, OperatorDivideEqualCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 /= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
     n2 /= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
@@ -2283,7 +2287,7 @@ void TMPL_CFPP_Number_OperatorDivideEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 /= static_cast< T >( 10 );
     n2 /= static_cast< T >( 10 );
@@ -2330,7 +2334,7 @@ TEST( CFPP_Number, OperatorOrEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 |= CF::Number( 21 );
         n2 |= CF::Number( 21 );
@@ -2344,7 +2348,7 @@ TEST( CFPP_Number, OperatorOrEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 |= n3;
         n2 |= n3;
@@ -2361,7 +2365,7 @@ TEST( CFPP_Number, OperatorOrEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 |= static_cast< CFTypeRef >( CF::Number( 21 ).GetCFObject() );
         n2 |= static_cast< CFTypeRef >( CF::Number( 21 ).GetCFObject() );
@@ -2375,7 +2379,7 @@ TEST( CFPP_Number, OperatorOrEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 |= static_cast< CFTypeRef >( n3.GetCFObject() );
         n2 |= static_cast< CFTypeRef >( n3.GetCFObject() );
@@ -2389,7 +2393,7 @@ TEST( CFPP_Number, OperatorOrEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 |= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
         n2 |= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
@@ -2406,7 +2410,7 @@ TEST( CFPP_Number, OperatorOrEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 |= static_cast< CFNumberRef >( CF::Number( 21 ).GetCFObject() );
         n2 |= static_cast< CFNumberRef >( CF::Number( 21 ).GetCFObject() );
@@ -2420,7 +2424,7 @@ TEST( CFPP_Number, OperatorOrEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 |= static_cast< CFNumberRef >( n3.GetCFObject() );
         n2 |= static_cast< CFNumberRef >( n3.GetCFObject() );
@@ -2434,7 +2438,7 @@ TEST( CFPP_Number, OperatorOrEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 |= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
         n2 |= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
@@ -2451,7 +2455,7 @@ void TMPL_CFPP_Number_OperatorOrEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 |= static_cast< T >( 21 );
     n2 |= static_cast< T >( 21 );
@@ -2490,7 +2494,7 @@ TEST( CFPP_Number, OperatorAndEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 &= CF::Number( 12 );
         n2 &= CF::Number( 12 );
@@ -2504,7 +2508,7 @@ TEST( CFPP_Number, OperatorAndEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 &= n3;
         n2 &= n3;
@@ -2521,7 +2525,7 @@ TEST( CFPP_Number, OperatorAndEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 &= static_cast< CFTypeRef >( CF::Number( 12 ).GetCFObject() );
         n2 &= static_cast< CFTypeRef >( CF::Number( 12 ).GetCFObject() );
@@ -2535,7 +2539,7 @@ TEST( CFPP_Number, OperatorAndEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 &= static_cast< CFTypeRef >( n3.GetCFObject() );
         n2 &= static_cast< CFTypeRef >( n3.GetCFObject() );
@@ -2549,7 +2553,7 @@ TEST( CFPP_Number, OperatorAndEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 &= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
         n2 &= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
@@ -2566,7 +2570,7 @@ TEST( CFPP_Number, OperatorAndEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 &= static_cast< CFNumberRef >( CF::Number( 12 ).GetCFObject() );
         n2 &= static_cast< CFNumberRef >( CF::Number( 12 ).GetCFObject() );
@@ -2580,7 +2584,7 @@ TEST( CFPP_Number, OperatorAndEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 &= static_cast< CFNumberRef >( n3.GetCFObject() );
         n2 &= static_cast< CFNumberRef >( n3.GetCFObject() );
@@ -2594,7 +2598,7 @@ TEST( CFPP_Number, OperatorAndEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 &= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
         n2 &= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
@@ -2611,7 +2615,7 @@ void TMPL_CFPP_Number_OperatorAndEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 &= static_cast< T >( 12 );
     n2 &= static_cast< T >( 12 );
@@ -2649,7 +2653,7 @@ TEST( CFPP_Number, OperatorModEqualNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 %= CF::Number( 10 );
     n2 %= CF::Number( 10 );
@@ -2668,7 +2672,7 @@ TEST( CFPP_Number, OperatorModEqualCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 %= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
     n2 %= static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() );
@@ -2691,7 +2695,7 @@ TEST( CFPP_Number, OperatorModEqualCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 %= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
     n2 %= static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() );
@@ -2715,7 +2719,7 @@ void TMPL_CFPP_Number_OperatorModEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 %= static_cast< T >( 10 );
     n2 %= static_cast< T >( 10 );
@@ -2758,7 +2762,7 @@ TEST( CFPP_Number, OperatorXorEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 ^= CF::Number( 43 );
         n2 ^= CF::Number( 43 );
@@ -2772,7 +2776,7 @@ TEST( CFPP_Number, OperatorXorEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 ^= n3;
         n2 ^= n3;
@@ -2789,7 +2793,7 @@ TEST( CFPP_Number, OperatorXorEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 ^= static_cast< CFTypeRef >( CF::Number( 43 ).GetCFObject() );
         n2 ^= static_cast< CFTypeRef >( CF::Number( 43 ).GetCFObject() );
@@ -2803,7 +2807,7 @@ TEST( CFPP_Number, OperatorXorEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 ^= static_cast< CFTypeRef >( n3.GetCFObject() );
         n2 ^= static_cast< CFTypeRef >( n3.GetCFObject() );
@@ -2817,7 +2821,7 @@ TEST( CFPP_Number, OperatorXorEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 ^= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
         n2 ^= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
@@ -2834,7 +2838,7 @@ TEST( CFPP_Number, OperatorXorEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 ^= static_cast< CFNumberRef >( CF::Number( 43 ).GetCFObject() );
         n2 ^= static_cast< CFNumberRef >( CF::Number( 43 ).GetCFObject() );
@@ -2848,7 +2852,7 @@ TEST( CFPP_Number, OperatorXorEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 ^= static_cast< CFNumberRef >( n3.GetCFObject() );
         n2 ^= static_cast< CFNumberRef >( n3.GetCFObject() );
@@ -2862,7 +2866,7 @@ TEST( CFPP_Number, OperatorXorEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 ^= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
         n2 ^= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
@@ -2879,7 +2883,7 @@ void TMPL_CFPP_Number_OperatorXorEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 ^= static_cast< T >( 43 );
     n2 ^= static_cast< T >( 43 );
@@ -2918,7 +2922,7 @@ TEST( CFPP_Number, OperatorLeftShiftEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 <<= CF::Number( 1 );
         n2 <<= CF::Number( 1 );
@@ -2932,7 +2936,7 @@ TEST( CFPP_Number, OperatorLeftShiftEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 <<= n3;
         n2 <<= n3;
@@ -2949,7 +2953,7 @@ TEST( CFPP_Number, OperatorLeftShiftEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 <<= static_cast< CFTypeRef >( CF::Number( 1 ).GetCFObject() );
         n2 <<= static_cast< CFTypeRef >( CF::Number( 1 ).GetCFObject() );
@@ -2963,7 +2967,7 @@ TEST( CFPP_Number, OperatorLeftShiftEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 <<= static_cast< CFTypeRef >( n3.GetCFObject() );
         n2 <<= static_cast< CFTypeRef >( n3.GetCFObject() );
@@ -2977,7 +2981,7 @@ TEST( CFPP_Number, OperatorLeftShiftEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 <<= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
         n2 <<= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
@@ -2994,7 +2998,7 @@ TEST( CFPP_Number, OperatorLeftShiftEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 <<= static_cast< CFNumberRef >( CF::Number( 1 ).GetCFObject() );
         n2 <<= static_cast< CFNumberRef >( CF::Number( 1 ).GetCFObject() );
@@ -3008,7 +3012,7 @@ TEST( CFPP_Number, OperatorLeftShiftEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 <<= static_cast< CFNumberRef >( n3.GetCFObject() );
         n2 <<= static_cast< CFNumberRef >( n3.GetCFObject() );
@@ -3022,7 +3026,7 @@ TEST( CFPP_Number, OperatorLeftShiftEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 <<= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
         n2 <<= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
@@ -3039,7 +3043,7 @@ void TMPL_CFPP_Number_OperatorLeftShiftEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 <<= static_cast< T >( 1 );
     n2 <<= static_cast< T >( 1 );
@@ -3078,7 +3082,7 @@ TEST( CFPP_Number, OperatorRightShiftEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 >>= CF::Number( 1 );
         n2 >>= CF::Number( 1 );
@@ -3092,7 +3096,7 @@ TEST( CFPP_Number, OperatorRightShiftEqualNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 >>= n3;
         n2 >>= n3;
@@ -3109,7 +3113,7 @@ TEST( CFPP_Number, OperatorRightShiftEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 >>= static_cast< CFTypeRef >( CF::Number( 1 ).GetCFObject() );
         n2 >>= static_cast< CFTypeRef >( CF::Number( 1 ).GetCFObject() );
@@ -3123,7 +3127,7 @@ TEST( CFPP_Number, OperatorRightShiftEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 >>= static_cast< CFTypeRef >( n3.GetCFObject() );
         n2 >>= static_cast< CFTypeRef >( n3.GetCFObject() );
@@ -3137,7 +3141,7 @@ TEST( CFPP_Number, OperatorRightShiftEqualCFType )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 >>= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
         n2 >>= static_cast< CFTypeRef >( CF::Array().GetCFObject() );
@@ -3154,7 +3158,7 @@ TEST( CFPP_Number, OperatorRightShiftEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 >>= static_cast< CFNumberRef >( CF::Number( 1 ).GetCFObject() );
         n2 >>= static_cast< CFNumberRef >( CF::Number( 1 ).GetCFObject() );
@@ -3168,7 +3172,7 @@ TEST( CFPP_Number, OperatorRightShiftEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 >>= static_cast< CFNumberRef >( n3.GetCFObject() );
         n2 >>= static_cast< CFNumberRef >( n3.GetCFObject() );
@@ -3182,7 +3186,7 @@ TEST( CFPP_Number, OperatorRightShiftEqualCFNumber )
     {
         CF::Number n1;
         CF::Number n2( 42 );
-        CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+        CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
         
         n1 >>= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
         n2 >>= static_cast< CFNumberRef >( CF::Array().GetCFObject() );
@@ -3199,7 +3203,7 @@ void TMPL_CFPP_Number_OperatorRightShiftEqual_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     n1 >>= static_cast< T >( 1 );
     n2 >>= static_cast< T >( 1 );
@@ -3237,7 +3241,7 @@ TEST( CFPP_Number, OperatorPlusNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 + CF::Number( 10 ), 10 );
     ASSERT_EQ( n2 + CF::Number( 10 ), 52 );
@@ -3252,7 +3256,7 @@ TEST( CFPP_Number, OperatorPlusCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 + static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() ), 10 );
     ASSERT_EQ( n2 + static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() ), 52 );
@@ -3271,7 +3275,7 @@ TEST( CFPP_Number, OperatorPlusCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 + static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() ), 10 );
     ASSERT_EQ( n2 + static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() ), 52 );
@@ -3291,7 +3295,7 @@ void TMPL_CFPP_Number_OperatorPlus_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 + static_cast< T >( 10 ), 10 );
     ASSERT_EQ( n2 + static_cast< T >( 10 ), 52 );
@@ -3329,7 +3333,7 @@ TEST( CFPP_Number, OperatorMinusNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 - CF::Number( 10 ), -10 );
     ASSERT_EQ( n2 - CF::Number( 10 ),  32 );
@@ -3344,7 +3348,7 @@ TEST( CFPP_Number, OperatorMinusCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 - static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() ), -10 );
     ASSERT_EQ( n2 - static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() ),  32 );
@@ -3363,7 +3367,7 @@ TEST( CFPP_Number, OperatorMinusCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 - static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() ), -10 );
     ASSERT_EQ( n2 - static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() ),  32 );
@@ -3383,7 +3387,7 @@ void TMPL_CFPP_Number_OperatorMinus_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 - static_cast< T >( 10 ), -10 );
     ASSERT_EQ( n2 - static_cast< T >( 10 ),  32 );
@@ -3421,7 +3425,7 @@ TEST( CFPP_Number, OperatorMultiplyNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 * CF::Number( 10 ),   0 );
     ASSERT_EQ( n2 * CF::Number( 10 ), 420 );
@@ -3436,7 +3440,7 @@ TEST( CFPP_Number, OperatorMultiplyCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 * static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() ),   0 );
     ASSERT_EQ( n2 * static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() ), 420 );
@@ -3455,7 +3459,7 @@ TEST( CFPP_Number, OperatorMultiplyCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 * static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() ),   0 );
     ASSERT_EQ( n2 * static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() ), 420 );
@@ -3475,7 +3479,7 @@ void TMPL_CFPP_Number_OperatorMultiply_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 * static_cast< T >( 10 ),   0 );
     ASSERT_EQ( n2 * static_cast< T >( 10 ), 420 );
@@ -3513,7 +3517,7 @@ TEST( CFPP_Number, OperatorDivideNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE( FloatIsEqual( n1 / CF::Number( 10 ), 0.0 ) );
     ASSERT_TRUE( FloatIsEqual( n2 / CF::Number( 10 ), 4.2 ) );
@@ -3528,7 +3532,7 @@ TEST( CFPP_Number, OperatorDivideCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE( FloatIsEqual( n1 / static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() ), 0.0 ) );
     ASSERT_TRUE( FloatIsEqual( n2 / static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() ), 4.2 ) );
@@ -3547,7 +3551,7 @@ TEST( CFPP_Number, OperatorDivideCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE( FloatIsEqual( n1 / static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() ), 0.0 ) );
     ASSERT_TRUE( FloatIsEqual( n2 / static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() ), 4.2 ) );
@@ -3567,7 +3571,7 @@ void TMPL_CFPP_Number_OperatorDivide_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE( FloatIsEqual( n1 / static_cast< T >( 10 ), 0.0 ) );
     ASSERT_TRUE( FloatIsEqual( n2 / static_cast< T >( 10 ), 4.2 ) );
@@ -3609,7 +3613,7 @@ TEST( CFPP_Number, OperatorModNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 % CF::Number( 10 ), 0 );
     ASSERT_EQ( n2 % CF::Number( 10 ), 2 );
@@ -3624,7 +3628,7 @@ TEST( CFPP_Number, OperatorModCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 % static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() ), 0 );
     ASSERT_EQ( n2 % static_cast< CFTypeRef >( CF::Number( 10 ).GetCFObject() ), 2 );
@@ -3643,7 +3647,7 @@ TEST( CFPP_Number, OperatorModCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 % static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() ), 0 );
     ASSERT_EQ( n2 % static_cast< CFNumberRef >( CF::Number( 10 ).GetCFObject() ), 2 );
@@ -3663,7 +3667,7 @@ void TMPL_CFPP_Number_OperatorMod_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 % static_cast< T >( 10 ), 0 );
     ASSERT_EQ( n2 % static_cast< T >( 10 ), 2 );
@@ -3701,7 +3705,7 @@ TEST( CFPP_Number, OperatorBitwiseAndNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 & CF::Number( 12 ), 0 );
     ASSERT_EQ( n2 & CF::Number( 12 ), 8 );
@@ -3716,7 +3720,7 @@ TEST( CFPP_Number, OperatorBitwiseAndCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 & static_cast< CFTypeRef >( CF::Number( 12 ).GetCFObject() ), 0 );
     ASSERT_EQ( n2 & static_cast< CFTypeRef >( CF::Number( 12 ).GetCFObject() ), 8 );
@@ -3735,7 +3739,7 @@ TEST( CFPP_Number, OperatorBitwiseAndCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 & static_cast< CFNumberRef >( CF::Number( 12 ).GetCFObject() ), 0 );
     ASSERT_EQ( n2 & static_cast< CFNumberRef >( CF::Number( 12 ).GetCFObject() ), 8 );
@@ -3755,7 +3759,7 @@ void TMPL_CFPP_Number_OperatorBiwiseAnd_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 & static_cast< T >( 12 ), 0 );
     ASSERT_EQ( n2 & static_cast< T >( 12 ), 8 );
@@ -3789,7 +3793,7 @@ TEST( CFPP_Number, OperatorBitwiseOrNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 | CF::Number( 21 ), 21 );
     ASSERT_EQ( n2 | CF::Number( 21 ), 63 );
@@ -3804,7 +3808,7 @@ TEST( CFPP_Number, OperatorBitwiseOrCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 | static_cast< CFTypeRef >( CF::Number( 21 ).GetCFObject() ), 21 );
     ASSERT_EQ( n2 | static_cast< CFTypeRef >( CF::Number( 21 ).GetCFObject() ), 63 );
@@ -3823,7 +3827,7 @@ TEST( CFPP_Number, OperatorBitwiseOrCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 | static_cast< CFNumberRef >( CF::Number( 21 ).GetCFObject() ), 21 );
     ASSERT_EQ( n2 | static_cast< CFNumberRef >( CF::Number( 21 ).GetCFObject() ), 63 );
@@ -3843,7 +3847,7 @@ void TMPL_CFPP_Number_OperatorBiwiseOr_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 | static_cast< T >( 21 ), 21 );
     ASSERT_EQ( n2 | static_cast< T >( 21 ), 63 );
@@ -3877,7 +3881,7 @@ TEST( CFPP_Number, OperatorXorNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 ^ CF::Number( 43 ), 43 );
     ASSERT_EQ( n2 ^ CF::Number( 43 ),  1 );
@@ -3892,7 +3896,7 @@ TEST( CFPP_Number, OperatorXorCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 ^ static_cast< CFTypeRef >( CF::Number( 43 ).GetCFObject() ), 43 );
     ASSERT_EQ( n2 ^ static_cast< CFTypeRef >( CF::Number( 43 ).GetCFObject() ),  1 );
@@ -3911,7 +3915,7 @@ TEST( CFPP_Number, OperatorXorCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 ^ static_cast< CFNumberRef >( CF::Number( 43 ).GetCFObject() ), 43 );
     ASSERT_EQ( n2 ^ static_cast< CFNumberRef >( CF::Number( 43 ).GetCFObject() ),  1 );
@@ -3931,7 +3935,7 @@ void TMPL_CFPP_Number_OperatorXor_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 ^ static_cast< T >( 43 ), 43 );
     ASSERT_EQ( n2 ^ static_cast< T >( 43 ),  1 );
@@ -3965,7 +3969,7 @@ TEST( CFPP_Number, OperatorLeftShiftNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 << CF::Number( 1 ),  0 );
     ASSERT_EQ( n2 << CF::Number( 1 ), 84 );
@@ -3980,7 +3984,7 @@ TEST( CFPP_Number, OperatorLeftShiftCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 << static_cast< CFTypeRef >( CF::Number( 1 ).GetCFObject() ),  0 );
     ASSERT_EQ( n2 << static_cast< CFTypeRef >( CF::Number( 1 ).GetCFObject() ), 84 );
@@ -3999,7 +4003,7 @@ TEST( CFPP_Number, OperatorLeftShiftCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 << static_cast< CFNumberRef >( CF::Number( 1 ).GetCFObject() ),  0 );
     ASSERT_EQ( n2 << static_cast< CFNumberRef >( CF::Number( 1 ).GetCFObject() ), 84 );
@@ -4019,7 +4023,7 @@ void TMPL_CFPP_Number_OperatorLeftShift_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 << static_cast< T >( 1 ),  0 );
     ASSERT_EQ( n2 << static_cast< T >( 1 ), 84 );
@@ -4053,7 +4057,7 @@ TEST( CFPP_Number, OperatorRightShiftNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 >> CF::Number( 1 ),  0 );
     ASSERT_EQ( n2 >> CF::Number( 1 ), 21 );
@@ -4068,7 +4072,7 @@ TEST( CFPP_Number, OperatorRightShiftCFType )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 >> static_cast< CFTypeRef >( CF::Number( 1 ).GetCFObject() ),  0 );
     ASSERT_EQ( n2 >> static_cast< CFTypeRef >( CF::Number( 1 ).GetCFObject() ), 21 );
@@ -4087,7 +4091,7 @@ TEST( CFPP_Number, OperatorRightShiftCFNumber )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 >> static_cast< CFNumberRef >( CF::Number( 1 ).GetCFObject() ),  0 );
     ASSERT_EQ( n2 >> static_cast< CFNumberRef >( CF::Number( 1 ).GetCFObject() ), 21 );
@@ -4107,7 +4111,7 @@ void TMPL_CFPP_Number_OperatorRightShift_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( n1 >> static_cast< T >( 1 ),  0 );
     ASSERT_EQ( n2 >> static_cast< T >( 1 ), 21 );
@@ -4142,7 +4146,7 @@ void TMPL_CFPP_Number_CastTo_T( void )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_EQ( static_cast< T >( n1 ), static_cast< T >(  0 ) );
     ASSERT_EQ( static_cast< T >( n2 ), static_cast< T >( 42 ) );
@@ -4176,7 +4180,7 @@ TEST( CFPP_Number, CastToFloat32 )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE( FloatIsEqual( static_cast< Float32 >( n1 ),  0 ) );
     ASSERT_TRUE( FloatIsEqual( static_cast< Float32 >( n2 ), 42 ) );
@@ -4187,7 +4191,7 @@ TEST( CFPP_Number, CastToFloat64 )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_TRUE( FloatIsEqual( static_cast< Float64 >( n1 ),  0 ) );
     ASSERT_TRUE( FloatIsEqual( static_cast< Float64 >( n2 ), 42 ) );
@@ -4205,11 +4209,11 @@ TEST( CFPP_Number, GetCFObject )
 {
     CF::Number n1;
     CF::Number n2( 42 );
-    CF::Number n3( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n3( static_cast< CFNumberRef >( nullptr ) );
     
-    ASSERT_TRUE( n1.GetCFObject() != NULL );
-    ASSERT_TRUE( n2.GetCFObject() != NULL );
-    ASSERT_TRUE( n3.GetCFObject() == NULL );
+    ASSERT_TRUE( n1.GetCFObject() != nullptr );
+    ASSERT_TRUE( n2.GetCFObject() != nullptr );
+    ASSERT_TRUE( n3.GetCFObject() == nullptr );
     ASSERT_EQ( CFGetTypeID( n1.GetCFObject() ), CFNumberGetTypeID() );
     ASSERT_EQ( CFGetTypeID( n2.GetCFObject() ), CFNumberGetTypeID() );
 }
@@ -4219,7 +4223,7 @@ TEST( CFPP_Number, IsFloatType )
     CF::Number n1;
     CF::Number n2( static_cast< UInt8 >( 42 ) );
     CF::Number n3( static_cast< Float32 >( 42 ) );
-    CF::Number n4( static_cast< CFNumberRef >( NULL ) );
+    CF::Number n4( static_cast< CFNumberRef >( nullptr ) );
     
     ASSERT_FALSE( n1.IsFloatType() );
     ASSERT_FALSE( n2.IsFloatType() );
@@ -4233,7 +4237,7 @@ TEST( CFPP_Number, GetSignedCharValue )
     
     ASSERT_EQ( n.GetSignedCharValue(), static_cast< char >( 42 ) );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_EQ( n.GetSignedCharValue(), static_cast< char >( 0 ) );
@@ -4245,7 +4249,7 @@ TEST( CFPP_Number, GetSignedShortValue )
     
     ASSERT_EQ( n.GetSignedShortValue(), static_cast< short >( 42 ) );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_EQ( n.GetSignedShortValue(), static_cast< short >( 0 ) );
@@ -4257,7 +4261,7 @@ TEST( CFPP_Number, GetSignedIntValue )
     
     ASSERT_EQ( n.GetSignedIntValue(), static_cast< int >( 42 ) );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_EQ( n.GetSignedIntValue(), static_cast< int >( 0 ) );
@@ -4269,7 +4273,7 @@ TEST( CFPP_Number, GetSignedLongValue )
     
     ASSERT_EQ( n.GetSignedLongValue(), static_cast< long >( 42 ) );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_EQ( n.GetSignedLongValue(), static_cast< long >( 0 ) );
@@ -4281,7 +4285,7 @@ TEST( CFPP_Number, GetSignedLongLongValue )
 
 	ASSERT_EQ( n.GetSignedLongLongValue(), static_cast< long long >( 42 ) );
 
-	n = static_cast< CFNumberRef >( NULL );
+	n = static_cast< CFNumberRef >( nullptr );
 
 	ASSERT_FALSE( n.IsValid() );
 	ASSERT_EQ( n.GetSignedLongLongValue(), static_cast< long long >( 0 ) );
@@ -4293,7 +4297,7 @@ TEST( CFPP_Number, GetUnsignedCharValue )
     
     ASSERT_EQ( n.GetUnsignedCharValue(), static_cast< unsigned char >( 42 ) );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_EQ( n.GetUnsignedCharValue(), static_cast< unsigned char >( 0 ) );
@@ -4305,7 +4309,7 @@ TEST( CFPP_Number, GetUnsignedShortValue )
     
     ASSERT_EQ( n.GetUnsignedShortValue(), static_cast< unsigned short >( 42 ) );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_EQ( n.GetUnsignedShortValue(), static_cast< unsigned short >( 0 ) );
@@ -4317,7 +4321,7 @@ TEST( CFPP_Number, GetUnsignedIntValue )
     
     ASSERT_EQ( n.GetUnsignedIntValue(), static_cast< unsigned int >( 42 ) );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_EQ( n.GetUnsignedIntValue(), static_cast< unsigned int >( 0 ) );
@@ -4329,7 +4333,7 @@ TEST( CFPP_Number, GetUnsignedLongValue )
     
     ASSERT_EQ( n.GetUnsignedLongValue(), static_cast< unsigned long >( 42 ) );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_EQ( n.GetUnsignedLongValue(), static_cast< unsigned long >( 0 ) );
@@ -4341,7 +4345,7 @@ TEST( CFPP_Number, GetUnsignedLongLongValue )
 
 	ASSERT_EQ( n.GetUnsignedLongLongValue(), static_cast< unsigned long long >( 42 ) );
 
-	n = static_cast< CFNumberRef >( NULL );
+	n = static_cast< CFNumberRef >( nullptr );
 
 	ASSERT_FALSE( n.IsValid() );
 	ASSERT_EQ( n.GetUnsignedLongLongValue(), static_cast< unsigned long long >( 0 ) );
@@ -4353,7 +4357,7 @@ TEST( CFPP_Number, GetFloatValue )
     
     ASSERT_TRUE( FloatIsEqual( n.GetFloatValue(), 42 ) );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_TRUE( FloatIsEqual( n.GetFloatValue(), 0 ) );
@@ -4365,7 +4369,7 @@ TEST( CFPP_Number, GetDoubleValue )
     
     ASSERT_TRUE( FloatIsEqual( n.GetDoubleValue(), 42 ) );
     
-    n = static_cast< CFNumberRef >( NULL );
+    n = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
     ASSERT_TRUE( FloatIsEqual( n.GetDoubleValue(), 0 ) );

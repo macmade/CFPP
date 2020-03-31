@@ -47,20 +47,20 @@ TEST( CFPP_Type, OperatorEqual )
     
     ASSERT_TRUE( t1 == t2 );
     
-    o1 = static_cast< CFNumberRef >( NULL );
+    o1 = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( t1.IsValid() );
     ASSERT_FALSE( t1 == t2 );
     
     o1 = 1;
-    o2 = static_cast< CFNumberRef >( NULL );
+    o2 = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_TRUE(  t1.IsValid() );
     ASSERT_FALSE( t2.IsValid() );
     ASSERT_FALSE( t1 == t2 );
     
-    o1 = static_cast< CFNumberRef >( NULL );
-    o2 = static_cast< CFNumberRef >( NULL );
+    o1 = static_cast< CFNumberRef >( nullptr );
+    o2 = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( t1.IsValid() );
     ASSERT_FALSE( t2.IsValid() );
@@ -76,20 +76,20 @@ TEST( CFPP_Type, OperatorNotEqual )
         
     ASSERT_TRUE( t1 != t2 );
     
-    o1 = static_cast< CFNumberRef >( NULL );
+    o1 = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( t1.IsValid() );
     ASSERT_TRUE(  t1 != t2 );
     
     o1 = 1;
-    o2 = static_cast< CFNumberRef >( NULL );
+    o2 = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_TRUE(  t1.IsValid() );
     ASSERT_FALSE( t2.IsValid() );
     ASSERT_TRUE(  t1 != t2 );
     
-    o1 = static_cast< CFNumberRef >( NULL );
-    o2 = static_cast< CFNumberRef >( NULL );
+    o1 = static_cast< CFNumberRef >( nullptr );
+    o2 = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( t1.IsValid() );
     ASSERT_FALSE( t2.IsValid() );
@@ -101,7 +101,7 @@ TEST( CFPP_Type, CastToCFTypeRef )
     CF::Number o;
     CF::Type & t = o;
     
-    ASSERT_TRUE( static_cast< CFTypeRef >( t ) != NULL );
+    ASSERT_TRUE( static_cast< CFTypeRef >( t ) != nullptr );
 }
 
 TEST( CFPP_Type, CastToCFBooleanRef )
@@ -111,8 +111,8 @@ TEST( CFPP_Type, CastToCFBooleanRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFBooleanRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFBooleanRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFBooleanRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFBooleanRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFNumberRef )
@@ -122,8 +122,8 @@ TEST( CFPP_Type, CastToCFNumberRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFNumberRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFNumberRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFNumberRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFNumberRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFDateRef )
@@ -133,8 +133,8 @@ TEST( CFPP_Type, CastToCFDateRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFDateRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFDateRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFDateRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFDateRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFStringRef )
@@ -144,8 +144,8 @@ TEST( CFPP_Type, CastToCFStringRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFStringRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFStringRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFStringRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFStringRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFMutableStringRef )
@@ -155,8 +155,8 @@ TEST( CFPP_Type, CastToCFMutableStringRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFMutableStringRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFMutableStringRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFMutableStringRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFMutableStringRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFURLRef )
@@ -166,8 +166,8 @@ TEST( CFPP_Type, CastToCFURLRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFURLRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFURLRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFURLRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFURLRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFDataRef )
@@ -177,8 +177,8 @@ TEST( CFPP_Type, CastToCFDataRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFDataRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFDataRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFDataRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFDataRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFMutableDataRef )
@@ -188,8 +188,8 @@ TEST( CFPP_Type, CastToCFMutableDataRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFMutableDataRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFMutableDataRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFMutableDataRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFMutableDataRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFArrayRef )
@@ -199,8 +199,8 @@ TEST( CFPP_Type, CastToCFArrayRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFArrayRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFArrayRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFArrayRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFArrayRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFMutableArrayRef )
@@ -210,8 +210,8 @@ TEST( CFPP_Type, CastToCFMutableArrayRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFMutableArrayRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFMutableArrayRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFMutableArrayRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFMutableArrayRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFDictionaryRef )
@@ -221,8 +221,8 @@ TEST( CFPP_Type, CastToCFDictionaryRef )
     CF::Type     & t1 = o1;
     CF::Type     & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFDictionaryRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFDictionaryRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFDictionaryRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFDictionaryRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFMutableDictionaryRef )
@@ -232,8 +232,8 @@ TEST( CFPP_Type, CastToCFMutableDictionaryRef )
     CF::Type     & t1 = o1;
     CF::Type     & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFMutableDictionaryRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFMutableDictionaryRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFMutableDictionaryRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFMutableDictionaryRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFUUIDRef )
@@ -243,8 +243,8 @@ TEST( CFPP_Type, CastToCFUUIDRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFUUIDRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFUUIDRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFUUIDRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFUUIDRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFErrorRef )
@@ -254,8 +254,8 @@ TEST( CFPP_Type, CastToCFErrorRef )
     CF::Type  & t1 = o1;
     CF::Type  & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFErrorRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFErrorRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFErrorRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFErrorRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFReadStreamRef )
@@ -265,8 +265,8 @@ TEST( CFPP_Type, CastToCFReadStreamRef )
     CF::Type     & t1 = o1;
     CF::Type     & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFReadStreamRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFReadStreamRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFReadStreamRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFReadStreamRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, CastToCFWriteStreamRef )
@@ -276,8 +276,8 @@ TEST( CFPP_Type, CastToCFWriteStreamRef )
     CF::Type      & t1 = o1;
     CF::Type      & t2 = o2;
     
-    ASSERT_TRUE( static_cast< CFWriteStreamRef >( t1 ) != NULL );
-    ASSERT_TRUE( static_cast< CFWriteStreamRef >( t2 ) == NULL );
+    ASSERT_TRUE( static_cast< CFWriteStreamRef >( t1 ) != nullptr );
+    ASSERT_TRUE( static_cast< CFWriteStreamRef >( t2 ) == nullptr );
 }
 
 TEST( CFPP_Type, Description )
@@ -296,7 +296,7 @@ TEST( CFPP_Type, Hash )
     
     ASSERT_TRUE( t.Hash() == CFHash( t.GetCFObject() ) );
     
-    o = static_cast< CFNumberRef >( NULL );
+    o = static_cast< CFNumberRef >( nullptr );
     
     ASSERT_FALSE( t.IsValid() );
     ASSERT_EQ( t.Hash(), static_cast< CFHashCode >( 0 ) );
@@ -349,7 +349,7 @@ TEST( CFPP_Type, GetRetainCount )
     ASSERT_TRUE( t.GetRetainCount() == CFGetRetainCount( t.GetCFObject() ) );
     ASSERT_TRUE( t.GetRetainCount() == 1 );
     
-    o = static_cast< CFArrayRef >( NULL );
+    o = static_cast< CFArrayRef >( nullptr );
     
     ASSERT_FALSE( t.IsValid() );
     ASSERT_TRUE(  t.GetRetainCount() == 0 );
@@ -358,7 +358,7 @@ TEST( CFPP_Type, GetRetainCount )
 TEST( CFPP_Type, IsValid )
 {
     CF::Data   o1;
-    CF::Data   o2( static_cast< CFDataRef >( NULL ) );
+    CF::Data   o2( static_cast< CFDataRef >( nullptr ) );
     CF::Type & t1 = o1;
     CF::Type & t2 = o2;
     

@@ -76,9 +76,9 @@ TEST( CFPP_WriteStream, CTOR_URL )
 
 TEST( CFPP_WriteStream, CTOR_AutoPointer )
 {
-    CF::WriteStream s1( CF::AutoPointer( CFWriteStreamCreateWithFile( NULL, CF::URL( "file:///etc/hosts" ) ) ) );
-    CF::WriteStream s2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-    CF::WriteStream s3( CF::AutoPointer( NULL ) );
+    CF::WriteStream s1( CF::AutoPointer( CFWriteStreamCreateWithFile( nullptr, CF::URL( "file:///etc/hosts" ) ) ) );
+    CF::WriteStream s2( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+    CF::WriteStream s3( CF::AutoPointer( nullptr ) );
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_FALSE( s2.IsValid() );
@@ -89,7 +89,7 @@ TEST( CFPP_WriteStream, CTOR_CFType )
 {
     CF::WriteStream s1( CF::URL( "file:///etc/hosts" ) );
     CF::WriteStream s2( static_cast< CFTypeRef >( s1.GetCFObject() ) );
-    CF::WriteStream s3( static_cast< CFTypeRef >( NULL ) );
+    CF::WriteStream s3( static_cast< CFTypeRef >( nullptr ) );
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_TRUE(  s2.IsValid() );
@@ -100,7 +100,7 @@ TEST( CFPP_WriteStream, CTOR_CFWriteStream )
 {
     CF::WriteStream s1( CF::URL( "file:///etc/hosts" ) );
     CF::WriteStream s2( static_cast< CFWriteStreamRef >( const_cast< void * >( s1.GetCFObject() ) ) );
-    CF::WriteStream s3( static_cast< CFWriteStreamRef >( NULL ) );
+    CF::WriteStream s3( static_cast< CFWriteStreamRef >( nullptr ) );
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_TRUE(  s2.IsValid() );
@@ -161,9 +161,9 @@ TEST( CFPP_WriteStream, OperatorAssignAutoPointer )
     ASSERT_TRUE(  s2.IsValid() );
     ASSERT_TRUE(  s3.IsValid() );
     
-    s1 = CF::AutoPointer( CFWriteStreamCreateWithFile( NULL, CF::URL( "file:///etc/hosts" ) ) );
-    s2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-    s3 = CF::AutoPointer( NULL );
+    s1 = CF::AutoPointer( CFWriteStreamCreateWithFile( nullptr, CF::URL( "file:///etc/hosts" ) ) );
+    s2 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+    s3 = CF::AutoPointer( nullptr );
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_FALSE( s2.IsValid() );
@@ -182,7 +182,7 @@ TEST( CFPP_WriteStream, OperatorAssignCFType )
     
     ASSERT_TRUE( s2.IsValid() );
     
-    s2 = static_cast< CFTypeRef >( NULL );
+    s2 = static_cast< CFTypeRef >( nullptr );
     
     ASSERT_FALSE( s2.IsValid() );
 }
@@ -199,7 +199,7 @@ TEST( CFPP_WriteStream, OperatorAssignCFWriteStream )
     
     ASSERT_TRUE( s2.IsValid() );
     
-    s2 = static_cast< CFWriteStreamRef >( NULL );
+    s2 = static_cast< CFWriteStreamRef >( nullptr );
     
     ASSERT_FALSE( s2.IsValid() );
 }
@@ -226,11 +226,11 @@ TEST( CFPP_WriteStream, GetCFObject )
 {
     CF::WriteStream s1;
     CF::WriteStream s2( CF::URL( "file:///etc/hosts" ) );
-    CF::WriteStream s3( static_cast< CFWriteStreamRef >( NULL ) );
+    CF::WriteStream s3( static_cast< CFWriteStreamRef >( nullptr ) );
     
-    ASSERT_TRUE( s1.GetCFObject() == NULL );
-    ASSERT_TRUE( s2.GetCFObject() != NULL );
-    ASSERT_TRUE( s3.GetCFObject() == NULL );
+    ASSERT_TRUE( s1.GetCFObject() == nullptr );
+    ASSERT_TRUE( s2.GetCFObject() != nullptr );
+    ASSERT_TRUE( s3.GetCFObject() == nullptr );
     ASSERT_EQ( CFGetTypeID( s2.GetCFObject() ), CFWriteStreamGetTypeID() );
 }
 
@@ -408,17 +408,17 @@ TEST( CFPP_WriteStream, Write_BytePtr_CFIndex )
     ASSERT_EQ( s2.Write( buf, sizeof( buf ) ), -1 );
     ASSERT_GE( s3.Write( buf, sizeof( buf ) ),  0 );
     
-    ASSERT_NO_FATAL_FAILURE( s1.Write( NULL, sizeof( buf ) ) );
-    ASSERT_NO_FATAL_FAILURE( s2.Write( NULL, sizeof( buf ) ) );
-    ASSERT_NO_FATAL_FAILURE( s3.Write( NULL, sizeof( buf ) ) );
+    ASSERT_NO_FATAL_FAILURE( s1.Write( nullptr, sizeof( buf ) ) );
+    ASSERT_NO_FATAL_FAILURE( s2.Write( nullptr, sizeof( buf ) ) );
+    ASSERT_NO_FATAL_FAILURE( s3.Write( nullptr, sizeof( buf ) ) );
     
-    ASSERT_NO_THROW( s1.Write( NULL, sizeof( buf ) ) );
-    ASSERT_NO_THROW( s2.Write( NULL, sizeof( buf ) ) );
-    ASSERT_NO_THROW( s3.Write( NULL, sizeof( buf ) ) );
+    ASSERT_NO_THROW( s1.Write( nullptr, sizeof( buf ) ) );
+    ASSERT_NO_THROW( s2.Write( nullptr, sizeof( buf ) ) );
+    ASSERT_NO_THROW( s3.Write( nullptr, sizeof( buf ) ) );
     
-    ASSERT_EQ( s1.Write( NULL, sizeof( buf ) ), -1 );
-    ASSERT_EQ( s2.Write( NULL, sizeof( buf ) ), -1 );
-    ASSERT_EQ( s3.Write( NULL, sizeof( buf ) ), -1 );
+    ASSERT_EQ( s1.Write( nullptr, sizeof( buf ) ), -1 );
+    ASSERT_EQ( s2.Write( nullptr, sizeof( buf ) ), -1 );
+    ASSERT_EQ( s3.Write( nullptr, sizeof( buf ) ), -1 );
     
     s1.Close();
     s2.Close();
@@ -489,17 +489,17 @@ TEST( CFPP_WriteStream, WriteAll_BytePtr_CFIndex )
     ASSERT_FALSE( s2.WriteAll( buf, sizeof( buf ) ) );
     ASSERT_TRUE(  s3.WriteAll( buf, sizeof( buf ) ) );
     
-    ASSERT_NO_FATAL_FAILURE( s1.WriteAll( NULL, sizeof( buf ) ) );
-    ASSERT_NO_FATAL_FAILURE( s2.WriteAll( NULL, sizeof( buf ) ) );
-    ASSERT_NO_FATAL_FAILURE( s3.WriteAll( NULL, sizeof( buf ) ) );
+    ASSERT_NO_FATAL_FAILURE( s1.WriteAll( nullptr, sizeof( buf ) ) );
+    ASSERT_NO_FATAL_FAILURE( s2.WriteAll( nullptr, sizeof( buf ) ) );
+    ASSERT_NO_FATAL_FAILURE( s3.WriteAll( nullptr, sizeof( buf ) ) );
     
-    ASSERT_NO_THROW( s1.WriteAll( NULL, sizeof( buf ) ) );
-    ASSERT_NO_THROW( s2.WriteAll( NULL, sizeof( buf ) ) );
-    ASSERT_NO_THROW( s3.WriteAll( NULL, sizeof( buf ) ) );
+    ASSERT_NO_THROW( s1.WriteAll( nullptr, sizeof( buf ) ) );
+    ASSERT_NO_THROW( s2.WriteAll( nullptr, sizeof( buf ) ) );
+    ASSERT_NO_THROW( s3.WriteAll( nullptr, sizeof( buf ) ) );
     
-    ASSERT_FALSE( s1.WriteAll( NULL, sizeof( buf ) ) );
-    ASSERT_FALSE( s2.WriteAll( NULL, sizeof( buf ) ) );
-    ASSERT_FALSE( s3.WriteAll( NULL, sizeof( buf ) ) );
+    ASSERT_FALSE( s1.WriteAll( nullptr, sizeof( buf ) ) );
+    ASSERT_FALSE( s2.WriteAll( nullptr, sizeof( buf ) ) );
+    ASSERT_FALSE( s3.WriteAll( nullptr, sizeof( buf ) ) );
     
     s1.Close();
     s2.Close();
@@ -635,7 +635,7 @@ void __ClientCallback( CFWriteStreamRef stream, CFStreamEventType type, void * i
     ( void )stream;
     ( void )type;
     
-    if( info != NULL )
+    if( info != nullptr )
     {
         *( reinterpret_cast< bool * >( info ) ) = true;
     }

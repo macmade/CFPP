@@ -41,7 +41,7 @@
 TEST( CFPP_Dictionary_Iterator, DictionaryBegin )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( nullptr ) );
     CF::Dictionary d3;
     
     d3 << CF::Pair( "foo", "hello, world" );
@@ -50,12 +50,12 @@ TEST( CFPP_Dictionary_Iterator, DictionaryBegin )
     
     i = d3.begin();
     
-    ASSERT_TRUE( d1.begin().GetKey()   == NULL );
-    ASSERT_TRUE( d1.begin().GetValue() == NULL );
-    ASSERT_TRUE( d2.begin().GetKey()   == NULL );
-    ASSERT_TRUE( d2.begin().GetValue() == NULL );
-    ASSERT_TRUE( d3.begin().GetKey()   != NULL );
-    ASSERT_TRUE( d3.begin().GetValue() != NULL );
+    ASSERT_TRUE( d1.begin().GetKey()   == nullptr );
+    ASSERT_TRUE( d1.begin().GetValue() == nullptr );
+    ASSERT_TRUE( d2.begin().GetKey()   == nullptr );
+    ASSERT_TRUE( d2.begin().GetValue() == nullptr );
+    ASSERT_TRUE( d3.begin().GetKey()   != nullptr );
+    ASSERT_TRUE( d3.begin().GetValue() != nullptr );
     
     ASSERT_TRUE( CF::String( d3.begin().GetKey() )   == "foo" );
     ASSERT_TRUE( CF::String( d3.begin().GetValue() ) == "hello, world" );
@@ -68,17 +68,17 @@ TEST( CFPP_Dictionary_Iterator, DictionaryBegin )
 TEST( CFPP_Dictionary_Iterator, DictionaryEnd )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( nullptr ) );
     CF::Dictionary d3;
     
     d3 << CF::Pair( "foo", "hello, world" );
     
-    ASSERT_TRUE( d1.end().GetKey()   == NULL );
-    ASSERT_TRUE( d1.end().GetValue() == NULL );
-    ASSERT_TRUE( d2.end().GetKey()   == NULL );
-    ASSERT_TRUE( d2.end().GetValue() == NULL );
-    ASSERT_TRUE( d3.end().GetKey()   == NULL );
-    ASSERT_TRUE( d3.end().GetValue() == NULL );
+    ASSERT_TRUE( d1.end().GetKey()   == nullptr );
+    ASSERT_TRUE( d1.end().GetValue() == nullptr );
+    ASSERT_TRUE( d2.end().GetKey()   == nullptr );
+    ASSERT_TRUE( d2.end().GetValue() == nullptr );
+    ASSERT_TRUE( d3.end().GetKey()   == nullptr );
+    ASSERT_TRUE( d3.end().GetValue() == nullptr );
     
     ASSERT_TRUE( CF::String( d3.begin().GetKey() )   == "foo" );
     ASSERT_TRUE( CF::String( d3.begin().GetValue() ) == "hello, world" );
@@ -92,8 +92,8 @@ TEST( CFPP_Dictionary_Iterator, CTOR )
 {
     CF::Dictionary::Iterator i;
     
-    ASSERT_TRUE( i.GetKey()   == NULL );
-    ASSERT_TRUE( i.GetValue() == NULL );
+    ASSERT_TRUE( i.GetKey()   == nullptr );
+    ASSERT_TRUE( i.GetValue() == nullptr );
 }
 
 TEST( CFPP_Dictionary_Iterator, CCTOR )
@@ -108,14 +108,14 @@ TEST( CFPP_Dictionary_Iterator, CCTOR )
         CF::Dictionary::Iterator i3( d.begin() );
         CF::Dictionary::Iterator i4( i3 );
         
-        ASSERT_TRUE( i1.GetKey()   == NULL );
-        ASSERT_TRUE( i1.GetValue() == NULL );
-        ASSERT_TRUE( i2.GetKey()   == NULL );
-        ASSERT_TRUE( i2.GetValue() == NULL );
-        ASSERT_TRUE( i3.GetKey()   != NULL );
-        ASSERT_TRUE( i3.GetValue() != NULL );
-        ASSERT_TRUE( i4.GetKey()   != NULL );
-        ASSERT_TRUE( i4.GetValue() != NULL );
+        ASSERT_TRUE( i1.GetKey()   == nullptr );
+        ASSERT_TRUE( i1.GetValue() == nullptr );
+        ASSERT_TRUE( i2.GetKey()   == nullptr );
+        ASSERT_TRUE( i2.GetValue() == nullptr );
+        ASSERT_TRUE( i3.GetKey()   != nullptr );
+        ASSERT_TRUE( i3.GetValue() != nullptr );
+        ASSERT_TRUE( i4.GetKey()   != nullptr );
+        ASSERT_TRUE( i4.GetValue() != nullptr );
         
         ASSERT_TRUE( CF::String( i3.GetKey() )   == "foo" );
         ASSERT_TRUE( CF::String( i3.GetValue() ) == "hello, world" );
@@ -162,10 +162,10 @@ TEST( CFPP_Dictionary_Iterator, OperatorAssign )
         CF::Dictionary::Iterator i3( d.begin() );
         CF::Dictionary::Iterator i4;
         
-        ASSERT_TRUE( i1.GetKey()   == NULL );
-        ASSERT_TRUE( i1.GetValue() == NULL );
-        ASSERT_TRUE( i3.GetKey()   != NULL );
-        ASSERT_TRUE( i3.GetValue() != NULL );
+        ASSERT_TRUE( i1.GetKey()   == nullptr );
+        ASSERT_TRUE( i1.GetValue() == nullptr );
+        ASSERT_TRUE( i3.GetKey()   != nullptr );
+        ASSERT_TRUE( i3.GetValue() != nullptr );
         
         ASSERT_TRUE( CF::String( i3.GetKey() )   == "foo" );
         ASSERT_TRUE( CF::String( i3.GetValue() ) == "hello, world" );
@@ -173,10 +173,10 @@ TEST( CFPP_Dictionary_Iterator, OperatorAssign )
         i2 = i1;
         i4 = i3;
         
-        ASSERT_TRUE( i2.GetKey()   == NULL );
-        ASSERT_TRUE( i2.GetValue() == NULL );
-        ASSERT_TRUE( i4.GetKey()   != NULL );
-        ASSERT_TRUE( i4.GetValue() != NULL );
+        ASSERT_TRUE( i2.GetKey()   == nullptr );
+        ASSERT_TRUE( i2.GetValue() == nullptr );
+        ASSERT_TRUE( i4.GetKey()   != nullptr );
+        ASSERT_TRUE( i4.GetValue() != nullptr );
         
         ASSERT_TRUE( CF::String( i4.GetKey() )   == "foo" );
         ASSERT_TRUE( CF::String( i4.GetValue() ) == "hello, world" );
@@ -200,14 +200,14 @@ TEST( CFPP_Dictionary_Iterator, OperatorPrefixIncrement )
         i2 = ++i1;
         i4 = ++i3;
         
-        ASSERT_TRUE( i1.GetKey()   != NULL );
-        ASSERT_TRUE( i1.GetValue() != NULL );
-        ASSERT_TRUE( i2.GetKey()   != NULL );
-        ASSERT_TRUE( i2.GetValue() != NULL );
-        ASSERT_TRUE( i3.GetKey()   == NULL );
-        ASSERT_TRUE( i3.GetValue() == NULL );
-        ASSERT_TRUE( i4.GetKey()   == NULL );
-        ASSERT_TRUE( i4.GetValue() == NULL );
+        ASSERT_TRUE( i1.GetKey()   != nullptr );
+        ASSERT_TRUE( i1.GetValue() != nullptr );
+        ASSERT_TRUE( i2.GetKey()   != nullptr );
+        ASSERT_TRUE( i2.GetValue() != nullptr );
+        ASSERT_TRUE( i3.GetKey()   == nullptr );
+        ASSERT_TRUE( i3.GetValue() == nullptr );
+        ASSERT_TRUE( i4.GetKey()   == nullptr );
+        ASSERT_TRUE( i4.GetValue() == nullptr );
         
         ASSERT_TRUE( CF::String( i1.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i1.GetValue() ).IsValid() );
@@ -233,14 +233,14 @@ TEST( CFPP_Dictionary_Iterator, OperatorPostfixIncrement )
         i2 = i1++;
         i4 = i3++;
         
-        ASSERT_TRUE( i1.GetKey()   != NULL );
-        ASSERT_TRUE( i1.GetValue() != NULL );
-        ASSERT_TRUE( i2.GetKey()   != NULL );
-        ASSERT_TRUE( i2.GetValue() != NULL );
-        ASSERT_TRUE( i3.GetKey()   == NULL );
-        ASSERT_TRUE( i3.GetValue() == NULL );
-        ASSERT_TRUE( i4.GetKey()   == NULL );
-        ASSERT_TRUE( i4.GetValue() == NULL );
+        ASSERT_TRUE( i1.GetKey()   != nullptr );
+        ASSERT_TRUE( i1.GetValue() != nullptr );
+        ASSERT_TRUE( i2.GetKey()   != nullptr );
+        ASSERT_TRUE( i2.GetValue() != nullptr );
+        ASSERT_TRUE( i3.GetKey()   == nullptr );
+        ASSERT_TRUE( i3.GetValue() == nullptr );
+        ASSERT_TRUE( i4.GetKey()   == nullptr );
+        ASSERT_TRUE( i4.GetValue() == nullptr );
         
         ASSERT_TRUE( CF::String( i1.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i1.GetValue() ).IsValid() );
@@ -266,14 +266,14 @@ TEST( CFPP_Dictionary_Iterator, OperatorPrefixDecrement )
         i2 = --i1;
         i4 = --i3;
         
-        ASSERT_TRUE( i1.GetKey()   != NULL );
-        ASSERT_TRUE( i1.GetValue() != NULL );
-        ASSERT_TRUE( i2.GetKey()   != NULL );
-        ASSERT_TRUE( i2.GetValue() != NULL );
-        ASSERT_TRUE( i3.GetKey()   == NULL );
-        ASSERT_TRUE( i3.GetValue() == NULL );
-        ASSERT_TRUE( i4.GetKey()   == NULL );
-        ASSERT_TRUE( i4.GetValue() == NULL );
+        ASSERT_TRUE( i1.GetKey()   != nullptr );
+        ASSERT_TRUE( i1.GetValue() != nullptr );
+        ASSERT_TRUE( i2.GetKey()   != nullptr );
+        ASSERT_TRUE( i2.GetValue() != nullptr );
+        ASSERT_TRUE( i3.GetKey()   == nullptr );
+        ASSERT_TRUE( i3.GetValue() == nullptr );
+        ASSERT_TRUE( i4.GetKey()   == nullptr );
+        ASSERT_TRUE( i4.GetValue() == nullptr );
         
         ASSERT_TRUE( CF::String( i1.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i1.GetValue() ).IsValid() );
@@ -299,14 +299,14 @@ TEST( CFPP_Dictionary_Iterator, OperatorPostfixDecrement )
         i2 = i1--;
         i4 = i3--;
         
-        ASSERT_TRUE( i1.GetKey()   != NULL );
-        ASSERT_TRUE( i1.GetValue() != NULL );
-        ASSERT_TRUE( i2.GetKey()   == NULL );
-        ASSERT_TRUE( i2.GetValue() == NULL );
-        ASSERT_TRUE( i3.GetKey()   == NULL );
-        ASSERT_TRUE( i3.GetValue() == NULL );
-        ASSERT_TRUE( i4.GetKey()   == NULL );
-        ASSERT_TRUE( i4.GetValue() == NULL );
+        ASSERT_TRUE( i1.GetKey()   != nullptr );
+        ASSERT_TRUE( i1.GetValue() != nullptr );
+        ASSERT_TRUE( i2.GetKey()   == nullptr );
+        ASSERT_TRUE( i2.GetValue() == nullptr );
+        ASSERT_TRUE( i3.GetKey()   == nullptr );
+        ASSERT_TRUE( i3.GetValue() == nullptr );
+        ASSERT_TRUE( i4.GetKey()   == nullptr );
+        ASSERT_TRUE( i4.GetValue() == nullptr );
         
         ASSERT_TRUE( CF::String( i1.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i1.GetValue() ).IsValid() );
@@ -327,29 +327,29 @@ TEST( CFPP_Dictionary_Iterator, OperatorPlusEqual )
         
         i = d.begin();
         
-        ASSERT_TRUE( i.GetKey()   != NULL );
-        ASSERT_TRUE( i.GetValue() != NULL );
+        ASSERT_TRUE( i.GetKey()   != nullptr );
+        ASSERT_TRUE( i.GetValue() != nullptr );
         ASSERT_TRUE( CF::String( i.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i.GetValue() ).IsValid() );
         
         i += 1;
         
-        ASSERT_TRUE( i.GetKey()   != NULL );
-        ASSERT_TRUE( i.GetValue() != NULL );
+        ASSERT_TRUE( i.GetKey()   != nullptr );
+        ASSERT_TRUE( i.GetValue() != nullptr );
         ASSERT_TRUE( CF::String( i.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i.GetValue() ).IsValid() );
         
         i += 0;
         
-        ASSERT_TRUE( i.GetKey()   != NULL );
-        ASSERT_TRUE( i.GetValue() != NULL );
+        ASSERT_TRUE( i.GetKey()   != nullptr );
+        ASSERT_TRUE( i.GetValue() != nullptr );
         ASSERT_TRUE( CF::String( i.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i.GetValue() ).IsValid() );
         
         i += 2;
         
-        ASSERT_TRUE( i.GetKey()   != NULL );
-        ASSERT_TRUE( i.GetValue() != NULL );
+        ASSERT_TRUE( i.GetKey()   != nullptr );
+        ASSERT_TRUE( i.GetValue() != nullptr );
         ASSERT_TRUE( CF::String( i.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i.GetValue() ).IsValid() );
     }
@@ -369,27 +369,27 @@ TEST( CFPP_Dictionary_Iterator, OperatorMinusEqual )
         
         i = d.end();
         
-        ASSERT_TRUE( i.GetKey()   == NULL );
-        ASSERT_TRUE( i.GetValue() == NULL );
+        ASSERT_TRUE( i.GetKey()   == nullptr );
+        ASSERT_TRUE( i.GetValue() == nullptr );
         
         i -= 1;
         
-        ASSERT_TRUE( i.GetKey()   != NULL );
-        ASSERT_TRUE( i.GetValue() != NULL );
+        ASSERT_TRUE( i.GetKey()   != nullptr );
+        ASSERT_TRUE( i.GetValue() != nullptr );
         ASSERT_TRUE( CF::String( i.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i.GetValue() ).IsValid() );
         
         i -= 0;
         
-        ASSERT_TRUE( i.GetKey()   != NULL );
-        ASSERT_TRUE( i.GetValue() != NULL );
+        ASSERT_TRUE( i.GetKey()   != nullptr );
+        ASSERT_TRUE( i.GetValue() != nullptr );
         ASSERT_TRUE( CF::String( i.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i.GetValue() ).IsValid() );
         
         i -= 2;
         
-        ASSERT_TRUE( i.GetKey()   != NULL );
-        ASSERT_TRUE( i.GetValue() != NULL );
+        ASSERT_TRUE( i.GetKey()   != nullptr );
+        ASSERT_TRUE( i.GetValue() != nullptr );
         ASSERT_TRUE( CF::String( i.GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( i.GetValue() ).IsValid() );
     }
@@ -409,14 +409,14 @@ TEST( CFPP_Dictionary_Iterator, OperatorPlus )
         
         i = d.begin();
         
-        ASSERT_TRUE( i.GetKey()                                     != NULL );
-        ASSERT_TRUE( i.GetValue()                                   != NULL );
-        ASSERT_TRUE( ( i + static_cast< CFIndex >( 1 ) ).GetKey()   != NULL );
-        ASSERT_TRUE( ( i + static_cast< CFIndex >( 1 ) ).GetValue() != NULL );
-        ASSERT_TRUE( ( i + static_cast< CFIndex >( 0 ) ).GetKey()   != NULL );
-        ASSERT_TRUE( ( i + static_cast< CFIndex >( 0 ) ).GetValue() != NULL );
-        ASSERT_TRUE( ( i + static_cast< CFIndex >( 2 ) ).GetKey()   != NULL );
-        ASSERT_TRUE( ( i + static_cast< CFIndex >( 2 ) ).GetValue() != NULL );
+        ASSERT_TRUE( i.GetKey()                                     != nullptr );
+        ASSERT_TRUE( i.GetValue()                                   != nullptr );
+        ASSERT_TRUE( ( i + static_cast< CFIndex >( 1 ) ).GetKey()   != nullptr );
+        ASSERT_TRUE( ( i + static_cast< CFIndex >( 1 ) ).GetValue() != nullptr );
+        ASSERT_TRUE( ( i + static_cast< CFIndex >( 0 ) ).GetKey()   != nullptr );
+        ASSERT_TRUE( ( i + static_cast< CFIndex >( 0 ) ).GetValue() != nullptr );
+        ASSERT_TRUE( ( i + static_cast< CFIndex >( 2 ) ).GetKey()   != nullptr );
+        ASSERT_TRUE( ( i + static_cast< CFIndex >( 2 ) ).GetValue() != nullptr );
         
         ASSERT_TRUE( CF::String( i.GetKey()                                     ).IsValid() );
         ASSERT_TRUE( CF::String( i.GetValue()                                   ).IsValid() );
@@ -443,14 +443,14 @@ TEST( CFPP_Dictionary_Iterator, OperatorMinus )
         
         i = d.end();
         
-        ASSERT_TRUE( i.GetKey()                                     == NULL );
-        ASSERT_TRUE( i.GetValue()                                   == NULL );
-        ASSERT_TRUE( ( i - static_cast< CFIndex >( 1 ) ).GetKey()   != NULL );
-        ASSERT_TRUE( ( i - static_cast< CFIndex >( 1 ) ).GetValue() != NULL );
-        ASSERT_TRUE( ( i - static_cast< CFIndex >( 0 ) ).GetKey()   == NULL );
-        ASSERT_TRUE( ( i - static_cast< CFIndex >( 0 ) ).GetValue() == NULL );
-        ASSERT_TRUE( ( i - static_cast< CFIndex >( 2 ) ).GetKey()   != NULL );
-        ASSERT_TRUE( ( i - static_cast< CFIndex >( 2 ) ).GetValue() != NULL );
+        ASSERT_TRUE( i.GetKey()                                     == nullptr );
+        ASSERT_TRUE( i.GetValue()                                   == nullptr );
+        ASSERT_TRUE( ( i - static_cast< CFIndex >( 1 ) ).GetKey()   != nullptr );
+        ASSERT_TRUE( ( i - static_cast< CFIndex >( 1 ) ).GetValue() != nullptr );
+        ASSERT_TRUE( ( i - static_cast< CFIndex >( 0 ) ).GetKey()   == nullptr );
+        ASSERT_TRUE( ( i - static_cast< CFIndex >( 0 ) ).GetValue() == nullptr );
+        ASSERT_TRUE( ( i - static_cast< CFIndex >( 2 ) ).GetKey()   != nullptr );
+        ASSERT_TRUE( ( i - static_cast< CFIndex >( 2 ) ).GetValue() != nullptr );
         
         ASSERT_TRUE( CF::String( ( i - static_cast< CFIndex >( 1 ) ).GetKey()   ).IsValid() );
         ASSERT_TRUE( CF::String( ( i - static_cast< CFIndex >( 1 ) ).GetValue() ).IsValid() );
@@ -558,7 +558,7 @@ TEST( CFPP_Dictionary_Iterator, OperatorNotEqual )
 TEST( CFPP_Dictionary_Iterator, OperatorDereference )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     d1 << CF::Pair( "foo", "hello, world" );
     d1 << CF::Pair( "bar", "hello, universe" );
@@ -567,18 +567,18 @@ TEST( CFPP_Dictionary_Iterator, OperatorDereference )
         CF::Dictionary::Iterator i1;
         CF::Dictionary::Iterator i2;
         
-        ASSERT_TRUE( ( *( i1 ) ).GetKey()   == NULL );
-        ASSERT_TRUE( ( *( i1 ) ).GetValue() == NULL );
-        ASSERT_TRUE( ( *( i2 ) ).GetKey()   == NULL );
-        ASSERT_TRUE( ( *( i2 ) ).GetValue() == NULL );
+        ASSERT_TRUE( ( *( i1 ) ).GetKey()   == nullptr );
+        ASSERT_TRUE( ( *( i1 ) ).GetValue() == nullptr );
+        ASSERT_TRUE( ( *( i2 ) ).GetKey()   == nullptr );
+        ASSERT_TRUE( ( *( i2 ) ).GetValue() == nullptr );
         
         i1 = d1.begin();
         i2 = d2.begin();
         
-        ASSERT_TRUE( ( *( i1 ) ).GetKey()   != NULL );
-        ASSERT_TRUE( ( *( i1 ) ).GetValue() != NULL );
-        ASSERT_TRUE( ( *( i2 ) ).GetKey()   == NULL );
-        ASSERT_TRUE( ( *( i2 ) ).GetValue() == NULL );
+        ASSERT_TRUE( ( *( i1 ) ).GetKey()   != nullptr );
+        ASSERT_TRUE( ( *( i1 ) ).GetValue() != nullptr );
+        ASSERT_TRUE( ( *( i2 ) ).GetKey()   == nullptr );
+        ASSERT_TRUE( ( *( i2 ) ).GetValue() == nullptr );
         
         ASSERT_TRUE( CF::String( ( *( i1 ) ).GetKey() ).IsValid() );
         ASSERT_TRUE( CF::String( ( *( i1 ) ).GetValue() ).IsValid() );
@@ -586,17 +586,17 @@ TEST( CFPP_Dictionary_Iterator, OperatorDereference )
         i1--;
         i2--;
         
-        ASSERT_TRUE( ( *( i1 ) ).GetKey()   == NULL );
-        ASSERT_TRUE( ( *( i1 ) ).GetValue() == NULL );
-        ASSERT_TRUE( ( *( i2 ) ).GetKey()   == NULL );
-        ASSERT_TRUE( ( *( i2 ) ).GetValue() == NULL );
+        ASSERT_TRUE( ( *( i1 ) ).GetKey()   == nullptr );
+        ASSERT_TRUE( ( *( i1 ) ).GetValue() == nullptr );
+        ASSERT_TRUE( ( *( i2 ) ).GetKey()   == nullptr );
+        ASSERT_TRUE( ( *( i2 ) ).GetValue() == nullptr );
     }
 }
 
 TEST( CFPP_Dictionary_Iterator, GetKey )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     d1 << CF::Pair( "foo", "hello, world" );
     d1 << CF::Pair( "bar", "hello, universe" );
@@ -605,29 +605,29 @@ TEST( CFPP_Dictionary_Iterator, GetKey )
         CF::Dictionary::Iterator i1;
         CF::Dictionary::Iterator i2;
         
-        ASSERT_TRUE( i1.GetKey() == NULL );
-        ASSERT_TRUE( i2.GetKey() == NULL );
+        ASSERT_TRUE( i1.GetKey() == nullptr );
+        ASSERT_TRUE( i2.GetKey() == nullptr );
         
         i1 = d1.begin();
         i2 = d2.begin();
         
-        ASSERT_TRUE( i1.GetKey() != NULL );
-        ASSERT_TRUE( i2.GetKey() == NULL );
+        ASSERT_TRUE( i1.GetKey() != nullptr );
+        ASSERT_TRUE( i2.GetKey() == nullptr );
         
         ASSERT_TRUE( CF::String( i1.GetKey() ).IsValid() );
         
         i1--;
         i2--;
         
-        ASSERT_TRUE( i1.GetKey() == NULL );
-        ASSERT_TRUE( i2.GetKey() == NULL );
+        ASSERT_TRUE( i1.GetKey() == nullptr );
+        ASSERT_TRUE( i2.GetKey() == nullptr );
     }
 }
 
 TEST( CFPP_Dictionary_Iterator, GetValue )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     d1 << CF::Pair( "foo", "hello, world" );
     d1 << CF::Pair( "bar", "hello, universe" );
@@ -636,22 +636,22 @@ TEST( CFPP_Dictionary_Iterator, GetValue )
         CF::Dictionary::Iterator i1;
         CF::Dictionary::Iterator i2;
         
-        ASSERT_TRUE( i1.GetValue() == NULL );
-        ASSERT_TRUE( i2.GetValue() == NULL );
+        ASSERT_TRUE( i1.GetValue() == nullptr );
+        ASSERT_TRUE( i2.GetValue() == nullptr );
         
         i1 = d1.begin();
         i2 = d2.begin();
         
-        ASSERT_TRUE( i1.GetValue() != NULL );
-        ASSERT_TRUE( i2.GetValue() == NULL );
+        ASSERT_TRUE( i1.GetValue() != nullptr );
+        ASSERT_TRUE( i2.GetValue() == nullptr );
         
         ASSERT_TRUE( CF::String( i1.GetValue() ).IsValid() );
         
         i1--;
         i2--;
         
-        ASSERT_TRUE( i1.GetValue() == NULL );
-        ASSERT_TRUE( i2.GetValue() == NULL );
+        ASSERT_TRUE( i1.GetValue() == nullptr );
+        ASSERT_TRUE( i2.GetValue() == nullptr );
     }
 }
 
@@ -682,7 +682,7 @@ TEST( CFPP_Dictionary_Iterator, Swap )
 TEST( CFPP_Dictionary_Iterator, TestIterate )
 {
     CF::Dictionary           d1;
-    CF::Dictionary           d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary           d2( static_cast< CFDictionaryRef >( nullptr ) );
     CF::Dictionary           d3;
     CF::Dictionary::Iterator it;
     CFIndex                  i;

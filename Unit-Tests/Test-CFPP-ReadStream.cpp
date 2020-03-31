@@ -66,9 +66,9 @@ TEST( CFPP_ReadStream, CTOR_CChar )
 
 TEST( CFPP_ReadStream, CTOR_AutoPointer )
 {
-    CF::ReadStream s1( CF::AutoPointer( CFReadStreamCreateWithFile( NULL, CF::URL( "file:///etc/hosts" ) ) ) );
-    CF::ReadStream s2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-    CF::ReadStream s3( CF::AutoPointer( NULL ) );
+    CF::ReadStream s1( CF::AutoPointer( CFReadStreamCreateWithFile( nullptr, CF::URL( "file:///etc/hosts" ) ) ) );
+    CF::ReadStream s2( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+    CF::ReadStream s3( CF::AutoPointer( nullptr ) );
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_FALSE( s2.IsValid() );
@@ -79,7 +79,7 @@ TEST( CFPP_ReadStream, CTOR_CFType )
 {
     CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
     CF::ReadStream s2( static_cast< CFTypeRef >( s1.GetCFObject() ) );
-    CF::ReadStream s3( static_cast< CFTypeRef >( NULL ) );
+    CF::ReadStream s3( static_cast< CFTypeRef >( nullptr ) );
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_TRUE(  s2.IsValid() );
@@ -90,7 +90,7 @@ TEST( CFPP_ReadStream, CTOR_CFReadStream )
 {
     CF::ReadStream s1( CF::URL( "file:///etc/hosts" ) );
     CF::ReadStream s2( static_cast< CFReadStreamRef >( const_cast< void * >( s1.GetCFObject() ) ) );
-    CF::ReadStream s3( static_cast< CFReadStreamRef >( NULL ) );
+    CF::ReadStream s3( static_cast< CFReadStreamRef >( nullptr ) );
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_TRUE(  s2.IsValid() );
@@ -153,9 +153,9 @@ TEST( CFPP_ReadStream, OperatorAssignAutoPointer )
     ASSERT_TRUE(  s2.IsValid() );
     ASSERT_TRUE(  s3.IsValid() );
     
-    s1 = CF::AutoPointer( CFReadStreamCreateWithFile( NULL, CF::URL( "file:///etc/hosts" ) ) );
-    s2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-    s3 = CF::AutoPointer( NULL );
+    s1 = CF::AutoPointer( CFReadStreamCreateWithFile( nullptr, CF::URL( "file:///etc/hosts" ) ) );
+    s2 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+    s3 = CF::AutoPointer( nullptr );
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_FALSE( s2.IsValid() );
@@ -174,7 +174,7 @@ TEST( CFPP_ReadStream, OperatorAssignCFType )
     
     ASSERT_TRUE( s2.IsValid() );
     
-    s2 = static_cast< CFTypeRef >( NULL );
+    s2 = static_cast< CFTypeRef >( nullptr );
     
     ASSERT_FALSE( s2.IsValid() );
 }
@@ -191,7 +191,7 @@ TEST( CFPP_ReadStream, OperatorAssignCFReadStream )
     
     ASSERT_TRUE( s2.IsValid() );
     
-    s2 = static_cast< CFReadStreamRef >( NULL );
+    s2 = static_cast< CFReadStreamRef >( nullptr );
     
     ASSERT_FALSE( s2.IsValid() );
 }
@@ -218,11 +218,11 @@ TEST( CFPP_ReadStream, GetCFObject )
 {
     CF::ReadStream s1;
     CF::ReadStream s2( CF::URL( "file:///etc/hosts" ) );
-    CF::ReadStream s3( static_cast< CFReadStreamRef >( NULL ) );
+    CF::ReadStream s3( static_cast< CFReadStreamRef >( nullptr ) );
     
-    ASSERT_TRUE( s1.GetCFObject() == NULL );
-    ASSERT_TRUE( s2.GetCFObject() != NULL );
-    ASSERT_TRUE( s3.GetCFObject() == NULL );
+    ASSERT_TRUE( s1.GetCFObject() == nullptr );
+    ASSERT_TRUE( s2.GetCFObject() != nullptr );
+    ASSERT_TRUE( s3.GetCFObject() == nullptr );
     ASSERT_EQ( CFGetTypeID( s2.GetCFObject() ), CFReadStreamGetTypeID() );
 }
 
@@ -391,17 +391,17 @@ TEST( CFPP_ReadStream, Read_BytePtr_CFIndex )
     s2.Open();
     s3.Open();
     
-    ASSERT_NO_FATAL_FAILURE( s1.Read( NULL, 10 ) );
-    ASSERT_NO_FATAL_FAILURE( s2.Read( NULL, 10 ) );
-    ASSERT_NO_FATAL_FAILURE( s3.Read( NULL, 10 ) );
+    ASSERT_NO_FATAL_FAILURE( s1.Read( nullptr, 10 ) );
+    ASSERT_NO_FATAL_FAILURE( s2.Read( nullptr, 10 ) );
+    ASSERT_NO_FATAL_FAILURE( s3.Read( nullptr, 10 ) );
     
-    ASSERT_NO_THROW( s1.Read( NULL, 10 ) );
-    ASSERT_NO_THROW( s2.Read( NULL, 10 ) );
-    ASSERT_NO_THROW( s3.Read( NULL, 10 ) );
+    ASSERT_NO_THROW( s1.Read( nullptr, 10 ) );
+    ASSERT_NO_THROW( s2.Read( nullptr, 10 ) );
+    ASSERT_NO_THROW( s3.Read( nullptr, 10 ) );
     
-    ASSERT_EQ( s1.Read( NULL, 10 ), -1 );
-    ASSERT_EQ( s2.Read( NULL, 10 ), -1 );
-    ASSERT_EQ( s3.Read( NULL, 10 ), -1 );
+    ASSERT_EQ( s1.Read( nullptr, 10 ), -1 );
+    ASSERT_EQ( s2.Read( nullptr, 10 ), -1 );
+    ASSERT_EQ( s3.Read( nullptr, 10 ), -1 );
     
     ASSERT_EQ( s1.Read( buf, 10 ), -1 );
     ASSERT_GE( s2.Read( buf, 10 ),  0 );
@@ -509,9 +509,9 @@ TEST( CFPP_ReadStream, GetBuffer )
     buf2 = s2.GetBuffer( 10, &i2 );
     buf3 = s3.GetBuffer( 10, &i3 );
     
-    ASSERT_TRUE( buf1 == NULL );
-    ASSERT_TRUE( buf2 == NULL );
-    ASSERT_TRUE( buf3 == NULL );
+    ASSERT_TRUE( buf1 == nullptr );
+    ASSERT_TRUE( buf2 == nullptr );
+    ASSERT_TRUE( buf3 == nullptr );
     
     ASSERT_EQ( i1,  0 );
     ASSERT_EQ( i2, -1 );
@@ -525,9 +525,9 @@ TEST( CFPP_ReadStream, GetBuffer )
     buf2 = s2.GetBuffer( 10, &i2 );
     buf3 = s3.GetBuffer( 10, &i3 );
     
-    ASSERT_TRUE( buf1 == NULL );
-    ASSERT_TRUE( buf2 == NULL );
-    ASSERT_TRUE( buf3 == NULL );
+    ASSERT_TRUE( buf1 == nullptr );
+    ASSERT_TRUE( buf2 == nullptr );
+    ASSERT_TRUE( buf3 == nullptr );
     
     ASSERT_EQ( i1,  0 );
     ASSERT_EQ( i2,  0 );
@@ -541,9 +541,9 @@ TEST( CFPP_ReadStream, GetBuffer )
     buf2 = s2.GetBuffer( 10, &i2 );
     buf3 = s3.GetBuffer( 10, &i3 );
     
-    ASSERT_TRUE( buf1 == NULL );
-    ASSERT_TRUE( buf2 == NULL );
-    ASSERT_TRUE( buf3 == NULL );
+    ASSERT_TRUE( buf1 == nullptr );
+    ASSERT_TRUE( buf2 == nullptr );
+    ASSERT_TRUE( buf3 == nullptr );
     
     ASSERT_EQ( i1,  0 );
     ASSERT_EQ( i2, -1 );
@@ -639,7 +639,7 @@ void __ClientCallback( CFReadStreamRef stream, CFStreamEventType type, void * in
     ( void )stream;
     ( void )type;
     
-    if( info != NULL )
+    if( info != nullptr )
     {
         *( reinterpret_cast< bool * >( info ) ) = true;
     }

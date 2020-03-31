@@ -41,7 +41,7 @@
 TEST( CFPP_String_Iterator, StringBegin )
 {
     CF::String s1;
-    CF::String s2( static_cast< CFStringRef >( NULL ) );
+    CF::String s2( static_cast< CFStringRef >( nullptr ) );
     CF::String s3( "hello" );
     
     ASSERT_EQ( *( s1.begin() ), 0 );
@@ -56,7 +56,7 @@ TEST( CFPP_String_Iterator, StringBegin )
 TEST( CFPP_String_Iterator, StringEnd )
 {
     CF::String s1;
-    CF::String s2( static_cast< CFStringRef >( NULL ) );
+    CF::String s2( static_cast< CFStringRef >( nullptr ) );
     CF::String s3( "hello" );
     
     ASSERT_EQ( *( s1.end() ), 0 );
@@ -340,7 +340,7 @@ TEST( CFPP_String_Iterator, OperatorNotEqual )
 TEST( CFPP_String_Iterator, OperatorDereference )
 {
     CF::String           s1( "hello" );
-    CF::String           s2( static_cast< CFStringRef >( NULL ) );
+    CF::String           s2( static_cast< CFStringRef >( nullptr ) );
     CF::String::Iterator i1;
     CF::String::Iterator i2;
     
@@ -363,7 +363,7 @@ TEST( CFPP_String_Iterator, OperatorDereference )
 TEST( CFPP_String_Iterator, OperatorCastToChar )
 {
     CF::String           s1( "hello" );
-    CF::String           s2( static_cast< CFStringRef >( NULL ) );
+    CF::String           s2( static_cast< CFStringRef >( nullptr ) );
     CF::String::Iterator i1;
     CF::String::Iterator i2;
     
@@ -404,7 +404,7 @@ TEST( CFPP_String_Iterator, Swap )
 TEST( CFPP_String_Iterator, TestIterate )
 {
     CF::String           s1;
-    CF::String           s2( static_cast< CFStringRef >( NULL ) );
+    CF::String           s2( static_cast< CFStringRef >( nullptr ) );
     CF::String           s3( "hello" );
     CF::String::Iterator it;
     CFIndex              i;

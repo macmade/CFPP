@@ -49,9 +49,9 @@ TEST( CFPP_String, CTOR )
 
 TEST( CFPP_String, CTOR_AutoPointer )
 {
-    CF::String s1( CF::AutoPointer( CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII ) ) );
-    CF::String s2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-    CF::String s3( CF::AutoPointer( NULL ) );
+    CF::String s1( CF::AutoPointer( CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII ) ) );
+    CF::String s2( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+    CF::String s3( CF::AutoPointer( nullptr ) );
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_FALSE( s2.IsValid() );
@@ -61,7 +61,7 @@ TEST( CFPP_String, CTOR_AutoPointer )
 TEST( CFPP_String, CTOR_CFType )
 {
     CF::String s1( static_cast< CFTypeRef >( CFSTR( "hello, world" ) ) );
-    CF::String s2( static_cast< CFTypeRef >( NULL ) );
+    CF::String s2( static_cast< CFTypeRef >( nullptr ) );
     CF::String s3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  s1.IsValid() );
@@ -73,7 +73,7 @@ TEST( CFPP_String, CTOR_CFType )
 TEST( CFPP_String, CTOR_CFString )
 {
     CF::String s1( CFSTR( "hello, world" ) );
-    CF::String s2( static_cast< CFStringRef >( NULL ) );
+    CF::String s2( static_cast< CFStringRef >( nullptr ) );
     CF::String s3( static_cast< CFStringRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  s1.IsValid() );
@@ -91,9 +91,9 @@ TEST( CFPP_String, CTOR_NullPointer )
 
 TEST( CFPP_String, CTOR_AutoPointer_DefaultValue_Encoding )
 {
-    CF::String s1( CF::AutoPointer( CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII ) ), "hello, universe" );
-    CF::String s2( CF::AutoPointer( CFUUIDCreate( NULL ) ), "hello, universe" );
-    CF::String s3( CF::AutoPointer( NULL ), "hello, universe" );
+    CF::String s1( CF::AutoPointer( CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII ) ), "hello, universe" );
+    CF::String s2( CF::AutoPointer( CFUUIDCreate( nullptr ) ), "hello, universe" );
+    CF::String s3( CF::AutoPointer( nullptr ), "hello, universe" );
     
     ASSERT_TRUE( s1.IsValid() );
     ASSERT_TRUE( s2.IsValid() );
@@ -107,7 +107,7 @@ TEST( CFPP_String, CTOR_AutoPointer_DefaultValue_Encoding )
 TEST( CFPP_String, CTOR_CFType_DefaultValue_Encoding )
 {
     CF::String s1( static_cast< CFTypeRef >( CFSTR( "hello, world" ) ), "hello, universe", kCFStringEncodingASCII );
-    CF::String s2( static_cast< CFTypeRef >( NULL ), "hello, universe", kCFStringEncodingASCII );
+    CF::String s2( static_cast< CFTypeRef >( nullptr ), "hello, universe", kCFStringEncodingASCII );
     CF::String s3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ), "hello, universe", kCFStringEncodingASCII );
     
     ASSERT_TRUE( s1.IsValid() );
@@ -121,7 +121,7 @@ TEST( CFPP_String, CTOR_CFType_DefaultValue_Encoding )
 TEST( CFPP_String, CTOR_CFString_DefaultValue_Encoding )
 {
     CF::String s1( CFSTR( "hello, world" ), "hello, universe", kCFStringEncodingASCII );
-    CF::String s2( static_cast< CFStringRef >( NULL ), "hello, universe", kCFStringEncodingASCII );
+    CF::String s2( static_cast< CFStringRef >( nullptr ), "hello, universe", kCFStringEncodingASCII );
     CF::String s3( static_cast< CFStringRef >( CF::Boolean().GetCFObject() ), "hello, universe", kCFStringEncodingASCII );
     
     ASSERT_TRUE( s1.IsValid() );
@@ -143,7 +143,7 @@ TEST( CFPP_String, CTOR_STDString_Encoding )
 TEST( CFPP_String, CTOR_Char_Encoding )
 {
     CF::String s1( const_cast< char * >( "hello, world" ), kCFStringEncodingASCII );
-    CF::String s2( static_cast< char * >( NULL ), kCFStringEncodingASCII );
+    CF::String s2( static_cast< char * >( nullptr ), kCFStringEncodingASCII );
     
     ASSERT_TRUE( s1.IsValid() );
     ASSERT_TRUE( s2.IsValid() );
@@ -154,7 +154,7 @@ TEST( CFPP_String, CTOR_Char_Encoding )
 TEST( CFPP_String, CTOR_CChar_Encoding )
 {
     CF::String s1( "hello, world", kCFStringEncodingASCII );
-    CF::String s2( static_cast< const char * >( NULL ), kCFStringEncodingASCII );
+    CF::String s2( static_cast< const char * >( nullptr ), kCFStringEncodingASCII );
     
     ASSERT_TRUE( s1.IsValid() );
     ASSERT_TRUE( s2.IsValid() );
@@ -195,7 +195,7 @@ TEST( CFPP_String, OperatorAssignString )
 
 TEST( CFPP_String, OperatorAssignAutoPointer )
 {
-    CF::String s1( static_cast< CFTypeRef >( NULL ) );
+    CF::String s1( static_cast< CFTypeRef >( nullptr ) );
     CF::String s2;
     CF::String s3;
     
@@ -203,9 +203,9 @@ TEST( CFPP_String, OperatorAssignAutoPointer )
     ASSERT_TRUE(  s2.IsValid() );
     ASSERT_TRUE(  s3.IsValid() );
     
-    s1 = CF::AutoPointer( CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII ) );
-    s2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-    s3 = CF::AutoPointer( NULL );
+    s1 = CF::AutoPointer( CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII ) );
+    s2 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+    s3 = CF::AutoPointer( nullptr );
     
     ASSERT_TRUE(  s1.IsValid() );
     ASSERT_FALSE( s2.IsValid() );
@@ -224,7 +224,7 @@ TEST( CFPP_String, OperatorAssignCFType )
     
     ASSERT_TRUE( s == "" );
     
-    s = static_cast< CFTypeRef >( NULL );
+    s = static_cast< CFTypeRef >( nullptr );
     
     ASSERT_FALSE( s.IsValid() );
 }
@@ -241,7 +241,7 @@ TEST( CFPP_String, OperatorAssignCFString )
     
     ASSERT_TRUE( s == "" );
     
-    s = static_cast< CFStringRef >( NULL );
+    s = static_cast< CFStringRef >( nullptr );
     
     ASSERT_FALSE( s.IsValid() );
 }
@@ -274,7 +274,7 @@ TEST( CFPP_String, OperatorAssignChar )
 {
     CF::String s( "hello, world" );
     
-    s = static_cast< char * >( NULL );
+    s = static_cast< char * >( nullptr );
     
     ASSERT_TRUE( s == "" );
     
@@ -292,7 +292,7 @@ TEST( CFPP_String, OperatorAssignCChar )
 {
     CF::String s( "hello, world" );
     
-    s = static_cast< const char * >( NULL );
+    s = static_cast< const char * >( nullptr );
     
     ASSERT_TRUE( s == "" );
     
@@ -320,7 +320,7 @@ TEST( CFPP_String, OperatorEqualCFType )
     ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< CFTypeRef >( CFSTR( "hello, universe" ) ) );
     ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< CFTypeRef >( CFSTR( "" ) ) );
     ASSERT_TRUE(  CF::String()                 == static_cast< CFTypeRef >( CFSTR( "" ) ) );
-    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< CFTypeRef >( NULL ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< CFTypeRef >( nullptr ) );
 }
 
 TEST( CFPP_String, OperatorEqualCFString )
@@ -329,7 +329,7 @@ TEST( CFPP_String, OperatorEqualCFString )
     ASSERT_FALSE( CF::String( "hello, world" ) == CFSTR( "hello, universe" ) );
     ASSERT_FALSE( CF::String( "hello, world" ) == CFSTR( "" ) );
     ASSERT_TRUE(  CF::String()                 == CFSTR( "" ) );
-    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< CFStringRef >( NULL ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< CFStringRef >( nullptr ) );
 }
 
 TEST( CFPP_String, OperatorEqualSTDString )
@@ -346,7 +346,7 @@ TEST( CFPP_String, OperatorEqualChar )
     ASSERT_FALSE( CF::String( "hello, world" ) == const_cast< char * >( "hello, universe" ) );
     ASSERT_FALSE( CF::String( "hello, world" ) == const_cast< char * >( "" ) );
     ASSERT_TRUE(  CF::String()                 == const_cast< char * >( "" ) );
-    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< char * >( NULL ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< char * >( nullptr ) );
 }
 
 TEST( CFPP_String, OperatorEqualCChar )
@@ -355,7 +355,7 @@ TEST( CFPP_String, OperatorEqualCChar )
     ASSERT_FALSE( CF::String( "hello, world" ) == "hello, universe" );
     ASSERT_FALSE( CF::String( "hello, world" ) == "" );
     ASSERT_TRUE(  CF::String()                 == "" );
-    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< const char * >( NULL ) );
+    ASSERT_FALSE( CF::String( "hello, world" ) == static_cast< const char * >( nullptr ) );
 }
 
 TEST( CFPP_String, OperatorNotEqualString )
@@ -372,7 +372,7 @@ TEST( CFPP_String, OperatorNotEqualCFType )
     ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< CFTypeRef >( CFSTR( "hello, universe" ) ) );
     ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< CFTypeRef >( CFSTR( "" ) ) );
     ASSERT_FALSE( CF::String()                 != static_cast< CFTypeRef >( CFSTR( "" ) ) );
-    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< CFTypeRef >( NULL ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< CFTypeRef >( nullptr ) );
 }
 
 TEST( CFPP_String, OperatorNotEqualCFString )
@@ -381,7 +381,7 @@ TEST( CFPP_String, OperatorNotEqualCFString )
     ASSERT_TRUE(  CF::String( "hello, world" ) != CFSTR( "hello, universe" ) );
     ASSERT_TRUE(  CF::String( "hello, world" ) != CFSTR( "" ) );
     ASSERT_FALSE( CF::String()                 != CFSTR( "" ) );
-    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< CFStringRef >( NULL ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< CFStringRef >( nullptr ) );
 }
 
 TEST( CFPP_String, OperatorNotEqualSTDString )
@@ -398,7 +398,7 @@ TEST( CFPP_String, OperatorNotEqualChar )
     ASSERT_TRUE(  CF::String( "hello, world" ) != const_cast< char * >( "hello, universe" ) );
     ASSERT_TRUE(  CF::String( "hello, world" ) != const_cast< char * >( "" ) );
     ASSERT_FALSE( CF::String()                 != const_cast< char * >( "" ) );
-    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< char * >( NULL ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< char * >( nullptr ) );
 }
 
 TEST( CFPP_String, OperatorNotEqualCChar )
@@ -407,7 +407,7 @@ TEST( CFPP_String, OperatorNotEqualCChar )
     ASSERT_TRUE(  CF::String( "hello, world" ) != "hello, universe" );
     ASSERT_TRUE(  CF::String( "hello, world" ) != "" );
     ASSERT_FALSE( CF::String()                 != "" );
-    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< const char * >( NULL ) );
+    ASSERT_TRUE(  CF::String( "hello, world" ) != static_cast< const char * >( nullptr ) );
 }
 
 TEST( CFPP_String, OperatorPlusEqualString )
@@ -422,7 +422,7 @@ TEST( CFPP_String, OperatorPlusEqualString )
     
     ASSERT_TRUE( s.GetValue() == "hello, world..." );
     
-    s = static_cast< CFStringRef >( NULL );
+    s = static_cast< CFStringRef >( nullptr );
     
     ASSERT_FALSE( s.IsValid() );
     
@@ -439,8 +439,8 @@ TEST( CFPP_String, OperatorPlusEqualCFString )
     
     ASSERT_TRUE( s.GetValue() == "hello, world..." );
     
-    ASSERT_NO_THROW(         s += static_cast< CFStringRef >( NULL ) );
-    ASSERT_NO_FATAL_FAILURE( s += static_cast< CFStringRef >( NULL ) );
+    ASSERT_NO_THROW(         s += static_cast< CFStringRef >( nullptr ) );
+    ASSERT_NO_FATAL_FAILURE( s += static_cast< CFStringRef >( nullptr ) );
     
     ASSERT_TRUE( s.GetValue() == "hello, world..." );
 }
@@ -466,8 +466,8 @@ TEST( CFPP_String, OperatorPlusEqualChar )
     
     ASSERT_TRUE( s.GetValue() == "hello, world..." );
     
-    ASSERT_NO_THROW(         s += static_cast< char * >( NULL ) );
-    ASSERT_NO_FATAL_FAILURE( s += static_cast< char * >( NULL ) );
+    ASSERT_NO_THROW(         s += static_cast< char * >( nullptr ) );
+    ASSERT_NO_FATAL_FAILURE( s += static_cast< char * >( nullptr ) );
     
     ASSERT_TRUE( s.GetValue() == "hello, world..." );
 }
@@ -480,8 +480,8 @@ TEST( CFPP_String, OperatorPlusEqualCChar )
     
     ASSERT_TRUE( s.GetValue() == "hello, world..." );
     
-    ASSERT_NO_THROW(         s += static_cast< const char * >( NULL ) );
-    ASSERT_NO_FATAL_FAILURE( s += static_cast< const char * >( NULL ) );
+    ASSERT_NO_THROW(         s += static_cast< const char * >( nullptr ) );
+    ASSERT_NO_FATAL_FAILURE( s += static_cast< const char * >( nullptr ) );
     
     ASSERT_TRUE( s.GetValue() == "hello, world..." );
 }
@@ -510,7 +510,7 @@ TEST( CFPP_String, OperatorSubscript )
     ASSERT_EQ( s[  -13 ], 0 );
     ASSERT_EQ( s[ -100 ], 0 );
     
-    s = static_cast< CFStringRef >( NULL );
+    s = static_cast< CFStringRef >( nullptr );
     
     ASSERT_FALSE( s.IsValid() );
     ASSERT_EQ( s[  11 ], 0 );
@@ -536,11 +536,11 @@ TEST( CFPP_String, GetCFObject )
 {
     CF::String s1;
     CF::String s2( "hello, world" );
-    CF::String s3( static_cast< CFStringRef >( NULL ) );
+    CF::String s3( static_cast< CFStringRef >( nullptr ) );
     
-    ASSERT_TRUE( s1.GetCFObject() != NULL );
-    ASSERT_TRUE( s2.GetCFObject() != NULL );
-    ASSERT_TRUE( s3.GetCFObject() == NULL );
+    ASSERT_TRUE( s1.GetCFObject() != nullptr );
+    ASSERT_TRUE( s2.GetCFObject() != nullptr );
+    ASSERT_TRUE( s3.GetCFObject() == nullptr );
     ASSERT_TRUE( CFEqual( s2.GetCFObject(), CFSTR( "hello, world" ) ) );
     ASSERT_EQ( CFGetTypeID( s1.GetCFObject() ), CFStringGetTypeID() );
     ASSERT_EQ( CFGetTypeID( s2.GetCFObject() ), CFStringGetTypeID() );
@@ -565,11 +565,11 @@ TEST( CFPP_String, HasPrefix_CFString )
     
     ASSERT_FALSE( s1.HasPrefix( CFSTR( "hello" ) ) );
     ASSERT_FALSE( s1.HasPrefix( CFSTR( "" ) ) );
-    ASSERT_FALSE( s1.HasPrefix( static_cast< CFStringRef >( NULL ) ) );
+    ASSERT_FALSE( s1.HasPrefix( static_cast< CFStringRef >( nullptr ) ) );
     ASSERT_TRUE(  s2.HasPrefix( CFSTR( "hello" ) ) );
     ASSERT_FALSE( s2.HasPrefix( CFSTR( "" ) ) );
     ASSERT_FALSE( s2.HasPrefix( CFSTR( "world" ) ) );
-    ASSERT_FALSE( s2.HasPrefix( static_cast< CFStringRef >( NULL ) ) );
+    ASSERT_FALSE( s2.HasPrefix( static_cast< CFStringRef >( nullptr ) ) );
 }
 
 TEST( CFPP_String, HasPrefix_STDString )
@@ -603,11 +603,11 @@ TEST( CFPP_String, HasSuffix_CFString )
     
     ASSERT_FALSE( s1.HasSuffix( CFSTR( "world" ) ) );
     ASSERT_FALSE( s1.HasSuffix( CFSTR( "" ) ) );
-    ASSERT_FALSE( s1.HasSuffix( static_cast< CFStringRef >( NULL ) ) );
+    ASSERT_FALSE( s1.HasSuffix( static_cast< CFStringRef >( nullptr ) ) );
     ASSERT_TRUE(  s2.HasSuffix( CFSTR( "world" ) ) );
     ASSERT_FALSE( s2.HasSuffix( CFSTR( "" ) ) );
     ASSERT_FALSE( s2.HasSuffix( CFSTR( "universe" ) ) );
-    ASSERT_FALSE( s2.HasSuffix( static_cast< CFStringRef >( NULL ) ) );
+    ASSERT_FALSE( s2.HasSuffix( static_cast< CFStringRef >( nullptr ) ) );
 }
 
 TEST( CFPP_String, HasSuffix_STDString )
@@ -636,7 +636,7 @@ TEST( CFPP_String, GetLength )
     
     ASSERT_EQ( s.GetLength(), 0 );
     
-    s = static_cast< CFStringRef >( NULL );
+    s = static_cast< CFStringRef >( nullptr );
     
     ASSERT_FALSE( s.IsValid() );
     ASSERT_EQ( s.GetLength(), 0 );
@@ -652,7 +652,7 @@ TEST( CFPP_String, GetValue )
     ASSERT_EQ(   s.GetValue( kCFStringEncodingISOLatin9 ), "hello, world" );
     ASSERT_TRUE( s.GetValue( kCFStringEncodingUTF16 ).length() > 0 );
     
-    s = static_cast< CFStringRef >( NULL );
+    s = static_cast< CFStringRef >( nullptr );
     
     ASSERT_FALSE( s.IsValid() );
     ASSERT_EQ( s.GetValue(), "" );
@@ -667,10 +667,10 @@ TEST( CFPP_String, GetCStringValue )
     
     ASSERT_EQ( strcmp( p, "hello, world" ), 0 );
     
-    s = static_cast< CFStringRef >( NULL );
+    s = static_cast< CFStringRef >( nullptr );
     
     ASSERT_FALSE( s.IsValid() );
-    ASSERT_TRUE( s.GetCStringValue() == NULL );
+    ASSERT_TRUE( s.GetCStringValue() == nullptr );
 }
 
 TEST( CFPP_String, SetValue )

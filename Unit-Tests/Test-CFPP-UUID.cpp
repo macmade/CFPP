@@ -48,9 +48,9 @@ TEST( CFPP_UUID, CTOR )
 
 TEST( CFPP_UUID, CTOR_AutoPointer )
 {
-    CF::UUID u1( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-    CF::UUID u2( CF::AutoPointer( CFDateCreate( NULL, 0 ) ) );
-    CF::UUID u3( CF::AutoPointer( NULL ) );
+    CF::UUID u1( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+    CF::UUID u2( CF::AutoPointer( CFDateCreate( nullptr, 0 ) ) );
+    CF::UUID u3( CF::AutoPointer( nullptr ) );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -61,7 +61,7 @@ TEST( CFPP_UUID, CTOR_CFType )
 {
     CF::UUID u1;
     CF::UUID u2( static_cast< CFTypeRef >( u1.GetCFObject() ) );
-    CF::UUID u3( static_cast< CFTypeRef >( NULL ) );
+    CF::UUID u3( static_cast< CFTypeRef >( nullptr ) );
     CF::UUID u4( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  u2.IsValid() );
@@ -74,7 +74,7 @@ TEST( CFPP_UUID, CTOR_CFUUID )
 {
     CF::UUID u1;
     CF::UUID u2( static_cast< CFUUIDRef >( u1.GetCFObject() ) );
-    CF::UUID u3( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u3( static_cast< CFUUIDRef >( nullptr ) );
     CF::UUID u4( static_cast< CFUUIDRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  u2.IsValid() );
@@ -109,7 +109,7 @@ TEST( CFPP_UUID, CTOR_STDString )
 
 TEST( CFPP_UUID, CTOR_Data )
 {
-    CF::Data d1( static_cast< CFDataRef >( NULL ) );
+    CF::Data d1( static_cast< CFDataRef >( nullptr ) );
     CF::Data d2( std::string( "ABCDEFG" ) );
     CF::Data d3( std::string( "ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGA" ) );
     CF::Data d4( std::string( "ABCDEFAB-ABCD-ABCD-ABCD-ABCDEFABCDEF" ) );
@@ -137,7 +137,7 @@ TEST( CFPP_UUID, CCTOR )
 {
     CF::UUID u1;
     CF::UUID u2( u1 );
-    CF::UUID u3( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u3( static_cast< CFUUIDRef >( nullptr ) );
     CF::UUID u4( u3 );
     
     ASSERT_TRUE( u1.IsValid() );
@@ -170,7 +170,7 @@ TEST( CFPP_UUID, OperatorAssignUUID )
 
 TEST( CFPP_UUID, OperatorAssignAutoPointer )
 {
-    CF::UUID u1( static_cast< CFTypeRef >( NULL ) );
+    CF::UUID u1( static_cast< CFTypeRef >( nullptr ) );
     CF::UUID u2;
     CF::UUID u3;
     
@@ -178,9 +178,9 @@ TEST( CFPP_UUID, OperatorAssignAutoPointer )
     ASSERT_TRUE(  u2.IsValid() );
     ASSERT_TRUE(  u3.IsValid() );
     
-    u1 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-    u2 = CF::AutoPointer( CFDateCreate( NULL, 0 ) );
-    u3 = CF::AutoPointer( NULL );
+    u1 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+    u2 = CF::AutoPointer( CFDateCreate( nullptr, 0 ) );
+    u3 = CF::AutoPointer( nullptr );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -199,7 +199,7 @@ TEST( CFPP_UUID, OperatorAssignCFType )
     ASSERT_TRUE( u1.IsValid() );
     ASSERT_EQ( u1, u2 );
     
-    u1 = static_cast< CFTypeRef >( NULL );
+    u1 = static_cast< CFTypeRef >( nullptr );
     
     ASSERT_FALSE( u1.IsValid() );
     
@@ -224,7 +224,7 @@ TEST( CFPP_UUID, OperatorAssignCFUUID )
     ASSERT_TRUE( u1.IsValid() );
     ASSERT_EQ( u1, u2 );
     
-    u1 = static_cast< CFUUIDRef >( NULL );
+    u1 = static_cast< CFUUIDRef >( nullptr );
     
     ASSERT_FALSE( u1.IsValid() );
     
@@ -250,10 +250,10 @@ TEST( CFPP_UUID, OperatorAssignNullPointer )
 
 TEST( CFPP_UUID, OperatorAssignSTDString )
 {
-    CF::UUID u1( static_cast< CFUUIDRef >( NULL ) );
-    CF::UUID u2( static_cast< CFUUIDRef >( NULL ) );
-    CF::UUID u3( static_cast< CFUUIDRef >( NULL ) );
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u1( static_cast< CFUUIDRef >( nullptr ) );
+    CF::UUID u2( static_cast< CFUUIDRef >( nullptr ) );
+    CF::UUID u3( static_cast< CFUUIDRef >( nullptr ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_FALSE( u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -277,14 +277,14 @@ TEST( CFPP_UUID, OperatorAssignSTDString )
 
 TEST( CFPP_UUID, OperatorAssignData )
 {
-    CF::Data d1( static_cast< CFDataRef >( NULL ) );
+    CF::Data d1( static_cast< CFDataRef >( nullptr ) );
     CF::Data d2( std::string( "ABCDEFG" ) );
     CF::Data d3( std::string( "ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGA" ) );
     CF::Data d4( std::string( "ABCDEFAB-ABCD-ABCD-ABCD-ABCDEFABCDEF" ) );
-    CF::UUID u1( static_cast< CFUUIDRef >( NULL ) );
-    CF::UUID u2( static_cast< CFUUIDRef >( NULL ) );
-    CF::UUID u3( static_cast< CFUUIDRef >( NULL ) );
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u1( static_cast< CFUUIDRef >( nullptr ) );
+    CF::UUID u2( static_cast< CFUUIDRef >( nullptr ) );
+    CF::UUID u3( static_cast< CFUUIDRef >( nullptr ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_FALSE( u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -312,7 +312,7 @@ TEST( CFPP_UUID, OperatorEqualUUID )
     CF::UUID u1;
     CF::UUID u2( u1 );
     CF::UUID u3;
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_TRUE(  u1 == u2 );
     ASSERT_FALSE( u1 == u3 );
@@ -325,7 +325,7 @@ TEST( CFPP_UUID, OperatorEqualCFType )
     CF::UUID u1;
     CF::UUID u2( u1 );
     CF::UUID u3;
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_TRUE(  u1 == static_cast< CFTypeRef >( u2.GetCFObject() ) );
     ASSERT_FALSE( u1 == static_cast< CFTypeRef >( u3.GetCFObject() ) );
@@ -339,7 +339,7 @@ TEST( CFPP_UUID, OperatorEqualCFUUID )
     CF::UUID u1;
     CF::UUID u2( u1 );
     CF::UUID u3;
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_TRUE(  u1 == static_cast< CFUUIDRef >( u2.GetCFObject() ) );
     ASSERT_FALSE( u1 == static_cast< CFUUIDRef >( u3.GetCFObject() ) );
@@ -353,7 +353,7 @@ TEST( CFPP_UUID, OperatorEqualSTDString )
     CF::UUID u1;
     CF::UUID u2( u1 );
     CF::UUID u3;
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_TRUE(  u1 == static_cast< std::string >( u2.GetString() ) );
     ASSERT_FALSE( u1 == static_cast< std::string >( u3.GetString() ) );
@@ -366,7 +366,7 @@ TEST( CFPP_UUID, OperatorEqualData )
     CF::UUID u1;
     CF::UUID u2( u1 );
     CF::UUID u3;
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_TRUE(  u1 == u2.GetData() );
     ASSERT_FALSE( u1 == u3.GetData() );
@@ -379,7 +379,7 @@ TEST( CFPP_UUID, OperatorNotEqualUUID )
     CF::UUID u1;
     CF::UUID u2( u1 );
     CF::UUID u3;
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_FALSE( u1 != u2 );
     ASSERT_TRUE(  u1 != u3 );
@@ -392,7 +392,7 @@ TEST( CFPP_UUID, OperatorNotEqualCFType )
     CF::UUID u1;
     CF::UUID u2( u1 );
     CF::UUID u3;
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_FALSE( u1 != static_cast< CFTypeRef >( u2.GetCFObject() ) );
     ASSERT_TRUE(  u1 != static_cast< CFTypeRef >( u3.GetCFObject() ) );
@@ -406,7 +406,7 @@ TEST( CFPP_UUID, OperatorNotEqualCFUUID )
     CF::UUID u1;
     CF::UUID u2( u1 );
     CF::UUID u3;
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_FALSE( u1 != static_cast< CFUUIDRef >( u2.GetCFObject() ) );
     ASSERT_TRUE(  u1 != static_cast< CFUUIDRef >( u3.GetCFObject() ) );
@@ -420,7 +420,7 @@ TEST( CFPP_UUID, OperatorNotEqualSTDString )
     CF::UUID u1;
     CF::UUID u2( u1 );
     CF::UUID u3;
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_FALSE( u1 != static_cast< std::string >( u2.GetString() ) );
     ASSERT_TRUE(  u1 != static_cast< std::string >( u3.GetString() ) );
@@ -433,7 +433,7 @@ TEST( CFPP_UUID, OperatorNotEqualData )
     CF::UUID u1;
     CF::UUID u2( u1 );
     CF::UUID u3;
-    CF::UUID u4( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u4( static_cast< CFUUIDRef >( nullptr ) );
     
     ASSERT_FALSE( u1 != u2.GetData() );
     ASSERT_TRUE(  u1 != u3.GetData() );
@@ -460,10 +460,10 @@ TEST( CFPP_UUID, GetTypeID )
 TEST( CFPP_UUID, GetCFObject )
 {
     CF::UUID u1;
-    CF::UUID u2( static_cast< CFUUIDRef >( NULL ) );
+    CF::UUID u2( static_cast< CFUUIDRef >( nullptr ) );
     
-    ASSERT_TRUE( u1.GetCFObject() != NULL );
-    ASSERT_TRUE( u2.GetCFObject() == NULL );
+    ASSERT_TRUE( u1.GetCFObject() != nullptr );
+    ASSERT_TRUE( u2.GetCFObject() == nullptr );
     ASSERT_EQ( CFGetTypeID( u1.GetCFObject() ), CFUUIDGetTypeID() );
 }
 
@@ -473,7 +473,7 @@ TEST( CFPP_UUID, GetString )
     
     ASSERT_EQ( u.GetString().GetLength(), 36 );
     
-    u = static_cast< CFUUIDRef >( NULL );
+    u = static_cast< CFUUIDRef >( nullptr );
     
     ASSERT_FALSE( u.IsValid() );
     ASSERT_EQ( u.GetString().GetLength(), 0 );
@@ -485,7 +485,7 @@ TEST( CFPP_UUID, GetData )
     
     ASSERT_EQ( u.GetData().GetLength(), 36 );
     
-    u = static_cast< CFUUIDRef >( NULL );
+    u = static_cast< CFUUIDRef >( nullptr );
     
     ASSERT_FALSE( u.IsValid() );
     ASSERT_EQ( u.GetData().GetLength(), 0 );

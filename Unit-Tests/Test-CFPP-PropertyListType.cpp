@@ -158,7 +158,7 @@ TEST( CFPP_PropertyListType, ToPropertyList_STDString_PropertyListFormat )
     ASSERT_FALSE( d1.ToPropertyList( "/foo/bar", CF::PropertyListFormatBinary ) );
     ASSERT_FALSE( d1.ToPropertyList( "/foo/bar", CF::PropertyListFormatXML ) );
     
-    d1 = static_cast< CFDictionaryRef >( NULL );
+    d1 = static_cast< CFDictionaryRef >( nullptr );
     
     ASSERT_FALSE( d1.ToPropertyList( "/tmp/com.xs-labs.cfpp.plist", CF::PropertyListFormatBinary ) );
     ASSERT_FALSE( d1.ToPropertyList( "/tmp/com.xs-labs.cfpp.plist", CF::PropertyListFormatXML ) );
@@ -183,7 +183,7 @@ TEST( CFPP_PropertyListType, ToPropertyList_PropertyListFormat )
     
     ASSERT_NE( d1, d2 );
     
-    d  = static_cast< CFDictionaryRef >( NULL );
+    d  = static_cast< CFDictionaryRef >( nullptr );
     d1 = d.ToPropertyList( CF::PropertyListFormatBinary );
     d2 = d.ToPropertyList( CF::PropertyListFormatXML );
     

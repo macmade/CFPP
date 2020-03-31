@@ -42,7 +42,7 @@ TEST( CFPP_AutoPointer, CTOR )
 {
     CF::AutoPointer p;
     
-    ASSERT_TRUE( p.GetCFObject() == NULL );
+    ASSERT_TRUE( p.GetCFObject() == nullptr );
 }
 
 TEST( CFPP_AutoPointer, CTOR_CFType )
@@ -50,7 +50,7 @@ TEST( CFPP_AutoPointer, CTOR_CFType )
     CFStringRef s;
     CFIndex     i;
     
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     i = CFGetRetainCount( s );
     
     CF::AutoPointer p( static_cast< CFTypeRef >( s ) );
@@ -64,7 +64,7 @@ TEST( CFPP_AutoPointer, CCTOR )
     CFStringRef s;
     CFIndex     i;
     
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     i = CFGetRetainCount( s );
     
     CF::AutoPointer p1( s );
@@ -94,7 +94,7 @@ TEST( CFPP_AutoPointer, DTOR )
     CFStringRef s;
     CFIndex     i;
     
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     i = CFGetRetainCount( s );
     
     CFRetain( s );
@@ -114,7 +114,7 @@ TEST( CFPP_AutoPointer, OperatorAssignAutoPointer )
     CFStringRef s;
     CFIndex     i;
     
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     i = CFGetRetainCount( s );
     
     CF::AutoPointer p1( s );
@@ -137,7 +137,7 @@ TEST( CFPP_AutoPointer, OperatorAssignCFType )
     CFIndex         i1;
     CFIndex         i2;
     
-    s1 = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s1 = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     i1 = CFGetRetainCount( s1 );
     p  = s1;
     
@@ -148,7 +148,7 @@ TEST( CFPP_AutoPointer, OperatorAssignCFType )
     
     ASSERT_EQ( p.GetRetainCount(), i1 + 1 );
     
-    s2 = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s2 = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     i2 = CFGetRetainCount( s2 );
     p  = s2;
     
@@ -163,7 +163,7 @@ TEST( CFPP_AutoPointer, GetTypeID )
 {
     CFStringRef s;
     
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     
     CF::AutoPointer p1( s );
     CF::AutoPointer p2;
@@ -176,7 +176,7 @@ TEST( CFPP_AutoPointer, GetCFObject )
 {
     CFStringRef s;
     
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     
     CF::AutoPointer p( s );
     
@@ -189,7 +189,7 @@ TEST( CFPP_AutoPointer, As )
     CF::String  s1;
     CF::String  s2;
     
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     
     CF::AutoPointer p( s );
     

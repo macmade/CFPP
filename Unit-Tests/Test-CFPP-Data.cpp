@@ -58,9 +58,9 @@ TEST( CFPP_Data, CTOR_CFIndex )
 
 TEST( CFPP_Data, CTOR_AutoPointer )
 {
-    CF::Data d1( CF::AutoPointer( CFDataCreateMutable( NULL, 10 ) ) );
-    CF::Data d2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-    CF::Data d3( CF::AutoPointer( NULL ) );
+    CF::Data d1( CF::AutoPointer( CFDataCreateMutable( nullptr, 10 ) ) );
+    CF::Data d2( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+    CF::Data d3( CF::AutoPointer( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -70,7 +70,7 @@ TEST( CFPP_Data, CTOR_AutoPointer )
 TEST( CFPP_Data, CTOR_CFType )
 {
     CF::Data d1( static_cast< CFTypeRef >( CF::Data().GetCFObject() ) );
-    CF::Data d2( static_cast< CFTypeRef >( NULL ) );
+    CF::Data d2( static_cast< CFTypeRef >( nullptr ) );
     CF::Data d3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  d1.IsValid() );
@@ -81,7 +81,7 @@ TEST( CFPP_Data, CTOR_CFType )
 TEST( CFPP_Data, CTOR_CFData )
 {
     CF::Data d1( static_cast< CFDataRef >( CF::Data().GetCFObject() ) );
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data d3( static_cast< CFDataRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  d1.IsValid() );
@@ -92,7 +92,7 @@ TEST( CFPP_Data, CTOR_CFData )
 TEST( CFPP_Data, CTOR_CFString )
 {
     CF::Data d1( static_cast< CFStringRef >( CFSTR( "hello, world" ) ) );
-    CF::Data d2( static_cast< CFStringRef >( NULL ) );
+    CF::Data d2( static_cast< CFStringRef >( nullptr ) );
     CF::Data d3( static_cast< CFStringRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  d1.IsValid() );
@@ -119,7 +119,7 @@ TEST( CFPP_Data, CTOR_STDString )
 TEST( CFPP_Data, CTOR_BytePtr )
 {
     CF::Data d1( __bytes, sizeof( __bytes ) );
-    CF::Data d2( NULL,    sizeof( __bytes ) );
+    CF::Data d2( nullptr,    sizeof( __bytes ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -141,7 +141,7 @@ TEST( CFPP_Data, CTOR_STDInitializerList )
 TEST( CFPP_Data, CCTOR )
 {
     CF::Data d1;
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data d3( d1 );
     CF::Data d4( d2 );
     
@@ -167,7 +167,7 @@ TEST( CFPP_Data, MCTOR )
 TEST( CFPP_Data, OperatorAssignData )
 {
     CF::Data d1( __bytes, sizeof( __bytes ) );
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data d3;
     CF::Data d4;
     
@@ -189,7 +189,7 @@ TEST( CFPP_Data, OperatorAssignData )
 
 TEST( CFPP_Data, OperatorAssignAutoPointer )
 {
-    CF::Data d1( static_cast< CFTypeRef >( NULL ) );
+    CF::Data d1( static_cast< CFTypeRef >( nullptr ) );
     CF::Data d2;
     CF::Data d3;
     
@@ -197,9 +197,9 @@ TEST( CFPP_Data, OperatorAssignAutoPointer )
     ASSERT_TRUE(  d2.IsValid() );
     ASSERT_TRUE(  d3.IsValid() );
     
-    d1 = CF::AutoPointer( CFDataCreateMutable( NULL, 10 ) );
-    d2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-    d3 = CF::AutoPointer( NULL );
+    d1 = CF::AutoPointer( CFDataCreateMutable( nullptr, 10 ) );
+    d2 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+    d3 = CF::AutoPointer( nullptr );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -209,7 +209,7 @@ TEST( CFPP_Data, OperatorAssignAutoPointer )
 TEST( CFPP_Data, OperatorAssignCFType )
 {
     CF::Data d1( __bytes, sizeof( __bytes ) );
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data d3;
     CF::Data d4;
     
@@ -232,7 +232,7 @@ TEST( CFPP_Data, OperatorAssignCFType )
 TEST( CFPP_Data, OperatorAssignCFData )
 {
     CF::Data d1( __bytes, sizeof( __bytes ) );
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data d3;
     CF::Data d4;
     
@@ -261,7 +261,7 @@ TEST( CFPP_Data, OperatorAssignCFString )
     ASSERT_TRUE( d2.IsValid() );
     
     d1 = static_cast< CFStringRef >( CFSTR( "hello, world" ) );
-    d2 = static_cast< CFStringRef >( NULL );
+    d2 = static_cast< CFStringRef >( nullptr );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -302,15 +302,15 @@ TEST( CFPP_Data, CastToBytePtr )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
     ASSERT_FALSE( d3.IsValid() );
     
-    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d1 ) != NULL );
-    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d2 ) != NULL );
-    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d3 ) == NULL );
+    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d1 ) != nullptr );
+    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d2 ) != nullptr );
+    ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d3 ) == nullptr );
     
     ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d2 )[ 0 ] == 0xDE );
     ASSERT_TRUE( static_cast< const CF::Data::Byte * >( d2 )[ 1 ] == 0xAD );
@@ -322,7 +322,7 @@ TEST( CFPP_Data, CastToSTDString )
 {
     CF::Data d1;
     CF::Data d2( std::string( "hello, world" ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -337,7 +337,7 @@ TEST( CFPP_Data, OperatorSubscript )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -360,7 +360,7 @@ TEST( CFPP_Data, OperatorPlusEqualByte )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -382,7 +382,7 @@ TEST( CFPP_Data, OperatorPlusEqualCFString )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -404,7 +404,7 @@ TEST( CFPP_Data, OperatorPlusEqualCFData )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -426,7 +426,7 @@ TEST( CFPP_Data, OperatorPlusEqualData )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -448,7 +448,7 @@ TEST( CFPP_Data, OperatorPlusEqualSTDString )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -476,10 +476,10 @@ TEST( CFPP_Data, GetTypeID )
 TEST( CFPP_Data, GetCFObject )
 {
     CF::Data d1;
-    CF::Data d2( static_cast< CFStringRef >( NULL ) );
+    CF::Data d2( static_cast< CFStringRef >( nullptr ) );
     
-    ASSERT_TRUE( d1.GetCFObject() != NULL );
-    ASSERT_TRUE( d2.GetCFObject() == NULL );
+    ASSERT_TRUE( d1.GetCFObject() != nullptr );
+    ASSERT_TRUE( d2.GetCFObject() == nullptr );
     
     ASSERT_EQ( CFGetTypeID( d1.GetCFObject() ), CFDataGetTypeID() );
 }
@@ -488,7 +488,7 @@ TEST( CFPP_Data, GetLength )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -503,7 +503,7 @@ TEST( CFPP_Data, SetLength )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -526,7 +526,7 @@ TEST( CFPP_Data, IncreaseLength )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -549,15 +549,15 @@ TEST( CFPP_Data, GetBytePtr )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
     ASSERT_FALSE( d3.IsValid() );
     
-    ASSERT_TRUE( d1.GetBytePtr() != NULL );
-    ASSERT_TRUE( d2.GetBytePtr() != NULL );
-    ASSERT_TRUE( d3.GetBytePtr() == NULL );
+    ASSERT_TRUE( d1.GetBytePtr() != nullptr );
+    ASSERT_TRUE( d2.GetBytePtr() != nullptr );
+    ASSERT_TRUE( d3.GetBytePtr() == nullptr );
     
     ASSERT_TRUE( d2.GetBytePtr()[ 0 ] == 0xDE );
     ASSERT_TRUE( d2.GetBytePtr()[ 1 ] == 0xAD );
@@ -569,15 +569,15 @@ TEST( CFPP_Data, GetMutableBytePtr )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
     ASSERT_FALSE( d3.IsValid() );
     
-    ASSERT_TRUE( d1.GetMutableBytePtr() != NULL );
-    ASSERT_TRUE( d2.GetMutableBytePtr() != NULL );
-    ASSERT_TRUE( d3.GetMutableBytePtr() == NULL );
+    ASSERT_TRUE( d1.GetMutableBytePtr() != nullptr );
+    ASSERT_TRUE( d2.GetMutableBytePtr() != nullptr );
+    ASSERT_TRUE( d3.GetMutableBytePtr() == nullptr );
     
     ASSERT_TRUE( d2.GetMutableBytePtr()[ 0 ] == 0xDE );
     ASSERT_TRUE( d2.GetMutableBytePtr()[ 1 ] == 0xAD );
@@ -588,7 +588,7 @@ TEST( CFPP_Data, GetMutableBytePtr )
 TEST( CFPP_Data, GetBytes )
 {
     CF::Data       d1( __bytes, sizeof( __bytes ) );
-    CF::Data       d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data       d2( static_cast< CFDataRef >( nullptr ) );
     CF::Data::Byte bytes[ 2 ];
     
     memset( bytes, 0x00, sizeof( bytes ) );
@@ -613,7 +613,7 @@ TEST( CFPP_Data, AppendBytes )
 {
     CF::Data d1;
     CF::Data d2( __bytes, sizeof( __bytes ) );
-    CF::Data d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data d3( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -627,9 +627,9 @@ TEST( CFPP_Data, AppendBytes )
     ASSERT_TRUE(  d2.IsValid() );
     ASSERT_FALSE( d3.IsValid() );
     
-    ASSERT_TRUE( d1.GetBytePtr() != NULL );
-    ASSERT_TRUE( d2.GetBytePtr() != NULL );
-    ASSERT_TRUE( d3.GetBytePtr() == NULL );
+    ASSERT_TRUE( d1.GetBytePtr() != nullptr );
+    ASSERT_TRUE( d2.GetBytePtr() != nullptr );
+    ASSERT_TRUE( d3.GetBytePtr() == nullptr );
     
     ASSERT_TRUE( d1.GetBytePtr()[ 0 ] == 0xDE );
     ASSERT_TRUE( d1.GetBytePtr()[ 1 ] == 0xAD );
@@ -650,7 +650,7 @@ TEST( CFPP_Data, ReplaceBytes )
 {
     CF::Data       d1;
     CF::Data       d2( __bytes, sizeof( __bytes ) );
-    CF::Data       d3( static_cast< CFDataRef >( NULL ) );
+    CF::Data       d3( static_cast< CFDataRef >( nullptr ) );
     CF::Data::Byte bytes[ 3 ];
     
     memset( bytes, 0xFF, sizeof( bytes ) );
@@ -667,9 +667,9 @@ TEST( CFPP_Data, ReplaceBytes )
     ASSERT_TRUE(  d2.IsValid() );
     ASSERT_FALSE( d3.IsValid() );
     
-    ASSERT_TRUE( d1.GetBytePtr() != NULL );
-    ASSERT_TRUE( d2.GetBytePtr() != NULL );
-    ASSERT_TRUE( d3.GetBytePtr() == NULL );
+    ASSERT_TRUE( d1.GetBytePtr() != nullptr );
+    ASSERT_TRUE( d2.GetBytePtr() != nullptr );
+    ASSERT_TRUE( d3.GetBytePtr() == nullptr );
     
     ASSERT_TRUE( d1.GetBytePtr()[ 0 ] == 0xFF );
     ASSERT_TRUE( d1.GetBytePtr()[ 1 ] == 0xFF );
@@ -697,7 +697,7 @@ TEST( CFPP_Data, ReplaceBytes )
 TEST( CFPP_Data, DeleteBytes )
 {
     CF::Data d1( __bytes, sizeof( __bytes ) );
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -741,7 +741,7 @@ TEST( CFPP_Data, Find )
 TEST( CFPP_Data, Swap )
 {
     CF::Data d1;
-    CF::Data d2( static_cast< CFDataRef >( NULL ) );
+    CF::Data d2( static_cast< CFDataRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );

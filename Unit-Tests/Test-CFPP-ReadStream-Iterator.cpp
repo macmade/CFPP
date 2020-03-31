@@ -111,7 +111,7 @@ TEST( CFPP_ReadStream_Iterator, ReadStreamEnd )
     
     {
         CF::ReadStream s1;
-        CF::ReadStream s2( static_cast< CFReadStreamRef >( NULL ) );
+        CF::ReadStream s2( static_cast< CFReadStreamRef >( nullptr ) );
         CF::ReadStream s3;
         
         s1.Open( "/etc/hosts" );

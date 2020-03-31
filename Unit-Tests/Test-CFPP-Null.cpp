@@ -53,7 +53,7 @@ TEST( CFPP_Null, CCTOR )
 {
     CF::Null n1;
     CF::Null n2( n1 );
-    CF::Null n3( CF::Null( static_cast< CFNullRef >( NULL ) ) );
+    CF::Null n3( CF::Null( static_cast< CFNullRef >( nullptr ) ) );
     
     ASSERT_TRUE(  n1.IsValid() );
     ASSERT_TRUE(  n2.IsValid() );
@@ -63,7 +63,7 @@ TEST( CFPP_Null, CCTOR )
 TEST( CFPP_Null, CTOR_CFTypeRef )
 {
     CF::Null n1( kCFNull );
-    CF::Null n2( static_cast< CFTypeRef >( NULL ) );
+    CF::Null n2( static_cast< CFTypeRef >( nullptr ) );
     CF::Null n3( static_cast< CFTypeRef >( CF::Array() ) );
     
     ASSERT_TRUE(  n1.IsValid() );
@@ -82,7 +82,7 @@ TEST( CFPP_Null, MCTOR )
 TEST( CFPP_Null, OperatorAssign )
 {
     CF::Null n1;
-    CF::Null n2( CF::Null( static_cast< CFNullRef >( NULL ) ) );
+    CF::Null n2( CF::Null( static_cast< CFNullRef >( nullptr ) ) );
     
     ASSERT_TRUE(  n1.IsValid() );
     ASSERT_FALSE( n2.IsValid() );
@@ -95,7 +95,7 @@ TEST( CFPP_Null, OperatorAssign )
 
 TEST( CFPP_Null, OperatorAssign_CFTypeRef )
 {
-    CF::Null n( static_cast< CFTypeRef >( NULL ) );
+    CF::Null n( static_cast< CFTypeRef >( nullptr ) );
     
     ASSERT_FALSE( n.IsValid() );
     
@@ -103,7 +103,7 @@ TEST( CFPP_Null, OperatorAssign_CFTypeRef )
     
     ASSERT_TRUE( n.IsValid() );
     
-    n = static_cast< CFTypeRef >( NULL );
+    n = static_cast< CFTypeRef >( nullptr );
     
     ASSERT_FALSE( n.IsValid() );
 }
@@ -118,16 +118,16 @@ TEST( CFPP_Null, GetTypeID )
 TEST( CFPP_Null, GetCFObject )
 {
     CF::Null n1;
-    CF::Null n2( static_cast< CFTypeRef >( NULL ) );
+    CF::Null n2( static_cast< CFTypeRef >( nullptr ) );
     
-    ASSERT_TRUE( n1.GetCFObject() != NULL );
-    ASSERT_TRUE( n2.GetCFObject() == NULL );
+    ASSERT_TRUE( n1.GetCFObject() != nullptr );
+    ASSERT_TRUE( n2.GetCFObject() == nullptr );
 }
 
 TEST( CFPP_Null, Swap )
 {
     CF::Null n1;
-    CF::Null n2( static_cast< CFTypeRef >( NULL ) );
+    CF::Null n2( static_cast< CFTypeRef >( nullptr ) );
     
     ASSERT_TRUE(  n1.IsValid() );
     ASSERT_FALSE( n2.IsValid() );

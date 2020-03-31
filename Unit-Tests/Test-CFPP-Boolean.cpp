@@ -51,8 +51,8 @@ TEST( CFPP_Boolean, CTOR )
 TEST( CFPP_Boolean, CTOR_AutoPointer )
 {
     CF::Boolean b1( CF::AutoPointer( CFRetain( GetCFBooleanTrue() ) ) );
-    CF::Boolean b2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-    CF::Boolean b3( CF::AutoPointer( NULL ) );
+    CF::Boolean b2( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+    CF::Boolean b3( CF::AutoPointer( nullptr ) );
     
     ASSERT_TRUE( b1.IsValid() );
     ASSERT_TRUE( b2.IsValid() );
@@ -69,12 +69,12 @@ TEST( CFPP_Boolean, CTOR_CFType )
     CFStringRef  s;
     
     b = GetCFBooleanTrue();
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     
     {
         CF::Boolean b1( static_cast< CFTypeRef >( b ) );
         CF::Boolean b2( static_cast< CFTypeRef >( s ) );
-        CF::Boolean b3( static_cast< CFTypeRef >( NULL ) );
+        CF::Boolean b3( static_cast< CFTypeRef >( nullptr ) );
         
         ASSERT_TRUE(  b1.GetValue() );
         ASSERT_FALSE( b2.GetValue() );
@@ -88,7 +88,7 @@ TEST( CFPP_Boolean, CTOR_CFBoolean )
 {
     CF::Boolean b1( GetCFBooleanTrue() );
     CF::Boolean b2( GetCFBooleanFalse() );
-    CF::Boolean b3( static_cast< CFBooleanRef >( NULL ) );
+    CF::Boolean b3( static_cast< CFBooleanRef >( nullptr ) );
     
     ASSERT_TRUE(  b1.GetValue() );
     ASSERT_FALSE( b2.GetValue() );
@@ -106,8 +106,8 @@ TEST( CFPP_Boolean, CTOR_NullPointer )
 TEST( CFPP_Boolean, CTOR_AutoPointer_DefaultValue )
 {
     CF::Boolean b1( CF::AutoPointer( CFRetain( GetCFBooleanTrue() ) ), false );
-    CF::Boolean b2( CF::AutoPointer( CFUUIDCreate( NULL ) ), true );
-    CF::Boolean b3( CF::AutoPointer( NULL ), true );
+    CF::Boolean b2( CF::AutoPointer( CFUUIDCreate( nullptr ) ), true );
+    CF::Boolean b3( CF::AutoPointer( nullptr ), true );
     
     ASSERT_TRUE( b1.IsValid() );
     ASSERT_TRUE( b2.IsValid() );
@@ -124,12 +124,12 @@ TEST( CFPP_Boolean, CTOR_CFType_DefaultValue )
     CFStringRef  s;
     
     b = GetCFBooleanTrue();
-    s = CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII );
+    s = CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII );
     
     {
         CF::Boolean b1( static_cast< CFTypeRef >( b ), false );
         CF::Boolean b2( static_cast< CFTypeRef >( s ), true );
-        CF::Boolean b3( static_cast< CFTypeRef >( NULL ), true );
+        CF::Boolean b3( static_cast< CFTypeRef >( nullptr ), true );
         
         ASSERT_TRUE( b1.GetValue() );
         ASSERT_TRUE( b2.GetValue() );
@@ -143,7 +143,7 @@ TEST( CFPP_Boolean, CTOR_CFBoolean_DefaultValue )
 {
     CF::Boolean b1( GetCFBooleanTrue(), false );
     CF::Boolean b2( GetCFBooleanFalse(), true );
-    CF::Boolean b3( static_cast< CFBooleanRef >( NULL ), true );
+    CF::Boolean b3( static_cast< CFBooleanRef >( nullptr ), true );
     
     ASSERT_TRUE(  b1.GetValue() );
     ASSERT_FALSE( b2.GetValue() );
@@ -195,8 +195,8 @@ TEST( CFPP_Boolean, OperatorAssignAutoPointer )
     CF::Boolean b3;
     
     b1 = CF::AutoPointer( CFRetain( GetCFBooleanTrue() ) );
-    b2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-    b3 = CF::AutoPointer( NULL );
+    b2 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+    b3 = CF::AutoPointer( nullptr );
     
     ASSERT_TRUE( b1.IsValid() );
     ASSERT_TRUE( b2.IsValid() );
@@ -404,8 +404,8 @@ TEST( CFPP_Boolean, GetCFObject )
     CF::Boolean b1( true );
     CF::Boolean b2( false );
     
-    ASSERT_NE( b1.GetCFObject(), static_cast< CFTypeRef >( NULL ) );
-    ASSERT_NE( b2.GetCFObject(), static_cast< CFTypeRef >( NULL ) );
+    ASSERT_NE( b1.GetCFObject(), static_cast< CFTypeRef >( nullptr ) );
+    ASSERT_NE( b2.GetCFObject(), static_cast< CFTypeRef >( nullptr ) );
     ASSERT_EQ( b1.GetCFObject(), GetCFBooleanTrue() );
     ASSERT_EQ( b2.GetCFObject(), GetCFBooleanFalse() );
 }

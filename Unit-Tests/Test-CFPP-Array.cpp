@@ -56,9 +56,9 @@ TEST( CFPP_Array, CTOR_CFIndex )
 
 TEST( CFPP_Array, CTOR_AutoPointer )
 {
-    CF::Array a1( CF::AutoPointer( CFArrayCreateMutable( NULL, 10, NULL ) ) );
-    CF::Array a2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-    CF::Array a3( CF::AutoPointer( NULL ) );
+    CF::Array a1( CF::AutoPointer( CFArrayCreateMutable( nullptr, 10, nullptr ) ) );
+    CF::Array a2( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+    CF::Array a3( CF::AutoPointer( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -68,7 +68,7 @@ TEST( CFPP_Array, CTOR_AutoPointer )
 TEST( CFPP_Array, CTOR_CFType )
 {
     CF::Array a1( static_cast< CFTypeRef >( CF::Array().GetCFObject() ) );
-    CF::Array a2( static_cast< CFTypeRef >( NULL ) );
+    CF::Array a2( static_cast< CFTypeRef >( nullptr ) );
     CF::Array a3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  a1.IsValid() );
@@ -79,7 +79,7 @@ TEST( CFPP_Array, CTOR_CFType )
 TEST( CFPP_Array, CTOR_CFArray )
 {
     CF::Array a1( static_cast< CFArrayRef >( CF::Array().GetCFObject() ) );
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     CF::Array a3( static_cast< CFArrayRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  a1.IsValid() );
@@ -162,8 +162,8 @@ TEST( CFPP_Array, MCTOR )
 TEST( CFPP_Array, OperatorAssignArray )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
-    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
+    CF::Array a3( static_cast< CFArrayRef >( nullptr ) );
     CF::Array a4;
     
     ASSERT_TRUE(  a1.IsValid() );
@@ -180,7 +180,7 @@ TEST( CFPP_Array, OperatorAssignArray )
 
 TEST( CFPP_Array, OperatorAssignAutoPointer )
 {
-    CF::Array a1( static_cast< CFTypeRef >( NULL ) );
+    CF::Array a1( static_cast< CFTypeRef >( nullptr ) );
     CF::Array a2;
     CF::Array a3;
     
@@ -188,9 +188,9 @@ TEST( CFPP_Array, OperatorAssignAutoPointer )
     ASSERT_TRUE(  a2.IsValid() );
     ASSERT_TRUE(  a3.IsValid() );
     
-    a1 = CF::AutoPointer( CFArrayCreateMutable( NULL, 0, NULL ) );
-    a2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-    a3 = CF::AutoPointer( NULL );
+    a1 = CF::AutoPointer( CFArrayCreateMutable( nullptr, 0, nullptr ) );
+    a2 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+    a3 = CF::AutoPointer( nullptr );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -200,8 +200,8 @@ TEST( CFPP_Array, OperatorAssignAutoPointer )
 TEST( CFPP_Array, OperatorAssignCFType )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
-    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
+    CF::Array a3( static_cast< CFArrayRef >( nullptr ) );
     CF::Array a4;
     
     ASSERT_TRUE(  a1.IsValid() );
@@ -219,8 +219,8 @@ TEST( CFPP_Array, OperatorAssignCFType )
 TEST( CFPP_Array, OperatorAssignCFArray )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
-    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
+    CF::Array a3( static_cast< CFArrayRef >( nullptr ) );
     CF::Array a4;
     
     ASSERT_TRUE(  a1.IsValid() );
@@ -250,7 +250,7 @@ TEST( CFPP_Array, OperatorPlusEqualArray )
 {
     CF::Array a1;
     CF::Array a2;
-    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a3( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_TRUE(  a2.IsValid() );
@@ -283,7 +283,7 @@ TEST( CFPP_Array, OperatorPlusEqualCFType )
 {
     CF::Array a1;
     CF::Array a2;
-    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a3( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_TRUE(  a2.IsValid() );
@@ -316,7 +316,7 @@ TEST( CFPP_Array, OperatorPlusEqualCFArray )
 {
     CF::Array a1;
     CF::Array a2;
-    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a3( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_TRUE(  a2.IsValid() );
@@ -348,7 +348,7 @@ TEST( CFPP_Array, OperatorPlusEqualCFArray )
 TEST( CFPP_Array, OperatorLeftShiftCFType )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -364,7 +364,7 @@ TEST( CFPP_Array, OperatorLeftShiftCFType )
 TEST( CFPP_Array, OperatorLeftShiftCChar )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -380,7 +380,7 @@ TEST( CFPP_Array, OperatorLeftShiftCChar )
 TEST( CFPP_Array, OperatorLeftShiftString )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -396,7 +396,7 @@ TEST( CFPP_Array, OperatorLeftShiftString )
 TEST( CFPP_Array, OperatorLeftShiftNumber )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -413,7 +413,7 @@ TEST( CFPP_Array, OperatorSubscript )
 {
     CF::Array a1;
     CF::Array a2;
-    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a3( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_TRUE(  a2.IsValid() );
@@ -429,10 +429,10 @@ TEST( CFPP_Array, OperatorSubscript )
     ASSERT_NO_THROW( a2[ 0 ] );
     ASSERT_NO_THROW( a3[ 0 ] );
     
-    ASSERT_TRUE( a1[ 0 ] != NULL );
-    ASSERT_TRUE( a1[ 1 ] == NULL );
-    ASSERT_TRUE( a2[ 0 ] == NULL );
-    ASSERT_TRUE( a3[ 0 ] == NULL );
+    ASSERT_TRUE( a1[ 0 ] != nullptr );
+    ASSERT_TRUE( a1[ 1 ] == nullptr );
+    ASSERT_TRUE( a2[ 0 ] == nullptr );
+    ASSERT_TRUE( a3[ 0 ] == nullptr );
     
     ASSERT_EQ( CFGetTypeID( a1[ 0 ] ), CFStringGetTypeID() );
 }
@@ -447,17 +447,17 @@ TEST( CFPP_Array, GetTypeID )
 TEST( CFPP_Array, GetCFObject )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
-    ASSERT_TRUE( a1.GetCFObject() != NULL );
-    ASSERT_TRUE( a2.GetCFObject() == NULL );
+    ASSERT_TRUE( a1.GetCFObject() != nullptr );
+    ASSERT_TRUE( a2.GetCFObject() == nullptr );
     ASSERT_EQ( CFGetTypeID( a1.GetCFObject() ), CFArrayGetTypeID() );
 }
 
 TEST( CFPP_Array, GetCount )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -487,7 +487,7 @@ TEST( CFPP_Array, GetCount )
 TEST( CFPP_Array, ContainsValue )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -506,7 +506,7 @@ TEST( CFPP_Array, ContainsValue )
 TEST( CFPP_Array, RemoveAllValues )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -542,7 +542,7 @@ TEST( CFPP_Array, GetValueAtIndex )
 {
     CF::Array a1;
     CF::Array a2;
-    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a3( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_TRUE(  a2.IsValid() );
@@ -558,10 +558,10 @@ TEST( CFPP_Array, GetValueAtIndex )
     ASSERT_NO_THROW( a2.GetValueAtIndex( 0 ) );
     ASSERT_NO_THROW( a3.GetValueAtIndex( 0 ) );
     
-    ASSERT_TRUE( a1.GetValueAtIndex( 0 ) != NULL );
-    ASSERT_TRUE( a1.GetValueAtIndex( 1 ) == NULL );
-    ASSERT_TRUE( a2.GetValueAtIndex( 0 ) == NULL );
-    ASSERT_TRUE( a3.GetValueAtIndex( 0 ) == NULL );
+    ASSERT_TRUE( a1.GetValueAtIndex( 0 ) != nullptr );
+    ASSERT_TRUE( a1.GetValueAtIndex( 1 ) == nullptr );
+    ASSERT_TRUE( a2.GetValueAtIndex( 0 ) == nullptr );
+    ASSERT_TRUE( a3.GetValueAtIndex( 0 ) == nullptr );
     
     ASSERT_EQ( CFGetTypeID( a1.GetValueAtIndex( 0 ) ), CFStringGetTypeID() );
 }
@@ -569,7 +569,7 @@ TEST( CFPP_Array, GetValueAtIndex )
 TEST( CFPP_Array, SetValueAtIndex )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -600,7 +600,7 @@ TEST( CFPP_Array, SetValueAtIndex )
 TEST( CFPP_Array, InsertValueAtIndex )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -630,7 +630,7 @@ TEST( CFPP_Array, InsertValueAtIndex )
 TEST( CFPP_Array, AppendValue )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -646,7 +646,7 @@ TEST( CFPP_Array, AppendValue )
 TEST( CFPP_Array, RemoveValueAtIndex )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );
@@ -682,7 +682,7 @@ TEST( CFPP_Array, AppendArray )
 {
     CF::Array a1;
     CF::Array a2;
-    CF::Array a3( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a3( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_TRUE(  a2.IsValid() );
@@ -714,7 +714,7 @@ TEST( CFPP_Array, AppendArray )
 TEST( CFPP_Array, ExchangeValuesAtIndices )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  a1.IsValid() );
     ASSERT_FALSE( a2.IsValid() );

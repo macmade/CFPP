@@ -41,14 +41,14 @@
 TEST( CFPP_Array_Iterator, ArrayBegin )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     CF::Array a3;
     
     a3 << CF::String( "hello, world" );
     
-    ASSERT_TRUE( *( a1.begin() ) == NULL );
-    ASSERT_TRUE( *( a2.begin() ) == NULL );
-    ASSERT_TRUE( *( a3.begin() ) != NULL );
+    ASSERT_TRUE( *( a1.begin() ) == nullptr );
+    ASSERT_TRUE( *( a2.begin() ) == nullptr );
+    ASSERT_TRUE( *( a3.begin() ) != nullptr );
     
     ASSERT_TRUE( CF::String( *( a3.begin() ) ) == "hello, world" );
     
@@ -60,14 +60,14 @@ TEST( CFPP_Array_Iterator, ArrayBegin )
 TEST( CFPP_Array_Iterator, ArrayEnd )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     CF::Array a3;
     
     a3 << CF::String( "hello, world" );
     
-    ASSERT_TRUE( *( a1.end() ) == NULL );
-    ASSERT_TRUE( *( a2.end() ) == NULL );
-    ASSERT_TRUE( *( a3.end() ) == NULL );
+    ASSERT_TRUE( *( a1.end() ) == nullptr );
+    ASSERT_TRUE( *( a2.end() ) == nullptr );
+    ASSERT_TRUE( *( a3.end() ) == nullptr );
     
     ASSERT_TRUE( CF::String( *( a3.begin() ) ) == "hello, world" );
     
@@ -80,7 +80,7 @@ TEST( CFPP_Array_Iterator, CTOR )
 {
     CF::Array::Iterator i;
     
-    ASSERT_TRUE( *( i ) == NULL );
+    ASSERT_TRUE( *( i ) == nullptr );
 }
 
 TEST( CFPP_Array_Iterator, CCTOR )
@@ -95,10 +95,10 @@ TEST( CFPP_Array_Iterator, CCTOR )
         CF::Array::Iterator i3( a.begin() );
         CF::Array::Iterator i4( i3 );
         
-        ASSERT_TRUE( *( i1 ) == NULL );
-        ASSERT_TRUE( *( i2 ) == NULL );
-        ASSERT_TRUE( *( i3 ) != NULL );
-        ASSERT_TRUE( *( i4 ) != NULL );
+        ASSERT_TRUE( *( i1 ) == nullptr );
+        ASSERT_TRUE( *( i2 ) == nullptr );
+        ASSERT_TRUE( *( i3 ) != nullptr );
+        ASSERT_TRUE( *( i4 ) != nullptr );
         
         ASSERT_TRUE( CF::String( *( i3 ) ) == "hello, world" );
         ASSERT_TRUE( CF::String( *( i4 ) ) == "hello, world" );
@@ -138,16 +138,16 @@ TEST( CFPP_Array_Iterator, OperatorAssign )
         CF::Array::Iterator i3( a.begin() );
         CF::Array::Iterator i4;
         
-        ASSERT_TRUE( *( i1 ) == NULL );
-        ASSERT_TRUE( *( i3 ) != NULL );
+        ASSERT_TRUE( *( i1 ) == nullptr );
+        ASSERT_TRUE( *( i3 ) != nullptr );
         
         ASSERT_TRUE( CF::String( *( i3 ) ) == "hello, world" );
         
         i2 = i1;
         i4 = i3;
         
-        ASSERT_TRUE( *( i2 ) == NULL );
-        ASSERT_TRUE( *( i4 ) != NULL );
+        ASSERT_TRUE( *( i2 ) == nullptr );
+        ASSERT_TRUE( *( i4 ) != nullptr );
         
         ASSERT_TRUE( CF::String( *( i4 ) ) == "hello, world" );
     }
@@ -170,10 +170,10 @@ TEST( CFPP_Array_Iterator, OperatorPrefixIncrement )
         i2 = ++i1;
         i4 = ++i3;
         
-        ASSERT_TRUE( *( i1 ) != NULL );
-        ASSERT_TRUE( *( i2 ) != NULL );
-        ASSERT_TRUE( *( i3 ) == NULL );
-        ASSERT_TRUE( *( i4 ) == NULL );
+        ASSERT_TRUE( *( i1 ) != nullptr );
+        ASSERT_TRUE( *( i2 ) != nullptr );
+        ASSERT_TRUE( *( i3 ) == nullptr );
+        ASSERT_TRUE( *( i4 ) == nullptr );
         
         ASSERT_TRUE( CF::String( *( i1 ) ) == "hello, universe" );
         ASSERT_TRUE( CF::String( *( i2 ) ) == "hello, universe" );
@@ -197,10 +197,10 @@ TEST( CFPP_Array_Iterator, OperatorPostfixIncrement )
         i2 = i1++;
         i4 = i3++;
         
-        ASSERT_TRUE( *( i1 ) != NULL );
-        ASSERT_TRUE( *( i2 ) != NULL );
-        ASSERT_TRUE( *( i3 ) == NULL );
-        ASSERT_TRUE( *( i4 ) == NULL );
+        ASSERT_TRUE( *( i1 ) != nullptr );
+        ASSERT_TRUE( *( i2 ) != nullptr );
+        ASSERT_TRUE( *( i3 ) == nullptr );
+        ASSERT_TRUE( *( i4 ) == nullptr );
         
         ASSERT_TRUE( CF::String( *( i1 ) ) == "hello, universe" );
         ASSERT_TRUE( CF::String( *( i2 ) ) == "hello, world" );
@@ -224,10 +224,10 @@ TEST( CFPP_Array_Iterator, OperatorPrefixDecrement )
         i2 = --i1;
         i4 = --i3;
         
-        ASSERT_TRUE( *( i1 ) != NULL );
-        ASSERT_TRUE( *( i2 ) != NULL );
-        ASSERT_TRUE( *( i3 ) == NULL );
-        ASSERT_TRUE( *( i4 ) == NULL );
+        ASSERT_TRUE( *( i1 ) != nullptr );
+        ASSERT_TRUE( *( i2 ) != nullptr );
+        ASSERT_TRUE( *( i3 ) == nullptr );
+        ASSERT_TRUE( *( i4 ) == nullptr );
         
         ASSERT_TRUE( CF::String( *( i1 ) ) == "hello, universe" );
         ASSERT_TRUE( CF::String( *( i2 ) ) == "hello, universe" );
@@ -251,10 +251,10 @@ TEST( CFPP_Array_Iterator, OperatorPostfixDecrement )
         i2 = i1--;
         i4 = i3--;
         
-        ASSERT_TRUE( *( i1 ) != NULL );
-        ASSERT_TRUE( *( i2 ) == NULL );
-        ASSERT_TRUE( *( i3 ) == NULL );
-        ASSERT_TRUE( *( i4 ) == NULL );
+        ASSERT_TRUE( *( i1 ) != nullptr );
+        ASSERT_TRUE( *( i2 ) == nullptr );
+        ASSERT_TRUE( *( i3 ) == nullptr );
+        ASSERT_TRUE( *( i4 ) == nullptr );
         
         ASSERT_TRUE( CF::String( *( i1 ) ) == "hello, universe" );
     }
@@ -274,22 +274,22 @@ TEST( CFPP_Array_Iterator, OperatorPlusEqual )
         
         i = a.begin();
         
-        ASSERT_TRUE( *( i ) != NULL );
+        ASSERT_TRUE( *( i ) != nullptr );
         ASSERT_TRUE( CF::String( *( i ) ) == "hello, world" );
         
         i += 1;
         
-        ASSERT_TRUE( *( i ) != NULL );
+        ASSERT_TRUE( *( i ) != nullptr );
         ASSERT_TRUE( CF::String( *( i ) ) == "hello, universe" );
         
         i += 0;
         
-        ASSERT_TRUE( *( i ) != NULL );
+        ASSERT_TRUE( *( i ) != nullptr );
         ASSERT_TRUE( CF::String( *( i ) ) == "hello, universe" );
         
         i += 2;
         
-        ASSERT_TRUE( *( i ) != NULL );
+        ASSERT_TRUE( *( i ) != nullptr );
         ASSERT_TRUE( CF::String( *( i ) ) == "bar" );
     }
 }
@@ -308,21 +308,21 @@ TEST( CFPP_Array_Iterator, OperatorMinusEqual )
         
         i = a.end();
         
-        ASSERT_TRUE( *( i ) == NULL );
+        ASSERT_TRUE( *( i ) == nullptr );
         
         i -= 1;
         
-        ASSERT_TRUE( *( i ) != NULL );
+        ASSERT_TRUE( *( i ) != nullptr );
         ASSERT_TRUE( CF::String( *( i ) ) == "bar" );
         
         i -= 0;
         
-        ASSERT_TRUE( *( i ) != NULL );
+        ASSERT_TRUE( *( i ) != nullptr );
         ASSERT_TRUE( CF::String( *( i ) ) == "bar" );
         
         i -= 2;
         
-        ASSERT_TRUE( *( i ) != NULL );
+        ASSERT_TRUE( *( i ) != nullptr );
         ASSERT_TRUE( CF::String( *( i ) ) == "hello, universe" );
     }
 }
@@ -341,10 +341,10 @@ TEST( CFPP_Array_Iterator, OperatorPlus )
         
         i = a.begin();
         
-        ASSERT_TRUE( *( i )                               != NULL );
-        ASSERT_TRUE( *( i + static_cast< CFIndex >( 1 ) ) != NULL );
-        ASSERT_TRUE( *( i + static_cast< CFIndex >( 0 ) ) != NULL );
-        ASSERT_TRUE( *( i + static_cast< CFIndex >( 2 ) ) != NULL );
+        ASSERT_TRUE( *( i )                               != nullptr );
+        ASSERT_TRUE( *( i + static_cast< CFIndex >( 1 ) ) != nullptr );
+        ASSERT_TRUE( *( i + static_cast< CFIndex >( 0 ) ) != nullptr );
+        ASSERT_TRUE( *( i + static_cast< CFIndex >( 2 ) ) != nullptr );
         
         ASSERT_TRUE( CF::String( *( i ) )                               == "hello, world" );
         ASSERT_TRUE( CF::String( *( i + static_cast< CFIndex >( 1 ) ) ) == "hello, universe" );
@@ -367,10 +367,10 @@ TEST( CFPP_Array_Iterator, OperatorMinus )
         
         i = a.end();
         
-        ASSERT_TRUE( *( i )                               == NULL );
-        ASSERT_TRUE( *( i - static_cast< CFIndex >( 1 ) ) != NULL );
-        ASSERT_TRUE( *( i - static_cast< CFIndex >( 0 ) ) == NULL );
-        ASSERT_TRUE( *( i - static_cast< CFIndex >( 2 ) ) != NULL );
+        ASSERT_TRUE( *( i )                               == nullptr );
+        ASSERT_TRUE( *( i - static_cast< CFIndex >( 1 ) ) != nullptr );
+        ASSERT_TRUE( *( i - static_cast< CFIndex >( 0 ) ) == nullptr );
+        ASSERT_TRUE( *( i - static_cast< CFIndex >( 2 ) ) != nullptr );
         
         ASSERT_TRUE( CF::String( *( i - static_cast< CFIndex >( 1 ) ) ) == "bar" );
         ASSERT_TRUE( CF::String( *( i - static_cast< CFIndex >( 2 ) ) ) == "foo" );
@@ -476,7 +476,7 @@ TEST( CFPP_Array_Iterator, OperatorNotEqual )
 TEST( CFPP_Array_Iterator, OperatorDereference )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     a1 << CF::String( "hello, world" );
     a1 << CF::String( "hello, universe" );
@@ -485,29 +485,29 @@ TEST( CFPP_Array_Iterator, OperatorDereference )
         CF::Array::Iterator i1;
         CF::Array::Iterator i2;
         
-        ASSERT_TRUE( *( i1 ) == NULL );
-        ASSERT_TRUE( *( i2 ) == NULL );
+        ASSERT_TRUE( *( i1 ) == nullptr );
+        ASSERT_TRUE( *( i2 ) == nullptr );
         
         i1 = a1.begin();
         i2 = a2.begin();
         
-        ASSERT_TRUE( *( i1 ) != NULL );
-        ASSERT_TRUE( *( i2 ) == NULL );
+        ASSERT_TRUE( *( i1 ) != nullptr );
+        ASSERT_TRUE( *( i2 ) == nullptr );
         
         ASSERT_TRUE( CF::String( *( i1 ) ) == "hello, world" );
         
         i1--;
         i2--;
         
-        ASSERT_TRUE( *( i1 ) == NULL );
-        ASSERT_TRUE( *( i2 ) == NULL );
+        ASSERT_TRUE( *( i1 ) == nullptr );
+        ASSERT_TRUE( *( i2 ) == nullptr );
     }
 }
 
 TEST( CFPP_Array_Iterator, OperatorCastToCFType )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     a1 << CF::String( "hello, world" );
     a1 << CF::String( "hello, universe" );
@@ -516,29 +516,29 @@ TEST( CFPP_Array_Iterator, OperatorCastToCFType )
         CF::Array::Iterator i1;
         CF::Array::Iterator i2;
         
-        ASSERT_TRUE( static_cast< CFTypeRef >( i1 ) == NULL );
-        ASSERT_TRUE( static_cast< CFTypeRef >( i2 ) == NULL );
+        ASSERT_TRUE( static_cast< CFTypeRef >( i1 ) == nullptr );
+        ASSERT_TRUE( static_cast< CFTypeRef >( i2 ) == nullptr );
         
         i1 = a1.begin();
         i2 = a2.begin();
         
-        ASSERT_TRUE( static_cast< CFTypeRef >( i1 ) != NULL );
-        ASSERT_TRUE( static_cast< CFTypeRef >( i2 ) == NULL );
+        ASSERT_TRUE( static_cast< CFTypeRef >( i1 ) != nullptr );
+        ASSERT_TRUE( static_cast< CFTypeRef >( i2 ) == nullptr );
         
         ASSERT_TRUE( CF::String( static_cast< CFTypeRef >( i1 ) ) == "hello, world" );
         
         i1--;
         i2--;
         
-        ASSERT_TRUE( static_cast< CFTypeRef >( i1 ) == NULL );
-        ASSERT_TRUE( static_cast< CFTypeRef >( i2 ) == NULL );
+        ASSERT_TRUE( static_cast< CFTypeRef >( i1 ) == nullptr );
+        ASSERT_TRUE( static_cast< CFTypeRef >( i2 ) == nullptr );
     }
 }
 
 TEST( CFPP_Array_Iterator, GetTypeID )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     a1 << CF::String( "hello, world" );
     a1 << CF::String( "hello, universe" );
@@ -567,7 +567,7 @@ TEST( CFPP_Array_Iterator, GetTypeID )
 TEST( CFPP_Array_Iterator, GetCFObject )
 {
     CF::Array a1;
-    CF::Array a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array a2( static_cast< CFArrayRef >( nullptr ) );
     
     a1 << CF::String( "hello, world" );
     a1 << CF::String( "hello, universe" );
@@ -576,22 +576,22 @@ TEST( CFPP_Array_Iterator, GetCFObject )
         CF::Array::Iterator i1;
         CF::Array::Iterator i2;
         
-        ASSERT_TRUE( i1.GetCFObject() == NULL );
-        ASSERT_TRUE( i2.GetCFObject() == NULL );
+        ASSERT_TRUE( i1.GetCFObject() == nullptr );
+        ASSERT_TRUE( i2.GetCFObject() == nullptr );
         
         i1 = a1.begin();
         i2 = a2.begin();
         
-        ASSERT_TRUE( i1.GetCFObject() != NULL );
-        ASSERT_TRUE( i2.GetCFObject() == NULL );
+        ASSERT_TRUE( i1.GetCFObject() != nullptr );
+        ASSERT_TRUE( i2.GetCFObject() == nullptr );
         
         ASSERT_TRUE( CF::String( i1.GetCFObject() ) == "hello, world" );
         
         i1--;
         i2--;
         
-        ASSERT_TRUE( i1.GetCFObject() == NULL );
-        ASSERT_TRUE( i2.GetCFObject() == NULL );
+        ASSERT_TRUE( i1.GetCFObject() == nullptr );
+        ASSERT_TRUE( i2.GetCFObject() == nullptr );
     }
 }
 
@@ -622,7 +622,7 @@ TEST( CFPP_Array_Iterator, Swap )
 TEST( CFPP_Array_Iterator, TestIterate )
 {
     CF::Array           a1;
-    CF::Array           a2( static_cast< CFArrayRef >( NULL ) );
+    CF::Array           a2( static_cast< CFArrayRef >( nullptr ) );
     CF::Array           a3;
     CF::Array::Iterator it;
     CFIndex              i;

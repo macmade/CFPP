@@ -42,12 +42,12 @@ TEST( CFPP_AnyObject, CTOR )
 {
     CF::AnyObject o;
     
-    ASSERT_TRUE( o.GetCFObject() == NULL );
+    ASSERT_TRUE( o.GetCFObject() == nullptr );
 }
 
 TEST( CFPP_AnyObject, CTOR_AutoPointer )
 {
-    CF::AutoPointer p( CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII ) );
+    CF::AutoPointer p( CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII ) );
     CFIndex         i( p.GetRetainCount() );
     CF::AnyObject   o( p );
     
@@ -135,7 +135,7 @@ TEST( CFPP_AnyObject, OperatorAssign )
 
 TEST( CFPP_AnyObject, OperatorAssignAutoPointer )
 {
-    CF::AutoPointer p( CFStringCreateWithCString( NULL, "hello, world", kCFStringEncodingASCII ) );
+    CF::AutoPointer p( CFStringCreateWithCString( nullptr, "hello, world", kCFStringEncodingASCII ) );
     CF::AnyObject   o;
     CFIndex         i( p.GetRetainCount() );
     
@@ -208,7 +208,7 @@ TEST( CFPP_AnyObject, GetCFObject )
     
     ASSERT_TRUE( o1.GetCFObject() == d.GetCFObject() );
     ASSERT_TRUE( o2.GetCFObject() == a.GetCFObject() );
-    ASSERT_TRUE( o3.GetCFObject() == NULL );
+    ASSERT_TRUE( o3.GetCFObject() == nullptr );
 }
 
 TEST( CFPP_AnyObject, As )

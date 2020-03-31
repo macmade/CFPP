@@ -58,7 +58,7 @@ TEST( CFPP_URL, FileSystemURL_CChar )
     CF::URL u1 = CF::URL::FileSystemURL( "/etc/hosts" );
     CF::URL u2 = CF::URL::FileSystemURL( "/foo/bar" );
     CF::URL u3 = CF::URL::FileSystemURL( "" );
-    CF::URL u4 = CF::URL::FileSystemURL( static_cast< const char * >( NULL ) );
+    CF::URL u4 = CF::URL::FileSystemURL( static_cast< const char * >( nullptr ) );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_TRUE(  u2.IsValid() );
@@ -71,7 +71,7 @@ TEST( CFPP_URL, FileSystemURL_CFType )
     CF::URL u1 = CF::URL::FileSystemURL( static_cast< CFTypeRef >( CF::String( "/etc/hosts" ) ) );
     CF::URL u2 = CF::URL::FileSystemURL( static_cast< CFTypeRef >( CF::String( "/foo/bar" ) ) );
     CF::URL u3 = CF::URL::FileSystemURL( static_cast< CFTypeRef >( CF::String( "" ) ) );
-    CF::URL u4 = CF::URL::FileSystemURL( static_cast< CFTypeRef >( NULL ) );
+    CF::URL u4 = CF::URL::FileSystemURL( static_cast< CFTypeRef >( nullptr ) );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_TRUE(  u2.IsValid() );
@@ -84,7 +84,7 @@ TEST( CFPP_URL, FileSystemURL_CFString )
     CF::URL u1 = CF::URL::FileSystemURL( static_cast< CFStringRef >( CF::String( "/etc/hosts" ) ) );
     CF::URL u2 = CF::URL::FileSystemURL( static_cast< CFStringRef >( CF::String( "/foo/bar" ) ) );
     CF::URL u3 = CF::URL::FileSystemURL( static_cast< CFStringRef >( CF::String( "" ) ) );
-    CF::URL u4 = CF::URL::FileSystemURL( static_cast< CFStringRef >( NULL ) );
+    CF::URL u4 = CF::URL::FileSystemURL( static_cast< CFStringRef >( nullptr ) );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_TRUE(  u2.IsValid() );
@@ -101,9 +101,9 @@ TEST( CFPP_URL, CTOR )
 
 TEST( CFPP_URL, CTOR_AutoPointer )
 {
-    CF::URL u1( CF::AutoPointer( CFURLCreateWithFileSystemPath( NULL, CF::String( "/etc/hosts" ), kCFURLPOSIXPathStyle, false ) ) );
-    CF::URL u2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-    CF::URL u3( CF::AutoPointer( NULL ) );
+    CF::URL u1( CF::AutoPointer( CFURLCreateWithFileSystemPath( nullptr, CF::String( "/etc/hosts" ), kCFURLPOSIXPathStyle, false ) ) );
+    CF::URL u2( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+    CF::URL u3( CF::AutoPointer( nullptr ) );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -114,7 +114,7 @@ TEST( CFPP_URL, CTOR_CFType )
 {
     CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2( static_cast< CFTypeRef >( u1.GetCFObject() ) );
-    CF::URL u3( static_cast< CFTypeRef >( NULL ) );
+    CF::URL u3( static_cast< CFTypeRef >( nullptr ) );
     
     ASSERT_TRUE(  u2.IsValid() );
     ASSERT_FALSE( u3.IsValid() );
@@ -124,7 +124,7 @@ TEST( CFPP_URL, CTOR_CFURL )
 {
     CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2( static_cast< CFURLRef >( u1.GetCFObject() ) );
-    CF::URL u3( static_cast< CFURLRef >( NULL ) );
+    CF::URL u3( static_cast< CFURLRef >( nullptr ) );
     
     ASSERT_TRUE(  u2.IsValid() );
     ASSERT_FALSE( u3.IsValid() );
@@ -134,7 +134,7 @@ TEST( CFPP_URL, CTOR_CFString )
 {
     CF::URL u1( static_cast< CFStringRef >( CF::String( "http://www.xs-labs.com/" ) ) );
     CF::URL u2( static_cast< CFStringRef >( CF::String( "" ) ) );
-    CF::URL u3( static_cast< CFStringRef >( NULL ) );
+    CF::URL u3( static_cast< CFStringRef >( nullptr ) );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -161,7 +161,7 @@ TEST( CFPP_URL, CTOR_CChar )
 {
     CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2( "" );
-    CF::URL u3( static_cast< const char * >( NULL ) );
+    CF::URL u3( static_cast< const char * >( nullptr ) );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -172,7 +172,7 @@ TEST( CFPP_URL, CCTOR )
 {
     CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2( u1 );
-    CF::URL u3( static_cast< const char * >( NULL ) );
+    CF::URL u3( static_cast< const char * >( nullptr ) );
     CF::URL u4( u3 );
     
     ASSERT_TRUE(  u1.IsValid() );
@@ -194,7 +194,7 @@ TEST( CFPP_URL, OperatorAssignURL )
 {
     CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2;
-    CF::URL u3( static_cast< const char * >( NULL ) );
+    CF::URL u3( static_cast< const char * >( nullptr ) );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -219,9 +219,9 @@ TEST( CFPP_URL, OperatorAssignAutoPointer )
     ASSERT_TRUE(  u2.IsValid() );
     ASSERT_TRUE(  u3.IsValid() );
     
-    u1 = CF::AutoPointer( CFURLCreateWithFileSystemPath( NULL, CF::String( "/etc/hosts" ), kCFURLPOSIXPathStyle, false ) );
-    u2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-    u3 = CF::AutoPointer( NULL );
+    u1 = CF::AutoPointer( CFURLCreateWithFileSystemPath( nullptr, CF::String( "/etc/hosts" ), kCFURLPOSIXPathStyle, false ) );
+    u2 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+    u3 = CF::AutoPointer( nullptr );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -232,7 +232,7 @@ TEST( CFPP_URL, OperatorAssignCFType )
 {
     CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2;
-    CF::URL u3( static_cast< const char * >( NULL ) );
+    CF::URL u3( static_cast< const char * >( nullptr ) );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -251,7 +251,7 @@ TEST( CFPP_URL, OperatorAssignCFURL )
 {
     CF::URL u1( "http://www.xs-labs.com/" );
     CF::URL u2;
-    CF::URL u3( static_cast< const char * >( NULL ) );
+    CF::URL u3( static_cast< const char * >( nullptr ) );
     
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
@@ -280,7 +280,7 @@ TEST( CFPP_URL, OperatorAssignCFString )
     
     ASSERT_FALSE( u.IsValid() );
     
-    u = static_cast< CFStringRef >( NULL );
+    u = static_cast< CFStringRef >( nullptr );
     
     ASSERT_FALSE( u.IsValid() );
 }
@@ -325,7 +325,7 @@ TEST( CFPP_URL, OperatorAssignCChar )
     
     ASSERT_FALSE( u.IsValid() );
     
-    u = static_cast< const char * >( NULL );
+    u = static_cast< const char * >( nullptr );
     
     ASSERT_FALSE( u.IsValid() );
 }
@@ -660,12 +660,12 @@ TEST( CFPP_URL, OperatorDivideCChar )
     
     u1 /= "foo";
     u1 /= "";
-    u1 /= static_cast< const char * >( NULL );
+    u1 /= static_cast< const char * >( nullptr );
     u1 /= "bar";
     
     u2 /= "foo";
     u2 /= "";
-    u2 /= static_cast< const char * >( NULL );
+    u2 /= static_cast< const char * >( nullptr );
     u2 /= "bar";
     
     ASSERT_TRUE(  u1.IsValid() );
@@ -730,11 +730,11 @@ TEST( CFPP_URL, GetCFObject )
 {
     CF::URL u1;
     CF::URL u2( "http://www.xs-labs.com/" );
-    CF::URL u3( static_cast< CFURLRef >( NULL ) );
+    CF::URL u3( static_cast< CFURLRef >( nullptr ) );
     
-    ASSERT_TRUE( u1.GetCFObject() == NULL );
-    ASSERT_TRUE( u2.GetCFObject() != NULL );
-    ASSERT_TRUE( u3.GetCFObject() == NULL );
+    ASSERT_TRUE( u1.GetCFObject() == nullptr );
+    ASSERT_TRUE( u2.GetCFObject() != nullptr );
+    ASSERT_TRUE( u3.GetCFObject() == nullptr );
     ASSERT_EQ( CFGetTypeID( u2.GetCFObject() ), CFURLGetTypeID() );
 }
 

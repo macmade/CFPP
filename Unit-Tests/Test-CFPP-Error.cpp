@@ -48,9 +48,9 @@ TEST( CFPP_Error, CTOR )
 
 TEST( CFPP_Error, CTOR_AutoPointer )
 {
-    CF::Error e1( CF::AutoPointer( CFErrorCreate( NULL, CF::String( "com.xs-labs" ), 0, NULL ) ) );
-    CF::Error e2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-    CF::Error e3( CF::AutoPointer( NULL ) );
+    CF::Error e1( CF::AutoPointer( CFErrorCreate( nullptr, CF::String( "com.xs-labs" ), 0, nullptr ) ) );
+    CF::Error e2( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+    CF::Error e3( CF::AutoPointer( nullptr ) );
     
     ASSERT_TRUE(  e1.IsValid() );
     ASSERT_FALSE( e2.IsValid() );
@@ -61,11 +61,11 @@ TEST( CFPP_Error, CTOR_CFType )
 {
     CFErrorRef cfE;
     
-    cfE = CFErrorCreate( NULL, CFSTR( "com.xs-labs" ), 42, NULL );
+    cfE = CFErrorCreate( nullptr, CFSTR( "com.xs-labs" ), 42, nullptr );
     
     {
         CF::Error e1( static_cast< CFTypeRef >( cfE ) );
-        CF::Error e2( static_cast< CFTypeRef >( NULL ) );
+        CF::Error e2( static_cast< CFTypeRef >( nullptr ) );
         CF::Error e3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
         
         ASSERT_TRUE(  e1.IsValid() );
@@ -81,11 +81,11 @@ TEST( CFPP_Error, CTOR_CFError )
 {
     CFErrorRef cfE;
     
-    cfE = CFErrorCreate( NULL, CFSTR( "com.xs-labs" ), 42, NULL );
+    cfE = CFErrorCreate( nullptr, CFSTR( "com.xs-labs" ), 42, nullptr );
     
     {
         CF::Error e1( static_cast< CFErrorRef >( cfE ) );
-        CF::Error e2( static_cast< CFErrorRef >( NULL ) );
+        CF::Error e2( static_cast< CFErrorRef >( nullptr ) );
         CF::Error e3( static_cast< CFErrorRef >( const_cast< void * >( CF::Boolean().GetCFObject() ) ) );
         
         ASSERT_TRUE(  e1.IsValid() );
@@ -243,9 +243,9 @@ TEST( CFPP_Error, OperatorAssignAutoPointer )
     ASSERT_TRUE(  e2.IsValid() );
     ASSERT_TRUE(  e3.IsValid() );
     
-    e1 = CF::AutoPointer( CFErrorCreate( NULL, CF::String( "com.xs-labs" ), 0, NULL ) );
-    e2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-    e3 = CF::AutoPointer( NULL );
+    e1 = CF::AutoPointer( CFErrorCreate( nullptr, CF::String( "com.xs-labs" ), 0, nullptr ) );
+    e2 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+    e3 = CF::AutoPointer( nullptr );
     
     ASSERT_TRUE(  e1.IsValid() );
     ASSERT_FALSE( e2.IsValid() );
@@ -263,7 +263,7 @@ TEST( CFPP_Error, OperatorAssignCFType )
     ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
     ASSERT_EQ( e2.GetCode(), 42 );
     
-    e2 = static_cast< CFTypeRef >( NULL );
+    e2 = static_cast< CFTypeRef >( nullptr );
     
     ASSERT_FALSE( e2.IsValid() );
 }
@@ -279,7 +279,7 @@ TEST( CFPP_Error, OperatorAssignCFError )
     ASSERT_EQ( e2.GetDomain(), "com.xs-labs" );
     ASSERT_EQ( e2.GetCode(), 42 );
     
-    e2 = static_cast< CFErrorRef >( NULL );
+    e2 = static_cast< CFErrorRef >( nullptr );
     
     ASSERT_FALSE( e2.IsValid() );
 }
@@ -307,8 +307,8 @@ TEST( CFPP_Error, GetCFObject )
     CF::Error e1( "com.xs-labs", 42 );
     CF::Error e2;
     
-    ASSERT_TRUE( e1.GetCFObject() != NULL );
-    ASSERT_TRUE( e2.GetCFObject() == NULL );
+    ASSERT_TRUE( e1.GetCFObject() != nullptr );
+    ASSERT_TRUE( e2.GetCFObject() == nullptr );
     ASSERT_EQ( CFGetTypeID( e1.GetCFObject() ), CFErrorGetTypeID() );
 }
 
@@ -343,7 +343,7 @@ TEST( CFPP_Error, GetUserInfo )
         ASSERT_GT( e.GetUserInfo().GetCount(), 0 );
         ASSERT_EQ( CF::String( e.GetUserInfo()[ "hello" ] ), "hello, world" );
         
-        e = static_cast< CFErrorRef >( NULL );
+        e = static_cast< CFErrorRef >( nullptr );
         
         ASSERT_FALSE( e.IsValid() );
         ASSERT_EQ( e.GetUserInfo().GetCount(), 0 );
@@ -361,7 +361,7 @@ TEST( CFPP_Error, GetDescription )
         
         ASSERT_EQ( e.GetDescription(), "hello, world" );
         
-        e = static_cast< CFErrorRef >( NULL );
+        e = static_cast< CFErrorRef >( nullptr );
         
         ASSERT_FALSE( e.IsValid() );
         ASSERT_EQ( e.GetDescription(), "" );
@@ -379,7 +379,7 @@ TEST( CFPP_Error, GetFailureReason )
         
         ASSERT_EQ( e.GetFailureReason(), "hello, world" );
         
-        e = static_cast< CFErrorRef >( NULL );
+        e = static_cast< CFErrorRef >( nullptr );
         
         ASSERT_FALSE( e.IsValid() );
         ASSERT_EQ( e.GetFailureReason(), "" );
@@ -397,7 +397,7 @@ TEST( CFPP_Error, GetRecoverySuggestion )
         
         ASSERT_EQ( e.GetRecoverySuggestion(), "hello, world" );
         
-        e = static_cast< CFErrorRef >( NULL );
+        e = static_cast< CFErrorRef >( nullptr );
         
         ASSERT_FALSE( e.IsValid() );
         ASSERT_EQ( e.GetRecoverySuggestion(), "" );

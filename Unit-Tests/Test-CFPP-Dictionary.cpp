@@ -56,9 +56,9 @@ TEST( CFPP_Dictionary, CTOR_CFIndex )
 
 TEST( CFPP_Dictionary, CTOR_AutoPointer )
 {
-    CF::Dictionary d1( CF::AutoPointer( CFDictionaryCreateMutable( NULL, 10, NULL, NULL ) ) );
-    CF::Dictionary d2( CF::AutoPointer( CFUUIDCreate( NULL ) ) );
-    CF::Dictionary d3( CF::AutoPointer( NULL ) );
+    CF::Dictionary d1( CF::AutoPointer( CFDictionaryCreateMutable( nullptr, 10, nullptr, nullptr ) ) );
+    CF::Dictionary d2( CF::AutoPointer( CFUUIDCreate( nullptr ) ) );
+    CF::Dictionary d3( CF::AutoPointer( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -68,7 +68,7 @@ TEST( CFPP_Dictionary, CTOR_AutoPointer )
 TEST( CFPP_Dictionary, CTOR_CFType )
 {
     CF::Dictionary d1( static_cast< CFTypeRef >( CF::Dictionary().GetCFObject() ) );
-    CF::Dictionary d2( static_cast< CFTypeRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFTypeRef >( nullptr ) );
     CF::Dictionary d3( static_cast< CFTypeRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  d1.IsValid() );
@@ -79,7 +79,7 @@ TEST( CFPP_Dictionary, CTOR_CFType )
 TEST( CFPP_Dictionary, CTOR_CFDictionary )
 {
     CF::Dictionary d1( static_cast< CFDictionaryRef >( CF::Dictionary().GetCFObject() ) );
-    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( nullptr ) );
     CF::Dictionary d3( static_cast< CFDictionaryRef >( CF::Boolean().GetCFObject() ) );
     
     ASSERT_TRUE(  d1.IsValid() );
@@ -153,8 +153,8 @@ TEST( CFPP_Dictionary, MCTOR )
 TEST( CFPP_Dictionary, OperatorAssignDictionary )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
-    CF::Dictionary d3( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( nullptr ) );
+    CF::Dictionary d3( static_cast< CFDictionaryRef >( nullptr ) );
     CF::Dictionary d4;
     
     ASSERT_TRUE(  d1.IsValid() );
@@ -171,7 +171,7 @@ TEST( CFPP_Dictionary, OperatorAssignDictionary )
 
 TEST( CFPP_Dictionary, OperatorAssignAutoPointer )
 {
-    CF::Dictionary d1( static_cast< CFTypeRef >( NULL ) );
+    CF::Dictionary d1( static_cast< CFTypeRef >( nullptr ) );
     CF::Dictionary d2;
     CF::Dictionary d3;
     
@@ -179,9 +179,9 @@ TEST( CFPP_Dictionary, OperatorAssignAutoPointer )
     ASSERT_TRUE(  d2.IsValid() );
     ASSERT_TRUE(  d3.IsValid() );
     
-    d1 = CF::AutoPointer( CFDictionaryCreateMutable( NULL, 0, NULL, NULL ) );
-    d2 = CF::AutoPointer( CFUUIDCreate( NULL ) );
-    d3 = CF::AutoPointer( NULL );
+    d1 = CF::AutoPointer( CFDictionaryCreateMutable( nullptr, 0, nullptr, nullptr ) );
+    d2 = CF::AutoPointer( CFUUIDCreate( nullptr ) );
+    d3 = CF::AutoPointer( nullptr );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -191,8 +191,8 @@ TEST( CFPP_Dictionary, OperatorAssignAutoPointer )
 TEST( CFPP_Dictionary, OperatorAssignCFType )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
-    CF::Dictionary d3( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( nullptr ) );
+    CF::Dictionary d3( static_cast< CFDictionaryRef >( nullptr ) );
     CF::Dictionary d4;
     
     ASSERT_TRUE(  d1.IsValid() );
@@ -210,8 +210,8 @@ TEST( CFPP_Dictionary, OperatorAssignCFType )
 TEST( CFPP_Dictionary, OperatorAssignCFDictionary )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
-    CF::Dictionary d3( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( nullptr ) );
+    CF::Dictionary d3( static_cast< CFDictionaryRef >( nullptr ) );
     CF::Dictionary d4;
     
     ASSERT_TRUE(  d1.IsValid() );
@@ -240,7 +240,7 @@ TEST( CFPP_Dictionary, OperatorAssignNullPointer )
 TEST( CFPP_Dictionary, OperatorPlusEqual )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -260,7 +260,7 @@ TEST( CFPP_Dictionary, OperatorPlusEqual )
 TEST( CFPP_Dictionary, OperatorLeftShift )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -281,7 +281,7 @@ TEST( CFPP_Dictionary, OperatorSubscriptCFType )
 {
     CF::Dictionary d1;
     CF::Dictionary d2;
-    CF::Dictionary d3( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d3( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -297,10 +297,10 @@ TEST( CFPP_Dictionary, OperatorSubscriptCFType )
     ASSERT_NO_THROW( d2[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] );
     ASSERT_NO_THROW( d3[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] );
     
-    ASSERT_TRUE( d1[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] != NULL );
-    ASSERT_TRUE( d1[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] == NULL );
-    ASSERT_TRUE( d2[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] == NULL );
-    ASSERT_TRUE( d3[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] == NULL );
+    ASSERT_TRUE( d1[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] != nullptr );
+    ASSERT_TRUE( d1[ static_cast< CFTypeRef >( CF::String( "bar" ).GetCFObject() ) ] == nullptr );
+    ASSERT_TRUE( d2[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] == nullptr );
+    ASSERT_TRUE( d3[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] == nullptr );
     
     ASSERT_EQ( CFGetTypeID( d1[ static_cast< CFTypeRef >( CF::String( "foo" ).GetCFObject() ) ] ), CFStringGetTypeID() );
 }
@@ -309,7 +309,7 @@ TEST( CFPP_Dictionary, OperatorSubscriptCChar )
 {
     CF::Dictionary d1;
     CF::Dictionary d2;
-    CF::Dictionary d3( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d3( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -325,10 +325,10 @@ TEST( CFPP_Dictionary, OperatorSubscriptCChar )
     ASSERT_NO_THROW( d2[ "bar" ] );
     ASSERT_NO_THROW( d3[ "bar" ] );
     
-    ASSERT_TRUE( d1[ "foo" ] != NULL );
-    ASSERT_TRUE( d1[ "bar" ] == NULL );
-    ASSERT_TRUE( d2[ "foo" ] == NULL );
-    ASSERT_TRUE( d3[ "foo" ] == NULL );
+    ASSERT_TRUE( d1[ "foo" ] != nullptr );
+    ASSERT_TRUE( d1[ "bar" ] == nullptr );
+    ASSERT_TRUE( d2[ "foo" ] == nullptr );
+    ASSERT_TRUE( d3[ "foo" ] == nullptr );
     
     ASSERT_EQ( CFGetTypeID( d1[ "foo" ] ), CFStringGetTypeID() );
 }
@@ -337,7 +337,7 @@ TEST( CFPP_Dictionary, OperatorSubscriptString )
 {
     CF::Dictionary d1;
     CF::Dictionary d2;
-    CF::Dictionary d3( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d3( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_TRUE(  d2.IsValid() );
@@ -353,10 +353,10 @@ TEST( CFPP_Dictionary, OperatorSubscriptString )
     ASSERT_NO_THROW( d2[ CF::String( "bar" ) ] );
     ASSERT_NO_THROW( d3[ CF::String( "bar" ) ] );
     
-    ASSERT_TRUE( d1[ CF::String( "foo" ) ] != NULL );
-    ASSERT_TRUE( d1[ CF::String( "bar" ) ] == NULL );
-    ASSERT_TRUE( d2[ CF::String( "foo" ) ] == NULL );
-    ASSERT_TRUE( d3[ CF::String( "foo" ) ] == NULL );
+    ASSERT_TRUE( d1[ CF::String( "foo" ) ] != nullptr );
+    ASSERT_TRUE( d1[ CF::String( "bar" ) ] == nullptr );
+    ASSERT_TRUE( d2[ CF::String( "foo" ) ] == nullptr );
+    ASSERT_TRUE( d3[ CF::String( "foo" ) ] == nullptr );
     
     ASSERT_EQ( CFGetTypeID( d1[ CF::String( "foo" ) ] ), CFStringGetTypeID() );
 }
@@ -371,17 +371,17 @@ TEST( CFPP_Dictionary, GetTypeID )
 TEST( CFPP_Dictionary, GetCFObject )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFDictionaryRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFDictionaryRef >( nullptr ) );
     
-    ASSERT_TRUE( d1.GetCFObject() != NULL );
-    ASSERT_TRUE( d2.GetCFObject() == NULL );
+    ASSERT_TRUE( d1.GetCFObject() != nullptr );
+    ASSERT_TRUE( d2.GetCFObject() == nullptr );
     ASSERT_EQ( CFGetTypeID( d1.GetCFObject() ), CFDictionaryGetTypeID() );
 }
 
 TEST( CFPP_Dictionary, ContainsKeyCFType )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -400,7 +400,7 @@ TEST( CFPP_Dictionary, ContainsKeyCFType )
 TEST( CFPP_Dictionary, ContainsKeyCChar )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -416,7 +416,7 @@ TEST( CFPP_Dictionary, ContainsKeyCChar )
 TEST( CFPP_Dictionary, ContainsKeyString )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -432,7 +432,7 @@ TEST( CFPP_Dictionary, ContainsKeyString )
 TEST( CFPP_Dictionary, ContainsValue )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -451,7 +451,7 @@ TEST( CFPP_Dictionary, ContainsValue )
 TEST( CFPP_Dictionary, RemoveAllValues )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -486,7 +486,7 @@ TEST( CFPP_Dictionary, RemoveAllValues )
 TEST( CFPP_Dictionary, GetCount )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -516,63 +516,63 @@ TEST( CFPP_Dictionary, GetCount )
 TEST( CFPP_Dictionary, GetValueCFType )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
     
-    ASSERT_TRUE( d1.GetValue( CF::String( "foo" ).GetCFObject() ) == NULL );
-    ASSERT_TRUE( d2.GetValue( CF::String( "foo" ).GetCFObject() ) == NULL );
+    ASSERT_TRUE( d1.GetValue( CF::String( "foo" ).GetCFObject() ) == nullptr );
+    ASSERT_TRUE( d2.GetValue( CF::String( "foo" ).GetCFObject() ) == nullptr );
     
     d1 << CF::Pair( CF::String( "foo" ), CF::String( "hello, world" ) );
     d1 << CF::Pair( CF::String( "bar" ), CF::String( "hello, world" ) );
     d1 << CF::Pair( CF::Number( 42 ),    CF::String( "hello, world" ) );
     
-    ASSERT_TRUE( d1.GetValue( CF::String( "foo" ).GetCFObject() ) != NULL );
-    ASSERT_TRUE( d1.GetValue( CF::String( "bar" ).GetCFObject() ) != NULL );
-    ASSERT_TRUE( d1.GetValue( CF::Number( 42 ).GetCFObject() )    != NULL );
+    ASSERT_TRUE( d1.GetValue( CF::String( "foo" ).GetCFObject() ) != nullptr );
+    ASSERT_TRUE( d1.GetValue( CF::String( "bar" ).GetCFObject() ) != nullptr );
+    ASSERT_TRUE( d1.GetValue( CF::Number( 42 ).GetCFObject() )    != nullptr );
 }
 
 TEST( CFPP_Dictionary, GetValueCChar )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
     
-    ASSERT_TRUE( d1.GetValue( "foo" ) == NULL );
-    ASSERT_TRUE( d2.GetValue( "foo" ) == NULL );
+    ASSERT_TRUE( d1.GetValue( "foo" ) == nullptr );
+    ASSERT_TRUE( d2.GetValue( "foo" ) == nullptr );
     
     d1 << CF::Pair( CF::String( "foo" ), CF::String( "hello, world" ) );
     d1 << CF::Pair( CF::String( "bar" ), CF::String( "hello, world" ) );
     
-    ASSERT_TRUE( d1.GetValue( "foo" ) != NULL );
-    ASSERT_TRUE( d1.GetValue( "bar" ) != NULL );
+    ASSERT_TRUE( d1.GetValue( "foo" ) != nullptr );
+    ASSERT_TRUE( d1.GetValue( "bar" ) != nullptr );
 }
 
 TEST( CFPP_Dictionary, GetValueString )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
     
-    ASSERT_TRUE( d1.GetValue( CF::String( "foo" ) ) == NULL );
-    ASSERT_TRUE( d2.GetValue( CF::String( "foo" ) ) == NULL );
+    ASSERT_TRUE( d1.GetValue( CF::String( "foo" ) ) == nullptr );
+    ASSERT_TRUE( d2.GetValue( CF::String( "foo" ) ) == nullptr );
     
     d1 << CF::Pair( CF::String( "foo" ), CF::String( "hello, world" ) );
     d1 << CF::Pair( CF::String( "bar" ), CF::String( "hello, world" ) );
     
-    ASSERT_TRUE( d1.GetValue( CF::String( "foo" ) ) != NULL );
-    ASSERT_TRUE( d1.GetValue( CF::String( "bar" ) ) != NULL );
+    ASSERT_TRUE( d1.GetValue( CF::String( "foo" ) ) != nullptr );
+    ASSERT_TRUE( d1.GetValue( CF::String( "bar" ) ) != nullptr );
 }
 
 TEST( CFPP_Dictionary, AddValueCFType )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -592,7 +592,7 @@ TEST( CFPP_Dictionary, AddValueCFType )
 TEST( CFPP_Dictionary, AddValueCChar )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -612,7 +612,7 @@ TEST( CFPP_Dictionary, AddValueCChar )
 TEST( CFPP_Dictionary, AddValueString )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -632,18 +632,18 @@ TEST( CFPP_Dictionary, AddValueString )
 TEST( CFPP_Dictionary, RemoveValueCFType )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
     
     d1 << CF::Pair( "foo", "hello, world" );
     
-    ASSERT_TRUE( d1[ "foo" ] != NULL );
+    ASSERT_TRUE( d1[ "foo" ] != nullptr );
     
     d1.RemoveValue( CF::String( "foo" ).GetCFObject() );
     
-    ASSERT_TRUE( d1[ "foo" ] == NULL );
+    ASSERT_TRUE( d1[ "foo" ] == nullptr );
     
     ASSERT_NO_FATAL_FAILURE( d1.RemoveValue( CF::String( "foo" ).GetCFObject() ) );
     ASSERT_NO_FATAL_FAILURE( d2.RemoveValue( CF::String( "foo" ).GetCFObject() ) );
@@ -654,18 +654,18 @@ TEST( CFPP_Dictionary, RemoveValueCFType )
 TEST( CFPP_Dictionary, RemoveValueCChar )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
     
     d1 << CF::Pair( "foo", "hello, world" );
     
-    ASSERT_TRUE( d1[ "foo" ] != NULL );
+    ASSERT_TRUE( d1[ "foo" ] != nullptr );
     
     d1.RemoveValue( "foo" );
     
-    ASSERT_TRUE( d1[ "foo" ] == NULL );
+    ASSERT_TRUE( d1[ "foo" ] == nullptr );
     
     ASSERT_NO_FATAL_FAILURE( d1.RemoveValue( "foo" ) );
     ASSERT_NO_FATAL_FAILURE( d2.RemoveValue( "foo" ) );
@@ -676,18 +676,18 @@ TEST( CFPP_Dictionary, RemoveValueCChar )
 TEST( CFPP_Dictionary, RemoveValueString )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
     
     d1 << CF::Pair( "foo", "hello, world" );
     
-    ASSERT_TRUE( d1[ "foo" ] != NULL );
+    ASSERT_TRUE( d1[ "foo" ] != nullptr );
     
     d1.RemoveValue( CF::String( "foo" ) );
     
-    ASSERT_TRUE( d1[ "foo" ] == NULL );
+    ASSERT_TRUE( d1[ "foo" ] == nullptr );
     
     ASSERT_NO_FATAL_FAILURE( d1.RemoveValue( CF::String( "foo" ) ) );
     ASSERT_NO_FATAL_FAILURE( d2.RemoveValue( CF::String( "foo" ) ) );
@@ -698,7 +698,7 @@ TEST( CFPP_Dictionary, RemoveValueString )
 TEST( CFPP_Dictionary, ReplaceValueCFType )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -720,7 +720,7 @@ TEST( CFPP_Dictionary, ReplaceValueCFType )
 TEST( CFPP_Dictionary, ReplaceValueCChar )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -742,7 +742,7 @@ TEST( CFPP_Dictionary, ReplaceValueCChar )
 TEST( CFPP_Dictionary, ReplaceValueString )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -764,7 +764,7 @@ TEST( CFPP_Dictionary, ReplaceValueString )
 TEST( CFPP_Dictionary, SetValueCFType )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -784,7 +784,7 @@ TEST( CFPP_Dictionary, SetValueCFType )
 TEST( CFPP_Dictionary, SetValueCChar )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
@@ -804,7 +804,7 @@ TEST( CFPP_Dictionary, SetValueCChar )
 TEST( CFPP_Dictionary, SetValueString )
 {
     CF::Dictionary d1;
-    CF::Dictionary d2( static_cast< CFArrayRef >( NULL ) );
+    CF::Dictionary d2( static_cast< CFArrayRef >( nullptr ) );
     
     ASSERT_TRUE(  d1.IsValid() );
     ASSERT_FALSE( d2.IsValid() );
