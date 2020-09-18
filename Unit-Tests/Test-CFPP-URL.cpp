@@ -141,6 +141,27 @@ TEST( CFPP_URL, CTOR_CFString )
     ASSERT_FALSE( u3.IsValid() );
 }
 
+TEST( CFPP_URL, CTOR_CFString_URL )
+{
+    CF::URL base( "http://www.xs-labs.com/" );
+    CF::URL u1( static_cast< CFStringRef >( CF::String( "foobar" ) ), base );
+    CF::URL u2( static_cast< CFStringRef >( CF::String( "foobar" ) ), CF::URL( nullptr ) );
+    CF::URL u3( static_cast< CFStringRef >( CF::String( "" ) ), base );
+    CF::URL u4( static_cast< CFStringRef >( nullptr ), base );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+    ASSERT_FALSE( u4.IsValid() );
+    
+    ASSERT_TRUE(  u1.GetBaseURL().IsValid() );
+    ASSERT_FALSE( u2.GetBaseURL().IsValid() );
+    ASSERT_FALSE( u3.GetBaseURL().IsValid() );
+    ASSERT_FALSE( u4.GetBaseURL().IsValid() );
+    
+    ASSERT_EQ( u1.GetBaseURL(), base );
+}
+
 TEST( CFPP_URL, CTOR_NullPointer )
 {
     CF::URL u( nullptr );
@@ -157,6 +178,24 @@ TEST( CFPP_URL, CTOR_STDString )
     ASSERT_FALSE( u2.IsValid() );
 }
 
+TEST( CFPP_URL, CTOR_STDString_URL )
+{
+    CF::URL base( "http://www.xs-labs.com/" );
+    CF::URL u1( std::string( "foobar" ), base );
+    CF::URL u2( std::string( "foobar" ), CF::URL( nullptr ) );
+    CF::URL u3( std::string( "" ), base );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+    
+    ASSERT_TRUE(  u1.GetBaseURL().IsValid() );
+    ASSERT_FALSE( u2.GetBaseURL().IsValid() );
+    ASSERT_FALSE( u3.GetBaseURL().IsValid() );
+    
+    ASSERT_EQ( u1.GetBaseURL(), base );
+}
+
 TEST( CFPP_URL, CTOR_CChar )
 {
     CF::URL u1( "http://www.xs-labs.com/" );
@@ -166,6 +205,27 @@ TEST( CFPP_URL, CTOR_CChar )
     ASSERT_TRUE(  u1.IsValid() );
     ASSERT_FALSE( u2.IsValid() );
     ASSERT_FALSE( u3.IsValid() );
+}
+
+TEST( CFPP_URL, CTOR_CChar_URL )
+{
+    CF::URL base( "http://www.xs-labs.com/" );
+    CF::URL u1( "foobar", base );
+    CF::URL u2( "foobar", CF::URL( nullptr ) );
+    CF::URL u3( "", base );
+    CF::URL u4( static_cast< const char * >( nullptr ), base );
+    
+    ASSERT_TRUE(  u1.IsValid() );
+    ASSERT_TRUE(  u2.IsValid() );
+    ASSERT_FALSE( u3.IsValid() );
+    ASSERT_FALSE( u4.IsValid() );
+    
+    ASSERT_TRUE(  u1.GetBaseURL().IsValid() );
+    ASSERT_FALSE( u2.GetBaseURL().IsValid() );
+    ASSERT_FALSE( u3.GetBaseURL().IsValid() );
+    ASSERT_FALSE( u4.GetBaseURL().IsValid() );
+    
+    ASSERT_EQ( u1.GetBaseURL(), base );
 }
 
 TEST( CFPP_URL, CCTOR )
@@ -921,6 +981,19 @@ TEST( CFPP_URL, GetPortNumber )
     ASSERT_TRUE( u3.GetPortNumber().IsValid() );
     
     ASSERT_EQ( u3.GetPortNumber(), 8080 ); 
+}
+
+TEST( CFPP_URL, GetBaseURL )
+{
+    CF::URL u1;
+    CF::URL u2( "http://www.xs-labs.com/" );
+    CF::URL u3( "foobar", CF::URL( "http://www.xs-labs.com/" ) );
+    
+    ASSERT_FALSE( u1.GetBaseURL().IsValid() );
+    ASSERT_FALSE( u2.GetBaseURL().IsValid() );
+    ASSERT_TRUE(  u3.GetBaseURL().IsValid() );
+    
+    ASSERT_EQ( u3.GetBaseURL(), CF::URL( "http://www.xs-labs.com/" ) ); 
 }
 
 TEST( CFPP_URL, HasDirectoryPath )

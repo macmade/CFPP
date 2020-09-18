@@ -126,7 +126,10 @@ namespace CF
         }
     }
     
-    URL::URL( CFStringRef value ): _cfObject( nullptr )
+    URL::URL( CFStringRef value ): URL( value, URL( nullptr ) )
+    {}
+    
+    URL::URL( CFStringRef value, const CF::URL & base ): _cfObject( nullptr )
     {
         String s;
         
@@ -134,14 +137,17 @@ namespace CF
         
         if( s.GetLength() > 0 )
         {
-            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( nullptr ), static_cast< CFStringRef >( s ), nullptr );
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( nullptr ), static_cast< CFStringRef >( s ), base );
         }
     }
     
     URL::URL( std::nullptr_t ): URL( static_cast< CFTypeRef>( nullptr ) )
     {}
     
-    URL::URL( const std::string & value ): _cfObject( nullptr )
+    URL::URL( const std::string & value ): URL( value, URL( nullptr ) )
+    {}
+    
+    URL::URL( const std::string & value, const CF::URL & base ): _cfObject( nullptr )
     {
         String s;
         
@@ -149,11 +155,14 @@ namespace CF
         
         if( s.GetLength() > 0 )
         {
-            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( nullptr ), static_cast< CFStringRef >( s ), nullptr );
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( nullptr ), static_cast< CFStringRef >( s ), base );
         }
     }
     
-    URL::URL( const char * value ): _cfObject( nullptr )
+    URL::URL( const char * value ): URL( value, URL( nullptr ) )
+    {}
+    
+    URL::URL( const char * value, const CF::URL & base ): _cfObject( nullptr )
     {
         String s;
         
@@ -161,7 +170,7 @@ namespace CF
         
         if( s.GetLength() > 0 )
         {
-            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( nullptr ), static_cast< CFStringRef >( s ), nullptr );
+            this->_cfObject = CFURLCreateWithString( static_cast< CFAllocatorRef >( nullptr ), static_cast< CFStringRef >( s ), base );
         }
     }
     
@@ -558,6 +567,16 @@ namespace CF
         }
         
         return n;
+    }
+    
+    URL URL::GetBaseURL( void ) const
+    {
+        if( this->_cfObject == nullptr )
+        {
+            return nullptr;
+        }
+        
+        return CFURLGetBaseURL( this->_cfObject );
     }
     
     bool URL::HasDirectoryPath( void ) const

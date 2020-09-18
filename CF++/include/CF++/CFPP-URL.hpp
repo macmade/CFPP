@@ -80,9 +80,12 @@ namespace CF
             URL( CFTypeRef value );
             URL( CFURLRef value );
             URL( CFStringRef value );
+            URL( CFStringRef value, const CF::URL & base );
             URL( std::nullptr_t );
             URL( const std::string & value );
+            URL( const std::string & value, const CF::URL & base );
             URL( const char * value );
+            URL( const char * value, const CF::URL & base );
             URL( URL && value ) noexcept;
             
             virtual ~URL( void );
@@ -135,6 +138,7 @@ namespace CF
             String GetStrictPath( void ) const;
             String GetUserName( void ) const;
             Number GetPortNumber( void ) const;
+            URL    GetBaseURL( void ) const;
             bool   HasDirectoryPath( void ) const;
             void   AppendPathComponent( CFStringRef component, bool isDirectory = false );
             void   AppendPathComponent( const std::string & component, bool isDirectory = false );
