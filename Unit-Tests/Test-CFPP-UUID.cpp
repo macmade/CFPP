@@ -491,6 +491,18 @@ TEST( CFPP_UUID, GetData )
     ASSERT_EQ( u.GetData().GetLength(), 0 );
 }
 
+TEST( CFPP_UUID, GetBytes )
+{
+    CF::UUID u;
+    
+    ASSERT_EQ( u.GetBytes().GetLength(), 16 );
+    
+    u = static_cast< CFUUIDRef >( nullptr );
+    
+    ASSERT_FALSE( u.IsValid() );
+    ASSERT_EQ( u.GetBytes().GetLength(), 0 );
+}
+
 TEST( CFPP_UUID, Swap )
 {
     CF::UUID    u1;

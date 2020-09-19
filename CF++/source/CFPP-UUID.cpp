@@ -244,6 +244,41 @@ namespace CF
         return Data( static_cast< CFStringRef >( this->GetString() ) );
     }
     
+    Data UUID::GetBytes( void ) const
+    {
+        CFUUIDBytes bytes;
+        uint8_t     data[ 16 ];
+        
+        if( this->_cfObject == nullptr )
+        {
+            return nullptr;
+        }
+        
+        memset( &bytes, 0, sizeof( CFUUIDBytes ) );
+        memset( data,   0, sizeof( data ) );
+        
+        bytes = CFUUIDGetUUIDBytes( this->_cfObject );
+        
+        data[  0 ] = bytes.byte0;
+        data[  1 ] = bytes.byte1;
+        data[  2 ] = bytes.byte2;
+        data[  3 ] = bytes.byte3;
+        data[  4 ] = bytes.byte4;
+        data[  5 ] = bytes.byte5;
+        data[  6 ] = bytes.byte6;
+        data[  7 ] = bytes.byte7;
+        data[  8 ] = bytes.byte8;
+        data[  9 ] = bytes.byte9;
+        data[ 10 ] = bytes.byte10;
+        data[ 11 ] = bytes.byte11;
+        data[ 12 ] = bytes.byte12;
+        data[ 13 ] = bytes.byte13;
+        data[ 14 ] = bytes.byte14;
+        data[ 15 ] = bytes.byte15;
+        
+        return Data( data, sizeof( data ) );
+    }
+    
     void swap( UUID & v1, UUID & v2 ) noexcept
     {
         using std::swap;

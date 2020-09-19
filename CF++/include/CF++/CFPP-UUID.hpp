@@ -80,7 +80,8 @@ namespace CF
             virtual CFTypeRef GetCFObject( void ) const;
             
             String GetString( void ) const;
-            Data   GetData( void ) const;
+            Data   GetData( void )   const;
+            Data   GetBytes( void )  const;
             
             friend void swap( UUID & v1, UUID & v2 ) noexcept;
             
