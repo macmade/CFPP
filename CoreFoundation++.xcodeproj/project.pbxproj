@@ -831,7 +831,7 @@
 		056C87C618C8B0F8006260B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					056C58BE1B1898FF00C6214A = {
@@ -1158,7 +1158,7 @@
 			baseConfigurationReference = 0579A96E2006A6F000400B61 /* Debug - ccache.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = "CF++/include/";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
 			name = Debug;
 		};
@@ -1167,7 +1167,7 @@
 			baseConfigurationReference = 0579A96C2006A6F000400B61 /* Release - ccache.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = "CF++/include/";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
 			name = Release;
 		};
