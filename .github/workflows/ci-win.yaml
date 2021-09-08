@@ -1,7 +1,7 @@
 name: ci-win
 on:   [push]
 jobs:
-    build:
+    ci:
         runs-on: windows-latest
         strategy:
             matrix:
