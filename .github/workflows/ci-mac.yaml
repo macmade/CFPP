@@ -7,11 +7,11 @@ jobs:
             matrix:
                 run-config:
                     - { scheme: 'CF++ Mac Static Library',  configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
-                    - { scheme: 'CF++ Mac Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=macOS' }
                     - { scheme: 'CF++ Mac Dynamic Library', configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
-                    - { scheme: 'CF++ Mac Dynamic Library', configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Dynamic Library', configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=macOS' }
                     - { scheme: 'CF++ Mac Framework',       configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
-                    - { scheme: 'CF++ Mac Framework',       configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Framework',       configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=macOS' }
                     - { scheme: 'CF++ iOS Static Library',  configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=iOS Simulator,name=iPhone 12' }
                     - { scheme: 'CF++ iOS Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=iOS Simulator,name=iPhone 12' }
         steps:
