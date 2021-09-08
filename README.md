@@ -5,7 +5,7 @@ CoreFoundation++
 [![Coverage Status](https://img.shields.io/coveralls/macmade/CFPP.svg?branch=master&style=flat)](https://coveralls.io/r/macmade/CFPP?branch=master)
 [![Issues](http://img.shields.io/github/issues/macmade/CFPP.svg?style=flat)](https://github.com/macmade/CFPP/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?style=flat)
-![License](https://img.shields.io/badge/license-boost-brightgreen.svg?style=flat)
+![License](https://img.shields.io/badge/license-mit-brightgreen.svg?style=flat)
 [![Contact](https://img.shields.io/badge/contact-@macmade-blue.svg?style=flat)](https://twitter.com/macmade)  
 [![Donate-Patreon](https://img.shields.io/badge/donate-patreon-yellow.svg?style=flat)](https://patreon.com/macmade)
 [![Donate-Gratipay](https://img.shields.io/badge/donate-gratipay-yellow.svg?style=flat)](https://www.gratipay.com/macmade)
@@ -778,7 +778,7 @@ The following classes will be implemented soon:
 License
 -------
 
-CoreFoundation++ is released under the terms of the BOOST License.
+CoreFoundation++ is released under the terms of the MIT License.
 
 <a name="9"></a>
 Repository Infos
