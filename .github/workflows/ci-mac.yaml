@@ -23,6 +23,7 @@ jobs:
             - uses: macmade/github-actions/xcodebuild@v1.0.0
             
             - uses: act10ns/slack@v1
+              if:   ${{ always() }}
               env:
                 SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
               with:
