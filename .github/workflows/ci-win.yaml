@@ -16,9 +16,7 @@ jobs:
               with:
                 submodules: 'recursive'
                 
-            - uses: microsoft/setup-msbuild@v1.0.3
-                
-            - uses: macmade/github-actions/msbuild@v1.0.0
+            - uses: macmade/action-msbuild@v1.0.0
             
             - uses: act10ns/slack@v1
               if:   ${{ always() }}
