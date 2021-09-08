@@ -6,14 +6,14 @@ jobs:
         strategy:
             matrix:
                 run-config:
-                    - { scheme: 'CF++ Mac Static Library',  configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
-                    - { scheme: 'CF++ Mac Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=macOS' }
-                    - { scheme: 'CF++ Mac Dynamic Library', configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
-                    - { scheme: 'CF++ Mac Dynamic Library', configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=macOS' }
-                    - { scheme: 'CF++ Mac Framework',       configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
-                    - { scheme: 'CF++ Mac Framework',       configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=macOS' }
-                    - { scheme: 'CF++ iOS Static Library',  configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=iOS Simulator,name=iPhone 12' }
-                    - { scheme: 'CF++ iOS Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=iOS Simulator,name=iPhone 12' }
+                    - { scheme: 'CF++ Mac Static Library',  configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 1, destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Dynamic Library', configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 1, destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Dynamic Library', configuration: 'Release', project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Framework',       configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 1, destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Framework',       configuration: 'Release', project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, destination: 'platform=macOS' }
+                    - { scheme: 'CF++ iOS Static Library',  configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, destination: 'platform=iOS Simulator,name=iPhone 12' }
+                    - { scheme: 'CF++ iOS Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, destination: 'platform=iOS Simulator,name=iPhone 12' }
         steps:
             
             - name: Checkout
@@ -28,19 +28,30 @@ jobs:
             
             - name: Xcode - SDKs
               id:   xcode-sdk
-              run:  xcodebuild -project '${{ matrix.run-config['project'] }}' -scheme '${{ matrix.run-config['scheme'] }}' -showsdks
+              run:  xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -showsdks
             
             - name: Xcode - Destinations
               id:   xcode-destinations
-              run:  xcodebuild -project '${{ matrix.run-config['project'] }}' -scheme '${{ matrix.run-config['scheme'] }}' -showdestinations
+              run:  xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -showdestinations
             
             - name: Xcode - Build Settings
               id:   xcode-build-settings
-              run:  xcodebuild -project '${{ matrix.run-config['project'] }}' -scheme '${{ matrix.run-config['scheme'] }}' -showBuildSettings
+              run:  xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -showBuildSettings
             
             - name: Xcode - Build
               id:   xcode-build
-              run:  xcodebuild -project '${{ matrix.run-config['project'] }}' -scheme '${{ matrix.run-config['scheme'] }}' -configuration '${{ matrix.run-config['configuration'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary ${{ matrix.run-config['actions'] }} CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+              if:   ${{ matrix.run-config[ 'build' ] == 1 }}
+              run:  xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -configuration '${{ matrix.run-config[ 'configuration' ] }}' -destination '${{ matrix.run-config[ 'destination' ] }}' -showBuildTimingSummary build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+            
+            - name: Xcode - Analyze
+              id:   xcode-analyze
+              if:   ${{ matrix.run-config[ 'analyze' ] == 1 }}
+              run:  xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -configuration '${{ matrix.run-config[ 'configuration' ] }}' -destination '${{ matrix.run-config[ 'destination' ] }}' -showBuildTimingSummary analyze CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+            
+            - name: Xcode - Test
+              id:   xcode-test
+              if:   ${{ matrix.run-config[ 'test' ] == 1 }}
+              run:  xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -configuration '${{ matrix.run-config[ 'configuration' ] }}' -destination '${{ matrix.run-config[ 'destination' ] }}' -showBuildTimingSummary test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
             
             - name: Slack
               id:   slack
