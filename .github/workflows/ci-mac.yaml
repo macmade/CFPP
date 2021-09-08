@@ -6,10 +6,14 @@ jobs:
         strategy:
             matrix:
                 run-config:
-                    - { scheme: 'CF++ Mac Static Library',  project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
-                    - { scheme: 'CF++ Mac Dynamic Library', project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
-                    - { scheme: 'CF++ Mac Framework',       project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
-                    - { scheme: 'CF++ iOS Static Library',  project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=iOS Simulator,name=iPhone 12' }
+                    - { scheme: 'CF++ Mac Static Library',  configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Dynamic Library', configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Dynamic Library', configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Framework',       configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+                    - { scheme: 'CF++ Mac Framework',       configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze test",  destination: 'platform=macOS' }
+                    - { scheme: 'CF++ iOS Static Library',  configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=iOS Simulator,name=iPhone 12' }
+                    - { scheme: 'CF++ iOS Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', actions: "build analyze",       destination: 'platform=iOS Simulator,name=iPhone 12' }
         steps:
             
             - name: Checkout
@@ -36,7 +40,7 @@ jobs:
             
             - name: Xcode - Build
               id:   xcode-build
-              run:  xcodebuild -project '${{ matrix.run-config['project'] }}' -scheme '${{ matrix.run-config['scheme'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary ${{ matrix.run-config['actions'] }} CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+              run:  xcodebuild -project '${{ matrix.run-config['project'] }}' -scheme '${{ matrix.run-config['scheme'] }}' -configuration '${{ matrix.run-config['configuration'] }}' -destination '${{ matrix.run-config['destination'] }}' -showBuildTimingSummary ${{ matrix.run-config['actions'] }} CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
             
             - name: Slack
               id:   slack
