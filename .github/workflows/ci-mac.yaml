@@ -1,4 +1,4 @@
-name: CI
+name: ci-mac
 on:   [push]
 jobs:
     build:
