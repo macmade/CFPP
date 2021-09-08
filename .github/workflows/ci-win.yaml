@@ -12,24 +12,15 @@ jobs:
                     - { platform: 'x86', toolset: 'x64', configuration: 'Release', solution: 'CoreFoundation++.sln' }
         steps:
             
-            - name: Checkout
-              id:   checkout
-              uses: actions/checkout@v1
+            - uses: actions/checkout@v1
               with:
                 submodules: 'recursive'
                 
-            - name: MSBuild - Setup
-              id:   msbuild-setup
-              uses: microsoft/setup-msbuild@v1.0.3
+            - uses: microsoft/setup-msbuild@v1.0.3
+                
+            - uses: macmade/github-actions/msbuild@v1.0.0
             
-            - name: MSBuild - Build
-              id:   msbuild-build
-              run:  msbuild ${{ matrix.run-config['solution'] }} /property:Configuration=${{ matrix.run-config['configuration'] }} /property:Platform=${{ matrix.run-config['platform'] }} /p:PreferredToolArchitecture=${{ matrix.run-config['toolset'] }}
-            
-            - name: Slack
-              id:   slack
-              uses: act10ns/slack@v1
-              if:   always()
+            - uses: act10ns/slack@v1
               env:
                 SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
               with:
