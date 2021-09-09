@@ -4,12 +4,10 @@ CoreFoundation++
 [![Build Status](https://img.shields.io/github/workflow/status/macmade/CFPP/ci-mac?label=macOS&logo=apple)](https://github.com/macmade/CFPP/actions/workflows/ci-mac.yaml)
 [![Build Status](https://img.shields.io/github/workflow/status/macmade/CFPP/ci-win?label=Windows&logo=windows)](https://github.com/macmade/CFPP/actions/workflows/ci-win.yaml)
 [![Issues](http://img.shields.io/github/issues/macmade/CFPP.svg)](https://github.com/macmade/CFPP/issues)
-![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
-![License](https://img.shields.io/badge/license-mit-brightgreen.svg)
-[![Contact](https://img.shields.io/badge/contact-@macmade-blue.svg)](https://twitter.com/macmade)  
-[![Donate-Patreon](https://img.shields.io/badge/donate-patreon-yellow.svg)](https://patreon.com/macmade)
-[![Donate-Gratipay](https://img.shields.io/badge/donate-gratipay-yellow.svg)](https://www.gratipay.com/macmade)
-[![Donate-Paypal](https://img.shields.io/badge/donate-paypal-yellow.svg)](https://paypal.me/xslabs)
+![Status](https://img.shields.io/badge/status-active-brightgreen.svg?logo=git)
+![License](https://img.shields.io/badge/license-mit-brightgreen.svg?logo=open-source-initiative)  
+[![Contact](https://img.shields.io/badge/follow-@macmade-blue.svg?logo=twitter&style=social)](https://twitter.com/macmade)
+[![Sponsor](https://img.shields.io/badge/sponsor-macmade-pink.svg?logo=github-sponsors&style=social)](https://github.com/sponsors/macmade)
 
 ### C++ wrapper for CoreFoundation base classes
 
