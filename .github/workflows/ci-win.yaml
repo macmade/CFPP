@@ -25,4 +25,4 @@ jobs:
               with:
                 channel:    '#ci'
                 status:     ${{ job.status }}
-                title:      ${{ matrix.run-config[ 'configuration' ] }} - ${{ matrix.run-config[ 'platform' ] }}
+                title:      ${{ matrix.run-config[ 'solution' ] }} - ${{ matrix.run-config[ 'configuration' ] }} - ${{ matrix.run-config[ 'platform' ] }}
