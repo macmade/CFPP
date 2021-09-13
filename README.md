@@ -3,7 +3,7 @@ CoreFoundation++
 
 [![Build Status](https://img.shields.io/github/workflow/status/macmade/CFPP/ci-mac?label=macOS&logo=apple)](https://github.com/macmade/CFPP/actions/workflows/ci-mac.yaml)
 [![Build Status](https://img.shields.io/github/workflow/status/macmade/CFPP/ci-win?label=Windows&logo=windows)](https://github.com/macmade/CFPP/actions/workflows/ci-win.yaml)
-[![Issues](http://img.shields.io/github/issues/macmade/CFPP.svg)](https://github.com/macmade/CFPP/issues)
+[![Issues](http://img.shields.io/github/issues/macmade/CFPP.svg?logo=github)](https://github.com/macmade/CFPP/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?logo=git)
 ![License](https://img.shields.io/badge/license-mit-brightgreen.svg?logo=open-source-initiative)  
 [![Contact](https://img.shields.io/badge/follow-@macmade-blue.svg?logo=twitter&style=social)](https://twitter.com/macmade)
