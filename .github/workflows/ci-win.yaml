@@ -2,7 +2,7 @@ name: ci-win
 on:   [push]
 jobs:
     ci:
-        runs-on: windows-latest
+        runs-on: windows-2022
         strategy:
             matrix:
                 run-config:
@@ -16,7 +16,7 @@ jobs:
               with:
                 submodules: 'recursive'
                 
-            - uses: macmade/action-msbuild@v1.0.0
+            - uses: macmade/action-msbuild@v1.1.0
             
             - uses: macmade/action-slack@v1.0.0
               if:   ${{ always() }}
