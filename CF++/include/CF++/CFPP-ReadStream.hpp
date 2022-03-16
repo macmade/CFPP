@@ -83,9 +83,21 @@ namespace CF
             #pragma clang diagnostic ignored "-Wpadded"
             #endif
             
+            #if __cplusplus >= 201703L
+            class CFPP_EXPORT Iterator
+            #else
             class CFPP_EXPORT Iterator: public std::iterator< std::forward_iterator_tag, Data >
+            #endif
             {
                 public:
+                
+                    #if __cplusplus >= 201703L
+                    using iterator_category = std::bidirectional_iterator_tag;
+                    using value_type        = Data;
+                    using difference_type   = ptrdiff_t;
+                    using pointer           = Data *;
+                    using reference         = Data &;
+                    #endif
                     
                     Iterator( void );
                     Iterator( const Iterator & value );

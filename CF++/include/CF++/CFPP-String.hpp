@@ -104,9 +104,21 @@ namespace CF
             
             friend void swap( String & v1, String & v2 ) noexcept;
             
+            #if __cplusplus >= 201703L
+            class CFPP_EXPORT Iterator
+            #else
             class CFPP_EXPORT Iterator: public std::iterator< std::bidirectional_iterator_tag, char >
+            #endif
             {
                 public:
+                
+                    #if __cplusplus >= 201703L
+                    using iterator_category = std::bidirectional_iterator_tag;
+                    using value_type        = char;
+                    using difference_type   = ptrdiff_t;
+                    using pointer           = char *;
+                    using reference         = char &;
+                    #endif
                     
                     Iterator( void );
                     Iterator( const Iterator & value );

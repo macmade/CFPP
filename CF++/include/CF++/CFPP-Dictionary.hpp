@@ -91,9 +91,21 @@ namespace CF
             
             friend void swap( Dictionary & v1, Dictionary & v2 ) noexcept;
             
+            #if __cplusplus >= 201703L
+            class CFPP_EXPORT Iterator
+            #else
             class CFPP_EXPORT Iterator: public std::iterator< std::bidirectional_iterator_tag, CF::Pair >
+            #endif
             {
                 public:
+                
+                    #if __cplusplus >= 201703L
+                    using iterator_category = std::bidirectional_iterator_tag;
+                    using value_type        = CF::Pair;
+                    using difference_type   = ptrdiff_t;
+                    using pointer           = CF::Pair *;
+                    using reference         = CF::Pair &;
+                    #endif
                     
                     Iterator( void );
                     Iterator( const Iterator & value );

@@ -829,7 +829,7 @@
 		056C87C618C8B0F8006260B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1330;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					056C58BE1B1898FF00C6214A = {
@@ -1204,7 +1204,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CF__.dst;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "CF++";
 				SDKROOT = iphoneos;
@@ -1218,7 +1218,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CF__.dst;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "CF++";
 				SDKROOT = iphoneos;
