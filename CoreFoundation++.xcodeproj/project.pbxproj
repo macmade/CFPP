@@ -10,6 +10,7 @@
 		050B83CB1EB904C70090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
 		050B83CF1EB904D40090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
 		050B83D01EB905440090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
+		0516611429E98ECF00D8C81F /* CFPP-Object.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05905D9E223685D200C5F7E1 /* CFPP-Object.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		0534BD18204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
 		0534BD23204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */; };
 		0534BD28204F1FA6008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */; };
@@ -171,17 +172,17 @@
 		05DD0EE4213EB1270050069A /* CFPP-AnyObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05DD0EDE213EB1270050069A /* CFPP-AnyObject.cpp */; };
 		05DD0EE5213EB1270050069A /* CFPP-AnyObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05DD0EDE213EB1270050069A /* CFPP-AnyObject.cpp */; };
 		05DD0EE6213EB1270050069A /* CFPP-AnyObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05DD0EDE213EB1270050069A /* CFPP-AnyObject.cpp */; };
-		05DD0EFC213EB1740050069A /* CFPP-AnyObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05DD0EE8213EB16B0050069A /* CFPP-AnyObject.hpp */; };
-		05DD0EFD213EB1740050069A /* CFPP-Null.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05DD0EE7213EB16B0050069A /* CFPP-Null.hpp */; };
-		05DD0EFE213EB1740050069A /* CFPP-AnyPropertyListType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD1D204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp */; };
-		05DD0EFF213EB1740050069A /* CFPP-PropertyListBase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD12204F05E9008AF9D2 /* CFPP-PropertyListBase.hpp */; };
+		05DD0EFC213EB1740050069A /* CFPP-AnyObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05DD0EE8213EB16B0050069A /* CFPP-AnyObject.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		05DD0EFD213EB1740050069A /* CFPP-Null.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05DD0EE7213EB16B0050069A /* CFPP-Null.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		05DD0EFE213EB1740050069A /* CFPP-AnyPropertyListType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD1D204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		05DD0EFF213EB1740050069A /* CFPP-PropertyListBase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD12204F05E9008AF9D2 /* CFPP-PropertyListBase.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05DD0F00213EB1760050069A /* CFPP-AnyObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05DD0EE8213EB16B0050069A /* CFPP-AnyObject.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05DD0F01213EB1760050069A /* CFPP-Null.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05DD0EE7213EB16B0050069A /* CFPP-Null.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05DD0F02213EB1760050069A /* CFPP-AnyPropertyListType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD1D204F183F008AF9D2 /* CFPP-AnyPropertyListType.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05DD0F03213EB1760050069A /* CFPP-PropertyListBase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0534BD12204F05E9008AF9D2 /* CFPP-PropertyListBase.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05EFF0E1191BA9CE00F187F5 /* CFPP-PropertyListType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		05EFF0E2191BA9CE00F187F5 /* CFPP-PropertyListType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0DF191BA9CE00F187F5 /* CFPP-PropertyListType.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
-		05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
+		05EFF0EB191BB66A00F187F5 /* CFPP-PropertyListType-Definition.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05EFF0E8191BB66A00F187F5 /* CFPP-PropertyListType-Definition.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -709,6 +710,7 @@
 			files = (
 				05BDE05B18CDB25F0028F339 /* CFPP-Array.hpp in Headers */,
 				05BDE05C18CDB25F0028F339 /* CFPP-Boolean.hpp in Headers */,
+				0516611429E98ECF00D8C81F /* CFPP-Object.hpp in Headers */,
 				05BDE05D18CDB25F0028F339 /* CFPP-Data.hpp in Headers */,
 				05BDE05E18CDB25F0028F339 /* CFPP-Date.hpp in Headers */,
 				056C58611B1708DD00C6214A /* CFPP-AutoPointer.hpp in Headers */,
