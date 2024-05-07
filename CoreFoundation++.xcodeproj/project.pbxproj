@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		050B83CB1EB904C70090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
-		050B83CF1EB904D40090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
 		050B83D01EB905440090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
 		0516611429E98ECF00D8C81F /* CFPP-Object.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05905D9E223685D200C5F7E1 /* CFPP-Object.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		0534BD18204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
@@ -381,7 +380,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				050B83CF1EB904D40090EA12 /* libc++.tbd in Frameworks */,
 				056C88A518C8C890006260B3 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -831,7 +829,7 @@
 		056C87C618C8B0F8006260B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1530;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					056C58BE1B1898FF00C6214A = {
