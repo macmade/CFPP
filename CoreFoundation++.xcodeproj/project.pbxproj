@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		050B83CB1EB904C70090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
-		050B83D01EB905440090EA12 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B83CA1EB904C70090EA12 /* libc++.tbd */; };
 		0516611429E98ECF00D8C81F /* CFPP-Object.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 05905D9E223685D200C5F7E1 /* CFPP-Object.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		0534BD18204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD17204F05F0008AF9D2 /* CFPP-PropertyListBase.cpp */; };
 		0534BD23204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0534BD22204F1846008AF9D2 /* CFPP-AnyPropertyListType.cpp */; };
@@ -353,7 +351,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				050B83D01EB905440090EA12 /* libc++.tbd in Frameworks */,
 				056BC7B21B2379D300B21D46 /* libCF++.a in Frameworks */,
 				056C5A0C1B19346D00C6214A /* CoreFoundation.framework in Frameworks */,
 				0544CC6F22749F39004A2499 /* XSTest.framework in Frameworks */,
@@ -371,7 +368,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				050B83CB1EB904C70090EA12 /* libc++.tbd in Frameworks */,
 				056C885218C8C5F4006260B3 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1126,6 +1122,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0579A96E2006A6F000400B61 /* Debug - ccache.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = "CF++/include/";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
@@ -1135,6 +1133,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0579A96C2006A6F000400B61 /* Release - ccache.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = "CF++/include/";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
