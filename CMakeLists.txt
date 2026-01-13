@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 3.16)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+project(CFPP
+  VERSION 0.1.0
+  LANGUAGES CXX
+)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
+file(GLOB_RECURSE CFPP_SOURCES
+  CONFIGURE_DEPENDS
+  "${CMAKE_CURRENT_SOURCE_DIR}/CF++/source/*.cc"
+  "${CMAKE_CURRENT_SOURCE_DIR}/CF++/source/*.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/CF++/source/*.cxx"
+)
+
+add_library(${PROJECT_NAME})
+target_sources(${PROJECT_NAME} PRIVATE ${CFPP_SOURCES})
+
+target_include_directories(${PROJECT_NAME}
+  PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/CF++/include>"
+    "$<INSTALL_INTERFACE:include>"
+)
+
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wpedantic)
