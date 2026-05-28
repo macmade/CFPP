@@ -1206,7 +1206,7 @@
 		};
 		056C87D518C8B0F8006260B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0579A96E2006A6F000400B61 /* Debug - ccache.xcconfig */;
+			baseConfigurationReference = 0579A96F2006A6F000400B61 /* Debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				DEVELOPMENT_TEAM = "";
@@ -1217,7 +1217,7 @@
 		};
 		056C87D618C8B0F8006260B3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0579A96C2006A6F000400B61 /* Release - ccache.xcconfig */;
+			baseConfigurationReference = 0579A9702006A6F000400B61 /* Release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				DEVELOPMENT_TEAM = "";
