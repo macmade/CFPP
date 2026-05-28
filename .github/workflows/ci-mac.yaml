@@ -12,8 +12,8 @@ jobs:
                     - { scheme: 'CF++ Mac Dynamic Library', configuration: 'Release', project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, info: 1, destination: 'platform=macOS' }
                     - { scheme: 'CF++ Mac Framework',       configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 1, info: 1, destination: 'platform=macOS' }
                     - { scheme: 'CF++ Mac Framework',       configuration: 'Release', project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, info: 1, destination: 'platform=macOS' }
-                    - { scheme: 'CF++ iOS Static Library',  configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, info: 1, destination: 'platform=iOS Simulator,name=iPhone 12' }
-                    - { scheme: 'CF++ iOS Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, info: 1, destination: 'platform=iOS Simulator,name=iPhone 12' }
+                    - { scheme: 'CF++ iOS Static Library',  configuration: 'Debug',   project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, info: 1, destination: 'platform=iOS Simulator' }
+                    - { scheme: 'CF++ iOS Static Library',  configuration: 'Release', project: 'CoreFoundation++.xcodeproj', build: 1, analyze: 1, test: 0, info: 1, destination: 'platform=iOS Simulator' }
         steps:
             
             - uses: actions/checkout@v1
