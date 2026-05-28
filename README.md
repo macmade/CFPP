@@ -78,6 +78,12 @@ On Windows, a VisualStudio solution is provided with the following configuration
     - Static library - VC120_XP
     - Static library - VC140_XP
 
+On Linux, a cmake file is available:
+
+```sh
+cd Build && cmake .. && make
+```
+
 <a name="4"></a>
 Available / Wrapped classes
 ---------------------------
